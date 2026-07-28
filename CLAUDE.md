@@ -109,6 +109,16 @@ server ends up serving missing-module errors until the directory is cleared.
   without ingesting a byte of it.
 - **Multimodal is out of the composite** and shown as a separate vision score, so text-only
   models are never ranked against a category they don't compete in.
+- **Average benchmark variants before scoring.** Vendor variants of one model normalise to
+  the same canonical key, so a benchmark can arrive several times. Counting each copy gives
+  that benchmark extra weight in its category purely because the vendor shipped more
+  variants — it changed the top three when found.
+- **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
+  (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
+  stops working. Rejected snapshot dates are also excluded from history explicitly.
+- **Charts carry identity by position and label, not by hue.** A multi-hue categorical
+  palette fails chroma and lightness checks inside the single-accent brief; `--mark` is the
+  validated accent per theme.
 
 ## Composite
 
@@ -139,7 +149,7 @@ or comments.** This is not negotiable.
 - [x] **Phase 0** — source research. `SOURCES.md` + `config/sources.json`.
 - [x] **Phase 1** — static MVP: scaffolding, i18n, real seed data from 3 sources, home ranking.
 - [x] **Phase 2** — automated ingest (Layer A) + GitHub Actions cron.
-- [ ] **Phase 3** — Compare + Model detail + `/methodology`.
+- [x] **Phase 3** — Compare + Model detail + `/methodology`.
 - [ ] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
 - [ ] **Phase 5** — community hardening, a11y, performance.
 
