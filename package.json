@@ -10,7 +10,9 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "ingest": "python -m scripts.ingest.run"
+    "ingest": "python -m scripts.ingest.run",
+    "enrich": "python -m scripts.enrich.run",
+    "onboard": "python -m scripts.enrich.onboard"
   },
   "dependencies": {
     "clsx": "2.1.1",
