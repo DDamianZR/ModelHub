@@ -1,1 +1,62 @@
-{}
+{
+  "anthropic-claude-fable-5": {
+    "en": "Claude Fable 5 (max) is an artificial intelligence model developed by Anthropic and released on June 9, 2026. It is available only via API, restricting its use to third-party applications. It performs relatively better in mathematics and human preference voting, but shows weaknesses in coding and instruction following.",
+    "es": "Claude Fable 5 (max) es un modelo de inteligencia artificial desarrollado por Anthropic y lanzado el 9 de junio de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y en votación de preferencias humanas, pero muestra debilidades en programación e instrucción.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "anthropic-claude-opus-4-6": {
+    "en": "Claude Opus 4.6 (max) is an AI model developed by Anthropic and released on February 5, 2026. It is available only via API, restricting its use to third-party applications. It excels in human preference voting and mathematics but shows weaknesses in coding and instruction following.",
+    "es": "Claude Opus 4.6 (max) es un modelo de inteligencia artificial desarrollado por Anthropic y lanzado el 5 de febrero de 2026. Solo se puede acceder a través de API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en human preference voting y matemáticas, pero muestra debilidades en codificación e instrucción.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "anthropic-claude-opus-4-8": {
+    "en": "Claude Opus 4.8 is an artificial intelligence model developed by Anthropic and released on May 28, 2026. It is available only via API, limiting its use to third-party applications. It performs relatively better in mathematics and reasoning, but shows weaknesses in coding and instruction following.",
+    "es": "Claude Opus 4.8 es un modelo de inteligencia artificial desarrollado por Anthropic y lanzado el 28 de mayo de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y razonamiento, pero muestra debilidades en programación e instrucción.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "anthropic-claude-opus-5": {
+    "en": "Claude Opus 5 is an independent AI model developed by Anthropic and released on July 24, 2026. It is available only via API, restricting its use to online applications and preventing local execution. The model performs relatively better in human preference voting and mathematics, but shows weaknesses in instruction following and coding.",
+    "es": "Claude Opus 5 es un modelo de inteligencia artificial desarrollado por Anthropic y lanzado el 24 de julio de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones en línea y no permite su ejecución local. El modelo muestra fortalezas en preferencias humanas y matemáticas, pero tiene debilidades en seguimiento de instrucciones y programación.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "google-deepmind-gemini-3.1-pro": {
+    "en": "Gemini 3.1 Pro Preview is an AI model developed by Google DeepMind and released on February 19, 2026. It is available only via API, restricting its use to third-party applications. It performs relatively better in mathematics and reasoning, but shows weaknesses in coding and instruction following.",
+    "es": "Gemini 3.1 Pro Preview es un modelo de inteligencia artificial desarrollado por Google DeepMind y lanzado el 19 de febrero de 2026. Solo se puede acceder a través de API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y razonamiento, pero muestra debilidades en programación e instrucción.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "meta-ai-muse-spark-1.1": {
+    "en": "Muse Spark 1.1 is an artificial intelligence model developed by Meta AI and released on July 9, 2026. It is available only via API, limiting its use to online applications and excluding local execution. The model excels in reasoning and mathematics but struggles with instruction following and coding.",
+    "es": "Muse Spark 1.1 es un modelo de inteligencia artificial desarrollado por Meta AI y lanzado el 9 de julio de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones en línea y excluye la posibilidad de ejecutarlo localmente. El modelo muestra fortalezas en razonamiento y matemáticas, pero tiene debilidades en seguimiento de instrucciones y programación.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "moonshot-kimi-k3": {
+    "en": "Kimi K3 (max) is an AI model developed by Moonshot and released on July 16, 2026. It can be downloaded and run locally with open weights, allowing use without API dependency. The model excels in reasoning and mathematics but shows weaknesses in coding and instruction following.",
+    "es": "Kimi K3 (max) es un modelo de inteligencia artificial desarrollado por Moonshot y lanzado el 16 de julio de 2026. Los usuarios pueden descargar y ejecutar los pesos abiertos localmente, lo que permite su uso sin dependencia de una API. El modelo muestra fortalezas en razonamiento y matemáticas, pero tiene debilidades en programación e instrucción.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "openai-gpt-5.6-sol": {
+    "en": "GPT-5.6 Sol (pro, max) is an artificial intelligence model developed by OpenAI and released on July 9, 2026. It is available only via API, limiting its use to applications programmed by third parties. It performs relatively better in mathematics and reasoning, but shows weaknesses in instruction following and human preference voting.",
+    "es": "GPT-5.6 Sol (pro, max) es un modelo de inteligencia artificial desarrollado por OpenAI y lanzado el 9 de julio de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y razonamiento, pero presenta debilidades en el seguimiento de instrucciones y en el voto de preferencias humanas.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "openai-gpt-5.6-terra": {
+    "en": "GPT-5.6 Terra (max) is an artificial intelligence model developed by OpenAI and released on July 9, 2026. It is available only via API, limiting its use to applications programmed by third parties. It performs relatively better in mathematics and reasoning, but has weaknesses in instruction following and coding; human preference voting was not measured.",
+    "es": "GPT-5.6 Terra (max) es un modelo de inteligencia artificial desarrollado por OpenAI y lanzado el 9 de julio de 2026. Solo se puede acceder a través de API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y razonamiento, pero tiene debilidades en seguimiento de instrucciones y programación; no se midió su preferencia humana.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  },
+  "xai-grok-4.5": {
+    "en": "Grok 4.5 (high) is an artificial intelligence model developed by xAI and released on July 8, 2026. It is available only via API, limiting its use to third-party applications. It performs relatively better in mathematics and reasoning, but shows weaknesses in coding and was not evaluated in human preference voting.",
+    "es": "Grok 4.5 (high) es un modelo de inteligencia artificial desarrollado por xAI y lanzado el 8 de julio de 2026. Solo se puede acceder a través de una API, lo que limita su uso a aplicaciones programadas por terceros. Se destaca en matemáticas y razonamiento, pero muestra debilidades en codificación y no se evaluó en preferencias humanas.",
+    "generated_at": "2026-07-27",
+    "generated_by": "qwen3:8b"
+  }
+}

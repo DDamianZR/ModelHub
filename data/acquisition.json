@@ -1,0 +1,152 @@
+{
+  "anthropic-claude-fable-5": {
+    "acquisition": {
+      "api_docs": "https://docs.claude.com/en/docs/about-claude/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://www.anthropic.com/claude"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "anthropic-claude-opus-4-6": {
+    "acquisition": {
+      "api_docs": "https://docs.claude.com/en/docs/about-claude/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://www.anthropic.com/claude"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "anthropic-claude-opus-4-8": {
+    "acquisition": {
+      "api_docs": "https://docs.claude.com/en/docs/about-claude/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://www.anthropic.com/claude"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "anthropic-claude-opus-5": {
+    "acquisition": {
+      "api_docs": "https://docs.claude.com/en/docs/about-claude/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://www.anthropic.com/claude"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "google-deepmind-gemini-3.1-pro": {
+    "acquisition": {
+      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://deepmind.google/models/gemini/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "meta-ai-muse-spark-1.1": {
+    "acquisition": {
+      "api_docs": "https://www.llama.com/docs/overview/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://ai.meta.com/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "moonshot-kimi-k3": {
+    "acquisition": {
+      "api_docs": "https://platform.moonshot.ai/docs",
+      "hf_repo": "https://huggingface.co/moonshotai/Kimi-K3",
+      "ollama_tag": "kimi-k3",
+      "provider_page": "https://www.moonshot.ai/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": true,
+      "ollama_tag": true,
+      "provider_page": true
+    }
+  },
+  "openai-gpt-5.6-sol": {
+    "acquisition": {
+      "api_docs": "https://platform.openai.com/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://openai.com/api/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "openai-gpt-5.6-terra": {
+    "acquisition": {
+      "api_docs": "https://platform.openai.com/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://openai.com/api/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "xai-grok-4.5": {
+    "acquisition": {
+      "api_docs": "https://docs.x.ai/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://x.ai/"
+    },
+    "checked_at": "2026-07-27",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  }
+}
