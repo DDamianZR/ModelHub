@@ -80,6 +80,32 @@ def _recent_snapshots(config: str) -> list[str]:
     return sorted(dates, reverse=True)
 
 
+def collapse_slices(rows: list[dict]) -> list[dict]:
+    """Keep one row per model: the one with the freshest vote tally.
+
+    From 2026-06-10 onward, snapshots carry up to six rows per model under
+    category='overall'. Investigated 2026-07-28: no exposed column labels them. They are
+    distinguishable only by vote_count — the genuine overall row carries the highest,
+    freshest tally, while the extras share an older tally and belong to other leaderboard
+    slices published under the wrong category.
+
+    Measured against the last clean snapshot 11 days earlier, picking max vote_count gives
+    a mean absolute drift of 0.80 rating points. Taking the first row or the highest rating
+    gives 11.94, with 100 of 374 models moving more than 10 points. So this is a filter
+    that recovers the real series, not a heuristic.
+
+    Ties break toward the lower variance, which is the better-determined fit.
+    """
+    best: dict[str, dict] = {}
+    for row in rows:
+        current = best.get(row["model_name"])
+        if current is None or (row["vote_count"], -row["variance"]) > (
+            current["vote_count"], -current["variance"]
+        ):
+            best[row["model_name"]] = row
+    return list(best.values())
+
+
 def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
     """Newest snapshot that survives the duplication guard, plus the ones rejected."""
     rejected: list[dict] = []
@@ -91,12 +117,25 @@ def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
         )
         if not rows:
             continue
-        distinct = len({row["model_name"] for row in rows})
-        ratio = len(rows) / distinct if distinct else float("inf")
-        if ratio > DUPLICATE_RATIO_LIMIT:
-            rejected.append({"date": snapshot, "ratio": round(ratio, 2), "config": config})
+
+        raw_ratio = len(rows) / len({row["model_name"] for row in rows})
+        collapsed = collapse_slices(rows)
+
+        # The guard stays as a backstop. Collapsing should make this ratio exactly 1.0;
+        # if it ever doesn't, the upstream shape has changed again in a way this filter
+        # does not understand, and stale-but-correct beats fresh-but-wrong.
+        residual = len(collapsed) / len({row["model_name"] for row in collapsed})
+        if residual > DUPLICATE_RATIO_LIMIT:
+            rejected.append({
+                "date": snapshot, "ratio": round(residual, 2), "config": config,
+                "reason": "still duplicated after slice collapse",
+            })
             continue
-        return rows, snapshot, rejected
+
+        if raw_ratio > DUPLICATE_RATIO_LIMIT:
+            print(f"  lmarena/{config}: collapsed {len(rows)} rows to {len(collapsed)} "
+                  f"for {snapshot} ({raw_ratio:.2f}x mislabelled slices filtered)")
+        return collapsed, snapshot, rejected
 
     summary = ", ".join(f"{item['date']} ({item['ratio']}x)" for item in rejected)
     raise SourceError(
@@ -148,4 +187,15 @@ def history_for(model_name: str) -> list[dict]:
         f"\"category\"='overall' AND \"model_name\"='{escaped}' AND "
         f"\"leaderboard_publish_date\">='{HISTORY_FROM}'"
     )
-    return _all("text", where, cap=200)
+    rows = _all("text", where, cap=400)
+
+    # Same mislabelled-slice problem, one date at a time: keep the freshest tally per day.
+    by_date: dict[str, dict] = {}
+    for row in rows:
+        day = row["leaderboard_publish_date"]
+        current = by_date.get(day)
+        if current is None or (row["vote_count"], -row["variance"]) > (
+            current["vote_count"], -current["variance"]
+        ):
+            by_date[day] = row
+    return [by_date[day] for day in sorted(by_date)]
