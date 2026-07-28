@@ -149,6 +149,27 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
 - **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
   (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
   stops working. Rejected snapshot dates are also excluded from history explicitly.
+- **A description asserts only what is in `/data`.** That is: what the model is, how it is
+  obtained, and how its own measured categories compare. Use cases are deliberately absent
+  from `/data`, so a description never states what a model is "for" — asking the model for
+  that produced filler like "for use in various applications" on the first pass. Students
+  get the real answer from the composite and from Compare, not from an editorial sentence.
+  Corollaries enforced in the prompt and the validator: one idea per sentence and no
+  sentence over 20 words; the real category, never "an artificial intelligence model";
+  category names copied verbatim from `messages/*.json` so they don't drift per model;
+  "open weights" is never rendered as "código abierto", which claims a software licence we
+  are not asserting; and the strong/weak comparison is relative to the model's own
+  categories, never a verdict like "deja mucho que desear".
+- **Below 4 of 5 measured categories, a description passes no comparative judgement.** A
+  provisional model gets a plain statement of which categories were measured and which were
+  not. With two measurements, "better at X than Y" only says one number is larger than the
+  other, and asserting it overstates what is known — the same over-claiming the coverage
+  gate exists to prevent.
+- **One standard, enforced in one place: `scripts/enrich/checks.py`.** The generator and
+  `scripts/enrich/audit.py` call the same function, and CI runs the audit over the committed
+  file. This exists because a lenient generator once passed a full pass that a stricter
+  post-hoc audit found 55 defects in. A check that only runs during the post-mortem is not
+  a check. Never add a rule to one side only.
 - **Layer B writes prose and nothing else.** URLs are built deterministically and then
   verified over HTTP; anything that does not resolve is withheld from the UI rather than
   shown with a caveat. The model never produces a URL, a number or a score.
