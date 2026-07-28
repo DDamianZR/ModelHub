@@ -68,7 +68,7 @@ checked, what was rejected, and why.
 | Source | What it provides | Licence |
 |---|---|---|
 | [Epoch AI](https://epoch.ai/benchmarks) | First-hand evals with public logs; open/closed flag; country | CC BY 4.0 |
-| [LMArena](https://arena.ai/leaderboard) | Blind human voting, plus full rating history | CC BY 4.0 |
+| [LMArena](https://lmarena.ai/leaderboard) | Blind human voting, plus full rating history | CC BY 4.0 |
 | [LiveBench](https://livebench.ai/) | Contamination-resistant per-task scores | Apache-2.0 |
 
 Deliberately excluded: the Open LLM Leaderboard (archived, its data frozen since March 2025

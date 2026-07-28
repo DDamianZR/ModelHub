@@ -5,6 +5,20 @@ The source code in this repository is MIT licensed. The datasets under /data are
 from the third-party sources below and remain subject to their licences. Attribution is a
 condition of all three.
 
+CHANGES MADE TO THE ORIGINAL DATA
+  The data in /data is modified. ModelHub does not redistribute these sources verbatim.
+  For every source listed below, ModelHub:
+    - normalises model names into a single canonical registry, merging vendor variants
+      (effort levels, thinking modes, date stamps) that the sources publish separately;
+    - rescales values onto a common 0-100 axis, including a min-max normalisation of
+      LMArena's Bradley-Terry ratings across the cohort present in each build;
+    - aggregates per-task scores into category averages (LiveBench);
+    - combines figures from several independent sources into a weighted composite score
+      that exists nowhere in the original data and is ModelHub's own calculation;
+    - filters and rejects source snapshots that fail internal quality checks.
+  The originals remain available at the URLs below. Where the two disagree, the original
+  source is authoritative and ModelHub's derived figure is not.
+
 -----------------------------------------------------------------------------------------
 Epoch AI — AI Benchmarking Hub
   Licence : Creative Commons Attribution 4.0 (CC BY 4.0)
@@ -19,7 +33,7 @@ Epoch AI — AI Benchmarking Hub
 LMArena — Arena Leaderboard Dataset
   Licence : Creative Commons Attribution 4.0 (CC BY 4.0)
   Source  : https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
-  Site    : https://arena.ai/leaderboard
+  Site    : https://lmarena.ai/leaderboard
   Used for: human preference ratings (Bradley-Terry), rating history, vision ratings.
   Note    : ratings changed methodology on 2024-01-09 (Elo to Bradley-Terry),
             2025-05-16 (style control by default) and 2025-07-23 (frequency
