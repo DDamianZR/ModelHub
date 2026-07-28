@@ -128,14 +128,16 @@ export default async function MethodologyPage({
         </Section>
 
         <Section id="variants" title={t("variants.title")}>
+          <p
+            className="border-l-2 py-2 pl-3 text-[15px]"
+            style={{ borderColor: "var(--amber)" }}
+          >
+            {t("variants.tradeoff")}
+          </p>
           <p style={muted}>{t("variants.body")}</p>
           <p style={muted}>{t("variants.bug")}</p>
-          <p
-            className="border-l-2 py-2 pl-3"
-            style={{ borderColor: "var(--amber)", color: "var(--muted)" }}
-          >
-            {t("variants.disclosure")}
-          </p>
+          <p style={muted}>{t("variants.principle")}</p>
+          <p style={muted}>{t("variants.disclosure")}</p>
           <ul className="flex flex-col gap-2 pl-4" style={muted}>
             {(["model", "default", "best", "average", "separate"] as const).map((option) => (
               <li key={option} className="list-disc">
