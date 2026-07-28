@@ -160,6 +160,16 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
   "open weights" is never rendered as "código abierto", which claims a software licence we
   are not asserting; and the strong/weak comparison is relative to the model's own
   categories, never a verdict like "deja mucho que desear".
+- **Below 4 of 5 measured categories, a description passes no comparative judgement.** A
+  provisional model gets a plain statement of which categories were measured and which were
+  not. With two measurements, "better at X than Y" only says one number is larger than the
+  other, and asserting it overstates what is known — the same over-claiming the coverage
+  gate exists to prevent.
+- **One standard, enforced in one place: `scripts/enrich/checks.py`.** The generator and
+  `scripts/enrich/audit.py` call the same function, and CI runs the audit over the committed
+  file. This exists because a lenient generator once passed a full pass that a stricter
+  post-hoc audit found 55 defects in. A check that only runs during the post-mortem is not
+  a check. Never add a rule to one side only.
 - **Layer B writes prose and nothing else.** URLs are built deterministically and then
   verified over HTTP; anything that does not resolve is withheld from the UI rather than
   shown with a caveat. The model never produces a URL, a number or a score.

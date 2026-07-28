@@ -18,6 +18,15 @@ jobs:
           node-version: "22"
           cache: npm
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # The description generator and this audit share checks.py. Running it here is what
+      # stops the two standards drifting apart again.
+      - name: Audit generated descriptions
+        run: python -m scripts.enrich.audit
+
       - run: npm ci
 
       - run: npm run lint
