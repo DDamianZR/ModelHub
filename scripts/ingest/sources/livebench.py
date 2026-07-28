@@ -64,7 +64,8 @@ def collect() -> dict:
 
     scores: dict[str, list[dict]] = {}
     for row in csv.DictReader(table.splitlines()):
-        key = norm(row.get("model", ""))
+        raw_name = (row.get("model") or "").strip()
+        key = norm(raw_name)
         if not key:
             continue
         buckets: dict[str, list[float]] = {}
@@ -80,6 +81,7 @@ def collect() -> dict:
             scores.setdefault(key, []).append({
                 "benchmark_id": f"livebench_{category}",
                 "category": category,
+                "variant": raw_name,
                 "value": round(sum(values) / len(values), 2),
                 "source_type": "third_party_benchmark",
                 "source_url": ATTRIBUTION,

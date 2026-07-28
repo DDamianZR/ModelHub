@@ -15,16 +15,75 @@ DEFAULT_WEIGHTS = {
 
 DEFAULT_MIN_COVERAGE = 4
 
+# What to do when one canonical model was published under several variants (effort levels,
+# thinking modes) and a benchmark therefore arrives more than once.
+#
+#   default  - use the variant the vendor published without an effort qualifier; fall back
+#              to the highest score when no such plain variant exists.
+#   best     - use the highest score across variants.
+#   average  - use the mean across variants.
+#   separate - do not collapse; not implemented, see notes in /methodology.
+#
+# This is a methodology choice, not an implementation detail: it changes the ranking. It
+# lives in config so it can be argued with in a pull request.
+DEFAULT_VARIANT_POLICY = "default"
+VARIANT_POLICIES = ("default", "best", "average")
 
-def load_weights() -> tuple[dict[str, float], int]:
+
+def load_weights() -> tuple[dict[str, float], int, str]:
     """Weights are config, not code: they are meant to be changed by pull request."""
     path = CONFIG / "weights.json"
     if not path.exists():
-        return dict(DEFAULT_WEIGHTS), DEFAULT_MIN_COVERAGE
+        return dict(DEFAULT_WEIGHTS), DEFAULT_MIN_COVERAGE, DEFAULT_VARIANT_POLICY
     payload = json.loads(path.read_text(encoding="utf-8"))
     weights = payload.get("weights") or DEFAULT_WEIGHTS
     minimum = int(payload.get("min_coverage_for_ranking", DEFAULT_MIN_COVERAGE))
-    return dict(weights), minimum
+    policy = payload.get("variant_policy", DEFAULT_VARIANT_POLICY)
+    if policy not in VARIANT_POLICIES:
+        raise ValueError(
+            f"variant_policy must be one of {VARIANT_POLICIES}, got {policy!r}"
+        )
+    return dict(weights), minimum, policy
+
+
+def pick_variant(entries: list[dict], key: str, policy: str) -> tuple[float, str]:
+    """Collapse one benchmark's variants into a single value. Returns (value, note)."""
+    if len(entries) == 1:
+        return entries[0]["value"], ""
+
+    values = [entry["value"] for entry in entries]
+
+    if policy == "average":
+        return (
+            round(sum(values) / len(values), 2),
+            f"mean of {len(entries)} published variants",
+        )
+
+    if policy == "best":
+        winner = max(entries, key=lambda entry: entry["value"])
+        return winner["value"], (
+            f"best of {len(entries)} variants ({winner.get('variant') or 'unlabelled'})"
+        )
+
+    # "default": prefer the variant the vendor shipped without an effort qualifier, i.e.
+    # the one whose raw name already normalises to the canonical key.
+    from .common import norm  # local import keeps this module free of a cycle
+
+    plain = [
+        entry for entry in entries
+        if (entry.get("variant") or "").strip().lower().replace("_", "-") == key
+    ]
+    if plain:
+        winner = plain[0]
+        return winner["value"], (
+            f"default variant ({winner.get('variant')}) of {len(entries)} published"
+        )
+
+    winner = max(entries, key=lambda entry: entry["value"])
+    return winner["value"], (
+        f"no plain variant published; best of {len(entries)} "
+        f"({winner.get('variant') or 'unlabelled'})"
+    )
 
 
 def minmax(values: list[float]) -> tuple[float, float]:
@@ -44,7 +103,7 @@ def build_models(
     vision_snapshot: str | None,
 ) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
     """Return (models, score rows, providers, aliases, arena min-max used)."""
-    weights, min_coverage = load_weights()
+    weights, min_coverage, variant_policy = load_weights()
 
     # A model needs corroboration from at least two independent sources to appear at all.
     keys = sorted(
@@ -93,19 +152,18 @@ def build_models(
         for entry in list(epoch_scores.get(key, [])) + list(livebench_scores.get(key, [])):
             slot = merged.setdefault(entry["benchmark_id"], {
                 "category": entry["category"],
-                "values": [],
+                "entries": [],
                 "source_type": entry["source_type"],
                 "source_url": entry["source_url"],
                 "measured_at": entry["measured_at"],
             })
-            slot["values"].append(entry["value"])
+            slot["entries"].append(entry)
             latest = slot["measured_at"]
             if entry["measured_at"] and (not latest or entry["measured_at"] > latest):
                 slot["measured_at"] = entry["measured_at"]
 
         for benchmark_id, slot in merged.items():
-            variants = len(slot["values"])
-            value = round(sum(slot["values"]) / variants, 2)
+            value, note = pick_variant(slot["entries"], key, variant_policy)
             by_category.setdefault(slot["category"], []).append(value)
             score_rows.append({
                 "model_id": model_id,
@@ -116,10 +174,7 @@ def build_models(
                 "source_url": slot["source_url"],
                 "measured_at": slot["measured_at"],
                 "contamination_flag": False,
-                "notes": (
-                    f"mean of {variants} published variants of this model"
-                    if variants > 1 else None
-                ),
+                "notes": note or None,
             })
 
         if key in arena_text:

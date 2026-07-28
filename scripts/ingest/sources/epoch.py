@@ -79,6 +79,9 @@ def collect() -> dict:
             scores.setdefault(key, []).append({
                 "benchmark_id": benchmark_id,
                 "category": category,
+                # The raw published name, kept so the variant policy can choose between
+                # effort levels instead of silently blending them.
+                "variant": row.get("Model version", "").strip(),
                 "value": round(value, 2),
                 "source_type": "third_party_benchmark",
                 "source_url": ATTRIBUTION,
