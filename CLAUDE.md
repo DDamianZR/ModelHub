@@ -94,6 +94,19 @@ server ends up serving missing-module errors until the directory is cleared.
    debatable by PR.
 7. Every daily change is an auditable commit.
 
+### How to change anything that moves a number
+
+Any fix that alters published values must be **measured against the previous clean state**,
+not argued as plausible. State the metric, the before, and the after.
+
+The pattern that set this norm: four LMArena snapshots were being rejected as duplicated. The
+candidate fix was validated by measuring rating drift against the last clean snapshot —
+0.80 points for the chosen rule versus 11.94 for the alternatives, with 100 of 374 models
+moving more than 10 points under the wrong one. That is what "verified" means here.
+
+Report the weaknesses of your own fix with numbers before anyone asks. "This policy only
+finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reasoning.
+
 ### Rules earned the hard way
 
 - **LMArena duplication guard is non-negotiable.** Recent snapshots have shipped ~3 rows per
