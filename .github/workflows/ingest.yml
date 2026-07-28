@@ -1,0 +1,52 @@
+name: Daily ingest
+
+# Layer A: deterministic, no LLM. Pulls the confirmed sources, recomputes the composite
+# and commits /data. The commit is what triggers the Vercel redeploy, so the site stays
+# current without anyone's machine being on.
+
+on:
+  schedule:
+    # 06:17 UTC. Off the hour on purpose: scheduled jobs on the hour queue behind everyone
+    # else's and get delayed.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+# Only one ingest at a time: two concurrent runs would race on the same commit.
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # No pip install step: the ingest is stdlib only, by design.
+      - name: Run ingest
+        run: python -m scripts.ingest.run
+
+      - name: Report source health
+        if: always()
+        run: python scripts/ingest/report_status.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data; then
+            echo "No data changes; nothing to commit."
+            exit 0
+          fi
+          git add data
+          git commit -m "chore(data): daily ingest $(date -u +%Y-%m-%d)"
+          git push
