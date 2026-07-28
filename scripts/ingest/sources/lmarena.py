@@ -21,6 +21,15 @@ ATTRIBUTION = "https://arena.ai/leaderboard"
 # rendered three different rank-1 models; clean snapshots sit at 1.00.
 DUPLICATE_RATIO_LIMIT = 1.2
 
+# Do NOT move this earlier without handling methodology breaks first.
+#
+# LMArena has changed how the rating is computed three times: Elo to Bradley-Terry on
+# 2024-01-09, style control by default on 2025-05-16, and frequency re-weighting on
+# 2025-07-23. Ratings either side of a break are not comparable, so drawing them as one
+# continuous sparkline would invent a trend that never happened.
+#
+# This window starts after the most recent break, which is why the current series is safe
+# to plot unannotated. Lowering it means annotating the breaks or cutting at the last one.
 HISTORY_FROM = "2026-01-01"
 
 
