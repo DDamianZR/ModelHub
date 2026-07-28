@@ -1,0 +1,40 @@
+ModelHub — attribution for third-party data
+===========================================
+
+The source code in this repository is MIT licensed. The datasets under /data are derived
+from the third-party sources below and remain subject to their licences. Attribution is a
+condition of all three.
+
+-----------------------------------------------------------------------------------------
+Epoch AI — AI Benchmarking Hub
+  Licence : Creative Commons Attribution 4.0 (CC BY 4.0)
+  Source  : https://epoch.ai/benchmarks
+  Citation: Epoch AI, 'AI Benchmarking Hub'. Published online at epoch.ai.
+            Retrieved from 'https://epoch.ai/benchmarks' [online resource].
+  Used for: canonical model registry, model accessibility, country of origin, release
+            dates, and first-hand benchmark results (GPQA Diamond, MATH Level 5,
+            SWE-bench Verified, FrontierMath, SimpleQA Verified).
+
+-----------------------------------------------------------------------------------------
+LMArena — Arena Leaderboard Dataset
+  Licence : Creative Commons Attribution 4.0 (CC BY 4.0)
+  Source  : https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
+  Site    : https://arena.ai/leaderboard
+  Used for: human preference ratings (Bradley-Terry), rating history, vision ratings.
+  Note    : ratings changed methodology on 2024-01-09 (Elo to Bradley-Terry),
+            2025-05-16 (style control by default) and 2025-07-23 (frequency
+            re-weighting). Values across those boundaries are not directly comparable.
+
+-----------------------------------------------------------------------------------------
+LiveBench
+  Licence : Apache License 2.0 (carried over from lm-sys/FastChat)
+  Source  : https://livebench.ai/
+  Repo    : https://github.com/LiveBench/LiveBench
+  Used for: per-task scores aggregated into Reasoning, Coding, Math and
+            Instruction-Following category averages.
+
+-----------------------------------------------------------------------------------------
+Not included
+  swebench.com's leaderboard data is licensed CC BY-NC 4.0 (NonCommercial), which is
+  incompatible with distributing it inside an MIT-licensed repository. It is not ingested.
+  SWE-bench Verified results in this project come from Epoch AI's own CC BY 4.0 runs.
