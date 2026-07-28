@@ -1,0 +1,1520 @@
+{
+  "fetched_at": "2026-07-27",
+  "payload": {
+    "scores": {
+      "claude-fable-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.71
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.41
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.69
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.0
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.65
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.55
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.99
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 75.77
+        }
+      ],
+      "claude-opus-4-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 80.09
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 55.68
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.39
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.55
+        }
+      ],
+      "claude-opus-4-6": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.67
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.67
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.32
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.31
+        }
+      ],
+      "claude-opus-4-7": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.19
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.23
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.85
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.74
+        }
+      ],
+      "claude-opus-4-8": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.71
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.34
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.32
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.37
+        }
+      ],
+      "claude-opus-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.17
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.06
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 94.8
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.52
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.27
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.24
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.24
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.64
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.21
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 68.12
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.73
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.77
+        }
+      ],
+      "claude-sonnet-4-6": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.77
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.28
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.99
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.22
+        }
+      ],
+      "claude-sonnet-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.69
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.91
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.94
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.86
+        }
+      ],
+      "deepseek-v4-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.58
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 50.27
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.65
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.14
+        }
+      ],
+      "deepseek-v4-pro": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 82.69
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.57
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.68
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.35
+        }
+      ],
+      "gemini-3.1-pro": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.0
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.82
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.05
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.1
+        }
+      ],
+      "gemini-3.5-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 82.0
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.67
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.24
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 75.6
+        }
+      ],
+      "gemini-3.5-flash-lite": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.19
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.58
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 73.74
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.24
+        }
+      ],
+      "gemini-3.6-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.15
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.21
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.4
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 75.37
+        }
+      ],
+      "glm-5.2": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.62
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.01
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.78
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.29
+        }
+      ],
+      "gpt-5.2": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.21
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.58
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 93.17
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 61.77
+        }
+      ],
+      "gpt-5.2-codex": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 77.71
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.08
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.77
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.45
+        }
+      ],
+      "gpt-5.4": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.12
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.32
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 94.15
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.22
+        }
+      ],
+      "gpt-5.4-mini": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.32
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.65
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.46
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 59.8
+        }
+      ],
+      "gpt-5.4-nano": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 81.1
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.4
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.98
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.2
+        }
+      ],
+      "gpt-5.5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.27
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.12
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.77
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.74
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.67
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.08
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.19
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.38
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.65
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.1
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.86
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.73
+        }
+      ],
+      "gpt-5.6-luna": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.66
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 59.99
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.27
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.45
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.64
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.47
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.2
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.12
+        }
+      ],
+      "gpt-5.6-sol": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.17
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.7
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.46
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.39
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.65
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.94
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.2
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.85
+        }
+      ],
+      "gpt-5.6-terra": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.92
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.12
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.47
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 59.4
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.63
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.09
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 94.91
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.62
+        }
+      ],
+      "grok-4.3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.82
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 39.09
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.34
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.75
+        }
+      ],
+      "grok-4.5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.17
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.31
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.82
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.53
+        }
+      ],
+      "grok-build-0.1": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 76.37
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.64
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.43
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.22
+        }
+      ],
+      "inkling": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.35
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.04
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.36
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.1
+        }
+      ],
+      "kimi-k2.6": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.38
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 59.58
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.28
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.36
+        }
+      ],
+      "kimi-k2.7-code": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 82.81
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.98
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.6
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.29
+        }
+      ],
+      "kimi-k3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.67
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.12
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.44
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.36
+        }
+      ],
+      "minimax-m3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.48
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 51.67
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 76.95
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.51
+        }
+      ],
+      "muse-spark-1.1": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.38
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.11
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.35
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.07
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.73
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.89
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.14
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.64
+        }
+      ],
+      "qwen3.6-27b": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.28
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 52.29
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.87
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.23
+        }
+      ],
+      "qwen3.6-plus": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 75.83
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.09
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.72
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 58.34
+        }
+      ],
+      "qwen3.7": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.34
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 55.84
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.25
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.04
+        }
+      ]
+    },
+    "snapshot": "2026-06-25"
+  }
+}
