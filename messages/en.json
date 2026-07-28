@@ -103,7 +103,13 @@
     "measuredAt": "Measured",
     "link": "Origin",
     "acquisition": "Where to get it",
-    "acquisitionPending": "Pending. Acquisition links (HuggingFace repo, provider page, API docs, Ollama tag) are assembled deterministically by Layer B; the fields exist in the schema and stay empty until then."
+    "acquisitionPending": "Pending. Acquisition links (HuggingFace repo, provider page, API docs, Ollama tag) are assembled deterministically by Layer B; the fields exist in the schema and stay empty until then.",
+    "acquisitionChecked": "Links checked on {date}",
+    "acquisitionWithheld": "{count} unverified, withheld pending manual review",
+    "link_hf_repo": "Weights (HuggingFace)",
+    "link_provider_page": "Provider",
+    "link_api_docs": "API docs",
+    "link_ollama_tag": "Ollama"
   },
   "methodology": {
     "title": "Methodology",

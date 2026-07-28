@@ -4,7 +4,7 @@ import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
-import { getModelDetail, getModelIds } from "@/lib/data";
+import { getAcquisition, getModelDetail, getModelIds } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 
@@ -26,6 +26,7 @@ export default async function ModelPage({
   if (!detail) notFound();
 
   const { model, scores, history, description } = detail;
+  const { links, checkedAt, withheld } = getAcquisition(id);
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
 
@@ -245,15 +246,39 @@ export default async function ModelPage({
           </div>
         </section>
 
-        {/* Also Layer B. The fields exist in the schema and are null until then. */}
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("acquisition")}</h3>
-          <p
-            className="border-l-2 py-1 pl-3 text-[13px]"
-            style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
-          >
-            {t("acquisitionPending")}
-          </p>
+          {links.length > 0 ? (
+            <>
+              <ul className="flex flex-col gap-1">
+                {links.map((link) => (
+                  <li key={link.field} className="text-[13px]">
+                    <span className="eyebrow mr-2">{t(`link_${link.field}`)}</span>
+                    <a
+                      href={link.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="underline underline-offset-2"
+                      style={{ color: "var(--amber)" }}
+                    >
+                      {link.url.replace(/^https?:\/\//, "")}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="num mt-2 text-[11px]" style={muted}>
+                {t("acquisitionChecked", { date: checkedAt ?? "—" })}
+                {withheld > 0 ? ` · ${t("acquisitionWithheld", { count: withheld })}` : ""}
+              </p>
+            </>
+          ) : (
+            <p
+              className="border-l-2 py-1 pl-3 text-[13px]"
+              style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
+            >
+              {t("acquisitionPending")}
+            </p>
+          )}
         </section>
       </article>
     </main>

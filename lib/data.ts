@@ -121,6 +121,53 @@ export function getDescriptions(): Descriptions {
   }
 }
 
+export type AcquisitionEntry = {
+  acquisition: Record<string, string | null>;
+  verified: Record<string, boolean>;
+  checked_at: string;
+};
+
+/**
+ * Acquisition links, filtered to the ones that actually resolved when last checked.
+ *
+ * An unverified link is withheld rather than shown with a caveat: a dead link on a site
+ * whose pitch is that its data can be checked costs more than an absent one.
+ */
+export function getAcquisition(id: string): {
+  links: { field: string; url: string }[];
+  checkedAt: string | null;
+  withheld: number;
+} {
+  const file = path.join(DATA_DIR, "acquisition.json");
+  if (!fs.existsSync(file)) return { links: [], checkedAt: null, withheld: 0 };
+
+  let payload: Record<string, AcquisitionEntry>;
+  try {
+    payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return { links: [], checkedAt: null, withheld: 0 };
+  }
+
+  const entry = payload[id];
+  if (!entry) return { links: [], checkedAt: null, withheld: 0 };
+
+  const links: { field: string; url: string }[] = [];
+  let withheld = 0;
+  for (const [field, url] of Object.entries(entry.acquisition ?? {})) {
+    if (!url) continue;
+    if (entry.verified?.[field]) {
+      links.push({
+        field,
+        url: field === "ollama_tag" ? `https://ollama.com/library/${url}` : url,
+      });
+    } else {
+      withheld += 1;
+    }
+  }
+
+  return { links, checkedAt: entry.checked_at ?? null, withheld };
+}
+
 export function getModelDetail(id: string): {
   model: Row;
   scores: (ScoreRow & { benchmark: Benchmark | null })[];

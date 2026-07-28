@@ -74,7 +74,16 @@ npm run build      # production build
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit
 npm run ingest     # rebuild /data from live sources (python -m scripts.ingest.run)
+npm run enrich     # Layer B: local Ollama descriptions + acquisition links
+npm run onboard    # Layer B: draft entries for trending models we don't track
 ```
+
+Layer B never runs in CI and never commits. It writes `data/i18n/descriptions.json`,
+`data/acquisition.json` and `data/onboarding.json`, then stops for a human to read the diff.
+
+Observed timings on the primary model, `qwen3-coder:30b`: ~57s per model. With `--fast`
+(`qwen3:8b`): ~6.5s per model once loaded, so a full 53-model pass is roughly 6 minutes
+against roughly 50 on the 30b. Use `--fast` for iteration, the 30b for a real pass.
 
 Run lint, typecheck and build before calling any phase done.
 
@@ -140,6 +149,13 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
 - **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
   (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
   stops working. Rejected snapshot dates are also excluded from history explicitly.
+- **Layer B writes prose and nothing else.** URLs are built deterministically and then
+  verified over HTTP; anything that does not resolve is withheld from the UI rather than
+  shown with a caveat. The model never produces a URL, a number or a score.
+- **A rejected generation is a gap, never a partial write.** Output is validated for length,
+  banned marketing vocabulary and numeric claims; failing twice skips the model and leaves
+  the entry absent. Entries carrying `"manual": true` are never overwritten, including under
+  `--force`.
 - **Charts carry identity by position and label, not by hue.** A multi-hue categorical
   palette fails chroma and lightness checks inside the single-accent brief; `--mark` is the
   validated accent per theme.
@@ -174,7 +190,7 @@ or comments.** This is not negotiable.
 - [x] **Phase 1** — static MVP: scaffolding, i18n, real seed data from 3 sources, home ranking.
 - [x] **Phase 2** — automated ingest (Layer A) + GitHub Actions cron.
 - [x] **Phase 3** — Compare + Model detail + `/methodology`.
-- [ ] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
+- [x] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
 - [ ] **Phase 5** — community hardening, a11y, performance.
 
 Update this section when a phase closes.

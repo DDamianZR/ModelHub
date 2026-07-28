@@ -103,7 +103,13 @@
     "measuredAt": "Medido el",
     "link": "Origen",
     "acquisition": "Dónde conseguirlo",
-    "acquisitionPending": "Pendiente. Los enlaces de adquisición (repo de HuggingFace, página del proveedor, docs de API, tag de Ollama) los arma la Capa B de forma determinística; los campos existen en el esquema y están vacíos hasta entonces."
+    "acquisitionPending": "Pendiente. Los enlaces de adquisición (repo de HuggingFace, página del proveedor, docs de API, tag de Ollama) los arma la Capa B de forma determinística; los campos existen en el esquema y están vacíos hasta entonces.",
+    "acquisitionChecked": "Enlaces comprobados el {date}",
+    "acquisitionWithheld": "{count} sin verificar, ocultos hasta revisión manual",
+    "link_hf_repo": "Pesos (HuggingFace)",
+    "link_provider_page": "Proveedor",
+    "link_api_docs": "Docs de API",
+    "link_ollama_tag": "Ollama"
   },
   "methodology": {
     "title": "Metodología",
