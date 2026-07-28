@@ -15,7 +15,9 @@
     "openWeights": "Open weights",
     "snapshots": "Cortes de datos",
     "degraded": "Fuente sin actualizar",
-    "degradedSource": "{source} no respondió en la última corrida; se muestran sus datos del {date}"
+    "degradedSource": "{source} no respondió en la última corrida; se muestran sus datos del {date}",
+    "aging": "Dato envejecido",
+    "agingSource": "{source} lleva {days} días sin publicar corte nuevo (último: {date})"
   },
   "filters": {
     "label": "Filtros",
@@ -48,6 +50,8 @@
     "openWeights": "Open weights",
     "apiOnly": "Solo API",
     "noHistory": "Sin historial suficiente",
+    "agedCategory": "{days}d",
+    "agedCategoryTitle": "La fuente de esta categoría no publica corte nuevo desde hace {days} días",
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
@@ -125,6 +129,17 @@
       "example": "Existe por un problema real. Como el peso se reparte solo entre las categorías con dato, un modelo poco medido sube por lo que le FALTA, no por ser mejor. Qwen3-Max-Instruct, con 3 de 5 categorías, aparecía en el puesto 5 por encima de modelos medidos en las cinco. Ese es exactamente el sesgo que este sitio existe para combatir, así que se corrige en el código y no con una nota al pie.",
       "newModels": "El umbral es 4 y no 5 a propósito. Un modelo recién salido puede tener los cuatro benchmarks y todavía no acumular votos en LMArena; ese caso rankea normal, marcado como «sin voto humano aún». Se exige evidencia suficiente, no se castiga ser nuevo.",
       "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5."
+    },
+    "variants": {
+      "title": "Variantes del mismo modelo",
+      "body": "Un proveedor publica el mismo modelo bajo varias configuraciones: niveles de esfuerzo, modos de razonamiento. Son los mismos pesos con un presupuesto de inferencia distinto, así que se agrupan bajo un modelo canónico. Eso obliga a decidir qué valor usar cuando un benchmark llega varias veces, y esa decisión mueve el ranking.",
+      "bug": "El caso concreto: Claude Opus 5 tenía tres variantes en LiveBench, y las tres entraban por separado al promedio de la categoría Código. Ese benchmark pesaba 3 a 1 contra Epoch, no porque midiera mejor, sino porque el proveedor publicó más variantes. Al corregirlo cambió el top-3: GPT-5.6 Sol bajó al #3 y Muse Spark 1.1 subió al #2.",
+      "disclosure": "La configuración nunca se esconde: en la ficha de cada modelo, la tabla de fuentes dice exactamente qué variante se usó para cada número y cuántas había publicadas. Es la misma regla que se aplica a los andamiajes de SWE-bench — revelar la configuración, no ocultarla.",
+      "option_default": "usa la variante que el proveedor publicó sin calificador de esfuerzo; si no existe, cae a la mejor y lo dice en la nota. Es el valor actual.",
+      "option_best": "usa el puntaje más alto entre las variantes. Refleja el techo del modelo, pero premia a quien publica más variantes: el máximo de cinco tiradas supera al de una.",
+      "option_average": "promedia las variantes. Descartado como default: nadie ejecuta «el promedio de niveles de esfuerzo», así que inventa una configuración que no existe, subestima el pico y sobreestima la variante barata.",
+      "option_separate": "no agrupar, tratar cada variante como su propio modelo. Es lo más consistente con la regla de andamiajes, pero hoy no es viable: cada fuente nombra las variantes distinto (Epoch usa «_max», LiveBench «-max-effort», LMArena «-high»), así que sin agrupar habría que mantener a mano una tabla de alias por variante y por fuente. Eso choca con la restricción de cero mantenimiento diario, y además fragmentaría la cobertura hasta vaciar el ranking principal. No está implementado.",
+      "current": "Advertencia honesta sobre el valor actual: en los datos de hoy, «default» encuentra una variante sin calificador en solo 7 de 56 casos. En los otros 49 cae a «best». En la práctica se parece mucho más a «best» de lo que su nombre sugiere, y por eso cada número afectado lleva su nota explicando qué se eligió."
     },
     "dedup": {
       "title": "El guard de duplicados de LMArena",

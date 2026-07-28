@@ -127,6 +127,26 @@ export default async function MethodologyPage({
           </p>
         </Section>
 
+        <Section id="variants" title={t("variants.title")}>
+          <p style={muted}>{t("variants.body")}</p>
+          <p style={muted}>{t("variants.bug")}</p>
+          <p
+            className="border-l-2 py-2 pl-3"
+            style={{ borderColor: "var(--amber)", color: "var(--muted)" }}
+          >
+            {t("variants.disclosure")}
+          </p>
+          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+            {(["default", "best", "average", "separate"] as const).map((option) => (
+              <li key={option} className="list-disc">
+                <span className="num text-[12px]">{option}</span> —{" "}
+                {t(`variants.option_${option}`)}
+              </li>
+            ))}
+          </ul>
+          <p style={muted}>{t("variants.current")}</p>
+        </Section>
+
         <Section id="dedup" title={t("dedup.title")}>
           <p style={muted}>{t("dedup.body")}</p>
           <p style={muted}>{t("dedup.example")}</p>

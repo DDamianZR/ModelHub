@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Meta, Model, Provider, Row, Status } from "./types";
+import type { AgedSource, Meta, Model, Provider, Row, Status } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -41,6 +41,39 @@ function normaliseTrend(values: number[]): number[] {
   const max = Math.max(...values);
   if (max === min) return values.map(() => 0.5);
   return values.map((v) => (v - min) / (max - min));
+}
+
+function readStatus(): Status | null {
+  const file = path.join(DATA_DIR, "status.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as Status;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Sources whose upstream measurement has aged past the warning threshold.
+ *
+ * Distinct from a failed fetch: these fetched fine, but the numbers behind them are old.
+ * That is the failure that ages in silence, so it is stated rather than left implicit.
+ */
+export function getAgedSources(): AgedSource[] {
+  const status = readStatus();
+  if (!status?.snapshot_ages) return [];
+  return Object.entries(status.snapshot_ages)
+    .filter(([, value]) => value.freshness === "aging" || value.freshness === "degraded")
+    .map(([name, value]) => ({ name, ...value }));
+}
+
+/** Age keyed by the composite category it affects, for flagging a table column. */
+export function getCategoryAges(): Record<string, AgedSource> {
+  const out: Record<string, AgedSource> = {};
+  for (const source of getAgedSources()) {
+    if (source.category) out[source.category] = source;
+  }
+  return out;
 }
 
 /** Sources that did not refresh on the last run, so the page can say so out loud. */

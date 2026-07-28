@@ -22,9 +22,12 @@ function chipStyle(active: boolean) {
 export function RankingTable({
   rows,
   minCoverage,
+  categoryAges = {},
 }: {
   rows: Row[];
   minCoverage: number;
+  /** Categories whose upstream snapshot has aged, keyed by category. */
+  categoryAges?: Record<string, { age_days: number | null; freshness: string }>;
 }) {
   const t = useTranslations("table");
   const tf = useTranslations("filters");
@@ -239,11 +242,28 @@ export function RankingTable({
               <th scope="col" className="w-20 py-2 pr-4 align-bottom">
                 <span className="eyebrow block text-right">{t("coverage")}</span>
               </th>
-              {CATEGORIES.map((category) => (
-                <th key={category} scope="col" className="w-20 py-2 pr-3 align-bottom">
-                  {headerButton(category, t(category), "right")}
-                </th>
-              ))}
+              {CATEGORIES.map((category) => {
+                const aged = categoryAges[category];
+                return (
+                  <th key={category} scope="col" className="w-20 py-2 pr-3 align-bottom">
+                    {aged?.age_days != null && (
+                      <span
+                        className="eyebrow block text-right"
+                        style={{
+                          color:
+                            aged.freshness === "degraded"
+                              ? "var(--amber)"
+                              : "var(--muted)",
+                        }}
+                        title={t("agedCategoryTitle", { days: aged.age_days })}
+                      >
+                        {t("agedCategory", { days: aged.age_days })}
+                      </span>
+                    )}
+                    {headerButton(category, t(category), "right")}
+                  </th>
+                );
+              })}
               <th scope="col" className="w-20 py-2 align-bottom">
                 <span className="eyebrow block text-right">{t("trend")}</span>
               </th>

@@ -57,12 +57,25 @@ export type SourceStatus = {
   error?: string | null;
 };
 
+export type SnapshotAge = {
+  date: string | null;
+  age_days: number | null;
+  freshness: "fresh" | "aging" | "degraded" | "unknown";
+  /** The composite category this source feeds, when it feeds exactly one. */
+  category?: string;
+};
+
 export type Status = {
   generated_at: string;
   ok: boolean;
   sources: Record<string, SourceStatus>;
-  rejected_snapshots?: string[];
+  snapshot_ages?: Record<string, SnapshotAge>;
+  thresholds?: { snapshot_warn_days: number; snapshot_degraded_days: number };
+  rejected_snapshots?: unknown[];
 };
+
+/** A source whose upstream measurement has gone stale, even if the fetch succeeded. */
+export type AgedSource = { name: string } & SnapshotAge;
 
 /** A model plus everything the table needs, already resolved on the server. */
 export type Row = Model & {

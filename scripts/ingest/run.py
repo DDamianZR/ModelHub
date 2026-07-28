@@ -25,6 +25,30 @@ from .sources import epoch, livebench, lmarena
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
 
+# A source can fetch perfectly and still be serving old numbers, because the upstream
+# snapshot itself is old. That is the failure mode that ages in silence, so it gets its
+# own thresholds and its own warning on the page.
+SNAPSHOT_WARN_DAYS = 7
+SNAPSHOT_DEGRADED_DAYS = 14
+
+
+def snapshot_age(snapshot: str | None) -> dict:
+    """Age of the upstream measurement, independent of whether today's fetch worked."""
+    if not snapshot:
+        return {"date": None, "age_days": None, "freshness": "unknown"}
+    try:
+        age = (date.today() - date.fromisoformat(snapshot[:10])).days
+    except ValueError:
+        return {"date": snapshot, "age_days": None, "freshness": "unknown"}
+
+    if age >= SNAPSHOT_DEGRADED_DAYS:
+        freshness = "degraded"
+    elif age >= SNAPSHOT_WARN_DAYS:
+        freshness = "aging"
+    else:
+        freshness = "fresh"
+    return {"date": snapshot[:10], "age_days": age, "freshness": freshness}
+
 BENCHMARK_CATALOGUE = [
     ("gpqa_diamond", "GPQA Diamond", "reasoning", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
@@ -137,7 +161,7 @@ def merge_history(
 
 def main() -> int:
     print("ModelHub ingest")
-    weights, min_coverage = load_weights()
+    weights, min_coverage, variant_policy = load_weights()
 
     epoch_payload, epoch_status = gather("epoch", epoch.collect)
     livebench_payload, livebench_status = gather("livebench", livebench.collect)
@@ -236,12 +260,35 @@ def main() -> int:
         "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in history),
         encoding="utf-8",
     )
+    snapshot_ages = {
+        "epoch": snapshot_age(epoch_status.get("last_success")),
+        "livebench": snapshot_age(livebench_payload.get("snapshot")),
+        "lmarena": snapshot_age(arena_payload.get("snapshot")),
+    }
+    # The composite category each source feeds, so the table can flag the affected column
+    # rather than only showing a page-level banner.
+    snapshot_ages["lmarena"]["category"] = "human_preference"
+    snapshot_ages["livebench"]["category"] = "instruction_following"
+
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "ok": True,
         "sources": statuses,
+        "snapshot_ages": snapshot_ages,
+        "thresholds": {
+            "snapshot_warn_days": SNAPSHOT_WARN_DAYS,
+            "snapshot_degraded_days": SNAPSHOT_DEGRADED_DAYS,
+        },
         "rejected_snapshots": rejected,
     })
+
+    aged = [
+        f"{name} {info['age_days']}d ({info['freshness']})"
+        for name, info in snapshot_ages.items()
+        if info["freshness"] in ("aging", "degraded")
+    ]
+    if aged:
+        print(f"  snapshot age warnings: {', '.join(aged)}")
 
     degraded = [n for n, s in statuses.items() if s["state"] != "ok"]
     print(

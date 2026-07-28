@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { RankingTable } from "@/components/RankingTable";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getDegradedSources, getRanking } from "@/lib/data";
+import { getAgedSources, getCategoryAges, getDegradedSources, getRanking } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -22,6 +22,8 @@ export default async function HomePage({
 
   const { rows, meta, sourceCount } = getRanking();
   const degraded = getDegradedSources();
+  const aged = getAgedSources();
+  const categoryAges = getCategoryAges();
   const openWeights = rows.filter((r) => r.is_open_weights).length;
 
   const readings: [string, string][] = [
@@ -82,8 +84,32 @@ export default async function HomePage({
         </p>
       )}
 
+      {aged.length > 0 && (
+        <p
+          className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
+          style={{ borderColor: "var(--amber)", color: "var(--muted)" }}
+        >
+          <span className="eyebrow" style={{ color: "var(--amber)" }}>
+            {tp("aging")}
+          </span>{" "}
+          {aged
+            .map((entry) =>
+              tp("agingSource", {
+                source: entry.name,
+                days: entry.age_days ?? 0,
+                date: entry.date ?? "—",
+              }),
+            )
+            .join(" · ")}
+        </p>
+      )}
+
       <section className="mt-8">
-        <RankingTable rows={rows} minCoverage={meta.min_coverage_for_ranking} />
+        <RankingTable
+          rows={rows}
+          minCoverage={meta.min_coverage_for_ranking}
+          categoryAges={categoryAges}
+        />
       </section>
 
       <footer className="mt-12 border-t rule pt-6">
