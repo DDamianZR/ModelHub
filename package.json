@@ -1,0 +1,33 @@
+{
+  "name": "modelhub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independent, open-source aggregator of frontier AI model rankings",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "seed": "python scripts/seed/build_seed.py"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "next": "15.5.22",
+    "next-intl": "4.13.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.3.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "26.1.2",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "15.5.22",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
+  }
+}

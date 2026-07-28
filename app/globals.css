@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf9f6;
+  --color-paper-sunk: #f2f0ea;
+  --color-ink: #1a1a1a;
+  --color-muted: #6e6862;
+  --color-rule: #e2ded4;
+  --color-amber: #b45309;
+  --color-amber-soft: #f3e6d2;
+
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+:root {
+  --paper: #faf9f6;
+  --paper-sunk: #f2f0ea;
+  --ink: #1a1a1a;
+  --muted: #6e6862;
+  --rule: #e2ded4;
+  --amber: #b45309;
+  --amber-soft: #f3e6d2;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0e0e0e;
+    --paper-sunk: #161513;
+    --ink: #eae7e0;
+    --muted: #948d84;
+    --rule: #2b2926;
+    --amber: #e08b3c;
+    --amber-soft: #2e2113;
+    color-scheme: dark;
+  }
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numbers are the whole point of a ranking: keep every digit on the same rail. */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.rule {
+  border-color: var(--rule);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Filtering and sorting must feel instant, per the brief's 150-200ms budget. */
+.row-shift {
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
