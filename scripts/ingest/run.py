@@ -18,7 +18,7 @@ import traceback
 from collections import defaultdict
 from datetime import date, datetime, timezone
 
-from .common import DATA, SourceError, read_cache, write_cache, write_json
+from .common import CONFIG, DATA, SourceError, read_cache, write_cache, write_json
 from .composite import build_models, load_weights
 from .sources import epoch, livebench, lmarena
 
@@ -26,28 +26,61 @@ from .sources import epoch, livebench, lmarena
 STALE_AFTER_DAYS = 7
 
 # A source can fetch perfectly and still be serving old numbers, because the upstream
-# snapshot itself is old. That is the failure mode that ages in silence, so it gets its
-# own thresholds and its own warning on the page.
-SNAPSHOT_WARN_DAYS = 7
-SNAPSHOT_DEGRADED_DAYS = 14
+# snapshot itself is old. That is the failure mode that ages in silence.
+#
+# Thresholds are relative to each source's own publishing rhythm, declared as
+# expected_cadence_days in config/sources.json. A fixed global threshold would paint
+# LiveBench permanently red for publishing monthly, exactly as designed, and a warning
+# that is always on stops being a signal. Red must mean "this source is actually dead",
+# not "it is Monday".
+WARN_CADENCE_MULTIPLE = 2
+DEGRADED_CADENCE_MULTIPLE = 4
+FALLBACK_CADENCE_DAYS = 7
 
 
-def snapshot_age(snapshot: str | None) -> dict:
+def load_cadences() -> dict[str, int]:
+    """Expected publishing rhythm per source id, from config/sources.json."""
+    path = CONFIG / "sources.json"
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    out: dict[str, int] = {}
+    for source in payload.get("sources", []):
+        cadence = source.get("expected_cadence_days")
+        if isinstance(cadence, int) and cadence > 0:
+            out[source["id"]] = cadence
+    return out
+
+
+def snapshot_age(snapshot: str | None, cadence_days: int | None) -> dict:
     """Age of the upstream measurement, independent of whether today's fetch worked."""
+    cadence = cadence_days or FALLBACK_CADENCE_DAYS
+    warn = cadence * WARN_CADENCE_MULTIPLE
+    degraded = cadence * DEGRADED_CADENCE_MULTIPLE
+
     if not snapshot:
-        return {"date": None, "age_days": None, "freshness": "unknown"}
+        return {"date": None, "age_days": None, "freshness": "unknown",
+                "cadence_days": cadence, "warn_days": warn, "degraded_days": degraded}
     try:
         age = (date.today() - date.fromisoformat(snapshot[:10])).days
     except ValueError:
-        return {"date": snapshot, "age_days": None, "freshness": "unknown"}
+        return {"date": snapshot, "age_days": None, "freshness": "unknown",
+                "cadence_days": cadence, "warn_days": warn, "degraded_days": degraded}
 
-    if age >= SNAPSHOT_DEGRADED_DAYS:
+    if age >= degraded:
         freshness = "degraded"
-    elif age >= SNAPSHOT_WARN_DAYS:
+    elif age >= warn:
         freshness = "aging"
     else:
         freshness = "fresh"
-    return {"date": snapshot[:10], "age_days": age, "freshness": freshness}
+    return {
+        "date": snapshot[:10], "age_days": age, "freshness": freshness,
+        "cadence_days": cadence, "warn_days": warn, "degraded_days": degraded,
+    }
+
 
 BENCHMARK_CATALOGUE = [
     ("gpqa_diamond", "GPQA Diamond", "reasoning", "Epoch AI", "third_party_benchmark",
@@ -260,10 +293,15 @@ def main() -> int:
         "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in history),
         encoding="utf-8",
     )
+    cadences = load_cadences()
     snapshot_ages = {
-        "epoch": snapshot_age(epoch_status.get("last_success")),
-        "livebench": snapshot_age(livebench_payload.get("snapshot")),
-        "lmarena": snapshot_age(arena_payload.get("snapshot")),
+        # Epoch publishes no snapshot date of its own, so its age is days since we last
+        # fetched it successfully - which is the right staleness signal for a daily source.
+        "epoch": snapshot_age(epoch_status.get("last_success"), cadences.get("epoch_ai")),
+        "livebench": snapshot_age(
+            livebench_payload.get("snapshot"), cadences.get("livebench")
+        ),
+        "lmarena": snapshot_age(arena_payload.get("snapshot"), cadences.get("lmarena")),
     }
     # The composite category each source feeds, so the table can flag the affected column
     # rather than only showing a page-level banner.
@@ -276,8 +314,8 @@ def main() -> int:
         "sources": statuses,
         "snapshot_ages": snapshot_ages,
         "thresholds": {
-            "snapshot_warn_days": SNAPSHOT_WARN_DAYS,
-            "snapshot_degraded_days": SNAPSHOT_DEGRADED_DAYS,
+            "warn_cadence_multiple": WARN_CADENCE_MULTIPLE,
+            "degraded_cadence_multiple": DEGRADED_CADENCE_MULTIPLE,
         },
         "rejected_snapshots": rejected,
     })
