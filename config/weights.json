@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "decided_at": "2026-07-27",
+  "note": "Multimodal is deliberately excluded from the composite and shown as a separate vision score, so that text-only models are never ranked against a category they do not compete in.",
+  "weights": {
+    "reasoning": 0.25,
+    "coding": 0.25,
+    "math": 0.2,
+    "human_preference": 0.15,
+    "instruction_following": 0.15
+  },
+  "min_coverage_for_ranking": 4,
+  "min_coverage_rationale": "Renormalising over available weight lets a thinly measured model rank high on what it is missing rather than on being better. Models below the bar are shown in a provisional section instead of competing for a top-N slot. The bar is 4 of 5 so that a new model with all four benchmarks but no Arena votes yet still ranks, flagged as awaiting human votes.",
+  "normalization": {
+    "percent_benchmarks": "used as-is on a 0-100 scale",
+    "lmarena": "min-max normalized across the cohort present in each build"
+  },
+  "rules": [
+    "Only human_eval and third_party_benchmark feed the composite.",
+    "vendor_claim values are stored and displayed, never scored.",
+    "Models missing a category are scored on available weight and marked partial.",
+    "Models below min_coverage_for_ranking are provisional, never ranked.",
+    "SWE-bench scaffold results never count as a bare-model score."
+  ]
+}
