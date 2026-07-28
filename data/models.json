@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-07-28",
+    "generated_at": "2026-07-27",
     "model_count": 53,
     "ranked_count": 41,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-28",
+      "epoch": "2026-07-27",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-16",
-      "lmarena_vision": "2026-07-21"
+      "lmarena_vision": "2026-07-26"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
@@ -41,13 +41,13 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 81.89,
+        "reasoning": 78.49,
         "coding": 62.98,
         "math": 95.84,
         "instruction_following": 73.88,
         "human_preference": 95.57
       },
-      "composite": 80.8,
+      "composite": 79.95,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -56,51 +56,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1333.8,
+        "rating": 1334.2,
         "rank": 1,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 1
-    },
-    {
-      "id": "openai-gpt-5.6-sol",
-      "display_name": "GPT-5.6 Sol (pro, max)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-07-09",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 86.73,
-        "coding": 69.82,
-        "math": 95.83,
-        "instruction_following": 69.62,
-        "human_preference": 75.58
-      },
-      "composite": 80.08,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 2
     },
     {
       "id": "meta-ai-muse-spark-1.1",
@@ -113,7 +74,8 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text"
+        "text",
+        "vision"
       ],
       "pricing": null,
       "acquisition": {
@@ -138,17 +100,22 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 3
+      "vision": {
+        "rating": 1295.7,
+        "rank": 14,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 2
     },
     {
-      "id": "anthropic-claude-opus-5",
-      "display_name": "Claude Opus 5",
-      "provider_id": "anthropic",
+      "id": "openai-gpt-5.6-sol",
+      "display_name": "GPT-5.6 Sol (pro, max)",
+      "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2026-07-24",
+      "release_date": "2026-07-09",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
@@ -163,12 +130,52 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 83.85,
+        "reasoning": 85.34,
+        "coding": 69.82,
+        "math": 95.83,
+        "instruction_following": 69.62,
+        "human_preference": 75.58
+      },
+      "composite": 79.74,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": null,
+      "rank": 3
+    },
+    {
+      "id": "anthropic-claude-opus-5",
+      "display_name": "Claude Opus 5",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-24",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 80.04,
         "coding": 69.14,
         "math": 95.26,
         "instruction_following": 64.98
       },
-      "composite": 78.88,
+      "composite": 77.76,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -178,7 +185,12 @@
       },
       "provisional": false,
       "awaiting_human_votes": true,
-      "vision": null,
+      "vision": {
+        "rating": 1328.7,
+        "rank": 2,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": 4
     },
     {
@@ -221,51 +233,6 @@
       "rank": 5
     },
     {
-      "id": "openai-gpt-5.5",
-      "display_name": "GPT-5.5 Pro (unknown thinking)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-04-23",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 85.73,
-        "math": 78.13,
-        "coding": 65.22,
-        "instruction_following": 69.28,
-        "human_preference": 82.5
-      },
-      "composite": 76.13,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1296.4,
-        "rank": 11,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
-      "rank": 6
-    },
-    {
       "id": "moonshot-kimi-k3",
       "display_name": "Kimi K3 (max)",
       "provider_id": "moonshot",
@@ -302,47 +269,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 7
-    },
-    {
-      "id": "openai-gpt-5.6-terra",
-      "display_name": "GPT-5.6 Terra (max)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-07-09",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 77.99,
-        "coding": 67.11,
-        "math": 92.19,
-        "instruction_following": 62.01
-      },
-      "composite": 75.31,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "vision": null,
-      "rank": 8
+      "rank": 6
     },
     {
       "id": "xai-grok-4.5",
@@ -355,7 +282,8 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text"
+        "text",
+        "vision"
       ],
       "pricing": null,
       "acquisition": {
@@ -380,8 +308,13 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 9
+      "vision": {
+        "rating": 1293.4,
+        "rank": 18,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 7
     },
     {
       "id": "google-gemini-3.5-flash",
@@ -421,12 +354,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1309.7,
-        "rank": 6,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1308.6,
+        "rank": 8,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10
+      "rank": 8
     },
     {
       "id": "anthropic-claude-opus-4-7",
@@ -466,11 +399,96 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1320.1,
-        "rank": 2,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1318.0,
+        "rank": 3,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": 9
+    },
+    {
+      "id": "openai-gpt-5.5",
+      "display_name": "GPT-5.5 Pro (unknown thinking)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-04-23",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 81.43,
+        "math": 69.32,
+        "coding": 70.34,
+        "instruction_following": 69.28,
+        "human_preference": 82.5
+      },
+      "composite": 74.57,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1297.3,
+        "rank": 13,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 10
+    },
+    {
+      "id": "openai-gpt-5.6-terra",
+      "display_name": "GPT-5.6 Terra (max)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-09",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 74.73,
+        "coding": 67.11,
+        "math": 92.19,
+        "instruction_following": 62.01
+      },
+      "composite": 74.35,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "vision": null,
       "rank": 11
     },
     {
@@ -550,10 +568,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1294.6,
-        "rank": 13,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1295.1,
+        "rank": 16,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 13
     },
@@ -595,10 +613,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1299.1,
-        "rank": 10,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1299.8,
+        "rank": 12,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 14
     },
@@ -643,17 +661,18 @@
       "rank": 15
     },
     {
-      "id": "openai-gpt-5.6-luna",
-      "display_name": "GPT-5.6 Luna (max)",
-      "provider_id": "openai",
+      "id": "anthropic-claude-opus-4-6",
+      "display_name": "Claude Opus 4.6 (max)",
+      "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2026-07-09",
+      "release_date": "2026-02-05",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text"
+        "text",
+        "vision"
       ],
       "pricing": null,
       "acquisition": {
@@ -664,22 +683,26 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 75.9,
-        "coding": 62.73,
-        "math": 86.73,
-        "instruction_following": 58.78
+        "reasoning": 73.95,
+        "math": 64.49,
+        "coding": 68.92,
+        "instruction_following": 63.31,
+        "human_preference": 100.0
       },
-      "composite": 71.55,
+      "composite": 73.11,
       "coverage": {
-        "covered": 4,
+        "covered": 5,
         "total": 5,
-        "missing": [
-          "human_preference"
-        ]
+        "missing": []
       },
       "provisional": false,
-      "awaiting_human_votes": true,
-      "vision": null,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1316.2,
+        "rank": 4,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": 16
     },
     {
@@ -720,10 +743,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1293.9,
-        "rank": 14,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1294.2,
+        "rank": 17,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 17
     },
@@ -765,10 +788,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1281.2,
-        "rank": 20,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1281.5,
+        "rank": 24,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 18
     },
@@ -810,12 +833,52 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1282.6,
-        "rank": 18,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1281.9,
+        "rank": 23,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 19
+    },
+    {
+      "id": "openai-gpt-5.6-luna",
+      "display_name": "GPT-5.6 Luna (max)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-09",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 72.82,
+        "coding": 62.73,
+        "math": 86.73,
+        "instruction_following": 58.78
+      },
+      "composite": 70.65,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "vision": null,
+      "rank": 20
     },
     {
       "id": "google-deepmind-gemini-3-pro",
@@ -856,55 +919,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1304.9,
-        "rank": 8,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
-      "rank": 20
-    },
-    {
-      "id": "anthropic-claude-opus-4-6",
-      "display_name": "Claude Opus 4.6 (max)",
-      "provider_id": "anthropic",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-02-05",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 66.43,
-        "math": 49.59,
-        "coding": 71.67,
-        "instruction_following": 63.31,
-        "human_preference": 100.0
-      },
-      "composite": 68.94,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1315.0,
-        "rank": 4,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1304.7,
+        "rank": 10,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 21
     },
@@ -946,10 +964,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1282.8,
-        "rank": 17,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1282.1,
+        "rank": 22,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 22
     },
@@ -992,58 +1010,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1281.8,
-        "rank": 19,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1283.6,
+        "rank": 21,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 23
-    },
-    {
-      "id": "openai-gpt-5",
-      "display_name": "GPT-5 Pro",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-10-07",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 74.04,
-        "math": 63.92,
-        "coding": 72.52,
-        "human_preference": 47.05
-      },
-      "composite": 66.45,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1231.2,
-        "rank": 51,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
-      "rank": 24
     },
     {
       "id": "moonshot-kimi-k2.7-code",
@@ -1083,6 +1055,51 @@
       "provisional": false,
       "awaiting_human_votes": true,
       "vision": null,
+      "rank": 24
+    },
+    {
+      "id": "openai-gpt-5.2",
+      "display_name": "GPT-5.2 (xhigh)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-12-11",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 69.18,
+        "math": 64.64,
+        "coding": 67.17,
+        "instruction_following": 61.77,
+        "human_preference": 65.23
+      },
+      "composite": 66.07,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1267.0,
+        "rank": 28,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": 25
     },
     {
@@ -1123,10 +1140,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1257.5,
-        "rank": 33,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1258.3,
+        "rank": 36,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 26
     },
@@ -1191,13 +1208,13 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 72.16,
-        "math": 43.92,
+        "reasoning": 68.42,
+        "math": 55.54,
         "coding": 66.17,
         "instruction_following": 62.55,
         "human_preference": 71.36
       },
-      "composite": 63.45,
+      "composite": 64.84,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1207,6 +1224,52 @@
       "awaiting_human_votes": false,
       "vision": null,
       "rank": 28
+    },
+    {
+      "id": "openai-gpt-5",
+      "display_name": "GPT-5 Pro",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-10-07",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 68.18,
+        "math": 63.92,
+        "coding": 72.52,
+        "human_preference": 47.05
+      },
+      "composite": 64.73,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1231.6,
+        "rank": 55,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 29
     },
     {
       "id": "z-ai-zhipu-ai-glm-5",
@@ -1246,7 +1309,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 29
+      "rank": 30
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.1",
@@ -1286,7 +1349,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 30
+      "rank": 31
     },
     {
       "id": "alibaba-qwen3.6",
@@ -1326,51 +1389,6 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 31
-    },
-    {
-      "id": "openai-gpt-5.2",
-      "display_name": "GPT-5.2 (xhigh)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-12-11",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 64.51,
-        "math": 47.53,
-        "coding": 67.17,
-        "instruction_following": 61.77,
-        "human_preference": 65.23
-      },
-      "composite": 61.48,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1267.3,
-        "rank": 24,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
       "rank": 32
     },
     {
@@ -1450,10 +1468,10 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1233.3,
-        "rank": 48,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1232.7,
+        "rank": 54,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 34
     },
@@ -1479,12 +1497,12 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 56.16,
-        "math": 40.75,
+        "reasoning": 45.37,
+        "math": 55.0,
         "coding": 71.28,
         "human_preference": 64.95
       },
-      "composite": 58.53,
+      "composite": 58.71,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1496,52 +1514,6 @@
       "awaiting_human_votes": false,
       "vision": null,
       "rank": 35
-    },
-    {
-      "id": "openai-gpt-5.1",
-      "display_name": "GPT-5.1 (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-11-13",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 73.86,
-        "math": 19.33,
-        "coding": 66.94,
-        "human_preference": 66.77
-      },
-      "composite": 57.74,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1248.0,
-        "rank": 38,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
-      "rank": 36
     },
     {
       "id": "openai-gpt-5.4-mini",
@@ -1581,21 +1553,21 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1247.4,
-        "rank": 40,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1247.0,
+        "rank": 45,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 37
+      "rank": 36
     },
     {
-      "id": "openai-gpt-5-mini",
-      "display_name": "GPT-5 mini (high)",
+      "id": "openai-gpt-5.1",
+      "display_name": "GPT-5.1 (high)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2025-08-07",
+      "release_date": "2025-11-13",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
@@ -1611,12 +1583,12 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 55.88,
-        "math": 60.55,
-        "coding": 64.67,
-        "human_preference": 29.62
+        "reasoning": 67.62,
+        "math": 19.33,
+        "coding": 66.94,
+        "human_preference": 66.77
       },
-      "composite": 54.93,
+      "composite": 55.91,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1627,12 +1599,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1202.8,
-        "rank": 61,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1248.3,
+        "rank": 43,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 38
+      "rank": 37
     },
     {
       "id": "openai-gpt-5.4-nano",
@@ -1672,12 +1644,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1201.6,
-        "rank": 62,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1199.1,
+        "rank": 68,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39
+      "rank": 38
     },
     {
       "id": "google-deepmind-gemini-2.5-pro",
@@ -1718,12 +1690,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1261.4,
-        "rank": 29,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1261.7,
+        "rank": 33,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 40
+      "rank": 39
     },
     {
       "id": "anthropic-claude-opus-4-1",
@@ -1763,6 +1735,52 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
+      "rank": 40
+    },
+    {
+      "id": "openai-gpt-5-mini",
+      "display_name": "GPT-5 mini (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-08-07",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 47.16,
+        "math": 60.55,
+        "coding": 64.67,
+        "human_preference": 29.62
+      },
+      "composite": 52.37,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1202.7,
+        "rank": 66,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": 41
     },
     {
@@ -1844,10 +1862,10 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1266.0,
-        "rank": 26,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1265.7,
+        "rank": 30,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
     },
@@ -1890,10 +1908,10 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1306.9,
-        "rank": 7,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1307.1,
+        "rank": 9,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
     },
@@ -2056,10 +2074,10 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1208.6,
-        "rank": 59,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1208.8,
+        "rank": 64,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
     },
@@ -2085,11 +2103,11 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 45.86,
-        "math": 48.33,
+        "reasoning": 35.87,
+        "math": 48.32,
         "human_preference": 40.35
       },
-      "composite": 45.31,
+      "composite": 41.14,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2101,52 +2119,6 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": null
-    },
-    {
-      "id": "openai-gpt-5-nano",
-      "display_name": "GPT-5 nano (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-08-07",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 49.69,
-        "math": 51.41,
-        "human_preference": 0.0
-      },
-      "composite": 37.84,
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "coding",
-          "instruction_following"
-        ]
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1162.1,
-        "rank": 82,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
-      },
       "rank": null
     },
     {
@@ -2190,6 +2162,52 @@
       "rank": null
     },
     {
+      "id": "openai-gpt-5-nano",
+      "display_name": "GPT-5 nano (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-08-07",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 40.32,
+        "math": 51.41,
+        "human_preference": 0.0
+      },
+      "composite": 33.94,
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following"
+        ]
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1161.7,
+        "rank": 87,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null
+    },
+    {
       "id": "google-deepmind-gemma-4-31b",
       "display_name": "Gemma 4 31B IT",
       "provider_id": "google-deepmind",
@@ -2228,10 +2246,10 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1270.1,
-        "rank": 23,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1271.6,
+        "rank": 27,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
     },
@@ -2274,10 +2292,10 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1235.5,
-        "rank": 47,
-        "measured_at": "2026-07-21",
-        "source_url": "https://arena.ai/leaderboard"
+        "rating": 1235.4,
+        "rank": 52,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
     }

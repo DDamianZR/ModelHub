@@ -1,25 +1,43 @@
 {
-  "generated_at": "2026-07-28T02:52:59+00:00",
+  "generated_at": "2026-07-28T03:35:21+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-07-28",
+      "last_success": "2026-07-27",
       "error": null
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-07-28",
+      "last_success": "2026-07-27",
       "error": null
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-07-28",
+      "last_success": "2026-07-27",
       "error": null
     }
   },
   "rejected_snapshots": [
-    "2026-07-21 (2.94x)",
-    "2026-07-20 (2.93x)"
+    {
+      "date": "2026-07-27",
+      "ratio": 2.97,
+      "config": "text"
+    },
+    {
+      "date": "2026-07-26",
+      "ratio": 2.96,
+      "config": "text"
+    },
+    {
+      "date": "2026-07-21",
+      "ratio": 2.94,
+      "config": "text"
+    },
+    {
+      "date": "2026-07-20",
+      "ratio": 2.93,
+      "config": "text"
+    }
   ]
 }
