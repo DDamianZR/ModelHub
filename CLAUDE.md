@@ -149,6 +149,17 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
 - **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
   (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
   stops working. Rejected snapshot dates are also excluded from history explicitly.
+- **A description asserts only what is in `/data`.** That is: what the model is, how it is
+  obtained, and how its own measured categories compare. Use cases are deliberately absent
+  from `/data`, so a description never states what a model is "for" — asking the model for
+  that produced filler like "for use in various applications" on the first pass. Students
+  get the real answer from the composite and from Compare, not from an editorial sentence.
+  Corollaries enforced in the prompt and the validator: one idea per sentence and no
+  sentence over 20 words; the real category, never "an artificial intelligence model";
+  category names copied verbatim from `messages/*.json` so they don't drift per model;
+  "open weights" is never rendered as "código abierto", which claims a software licence we
+  are not asserting; and the strong/weak comparison is relative to the model's own
+  categories, never a verdict like "deja mucho que desear".
 - **Layer B writes prose and nothing else.** URLs are built deterministically and then
   verified over HTTP; anything that does not resolve is withheld from the UI rather than
   shown with a caveat. The model never produces a URL, a number or a score.
