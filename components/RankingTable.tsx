@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { CoverageMeter } from "./CoverageMeter";
 import { Sparkline } from "./Sparkline";
 import type { Row } from "@/lib/types";
@@ -96,7 +97,12 @@ export function RankingTable({
         </td>
         <td className="py-2 pr-4">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <span className="text-[14px]">{row.display_name}</span>
+            <Link
+              href={`/model/${row.id}`}
+              className="row-shift text-[14px] underline-offset-2 hover:underline"
+            >
+              {row.display_name}
+            </Link>
             <span
               className="eyebrow"
               style={{ color: row.is_open_weights ? "var(--amber)" : "var(--muted)" }}

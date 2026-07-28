@@ -22,6 +22,9 @@
   --rule: #e2ded4;
   --amber: #b45309;
   --amber-soft: #f3e6d2;
+  /* Chart marks and body text have different jobs, so they get different steps.
+     Both validated for contrast against their own surface. */
+  --mark: #b45309;
   color-scheme: light;
 }
 
@@ -34,6 +37,7 @@
     --rule: #2b2926;
     --amber: #e08b3c;
     --amber-soft: #2e2113;
+    --mark: #d2792b;
     color-scheme: dark;
   }
 }

@@ -53,6 +53,76 @@ export function getDegradedSources(): { name: string; status: Status["sources"][
     .map(([name, value]) => ({ name, status: value }));
 }
 
+export type ScoreRow = {
+  model_id: string;
+  benchmark_id: string;
+  value: number;
+  unit: string;
+  source_type: "human_eval" | "third_party_benchmark" | "vendor_claim";
+  source_url: string;
+  measured_at: string | null;
+  contamination_flag: boolean;
+  notes: string | null;
+};
+
+export type Benchmark = {
+  id: string;
+  name: string;
+  category: string;
+  source: string;
+  source_type: string;
+  url: string;
+  notes?: string;
+};
+
+/** Layer B fills this in. Until then it is legitimately empty. */
+type Descriptions = Record<string, { es?: string; en?: string }>;
+
+export function getDescriptions(): Descriptions {
+  const file = path.join(DATA_DIR, "i18n", "descriptions.json");
+  if (!fs.existsSync(file)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as Descriptions;
+  } catch {
+    return {};
+  }
+}
+
+export function getModelDetail(id: string): {
+  model: Row;
+  scores: (ScoreRow & { benchmark: Benchmark | null })[];
+  history: { date: string; value: number }[];
+  description: { es?: string; en?: string } | null;
+} | null {
+  const { rows } = getRanking();
+  const model = rows.find((row) => row.id === id);
+  if (!model) return null;
+
+  const { scores } = readJson<{ scores: ScoreRow[] }>("scores.json");
+  const { benchmarks } = readJson<{ benchmarks: Benchmark[] }>("benchmarks.json");
+  const catalogue = new Map(benchmarks.map((b) => [b.id, b]));
+
+  const forModel = scores
+    .filter((score) => score.model_id === id)
+    .map((score) => ({
+      ...score,
+      benchmark: catalogue.get(score.benchmark_id) ?? null,
+    }))
+    .sort((a, b) => a.benchmark_id.localeCompare(b.benchmark_id));
+
+  return {
+    model,
+    scores: forModel,
+    history: readHistory().get(id) ?? [],
+    description: getDescriptions()[id] ?? null,
+  };
+}
+
+export function getModelIds(): string[] {
+  const { models } = readJson<{ models: Model[] }>("models.json");
+  return models.map((model) => model.id);
+}
+
 export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
   const { meta, models } = readJson<{ meta: Meta; models: Model[] }>("models.json");
   const { providers } = readJson<{ providers: Provider[] }>("providers.json");

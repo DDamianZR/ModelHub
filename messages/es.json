@@ -65,5 +65,99 @@
   "locale": {
     "switch": "English",
     "label": "Idioma"
+  },
+  "nav": {
+    "label": "Secciones",
+    "ranking": "Ranking",
+    "compare": "Comparar",
+    "methodology": "Metodología"
+  },
+  "compare": {
+    "title": "Comparar modelos",
+    "intro": "Elige entre dos y cuatro modelos. Las barras comparten un eje 0–100, así que las longitudes son directamente comparables entre categorías y entre modelos.",
+    "pick": "Selecciona hasta {max}",
+    "search": "Buscar modelo o proveedor",
+    "selected": "{count} de {max} seleccionados",
+    "empty": "Selecciona al menos un modelo para comparar.",
+    "tableView": "Los mismos números, en tabla",
+    "visionNote": "Fuera del compuesto. Se mide aparte porque un modelo de solo texto no compite aquí.",
+    "visionRating": "{rating} · puesto {rank} en Arena visión"
+  },
+  "model": {
+    "description": "Descripción",
+    "descriptionPending": "Descripción pendiente. Las descripciones editoriales las genera la Capa B con un modelo local y las aprueba una persona antes de publicarse; todavía no se ha corrido para este modelo.",
+    "categories": "Puntaje por categoría",
+    "partialNote": "Compuesto parcial: no hay medición para {missing}. El peso se reparte solo entre las categorías disponibles y el modelo queda marcado, nunca se rellena con ceros.",
+    "history": "Trayectoria",
+    "historyRange": "{points} observaciones, del {from} al {to}",
+    "historyScope": "El histórico disponible hoy viene de LMArena, la única fuente que publica su serie temporal completa. Epoch y LiveBench publican cortes puntuales, así que su histórico se irá acumulando corrida a corrida desde que arrancó la ingesta diaria.",
+    "historyBreaks": "La ventana arranca el 2026-01-01, después del último cambio de metodología de Arena. Por eso la línea se puede dibujar continua sin mentir: no cruza ningún quiebre.",
+    "sources": "Fuentes de cada número",
+    "benchmark": "Benchmark",
+    "value": "Valor",
+    "sourceType": "Tipo de fuente",
+    "measuredAt": "Medido el",
+    "link": "Origen",
+    "acquisition": "Dónde conseguirlo",
+    "acquisitionPending": "Pendiente. Los enlaces de adquisición (repo de HuggingFace, página del proveedor, docs de API, tag de Ollama) los arma la Capa B de forma determinística; los campos existen en el esquema y están vacíos hasta entonces."
+  },
+  "methodology": {
+    "title": "Metodología",
+    "intro": "Todo lo que hay aquí se puede reproducir a mano desde los JSON públicos del repositorio. Si un número del sitio no cuadra con esta página, el error es del sitio.",
+    "formula": {
+      "title": "El compuesto, exacto",
+      "body": "Cada benchmark se lleva a una escala 0–100. Dentro de cada categoría se promedian los benchmarks disponibles, y esas categorías se ponderan así:",
+      "category": "Categoría",
+      "weight": "Peso",
+      "inputs": "Entradas",
+      "inputs_reasoning": "GPQA Diamond, SimpleQA Verified (Epoch) · LiveBench Reasoning",
+      "inputs_coding": "SWE-bench Verified (Epoch) · LiveBench Coding y Agentic Coding",
+      "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
+      "inputs_human_preference": "LMArena, arena de texto, categoría overall",
+      "inputs_instruction_following": "LiveBench IF",
+      "equation": "compuesto = Σ(puntaje_categoría × peso) ÷ Σ(peso de las categorías con dato)",
+      "normalisation": "Los benchmarks que ya vienen en porcentaje se usan tal cual. Las calificaciones Bradley-Terry de LMArena no son porcentajes, así que se normalizan min-max contra el conjunto de modelos presente en cada build: en el build actual, {min} y {max} son el 0 y el 100. Esto significa que el valor normalizado de Arena de un modelo puede moverse aunque su calificación no cambie, si entra o sale un modelo del extremo.",
+      "multimodal": "Lo multimodal no entra al compuesto. Se muestra como puntaje de visión aparte. Meter una categoría en la que la mayoría de modelos de texto no compite obligaría a penalizarlos por una ausencia que no dice nada sobre su calidad."
+    },
+    "coverage": {
+      "title": "El gate de cobertura",
+      "body": "Un modelo necesita dato en al menos 4 de las 5 categorías para entrar al ranking principal. Por debajo aparece en la sección Provisional: visible, con su compuesto calculado, pero sin número de puesto.",
+      "example": "Existe por un problema real. Como el peso se reparte solo entre las categorías con dato, un modelo poco medido sube por lo que le FALTA, no por ser mejor. Qwen3-Max-Instruct, con 3 de 5 categorías, aparecía en el puesto 5 por encima de modelos medidos en las cinco. Ese es exactamente el sesgo que este sitio existe para combatir, así que se corrige en el código y no con una nota al pie.",
+      "newModels": "El umbral es 4 y no 5 a propósito. Un modelo recién salido puede tener los cuatro benchmarks y todavía no acumular votos en LMArena; ese caso rankea normal, marcado como «sin voto humano aún». Se exige evidencia suficiente, no se castiga ser nuevo.",
+      "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5."
+    },
+    "dedup": {
+      "title": "El guard de duplicados de LMArena",
+      "body": "Los snapshots de LMArena a veces se publican con varias filas por modelo, con calificaciones distintas y puestos repetidos. Tomarlos tal cual rompería el ranking de forma visible.",
+      "example": "Caso concreto: el snapshot del 2026-07-21 trae 1 113 filas para la categoría overall repartidas en solo 378 modelos distintos, con el puesto 1 apareciendo tres veces con tres calificaciones diferentes. El del 2026-07-20 tiene el mismo problema. El del 2026-06-04 está limpio: 365 filas, 365 modelos.",
+      "rule": "La regla: si filas ÷ modelos distintos supera 1,2, el snapshot se rechaza entero y la ingesta retrocede al último limpio. No se «arregla» adivinando cuál de las tres filas es la buena. El mismo criterio se aplica al histórico, así que las trayectorias tampoco heredan snapshots duplicados. Los rechazos quedan registrados en data/status.json."
+    },
+    "sourceTypes": {
+      "title": "De dónde puede venir un número",
+      "body": "Cada puntaje guarda de qué tipo de fuente viene. La distinción no es decorativa: decide si el número entra o no al compuesto.",
+      "human_eval": "votación humana ciega, como LMArena. Entra al compuesto.",
+      "third_party_benchmark": "evaluación corrida por un tercero independiente, como Epoch AI o LiveBench. Entra al compuesto.",
+      "vendor_claim": "cifra publicada por quien vende el modelo. Se guarda y se muestra, pero JAMÁS entra al compuesto.",
+      "why": "Un proveedor tiene incentivo directo para elegir el escenario que mejor lo deja, y no hay forma de auditar una corrida que no publicó. Por eso la exclusión es estructural, no un juicio caso por caso: no depende de si confiamos en tal o cual empresa."
+    },
+    "breaks": {
+      "title": "Los quiebres de metodología de LMArena",
+      "body": "LMArena ha cambiado tres veces la forma de calcular su calificación. Las cifras a un lado y al otro de un cambio no son comparables entre sí:",
+      "b1": "2024-01-09 — se pasó de Elo a Bradley-Terry.",
+      "b2": "2025-05-16 — el control de estilo pasó a ser el modo por defecto.",
+      "b3": "2025-07-23 — se añadió reponderación por frecuencia.",
+      "window": "Dibujar una línea continua a través de un quiebre inventaría una tendencia que nunca ocurrió. Por eso la ventana del histórico arranca el 2026-01-01, posterior al último quiebre: la serie que se grafica no cruza ninguno. Si alguien mueve esa fecha hacia atrás, tendrá que anotar los quiebres o cortar la serie en el último."
+    },
+    "exclusions": {
+      "title": "Qué se dejó fuera y por qué",
+      "swebench": "El leaderboard de swebench.com está excluido por licencia: su data es CC-BY-NC (no comercial) y este repositorio es MIT, que sí permite uso comercial. Distribuir esa data aquí le daría a quien forkee el proyecto una licencia que promete más derechos de los que realmente tiene. Las cifras de SWE-bench Verified que sí se usan vienen de las corridas propias de Epoch AI, con licencia CC-BY. Aparte de la licencia hay una razón técnica: las filas de swebench.com describen andamiajes de agente, no modelos pelados, y el andamiaje suele pesar más que el modelo.",
+      "others": "También quedaron fuera el Open LLM Leaderboard de HuggingFace, cuyo Space sigue apareciendo activo mientras su dataset de resultados no se mueve desde marzo de 2025, y el leaderboard Polyglot de aider, congelado desde octubre de 2025 aunque el proyecto siga vivo. Mezclar cifras de 2025 con cifras de 2026 en un ranking cuya premisa es la actualidad sería peor que omitirlas."
+    },
+    "reproduce": {
+      "title": "Cómo verificarlo tú",
+      "body": "No hay base de datos externa. Todo lo que alimenta esta página son archivos de texto versionados:",
+      "git": "Cada corrida diaria queda como un commit. Eso significa que cualquier cambio en cualquier número es un diff auditable: puedes ver cuándo cambió, cuánto y por qué corrida.",
+      "link": "Ver el repositorio"
+    }
   }
 }

@@ -1,7 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { RankingTable } from "@/components/RankingTable";
+import { SiteHeader } from "@/components/SiteHeader";
 import { getDegradedSources, getRanking } from "@/lib/data";
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function HomePage({
   params,
@@ -14,12 +19,10 @@ export default async function HomePage({
   const t = await getTranslations("masthead");
   const tp = await getTranslations("panel");
   const tf = await getTranslations("footer");
-  const tl = await getTranslations("locale");
 
   const { rows, meta, sourceCount } = getRanking();
   const degraded = getDegradedSources();
   const openWeights = rows.filter((r) => r.is_open_weights).length;
-  const other = locale === "es" ? "en" : "es";
 
   const readings: [string, string][] = [
     [tp("updated"), meta.generated_at],
@@ -30,29 +33,9 @@ export default async function HomePage({
 
   return (
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
-      <header className="pt-10">
-        <div className="flex items-start justify-between gap-6">
-          <div>
-            <h1
-              className="text-[42px] leading-[1.05] tracking-[-0.01em] sm:text-[56px]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {t("wordmark")}
-            </h1>
-            <p className="eyebrow mt-1">{t("tagline")}</p>
-          </div>
+      <SiteHeader locale={locale} active="ranking" />
 
-          <Link
-            href="/"
-            locale={other}
-            className="eyebrow row-shift shrink-0 border px-2 py-[3px]"
-            style={{ borderColor: "var(--rule)" }}
-            aria-label={tl("label")}
-          >
-            {tl("switch")}
-          </Link>
-        </div>
-
+      <div className="pt-6">
         <p
           className="mt-6 max-w-[46rem] text-[15px] leading-[1.6]"
           style={{ color: "var(--muted)" }}
@@ -78,7 +61,7 @@ export default async function HomePage({
             </dd>
           </div>
         </dl>
-      </header>
+      </div>
 
       {degraded.length > 0 && (
         <p
