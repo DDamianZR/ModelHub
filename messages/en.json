@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "ModelHub — the independent frontier model scoreboard",
+    "description": "Open ranking of frontier AI models. Third-party numbers, no marketing, with the source and the date in plain sight."
+  },
+  "masthead": {
+    "wordmark": "ModelHub",
+    "tagline": "The independent frontier model scoreboard",
+    "blurb": "Closed and open-source models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
+  },
+  "panel": {
+    "updated": "Updated",
+    "models": "Models tracked",
+    "sources": "Sources",
+    "openWeights": "Open weights",
+    "snapshots": "Data snapshots"
+  },
+  "filters": {
+    "label": "Filters",
+    "search": "Search model or provider",
+    "access": "Access",
+    "all": "All",
+    "open": "Open weights",
+    "api": "API only",
+    "origin": "Origin",
+    "showing": "{count} of {total} models",
+    "clear": "Clear"
+  },
+  "table": {
+    "rank": "#",
+    "model": "Model",
+    "composite": "Composite",
+    "coverage": "Coverage",
+    "reasoning": "Reasoning",
+    "coding": "Coding",
+    "math": "Math",
+    "human_preference": "Human preference",
+    "instruction_following": "Instructions",
+    "vision": "Vision",
+    "trend": "Trajectory",
+    "sortBy": "Sort by {column}",
+    "noData": "no data",
+    "empty": "No model matches those filters.",
+    "partial": "Partial composite: {covered} of {total} categories",
+    "complete": "Full coverage: {total} categories",
+    "openWeights": "Open weights",
+    "apiOnly": "API only",
+    "noHistory": "Not enough history",
+    "provisionalTitle": "Provisional · not ranked",
+    "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
+    "awaitingVotes": "No human votes yet",
+    "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty."
+  },
+  "footer": {
+    "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
+    "sourceNote": "Sources: Epoch AI (CC-BY-4.0), LMArena (CC-BY-4.0) and LiveBench (Apache-2.0). Every run lands as an auditable commit in the repo.",
+    "swebenchNote": "SWE-bench Verified comes from Epoch's own runs. The agentic scaffold leaderboard at swebench.com is not ingested because its CC-BY-NC licence conflicts with this MIT repo:",
+    "swebenchLink": "see the full scaffold leaderboard",
+    "repo": "Repository",
+    "sources": "Sources",
+    "license": "MIT"
+  },
+  "locale": {
+    "switch": "Español",
+    "label": "Language"
+  }
+}

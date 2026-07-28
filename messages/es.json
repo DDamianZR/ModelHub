@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "ModelHub — el baremo independiente de modelos frontera",
+    "description": "Ranking abierto de modelos de IA frontera. Números de terceros, sin marketing, con la fuente y la fecha a la vista."
+  },
+  "masthead": {
+    "wordmark": "ModelHub",
+    "tagline": "El baremo independiente de modelos frontera",
+    "blurb": "Modelos cerrados y open source en la misma cancha. Los números vienen de evaluaciones de terceros y de votación humana; lo que dice el proveedor nunca cuenta para el score."
+  },
+  "panel": {
+    "updated": "Actualizado",
+    "models": "Modelos rastreados",
+    "sources": "Fuentes",
+    "openWeights": "Open weights",
+    "snapshots": "Cortes de datos"
+  },
+  "filters": {
+    "label": "Filtros",
+    "search": "Buscar modelo o proveedor",
+    "access": "Acceso",
+    "all": "Todos",
+    "open": "Open weights",
+    "api": "Solo API",
+    "origin": "Origen",
+    "showing": "{count} de {total} modelos",
+    "clear": "Limpiar"
+  },
+  "table": {
+    "rank": "#",
+    "model": "Modelo",
+    "composite": "Compuesto",
+    "coverage": "Cobertura",
+    "reasoning": "Razonamiento",
+    "coding": "Código",
+    "math": "Matemáticas",
+    "human_preference": "Preferencia humana",
+    "instruction_following": "Instrucciones",
+    "vision": "Visión",
+    "trend": "Trayectoria",
+    "sortBy": "Ordenar por {column}",
+    "noData": "sin dato",
+    "empty": "Ningún modelo coincide con esos filtros.",
+    "partial": "Compuesto parcial: {covered} de {total} categorías",
+    "complete": "Cobertura completa: {total} categorías",
+    "openWeights": "Open weights",
+    "apiOnly": "Solo API",
+    "noHistory": "Sin historial suficiente",
+    "provisionalTitle": "Provisional · no rankeado",
+    "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
+    "awaitingVotes": "Sin voto humano aún",
+    "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización."
+  },
+  "footer": {
+    "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
+    "sourceNote": "Fuentes: Epoch AI (CC-BY-4.0), LMArena (CC-BY-4.0) y LiveBench (Apache-2.0). Cada corrida queda como commit auditable en el repo.",
+    "swebenchNote": "SWE-bench Verified viene de las corridas propias de Epoch. El leaderboard de scaffolds agénticos de swebench.com no se ingiere porque su licencia CC-BY-NC choca con este repo MIT:",
+    "swebenchLink": "ver leaderboard completo de scaffolds",
+    "repo": "Repositorio",
+    "sources": "Fuentes",
+    "license": "MIT"
+  },
+  "locale": {
+    "switch": "English",
+    "label": "Idioma"
+  }
+}
