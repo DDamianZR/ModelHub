@@ -1,0 +1,85 @@
+{
+  "benchmarks": [
+    {
+      "id": "gpqa_diamond",
+      "name": "GPQA Diamond",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "simpleqa_verified",
+      "name": "SimpleQA Verified",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "math_level_5",
+      "name": "MATH Level 5",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "frontiermath",
+      "name": "FrontierMath",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "swe_bench_verified",
+      "name": "SWE-bench Verified",
+      "category": "coding",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Epoch's own run. swebench.com's leaderboard is CC-BY-NC and is not ingested."
+    },
+    {
+      "id": "livebench_reasoning",
+      "name": "LiveBench Reasoning",
+      "category": "reasoning",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
+      "id": "livebench_coding",
+      "name": "LiveBench Coding",
+      "category": "coding",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
+      "id": "livebench_math",
+      "name": "LiveBench Mathematics",
+      "category": "math",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
+      "id": "livebench_instruction_following",
+      "name": "LiveBench IF",
+      "category": "instruction_following",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
+      "id": "lmarena_text_overall",
+      "name": "LMArena (text, overall)",
+      "category": "human_preference",
+      "source": "LMArena",
+      "source_type": "human_eval",
+      "url": "https://arena.ai/leaderboard"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "providers": [
+    {
+      "id": "alibaba",
+      "display_name": "Alibaba",
+      "country": "China"
+    },
+    {
+      "id": "anthropic",
+      "display_name": "Anthropic",
+      "country": "United States of America"
+    },
+    {
+      "id": "deepseek",
+      "display_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "id": "google",
+      "display_name": "Google",
+      "country": "United States of America"
+    },
+    {
+      "id": "google-deepmind",
+      "display_name": "Google DeepMind",
+      "country": "United States of America"
+    },
+    {
+      "id": "meta-ai",
+      "display_name": "Meta AI",
+      "country": "United States of America"
+    },
+    {
+      "id": "minimax",
+      "display_name": "MiniMax",
+      "country": "China"
+    },
+    {
+      "id": "moonshot",
+      "display_name": "Moonshot",
+      "country": "China"
+    },
+    {
+      "id": "openai",
+      "display_name": "OpenAI",
+      "country": "United States of America"
+    },
+    {
+      "id": "z-ai-zhipu-ai",
+      "display_name": "Z.ai (Zhipu AI)",
+      "country": "China"
+    },
+    {
+      "id": "xai",
+      "display_name": "xAI",
+      "country": "United States of America"
+    }
+  ]
+}
