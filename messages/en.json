@@ -13,7 +13,9 @@
     "models": "Models tracked",
     "sources": "Sources",
     "openWeights": "Open weights",
-    "snapshots": "Data snapshots"
+    "snapshots": "Data snapshots",
+    "degraded": "Source not refreshed",
+    "degradedSource": "{source} did not respond on the last run; showing its data from {date}"
   },
   "filters": {
     "label": "Filters",

@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { RankingTable } from "@/components/RankingTable";
-import { getRanking } from "@/lib/data";
+import { getDegradedSources, getRanking } from "@/lib/data";
 
 export default async function HomePage({
   params,
@@ -17,6 +17,7 @@ export default async function HomePage({
   const tl = await getTranslations("locale");
 
   const { rows, meta, sourceCount } = getRanking();
+  const degraded = getDegradedSources();
   const openWeights = rows.filter((r) => r.is_open_weights).length;
   const other = locale === "es" ? "en" : "es";
 
@@ -78,6 +79,25 @@ export default async function HomePage({
           </div>
         </dl>
       </header>
+
+      {degraded.length > 0 && (
+        <p
+          className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
+          style={{ borderColor: "var(--amber)", color: "var(--muted)" }}
+        >
+          <span className="eyebrow" style={{ color: "var(--amber)" }}>
+            {tp("degraded")}
+          </span>{" "}
+          {degraded
+            .map((entry) =>
+              tp("degradedSource", {
+                source: entry.name,
+                date: entry.status.last_success ?? "—",
+              }),
+            )
+            .join(" · ")}
+        </p>
+      )}
 
       <section className="mt-8">
         <RankingTable rows={rows} minCoverage={meta.min_coverage_for_ranking} />

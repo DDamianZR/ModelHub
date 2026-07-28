@@ -13,7 +13,9 @@
     "models": "Modelos rastreados",
     "sources": "Fuentes",
     "openWeights": "Open weights",
-    "snapshots": "Cortes de datos"
+    "snapshots": "Cortes de datos",
+    "degraded": "Fuente sin actualizar",
+    "degradedSource": "{source} no respondió en la última corrida; se muestran sus datos del {date}"
   },
   "filters": {
     "label": "Filtros",

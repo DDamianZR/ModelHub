@@ -48,6 +48,22 @@ export type Meta = {
 
 export type Provider = { id: string; display_name: string; country: string };
 
+export type SourceState = "ok" | "cached" | "stale" | "failed";
+
+export type SourceStatus = {
+  state: SourceState;
+  last_success: string | null;
+  age_days?: number;
+  error?: string | null;
+};
+
+export type Status = {
+  generated_at: string;
+  ok: boolean;
+  sources: Record<string, SourceStatus>;
+  rejected_snapshots?: string[];
+};
+
 /** A model plus everything the table needs, already resolved on the server. */
 export type Row = Model & {
   provider_name: string;

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Meta, Model, Provider, Row } from "./types";
+import type { Meta, Model, Provider, Row, Status } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -41,6 +41,16 @@ function normaliseTrend(values: number[]): number[] {
   const max = Math.max(...values);
   if (max === min) return values.map(() => 0.5);
   return values.map((v) => (v - min) / (max - min));
+}
+
+/** Sources that did not refresh on the last run, so the page can say so out loud. */
+export function getDegradedSources(): { name: string; status: Status["sources"][string] }[] {
+  const file = path.join(DATA_DIR, "status.json");
+  if (!fs.existsSync(file)) return [];
+  const status = JSON.parse(fs.readFileSync(file, "utf8")) as Status;
+  return Object.entries(status.sources ?? {})
+    .filter(([, value]) => value.state !== "ok")
+    .map(([name, value]) => ({ name, status: value }));
 }
 
 export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
