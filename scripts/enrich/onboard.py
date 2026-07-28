@@ -30,6 +30,9 @@ DRAFTS = DATA / "onboarding.json"
 TRENDING = (
     "https://huggingface.co/api/models"
     "?sort=trendingScore&direction=-1&limit=40&filter=text-generation"
+    # Without this the listing omits parameter counts and the size floor cannot fire.
+    "&expand[]=safetensors&expand[]=tags&expand[]=downloads&expand[]=likes"
+    "&expand[]=trendingScore"
 )
 
 MATCH_SCHEMA = {
@@ -71,8 +74,78 @@ _FORMAT_SUFFIXES = (
 )
 
 
+# --------------------------------------------------------------- deterministic filters
+#
+# These run BEFORE anything is written, so the weekly list only contains candidates that
+# need a human judgement. Every rule here is deliberately mechanical and debatable by PR;
+# see CONTRIBUTING.md. None of them is a judgement about model quality, which we cannot
+# know before a source measures it.
+
+# Pre-release names. Ingesting a preview repeats the mistake that made Aider's leaderboard
+# useless: data published before it settles, which then changes underneath us.
+_PRERELEASE = ("-dev", "-preview", "-rc", "-beta", ".dev", "-alpha", "-test")
+
+# This project tracks frontier models. Smaller ones are out of scope, not out of favour.
+MIN_PARAMETERS = 7_000_000_000
+
+
 def normalise(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
+def parameter_count(entry: dict) -> int | None:
+    """Parameters reported by the Hub, or None when it does not say.
+
+    Returning None matters: an unknown size goes to review, never to the bin. Discarding
+    what we merely fail to measure is the same error the coverage gate exists to avoid.
+    """
+    # Signals disagree in practice: one 35B repo reports a safetensors total three orders
+    # of magnitude too small, which would have filtered it out as tiny. Take the largest
+    # signal, because the rule is to discard what we KNOW is small, not what one field
+    # happens to under-report.
+    signals: list[int] = []
+
+    safetensors = entry.get("safetensors") or {}
+    total = safetensors.get("total")
+    if isinstance(total, int) and total > 0:
+        signals.append(total)
+
+    for tag in entry.get("tags") or []:
+        match = re.fullmatch(r"(\d+(?:\.\d+)?)\s*([bBmM])", str(tag).strip())
+        if match:
+            value = float(match.group(1))
+            signals.append(int(value * (1e9 if match.group(2).lower() == "b" else 1e6)))
+
+    # Size stated in the repo name, e.g. "Nanbeige4.2-3B" or "antares-1b". This reads a
+    # fact the publisher wrote down; it does not infer one. Only a token that is purely a
+    # number followed by B or M counts, so "Qwen3.6-14B-A3B" yields 14B and not 3B.
+    name = (entry.get("id") or "").split("/")[-1]
+    sizes = [
+        float(m.group(1)) * (1e9 if m.group(2).lower() == "b" else 1e6)
+        for m in re.finditer(r"(?:^|[-_.])(\d+(?:\.\d+)?)([bBmM])(?=$|[-_.])", name)
+    ]
+    signals.extend(int(s) for s in sizes)
+    return max(signals) if signals else None
+
+
+def screen(entry: dict, name: str, known_norms: set[str], batch_bases: set[str]) -> str | None:
+    """Return why this candidate is filtered out, or None to keep it for review."""
+    base, fmt = strip_format(name)
+    if fmt and (normalise(base) in known_norms or normalise(base) in batch_bases):
+        return f"{fmt} repackaging of {base}"
+    if fmt:
+        return f"{fmt} repackaging"
+
+    lowered = name.lower()
+    for marker in _PRERELEASE:
+        if lowered.endswith(marker) or f"{marker}-" in lowered:
+            return f"pre-release name ({marker.strip('-.')})"
+
+    size = parameter_count(entry)
+    if size is not None and size < MIN_PARAMETERS:
+        return f"{size / 1e9:.1f}B, below the {MIN_PARAMETERS / 1e9:.0f}B frontier floor"
+
+    return None
 
 
 def strip_format(name: str) -> tuple[str, str | None]:
@@ -126,6 +199,13 @@ def main() -> int:
         for name in names:
             known_norms.add(normalise(name))
 
+    # Already approved and waiting for a measurement. Re-drafting them every week would
+    # be exactly the noise this screening exists to remove.
+    watchlist = DATA / "watchlist.json"
+    if watchlist.exists():
+        for entry in json.loads(watchlist.read_text(encoding="utf-8")).get("models", []):
+            known_norms.add(normalise(entry["hf_id"].split("/")[-1]))
+
     try:
         trending = fetch_trending()
     except Exception as exc:  # noqa: BLE001
@@ -133,21 +213,38 @@ def main() -> int:
         return 1
 
     # Deterministic first pass: anything whose name we already know is not new.
-    candidates = []
+    unknown = []
     for entry in trending:
         repo_id = entry.get("id") or ""
         _, _, name = repo_id.partition("/")
         if not name or normalise(name) in known_norms:
             continue
+        unknown.append((entry, name, repo_id))
+
+    batch_bases = {normalise(strip_format(name)[0]) for _, name, _ in unknown}
+
+    # Screen before writing anything, so the file only holds what needs a human.
+    candidates, filtered = [], []
+    for entry, name, repo_id in unknown:
+        reason = screen(entry, name, known_norms, batch_bases)
+        if reason:
+            filtered.append((name, reason))
+            continue
+        size = parameter_count(entry)
         candidates.append({
             "hf_id": repo_id,
             "name": name,
+            "parameters": size,
+            "size_known": size is not None,
             "downloads": entry.get("downloads"),
             "likes": entry.get("likes"),
             "trending_score": entry.get("trendingScore"),
         })
 
-    print(f"{len(trending)} trending, {len(candidates)} not recognised by name")
+    print(f"{len(trending)} trending · {len(unknown)} unrecognised · "
+          f"{len(filtered)} filtered out · {len(candidates)} for review")
+    for name, reason in filtered:
+        print(f"    filtered: {name} - {reason}")
     if not candidates:
         return 0
 
@@ -162,24 +259,7 @@ def main() -> int:
     if DRAFTS.exists():
         drafts = json.loads(DRAFTS.read_text(encoding="utf-8"))
 
-    # Names drafted in this batch, so a repackaged upload folds into its own base model
-    # rather than being drafted twice.
-    batch_bases = {normalise(strip_format(c["name"])[0]) for c in candidates}
-
     for candidate in candidates[: args.limit]:
-        base, fmt = strip_format(candidate["name"])
-        if fmt and (normalise(base) in known_norms or normalise(base) in batch_bases):
-            print(f"  {candidate['name']}: {fmt} repackaging of {base}, not a new model")
-            drafts[candidate["hf_id"]] = {
-                "kind": "repackaging",
-                "hf_id": candidate["hf_id"],
-                "format": fmt,
-                "base_name": base,
-                "status": "unverified",
-                "drafted_at": date.today().isoformat(),
-            }
-            continue
-
         shortlist = shortlist_for(candidate["name"], known)
         verdict, matches, confidence = "new", "", "high"
 
@@ -224,6 +304,8 @@ def main() -> int:
             "downloads": candidate["downloads"],
             "likes": candidate["likes"],
             "trending_score": candidate["trending_score"],
+            "parameters": candidate["parameters"],
+            "size_known": candidate["size_known"],
             # Deliberately absent: scores, provider mapping, release date. Those are
             # Layer A's job and must never be guessed here.
             "status": "unverified",

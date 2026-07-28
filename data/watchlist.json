@@ -1,0 +1,35 @@
+{
+  "_comment": [
+    "Models a human has approved as in-scope but that no source has measured yet.",
+    "",
+    "This file exists because models.json is regenerated from scratch by every ingest",
+    "run, so a hand-added entry there would be erased by the next cron. A model with no",
+    "scores also has no composite, so it cannot be a models.json row at all.",
+    "",
+    "Approving a model here is not ranking it. It pre-registers the name so the ingest",
+    "recognises it the moment a source publishes a measurement, instead of it being",
+    "discovered weeks later. Scores, provider, release date and coverage stay empty until",
+    "Layer A fills them from a real source.",
+    "",
+    "Entries are added by a human from data/onboarding.json drafts. Nothing writes here",
+    "automatically."
+  ],
+  "models": [
+    {
+      "hf_id": "upstage/Solar-Open2-250B",
+      "hf_url": "https://huggingface.co/upstage/Solar-Open2-250B",
+      "is_open_weights": true,
+      "status": "unverified",
+      "approved_at": "2026-07-28",
+      "note": "250B, in scope. Awaiting a measurement from any confirmed source."
+    },
+    {
+      "hf_id": "poolside/Laguna-S-2.1",
+      "hf_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "is_open_weights": true,
+      "status": "unverified",
+      "approved_at": "2026-07-28",
+      "note": "Real adoption on the Hub. Awaiting a measurement from any confirmed source."
+    }
+  ]
+}

@@ -41,6 +41,32 @@ For a source, the questions we will ask are in [`SOURCES.md`](SOURCES.md): what 
 it carry, how is it accessed, how often does it actually update, and has it gone quietly
 stale while still looking alive. Two candidate sources were rejected for exactly that.
 
+### The onboarding filter
+
+`npm run onboard` reads what is trending on the HuggingFace Hub and drafts anything the
+catalogue does not already know. Before writing a draft it discards, deterministically:
+
+| Rule | Why |
+|---|---|
+| Packaging formats: GGUF, AWQ, GPTQ, EXL2, MLX, and quantisation suffixes | A requantised upload is packaging, not a new model |
+| Names ending in `-Dev`, `-Preview`, `-RC`, `-beta`, `-alpha` | Pre-release numbers change underneath us. Ingesting them repeats what made another leaderboard unusable |
+| Known parameter count below **7B** | This project tracks frontier models. Out of scope, not out of favour |
+
+The size rule discards only what is **known** to be small. When the Hub reports no
+parameter count and the name states none, the candidate goes to review rather than to the
+bin — discarding what we merely failed to measure is the error the coverage gate exists to
+avoid. When signals disagree the largest wins, because one 35B repo reports a safetensors
+total three orders of magnitude too small and would otherwise be filtered out as tiny.
+
+All three rules live in `scripts/enrich/onboard.py` and are meant to be argued with. Lowering
+the floor to 3B is a legitimate PR; so is dropping it entirely if someone shows the weekly
+list stays manageable without it.
+
+Approving a draft moves it to `data/watchlist.json`, which pre-registers the name so the
+ingest recognises it as soon as a source measures it. **Approving is not ranking**: a model
+with no measurements has no composite and appears nowhere in the table until Layer A finds
+it in a real source.
+
 ## Ground rules that are not negotiable
 
 These exist because the site's only real asset is that its numbers can be checked.
