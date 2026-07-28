@@ -86,8 +86,13 @@ Rebuilding the dataset from the live sources requires only Python 3 — the inge
 standard library and nothing else:
 
 ```bash
-npm run seed
+npm run ingest
 ```
+
+That same command runs daily in GitHub Actions and commits whatever changed. If a source is
+unreachable the run still completes: its last good payload is reused from `data/cache/`, the
+outage is recorded in `data/status.json`, and the site says on the page which source is stale
+and how old its numbers are. Silence about staleness would be its own kind of dishonesty.
 
 ## Stack
 

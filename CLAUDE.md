@@ -55,8 +55,13 @@ maintain.
 /messages          en.json, es.json
 /data              models, scores, benchmarks, providers, aliases, history.jsonl
 /config            weights.json, sources.json
-/scripts/seed      build_seed.py (becomes /scripts/ingest in Phase 2)
+/scripts/ingest    run.py (orchestrator) · sources/ · composite.py · common.py
+/.github/workflows ingest.yml (daily cron) · ci.yml
 ```
+
+The ingest caches each source's normalised payload in `data/cache/`. A source that fails is
+served from its cache, reported in `data/status.json`, and surfaced on the page as degraded —
+the run never dies because one site is down.
 
 `lib/types.ts` must stay free of Node imports. Client components import types from there;
 importing from `lib/data.ts` drags `node:fs` into the browser bundle and breaks the build.
@@ -68,10 +73,13 @@ npm run dev        # dev server
 npm run build      # production build
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit
-npm run seed       # rebuild /data from live sources
+npm run ingest     # rebuild /data from live sources (python -m scripts.ingest.run)
 ```
 
 Run lint, typecheck and build before calling any phase done.
+
+Never run `npm run build` while `npm run dev` is running: they share `.next` and the dev
+server ends up serving missing-module errors until the directory is cleared.
 
 ## Anti-bias rules
 
@@ -130,7 +138,7 @@ or comments.** This is not negotiable.
 
 - [x] **Phase 0** — source research. `SOURCES.md` + `config/sources.json`.
 - [x] **Phase 1** — static MVP: scaffolding, i18n, real seed data from 3 sources, home ranking.
-- [ ] **Phase 2** — automated ingest (Layer A) + GitHub Actions cron.
+- [x] **Phase 2** — automated ingest (Layer A) + GitHub Actions cron.
 - [ ] **Phase 3** — Compare + Model detail + `/methodology`.
 - [ ] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
 - [ ] **Phase 5** — community hardening, a11y, performance.
