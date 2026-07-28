@@ -143,9 +143,18 @@ export function RankingTable({
             <td
               key={category}
               className="num py-2 pr-3 text-right text-[12px]"
-              style={{ color: value === undefined ? "var(--rule)" : "inherit" }}
+              style={{ color: value === undefined ? "var(--muted)" : "inherit" }}
             >
-              {value === undefined ? "·" : value.toFixed(1)}
+              {value === undefined ? (
+                <>
+                  {/* The dot means "not measured", so it needs real contrast and a
+                      text equivalent rather than being a faint visual cue. */}
+                  <span aria-hidden="true">·</span>
+                  <span className="sr-only">{t("noData")}</span>
+                </>
+              ) : (
+                value.toFixed(1)
+              )}
             </td>
           );
         })}

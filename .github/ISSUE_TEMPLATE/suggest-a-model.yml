@@ -1,0 +1,58 @@
+name: Suggest a model
+description: A model that should be tracked and is not
+title: "[model] "
+labels: ["model"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A model can only be ranked once independent measurements of it exist. We do not
+        ingest figures published by whoever sells the model, so a company announcement on
+        its own is not enough to add it.
+
+        A model also needs data in at least 4 of the 5 scored categories to be ranked;
+        below that it appears in the provisional section. That is not a rejection, just
+        the coverage gate doing its job.
+
+  - type: input
+    id: name
+    attributes:
+      label: Model name
+      placeholder: DeepSeek V4 Pro
+    validations:
+      required: true
+
+  - type: input
+    id: developer
+    attributes:
+      label: Who built it
+    validations:
+      required: true
+
+  - type: dropdown
+    id: availability
+    attributes:
+      label: How is it available
+      options:
+        - Open weights
+        - Open weights, non-commercial licence
+        - API access only
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Where has it been independently measured
+      description: >
+        Links to third-party evaluations or human-preference leaderboards. If you only have
+        the developer's own numbers, say so — the model can still be tracked as unverified.
+    validations:
+      required: true
+
+  - type: input
+    id: weights
+    attributes:
+      label: Weights repository, if any
+      placeholder: https://huggingface.co/...
