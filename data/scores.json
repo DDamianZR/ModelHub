@@ -8,13 +8,13 @@
     "snapshots": {
       "epoch": "2026-07-27",
       "livebench": "2026-06-25",
-      "lmarena_text": "2026-07-16",
+      "lmarena_text": "2026-07-27",
       "lmarena_vision": "2026-07-26"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
-      "min": 1320.15,
-      "max": 1501.47
+      "min": 1320.24,
+      "max": 1511.6
     }
   },
   "scores": [
@@ -32,68 +32,68 @@
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_reasoning",
-      "value": 88.68,
+      "value": 89.65,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-fable-5-max-effort)"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_coding",
-      "value": 62.98,
+      "value": 63.41,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-fable-5-xhigh-effort)"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_math",
-      "value": 95.84,
+      "value": 95.99,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-fable-5-max-effort)"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_instruction_following",
-      "value": 73.88,
+      "value": 75.77,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-fable-5-max-effort)"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1493.4,
+      "value": 1494.1,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8817 votes; rank 3"
+      "notes": "16056 votes; rank 5"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
       "benchmark_id": "gpqa_diamond",
-      "value": 65.84,
+      "value": 71.21,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-22",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-haiku-4-5-20251001_32K)"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -109,35 +109,35 @@
     {
       "model_id": "anthropic-claude-haiku-4-5",
       "benchmark_id": "math_level_5",
-      "value": 91.63,
+      "value": 96.36,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-22",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-haiku-4-5-20251001_32K)"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
       "benchmark_id": "frontiermath",
-      "value": 5.02,
+      "value": 5.9,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-22",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-haiku-4-5-20251001_32K)"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1393.3,
+      "value": 1393.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "106119 votes; rank 131"
+      "notes": "110068 votes; rank 136"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -175,24 +175,24 @@
     {
       "model_id": "anthropic-claude-opus-4-1",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1417.5,
+      "value": 1417.4,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "77239 votes; rank 95"
+      "notes": "77225 votes; rank 102"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
       "benchmark_id": "gpqa_diamond",
-      "value": 83.37,
+      "value": 86.05,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-24",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-opus-4-5-20251101_32K)"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -214,7 +214,7 @@
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-opus-4-5-20251101)"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -274,57 +274,57 @@
     {
       "model_id": "anthropic-claude-opus-4-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1449.5,
+      "value": 1449.2,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "70995 votes; rank 34"
+      "notes": "70573 votes; rank 38"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
       "benchmark_id": "gpqa_diamond",
-      "value": 89.65,
+      "value": 90.53,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-06",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-opus-4-6_32K)"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
       "benchmark_id": "simpleqa_verified",
-      "value": 43.54,
+      "value": 43.1,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-13",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "default variant (claude-opus-4-6) of 3 published"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
       "benchmark_id": "frontiermath",
-      "value": 39.66,
+      "value": 38.28,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-12",
       "contamination_flag": false,
-      "notes": "mean of 4 published variants of this model"
+      "notes": "default variant (claude-opus-4-6) of 4 published"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
       "benchmark_id": "swe_bench_verified",
-      "value": 77.17,
+      "value": 78.72,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-18",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "default variant (claude-opus-4-6) of 2 published"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -373,13 +373,13 @@
     {
       "model_id": "anthropic-claude-opus-4-6",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1501.5,
+      "value": 1502.6,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "60977 votes; rank 1"
+      "notes": "64805 votes; rank 3"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -472,13 +472,13 @@
     {
       "model_id": "anthropic-claude-opus-4-7",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1489.6,
+      "value": 1489.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "48284 votes; rank 4"
+      "notes": "52303 votes; rank 6"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -560,13 +560,13 @@
     {
       "model_id": "anthropic-claude-opus-4-8",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1461.8,
+      "value": 1463.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "28676 votes; rank 22"
+      "notes": "32817 votes; rank 25"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -593,57 +593,68 @@
     {
       "model_id": "anthropic-claude-opus-5",
       "benchmark_id": "livebench_reasoning",
-      "value": 89.55,
+      "value": 91.21,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "no plain variant published; best of 3 (claude-opus-5-max-effort)"
     },
     {
       "model_id": "anthropic-claude-opus-5",
       "benchmark_id": "livebench_coding",
-      "value": 69.14,
+      "value": 70.06,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "no plain variant published; best of 3 (claude-opus-5-xhigh-effort)"
     },
     {
       "model_id": "anthropic-claude-opus-5",
       "benchmark_id": "livebench_math",
-      "value": 95.26,
+      "value": 95.73,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "no plain variant published; best of 3 (claude-opus-5-max-effort)"
     },
     {
       "model_id": "anthropic-claude-opus-5",
       "benchmark_id": "livebench_instruction_following",
-      "value": 64.98,
+      "value": 67.52,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "no plain variant published; best of 3 (claude-opus-5-xhigh-effort)"
+    },
+    {
+      "model_id": "anthropic-claude-opus-5",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1511.6,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-27",
+      "contamination_flag": false,
+      "notes": "2386 votes; rank 1"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
       "benchmark_id": "gpqa_diamond",
-      "value": 77.73,
+      "value": 81.73,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-21",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-sonnet-4-5-20250929_32K)"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -670,13 +681,13 @@
     {
       "model_id": "anthropic-claude-sonnet-4-5",
       "benchmark_id": "frontiermath",
-      "value": 12.27,
+      "value": 15.22,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-16",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (claude-sonnet-4-5-20250929_32K)"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -692,13 +703,13 @@
     {
       "model_id": "anthropic-claude-sonnet-4-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1437.9,
+      "value": 1437.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "80738 votes; rank 57"
+      "notes": "80347 votes; rank 61"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -780,13 +791,13 @@
     {
       "model_id": "anthropic-claude-sonnet-4-6",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1456.6,
+      "value": 1457.3,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "54931 votes; rank 27"
+      "notes": "58826 votes; rank 28"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -857,13 +868,13 @@
     {
       "model_id": "anthropic-claude-sonnet-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1442.0,
+      "value": 1440.4,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "11176 votes; rank 49"
+      "notes": "15622 votes; rank 56"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -912,13 +923,13 @@
     {
       "model_id": "deepseek-deepseek-v4-flash",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1433.4,
+      "value": 1431.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "42779 votes; rank 65"
+      "notes": "46729 votes; rank 71"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1000,13 +1011,13 @@
     {
       "model_id": "deepseek-deepseek-v4-pro",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1450.4,
+      "value": 1450.1,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "43062 votes; rank 33"
+      "notes": "46848 votes; rank 37"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-flash",
@@ -1022,13 +1033,13 @@
     {
       "model_id": "google-deepmind-gemini-2.5-flash",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1417.4,
+      "value": 1417.5,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "124339 votes; rank 98"
+      "notes": "124020 votes; rank 101"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1077,13 +1088,13 @@
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1457.4,
+      "value": 1457.5,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "124391 votes; rank 25"
+      "notes": "124076 votes; rank 27"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1132,13 +1143,13 @@
     {
       "model_id": "google-deepmind-gemini-3-flash",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1466.1,
+      "value": 1466.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "30694 votes; rank 19"
+      "notes": "30643 votes; rank 21"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1191,9 +1202,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "41283 votes; rank 8"
+      "notes": "41242 votes; rank 9"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -1275,13 +1286,13 @@
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1479.0,
+      "value": 1479.5,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "81409 votes; rank 9"
+      "notes": "86683 votes; rank 10"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -1374,13 +1385,13 @@
     {
       "model_id": "google-gemini-3.5-flash",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1480.1,
+      "value": 1476.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "10097 votes; rank 7"
+      "notes": "10011 votes; rank 11"
     },
     {
       "model_id": "google-deepmind-gemma-4-31b",
@@ -1396,13 +1407,13 @@
     {
       "model_id": "google-deepmind-gemma-4-31b",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1441.5,
+      "value": 1441.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5879 votes; rank 51"
+      "notes": "5841 votes; rank 53"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
@@ -1429,13 +1440,13 @@
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1435.9,
+      "value": 1435.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "12095 votes; rank 63"
+      "notes": "12090 votes; rank 68"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -1473,13 +1484,13 @@
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1445.0,
+      "value": 1445.2,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "27805 votes; rank 41"
+      "notes": "27644 votes; rank 44"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -1528,13 +1539,13 @@
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1466.3,
+      "value": 1465.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "28601 votes; rank 18"
+      "notes": "32555 votes; rank 22"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -1614,15 +1625,26 @@
       "notes": null
     },
     {
+      "model_id": "z-ai-zhipu-ai-glm-5.2",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1464.4,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-27",
+      "contamination_flag": false,
+      "notes": "19995 votes; rank 24"
+    },
+    {
       "model_id": "openai-gpt-5",
       "benchmark_id": "gpqa_diamond",
-      "value": 85.76,
+      "value": 86.17,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-29",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5",
@@ -1638,35 +1660,35 @@
     {
       "model_id": "openai-gpt-5",
       "benchmark_id": "math_level_5",
-      "value": 98.03,
+      "value": 98.13,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-29",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5",
       "benchmark_id": "frontiermath",
-      "value": 29.82,
+      "value": 32.41,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-13",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5",
       "benchmark_id": "swe_bench_verified",
-      "value": 72.52,
+      "value": 73.55,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-06",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5",
@@ -1675,20 +1697,20 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "31891 votes; rank 116"
+      "notes": "31887 votes; rank 121"
     },
     {
       "model_id": "openai-gpt-5-mini",
       "benchmark_id": "gpqa_diamond",
-      "value": 73.33,
+      "value": 75.0,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-30",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-mini-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -1704,24 +1726,24 @@
     {
       "model_id": "openai-gpt-5-mini",
       "benchmark_id": "math_level_5",
-      "value": 97.32,
+      "value": 97.85,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-30",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-mini-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5-mini",
       "benchmark_id": "frontiermath",
-      "value": 23.79,
+      "value": 27.24,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-13",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-mini-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -1737,24 +1759,24 @@
     {
       "model_id": "openai-gpt-5-mini",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1373.9,
+      "value": 1373.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "27001 votes; rank 145"
+      "notes": "26991 votes; rank 149"
     },
     {
       "model_id": "openai-gpt-5-nano",
       "benchmark_id": "gpqa_diamond",
-      "value": 68.43,
+      "value": 69.44,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-30",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-nano-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -1770,46 +1792,46 @@
     {
       "model_id": "openai-gpt-5-nano",
       "benchmark_id": "math_level_5",
-      "value": 95.07,
+      "value": 95.24,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-08-20",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-nano-2025-08-07_medium)"
     },
     {
       "model_id": "openai-gpt-5-nano",
       "benchmark_id": "frontiermath",
-      "value": 7.76,
+      "value": 8.28,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-30",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5-nano-2025-08-07_high)"
     },
     {
       "model_id": "openai-gpt-5-nano",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1320.1,
+      "value": 1320.2,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8260 votes; rank 194"
+      "notes": "8257 votes; rank 199"
     },
     {
       "model_id": "openai-gpt-5.1",
       "benchmark_id": "gpqa_diamond",
-      "value": 86.34,
+      "value": 87.63,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-17",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.1-2025-11-13_high)"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -1825,24 +1847,24 @@
     {
       "model_id": "openai-gpt-5.1",
       "benchmark_id": "frontiermath",
-      "value": 19.33,
+      "value": 31.03,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-25",
       "contamination_flag": false,
-      "notes": "mean of 4 published variants of this model"
+      "notes": "no plain variant published; best of 4 (gpt-5.1-2025-11-13_high)"
     },
     {
       "model_id": "openai-gpt-5.1",
       "benchmark_id": "swe_bench_verified",
-      "value": 66.94,
+      "value": 67.98,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-18",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.1-2025-11-13_high)"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -1851,42 +1873,42 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "40778 votes; rank 52"
+      "notes": "40700 votes; rank 54"
     },
     {
       "model_id": "openai-gpt-5.2",
       "benchmark_id": "gpqa_diamond",
-      "value": 87.54,
+      "value": 91.4,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-13",
       "contamination_flag": false,
-      "notes": "mean of 4 published variants of this model"
+      "notes": "no plain variant published; best of 4 (gpt-5.2-2025-12-11_xhigh)"
     },
     {
       "model_id": "openai-gpt-5.2",
       "benchmark_id": "simpleqa_verified",
-      "value": 36.8,
+      "value": 38.9,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-11",
       "contamination_flag": false,
-      "notes": "mean of 4 published variants of this model"
+      "notes": "no plain variant published; best of 4 (gpt-5.2-2025-12-11_xhigh)"
     },
     {
       "model_id": "openai-gpt-5.2",
       "benchmark_id": "frontiermath",
-      "value": 36.12,
+      "value": 40.7,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-13",
       "contamination_flag": false,
-      "notes": "mean of 4 published variants of this model"
+      "notes": "no plain variant published; best of 4 (gpt-5.2-2025-12-11_xhigh)"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -1946,13 +1968,13 @@
     {
       "model_id": "openai-gpt-5.2",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1438.4,
+      "value": 1438.9,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "34427 votes; rank 55"
+      "notes": "34060 votes; rank 59"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -2045,13 +2067,13 @@
     {
       "model_id": "openai-gpt-5.4",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1469.8,
+      "value": 1469.9,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "56671 votes; rank 15"
+      "notes": "60292 votes; rank 18"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -2133,13 +2155,13 @@
     {
       "model_id": "openai-gpt-5.4-mini",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1413.4,
+      "value": 1412.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "55442 votes; rank 105"
+      "notes": "59093 votes; rank 111"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -2221,24 +2243,24 @@
     {
       "model_id": "openai-gpt-5.4-nano",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1374.4,
+      "value": 1373.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "54402 votes; rank 144"
+      "notes": "58091 votes; rank 150"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "gpqa_diamond",
-      "value": 92.33,
+      "value": 94.0,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-05",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.5-pre-release_xhigh)"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -2276,57 +2298,57 @@
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "livebench_reasoning",
-      "value": 88.86,
+      "value": 87.27,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "default variant (gpt-5.5) of 3 published"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "livebench_coding",
-      "value": 60.1,
+      "value": 56.12,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "default variant (gpt-5.5) of 3 published"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "livebench_math",
-      "value": 86.94,
+      "value": 69.77,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "default variant (gpt-5.5) of 3 published"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "livebench_instruction_following",
-      "value": 69.28,
+      "value": 65.74,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 3 published variants of this model"
+      "notes": "default variant (gpt-5.5) of 3 published"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1469.7,
+      "value": 1469.4,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "43452 votes; rank 16"
+      "notes": "47572 votes; rank 19"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -2353,46 +2375,46 @@
     {
       "model_id": "openai-gpt-5.6-luna",
       "benchmark_id": "livebench_reasoning",
-      "value": 85.15,
+      "value": 85.64,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-luna-max)"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
       "benchmark_id": "livebench_coding",
-      "value": 62.73,
+      "value": 65.47,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-luna-max)"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
       "benchmark_id": "livebench_math",
-      "value": 86.73,
+      "value": 87.2,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-luna-max)"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
       "benchmark_id": "livebench_instruction_following",
-      "value": 58.78,
+      "value": 60.12,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-luna-max)"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -2419,57 +2441,57 @@
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "livebench_reasoning",
-      "value": 90.91,
+      "value": 91.65,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-sol-max)"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "livebench_coding",
-      "value": 69.82,
+      "value": 72.94,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-sol-max)"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "livebench_math",
-      "value": 95.83,
+      "value": 96.2,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-sol-max)"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "livebench_instruction_following",
-      "value": 69.62,
+      "value": 71.85,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-sol-max)"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1457.2,
+      "value": 1455.3,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "4113 votes; rank 26"
+      "notes": "8359 votes; rank 30"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -2496,46 +2518,46 @@
     {
       "model_id": "openai-gpt-5.6-terra",
       "benchmark_id": "livebench_reasoning",
-      "value": 87.78,
+      "value": 90.63,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-terra-max)"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
       "benchmark_id": "livebench_coding",
-      "value": 67.11,
+      "value": 72.09,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-terra-max)"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
       "benchmark_id": "livebench_math",
-      "value": 92.19,
+      "value": 94.91,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-terra-max)"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
       "benchmark_id": "livebench_instruction_following",
-      "value": 62.01,
+      "value": 64.62,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (gpt-5.6-terra-max)"
     },
     {
       "model_id": "xai-grok-4-0709",
@@ -2577,9 +2599,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "41338 votes; rank 109"
+      "notes": "41317 votes; rank 114"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -2654,9 +2676,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "44040 votes; rank 122"
+      "notes": "48239 votes; rank 127"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -2727,13 +2749,13 @@
     {
       "model_id": "xai-grok-4.5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1452.0,
+      "value": 1451.5,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5521 votes; rank 32"
+      "notes": "9998 votes; rank 35"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
@@ -2760,13 +2782,13 @@
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1413.9,
+      "value": 1414.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "61960 votes; rank 103"
+      "notes": "61733 votes; rank 108"
     },
     {
       "model_id": "moonshot-kimi-k2.5",
@@ -2782,13 +2804,13 @@
     {
       "model_id": "moonshot-kimi-k2.5",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1444.7,
+      "value": 1445.2,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "60842 votes; rank 43"
+      "notes": "64226 votes; rank 43"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -2881,13 +2903,13 @@
     {
       "model_id": "moonshot-kimi-k2.6",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1455.2,
+      "value": 1454.7,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "37497 votes; rank 28"
+      "notes": "37350 votes; rank 31"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -3024,13 +3046,13 @@
     {
       "model_id": "moonshot-kimi-k3",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1473.4,
+      "value": 1473.3,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "3026 votes; rank 12"
+      "notes": "3559 votes; rank 14"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -3079,13 +3101,13 @@
     {
       "model_id": "minimax-minimax-m3",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1436.6,
+      "value": 1436.0,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "25832 votes; rank 59"
+      "notes": "29879 votes; rank 67"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -3123,68 +3145,68 @@
     {
       "model_id": "meta-ai-muse-spark",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1472.5,
+      "value": 1473.1,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "13569 votes; rank 13"
+      "notes": "13504 votes; rank 15"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "livebench_reasoning",
-      "value": 88.06,
+      "value": 88.38,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (muse-spark-1.1-high)"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "livebench_coding",
-      "value": 66.5,
+      "value": 69.89,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (muse-spark-1.1-xhigh)"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "livebench_math",
-      "value": 87.25,
+      "value": 87.35,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (muse-spark-1.1-high)"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "livebench_instruction_following",
-      "value": 69.85,
+      "value": 70.07,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "mean of 2 published variants of this model"
+      "notes": "no plain variant published; best of 2 (muse-spark-1.1-high)"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1481.0,
+      "value": 1479.1,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5732 votes; rank 6"
+      "notes": "9941 votes; rank 11"
     },
     {
       "model_id": "alibaba-qwen3",
@@ -3226,9 +3248,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "27696 votes; rank 54"
+      "notes": "27675 votes; rank 58"
     },
     {
       "model_id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -3259,9 +3281,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8987 votes; rank 104"
+      "notes": "8983 votes; rank 109"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -3299,13 +3321,13 @@
     {
       "model_id": "alibaba-qwen3.5-flash",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1397.9,
+      "value": 1397.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "54564 votes; rank 126"
+      "notes": "57925 votes; rank 131"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -3354,13 +3376,13 @@
     {
       "model_id": "alibaba-qwen3.6",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1446.2,
+      "value": 1452.1,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5195 votes; rank 39"
+      "notes": "5159 votes; rank 43"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -3453,13 +3475,13 @@
     {
       "model_id": "alibaba-qwen3.6-plus",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1436.4,
+      "value": 1436.8,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "41967 votes; rank 61"
+      "notes": "45069 votes; rank 64"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -3541,13 +3563,13 @@
     {
       "model_id": "alibaba-qwen3.7",
       "benchmark_id": "lmarena_text_overall",
-      "value": 1475.6,
+      "value": 1479.5,
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-16",
+      "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "3717 votes; rank 10"
+      "notes": "3697 votes; rank 10"
     }
   ]
 }

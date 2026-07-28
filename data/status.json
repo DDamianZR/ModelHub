@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T03:35:21+00:00",
+  "generated_at": "2026-07-28T03:59:19+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -18,26 +18,28 @@
       "error": null
     }
   },
-  "rejected_snapshots": [
-    {
+  "snapshot_ages": {
+    "epoch": {
       "date": "2026-07-27",
-      "ratio": 2.97,
-      "config": "text"
+      "age_days": 0,
+      "freshness": "fresh"
     },
-    {
-      "date": "2026-07-26",
-      "ratio": 2.96,
-      "config": "text"
+    "livebench": {
+      "date": "2026-06-25",
+      "age_days": 32,
+      "freshness": "degraded",
+      "category": "instruction_following"
     },
-    {
-      "date": "2026-07-21",
-      "ratio": 2.94,
-      "config": "text"
-    },
-    {
-      "date": "2026-07-20",
-      "ratio": 2.93,
-      "config": "text"
+    "lmarena": {
+      "date": "2026-07-27",
+      "age_days": 0,
+      "freshness": "fresh",
+      "category": "human_preference"
     }
-  ]
+  },
+  "thresholds": {
+    "snapshot_warn_days": 7,
+    "snapshot_degraded_days": 14
+  },
+  "rejected_snapshots": []
 }

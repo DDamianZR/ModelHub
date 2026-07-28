@@ -1323,7 +1323,8 @@
           "measured_at": "2026-06-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 68.3
+          "value": 68.3,
+          "variant": "claude-fable-5_xhigh"
         }
       ],
       "claude-haiku-4-5": [
@@ -1333,7 +1334,8 @@
           "measured_at": "2025-10-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 71.21
+          "value": 71.21,
+          "variant": "claude-haiku-4-5-20251001_32K"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -1341,7 +1343,8 @@
           "measured_at": "2025-10-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 60.48
+          "value": 60.48,
+          "variant": "claude-haiku-4-5-20251001"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1349,7 +1352,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 5.9
+          "value": 5.9,
+          "variant": "claude-haiku-4-5-20251001_32K"
         },
         {
           "benchmark_id": "math_level_5",
@@ -1357,7 +1361,8 @@
           "measured_at": "2025-10-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 96.36
+          "value": 96.36,
+          "variant": "claude-haiku-4-5-20251001_32K"
         },
         {
           "benchmark_id": "math_level_5",
@@ -1365,7 +1370,8 @@
           "measured_at": "2025-10-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 86.91
+          "value": 86.91,
+          "variant": "claude-haiku-4-5-20251001"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1373,7 +1379,8 @@
           "measured_at": "2025-10-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 5.9
+          "value": 5.9,
+          "variant": "claude-haiku-4-5-20251001_32K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1381,7 +1388,8 @@
           "measured_at": "2025-10-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 4.14
+          "value": 4.14,
+          "variant": "claude-haiku-4-5-20251001"
         }
       ],
       "claude-opus-4-1": [
@@ -1391,7 +1399,8 @@
           "measured_at": "2025-08-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.23
+          "value": 73.23,
+          "variant": "claude-opus-4-1-20250805"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1399,7 +1408,8 @@
           "measured_at": "2025-08-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 5.86
+          "value": 5.86,
+          "variant": "claude-opus-4-1-20250805"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1407,7 +1417,8 @@
           "measured_at": "2026-02-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.35
+          "value": 73.35,
+          "variant": "claude-opus-4-1-20250805"
         }
       ],
       "claude-opus-4-1-16k": [
@@ -1417,7 +1428,8 @@
           "measured_at": "2025-08-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 77.27
+          "value": 77.27,
+          "variant": "claude-opus-4-1-20250805_16K"
         }
       ],
       "claude-opus-4-1-27k": [
@@ -1427,7 +1439,8 @@
           "measured_at": "2025-08-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 76.77
+          "value": 76.77,
+          "variant": "claude-opus-4-1-20250805_27K"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1435,7 +1448,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 34.8
+          "value": 34.8,
+          "variant": "claude-opus-4-1-20250805_27K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1443,7 +1457,8 @@
           "measured_at": "2025-08-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 7.24
+          "value": 7.24,
+          "variant": "claude-opus-4-1-20250805_27K"
         }
       ],
       "claude-opus-4-5": [
@@ -1453,7 +1468,8 @@
           "measured_at": "2025-11-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 86.05
+          "value": 86.05,
+          "variant": "claude-opus-4-5-20251101_32K"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -1461,7 +1477,8 @@
           "measured_at": "2025-11-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 80.68
+          "value": 80.68,
+          "variant": "claude-opus-4-5-20251101"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1469,7 +1486,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 41.8
+          "value": 41.8,
+          "variant": "claude-opus-4-5-20251101_32K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1477,7 +1495,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 20.69
+          "value": 20.69,
+          "variant": "claude-opus-4-5-20251101"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1485,7 +1504,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 20.69
+          "value": 20.69,
+          "variant": "claude-opus-4-5-20251101_32K"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1493,7 +1513,8 @@
           "measured_at": "2026-02-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 76.65
+          "value": 76.65,
+          "variant": "claude-opus-4-5-20251101"
         }
       ],
       "claude-opus-4-5-16k": [
@@ -1503,7 +1524,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 85.48
+          "value": 85.48,
+          "variant": "claude-opus-4-5-20251101_16K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1511,7 +1533,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 20.34
+          "value": 20.34,
+          "variant": "claude-opus-4-5-20251101_16K"
         }
       ],
       "claude-opus-4-6": [
@@ -1521,7 +1544,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 90.53
+          "value": 90.53,
+          "variant": "claude-opus-4-6_32K"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -1529,7 +1553,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 88.76
+          "value": 88.76,
+          "variant": "claude-opus-4-6_64K"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1537,7 +1562,8 @@
           "measured_at": "2026-02-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 41.04
+          "value": 41.04,
+          "variant": "claude-opus-4-6_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1545,7 +1571,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 46.49
+          "value": 46.49,
+          "variant": "claude-opus-4-6_32K"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1553,7 +1580,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 43.1
+          "value": 43.1,
+          "variant": "claude-opus-4-6"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1561,7 +1589,8 @@
           "measured_at": "2026-02-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 40.7
+          "value": 40.7,
+          "variant": "claude-opus-4-6_max"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1569,7 +1598,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 39.66
+          "value": 39.66,
+          "variant": "claude-opus-4-6_64K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1577,7 +1607,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 40.0
+          "value": 40.0,
+          "variant": "claude-opus-4-6_32K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1585,7 +1616,8 @@
           "measured_at": "2026-02-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.28
+          "value": 38.28,
+          "variant": "claude-opus-4-6"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1593,7 +1625,8 @@
           "measured_at": "2026-02-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 78.72
+          "value": 78.72,
+          "variant": "claude-opus-4-6"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1601,7 +1634,8 @@
           "measured_at": "2026-02-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.62
+          "value": 75.62,
+          "variant": "claude-opus-4-6"
         }
       ],
       "claude-opus-4-7": [
@@ -1611,7 +1645,8 @@
           "measured_at": "2026-04-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 90.15
+          "value": 90.15,
+          "variant": "claude-opus-4-7_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1619,7 +1654,8 @@
           "measured_at": "2026-04-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 50.6
+          "value": 50.6,
+          "variant": "claude-opus-4-7_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1627,7 +1663,8 @@
           "measured_at": "2026-04-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 43.79
+          "value": 43.79,
+          "variant": "claude-opus-4-7_xhigh"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1635,7 +1672,8 @@
           "measured_at": "2026-04-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.47
+          "value": 83.47,
+          "variant": "claude-opus-4-7_max"
         }
       ],
       "claude-opus-4-8": [
@@ -1645,7 +1683,8 @@
           "measured_at": "2026-06-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 91.04
+          "value": 91.04,
+          "variant": "claude-opus-4-8_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1653,7 +1692,8 @@
           "measured_at": "2026-05-29",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 39.5
+          "value": 39.5,
+          "variant": "claude-opus-4-8_max"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1661,7 +1701,8 @@
           "measured_at": "2026-06-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 47.24
+          "value": 47.24,
+          "variant": "claude-opus-4-8_max"
         }
       ],
       "claude-opus-5": [
@@ -1671,7 +1712,8 @@
           "measured_at": "2026-07-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.88
+          "value": 93.88,
+          "variant": "claude-opus-5_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1679,7 +1721,8 @@
           "measured_at": "2026-07-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 56.7
+          "value": 56.7,
+          "variant": "claude-opus-5_max"
         }
       ],
       "claude-sonnet-4-5": [
@@ -1689,7 +1732,8 @@
           "measured_at": "2025-10-21",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 81.73
+          "value": 81.73,
+          "variant": "claude-sonnet-4-5-20250929_32K"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -1697,7 +1741,8 @@
           "measured_at": "2025-09-29",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.74
+          "value": 73.74,
+          "variant": "claude-sonnet-4-5-20250929"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1705,7 +1750,8 @@
           "measured_at": "2025-12-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 13.0
+          "value": 13.0,
+          "variant": "claude-sonnet-4-5-20250929"
         },
         {
           "benchmark_id": "math_level_5",
@@ -1713,7 +1759,8 @@
           "measured_at": "2025-10-21",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 97.73
+          "value": 97.73,
+          "variant": "claude-sonnet-4-5-20250929_32K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1721,7 +1768,8 @@
           "measured_at": "2025-11-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 9.31
+          "value": 9.31,
+          "variant": "claude-sonnet-4-5-20250929"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1729,7 +1777,8 @@
           "measured_at": "2025-11-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 15.22
+          "value": 15.22,
+          "variant": "claude-sonnet-4-5-20250929_32K"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1737,7 +1786,8 @@
           "measured_at": "2026-02-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 71.28
+          "value": 71.28,
+          "variant": "claude-sonnet-4-5-20250929"
         }
       ],
       "claude-sonnet-4-5-16k": [
@@ -1747,7 +1797,8 @@
           "measured_at": "2025-10-28",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 78.79
+          "value": 78.79,
+          "variant": "claude-sonnet-4-5-20250929_16K"
         }
       ],
       "claude-sonnet-4-5-59k": [
@@ -1757,7 +1808,8 @@
           "measured_at": "2025-10-28",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 82.32
+          "value": 82.32,
+          "variant": "claude-sonnet-4-5-20250929_59K"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1765,7 +1817,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 23.6
+          "value": 23.6,
+          "variant": "claude-sonnet-4-5-20250929_59K"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1773,7 +1826,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 13.49
+          "value": 13.49,
+          "variant": "claude-sonnet-4-5-20250929_59K"
         }
       ],
       "claude-sonnet-4-6": [
@@ -1783,7 +1837,8 @@
           "measured_at": "2026-02-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.37
+          "value": 87.37,
+          "variant": "claude-sonnet-4-6_32K"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1791,7 +1846,8 @@
           "measured_at": "2026-02-21",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 29.0
+          "value": 29.0,
+          "variant": "claude-sonnet-4-6_32K"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1799,7 +1855,8 @@
           "measured_at": "2026-02-21",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.21
+          "value": 75.21,
+          "variant": "claude-sonnet-4-6"
         }
       ],
       "claude-sonnet-4-6-16k": [
@@ -1809,7 +1866,8 @@
           "measured_at": "2026-02-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 32.4
+          "value": 32.4,
+          "variant": "claude-sonnet-4-6_16K"
         }
       ],
       "claude-sonnet-5": [
@@ -1819,7 +1877,8 @@
           "measured_at": "2026-07-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 90.53
+          "value": 90.53,
+          "variant": "claude-sonnet-5_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1827,7 +1886,8 @@
           "measured_at": "2026-07-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 25.0
+          "value": 25.0,
+          "variant": "claude-sonnet-5_xhigh"
         }
       ],
       "deepseek-reasoner": [
@@ -1837,7 +1897,8 @@
           "measured_at": "2025-12-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.42
+          "value": 83.42,
+          "variant": "deepseek-reasoner"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1845,7 +1906,8 @@
           "measured_at": "2025-12-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 27.5
+          "value": 27.5,
+          "variant": "deepseek-reasoner"
         }
       ],
       "deepseek-v4-pro": [
@@ -1855,7 +1917,8 @@
           "measured_at": "2026-06-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 89.65
+          "value": 89.65,
+          "variant": "deepseek-v4-pro_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1863,7 +1926,8 @@
           "measured_at": "2026-06-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 57.0
+          "value": 57.0,
+          "variant": "deepseek-v4-pro_max"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1871,7 +1935,8 @@
           "measured_at": "2026-06-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 77.64
+          "value": 77.64,
+          "variant": "deepseek-v4-pro_max"
         }
       ],
       "fireworks/deepseek-v3p2": [
@@ -1881,7 +1946,8 @@
           "measured_at": "2025-12-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 22.1
+          "value": 22.1,
+          "variant": "fireworks/deepseek-v3p2"
         }
       ],
       "fireworks/kimi-k2p5": [
@@ -1891,7 +1957,8 @@
           "measured_at": "2026-02-02",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.6
+          "value": 87.6,
+          "variant": "fireworks/kimi-k2p5"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1899,7 +1966,8 @@
           "measured_at": "2026-01-28",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 33.9
+          "value": 33.9,
+          "variant": "fireworks/kimi-k2p5"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1907,7 +1975,8 @@
           "measured_at": "2026-02-03",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 27.9
+          "value": 27.9,
+          "variant": "fireworks/kimi-k2p5"
         }
       ],
       "gemini-2.5-deep-think-webapp": [
@@ -1917,7 +1986,8 @@
           "measured_at": null,
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 29.0
+          "value": 29.0,
+          "variant": "gemini-2.5-deep-think-2025-08-01-webapp"
         }
       ],
       "gemini-2.5-flash": [
@@ -1927,7 +1997,8 @@
           "measured_at": "2025-12-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 4.84
+          "value": 4.84,
+          "variant": "gemini-2.5-flash"
         }
       ],
       "gemini-2.5-pro": [
@@ -1937,7 +2008,8 @@
           "measured_at": "2025-11-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 85.29
+          "value": 85.29,
+          "variant": "gemini-2.5-pro"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1945,7 +2017,8 @@
           "measured_at": "2025-12-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 56.0
+          "value": 56.0,
+          "variant": "gemini-2.5-pro"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1953,7 +2026,8 @@
           "measured_at": "2025-11-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 14.14
+          "value": 14.14,
+          "variant": "gemini-2.5-pro"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -1961,7 +2035,8 @@
           "measured_at": "2026-02-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 57.56
+          "value": 57.56,
+          "variant": "gemini-2.5-pro"
         }
       ],
       "gemini-2.5-pro-preview-06-05": [
@@ -1971,7 +2046,8 @@
           "measured_at": "2025-06-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 84.85
+          "value": 84.85,
+          "variant": "gemini-2.5-pro-preview-06-05"
         },
         {
           "benchmark_id": "frontiermath",
@@ -1979,7 +2055,8 @@
           "measured_at": "2025-07-03",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 10.34
+          "value": 10.34,
+          "variant": "gemini-2.5-pro-preview-06-05"
         }
       ],
       "gemini-3-flash": [
@@ -1989,7 +2066,8 @@
           "measured_at": "2025-12-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.21
+          "value": 83.21,
+          "variant": "gemini-3-flash-preview"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -1997,7 +2075,8 @@
           "measured_at": "2025-12-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 67.4
+          "value": 67.4,
+          "variant": "gemini-3-flash-preview"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2005,7 +2084,8 @@
           "measured_at": "2025-12-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 35.64
+          "value": 35.64,
+          "variant": "gemini-3-flash-preview"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2013,7 +2093,8 @@
           "measured_at": "2026-02-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.41
+          "value": 75.41,
+          "variant": "gemini-3-flash-preview"
         }
       ],
       "gemini-3-pro": [
@@ -2023,7 +2104,8 @@
           "measured_at": "2025-11-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 92.61
+          "value": 92.61,
+          "variant": "gemini-3-pro-preview"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2031,7 +2113,8 @@
           "measured_at": "2025-12-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 72.9
+          "value": 72.9,
+          "variant": "gemini-3-pro-preview"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2039,7 +2122,8 @@
           "measured_at": "2025-11-21",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 37.6
+          "value": 37.6,
+          "variant": "gemini-3-pro-preview"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2047,7 +2131,8 @@
           "measured_at": "2026-02-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 72.93
+          "value": 72.93,
+          "variant": "gemini-3-pro-preview"
         }
       ],
       "gemini-3.1-pro": [
@@ -2057,7 +2142,8 @@
           "measured_at": "2026-02-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 94.1
+          "value": 94.1,
+          "variant": "gemini-3.1-pro-preview"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2065,7 +2151,8 @@
           "measured_at": "2026-02-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 77.3
+          "value": 77.3,
+          "variant": "gemini-3.1-pro-preview"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2073,7 +2160,8 @@
           "measured_at": "2026-02-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 36.9
+          "value": 36.9,
+          "variant": "gemini-3.1-pro-preview"
         }
       ],
       "gemini-3.1-pro-preview-customtools": [
@@ -2083,7 +2171,8 @@
           "measured_at": "2026-02-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.62
+          "value": 75.62,
+          "variant": "gemini-3.1-pro-preview-customtools"
         }
       ],
       "gemini-3.5-flash": [
@@ -2093,7 +2182,8 @@
           "measured_at": "2026-05-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 92.8
+          "value": 92.8,
+          "variant": "gemini-3.5-flash_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2101,7 +2191,8 @@
           "measured_at": "2026-05-27",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 68.4
+          "value": 68.4,
+          "variant": "gemini-3.5-flash_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2109,7 +2200,8 @@
           "measured_at": "2026-05-22",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.97
+          "value": 38.97,
+          "variant": "gemini-3.5-flash_high"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2117,7 +2209,8 @@
           "measured_at": "2026-06-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 79.34
+          "value": 79.34,
+          "variant": "gemini-3.5-flash_high"
         }
       ],
       "gemma-4-31b": [
@@ -2127,7 +2220,8 @@
           "measured_at": "2026-04-04",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 9.56
+          "value": 9.56,
+          "variant": "gemma-4-31b-it"
         }
       ],
       "glm-4.7": [
@@ -2137,7 +2231,8 @@
           "measured_at": "2026-01-29",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.33
+          "value": 83.33,
+          "variant": "glm-4.7"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2145,7 +2240,8 @@
           "measured_at": "2026-01-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 31.5
+          "value": 31.5,
+          "variant": "glm-4.7"
         }
       ],
       "glm-5": [
@@ -2155,7 +2251,8 @@
           "measured_at": "2026-02-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.82
+          "value": 87.82,
+          "variant": "glm-5"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2163,7 +2260,8 @@
           "measured_at": "2026-02-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 16.43
+          "value": 16.43,
+          "variant": "glm-5"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2171,7 +2269,8 @@
           "measured_at": "2026-02-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 72.08
+          "value": 72.08,
+          "variant": "glm-5"
         }
       ],
       "glm-5.1": [
@@ -2181,7 +2280,8 @@
           "measured_at": "2026-05-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 85.48
+          "value": 85.48,
+          "variant": "glm-5.1"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2189,7 +2289,8 @@
           "measured_at": "2026-05-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 37.29
+          "value": 37.29,
+          "variant": "glm-5.1"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2197,7 +2298,8 @@
           "measured_at": "2026-05-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 33.45
+          "value": 33.45,
+          "variant": "glm-5.1"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2205,7 +2307,8 @@
           "measured_at": "2026-05-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 74.17
+          "value": 74.17,
+          "variant": "glm-5.1"
         }
       ],
       "glm-5.2": [
@@ -2215,7 +2318,8 @@
           "measured_at": "2026-06-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 91.86
+          "value": 91.86,
+          "variant": "glm-5.2_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2223,7 +2327,8 @@
           "measured_at": "2026-06-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.1
+          "value": 38.1,
+          "variant": "glm-5.2_max"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2231,7 +2336,8 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 78.7
+          "value": 78.7,
+          "variant": "glm-5.2_max"
         }
       ],
       "gpt-5": [
@@ -2241,7 +2347,8 @@
           "measured_at": "2025-10-29",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 86.17
+          "value": 86.17,
+          "variant": "gpt-5-2025-08-07_high"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2249,7 +2356,8 @@
           "measured_at": "2025-08-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 85.35
+          "value": 85.35,
+          "variant": "gpt-5-2025-08-07_medium"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2257,7 +2365,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 50.6
+          "value": 50.6,
+          "variant": "gpt-5-2025-08-07_high"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2265,7 +2374,8 @@
           "measured_at": "2025-10-29",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 98.13
+          "value": 98.13,
+          "variant": "gpt-5-2025-08-07_high"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2273,7 +2383,8 @@
           "measured_at": "2025-08-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 97.92
+          "value": 97.92,
+          "variant": "gpt-5-2025-08-07_medium"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2281,7 +2392,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 32.41
+          "value": 32.41,
+          "variant": "gpt-5-2025-08-07_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2289,7 +2401,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 27.24
+          "value": 27.24,
+          "variant": "gpt-5-2025-08-07_medium"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2297,7 +2410,8 @@
           "measured_at": "2026-02-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.55
+          "value": 73.55,
+          "variant": "gpt-5-2025-08-07_high"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2305,7 +2419,8 @@
           "measured_at": "2026-02-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 71.49
+          "value": 71.49,
+          "variant": "gpt-5-2025-08-07_medium"
         }
       ],
       "gpt-5-mini": [
@@ -2315,7 +2430,8 @@
           "measured_at": "2025-10-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.0
+          "value": 75.0,
+          "variant": "gpt-5-mini-2025-08-07_high"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2323,7 +2439,8 @@
           "measured_at": "2025-08-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 71.65
+          "value": 71.65,
+          "variant": "gpt-5-mini-2025-08-07_medium"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2331,7 +2448,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 21.0
+          "value": 21.0,
+          "variant": "gpt-5-mini-2025-08-07_high"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2339,7 +2457,8 @@
           "measured_at": "2025-10-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 97.85
+          "value": 97.85,
+          "variant": "gpt-5-mini-2025-08-07_high"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2347,7 +2466,8 @@
           "measured_at": "2025-08-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 96.79
+          "value": 96.79,
+          "variant": "gpt-5-mini-2025-08-07_medium"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2355,7 +2475,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 27.24
+          "value": 27.24,
+          "variant": "gpt-5-mini-2025-08-07_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2363,7 +2484,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 20.34
+          "value": 20.34,
+          "variant": "gpt-5-mini-2025-08-07_medium"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2371,7 +2493,8 @@
           "measured_at": "2026-02-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 64.67
+          "value": 64.67,
+          "variant": "gpt-5-mini-2025-08-07_medium"
         }
       ],
       "gpt-5-nano": [
@@ -2381,7 +2504,8 @@
           "measured_at": "2025-10-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 69.44
+          "value": 69.44,
+          "variant": "gpt-5-nano-2025-08-07_high"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2389,7 +2513,8 @@
           "measured_at": "2025-08-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 67.42
+          "value": 67.42,
+          "variant": "gpt-5-nano-2025-08-07_medium"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2397,7 +2522,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 12.2
+          "value": 12.2,
+          "variant": "gpt-5-nano-2025-08-07_high"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2405,7 +2531,8 @@
           "measured_at": "2025-08-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 95.24
+          "value": 95.24,
+          "variant": "gpt-5-nano-2025-08-07_medium"
         },
         {
           "benchmark_id": "math_level_5",
@@ -2413,7 +2540,8 @@
           "measured_at": "2025-08-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 94.9
+          "value": 94.9,
+          "variant": "gpt-5-nano-2025-08-07_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2421,7 +2549,8 @@
           "measured_at": "2025-10-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 8.28
+          "value": 8.28,
+          "variant": "gpt-5-nano-2025-08-07_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2429,7 +2558,8 @@
           "measured_at": "2025-08-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 7.24
+          "value": 7.24,
+          "variant": "gpt-5-nano-2025-08-07_medium"
         }
       ],
       "gpt-5.1": [
@@ -2439,7 +2569,8 @@
           "measured_at": "2025-11-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 85.04
+          "value": 85.04,
+          "variant": "gpt-5.1-2025-11-13_medium"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2447,7 +2578,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.63
+          "value": 87.63,
+          "variant": "gpt-5.1-2025-11-13_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2455,7 +2587,8 @@
           "measured_at": "2025-12-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 48.9
+          "value": 48.9,
+          "variant": "gpt-5.1-2025-11-13_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2463,7 +2596,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 2.1
+          "value": 2.1,
+          "variant": "gpt-5.1-2025-11-13_none"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2471,7 +2605,8 @@
           "measured_at": "2025-11-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 17.3
+          "value": 17.3,
+          "variant": "gpt-5.1-2025-11-13_low"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2479,7 +2614,8 @@
           "measured_at": "2025-11-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 26.9
+          "value": 26.9,
+          "variant": "gpt-5.1-2025-11-13_medium"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2487,7 +2623,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 31.03
+          "value": 31.03,
+          "variant": "gpt-5.1-2025-11-13_high"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2495,7 +2632,8 @@
           "measured_at": "2026-02-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 67.98
+          "value": 67.98,
+          "variant": "gpt-5.1-2025-11-13_high"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2503,7 +2641,8 @@
           "measured_at": "2026-02-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 65.91
+          "value": 65.91,
+          "variant": "gpt-5.1-2025-11-13_high"
         }
       ],
       "gpt-5.2": [
@@ -2513,7 +2652,8 @@
           "measured_at": "2025-12-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 91.4
+          "value": 91.4,
+          "variant": "gpt-5.2-2025-12-11_xhigh"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2521,7 +2661,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 88.19
+          "value": 88.19,
+          "variant": "gpt-5.2-2025-12-11_high"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2529,7 +2670,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.88
+          "value": 87.88,
+          "variant": "gpt-5.2-2025-12-11_medium"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2537,7 +2679,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 82.7
+          "value": 82.7,
+          "variant": "gpt-5.2-2025-12-11_low"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2545,7 +2688,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 35.4
+          "value": 35.4,
+          "variant": "gpt-5.2-2025-12-11_medium"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2553,7 +2697,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.2
+          "value": 38.2,
+          "variant": "gpt-5.2-2025-12-11_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2561,7 +2706,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.9
+          "value": 38.9,
+          "variant": "gpt-5.2-2025-12-11_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2569,7 +2715,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 34.7
+          "value": 34.7,
+          "variant": "gpt-5.2-2025-12-11_low"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2577,7 +2724,8 @@
           "measured_at": "2025-12-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 40.7
+          "value": 40.7,
+          "variant": "gpt-5.2-2025-12-11_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2585,7 +2733,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 40.34
+          "value": 40.34,
+          "variant": "gpt-5.2-2025-12-11_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2593,7 +2742,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 36.9
+          "value": 36.9,
+          "variant": "gpt-5.2-2025-12-11_medium"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2601,7 +2751,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 26.55
+          "value": 26.55,
+          "variant": "gpt-5.2-2025-12-11_low"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2609,7 +2760,8 @@
           "measured_at": "2026-02-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.76
+          "value": 73.76,
+          "variant": "gpt-5.2-2025-12-11_high"
         }
       ],
       "gpt-5.3-codex": [
@@ -2619,7 +2771,8 @@
           "measured_at": "2026-02-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 74.79
+          "value": 74.79,
+          "variant": "gpt-5.3-codex_high"
         }
       ],
       "gpt-5.4": [
@@ -2629,7 +2782,8 @@
           "measured_at": "2026-03-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.3
+          "value": 93.3,
+          "variant": "gpt-5.4-2026-03-05_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2637,7 +2791,8 @@
           "measured_at": "2026-03-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 44.83
+          "value": 44.83,
+          "variant": "gpt-5.4-2026-03-05_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2645,7 +2800,8 @@
           "measured_at": "2026-03-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 47.6
+          "value": 47.6,
+          "variant": "gpt-5.4-2026-03-05_xhigh"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2653,7 +2809,8 @@
           "measured_at": "2026-03-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 76.86
+          "value": 76.86,
+          "variant": "gpt-5.4-2026-03-05_high"
         }
       ],
       "gpt-5.4-mini": [
@@ -2663,7 +2820,8 @@
           "measured_at": "2026-04-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.59
+          "value": 83.59,
+          "variant": "gpt-5.4-mini-2026-03-17_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2671,7 +2829,8 @@
           "measured_at": "2026-04-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 28.6
+          "value": 28.6,
+          "variant": "gpt-5.4-mini-2026-03-17_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2679,7 +2838,8 @@
           "measured_at": "2026-04-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 28.28
+          "value": 28.28,
+          "variant": "gpt-5.4-mini-2026-03-17_high"
         }
       ],
       "gpt-5.4-nano": [
@@ -2689,7 +2849,8 @@
           "measured_at": "2026-04-14",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 78.47
+          "value": 78.47,
+          "variant": "gpt-5.4-nano-2026-03-17_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2697,7 +2858,8 @@
           "measured_at": "2026-04-14",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 12.0
+          "value": 12.0,
+          "variant": "gpt-5.4-nano-2026-03-17_high"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2705,7 +2867,8 @@
           "measured_at": "2026-04-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 25.86
+          "value": 25.86,
+          "variant": "gpt-5.4-nano-2026-03-17_high"
         }
       ],
       "gpt-5.4-pro": [
@@ -2715,7 +2878,8 @@
           "measured_at": "2026-03-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 94.6
+          "value": 94.6,
+          "variant": "gpt-5.4-pro-2026-03-05_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2723,7 +2887,8 @@
           "measured_at": "2026-03-19",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 47.8
+          "value": 47.8,
+          "variant": "gpt-5.4-pro-2026-03-05_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2731,7 +2896,8 @@
           "measured_at": "2026-03-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 50.0
+          "value": 50.0,
+          "variant": "gpt-5.4-pro-2026-03-05_xhigh"
         }
       ],
       "gpt-5.5": [
@@ -2741,7 +2907,8 @@
           "measured_at": "2026-05-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 90.66
+          "value": 90.66,
+          "variant": "gpt-5.5_low"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -2749,7 +2916,8 @@
           "measured_at": "2026-04-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 94.0
+          "value": 94.0,
+          "variant": "gpt-5.5-pre-release_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2757,7 +2925,8 @@
           "measured_at": "2026-04-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 63.1
+          "value": 63.1,
+          "variant": "gpt-5.5-pre-release_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2765,7 +2934,8 @@
           "measured_at": "2026-04-23",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 51.7
+          "value": 51.7,
+          "variant": "gpt-5.5-pre-release_xhigh"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -2773,7 +2943,8 @@
           "measured_at": "2026-04-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 80.58
+          "value": 80.58,
+          "variant": "gpt-5.5-pre-release_xhigh"
         }
       ],
       "gpt-5.5-pro": [
@@ -2783,7 +2954,8 @@
           "measured_at": "2026-04-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.92
+          "value": 93.92,
+          "variant": "gpt-5.5-pro-pre-release_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2791,7 +2963,8 @@
           "measured_at": "2026-04-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 64.5
+          "value": 64.5,
+          "variant": "gpt-5.5-pro-pre-release_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2799,7 +2972,8 @@
           "measured_at": "2026-04-23",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 51.0
+          "value": 51.0,
+          "variant": "gpt-5.5-pro-pre-release_xhigh"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2807,7 +2981,8 @@
           "measured_at": "2026-04-23",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 52.4
+          "value": 52.4,
+          "variant": "gpt-5.5-pro-pre-release_high"
         }
       ],
       "gpt-5.6-luna": [
@@ -2817,7 +2992,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 91.6
+          "value": 91.6,
+          "variant": "gpt-5.6-luna_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2825,7 +3001,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 41.7
+          "value": 41.7,
+          "variant": "gpt-5.6-luna_max"
         }
       ],
       "gpt-5.6-sol": [
@@ -2835,7 +3012,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.5
+          "value": 93.5,
+          "variant": "gpt-5.6-sol_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2843,7 +3021,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 71.6
+          "value": 71.6,
+          "variant": "gpt-5.6-sol_max"
         }
       ],
       "gpt-5.6-terra": [
@@ -2853,7 +3032,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.31
+          "value": 93.31,
+          "variant": "gpt-5.6-terra_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2861,7 +3041,8 @@
           "measured_at": "2026-07-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 43.1
+          "value": 43.1,
+          "variant": "gpt-5.6-terra_max"
         }
       ],
       "grok-4-0709": [
@@ -2871,7 +3052,8 @@
           "measured_at": null,
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.0
+          "value": 87.0,
+          "variant": "grok-4-0709"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2879,7 +3061,8 @@
           "measured_at": "2025-12-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 47.9
+          "value": 47.9,
+          "variant": "grok-4-0709"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2887,7 +3070,8 @@
           "measured_at": "2025-11-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 19.66
+          "value": 19.66,
+          "variant": "grok-4-0709"
         }
       ],
       "grok-4.20-0309": [
@@ -2897,7 +3081,8 @@
           "measured_at": "2026-07-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 89.33
+          "value": 89.33,
+          "variant": "grok-4.20-0309-reasoning"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2905,7 +3090,8 @@
           "measured_at": "2026-07-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 35.1
+          "value": 35.1,
+          "variant": "grok-4.20-0309-reasoning"
         }
       ],
       "grok-4.3": [
@@ -2915,7 +3101,8 @@
           "measured_at": "2026-06-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 88.83
+          "value": 88.83,
+          "variant": "grok-4.3_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2923,7 +3110,8 @@
           "measured_at": "2026-06-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.0
+          "value": 38.0,
+          "variant": "grok-4.3_high"
         }
       ],
       "grok-4.5": [
@@ -2933,7 +3121,8 @@
           "measured_at": "2026-07-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.43
+          "value": 93.43,
+          "variant": "grok-4.5_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2941,7 +3130,8 @@
           "measured_at": "2026-07-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 53.5
+          "value": 53.5,
+          "variant": "grok-4.5_high"
         }
       ],
       "kimi-k2-thinking-turbo": [
@@ -2951,7 +3141,8 @@
           "measured_at": "2025-11-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 84.22
+          "value": 84.22,
+          "variant": "kimi-k2-thinking-turbo"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2959,7 +3150,8 @@
           "measured_at": "2025-12-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 31.6
+          "value": 31.6,
+          "variant": "kimi-k2-thinking-turbo"
         }
       ],
       "kimi-k2.5": [
@@ -2969,7 +3161,8 @@
           "measured_at": "2026-02-17",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 73.76
+          "value": 73.76,
+          "variant": "kimi-k2.5"
         }
       ],
       "kimi-k2.6": [
@@ -2979,7 +3172,8 @@
           "measured_at": "2026-05-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 90.78
+          "value": 90.78,
+          "variant": "kimi-k2.6"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -2987,7 +3181,8 @@
           "measured_at": "2026-05-01",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.7
+          "value": 38.7,
+          "variant": "kimi-k2.6"
         },
         {
           "benchmark_id": "frontiermath",
@@ -2995,7 +3190,8 @@
           "measured_at": "2026-05-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 38.97
+          "value": 38.97,
+          "variant": "kimi-k2.6"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -3003,7 +3199,8 @@
           "measured_at": "2026-05-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 76.65
+          "value": 76.65,
+          "variant": "kimi-k2.6"
         }
       ],
       "kimi-k2.7-code": [
@@ -3013,7 +3210,8 @@
           "measured_at": "2026-06-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 89.52
+          "value": 89.52,
+          "variant": "kimi-k2.7-code"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3021,7 +3219,8 @@
           "measured_at": "2026-06-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 39.2
+          "value": 39.2,
+          "variant": "kimi-k2.7-code"
         }
       ],
       "kimi-k3": [
@@ -3031,7 +3230,8 @@
           "measured_at": "2026-07-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 93.12
+          "value": 93.12,
+          "variant": "kimi-k3_max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3039,7 +3239,8 @@
           "measured_at": "2026-07-16",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 42.7
+          "value": 42.7,
+          "variant": "kimi-k3_max"
         }
       ],
       "magistral-small-2506": [
@@ -3049,7 +3250,8 @@
           "measured_at": "2025-06-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 48.42
+          "value": 48.42,
+          "variant": "magistral-small-2506"
         }
       ],
       "moonshotai/kimi-k2": [
@@ -3059,7 +3261,8 @@
           "measured_at": "2025-12-05",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 21.4
+          "value": 21.4,
+          "variant": "moonshotai/Kimi-K2-Thinking"
         }
       ],
       "muse-spark": [
@@ -3069,7 +3272,8 @@
           "measured_at": "2026-04-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 89.8
+          "value": 89.8,
+          "variant": "muse-spark"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3077,7 +3281,8 @@
           "measured_at": "2026-04-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 66.3
+          "value": 66.3,
+          "variant": "muse-spark"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3085,7 +3290,8 @@
           "measured_at": "2026-04-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 39.0
+          "value": 39.0,
+          "variant": "muse-spark"
         }
       ],
       "openai/gpt-oss-120b": [
@@ -3095,7 +3301,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 75.76
+          "value": 75.76,
+          "variant": "openai/gpt-oss-120b_high"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3103,7 +3310,8 @@
           "measured_at": "2025-12-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 13.9
+          "value": 13.9,
+          "variant": "openai/gpt-oss-120b_high"
         }
       ],
       "qwen/qwen3-235b-a22b-thinking-2507": [
@@ -3113,7 +3321,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 8.48
+          "value": 8.48,
+          "variant": "Qwen/Qwen3-235B-A22B-Thinking-2507"
         }
       ],
       "qwen3": [
@@ -3123,7 +3332,8 @@
           "measured_at": "2025-10-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 72.6
+          "value": 72.6,
+          "variant": "qwen3-max-2025-09-23"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3131,7 +3341,8 @@
           "measured_at": "2025-12-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 67.47
+          "value": 67.47,
+          "variant": "qwen3-max-2025-09-23"
         },
         {
           "benchmark_id": "math_level_5",
@@ -3139,7 +3350,8 @@
           "measured_at": "2025-10-09",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 97.13
+          "value": 97.13,
+          "variant": "qwen3-max-2025-09-23"
         }
       ],
       "qwen3-235b-a22b-thinking-2507": [
@@ -3149,7 +3361,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 80.05
+          "value": 80.05,
+          "variant": "Qwen3-235B-A22B-Thinking-2507"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3157,7 +3370,8 @@
           "measured_at": "2025-12-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 50.1
+          "value": 50.1,
+          "variant": "Qwen3-235B-A22B-Thinking-2507"
         }
       ],
       "qwen3.5-flash": [
@@ -3167,7 +3381,8 @@
           "measured_at": "2026-05-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 83.84
+          "value": 83.84,
+          "variant": "qwen3.5-flash"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3175,7 +3390,8 @@
           "measured_at": "2026-05-11",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 19.76
+          "value": 19.76,
+          "variant": "qwen3.5-flash"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3183,7 +3399,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 6.21
+          "value": 6.21,
+          "variant": "qwen3.5-flash"
         }
       ],
       "qwen3.5-plus": [
@@ -3193,7 +3410,8 @@
           "measured_at": "2026-05-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 84.15
+          "value": 84.15,
+          "variant": "qwen3.5-plus"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3201,7 +3419,8 @@
           "measured_at": "2026-05-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 26.0
+          "value": 26.0,
+          "variant": "qwen3.5-plus"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3209,7 +3428,8 @@
           "measured_at": "2026-05-14",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 21.03
+          "value": 21.03,
+          "variant": "qwen3.5-plus"
         }
       ],
       "qwen3.6": [
@@ -3219,7 +3439,8 @@
           "measured_at": "2026-05-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 89.08
+          "value": 89.08,
+          "variant": "qwen3.6-max-preview"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3227,7 +3448,8 @@
           "measured_at": "2026-05-15",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 56.93
+          "value": 56.93,
+          "variant": "qwen3.6-max-preview"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3235,7 +3457,8 @@
           "measured_at": "2026-05-27",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 23.1
+          "value": 23.1,
+          "variant": "qwen3.6-max-preview"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -3243,7 +3466,8 @@
           "measured_at": "2026-05-28",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 76.65
+          "value": 76.65,
+          "variant": "qwen3.6-max-preview"
         }
       ],
       "qwen3.6-flash": [
@@ -3253,7 +3477,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 84.42
+          "value": 84.42,
+          "variant": "qwen3.6-flash"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3261,7 +3486,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 21.16
+          "value": 21.16,
+          "variant": "qwen3.6-flash"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3269,7 +3495,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 10.34
+          "value": 10.34,
+          "variant": "qwen3.6-flash"
         }
       ],
       "qwen3.6-plus": [
@@ -3279,7 +3506,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 87.37
+          "value": 87.37,
+          "variant": "qwen3.6-plus"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3287,7 +3515,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 49.1
+          "value": 49.1,
+          "variant": "qwen3.6-plus"
         },
         {
           "benchmark_id": "frontiermath",
@@ -3295,7 +3524,8 @@
           "measured_at": "2026-05-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 26.21
+          "value": 26.21,
+          "variant": "qwen3.6-plus"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -3303,7 +3533,8 @@
           "measured_at": "2026-05-14",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 57.85
+          "value": 57.85,
+          "variant": "qwen3.6-plus"
         }
       ],
       "qwen3.7": [
@@ -3313,7 +3544,8 @@
           "measured_at": "2026-06-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 91.6
+          "value": 91.6,
+          "variant": "qwen3.7-max"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -3321,7 +3553,8 @@
           "measured_at": "2026-06-13",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 58.52
+          "value": 58.52,
+          "variant": "qwen3.7-max"
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -3329,7 +3562,8 @@
           "measured_at": "2026-06-18",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 77.27
+          "value": 77.27,
+          "variant": "qwen3.7-max"
         }
       ],
       "zai-org/glm-4.6": [
@@ -3339,7 +3573,8 @@
           "measured_at": "2025-12-08",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 3.82
+          "value": 3.82,
+          "variant": "zai-org/GLM-4.6"
         }
       ],
       "zai-org/glm-4.7": [
@@ -3349,7 +3584,8 @@
           "measured_at": "2026-01-30",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "value": 2.44
+          "value": 2.44,
+          "variant": "zai-org/GLM-4.7"
         }
       ]
     }
