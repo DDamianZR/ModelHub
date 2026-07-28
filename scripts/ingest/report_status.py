@@ -27,7 +27,13 @@ def main() -> int:
         print(line)
 
     for rejected in payload.get("rejected_snapshots", []):
-        print(f"rejected snapshot: {rejected}")
+        if isinstance(rejected, dict):
+            print(
+                f"rejected snapshot: {rejected.get('config', '?')} "
+                f"{rejected['date']} ({rejected['ratio']}x duplicated)"
+            )
+        else:
+            print(f"rejected snapshot: {rejected}")
 
     return 0
 

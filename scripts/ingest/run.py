@@ -46,7 +46,7 @@ BENCHMARK_CATALOGUE = [
     ("livebench_instruction_following", "LiveBench IF", "instruction_following",
      "LiveBench", "third_party_benchmark", "https://livebench.ai/", None),
     ("lmarena_text_overall", "LMArena (text, overall)", "human_preference", "LMArena",
-     "human_eval", "https://arena.ai/leaderboard", None),
+     "human_eval", "https://lmarena.ai/leaderboard", None),
 ]
 
 
@@ -95,29 +95,44 @@ def load_history() -> list[dict]:
     return rows
 
 
-def merge_history(existing: list[dict], incoming: list[dict]) -> list[dict]:
+def merge_history(
+    existing: list[dict], incoming: list[dict], rejected_dates: set[str]
+) -> list[dict]:
     """Append-only time series, deduplicated on (model, benchmark, date).
 
     Re-running the ingest on the same day must be idempotent: the site is rebuilt from a
     commit, and a run that duplicated rows would corrupt every sparkline downstream.
+
+    Two separate defences against duplicated upstream snapshots, because deduplication
+    alone silently hides the problem rather than catching it:
+
+    1. Measure the duplication ratio on the RAW incoming rows, before deduplication.
+       Deduplicating first would collapse every date to one row per model, making the
+       ratio structurally 1.0 and the check unable to ever fire.
+    2. Drop any date the source itself already rejected, which also purges rows that
+       earlier runs let through.
     """
-    merged: dict[tuple[str, str, str], dict] = {}
-    for row in existing + incoming:
-        merged[(row["model_id"], row["benchmark_id"], row["date"])] = row
-
-    rows = sorted(merged.values(), key=lambda r: (r["model_id"], r["benchmark_id"], r["date"]))
-
-    # Drop any date whose row count per model betrays a duplicated upstream snapshot.
     per_date: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
-    for row in rows:
+    for row in incoming:
         per_date[row["date"]][row["model_id"]] += 1
-    bad = {
+    duplicated = {
         day for day, models in per_date.items()
         if models and sum(models.values()) / len(models) > lmarena.DUPLICATE_RATIO_LIMIT
     }
+
+    bad = duplicated | rejected_dates
     if bad:
-        print(f"  history: dropping {len(bad)} duplicated snapshot(s): {sorted(bad)}")
-    return [row for row in rows if row["date"] not in bad]
+        print(f"  history: excluding {len(bad)} suspect snapshot(s): {sorted(bad)}")
+
+    merged: dict[tuple[str, str, str], dict] = {}
+    for row in existing + incoming:
+        if row["date"] in bad:
+            continue
+        merged[(row["model_id"], row["benchmark_id"], row["date"])] = row
+
+    return sorted(
+        merged.values(), key=lambda r: (r["model_id"], r["benchmark_id"], r["date"])
+    )
 
 
 def main() -> int:
@@ -174,7 +189,9 @@ def main() -> int:
             except SourceError as exc:
                 print(f"  history: skipped {name} ({exc})")
 
-    history = merge_history(load_history(), incoming_history)
+    rejected = arena_payload.get("rejected_snapshots") or []
+    rejected_dates = {item["date"] for item in rejected if isinstance(item, dict)}
+    history = merge_history(load_history(), incoming_history, rejected_dates)
 
     for model in models:
         model.pop("arena_name", None)
@@ -223,7 +240,7 @@ def main() -> int:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "ok": True,
         "sources": statuses,
-        "rejected_snapshots": arena_payload.get("rejected_snapshots") or [],
+        "rejected_snapshots": rejected,
     })
 
     degraded = [n for n, s in statuses.items() if s["state"] != "ok"]

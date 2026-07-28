@@ -14,7 +14,7 @@ from ..common import SourceError, fetch_json, norm
 
 ENDPOINT = "https://datasets-server.huggingface.co/filter"
 DATASET = "lmarena-ai/leaderboard-dataset"
-ATTRIBUTION = "https://arena.ai/leaderboard"
+ATTRIBUTION = "https://lmarena.ai/leaderboard"
 
 # A snapshot with materially more rows than distinct models is duplicated and untrustworthy.
 # Observed 2026-07-27: the 2026-07-20 and 2026-07-21 snapshots sat near 2.9, which would have
@@ -80,9 +80,9 @@ def _recent_snapshots(config: str) -> list[str]:
     return sorted(dates, reverse=True)
 
 
-def _clean_snapshot(config: str) -> tuple[list[dict], str, list[str]]:
+def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
     """Newest snapshot that survives the duplication guard, plus the ones rejected."""
-    rejected: list[str] = []
+    rejected: list[dict] = []
     for snapshot in _recent_snapshots(config):
         rows = _all(
             config,
@@ -94,13 +94,14 @@ def _clean_snapshot(config: str) -> tuple[list[dict], str, list[str]]:
         distinct = len({row["model_name"] for row in rows})
         ratio = len(rows) / distinct if distinct else float("inf")
         if ratio > DUPLICATE_RATIO_LIMIT:
-            rejected.append(f"{snapshot} ({ratio:.2f}x)")
+            rejected.append({"date": snapshot, "ratio": round(ratio, 2), "config": config})
             continue
         return rows, snapshot, rejected
 
+    summary = ", ".join(f"{item['date']} ({item['ratio']}x)" for item in rejected)
     raise SourceError(
         f"lmarena/{config}: every recent snapshot failed the duplication guard "
-        f"({', '.join(rejected) or 'no snapshots found'})"
+        f"({summary or 'no snapshots found'})"
     )
 
 
