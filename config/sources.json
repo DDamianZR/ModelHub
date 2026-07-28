@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-27",
+  "verification_method": "Direct HTTP requests against each endpoint. No source was assumed to work from documentation alone.",
+  "vocabulary": {
+    "status": ["active", "archived", "paywalled", "blocked_by_tos"],
+    "freshness": ["fresh", "stale", "frozen"],
+    "v1_decision": ["include", "defer", "exclude", "excluded_license"],
+    "source_type": ["human_eval", "third_party_benchmark", "vendor_claim"]
+  },
+  "sources": [
+    {
+      "id": "epoch_ai",
+      "name": "Epoch AI — AI Benchmarking Hub",
+      "homepage": "https://epoch.ai/benchmarks",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "backbone",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "direct_download",
+        "url": "https://epoch.ai/data/benchmark_data.zip",
+        "secondary_url": "https://epoch.ai/data/ai_models.zip",
+        "auth": "none",
+        "format": "zip containing 75 CSV files",
+        "payload_size_mb": 0.39,
+        "rate_limit": "none observed"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "attribution_required": true,
+        "citation": "Epoch AI, 'AI Benchmarking Hub'. Published online at epoch.ai. Retrieved from 'https://epoch.ai/benchmarks'",
+        "evidence": "README.md inside benchmark_data.zip"
+      },
+      "last_observed_update": "2026-07-27",
+      "update_cadence": "daily",
+      "schema": {
+        "epoch_run_files": [
+          "Model version",
+          "mean_score",
+          "Best score (across scorers)",
+          "Release date",
+          "Organization",
+          "Country",
+          "Training compute (FLOP)",
+          "Training compute notes",
+          "stderr",
+          "Log viewer",
+          "Logs",
+          "Started at",
+          "id"
+        ],
+        "external_files_extra_columns": ["Source", "Source link", "Notes"],
+        "capabilities_index_columns": [
+          "Model version",
+          "ECI Score",
+          "Release date",
+          "Organization",
+          "Country",
+          "Model accessibility",
+          "Training compute (FLOP)",
+          "Confidence",
+          "Model name",
+          "Display name"
+        ]
+      },
+      "provides": {
+        "benchmarks_epoch_run": [
+          "gpqa_diamond",
+          "math_level_5",
+          "swe_bench_verified",
+          "otis_mock_aime_2024_2025",
+          "frontiermath",
+          "frontiermath_tier_4",
+          "simpleqa_verified",
+          "chess_puzzles"
+        ],
+        "benchmarks_external": 66,
+        "metadata": [
+          "release_date",
+          "organization",
+          "country",
+          "model_accessibility",
+          "training_compute_flop",
+          "stderr",
+          "public_eval_logs"
+        ]
+      },
+      "notes": [
+        "Files without the '_external' suffix are evaluations Epoch runs itself and publishes inspect logs for; these are first-hand third_party_benchmark data.",
+        "Files ending in '_external' are aggregated from elsewhere and carry 'Source' and 'Source link' columns; propagate that provenance instead of crediting Epoch.",
+        "'Model accessibility' distinguishes 'API access' / 'Open weights' / 'Open weights (non-commercial)' and is the cleanest open-vs-closed signal found in any source.",
+        "'Country' enables the China-vs-US framing the project explicitly wants, without us having to maintain that mapping by hand.",
+        "epoch_capabilities_index.csv is Epoch's own composite (ECI). Do NOT feed it into our composite: it would double-count its constituent benchmarks. Useful only as an external cross-check."
+      ],
+      "caveats": [],
+      "fragility": "low"
+    },
+    {
+      "id": "lmarena",
+      "name": "LMArena (Arena) — Leaderboard Dataset",
+      "homepage": "https://arena.ai/leaderboard",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "backbone",
+      "source_type": "human_eval",
+      "access": {
+        "type": "dataset_api",
+        "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+        "rest_endpoint": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full",
+        "auth": "none",
+        "format": "parquet (also readable as JSON rows via the HF datasets-server REST API)",
+        "rate_limit": "anonymous HF limits apply; exact quota unverified"
+      },
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "attribution_required": true,
+        "evidence": "license:cc-by-4.0 tag on the HF dataset API response"
+      },
+      "last_observed_update": "2026-07-25",
+      "latest_publish_date_observed": "2026-07-21",
+      "update_cadence": "irregular; several publishes per month, not daily (no rows exist for 2026-07-01 or 2026-07-15)",
+      "schema": [
+        "model_name",
+        "organization",
+        "license",
+        "rating",
+        "rating_lower",
+        "rating_upper",
+        "variance",
+        "vote_count",
+        "rank",
+        "category",
+        "leaderboard_publish_date"
+      ],
+      "provides": {
+        "configs": [
+          "text",
+          "text_style_control",
+          "vision",
+          "vision_style_control",
+          "search",
+          "search_style_control",
+          "document",
+          "document_style_control",
+          "webdev",
+          "text_to_image",
+          "image_edit",
+          "text_to_video",
+          "image_to_video",
+          "video_edit",
+          "agent",
+          "agent_bash_recovery_steps",
+          "agent_praise_complaint",
+          "agent_steerability",
+          "agent_task_outcome_explicit",
+          "agent_tool_hallucination"
+        ],
+        "splits": ["full", "latest"],
+        "history_depth": "full split carries every historical snapshot; a single model had 61 dated observations"
+      },
+      "notes": [
+        "The 'full' split is the one to ingest: it gives the complete time series for free, which is exactly what history.jsonl and the sparklines need.",
+        "The 'license' column ('Proprietary' vs open licenses) is an independent cross-check against Epoch's 'Model accessibility'.",
+        "Rating system changed from Elo to Bradley-Terry on 2024-01-09; style control became default for text/vision on 2025-05-16; frequency re-weighting added 2025-07-23. Pre-2024 values are not comparable to current ones."
+      ],
+      "caveats": [
+        "VERIFIED ANOMALY: the newest snapshot (2026-07-21) returns 1113 rows for category='overall' across 378 distinct models (~3x duplication), with rank=1 appearing three separate times and divergent ratings per model. The 2026-06-04 snapshot is clean at 365 rows. Ingest MUST deduplicate and MUST sanity-check the rows/distinct-models ratio, falling back to the last clean snapshot when the ratio exceeds ~1.2.",
+        "The 'latest' split inherits the same anomaly. Prefer 'full' + max(leaderboard_publish_date) after the sanity check."
+      ],
+      "fragility": "low"
+    },
+    {
+      "id": "livebench",
+      "name": "LiveBench",
+      "homepage": "https://livebench.ai/",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "backbone",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "static_file",
+        "url_pattern": "https://livebench.ai/table_{YYYY_MM_DD}.csv",
+        "companion_urls": [
+          "https://livebench.ai/categories_{YYYY_MM_DD}.json",
+          "https://livebench.ai/cost_{YYYY_MM_DD}.csv"
+        ],
+        "current_snapshot": "2026_06_25",
+        "auth": "none",
+        "format": "CSV (raw per-task scores) + JSON (task-to-category map)",
+        "rate_limit": "none observed",
+        "robots_txt": "User-agent: * / Disallow:  (empty disallow = crawling permitted)"
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "attribution_required": true,
+        "evidence": "LICENSE file at LiveBench/LiveBench is the Apache License 2.0, carried over from lm-sys/FastChat. Verified 2026-07-27; the GitHub API's NOASSERTION was a false alarm caused by the FastChat preamble.",
+        "commercial_use": "permitted"
+      },
+      "last_observed_update": "2026-06-25 (snapshot); code repo pushed 2026-07-27",
+      "update_cadence": "periodic dated snapshots, roughly monthly",
+      "provides": {
+        "models_in_current_snapshot": 46,
+        "task_columns": 23,
+        "categories": [
+          "Reasoning",
+          "Coding",
+          "Agentic Coding",
+          "Mathematics",
+          "Data Analysis",
+          "Language",
+          "IF"
+        ]
+      },
+      "notes": [
+        "The CSV ships raw per-task scores with no precomputed aggregate. We compute the category averages ourselves from categories_{date}.json, which makes the whole chain reproducible by hand from public files — exactly what /methodology promises.",
+        "LiveBench refreshes its questions to resist training-data contamination, which is why it earns a slot despite the smaller model count.",
+        "The HuggingFace datasets under the 'livebench' org are question sets last touched 2025-04, NOT the leaderboard. Do not ingest them."
+      ],
+      "caveats": [
+        "Snapshot discovery is the weak point: the list of available snapshot dates lives in a JS array inside https://livebench.ai/static/js/main.{hash}.js, and the hash changes on every deploy. Ingest must resolve index.html -> bundle URL -> date array -> newest date, and fall back to the last known-good snapshot on failure."
+      ],
+      "fragility": "medium"
+    },
+    {
+      "id": "swebench",
+      "name": "SWE-bench",
+      "homepage": "https://www.swebench.com/",
+      "status": "blocked_by_tos",
+      "freshness": "stale",
+      "v1_decision": "excluded_license",
+      "decided_at": "2026-07-27",
+      "tier": "reference_link_only",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "static_file",
+        "url": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json",
+        "auth": "none",
+        "format": "JSON",
+        "payload_size_mb": 7.3,
+        "rate_limit": "GitHub raw limits; generous for one daily fetch",
+        "robots_txt": "Contains only Cloudflare content-signal explanatory comments and no actual directives; no restriction is expressed."
+      },
+      "license": {
+        "spdx": "CC-BY-NC-4.0",
+        "attribution_required": true,
+        "commercial_use": "PROHIBITED",
+        "evidence": "LICENSE file at SWE-bench/swe-bench.github.io (the repo that serves data/leaderboards.json) is 'Attribution-NonCommercial 4.0 International'. Verified 2026-07-27.",
+        "conflict": "Incompatible with shipping the data inside an MIT-licensed repository: MIT grants commercial reuse that CC-BY-NC-4.0 withholds. Anyone forking ModelHub would inherit data they cannot use commercially."
+      },
+      "last_observed_update": "newest Verified entry dated 2026-02-26; website repo last pushed 2026-03-29",
+      "update_cadence": "irregular; effectively frozen for ~5 months as of verification",
+      "schema": [
+        "name",
+        "resolved",
+        "cost",
+        "date",
+        "folder",
+        "instance_calls",
+        "instance_cost",
+        "os_model",
+        "os_system",
+        "site",
+        "logs",
+        "trajs",
+        "per_instance_details",
+        "tags",
+        "warning",
+        "checked"
+      ],
+      "provides": {
+        "leaderboards": {
+          "Verified": { "entries": 180, "open_weight_entries": 31, "newest": "2026-02-26" },
+          "Lite": { "entries": 84, "open_weight_entries": 8, "newest": "2025-09-11" },
+          "bash-only": { "entries": 48, "open_weight_entries": 11, "newest": "2026-02-26" },
+          "Multilingual": { "entries": 14, "open_weight_entries": 4, "newest": "2026-02-20" },
+          "Multimodal": { "entries": 22, "open_weight_entries": 0, "newest": "2025-11-17" },
+          "Test": { "entries": 24, "open_weight_entries": 1, "newest": "2025-12-19" }
+        }
+      },
+      "notes": [
+        "'os_model' and 'os_system' give open-source flags for the model and the agent scaffold separately.",
+        "'resolved' is a percentage; 'cost' is total USD for the run, which is useful editorial context."
+      ],
+      "caveats": [
+        "BLOCKING: the data is CC-BY-NC-4.0 and this repository is MIT. Do not commit swebench.com data to /data until a human decides. Recommended resolution: drop the swebench.com ingest and rely on Epoch's own CC-BY-4.0 swe_bench_verified.csv, which already carries the Coding weight; keep swebench.com as an outbound reference link only. This costs nothing in the composite.",
+        "RULE: SWE-bench never contributes a bare-model score to the composite. Epoch's swe_bench_verified.csv is what weighs in Coding. If SWE-bench entries are ever displayed, the agent scaffold must be visible in the UI.",
+        "Entries identify an agent+model scaffold, not a bare model — e.g. 'live-SWE-agent + Claude 4.5 Opus medium (20251101)' or 'Sonar Foundation Agent + Claude 4.5 Opus'. Mapping these onto canonical model ids is genuinely ambiguous and is the main reason aliases.json needs to exist. Attributing a scaffold's score to a bare model would itself be a form of bias, so the UI must disclose the scaffold.",
+        "Epoch also publishes swe_bench_verified.csv from its own runs. Prefer Epoch's when both cover the same model, and keep this source for breadth."
+      ],
+      "fragility": "low"
+    },
+    {
+      "id": "huggingface_hub",
+      "name": "HuggingFace Hub API",
+      "homepage": "https://huggingface.co/models",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "discovery_only",
+      "source_type": null,
+      "access": {
+        "type": "public_api",
+        "url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=50&filter=text-generation",
+        "auth": "none (anonymous works)",
+        "format": "JSON",
+        "rate_limit": "anonymous limits apply; exact quota unverified"
+      },
+      "license": {
+        "spdx": "n/a",
+        "note": "Metadata about repos; per-model licenses vary and are read per repo."
+      },
+      "last_observed_update": "live",
+      "update_cadence": "continuous",
+      "provides": {
+        "fields": ["id", "downloads", "likes", "trendingScore", "tags", "pipeline_tag"]
+      },
+      "notes": [
+        "Discovery and acquisition metadata only. This source NEVER contributes a score, so it carries no source_type.",
+        "Feeds Layer B: detecting open-weights models that are trending but absent from models.json."
+      ],
+      "caveats": [],
+      "fragility": "low"
+    },
+    {
+      "id": "scale_labs",
+      "name": "Scale Labs Leaderboards (formerly SEAL)",
+      "homepage": "https://labs.scale.com",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "defer",
+      "tier": "candidate_v1_1",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "scrape",
+        "url": "https://labs.scale.com",
+        "auth": "none",
+        "format": "server-rendered HTML (Next.js); no API or dataset export found",
+        "robots_txt": "labs.scale.com/robots.txt returns 404 (no restrictions declared). Parent scale.com allows '/' but disallows query-string URLs ('/*?*')."
+      },
+      "license": {
+        "spdx": "unverified",
+        "action_required": "Review Scale's terms of use before scraping."
+      },
+      "last_observed_update": "2026-07-27",
+      "update_cadence": "active",
+      "provides": {
+        "benchmarks_advertised": "20+",
+        "models_advertised": "100+",
+        "examples": [
+          "SWE-Bench Pro (public and private datasets)",
+          "Humanity's Last Exam",
+          "MCP Atlas",
+          "SWE Atlas (Refactoring / Test Writing / Codebase QnA)",
+          "HiL-Bench",
+          "DrugDiscoveryBench",
+          "SciPredict"
+        ]
+      },
+      "notes": [
+        "High anti-contamination value: several evals are held-out/private, which is precisely what a vendor cannot train against.",
+        "The old scale.com/leaderboard URL now redirects to labs.scale.com."
+      ],
+      "caveats": [
+        "No machine-readable export was found; a scraper against a Next.js app is the most maintenance-heavy option on this list and would violate the project's 'no daily human maintenance' constraint if it breaks often. Deferred, not rejected."
+      ],
+      "fragility": "high"
+    },
+    {
+      "id": "open_llm_leaderboard",
+      "name": "HuggingFace Open LLM Leaderboard v2",
+      "homepage": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "status": "archived",
+      "freshness": "frozen",
+      "v1_decision": "exclude",
+      "tier": "none",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "dataset_api",
+        "url": "https://huggingface.co/datasets/open-llm-leaderboard/contents",
+        "auth": "none",
+        "format": "parquet"
+      },
+      "license": { "spdx": "unverified" },
+      "last_observed_update": "results dataset last modified 2025-03-20 (~16 months before verification)",
+      "update_cadence": "none — retired",
+      "notes": [
+        "The Space itself still reports runtime stage RUNNING and was touched 2026-05-27, which makes it look alive at a glance. The underlying results dataset has not moved since 2025-03-20. This is exactly the trap the phase-0 brief warned about.",
+        "Officially retired by HuggingFace; no new models can be submitted."
+      ],
+      "caveats": [
+        "Only defensible use would be as a historical snapshot of open-weights models circa early 2025. It cannot inform a 'who is frontier now' ranking and is excluded from v1."
+      ],
+      "fragility": "n/a"
+    },
+    {
+      "id": "aider_polyglot",
+      "name": "Aider Polyglot Leaderboard",
+      "homepage": "https://aider.chat/docs/leaderboards/",
+      "status": "active",
+      "freshness": "frozen",
+      "v1_decision": "exclude",
+      "tier": "none",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "static_file",
+        "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
+        "auth": "none",
+        "format": "YAML",
+        "payload_size_kb": 45.7
+      },
+      "license": { "spdx": "Apache-2.0", "evidence": "Aider-AI/aider repo license" },
+      "last_observed_update": "newest entry dated 2025-10-03; repo last pushed 2026-05-22",
+      "update_cadence": "none — leaderboard frozen ~10 months while the project itself stayed active",
+      "provides": {
+        "entries": 69,
+        "fields": ["model", "pass_rate_1", "pass_rate_2", "percent_cases_well_formed", "edit_format", "total_cost", "date"]
+      },
+      "notes": [
+        "The file is well-formed and easy to parse — it is simply out of date. Ingesting it would put 2025 numbers next to 2026 numbers in a 'current frontier' ranking, which is worse than omitting it.",
+        "If this data is wanted for historical depth, take it via Epoch's aider_polyglot_external.csv, which already carries 'Source' and 'Source link' provenance."
+      ],
+      "caveats": [],
+      "fragility": "n/a"
+    },
+    {
+      "id": "artificial_analysis",
+      "name": "Artificial Analysis",
+      "homepage": "https://artificialanalysis.ai/",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "exclude",
+      "tier": "none",
+      "source_type": "third_party_benchmark",
+      "access": {
+        "type": "scrape",
+        "auth": "none",
+        "robots_txt": "User-agent: * / Allow: /  (crawling permitted), Sitemap declared"
+      },
+      "license": {
+        "spdx": "unverified",
+        "evidence": "Terms of use page could not be located: /terms, /terms-of-use, /terms-and-conditions, /legal/terms and /about all returned 404 to a non-browser client.",
+        "action_required": "Terms remain UNVERIFIED. Do not scrape until a human reads them in a browser."
+      },
+      "last_observed_update": "n/a",
+      "update_cadence": "n/a",
+      "notes": [
+        "Excluded by project directive. robots.txt permits crawling, but permissive robots.txt is not the same as permissive terms of use, and the terms could not be retrieved.",
+        "Independently of the terms question, its benchmark coverage is largely redundant with Epoch AI, which is CC-BY licensed and offers a clean download."
+      ],
+      "caveats": [],
+      "fragility": "n/a"
+    }
+  ]
+}
