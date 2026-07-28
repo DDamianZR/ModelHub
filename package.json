@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "seed": "python scripts/seed/build_seed.py"
+    "ingest": "python -m scripts.ingest.run"
   },
   "dependencies": {
     "clsx": "2.1.1",
