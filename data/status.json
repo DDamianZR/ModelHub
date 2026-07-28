@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T04:24:10+00:00",
+  "generated_at": "2026-07-28T04:31:02+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -22,24 +22,33 @@
     "epoch": {
       "date": "2026-07-27",
       "age_days": 0,
-      "freshness": "fresh"
+      "freshness": "fresh",
+      "cadence_days": 1,
+      "warn_days": 2,
+      "degraded_days": 4
     },
     "livebench": {
       "date": "2026-06-25",
       "age_days": 32,
-      "freshness": "degraded",
+      "freshness": "fresh",
+      "cadence_days": 30,
+      "warn_days": 60,
+      "degraded_days": 120,
       "category": "instruction_following"
     },
     "lmarena": {
       "date": "2026-07-27",
       "age_days": 0,
       "freshness": "fresh",
+      "cadence_days": 4,
+      "warn_days": 8,
+      "degraded_days": 16,
       "category": "human_preference"
     }
   },
   "thresholds": {
-    "snapshot_warn_days": 7,
-    "snapshot_degraded_days": 14
+    "warn_cadence_multiple": 2,
+    "degraded_cadence_multiple": 4
   },
   "rejected_snapshots": []
 }
