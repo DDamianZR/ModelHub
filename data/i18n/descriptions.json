@@ -5,6 +5,12 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "alibaba-qwen3-235b-a22b-thinking-2507": {
+    "en": "Qwen3-235B-A22B is a language model built by Alibaba in July 2025. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
+    "es": "Qwen3-235B-A22B es un modelo de lenguaje desarrollado por Alibaba en julio de 2025. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
   "alibaba-qwen3.5-flash": {
     "en": "Qwen 3.5 Flash is a language model built by Alibaba in February 2026. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding, Instructions.",
     "es": "Qwen 3.5 Flash es un modelo de lenguaje desarrollado por Alibaba en febrero de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código, Instrucciones.",
@@ -23,6 +29,18 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "alibaba-qwen3.7": {
+    "en": "Qwen3.7-Max is a language model built by Alibaba in China in 2026. It is API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is somewhat lower in Coding and Instructions. No data for any unmeasured category.",
+    "es": "Qwen3.7-Max es un modelo de lenguaje desarrollado por Alibaba en China en 2026. Se obtiene solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Es algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "anthropic-claude-fable-5": {
+    "en": "Claude Fable 5 is a language model built by Anthropic in June 2026. It is API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is relatively lower in Coding and Instructions. No data for unmeasured categories.",
+    "es": "Claude Fable 5 es un modelo de lenguaje desarrollado por Anthropic en junio de 2026. Se obtiene solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Deja algo por debajo en Código e Instrucciones. No hay datos en categorías no medidas.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
   "anthropic-claude-haiku-4-5": {
     "en": "Claude Haiku 4.5 is a language model built by Anthropic in the United States in 2025. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding or Instructions.",
     "es": "Claude Haiku 4.5 es un modelo de lenguaje desarrollado por Anthropic en Estados Unidos en 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código ni Instrucciones.",
@@ -38,6 +56,12 @@
   "anthropic-claude-opus-4-5": {
     "en": "Claude Opus 4.5 is a language model built by Anthropic in the United States in November 2025. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively lower in Coding and Instructions.",
     "es": "Claude Opus 4.5 es un modelo de lenguaje desarrollado por Anthropic en Estados Unidos en noviembre de 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Código e Instrucciones.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "anthropic-claude-opus-4-6": {
+    "en": "Claude Opus 4.6 is a language model built by Anthropic in February 2026. It is obtained API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Human preference and Math. It is relatively lower in Coding and Instructions. No data for any unmeasured category.",
+    "es": "Claude Opus 4.6 es un modelo de lenguaje desarrollado por Anthropic en febrero de 2026. Se obtiene solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Preferencia humana y Matemáticas. Deja algo por debajo en Código e Instrucciones. Sin datos en ninguna categoría no medida.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
@@ -74,6 +98,18 @@
   "anthropic-claude-sonnet-5": {
     "en": "Claude Sonnet 5 is a language model built by Anthropic in June 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively lower in Human preference and Coding.",
     "es": "Claude Sonnet 5 es un modelo de lenguaje desarrollado por Anthropic en junio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Razonamiento. Presenta algo por debajo en Preferencia humana y Código.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "deepseek-deepseek-v4-flash": {
+    "en": "DeepSeek v4 Flash is a language model built by DeepSeek in China in April 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively lower in Coding and Human preference. No data for Instructions.",
+    "es": "DeepSeek v4 Flash es un modelo de lenguaje desarrollado por DeepSeek en China en abril de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código y Preferencia humana. No hay datos en Instrucciones.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "deepseek-deepseek-v4-pro": {
+    "en": "DeepSeek v4 Pro is a language model built by DeepSeek in April 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Somewhat lower in Coding and Instructions.",
+    "es": "DeepSeek v4 Pro es un modelo de lenguaje desarrollado por DeepSeek en abril de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Código e Instrucciones.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
@@ -131,9 +167,21 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "moonshot-kimi-k2.6": {
+    "en": "Kimi K2.6 is a language model built by Moonshot in April 2026. It is open-weights: downloadable and runnable locally. It performs relatively stronger in Human preference and Reasoning. It is somewhat lower in Math and Instructions.",
+    "es": "Kimi K2.6 es un modelo de lenguaje desarrollado por Moonshot en abril de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Destaca relativamente en Preferencia humana y Razonamiento. Se encuentra algo por debajo en Matemáticas e Instrucciones.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
   "moonshot-kimi-k2.7-code": {
     "en": "Kimi K2.7 Code is a language model built by Moonshot in June 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively weaker in Instructions and Coding. Human preference was not measured.",
     "es": "Kimi K2.7 Code es un modelo de lenguaje desarrollado por Moonshot en junio de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Instrucciones y Código. No se midió Preferencia humana.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "moonshot-kimi-k3": {
+    "en": "Kimi K3 is a language model built by Moonshot in July 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Reasoning and Math. Somewhat lower in Coding and Instructions.",
+    "es": "Kimi K3 es un modelo de lenguaje desarrollado por Moonshot en julio de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Razonamiento y Matemáticas. Algo por debajo en Código e Instrucciones.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
@@ -152,6 +200,18 @@
   "openai-gpt-5.1": {
     "en": "GPT-5.1 is a language model built by OpenAI in the United States. Released on November 13, 2025. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Reasoning and Coding. Relatively weaker in Math and Human preference. Instructions was not measured.",
     "es": "GPT-5.1 es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Se lanzó el 13 de noviembre de 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Razonamiento y Código. Relativamente más débil en Matemáticas y Preferencia humana. No se midió Instrucciones.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "openai-gpt-5.2": {
+    "en": "GPT-5.2 (xhigh) is a language model built by OpenAI in the United States. Released on December 11, 2025. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Reasoning and Coding. Relatively weaker in Instructions and Human preference.",
+    "es": "GPT-5.2 (xhigh) es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Se lanzó el 11 de diciembre de 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Razonamiento y Código. Relativamente más débil en Instrucciones y Preferencia humana.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "openai-gpt-5.4": {
+    "en": "GPT-5.4 Pro is a language model built by OpenAI in the United States. Released on March 5, 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Human preference and Reasoning. Somewhat lower in Coding and Instructions.",
+    "es": "GPT-5.4 Pro es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Se lanzó el 5 de marzo de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Preferencia humana y Razonamiento. Es algo por debajo en Código e Instrucciones.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
@@ -212,6 +272,12 @@
   "z-ai-zhipu-ai-glm-5.1": {
     "en": "GLM-5.1 is a language model built by Z.ai in April 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Human preference and Coding. Relatively lower in Math and Reasoning. Instructions was not measured.",
     "es": "GLM-5.1 es un modelo de lenguaje desarrollado por Z.ai en abril de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Preferencia humana y Código. Relativamente más débil en Matemáticas y Razonamiento. No se midió Instrucciones.",
+    "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "z-ai-zhipu-ai-glm-5.2": {
+    "en": "GLM-5.2 is a language model built by Z.ai in China, released on June 16, 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Somewhat lower in Instructions and Coding. No data for any unmeasured category.",
+    "es": "GLM-5.2 es un modelo de lenguaje desarrollado por Z.ai en China, lanzado el 16 de junio de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Instrucciones y Código. Sin datos en ninguna categoría no medida.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   }

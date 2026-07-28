@@ -70,6 +70,9 @@ _RANKED_THIRD = """3. One or two sentences: which of its own measured categories
    The strong/weak comparison is RELATIVE to this model's own other categories. It is not
    a verdict on quality. Write "relatively lower in X" / "algo por debajo en X", never
    judgements like "deja mucho que desear", "flojea", "disappointing" or "poor".
+   For categories with no measurement, use "sin datos en X" and "no data for X". Do not
+   write "no se midió X" or "X was not measured": several category names are plural
+   ("Instrucciones", "Matemáticas") and those constructions then disagree in number.
 """
 
 # Too few measurements for that comparison to mean anything.

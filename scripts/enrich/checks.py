@@ -19,8 +19,16 @@ from pathlib import Path
 
 MESSAGES = Path(__file__).resolve().parents[2] / "messages"
 
-MIN_WORDS = 35
+# The floor exists to catch a truncated answer, not a concise one. It was originally 35
+# words, which rejected four fully-measured models whose English said everything in 30-32.
+# English is more compact than Spanish, and a floor calibrated on Spanish punishes it.
+#
+# Completeness is measured by sentence count instead, which is what "it stopped after
+# introducing the model" actually looks like: the truncation this guards against was one
+# sentence of 22 words, while a complete but terse answer is three or four sentences.
+MIN_WORDS = 28
 MAX_WORDS = 85
+MIN_SENTENCES = 3
 
 # The prompt asks for 20 words per sentence. A little slack before rejecting: Spanish runs
 # longer than English, and burning a generation on a 22-word sentence costs more than it fixes.
@@ -96,7 +104,12 @@ def _one_language(text: str, locale: str, display_name: str, coverage: int) -> l
             problems.append(f"{locale}: banned phrase {phrase!r}")
             break
 
-    for sentence in re.split(r"(?<=[.!?])\s+", text.strip()):
+    sentences = [s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s.strip()]
+    if len(sentences) < MIN_SENTENCES:
+        problems.append(
+            f"{locale}: {len(sentences)} sentence(s), needs {MIN_SENTENCES} - truncated"
+        )
+    for sentence in sentences:
         length = len(sentence.split())
         if length > MAX_SENTENCE_WORDS:
             problems.append(f"{locale}: {length}-word sentence, one idea per sentence")
