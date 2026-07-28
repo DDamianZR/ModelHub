@@ -109,10 +109,21 @@ server ends up serving missing-module errors until the directory is cleared.
   without ingesting a byte of it.
 - **Multimodal is out of the composite** and shown as a separate vision score, so text-only
   models are never ranked against a category they don't compete in.
-- **Average benchmark variants before scoring.** Vendor variants of one model normalise to
-  the same canonical key, so a benchmark can arrive several times. Counting each copy gives
-  that benchmark extra weight in its category purely because the vendor shipped more
-  variants — it changed the top three when found.
+- **Collapse benchmark variants before scoring, under `variant_policy`.** Vendor variants of
+  one model normalise to the same canonical key, so a benchmark can arrive several times.
+  Counting each copy gives that benchmark extra weight in its category purely because the
+  vendor shipped more variants — it changed the top three when found. Which variant wins is a
+  methodology choice living in `config/weights.json`, documented on `/methodology`, and
+  disclosed per score in the model page's sources table.
+- **LMArena publishes mislabelled slices, not duplicates.** From 2026-06-10 snapshots carry
+  up to six rows per model under `category='overall'`. No column labels them; the genuine row
+  is the one with the highest `vote_count`. Verified 2026-07-28: picking max vote_count gives
+  0.80 mean rating drift against the last clean snapshot, versus 11.94 for first-row or
+  max-rating. Filter, don't reject — the ratio guard stays only as a backstop.
+- **Snapshot age is tracked separately from fetch success.** A source can fetch perfectly and
+  still serve month-old numbers. `data/status.json` carries per-source snapshot age; the page
+  warns at 7 days and marks degraded at 14, both in a banner and on the affected category
+  column.
 - **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
   (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
   stops working. Rejected snapshot dates are also excluded from history explicitly.
