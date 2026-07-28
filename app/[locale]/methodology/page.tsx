@@ -137,7 +137,7 @@ export default async function MethodologyPage({
             {t("variants.disclosure")}
           </p>
           <ul className="flex flex-col gap-2 pl-4" style={muted}>
-            {(["default", "best", "average", "separate"] as const).map((option) => (
+            {(["model", "default", "best", "average", "separate"] as const).map((option) => (
               <li key={option} className="list-disc">
                 <span className="num text-[12px]">{option}</span> —{" "}
                 {t(`variants.option_${option}`)}

@@ -26,8 +26,36 @@ DEFAULT_MIN_COVERAGE = 4
 #
 # This is a methodology choice, not an implementation detail: it changes the ranking. It
 # lives in config so it can be argued with in a pull request.
-DEFAULT_VARIANT_POLICY = "default"
-VARIANT_POLICIES = ("default", "best", "average")
+DEFAULT_VARIANT_POLICY = "model"
+VARIANT_POLICIES = ("model", "default", "best", "average")
+
+# Effort tokens, longest first so "xhigh" is not swallowed by "high".
+_EFFORT_TOKENS = (
+    "xhigh", "promax", "max", "high", "medium", "low", "minimal", "none", "unknown",
+)
+
+
+def effort_label(variant: str, key: str) -> str:
+    """Reduce a published variant name to the configuration it represents.
+
+    Sources spell the same configuration differently - Epoch writes "claude-opus-5_max",
+    LiveBench "claude-opus-5-max-effort" - so comparing raw strings would treat one
+    configuration as several. This maps both onto "max".
+    """
+    text = (variant or "").strip().lower().replace("_", "-")
+    if not text:
+        return "unlabelled"
+
+    remainder = text[len(key):] if text.startswith(key) else text
+    remainder = remainder.strip("-")
+    remainder = remainder.replace("-effort", "").replace("thinking-", "")
+
+    if not remainder or remainder == "thinking":
+        return "plain"
+    for token in _EFFORT_TOKENS:
+        if token in remainder.split("-"):
+            return token
+    return remainder
 
 
 def load_weights() -> tuple[dict[str, float], int, str]:
@@ -44,6 +72,40 @@ def load_weights() -> tuple[dict[str, float], int, str]:
             f"variant_policy must be one of {VARIANT_POLICIES}, got {policy!r}"
         )
     return dict(weights), minimum, policy
+
+
+def choose_model_variant(merged: dict[str, dict], key: str) -> str | None:
+    """Pick one configuration for the whole model, not one per benchmark.
+
+    Choosing per benchmark lets a model take its max-effort score in Math and its xhigh
+    score in Coding - a configuration nobody actually runs, which is the same objection
+    that rules out averaging. One label across every benchmark always describes a real,
+    reproducible setup.
+
+    The label that covers the most benchmarks wins, so the choice costs as little
+    coverage as possible. Ties prefer the plainly published variant, then the stronger
+    average score.
+    """
+    coverage: dict[str, set[str]] = {}
+    totals: dict[str, list[float]] = {}
+    for benchmark_id, slot in merged.items():
+        for entry in slot["entries"]:
+            label = effort_label(entry.get("variant") or "", key)
+            coverage.setdefault(label, set()).add(benchmark_id)
+            totals.setdefault(label, []).append(entry["value"])
+
+    if not coverage:
+        return None
+
+    def score(label: str) -> tuple[int, int, float]:
+        values = totals[label]
+        return (
+            len(coverage[label]),
+            1 if label == "plain" else 0,
+            sum(values) / len(values),
+        )
+
+    return max(coverage, key=score)
 
 
 def pick_variant(entries: list[dict], key: str, policy: str) -> tuple[float, str]:
@@ -162,8 +224,29 @@ def build_models(
             if entry["measured_at"] and (not latest or entry["measured_at"] > latest):
                 slot["measured_at"] = entry["measured_at"]
 
+        chosen_label = (
+            choose_model_variant(merged, key) if variant_policy == "model" else None
+        )
+
         for benchmark_id, slot in merged.items():
-            value, note = pick_variant(slot["entries"], key, variant_policy)
+            if variant_policy == "model":
+                matching = [
+                    entry for entry in slot["entries"]
+                    if effort_label(entry.get("variant") or "", key) == chosen_label
+                ]
+                if not matching:
+                    # This benchmark never measured the chosen configuration. Substituting
+                    # another one would rebuild the Frankenstein this policy exists to
+                    # avoid, so the cell is left missing and coverage reflects that.
+                    continue
+                value = matching[0]["value"]
+                note = (
+                    f"variant {chosen_label} ({matching[0].get('variant')})"
+                    if len(slot["entries"]) > 1 else None
+                )
+            else:
+                value, note = pick_variant(slot["entries"], key, variant_policy)
+
             by_category.setdefault(slot["category"], []).append(value)
             score_rows.append({
                 "model_id": model_id,
@@ -175,6 +258,7 @@ def build_models(
                 "measured_at": slot["measured_at"],
                 "contamination_flag": False,
                 "notes": note or None,
+                "variant": chosen_label if variant_policy == "model" else None,
             })
 
         if key in arena_text:

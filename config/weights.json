@@ -22,5 +22,5 @@
     "Models below min_coverage_for_ranking are provisional, never ranked.",
     "SWE-bench scaffold results never count as a bare-model score."
   ],
-  "variant_policy": "default"
+  "variant_policy": "model"
 }
