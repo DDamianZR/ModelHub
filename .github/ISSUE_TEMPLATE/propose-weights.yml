@@ -1,0 +1,60 @@
+name: Propose a change to the weights
+description: Argue that the composite is weighted wrong
+title: "[weights] "
+labels: ["methodology"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The composite is a judgement call, not a fact. It lives in `config/weights.json`
+        precisely so it can be argued with.
+
+        Current: Reasoning 25 · Coding 25 · Math 20 · Human preference 15 ·
+        Instruction-following 15. Multimodal is deliberately outside the composite.
+
+        You can open this as an issue to discuss first, or go straight to a pull request
+        against `config/weights.json`. Either way the ranking impact has to be stated:
+        run `npm run ingest` locally and compare. A proposal that quietly moves the
+        ranking is the one thing that gets closed.
+
+  - type: dropdown
+    id: what
+    attributes:
+      label: What are you proposing to change
+      options:
+        - Category weights
+        - min_coverage_for_ranking (currently 4 of 5)
+        - variant_policy (currently model-level selection)
+        - Whether Multimodal belongs in the composite
+        - Adding or removing a category
+      multiple: true
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: The proposed values
+      placeholder: "Reasoning 30 · Coding 25 · Math 15 · Human preference 15 · IF 15"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Why the current split misrepresents something
+      description: >
+        Be specific about what the current weights get wrong, and for whom. "Coding matters
+        more to students" is an argument; "these feel better" is not.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Effect on the ranking
+      description: >
+        The top ten before and after. If you have not run it, say so and we will — but the
+        proposal cannot be evaluated without knowing what it does.
+    validations:
+      required: true

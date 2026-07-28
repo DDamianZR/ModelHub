@@ -1,0 +1,61 @@
+name: Challenge a number
+description: A figure on the site looks wrong
+title: "[number] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Finding a wrong number is the most useful thing you can do here.
+
+        Before filing, it helps to look at `data/scores.json`: every score records where it
+        came from, when it was measured, and what kind of source it was. If our figure
+        matches its source and the source is the one that is wrong, file this anyway — we
+        may need to stop trusting that source.
+
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: Claude Opus 5
+    validations:
+      required: true
+
+  - type: input
+    id: shown
+    attributes:
+      label: What the site shows
+      placeholder: "Coding 69.1"
+    validations:
+      required: true
+
+  - type: input
+    id: expected
+    attributes:
+      label: What you think it should be
+      placeholder: "Coding 74.2, or: this model has no published coding result"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: >
+        A link to the independent evaluation, and what it says. Vendor blog posts are not
+        enough on their own: we do not score vendor claims.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is this
+      options:
+        - The number does not match its stated source
+        - The source itself is wrong or out of date
+        - The number is attributed to the wrong model or configuration
+        - The number should not be there at all
+        - Not sure
+    validations:
+      required: true
