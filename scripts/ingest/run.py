@@ -18,10 +18,11 @@ import traceback
 from collections import defaultdict
 from datetime import date, datetime, timezone
 
+from . import local_models
 from .common import CONFIG, DATA, SourceError, read_cache, write_cache, write_json
 from .composite import build_models, load_methodology_version, load_weights
 from .normalize import ReferenceError, load_reference
-from .sources import epoch, livebench, lmarena
+from .sources import epoch, hf, livebench, lmarena
 from .weight_audit import audit as audit_weights
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -390,6 +391,26 @@ def main() -> int:
             "clipped_scores": clipped,
         },
     }
+
+    # The local view. Cache-first and budgeted: model metadata never changes, so the steady
+    # state costs nothing and only genuinely new models spend requests. A failure here is
+    # reported and skipped - the ranking does not depend on it.
+    local_stats: dict = {}
+    try:
+        ranked_by_key = {
+            model["id"].split("-", 1)[1] if "-" in model["id"] else model["id"]: model
+            for model in models
+        }
+        local_payload, local_stats = local_models.build(
+            arena_payload.get("text") or {}, ranked_by_key
+        )
+        local_models.write(local_payload, local_models.calibrate(hf.load_local_cache()))
+        print(f"  local models: {len(local_payload['models'])} published "
+              f"({local_stats['fetched']} new, {local_stats['cached']} cached, "
+              f"{local_stats['failed']} unresolved, {local_stats['skipped']} queued)")
+    except Exception as exc:  # noqa: BLE001 - the ranking must not die over the local view
+        print(f"  local models: skipped ({exc})")
+        traceback.print_exc()
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})

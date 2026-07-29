@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "computed_at": "2026-07-29",
+  "note": "bytes_per_weight is the median of the measured ratio bytes_on_disk / params_total over every model with a published GGUF, not a constant copied from anywhere. Models without a measured GGUF are estimated from this table and marked estimated in the UI.",
+  "bytes_per_weight": {
+    "Q3_K_M": {
+      "bytes_per_weight": 0.4859,
+      "n": 32,
+      "observed_min": 0.4811,
+      "observed_max": 0.5251
+    },
+    "Q4_K_M": {
+      "bytes_per_weight": 0.6044,
+      "n": 36,
+      "observed_min": 0.5953,
+      "observed_max": 0.6522
+    },
+    "Q5_K_M": {
+      "bytes_per_weight": 0.7092,
+      "n": 32,
+      "observed_min": 0.6973,
+      "observed_max": 0.7437
+    },
+    "Q6_K": {
+      "bytes_per_weight": 0.8206,
+      "n": 30,
+      "observed_min": 0.8058,
+      "observed_max": 0.8689
+    },
+    "Q8_0": {
+      "bytes_per_weight": 1.0627,
+      "n": 30,
+      "observed_min": 1.0429,
+      "observed_max": 1.0651
+    }
+  },
+  "kv_bytes_per_element": {
+    "fp16": 2,
+    "q8": 1,
+    "q4": 0.5
+  },
+  "overhead_bytes": null,
+  "overhead_status": "unmeasured",
+  "overhead_note": "Runtime context, activations and allocator fragmentation. Measured, never guessed: run two or three models of known size, record the VRAM actually occupied, and the difference against W + KV is the overhead. Until somebody does that on declared hardware this stays null and the UI says the estimate is missing it."
+}
