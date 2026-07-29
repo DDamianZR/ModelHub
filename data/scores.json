@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-07-28",
+    "generated_at": "2026-07-29",
     "model_count": 53,
     "ranked_count": 41,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-28",
+      "epoch": "2026-07-29",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-27",
       "lmarena_vision": "2026-07-26"
@@ -20,63 +20,51 @@
   "scores": [
     {
       "model_id": "anthropic-claude-fable-5",
-      "benchmark_id": "simpleqa_verified",
-      "value": 68.3,
-      "unit": "percent",
-      "source_type": "third_party_benchmark",
-      "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-06-09",
-      "contamination_flag": false,
-      "notes": null,
-      "variant": "xhigh"
-    },
-    {
-      "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_reasoning",
-      "value": 87.71,
+      "value": 89.65,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (claude-fable-5-xhigh-effort)",
-      "variant": "xhigh"
+      "notes": null,
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_coding",
-      "value": 63.41,
+      "value": 71.7,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (claude-fable-5-xhigh-effort)",
-      "variant": "xhigh"
+      "notes": null,
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_math",
-      "value": 95.69,
+      "value": 95.99,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (claude-fable-5-xhigh-effort)",
-      "variant": "xhigh"
+      "notes": null,
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_instruction_following",
-      "value": 72.0,
+      "value": 75.77,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (claude-fable-5-xhigh-effort)",
-      "variant": "xhigh"
+      "notes": null,
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
@@ -410,51 +398,87 @@
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
+      "benchmark_id": "gpqa_diamond",
+      "value": 91.04,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-06-07",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "anthropic-claude-opus-4-8",
+      "benchmark_id": "simpleqa_verified",
+      "value": 39.5,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-05-29",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "anthropic-claude-opus-4-8",
+      "benchmark_id": "frontiermath",
+      "value": 47.24,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-06-08",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "anthropic-claude-opus-4-8",
       "benchmark_id": "livebench_reasoning",
-      "value": 89.71,
+      "value": 89.19,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh"
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
       "benchmark_id": "livebench_coding",
-      "value": 65.34,
+      "value": 63.03,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh"
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
       "benchmark_id": "livebench_math",
-      "value": 95.32,
+      "value": 94.32,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh"
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
       "benchmark_id": "livebench_instruction_following",
-      "value": 72.37,
+      "value": 72.03,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh"
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -500,19 +524,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (claude-opus-5-max-effort)",
+      "notes": null,
       "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
       "benchmark_id": "livebench_coding",
-      "value": 68.12,
+      "value": 71.7,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (claude-opus-5-max-effort)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -524,7 +548,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (claude-opus-5-max-effort)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -536,7 +560,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (claude-opus-5-max-effort)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -608,6 +632,18 @@
       "measured_at": "2026-07-27",
       "contamination_flag": false,
       "notes": "80347 votes; rank 61"
+    },
+    {
+      "model_id": "anthropic-claude-sonnet-4-6",
+      "benchmark_id": "gpqa_diamond",
+      "value": 83.33,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-07-13",
+      "contamination_flag": false,
+      "notes": "variant medium (claude-sonnet-4-6_medium)",
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -689,7 +725,7 @@
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-01",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant xhigh (claude-sonnet-5_xhigh)",
       "variant": "xhigh"
     },
     {
@@ -707,7 +743,7 @@
     {
       "model_id": "anthropic-claude-sonnet-5",
       "benchmark_id": "livebench_coding",
-      "value": 62.91,
+      "value": 67.91,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
@@ -1084,7 +1120,7 @@
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
       "benchmark_id": "livebench_coding",
-      "value": 57.82,
+      "value": 57.07,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
@@ -1414,7 +1450,7 @@
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
       "benchmark_id": "livebench_coding",
-      "value": 63.01,
+      "value": 62.92,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
@@ -1595,7 +1631,7 @@
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2025-10-30",
+      "measured_at": "2026-07-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
       "variant": "high"
@@ -1713,7 +1749,7 @@
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2025-12-13",
+      "measured_at": "2026-07-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.2-2025-12-11_high)",
       "variant": "high"
@@ -1820,9 +1856,9 @@
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-03-06",
+      "measured_at": "2026-07-15",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant xhigh (gpt-5.4-2026-03-05_xhigh)",
       "variant": "xhigh"
     },
     {
@@ -2083,19 +2119,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (gpt-5.5-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
       "benchmark_id": "livebench_coding",
-      "value": 64.1,
+      "value": 65.25,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (gpt-5.5-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
@@ -2107,7 +2143,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (gpt-5.5-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
@@ -2119,7 +2155,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (gpt-5.5-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
@@ -2166,19 +2202,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-luna-max)",
+      "notes": null,
       "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
       "benchmark_id": "livebench_coding",
-      "value": 65.47,
+      "value": 62.23,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-luna-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2190,7 +2226,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-luna-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2202,7 +2238,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-luna-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2238,19 +2274,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-sol-max)",
+      "notes": null,
       "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
       "benchmark_id": "livebench_coding",
-      "value": 72.94,
+      "value": 67.3,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-sol-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2262,7 +2298,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-sol-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2274,7 +2310,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-sol-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2321,19 +2357,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-terra-max)",
+      "notes": null,
       "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
       "benchmark_id": "livebench_coding",
-      "value": 72.09,
+      "value": 64.27,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-terra-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2345,7 +2381,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-terra-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2357,7 +2393,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant max (gpt-5.6-terra-max)",
+      "notes": null,
       "variant": "max"
     },
     {
@@ -2481,7 +2517,7 @@
     {
       "model_id": "xai-grok-4.5",
       "benchmark_id": "livebench_coding",
-      "value": 63.31,
+      "value": 61.31,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
@@ -2777,7 +2813,7 @@
     {
       "model_id": "moonshot-kimi-k3",
       "benchmark_id": "livebench_coding",
-      "value": 67.12,
+      "value": 69.88,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
@@ -2936,19 +2972,19 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (muse-spark-1.1-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
       "benchmark_id": "livebench_coding",
-      "value": 69.89,
+      "value": 65.98,
       "unit": "percent",
       "source_type": "third_party_benchmark",
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (muse-spark-1.1-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
@@ -2960,7 +2996,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (muse-spark-1.1-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {
@@ -2972,7 +3008,7 @@
       "source_url": "https://livebench.ai/",
       "measured_at": "2026-06-25",
       "contamination_flag": false,
-      "notes": "variant xhigh (muse-spark-1.1-xhigh)",
+      "notes": null,
       "variant": "xhigh"
     },
     {

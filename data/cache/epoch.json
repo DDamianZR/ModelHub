@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-28",
+  "fetched_at": "2026-07-29",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -149,7 +149,7 @@
       "claude-opus-4-7": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.7 (max)",
+        "display_name": "Claude Opus 4.7 (low)",
         "eci": 156.07,
         "organization": "Anthropic",
         "release_date": "2026-04-16"
@@ -229,7 +229,7 @@
       "claude-sonnet-4-6": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 4.6",
+        "display_name": "Claude Sonnet 4.6 (high)",
         "eci": 153.2,
         "organization": "Anthropic",
         "release_date": "2026-02-17"
@@ -653,7 +653,7 @@
       "gpt-5-nano": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5 nano (high)",
+        "display_name": "GPT-5 nano (low)",
         "eci": 140.86,
         "organization": "OpenAI",
         "release_date": "2025-08-07"
@@ -701,7 +701,7 @@
       "gpt-5.2": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.2 (xhigh)",
+        "display_name": "GPT-5.2 (none)",
         "eci": 153.72,
         "organization": "OpenAI",
         "release_date": "2025-12-11"
@@ -805,7 +805,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (pro, max)",
+        "display_name": "GPT-5.6 Sol (max)",
         "eci": 161.72,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1834,6 +1834,24 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
+          "measured_at": "2026-07-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 83.33,
+          "variant": "claude-sonnet-4-6_high"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 83.33,
+          "variant": "claude-sonnet-4-6_medium"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
           "measured_at": "2026-02-20",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
@@ -1888,6 +1906,26 @@
           "source_url": "https://epoch.ai/benchmarks",
           "value": 25.0,
           "variant": "claude-sonnet-5_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-06-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 22.3,
+          "variant": "claude-sonnet-5_max"
+        }
+      ],
+      "deepseek": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-16",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 71.21,
+          "variant": "deepseek-chat"
         }
       ],
       "deepseek-reasoner": [
@@ -2213,6 +2251,17 @@
           "variant": "gemini-3.5-flash_high"
         }
       ],
+      "gemini-3.5-flash-minimal": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 86.36,
+          "variant": "gemini-3.5-flash_minimal"
+        }
+      ],
       "gemma-4-31b": [
         {
           "benchmark_id": "simpleqa_verified",
@@ -2497,7 +2546,27 @@
           "variant": "gpt-5-mini-2025-08-07_medium"
         }
       ],
+      "gpt-5-minimal": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-20",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 71.72,
+          "variant": "gpt-5-2025-08-07_minimal"
+        }
+      ],
       "gpt-5-nano": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 57.58,
+          "variant": "gpt-5-nano-2025-08-07_low"
+        },
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
@@ -2560,6 +2629,17 @@
           "source_url": "https://epoch.ai/benchmarks",
           "value": 7.24,
           "variant": "gpt-5-nano-2025-08-07_medium"
+        }
+      ],
+      "gpt-5-nano-minimal": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 48.48,
+          "variant": "gpt-5-nano-2025-08-07_minimal"
         }
       ],
       "gpt-5.1": [
@@ -2646,6 +2726,15 @@
         }
       ],
       "gpt-5.2": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 73.23,
+          "variant": "gpt-5.2-2025-12-11_none"
+        },
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
@@ -2776,6 +2865,42 @@
         }
       ],
       "gpt-5.4": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 88.89,
+          "variant": "gpt-5.4-2026-03-05_medium"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 74.75,
+          "variant": "gpt-5.4-2026-03-05_none"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 89.9,
+          "variant": "gpt-5.4-2026-03-05_high"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 84.85,
+          "variant": "gpt-5.4-2026-03-05_low"
+        },
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
