@@ -1,11 +1,24 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CompareBoard } from "@/components/CompareBoard";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getRanking } from "@/lib/data";
 import { routing } from "@/i18n/routing";
+import { localeMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+// Without this the page inherits the layout's canonical and declares itself a duplicate
+// of the home page.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return localeMetadata(locale, "/compare");
 }
 
 export default async function ComparePage({

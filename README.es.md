@@ -110,6 +110,19 @@ fuente no responde, la corrida igual termina: se reutiliza su último payload bu
 qué fuente está vieja y de cuándo son sus números. Callar la antigüedad sería su propia forma
 de deshonestidad.
 
+### Identidad del despliegue
+
+`NEXT_PUBLIC_SITE_URL` es el origen con el que este despliegue se publica a sí mismo: llena
+las etiquetas `canonical`, `hreflang` y `og:url`. Se define en Vercel en **Project Settings →
+Environment Variables**, con la URL del propio despliegue. Como respaldo se usa
+`VERCEL_PROJECT_PRODUCTION_URL` cuando el proyecto tiene habilitadas las variables de sistema.
+
+No hay valor por defecto, a propósito. Un canonical que apunta a una URL que el proyecto no
+posee le indica al buscador que indexe esa página en lugar de ésta, y un valor por defecto es
+justamente la forma en que eso sobrevive sin que nadie lo note. Un build en Vercel que no
+logre resolver el origen falla con un mensaje que nombra la variable; un build local
+simplemente omite las etiquetas.
+
 ## Stack
 
 Next.js 15 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (solo stdlib).

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { localeMetadata } from "@/lib/metadata";
 import "../globals.css";
 
 const inter = Inter({
@@ -23,9 +24,6 @@ const instrumentSerif = Instrument_Serif({
   display: "optional",
 });
 
-// Deployment origin, used for canonical and hreflang URLs.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://modelhub.vercel.app";
-
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
@@ -42,23 +40,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
-
-  return {
-    title: t("title"),
-    description: t("description"),
-    // Absolute URLs: a relative hreflang is ignored by search engines, and Lighthouse
-    // fails the document for it.
-    metadataBase: new URL(SITE_URL),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        es: `${SITE_URL}/es`,
-        en: `${SITE_URL}/en`,
-        "x-default": `${SITE_URL}/es`,
-      },
-    },
-  };
+  return localeMetadata(locale);
 }
 
 export default async function LocaleLayout({

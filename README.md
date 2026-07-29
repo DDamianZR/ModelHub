@@ -104,6 +104,19 @@ unreachable the run still completes: its last good payload is reused from `data/
 outage is recorded in `data/status.json`, and the site says on the page which source is stale
 and how old its numbers are. Silence about staleness would be its own kind of dishonesty.
 
+### Deployment identity
+
+`NEXT_PUBLIC_SITE_URL` is the origin this deployment publishes as its own — it fills the
+`canonical`, `hreflang` and `og:url` tags. Set it in Vercel under **Project Settings →
+Environment Variables** to the deployment's own URL. Vercel's
+`VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback when system environment variables are
+enabled for the project.
+
+There is no hardcoded default, on purpose. A canonical tag pointing at a URL the project does
+not own tells search engines to index that page instead of this one, and a default is exactly
+how that survives unnoticed. A build on Vercel that cannot resolve an origin fails with a
+message naming the variable; a local build just omits the tags.
+
 ## Stack
 
 Next.js 15 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (stdlib only).

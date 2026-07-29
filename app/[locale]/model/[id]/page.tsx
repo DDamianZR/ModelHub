@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
@@ -6,12 +7,24 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
 import { getAcquisition, getModelDetail, getModelIds } from "@/lib/data";
 import { routing } from "@/i18n/routing";
+import { localeMetadata } from "@/lib/metadata";
 import { CATEGORIES } from "@/lib/types";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     getModelIds().map((id) => ({ locale, id })),
   );
+}
+
+// Without this every model page inherits the layout's canonical and declares itself a
+// duplicate of the home page, which asks for none of them to be indexed on their own.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}): Promise<Metadata> {
+  const { locale, id } = await params;
+  return localeMetadata(locale, `/model/${id}`);
 }
 
 export default async function ModelPage({
