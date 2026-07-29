@@ -12,12 +12,19 @@ const inter = Inter({
   display: "swap",
 });
 
+// "optional" rather than "swap" for the display face. Its metrics differ enough from the
+// serif fallback that swapping it in reflows the masthead, which was most of a 0.115
+// cumulative layout shift. With "optional" the browser keeps the fallback when the font
+// misses its window, so nothing moves after paint.
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-instrument-serif",
-  display: "swap",
+  display: "optional",
 });
+
+// Deployment origin, used for canonical and hreflang URLs.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://modelhub.vercel.app";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -40,8 +47,16 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    // Absolute URLs: a relative hreflang is ignored by search engines, and Lighthouse
+    // fails the document for it.
+    metadataBase: new URL(SITE_URL),
     alternates: {
-      languages: { es: "/es", en: "/en" },
+      canonical: `/${locale}`,
+      languages: {
+        es: `${SITE_URL}/es`,
+        en: `${SITE_URL}/en`,
+        "x-default": `${SITE_URL}/es`,
+      },
     },
   };
 }

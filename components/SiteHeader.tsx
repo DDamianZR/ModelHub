@@ -39,7 +39,7 @@ export async function SiteHeader({
           locale={other}
           className="eyebrow row-shift shrink-0 border px-2 py-[3px]"
           style={{ borderColor: "var(--rule)" }}
-          aria-label={tl("label")}
+          aria-label={tl("switchAria")}
         >
           {tl("switch")}
         </Link>
