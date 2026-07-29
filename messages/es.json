@@ -79,7 +79,8 @@
     "ranking": "Ranking",
     "compare": "Comparar",
     "methodology": "Metodología",
-    "local": "Local"
+    "local": "Local",
+    "gaps": "Brechas"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -299,5 +300,37 @@
     "sources": "Parámetros del índice safetensors de cada modelo, arquitectura de su config.json, tamaños de archivos GGUF publicados. Nada de aquí se infiere del nombre de un modelo.",
     "noResults": "Ningún modelo cabe con esa configuración. La frontera de arriba igual muestra qué te compraría cada nivel.",
     "selectRow": "Mostrar la fórmula de {model}"
+  },
+  "gaps": {
+    "title": "Lo que dijo el proveedor, contra lo que midió un tercero",
+    "intro": "Cada número que un proveedor publica sobre su propio modelo, leído de su propio anuncio, junto a la medición independiente del mismo benchmark. Las afirmaciones de proveedor se muestran y nunca puntúan: nada de esto toca el compuesto.",
+    "unavailable": "Todavía no se ha contrastado ninguna afirmación de proveedor.",
+    "summary": "{claims} afirmaciones de proveedor contrastadas · {gaps} brechas",
+    "summaryZero": "{claims} afirmaciones de proveedor contrastadas · ninguna brecha encontrada",
+    "nullResult": "Un cero publicado es un resultado, no un fracaso en encontrar algo. “Contrastamos y los proveedores dijeron la verdad” vale tanto como lo contrario, y es la afirmación que no se puede hacer injustamente.",
+    "threshold": "Se marca una brecha cuando los dos números difieren en más del {percent}% del valor de terceros.",
+    "gapsTitle": "Brechas",
+    "gapsNone": "Ninguna afirmación comparable difirió de la medición independiente más allá del umbral.",
+    "notComparableTitle": "Contrastadas, pero no comparables",
+    "notComparableIntro": "Se muestran lado a lado sin calcular diferencia, porque los dos números no miden lo mismo. Publicar la razón informa tanto como publicar una brecha — y calcular una aquí es cómo un desajuste de definición se convierte en una acusación falsa.",
+    "model": "Modelo",
+    "benchmark": "Benchmark",
+    "vendorValue": "Proveedor",
+    "thirdPartyValue": "Tercero",
+    "gap": "Diferencia",
+    "reason": "Por qué no es comparable",
+    "vendorSays": "Lo que dijo el proveedor",
+    "unverifiedLabel": "no verificado independientemente · cifra del propio proveedor",
+    "claimedOn": "afirmado el {date}",
+    "measuredOn": "medido el {date}",
+    "vendorLink": "post del proveedor",
+    "thirdPartyLink": "fuente de terceros",
+    "reason_different_measurement": "Medición distinta: {reason}",
+    "reason_different_configuration": "Configuración distinta: el puntaje independiente se midió en la configuración {variant}, mientras el post reporta {stated}.",
+    "reason_no_third_party_measurement": "Todavía no hay medición independiente de este benchmark para este modelo.",
+    "evidence": "Fila extraída",
+    "extractedBy": "Leído de la tabla HTML publicada, con el valor y la etiqueta del benchmark en la misma fila. Ningún modelo participó.",
+    "neverScored": "Nunca puntúa",
+    "neverScoredNote": "Una afirmación de proveedor se guarda y se muestra. Nunca entra a un promedio de categoría ni al compuesto, y un test lo fija."
   }
 }

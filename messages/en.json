@@ -79,7 +79,8 @@
     "ranking": "Ranking",
     "compare": "Compare",
     "methodology": "Methodology",
-    "local": "Local"
+    "local": "Local",
+    "gaps": "Gaps"
   },
   "compare": {
     "title": "Compare models",
@@ -299,5 +300,37 @@
     "sources": "Parameters from each model’s safetensors index, architecture from its config.json, sizes from published GGUF files. Nothing here is inferred from a model’s name.",
     "noResults": "No model fits those settings. The frontier above still shows what each tier would buy you.",
     "selectRow": "Show the formula for {model}"
+  },
+  "gaps": {
+    "title": "What the vendor said, against what a third party measured",
+    "intro": "Every number a vendor publishes about its own model, read out of its own announcement, beside the independent measurement of the same benchmark. Vendor claims are shown and never scored: none of this touches the composite.",
+    "unavailable": "No vendor claims have been contrasted yet.",
+    "summary": "{claims} vendor claims contrasted · {gaps} gaps",
+    "summaryZero": "{claims} vendor claims contrasted · no gaps found",
+    "nullResult": "A published zero is a result, not a failure to find something. “We checked and the vendors were telling the truth” is worth as much as the opposite, and it is the claim that cannot be made unfairly.",
+    "threshold": "A gap is flagged when the two numbers differ by more than {percent}% of the third-party value.",
+    "gapsTitle": "Gaps",
+    "gapsNone": "No claim that was comparable differed from the independent measurement by more than the threshold.",
+    "notComparableTitle": "Contrasted, but not comparable",
+    "notComparableIntro": "These are shown side by side without a difference being computed, because the two numbers do not measure the same thing. Publishing the reason is as informative as publishing a gap — and computing one here is how a definitional mismatch becomes a false accusation.",
+    "model": "Model",
+    "benchmark": "Benchmark",
+    "vendorValue": "Vendor",
+    "thirdPartyValue": "Third party",
+    "gap": "Difference",
+    "reason": "Why not comparable",
+    "vendorSays": "What the vendor said",
+    "unverifiedLabel": "not independently verified · vendor’s own figure",
+    "claimedOn": "claimed {date}",
+    "measuredOn": "measured {date}",
+    "vendorLink": "vendor post",
+    "thirdPartyLink": "third-party source",
+    "reason_different_measurement": "Different measurement: {reason}",
+    "reason_different_configuration": "Different configuration: the independent score was measured on the {variant} configuration, while the post reports {stated}.",
+    "reason_no_third_party_measurement": "No independent measurement of this benchmark for this model yet.",
+    "evidence": "Extracted row",
+    "extractedBy": "Read from the published HTML table, value and benchmark label in the same row. No model was involved.",
+    "neverScored": "Never scored",
+    "neverScoredNote": "A vendor claim is stored and displayed. It never enters a category average or the composite, and a test pins that."
   }
 }

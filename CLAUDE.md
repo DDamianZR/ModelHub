@@ -79,6 +79,7 @@ npm test           # node:test over lib/*.test.ts, via type stripping (needs Nod
 npm run ingest     # rebuild /data from live sources (python -m scripts.ingest.run)
 npm run enrich     # Layer B: local Ollama descriptions + acquisition links
 npm run onboard    # Layer B: draft entries for trending models we don't track
+npm run claims     # Layer B: extract vendor claims from vendor posts (deterministic, no LLM)
 ```
 
 Layer B never runs in CI and never commits. It writes `data/i18n/descriptions.json`,
@@ -241,6 +242,23 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
   permission — the same standard already applied to Artificial Analysis. HuggingFace GGUF
   repositories give the same measurement under permissive terms and agree to 0.35%. Showing
   a copyable `ollama pull` command is not automated access.
+- **A vendor claim is only compared when the benchmark AND the configuration match.** The
+  first real extraction proved why: OpenAI reports FrontierMath Tier 1-3 (v2) at 85.3 for a
+  model whose full-set score from Epoch is 51.7. Differencing those publishes a 65% gap that
+  is entirely a tier-subset mismatch — a false accusation against a real company, on a page
+  whose whole argument is that vendors overstate. Non-comparable pairs are shown side by side
+  with the reason, which is as informative as a gap.
+- **A number is only credited to the benchmark in its own row and the model in its own
+  column.** Checking that "74.9" appears somewhere in the post is a weaker test that a 74.9
+  in any paragraph passes. `scripts/enrich/tables.py` preserves grid position so the
+  intersection is what gets read, and refuses a cell like "94.6% (max effort)" rather than
+  stripping the qualifier the comparability rule turns on.
+- **A vendor's post speaks only for that vendor's own models.** These tables tabulate
+  competitors too, and a number OpenAI publishes under a Claude column is OpenAI's claim
+  about Anthropic's model, not Anthropic's. Unmapped columns are counted and reported, never
+  stored. Column mappings also have to name the same variant our score row was measured on:
+  our `openai-gpt-5.5` is the Pro variant, so a post column reading plainly "GPT-5.5" is a
+  different model and is left unmapped.
 - **A sparkline draws nothing when the movement is smaller than the source's own error bar.**
   LMArena publishes `rating_lower` and `rating_upper`; they were being discarded, and every
   series was scaled against its own range so a half-point drift filled the box exactly like

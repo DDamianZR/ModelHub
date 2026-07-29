@@ -6,7 +6,7 @@ export async function SiteHeader({
   active,
 }: {
   locale: string;
-  active: "ranking" | "compare" | "local" | "methodology";
+  active: "ranking" | "compare" | "local" | "gaps" | "methodology";
 }) {
   const t = await getTranslations("masthead");
   const tn = await getTranslations("nav");
@@ -17,6 +17,7 @@ export async function SiteHeader({
     { key: "ranking", href: "/" },
     { key: "compare", href: "/compare" },
     { key: "local", href: "/local" },
+    { key: "gaps", href: "/gaps" },
     { key: "methodology", href: "/methodology" },
   ] as const;
 

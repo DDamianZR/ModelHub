@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "note": "Which vendor posts to read, whose models each post may speak for, and which of its benchmark labels correspond to ours. Every mapping here is a human-reviewable decision rather than something the extractor guesses.",
+  "own_models_only": "A vendor's post usually tabulates competitors alongside its own models. A number OpenAI publishes under a Claude column is OpenAI's claim about Anthropic's model, not Anthropic's claim about it, and recording it as a vendor_claim for Anthropic would misattribute it. Only columns belonging to the post's own publisher are extracted; every other column is counted and reported, never stored.",
+  "columns_note": "A column is only mapped when it names the same variant our score row was measured on. Our openai-gpt-5.5 row is the Pro variant, so a post column reading plainly 'GPT-5.5' is a DIFFERENT model and is left unmapped rather than credited to it - the kind of near-miss that produces a confident comparison between two things that were never the same.",
+  "posts": [
+    {
+      "url": "https://openai.com/index/gpt-5-6/",
+      "provider_id": "openai",
+      "claim_date": "2026-07-09",
+      "columns": {
+        "GPT-5.6 Sol": "openai-gpt-5.6-sol",
+        "GPT-5.6 Terra": "openai-gpt-5.6-terra",
+        "GPT-5.6 Luna": "openai-gpt-5.6-luna"
+      }
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-5/",
+      "provider_id": "openai",
+      "claim_date": "2026-05-05",
+      "columns": {
+        "GPT-5.5 Pro": "openai-gpt-5.5",
+        "GPT-5.4 Pro": "openai-gpt-5.4"
+      }
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-4/",
+      "provider_id": "openai",
+      "claim_date": "2026-03-12",
+      "columns": {
+        "GPT-5.4 Pro": "openai-gpt-5.4",
+        "GPT-5.2": "openai-gpt-5.2"
+      }
+    }
+  ],
+  "benchmark_labels": {
+    "GPQA Diamond": {
+      "benchmark_id": "gpqa_diamond",
+      "comparable": true,
+      "note": "Same benchmark and same slice Epoch measures. Both are single-number accuracy on the Diamond subset."
+    },
+    "FrontierMath Tier 1-3 (v2)": {
+      "benchmark_id": "frontiermath",
+      "comparable": false,
+      "reason": "A tier subset of FrontierMath v2. Epoch's frontiermath scores the full set, so the two numbers describe different question pools and differencing them would invent a gap out of a definitional mismatch."
+    },
+    "FrontierMath Tier 4 (v2)": {
+      "benchmark_id": "frontiermath",
+      "comparable": false,
+      "reason": "The hardest tier of FrontierMath v2 alone, against Epoch's full-set score. Not the same measurement."
+    }
+  },
+  "comparability_rule": "A delta is only computed when the label is marked comparable AND the configuration matches: the post's column has to describe the same variant our score row was measured on. Epoch measures a specific effort level, recorded per score row, and a vendor reporting a different one is publishing a different number rather than a contradictory one.",
+  "gap_threshold": 0.1,
+  "gap_threshold_note": "|vendor - third_party| / third_party. Set in the anti-bias rules; a smaller difference is within the noise of two independent runs of the same benchmark."
+}

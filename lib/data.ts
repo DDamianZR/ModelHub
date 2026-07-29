@@ -169,6 +169,63 @@ export function getVramConfig(): VramConfig | null {
   }
 }
 
+/**
+ * What a vendor published about its own model, beside what a third party measured.
+ *
+ * `comparison` is the important field. A gap is only ever computed when the benchmark AND
+ * the configuration match; everything else is shown side by side with the reason it is not a
+ * comparison. The first real extraction is why: OpenAI reports FrontierMath Tier 1-3 at 85.3
+ * where Epoch's full-set score for the same model is 51.7, and differencing those would have
+ * published a 65% gap that is entirely a definitional mismatch.
+ */
+export type VendorClaim = {
+  model_id: string;
+  benchmark_id: string;
+  value: number;
+  unit: string;
+  source_type: "vendor_claim";
+  claim_url: string;
+  claim_date: string;
+  vendor_label: string;
+  stated_configuration: string;
+  comparable_label: boolean;
+  not_comparable_reason?: string | null;
+  extracted_by: string;
+  evidence_row: string[];
+  evidence_header: string[];
+  third_party_value: number | null;
+  third_party_variant: string | null;
+  third_party_measured_at: string | null;
+  third_party_source_url: string | null;
+  comparison:
+    | "comparable"
+    | "different_measurement"
+    | "different_configuration"
+    | "no_third_party_measurement";
+  /** The variant our own score was measured on, when it differs from the post's. */
+  third_party_configuration?: string;
+  gap: number | null;
+  gap_flagged?: boolean;
+};
+
+export type VendorClaims = {
+  generated_at: string;
+  gap_threshold: number;
+  counts: { claims: number; comparable: number; gaps: number; not_comparable: number };
+  claims: VendorClaim[];
+};
+
+export function getVendorClaims(): VendorClaims | null {
+  const file = path.join(DATA_DIR, "vendor_claims.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const payload = JSON.parse(fs.readFileSync(file, "utf8")) as VendorClaims;
+    return Array.isArray(payload?.claims) ? payload : null;
+  } catch {
+    return null;
+  }
+}
+
 export type StalenessConfig = {
   aging_days: number;
   stale_days: number;

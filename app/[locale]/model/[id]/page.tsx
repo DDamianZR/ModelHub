@@ -11,6 +11,7 @@ import {
   getModelDetail,
   getModelIds,
   getStalenessConfig,
+  getVendorClaims,
   measurementAge,
 } from "@/lib/data";
 import { routing } from "@/i18n/routing";
@@ -49,6 +50,7 @@ export default async function ModelPage({
   const { links, checkedAt, withheld } = getAcquisition(id);
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
+  const tg = await getTranslations("gaps");
 
   /** The scored normalisation for a row, or null when the benchmark does not score. */
   const normalisationOf = (score: (typeof scores)[number]) =>
@@ -86,6 +88,12 @@ export default async function ModelPage({
   const oldest = ages
     .filter((entry) => entry.age.days !== null)
     .sort((a, b) => (b.age.days ?? 0) - (a.age.days ?? 0))[0];
+
+  // What the vendor claimed about this model, if anything was contrasted. Shown greyed and
+  // labelled unverified; it never entered any number above.
+  const claims = (getVendorClaims()?.claims ?? []).filter(
+    (claim) => claim.model_id === id,
+  );
   const trendMin = history.length ? Math.min(...history.map((p) => p.value)) : 0;
   const trendMax = history.length ? Math.max(...history.map((p) => p.value)) : 0;
 
@@ -376,6 +384,41 @@ export default async function ModelPage({
             </table>
           </div>
         </section>
+
+        {claims.length > 0 && (
+          <section className="mt-8">
+            <h3 className="eyebrow mb-2">{tg("vendorSays")}</h3>
+            <p className="mb-2 text-[12px]" style={muted}>
+              {tg("unverifiedLabel")} · {tg("neverScoredNote")}
+            </p>
+            <ul className="flex flex-col gap-2">
+              {claims.map((claim) => (
+                <li key={`${claim.benchmark_id}-${claim.vendor_label}`} className="text-[13px]">
+                  <span className="num" style={muted}>
+                    {claim.vendor_label}: {claim.value.toFixed(1)}%
+                  </span>
+                  {claim.gap_flagged && claim.gap !== null && (
+                    <span className="num ml-2" style={{ color: "var(--amber)" }}>
+                      ⚠ {(claim.gap * 100).toFixed(1)}%
+                    </span>
+                  )}
+                  <span className="num block text-[10px]" style={muted}>
+                    <a
+                      href={claim.claim_url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="underline underline-offset-2"
+                      style={{ color: "var(--amber)" }}
+                    >
+                      {tg("claimedOn", { date: claim.claim_date })}
+                    </a>
+                    {claim.comparison !== "comparable" && ` · ${tg("reason")}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("acquisition")}</h3>
