@@ -226,6 +226,109 @@ export function getVendorClaims(): VendorClaims | null {
   }
 }
 
+/** One model's standing on one date, as computed that day. */
+export type SnapshotRow = {
+  model_id: string;
+  display_name: string;
+  provider_name: string;
+  composite: number;
+  rank: number | null;
+  provisional: boolean;
+};
+
+export type Snapshot = {
+  date: string;
+  methodology_version: string;
+  rows: SnapshotRow[];
+};
+
+/**
+ * How many recent dates get a page, on top of the first of every month.
+ *
+ * The series grows by one date a day forever, and prerendering all of them would multiply the
+ * build by the number of days the project has existed. Recent dates plus a monthly spine
+ * keeps the useful ones addressable without that.
+ */
+export const SNAPSHOT_RECENT_LIMIT = 30;
+
+function compositeRows(): Map<string, { model_id: string; value: number; rank: number | null; provisional: boolean; version: string }[]> {
+  const file = path.join(DATA_DIR, "history.jsonl");
+  const byDate = new Map<string, { model_id: string; value: number; rank: number | null; provisional: boolean; version: string }[]>();
+  if (!fs.existsSync(file)) return byDate;
+
+  for (const row of parseHistory(fs.readFileSync(file, "utf8"))) {
+    if (row.benchmark_id !== "composite") continue;
+    const bucket = byDate.get(row.date) ?? [];
+    bucket.push({
+      model_id: row.model_id,
+      value: row.value,
+      rank: row.rank ?? null,
+      provisional: Boolean((row as { provisional?: boolean }).provisional),
+      version: row.methodology_version ?? "unknown",
+    });
+    byDate.set(row.date, bucket);
+  }
+  return byDate;
+}
+
+/** Dates worth giving a permanent URL: the recent ones plus the first of each month. */
+export function getSnapshotDates(): string[] {
+  const dates = [...compositeRows().keys()].sort();
+  const recent = new Set(dates.slice(-SNAPSHOT_RECENT_LIMIT));
+  const monthly = new Set<string>();
+  const seenMonths = new Set<string>();
+  for (const date of dates) {
+    const month = date.slice(0, 7);
+    if (!seenMonths.has(month)) {
+      seenMonths.add(month);
+      monthly.add(date);
+    }
+  }
+  return [...new Set([...monthly, ...recent])].sort().reverse();
+}
+
+/**
+ * The ranking as it stood on one date, or null.
+ *
+ * Read from the stored series and never recomputed. A citation has to keep pointing at the
+ * number that was cited, and recomputing a past date under today's formula would silently
+ * rewrite it — which is exactly the failure that makes a leaderboard uncitable.
+ *
+ * Returns null when the date's rows do not all share one methodology version. Rendering a
+ * mixed date would put two incompatible scales in one table with nothing on the page saying
+ * so, and a snapshot that cannot state which formula produced it should not exist.
+ */
+export function getSnapshot(date: string): Snapshot | null {
+  const rows = compositeRows().get(date);
+  if (!rows || rows.length === 0) return null;
+
+  const versions = new Set(rows.map((row) => row.version));
+  if (versions.size !== 1) return null;
+
+  const { rows: current } = getRanking();
+  const names = new Map(current.map((row) => [row.id, row]));
+
+  return {
+    date,
+    methodology_version: [...versions][0],
+    rows: rows
+      .map((row) => ({
+        model_id: row.model_id,
+        // Names come from the current catalogue; if a model has since left, its id stands in
+        // rather than the row being dropped, because it was in the ranking on that date.
+        display_name: names.get(row.model_id)?.display_name ?? row.model_id,
+        provider_name: names.get(row.model_id)?.provider_name ?? "",
+        composite: row.value,
+        rank: row.rank,
+        provisional: row.provisional,
+      }))
+      .sort((a, b) => {
+        if (a.provisional !== b.provisional) return a.provisional ? 1 : -1;
+        return b.composite - a.composite;
+      }),
+  };
+}
+
 export type StalenessConfig = {
   aging_days: number;
   stale_days: number;

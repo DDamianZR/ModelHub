@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getBenchmarkReference, getRanking, getWeightAudit } from "@/lib/data";
+import {
+  getBenchmarkReference,
+  getRanking,
+  getSnapshotDates,
+  getWeightAudit,
+} from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { localeMetadata } from "@/lib/metadata";
 import { CATEGORIES } from "@/lib/types";
@@ -65,6 +70,7 @@ export default async function MethodologyPage({
   // Both are files the build has to survive the absence of, so both can be null.
   const reference = getBenchmarkReference();
   const audit = getWeightAudit();
+  const snapshots = getSnapshotDates();
 
   const muted = { color: "var(--muted)" } as const;
 
@@ -318,6 +324,31 @@ export default async function MethodologyPage({
             <li className="list-disc">{t("version.v11")}</li>
             <li className="list-disc">{t("version.v10")}</li>
           </ul>
+          <p className="mt-1">
+            <a
+              href="https://github.com/DDamianZR/ModelHub/blob/main/CHANGELOG-methodology.md"
+              className="eyebrow underline underline-offset-2"
+              style={{ color: "var(--amber)" }}
+            >
+              {t("version.changelogLink")}
+            </a>
+          </p>
+          <p style={muted}>{t("version.snapshots")}</p>
+          {snapshots.length > 0 && (
+            <ul className="num flex flex-wrap gap-x-4 gap-y-1 pl-4 text-[13px]">
+              {snapshots.map((date) => (
+                <li key={date}>
+                  <a
+                    href={`/${locale}/snapshot/${date}`}
+                    className="underline underline-offset-2"
+                    style={{ color: "var(--amber)" }}
+                  >
+                    {date}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </Section>
 
         <Section id="coverage" title={t("coverage.title")}>

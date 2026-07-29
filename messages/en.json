@@ -185,7 +185,9 @@
       "current": "Current methodology version: {version}.",
       "body": "A change to how any published number is computed raises this version. Every models.json build and every row of the time series carries it, so a stored number can never be read under a formula that did not produce it.",
       "v11": "1.1 — Benchmarks are normalised against a frozen reference before being averaged into a category, and LMArena stops being a special case. Removing a model no longer moves anyone else's score: measured over the same data, 0 of 52 composites moved, against 48 under 1.0. The ranking itself moved a great deal — 53 of 53 composites, mean shift 17.0 — because the previous ordering was partly an artefact of benchmark difficulty. MATH Level 5 (n=5) stops scoring.",
-      "v10": "1.0 — Raw percentages averaged inside a category; LMArena min-max normalised against the cohort present in each build."
+      "v10": "1.0 — Raw percentages averaged inside a category; LMArena min-max normalised against the cohort present in each build.",
+      "changelogLink": "Full changelog, with the measured ranking effect of every change",
+      "snapshots": "Citable snapshots: the ranking as it stood on a given date, read from the stored series and never recomputed."
     },
     "coverage": {
       "title": "The coverage gate",
@@ -332,5 +334,25 @@
     "extractedBy": "Read from the published HTML table, value and benchmark label in the same row. No model was involved.",
     "neverScored": "Never scored",
     "neverScoredNote": "A vendor claim is stored and displayed. It never enters a category average or the composite, and a test pins that."
+  },
+  "snapshot": {
+    "title": "The ranking on {date}",
+    "intro": "Read from the stored time series, not recomputed. The numbers on this page are the ones that were published on {date}, under methodology version {version}.",
+    "frozen": "This page will not change. A citation has to keep pointing at the number that was cited, so a past date is never recalculated under a later formula.",
+    "notComparable": "Composite values are not comparable across methodology versions: normalisation recentres the whole scale, so a mean can move without any model changing. Only the ordering carries across a version bump.",
+    "citeTitle": "How to cite this",
+    "citeText": "ModelHub, “The independent frontier model scoreboard”, snapshot of {date}, methodology version {version}. Retrieved from {url}",
+    "copyCitation": "Copy citation",
+    "changelog": "Methodology changelog",
+    "currentRanking": "Current ranking",
+    "availableTitle": "Other snapshots",
+    "availableIntro": "Recent dates plus the first of each month get a permanent URL.",
+    "rank": "#",
+    "model": "Model",
+    "provider": "Provider",
+    "composite": "Composite",
+    "provisionalNote": "Provisional · not ranked",
+    "models": "{count} models",
+    "notFound": "No snapshot was stored for that date."
   }
 }

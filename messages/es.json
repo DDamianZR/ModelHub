@@ -185,7 +185,9 @@
       "current": "Versión de metodología actual: {version}.",
       "body": "Cualquier cambio en cómo se calcula un número publicado sube esta versión. Cada build de models.json y cada fila de la serie temporal la llevan, así que un número guardado nunca puede leerse bajo una fórmula que no lo produjo.",
       "v11": "1.1 — Los benchmarks se normalizan contra una referencia congelada antes de promediarse en su categoría, y LMArena deja de ser un caso especial. Quitar un modelo ya no mueve el puntaje de nadie más: medido sobre los mismos datos, 0 de 52 compuestos se movieron, contra 48 bajo la 1.0. El ranking sí se movió mucho — 53 de 53 compuestos, desplazamiento medio 17.0 — porque el orden anterior era en parte un artefacto de la dificultad de los benchmarks. MATH Level 5 (n=5) deja de puntuar.",
-      "v10": "1.0 — Porcentajes crudos promediados dentro de la categoría; LMArena normalizada min-max contra el conjunto presente en cada build."
+      "v10": "1.0 — Porcentajes crudos promediados dentro de la categoría; LMArena normalizada min-max contra el conjunto presente en cada build.",
+      "changelogLink": "Changelog completo, con el efecto medido de cada cambio sobre el ranking",
+      "snapshots": "Cortes citables: el ranking tal como estaba en una fecha, leído de la serie guardada y nunca recalculado."
     },
     "coverage": {
       "title": "El gate de cobertura",
@@ -332,5 +334,25 @@
     "extractedBy": "Leído de la tabla HTML publicada, con el valor y la etiqueta del benchmark en la misma fila. Ningún modelo participó.",
     "neverScored": "Nunca puntúa",
     "neverScoredNote": "Una afirmación de proveedor se guarda y se muestra. Nunca entra a un promedio de categoría ni al compuesto, y un test lo fija."
+  },
+  "snapshot": {
+    "title": "El ranking del {date}",
+    "intro": "Leído de la serie temporal guardada, no recalculado. Los números de esta página son los que se publicaron el {date}, con la versión de metodología {version}.",
+    "frozen": "Esta página no va a cambiar. Una cita tiene que seguir apuntando al número que se citó, así que una fecha pasada nunca se recalcula con una fórmula posterior.",
+    "notComparable": "Los valores del compuesto no son comparables entre versiones de metodología: la normalización recentra toda la escala, así que una media puede moverse sin que ningún modelo cambie. Solo el orden cruza un cambio de versión.",
+    "citeTitle": "Cómo citar esto",
+    "citeText": "ModelHub, “El baremo independiente de modelos frontera”, corte del {date}, versión de metodología {version}. Recuperado de {url}",
+    "copyCitation": "Copiar cita",
+    "changelog": "Changelog de metodología",
+    "currentRanking": "Ranking actual",
+    "availableTitle": "Otros cortes",
+    "availableIntro": "Las fechas recientes y el primero de cada mes tienen URL permanente.",
+    "rank": "#",
+    "model": "Modelo",
+    "provider": "Proveedor",
+    "composite": "Compuesto",
+    "provisionalNote": "Provisional · no rankeado",
+    "models": "{count} modelos",
+    "notFound": "No se guardó ningún corte para esa fecha."
   }
 }

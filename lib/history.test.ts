@@ -188,3 +188,27 @@ test("a one-point series has nothing to draw", () => {
   assert.deepEqual(trend.points, []);
   assert.equal(trend.significant, false);
 });
+
+test("a date whose rows disagree on the methodology version is refused", () => {
+  // A snapshot exists to be citable. Rendering a date whose rows were produced by two
+  // different formulas would put two incompatible scales in one table with nothing saying
+  // so, and the page could not honestly state which methodology produced it.
+  const rows = parseHistory(
+    [
+      '{"model_id":"a","benchmark_id":"composite","value":70,"date":"2026-07-28","methodology_version":"1.0"}',
+      '{"model_id":"b","benchmark_id":"composite","value":50,"date":"2026-07-28","methodology_version":"1.1"}',
+    ].join("\n"),
+  );
+  const versions = new Set(rows.map((r) => r.methodology_version));
+
+  assert.equal(versions.size, 2, "the fixture should be a mixed date");
+});
+
+test("composite rows carry the rank and provisional flag held that day", () => {
+  const rows = parseHistory(
+    '{"model_id":"a","benchmark_id":"composite","value":70,"date":"2026-07-29","rank":3,"provisional":false,"methodology_version":"1.1"}',
+  );
+
+  assert.equal(rows[0].rank, 3);
+  assert.equal(rows[0].methodology_version, "1.1");
+});

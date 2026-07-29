@@ -242,6 +242,11 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
   permission — the same standard already applied to Artificial Analysis. HuggingFace GGUF
   repositories give the same measurement under permissive terms and agree to 0.35%. Showing
   a copyable `ollama pull` command is not automated access.
+- **A past snapshot is rendered from what was stored, never recomputed.** A leaderboard whose
+  numbers move under a citation cannot be cited. `/snapshot/[date]` reads the stored composite
+  rows and states the methodology version that produced them; a date whose rows disagree on
+  that version is refused rather than rendered, because two incompatible scales in one table
+  with nothing saying so is worse than a missing page.
 - **A vendor claim is only compared when the benchmark AND the configuration match.** The
   first real extraction proved why: OpenAI reports FrontierMath Tier 1-3 (v2) at 85.3 for a
   model whose full-set score from Epoch is 51.7. Differencing those publishes a 65% gap that
@@ -349,8 +354,8 @@ or comments.** This is not negotiable.
 - [x] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
 - [ ] **Phase 5** — community hardening, a11y, performance.
 
-The v3 improvement plan runs alongside these and has its own numbering. Closed so far:
-canonical identity, the full time series, per-benchmark normalisation (methodology 1.1), and
-`/local`.
+The v3 improvement plan runs alongside these and has its own numbering. All of its phases are
+closed: canonical identity, the full time series, per-benchmark normalisation (methodology
+1.1), `/local`, honest sparklines and per-cell staleness, `/gaps`, and citability.
 
 Update this section when a phase closes.
