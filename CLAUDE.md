@@ -55,7 +55,7 @@ maintain.
 /messages          en.json, es.json
 /data              models, scores, benchmarks, providers, aliases, history.jsonl
 /data/baseline     frozen models.json snapshots to measure a change against
-/config            weights.json, sources.json
+/config            weights.json · sources.json · benchmark_reference.json · vram.json · staleness.json
 /scripts/ingest    run.py (orchestrator) · sources/ · composite.py · common.py
 /scripts/analysis  measurement tools, run by hand, never part of the ingest
 /.github/workflows ingest.yml (daily cron) · ci.yml
@@ -241,6 +241,19 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
   permission — the same standard already applied to Artificial Analysis. HuggingFace GGUF
   repositories give the same measurement under permissive terms and agree to 0.35%. Showing
   a copyable `ollama pull` command is not automated access.
+- **A sparkline draws nothing when the movement is smaller than the source's own error bar.**
+  LMArena publishes `rating_lower` and `rating_upper`; they were being discarded, and every
+  series was scaled against its own range so a half-point drift filled the box exactly like
+  a 64-point climb. Measured over the 49 series: median movement 5.1 rating points against a
+  median published interval of 10.5, so 38 of 49 were noise drawn as trajectories. Series now
+  share one scale across the table and a line is only drawn when the movement clears the
+  interval.
+- **Measurement age is not scaled by source cadence, unlike source staleness.** A source is
+  late relative to its own rhythm; a reading is simply old and does not become current
+  because its publisher shipped something else today. Epoch publishes daily, so cadence
+  scaling would flag nearly every Epoch reading and the warning would stop meaning anything.
+  Absolute thresholds live in `config/staleness.json`, calibrated against the real
+  distribution (median 34 days, p90 233, oldest 358).
 - **z-score rather than percentile, on measurement.** Both order models almost identically
   (Spearman 0.9965), so the choice costs no information either way. Percentile saturates
   where the interesting comparison lives: 23 category scores land above 95 or below 5 against
