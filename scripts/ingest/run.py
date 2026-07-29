@@ -19,11 +19,15 @@ from collections import defaultdict
 from datetime import date, datetime, timezone
 
 from .common import CONFIG, DATA, SourceError, read_cache, write_cache, write_json
-from .composite import build_models, load_weights
+from .composite import build_models, load_methodology_version, load_weights
 from .sources import epoch, livebench, lmarena
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
+
+# Shape of a history.jsonl row. Rows written before this existed carry no version and are
+# read as version 0; readers treat every field beyond model/benchmark/value/date as optional.
+HISTORY_SCHEMA_VERSION = 1
 
 # A source can fetch perfectly and still be serving old numbers, because the upstream
 # snapshot itself is old. That is the failure mode that ages in silence.
@@ -168,13 +172,25 @@ def merge_history(
        ratio structurally 1.0 and the check unable to ever fire.
     2. Drop any date the source itself already rejected, which also purges rows that
        earlier runs let through.
+
+    The ratio is counted per (date, benchmark), not per (date, model). While the file held
+    only Arena ratings those were the same measurement; once a run records ten benchmarks,
+    five categories and the composite, a model legitimately has sixteen rows on one date
+    and a per-model count would read every single day as duplicated and reject the lot.
+    Per benchmark the original invariant holds unchanged: one model, one reading, one date.
     """
-    per_date: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    per_date: dict[str, dict[str, dict[str, int]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(int))
+    )
     for row in incoming:
-        per_date[row["date"]][row["model_id"]] += 1
+        per_date[row["date"]][row["benchmark_id"]][row["model_id"]] += 1
     duplicated = {
-        day for day, models in per_date.items()
-        if models and sum(models.values()) / len(models) > lmarena.DUPLICATE_RATIO_LIMIT
+        day
+        for day, benchmarks in per_date.items()
+        if any(
+            models and sum(models.values()) / len(models) > lmarena.DUPLICATE_RATIO_LIMIT
+            for models in benchmarks.values()
+        )
     }
 
     bad = duplicated | rejected_dates
@@ -192,9 +208,22 @@ def merge_history(
     )
 
 
+def previously_published() -> set[str]:
+    """Model ids in the models.json this run is about to overwrite."""
+    path = DATA / "models.json"
+    if not path.exists():
+        return set()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    return {m["id"] for m in payload.get("models", []) if m.get("id")}
+
+
 def main() -> int:
     print("ModelHub ingest")
     weights, min_coverage, variant_policy = load_weights()
+    published_before = previously_published()
 
     epoch_payload, epoch_status = gather("epoch", epoch.collect)
     livebench_payload, livebench_status = gather("livebench", livebench.collect)
@@ -228,7 +257,24 @@ def main() -> int:
         vision_snapshot=arena_payload.get("vision_snapshot"),
     )
 
+    today = date.today().isoformat()
+    methodology_version = load_methodology_version()
+
+    def history_row(model_id: str, benchmark_id: str, value: float, when: str, **extra):
+        return {
+            "model_id": model_id,
+            "benchmark_id": benchmark_id,
+            "value": value,
+            "date": when,
+            "schema_version": HISTORY_SCHEMA_VERSION,
+            "methodology_version": methodology_version,
+            **extra,
+        }
+
     incoming_history: list[dict] = []
+
+    # LMArena is the only source that publishes its own back catalogue, so its series is
+    # backfilled from upstream rather than accumulated a day at a time.
     if arena_status["state"] == "ok":
         for model in models:
             name = model.get("arena_name")
@@ -236,15 +282,47 @@ def main() -> int:
                 continue
             try:
                 for row in lmarena.history_for(name):
-                    incoming_history.append({
-                        "model_id": model["id"],
-                        "benchmark_id": "lmarena_text_overall",
-                        "value": round(row["rating"], 1),
-                        "date": row["leaderboard_publish_date"],
-                        "source_type": "human_eval",
-                    })
+                    incoming_history.append(history_row(
+                        model["id"], "lmarena_text_overall", round(row["rating"], 1),
+                        row["leaderboard_publish_date"], source_type="human_eval",
+                    ))
             except SourceError as exc:
                 print(f"  history: skipped {name} ({exc})")
+
+    # Every other benchmark, dated by when it was MEASURED rather than by when this run
+    # happened to read it. A benchmark that has not been re-measured produces the same row
+    # every day and deduplicates away, so the series records measurements, not runs.
+    undated = 0
+    for row in score_rows:
+        if row["benchmark_id"] == "lmarena_text_overall":
+            continue  # already covered above, with its full history
+        if not row["measured_at"]:
+            # No date means no place on a time axis, and inventing one is not an option.
+            undated += 1
+            continue
+        incoming_history.append(history_row(
+            row["model_id"], row["benchmark_id"], row["value"],
+            row["measured_at"][:10], source_type=row["source_type"],
+        ))
+    if undated:
+        print(f"  history: {undated} score(s) carry no measured_at and are not recorded")
+
+    # Category scores and the composite are ours, computed today from the readings above,
+    # so they are dated by the run. They are stored as computed and tagged with the
+    # methodology version that produced them: without the tag a snapshot from before a
+    # formula change would be read under the formula after it, which is the one way a
+    # stored series can lie. The stored value is never a normalised one - normalisation is
+    # derived from a reference that is expected to be recomputed, and a derivative stored
+    # under one reference and read under the next cannot be recomputed by anyone.
+    for model in models:
+        for category, value in model["category_scores"].items():
+            incoming_history.append(
+                history_row(model["id"], f"category:{category}", value, today)
+            )
+        incoming_history.append(history_row(
+            model["id"], "composite", model["composite"], today,
+            rank=model["rank"], provisional=model["provisional"],
+        ))
 
     rejected = arena_payload.get("rejected_snapshots") or []
     rejected_dates = {item["date"] for item in rejected if isinstance(item, dict)}
@@ -253,9 +331,19 @@ def main() -> int:
     for model in models:
         model.pop("arena_name", None)
 
+    # The registry has a single upstream. The failure policy covers Epoch being unreachable;
+    # it does not cover Epoch quietly dropping a model, which today would remove it from the
+    # site with no trace anywhere. Reported, never treated as an error: a model legitimately
+    # leaves when a vendor retires it, and a run that died over that would be worse.
+    vanished = sorted(published_before - {m["id"] for m in models})
+    if vanished:
+        print(f"  registry: {len(vanished)} model(s) present last run and absent now: "
+              f"{', '.join(vanished)}")
+
     provisional = sum(1 for m in models if m["provisional"])
     meta = {
         "generated_at": date.today().isoformat(),
+        "methodology_version": methodology_version,
         "model_count": len(models),
         "ranked_count": len(models) - provisional,
         "provisional_count": provisional,
@@ -311,6 +399,7 @@ def main() -> int:
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "ok": True,
+        "methodology_version": methodology_version,
         "sources": statuses,
         "snapshot_ages": snapshot_ages,
         "thresholds": {
@@ -318,6 +407,7 @@ def main() -> int:
             "degraded_cadence_multiple": DEGRADED_CADENCE_MULTIPLE,
         },
         "rejected_snapshots": rejected,
+        "vanished_models": vanished,
     })
 
     aged = [
@@ -328,11 +418,20 @@ def main() -> int:
     if aged:
         print(f"  snapshot age warnings: {', '.join(aged)}")
 
+    kinds = defaultdict(int)
+    for row in history:
+        bid = row["benchmark_id"]
+        kinds["composite" if bid == "composite"
+              else "category" if bid.startswith("category:")
+              else "benchmark"] += 1
+
     degraded = [n for n, s in statuses.items() if s["state"] != "ok"]
     print(
         f"\nWrote {len(models)} models ({len(models) - provisional} ranked, "
         f"{provisional} provisional), {len(score_rows)} scores, "
-        f"{len(history)} history points."
+        f"{len(history)} history points "
+        f"({kinds['benchmark']} benchmark, {kinds['category']} category, "
+        f"{kinds['composite']} composite)."
     )
     if degraded:
         print(f"Degraded sources: {', '.join(degraded)} (site still builds)")

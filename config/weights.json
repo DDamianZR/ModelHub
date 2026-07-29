@@ -1,5 +1,7 @@
 {
   "schema_version": 1,
+  "methodology_version": "1.0",
+  "methodology_version_note": "Stamped on every models.json build and every history.jsonl row. A change to how any published number is computed raises it, so a stored series can never be read under a formula it was not produced by. This is the single source of the version: config added later records which version it was computed for rather than declaring one of its own.",
   "decided_at": "2026-07-27",
   "note": "Multimodal is deliberately excluded from the composite and shown as a separate vision score, so that text-only models are never ranked against a category they do not compete in.",
   "weights": {

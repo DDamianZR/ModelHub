@@ -38,6 +38,8 @@ export type Model = {
 
 export type Meta = {
   generated_at: string;
+  /** Which version of the published formulas produced these numbers. */
+  methodology_version?: string;
   model_count: number;
   ranked_count: number;
   provisional_count: number;
@@ -101,10 +103,17 @@ export type SnapshotAge = {
 export type Status = {
   generated_at: string;
   ok: boolean;
+  methodology_version?: string;
   sources: Record<string, SourceStatus>;
   snapshot_ages?: Record<string, SnapshotAge>;
   thresholds?: { snapshot_warn_days: number; snapshot_degraded_days: number };
   rejected_snapshots?: unknown[];
+  /**
+   * Models the previous run published and this one did not. The registry has a single
+   * upstream, so a silent deletion there would otherwise remove a model from the site with
+   * nothing recorded anywhere.
+   */
+  vanished_models?: string[];
 };
 
 /** A source whose upstream measurement has gone stale, even if the fetch succeeded. */

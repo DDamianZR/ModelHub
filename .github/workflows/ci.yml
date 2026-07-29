@@ -29,6 +29,11 @@ jobs:
       - name: Audit generated descriptions
         run: python -m scripts.enrich.audit
 
+      # Stdlib unittest, no runner to install: the ingest has no dependencies and its tests
+      # keep that property.
+      - name: Ingest tests
+        run: python -m unittest discover -s scripts/tests -t .
+
       - run: npm ci
 
       - run: npm run lint

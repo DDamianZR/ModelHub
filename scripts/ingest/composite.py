@@ -15,6 +15,11 @@ DEFAULT_WEIGHTS = {
 
 DEFAULT_MIN_COVERAGE = 4
 
+# Raised whenever a change alters how a published number is computed. Every models.json
+# build and every history.jsonl row carries it, so a stored value is always readable under
+# the formula that produced it rather than the one in force when it is read back.
+DEFAULT_METHODOLOGY_VERSION = "1.0"
+
 # What to do when one canonical model was published under several variants (effort levels,
 # thinking modes) and a benchmark therefore arrives more than once.
 #
@@ -72,6 +77,15 @@ def load_weights() -> tuple[dict[str, float], int, str]:
             f"variant_policy must be one of {VARIANT_POLICIES}, got {policy!r}"
         )
     return dict(weights), minimum, policy
+
+
+def load_methodology_version() -> str:
+    """Read from config so a formula change and its version bump land in the same diff."""
+    path = CONFIG / "weights.json"
+    if not path.exists():
+        return DEFAULT_METHODOLOGY_VERSION
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return str(payload.get("methodology_version") or DEFAULT_METHODOLOGY_VERSION)
 
 
 def choose_model_variant(merged: dict[str, dict], key: str) -> str | None:
