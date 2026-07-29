@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "methodology_version": "1.0",
+  "methodology_version": "1.1",
   "methodology_version_note": "Stamped on every models.json build and every history.jsonl row. A change to how any published number is computed raises it, so a stored series can never be read under a formula it was not produced by. This is the single source of the version: config added later records which version it was computed for rather than declaring one of its own.",
   "decided_at": "2026-07-27",
   "note": "Multimodal is deliberately excluded from the composite and shown as a separate vision score, so that text-only models are never ranked against a category they do not compete in.",
@@ -14,8 +14,10 @@
   "min_coverage_for_ranking": 4,
   "min_coverage_rationale": "Renormalising over available weight lets a thinly measured model rank high on what it is missing rather than on being better. Models below the bar are shown in a provisional section instead of competing for a top-N slot. The bar is 4 of 5 so that a new model with all four benchmarks but no Arena votes yet still ranks, flagged as awaiting human votes.",
   "normalization": {
-    "percent_benchmarks": "used as-is on a 0-100 scale",
-    "lmarena": "min-max normalized across the cohort present in each build"
+    "method": "Each benchmark is normalised against a frozen reference distribution before its category average is taken: normalized = 50 + scale_factor * (raw - mean) / sd, clipped to [0, 100]. 50 is the reference-average model on that benchmark and 12.5 points is one standard deviation.",
+    "why": "A raw score measures capability times benchmark difficulty. Averaging raw scores inside a category ranks models partly on which benchmarks happened to measure them, and normalising against the cohort in each build makes every score depend on who else was measured that day.",
+    "reference": "config/benchmark_reference.json",
+    "lmarena": "no longer a special case; it is normalised like every other benchmark"
   },
   "rules": [
     "Only human_eval and third_party_benchmark feed the composite.",

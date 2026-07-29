@@ -20,7 +20,9 @@ from datetime import date, datetime, timezone
 
 from .common import CONFIG, DATA, SourceError, read_cache, write_cache, write_json
 from .composite import build_models, load_methodology_version, load_weights
+from .normalize import ReferenceError, load_reference
 from .sources import epoch, livebench, lmarena
+from .weight_audit import audit as audit_weights
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
@@ -247,7 +249,22 @@ def main() -> int:
         })
         return 1
 
-    models, score_rows, providers, aliases, (arena_low, arena_high) = build_models(
+    try:
+        reference = load_reference()
+    except ReferenceError as exc:
+        # Without a usable reference nothing can be normalised, and guessing a scale is the
+        # one thing that must never happen silently. Leave /data alone and say why.
+        print(f"FATAL: {exc}")
+        write_json(DATA / "status.json", {
+            "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "ok": False,
+            "reason": f"normalisation reference unusable: {exc}",
+            "sources": statuses,
+        })
+        return 1
+
+    models, score_rows, providers, aliases = build_models(
+        reference=reference,
         registry=registry,
         epoch_scores=epoch_payload.get("scores") or {},
         livebench_scores=livebench_payload.get("scores") or {},
@@ -340,6 +357,15 @@ def main() -> int:
         print(f"  registry: {len(vanished)} model(s) present last run and absent now: "
               f"{', '.join(vanished)}")
 
+    # Values falling outside the reference's range are clipped, and clipping is counted
+    # rather than smoothed over: a run where it starts happening often is a run where the
+    # frozen reference has aged and needs regenerating under a new methodology version.
+    clipped = sum(
+        1 for row in score_rows if (row.get("normalization") or {}).get("clipped")
+    )
+    if clipped:
+        print(f"  normalisation: {clipped} score(s) clipped to the 0-100 range")
+
     provisional = sum(1 for m in models if m["provisional"])
     meta = {
         "generated_at": date.today().isoformat(),
@@ -354,15 +380,23 @@ def main() -> int:
             "lmarena_text": arena_payload.get("snapshot"),
             "lmarena_vision": arena_payload.get("vision_snapshot"),
         },
-        "arena_normalization": {
-            "method": "min-max across the cohort in this build",
-            "min": round(arena_low, 2),
-            "max": round(arena_high, 2),
+        "normalization": {
+            "method": "per-benchmark z-score against a frozen reference",
+            "reference_computed_at": reference.computed_at,
+            "scale_factor": reference.scale_factor,
+            "min_n": reference.min_n,
+            "scored_benchmarks": sorted(reference.benchmarks),
+            "excluded_benchmarks": reference.excluded,
+            "clipped_scores": clipped,
         },
     }
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})
+    write_json(DATA / "weight_audit.json", {
+        "generated_at": date.today().isoformat(),
+        **audit_weights(models, weights, methodology_version),
+    })
     write_json(DATA / "providers.json", {
         "providers": sorted(providers.values(), key=lambda p: p["display_name"])
     })

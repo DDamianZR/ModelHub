@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "methodology_version": "1.1",
+  "computed_at": "2026-07-28",
+  "computed_from": "data/baseline/methodology-1.0-scores.json, the frozen snapshot of the last build before normalisation. Regenerate with python -m scripts.analysis.build_reference",
+  "min_n": 15,
+  "min_n_rationale": "The standard error of a standard deviation is sd/sqrt(2(n-1)): 35% at n=5, 17% at n=18, 12% at n=34. Below this bar the reference would be noise and every future model would be graded against that noise, so the benchmark does not enter the composite.",
+  "scale_factor": 12.5,
+  "formula": "normalized = 50 + scale_factor * (raw - mean) / sd, clipped to [0, 100]",
+  "note": "Frozen on purpose. Scores depend on this reference, not on the cohort present in a given build, which is what stops one model entering or leaving from moving everybody else. Recomputing it moves every historical score: raise methodology_version, regenerate, and record the measured ranking effect in the changelog.",
+  "benchmarks": {
+    "frontiermath": {
+      "category": "math",
+      "n": 25,
+      "mean": 27.1208,
+      "sd": 15.108261,
+      "observed_min": 4.84,
+      "observed_max": 51.7,
+      "se_of_sd_pct": 14.43
+    },
+    "gpqa_diamond": {
+      "category": "reasoning",
+      "n": 36,
+      "mean": 85.897222,
+      "sd": 7.241186,
+      "observed_min": 69.44,
+      "observed_max": 94.0,
+      "se_of_sd_pct": 11.95
+    },
+    "livebench_coding": {
+      "category": "coding",
+      "n": 30,
+      "mean": 60.170667,
+      "sd": 6.91693,
+      "observed_min": 39.09,
+      "observed_max": 71.7,
+      "se_of_sd_pct": 13.13
+    },
+    "livebench_instruction_following": {
+      "category": "instruction_following",
+      "n": 30,
+      "mean": 66.195333,
+      "sd": 5.90389,
+      "observed_min": 56.29,
+      "observed_max": 79.1,
+      "se_of_sd_pct": 13.13
+    },
+    "livebench_math": {
+      "category": "math",
+      "n": 30,
+      "mean": 88.846667,
+      "sd": 5.561128,
+      "observed_min": 76.95,
+      "observed_max": 96.2,
+      "se_of_sd_pct": 13.13
+    },
+    "livebench_reasoning": {
+      "category": "reasoning",
+      "n": 30,
+      "mean": 83.696667,
+      "sd": 6.267932,
+      "observed_min": 70.58,
+      "observed_max": 91.65,
+      "se_of_sd_pct": 13.13
+    },
+    "lmarena_text_overall": {
+      "category": "human_preference",
+      "n": 50,
+      "mean": 1443.66,
+      "sd": 35.975218,
+      "observed_min": 1320.2,
+      "observed_max": 1511.6,
+      "se_of_sd_pct": 10.1
+    },
+    "simpleqa_verified": {
+      "category": "reasoning",
+      "n": 33,
+      "mean": 44.653333,
+      "sd": 18.571647,
+      "observed_min": 5.9,
+      "observed_max": 72.9,
+      "se_of_sd_pct": 12.5
+    },
+    "swe_bench_verified": {
+      "category": "coding",
+      "n": 18,
+      "mean": 72.157778,
+      "sd": 6.439008,
+      "observed_min": 57.56,
+      "observed_max": 80.58,
+      "se_of_sd_pct": 17.15
+    }
+  },
+  "excluded": {
+    "math_level_5": {
+      "category": "math",
+      "n": 5,
+      "reason": "below min_n (5 < 15)"
+    }
+  }
+}

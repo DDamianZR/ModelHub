@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getRanking } from "@/lib/data";
+import { getBenchmarkReference, getRanking, getWeightAudit } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { localeMetadata } from "@/lib/metadata";
 import { CATEGORIES } from "@/lib/types";
@@ -62,6 +62,9 @@ export default async function MethodologyPage({
   const t = await getTranslations("methodology");
   const tt = await getTranslations("table");
   const { meta } = getRanking();
+  // Both are files the build has to survive the absence of, so both can be null.
+  const reference = getBenchmarkReference();
+  const audit = getWeightAudit();
 
   const muted = { color: "var(--muted)" } as const;
 
@@ -119,12 +122,202 @@ export default async function MethodologyPage({
             {t("formula.equation")}
           </p>
 
-          <p style={muted}>{t("formula.normalisation", {
-            min: meta.arena_normalization.min,
-            max: meta.arena_normalization.max,
-          })}</p>
+          <p style={muted}>{t("formula.normalisation")}</p>
 
           <p style={muted}>{t("formula.multimodal")}</p>
+        </Section>
+
+        {reference && (
+          <Section id="normalisation" title={t("normalisation.title")}>
+            <p style={muted}>
+              {t("normalisation.problem", {
+                hardMedian: reference.benchmarks.frontiermath
+                  ? reference.benchmarks.frontiermath.mean.toFixed(1)
+                  : "—",
+                easyMedian: reference.benchmarks.livebench_math
+                  ? reference.benchmarks.livebench_math.mean.toFixed(1)
+                  : "—",
+              })}
+            </p>
+            <p style={muted}>{t("normalisation.solution")}</p>
+
+            <p
+              className="num mt-1 border-l-2 py-2 pl-3 text-[12px] leading-[1.6]"
+              style={{ borderColor: "var(--amber)" }}
+            >
+              {t("normalisation.formula", { scale: reference.scale_factor })}
+            </p>
+
+            <p style={muted}>{t("normalisation.scale", { scale: reference.scale_factor })}</p>
+            <p style={muted}>{t("normalisation.cohort")}</p>
+            <p style={muted}>{t("normalisation.frozen")}</p>
+            <p style={muted}>{t("normalisation.minN", { minN: reference.min_n })}</p>
+
+            <h3 className="eyebrow mt-3">{t("normalisation.referenceTitle")}</h3>
+            <div className="overflow-x-auto">
+              <table
+                className="w-full border-collapse text-left"
+                style={{ minWidth: "34rem" }}
+              >
+                <thead>
+                  <tr className="border-b rule">
+                    <th scope="col" className="py-2 pr-3">
+                      <span className="eyebrow">{t("normalisation.benchmark")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3">
+                      <span className="eyebrow">{t("normalisation.category")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3 text-right">
+                      <span className="eyebrow">{t("normalisation.n")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3 text-right">
+                      <span className="eyebrow">{t("normalisation.mean")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3 text-right">
+                      <span className="eyebrow">{t("normalisation.sd")}</span>
+                    </th>
+                    <th scope="col" className="py-2 text-right">
+                      <span className="eyebrow">{t("normalisation.range")}</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(reference.benchmarks).map(([id, entry]) => (
+                    <tr key={id} className="border-b rule">
+                      <th scope="row" className="py-2 pr-3 text-[13px] font-normal">
+                        {id}
+                      </th>
+                      <td className="py-2 pr-3 text-[11px]" style={muted}>
+                        {entry.category ? tt(entry.category as (typeof CATEGORIES)[number]) : "—"}
+                      </td>
+                      <td className="num py-2 pr-3 text-right text-[13px]">{entry.n}</td>
+                      <td className="num py-2 pr-3 text-right text-[13px]">
+                        {entry.mean.toFixed(1)}
+                      </td>
+                      <td className="num py-2 pr-3 text-right text-[13px]">
+                        {entry.sd.toFixed(1)}
+                      </td>
+                      <td className="num py-2 text-right text-[11px]" style={muted}>
+                        {entry.observed_min.toFixed(1)} – {entry.observed_max.toFixed(1)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {Object.keys(reference.excluded).length > 0 && (
+              <>
+                <h3 className="eyebrow mt-3">{t("normalisation.excludedTitle")}</h3>
+                <ul className="flex flex-col gap-1 pl-4" style={muted}>
+                  {Object.entries(reference.excluded).map(([id, entry]) => (
+                    <li key={id} className="list-disc text-[13px]">
+                      <span className="num text-[12px]">{id}</span> — n={entry.n} ·{" "}
+                      {entry.reason}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            <p className="num text-[12px]" style={muted}>
+              {t("normalisation.clipped", { count: meta.normalization.clipped_scores })}
+            </p>
+            <p className="num text-[12px]" style={muted}>
+              {t("normalisation.computedAt", {
+                date: reference.computed_at,
+                version: reference.methodology_version,
+              })}
+            </p>
+          </Section>
+        )}
+
+        <Section id="weights" title={t("weights.title")}>
+          <p style={muted}>{t("weights.body")}</p>
+          {audit ? (
+            <>
+              <p style={muted}>
+                {t("weights.measured", { n: audit.n_models_full_coverage })}
+              </p>
+              <div className="overflow-x-auto">
+                <table
+                  className="w-full border-collapse text-left"
+                  style={{ minWidth: "30rem" }}
+                >
+                  <thead>
+                    <tr className="border-b rule">
+                      <th scope="col" className="py-2 pr-3">
+                        <span className="eyebrow">{t("weights.category")}</span>
+                      </th>
+                      <th scope="col" className="py-2 pr-3 text-right">
+                        <span className="eyebrow">{t("weights.nominal")}</span>
+                      </th>
+                      <th scope="col" className="py-2 pr-3 text-right">
+                        <span className="eyebrow">{t("weights.effective")}</span>
+                      </th>
+                      <th scope="col" className="py-2 pr-3 text-right">
+                        <span className="eyebrow">{t("weights.spread")}</span>
+                      </th>
+                      <th scope="col" className="py-2 text-right">
+                        <span className="eyebrow">{t("weights.benchmarks")}</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {CATEGORIES.map((category) => {
+                      const entry = audit.categories[category];
+                      if (!entry) return null;
+                      return (
+                        <tr key={category} className="border-b rule">
+                          <th scope="row" className="py-2 pr-3 text-[13px] font-normal">
+                            {tt(category)}
+                          </th>
+                          <td className="num py-2 pr-3 text-right text-[13px]">
+                            {Math.round(entry.nominal * 100)}%
+                          </td>
+                          <td className="num py-2 pr-3 text-right text-[13px]">
+                            {entry.effective === null
+                              ? "—"
+                              : `${Math.round(entry.effective * 100)}%`}
+                          </td>
+                          <td className="num py-2 pr-3 text-right text-[13px]" style={muted}>
+                            {entry.category_sd ?? "—"}
+                          </td>
+                          <td className="num py-2 text-right text-[11px]" style={muted}>
+                            {entry.benchmarks_per_model
+                              ? Object.entries(entry.benchmarks_per_model)
+                                  .map(([count, models]) => `${models}×${count}`)
+                                  .join(" · ")
+                              : "—"}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p style={muted}>{t("weights.residual")}</p>
+              <p
+                className="border-l-2 py-2 pl-3 text-[15px]"
+                style={{ borderColor: "var(--amber)" }}
+              >
+                {t("weights.honest")}
+              </p>
+            </>
+          ) : (
+            <p style={muted}>{t("weights.unavailable")}</p>
+          )}
+        </Section>
+
+        <Section id="version" title={t("version.title")}>
+          <p className="num text-[13px]">
+            {t("version.current", { version: meta.methodology_version ?? "—" })}
+          </p>
+          <p style={muted}>{t("version.body")}</p>
+          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+            <li className="list-disc">{t("version.v11")}</li>
+            <li className="list-disc">{t("version.v10")}</li>
+          </ul>
         </Section>
 
         <Section id="coverage" title={t("coverage.title")}>

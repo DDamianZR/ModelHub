@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 
 from .common import CONFIG, slugify
+from .normalize import Reference, load_reference, normalize
 
 DEFAULT_WEIGHTS = {
     "reasoning": 0.25,
@@ -162,11 +163,32 @@ def pick_variant(entries: list[dict], key: str, policy: str) -> tuple[float, str
     )
 
 
-def minmax(values: list[float]) -> tuple[float, float]:
-    if not values:
-        return 0.0, 1.0
-    low, high = min(values), max(values)
-    return (low, high) if high > low else (low, low + 1.0)
+def _apply_normalization(
+    row: dict,
+    category: str,
+    reference: Reference,
+    by_category: dict[str, list[float]],
+    by_category_raw: dict[str, list[float]],
+) -> None:
+    """Attach the normalised value to a score row and feed it into its category.
+
+    A benchmark held below min_n keeps its raw value on the row - it is still a real
+    measurement and is still shown - but contributes to no category, so it cannot pull a
+    score around on a distribution too small to describe one.
+    """
+    if not reference.scores(row["benchmark_id"]):
+        row["value_normalized"] = None
+        row["normalization"] = {
+            "scored": False,
+            "reason": reference.excluded[row["benchmark_id"]].get("reason"),
+        }
+        return
+
+    normalized, meta = normalize(row["value"], row["benchmark_id"], reference)
+    row["value_normalized"] = normalized
+    row["normalization"] = {"scored": True, **meta}
+    by_category.setdefault(category, []).append(normalized)
+    by_category_raw.setdefault(category, []).append(row["value"])
 
 
 def build_models(
@@ -177,9 +199,11 @@ def build_models(
     arena_vision: dict,
     arena_snapshot: str | None,
     vision_snapshot: str | None,
-) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
-    """Return (models, score rows, providers, aliases, arena min-max used)."""
+    reference: Reference | None = None,
+) -> tuple[list[dict], list[dict], dict, dict]:
+    """Return (models, score rows, providers, aliases)."""
     weights, min_coverage, variant_policy = load_weights()
+    reference = reference or load_reference()
 
     # A model needs corroboration from at least two independent sources to appear at all.
     keys = sorted(
@@ -190,12 +214,6 @@ def build_models(
             bool(livebench_scores.get(key)),
             key in arena_text,
         ]) >= 2
-    )
-
-    # Arena ratings are Bradley-Terry, not a percentage, so they are min-max normalised
-    # across the cohort actually present in this build. Documented in /methodology.
-    arena_low, arena_high = minmax(
-        [arena_text[key]["rating"] for key in keys if key in arena_text]
     )
 
     models: list[dict] = []
@@ -215,7 +233,10 @@ def build_models(
         })
 
         seen_alias = {key}
+        # Normalised values, because a category average of raw scores is an average of
+        # different difficulties. The raw ones are kept alongside and still shown.
         by_category: dict[str, list[float]] = {}
+        by_category_raw: dict[str, list[float]] = {}
 
         # Several vendor variants (effort levels, thinking modes) collapse onto one
         # canonical model, so the same benchmark can arrive several times. Average them
@@ -261,8 +282,7 @@ def build_models(
             else:
                 value, note = pick_variant(slot["entries"], key, variant_policy)
 
-            by_category.setdefault(slot["category"], []).append(value)
-            score_rows.append({
+            row = {
                 "model_id": model_id,
                 "benchmark_id": benchmark_id,
                 "value": value,
@@ -273,29 +293,47 @@ def build_models(
                 "contamination_flag": False,
                 "notes": note or None,
                 "variant": chosen_label if variant_policy == "model" else None,
-            })
+            }
+            _apply_normalization(
+                row, slot["category"], reference, by_category, by_category_raw
+            )
+            score_rows.append(row)
 
         if key in arena_text:
-            row = arena_text[key]
-            seen_alias.add(row["model_name"])
-            scaled = (row["rating"] - arena_low) / (arena_high - arena_low) * 100.0
-            by_category.setdefault("human_preference", []).append(round(scaled, 2))
-            score_rows.append({
+            arena = arena_text[key]
+            seen_alias.add(arena["model_name"])
+            # No longer a special case. Arena ratings used to be min-max scaled across the
+            # cohort in each build, which is precisely what made every model's score depend
+            # on which other models were present: removing one moved 48 of 52 composites.
+            # Against a fixed reference it is one more benchmark.
+            row = {
                 "model_id": model_id,
                 "benchmark_id": "lmarena_text_overall",
-                "value": round(row["rating"], 1),
+                "value": round(arena["rating"], 1),
                 "unit": "bradley_terry_rating",
                 "source_type": "human_eval",
                 "source_url": "https://lmarena.ai/leaderboard",
                 "measured_at": arena_snapshot,
                 "contamination_flag": False,
-                "notes": f"{int(row['vote_count'])} votes; rank {int(row['rank'])}",
-            })
+                "notes": f"{int(arena['vote_count'])} votes; rank {int(arena['rank'])}",
+            }
+            _apply_normalization(
+                row, "human_preference", reference, by_category, by_category_raw
+            )
+            score_rows.append(row)
 
         category_scores = {
             category: round(sum(values) / len(values), 2)
             for category, values in by_category.items()
         }
+        category_scores_raw = {
+            category: round(sum(values) / len(values), 2)
+            for category, values in by_category_raw.items()
+        }
+        # How many benchmarks stand behind each category average. A category resting on one
+        # benchmark is noisier than one averaging three, and the coverage meter cannot show
+        # that difference because it counts categories, not measurements.
+        benchmark_counts = {c: len(v) for c, v in by_category.items()}
         available = {c: w for c, w in weights.items() if c in category_scores}
         if not available:
             continue
@@ -334,6 +372,10 @@ def build_models(
             },
             "status": "verified",
             "category_scores": category_scores,
+            # The raw averages the normalised ones came from. Shown beside them so a derived
+            # number is always one click from the measurement behind it.
+            "category_scores_raw": category_scores_raw,
+            "benchmark_counts": benchmark_counts,
             "composite": round(composite, 2),
             "coverage": {
                 "covered": len(available),
@@ -359,4 +401,4 @@ def build_models(
             model["rank"] = rank
     models.sort(key=lambda m: (m["provisional"], -m["composite"]))
 
-    return models, score_rows, providers, aliases, (arena_low, arena_high)
+    return models, score_rows, providers, aliases

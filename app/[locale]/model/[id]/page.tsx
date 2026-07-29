@@ -43,6 +43,24 @@ export default async function ModelPage({
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
 
+  /** The scored normalisation for a row, or null when the benchmark does not score. */
+  const normalisationOf = (score: (typeof scores)[number]) =>
+    score.normalization?.scored ? score.normalization : null;
+
+  /** The conversion spelled out with this cell's own numbers, per R9. */
+  const explain = (score: (typeof scores)[number]) => {
+    const n = normalisationOf(score);
+    if (!n || score.value_normalized == null) return undefined;
+    return t("normalizedExplain", {
+      raw: score.value.toFixed(score.unit === "percent" ? 1 : 0),
+      mean: n.mean.toFixed(1),
+      sd: n.sd.toFixed(1),
+      z: n.z.toFixed(2),
+      scale: n.scale_factor,
+      normalized: score.value_normalized.toFixed(0),
+    });
+  };
+
   const muted = { color: "var(--muted)" } as const;
   const partial = model.coverage.covered < model.coverage.total;
   const text = locale === "es" ? description?.es : description?.en;
@@ -143,13 +161,29 @@ export default async function ModelPage({
 
         <section className="mt-8">
           <h3 className="eyebrow mb-3">{t("categories")}</h3>
+          {/* The coverage meter counts categories, so it cannot show that one category
+              rests on a single benchmark while another averages three. With normalisation
+              that difference matters more, because the mean of one is noisier than the
+              mean of three. */}
           <CategoryBars
             emptyLabel={tt("noData")}
-            rows={CATEGORIES.map((category) => ({
-              label: tt(category),
-              value: model.category_scores[category],
-            }))}
+            rows={CATEGORIES.map((category) => {
+              const raw = model.category_scores_raw?.[category];
+              const count = model.benchmark_counts?.[category];
+              const parts = [
+                count != null ? t("benchmarkCount", { count }) : null,
+                raw != null ? t("categoryRaw", { value: raw.toFixed(1) }) : null,
+              ].filter(Boolean);
+              return {
+                label: tt(category),
+                value: model.category_scores[category],
+                sublabel: parts.length ? parts.join(" · ") : undefined,
+              };
+            })}
           />
+          <p className="mt-2 text-[12px]" style={muted}>
+            {t("categoriesNote")}
+          </p>
           {partial && (
             <p className="mt-3 text-[12px]" style={muted}>
               {t("partialNote", {
@@ -207,6 +241,9 @@ export default async function ModelPage({
                   <th scope="col" className="py-2 pr-3 text-right">
                     <span className="eyebrow">{t("value")}</span>
                   </th>
+                  <th scope="col" className="py-2 pr-3 text-right">
+                    <span className="eyebrow">{t("normalized")}</span>
+                  </th>
                   <th scope="col" className="py-2 pr-3">
                     <span className="eyebrow">{t("sourceType")}</span>
                   </th>
@@ -234,6 +271,38 @@ export default async function ModelPage({
                       <span className="text-[10px]" style={muted}>
                         {score.unit === "percent" ? "%" : ""}
                       </span>
+                    </td>
+                    {/* The derived number sits beside the measured one, and its own
+                        arithmetic is on the cell, so nothing here has to be taken on
+                        trust. */}
+                    <td className="num py-2 pr-3 text-right text-[13px]">
+                      {normalisationOf(score) ? (
+                        <span title={explain(score)}>
+                          {score.value_normalized?.toFixed(0)}
+                          {normalisationOf(score)?.clipped && (
+                            <span
+                              className="ml-1 text-[10px]"
+                              style={{ color: "var(--amber)" }}
+                              title={t("clippedCell")}
+                            >
+                              ▲
+                            </span>
+                          )}
+                        </span>
+                      ) : (
+                        <span
+                          style={muted}
+                          title={
+                            score.normalization && !score.normalization.scored
+                              ? t("notScored", {
+                                  reason: score.normalization.reason ?? "—",
+                                })
+                              : undefined
+                          }
+                        >
+                          —
+                        </span>
+                      )}
                     </td>
                     <td className="num py-2 pr-3 text-[11px]" style={muted}>
                       {score.source_type}

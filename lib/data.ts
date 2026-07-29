@@ -7,9 +7,11 @@ import {
   type HistoryIndex,
   type Meta,
   type Model,
+  type Normalization,
   type Provider,
   type Row,
   type Status,
+  type WeightAudit,
 } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -82,7 +84,11 @@ export function getDegradedSources(): { name: string; status: Status["sources"][
 export type ScoreRow = {
   model_id: string;
   benchmark_id: string;
+  /** As published by the source. Always shown; this is the thing that was measured. */
   value: number;
+  /** null when the benchmark sits below min_n and therefore scores nothing. */
+  value_normalized?: number | null;
+  normalization?: Normalization;
   unit: string;
   source_type: "human_eval" | "third_party_benchmark" | "vendor_claim";
   source_url: string;
@@ -90,6 +96,56 @@ export type ScoreRow = {
   contamination_flag: boolean;
   notes: string | null;
 };
+
+/**
+ * The effective-weight audit, or null when the run has not written one.
+ *
+ * Follows the same pattern as getAcquisition(): a data file the build must survive the
+ * absence of, rather than a file whose absence takes the site down.
+ */
+export function getWeightAudit(): WeightAudit | null {
+  const file = path.join(DATA_DIR, "weight_audit.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as WeightAudit;
+  } catch {
+    return null;
+  }
+}
+
+export type BenchmarkReference = {
+  methodology_version: string;
+  computed_at: string;
+  min_n: number;
+  min_n_rationale?: string;
+  scale_factor: number;
+  formula?: string;
+  note?: string;
+  benchmarks: Record<
+    string,
+    {
+      category?: string;
+      n: number;
+      mean: number;
+      sd: number;
+      observed_min: number;
+      observed_max: number;
+      se_of_sd_pct?: number;
+    }
+  >;
+  excluded: Record<string, { category?: string; n: number; reason: string }>;
+};
+
+/** The frozen reference, read from /config so /methodology can publish it verbatim. */
+export function getBenchmarkReference(): BenchmarkReference | null {
+  const file = path.join(process.cwd(), "config", "benchmark_reference.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as BenchmarkReference;
+  } catch {
+    return null;
+  }
+}
 
 export type Benchmark = {
   id: string;

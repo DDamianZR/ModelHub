@@ -34,9 +34,11 @@ export function CategoryBars({
               className="mt-[3px] h-[6px] w-full"
               style={{ background: "var(--paper-sunk)" }}
               role="img"
+              // The sublabel carries how many benchmarks stand behind the number, which is
+              // part of reading the bar honestly rather than decoration around it.
               aria-label={`${row.label}: ${
                 row.value === undefined ? emptyLabel : row.value.toFixed(1)
-              }`}
+              }${row.sublabel ? ` (${row.sublabel})` : ""}`}
             >
               {row.value !== undefined && (
                 <div
