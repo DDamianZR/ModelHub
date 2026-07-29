@@ -1,41 +1,21 @@
 {
   "meta": {
-    "generated_at": "2026-07-29",
-    "methodology_version": "1.1",
+    "generated_at": "2026-07-28",
+    "methodology_version": "1.0",
     "model_count": 53,
     "ranked_count": 41,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-29",
+      "epoch": "2026-07-28",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-27",
       "lmarena_vision": "2026-07-26"
     },
-    "normalization": {
-      "method": "per-benchmark z-score against a frozen reference",
-      "reference_computed_at": "2026-07-28",
-      "scale_factor": 12.5,
-      "min_n": 15,
-      "scored_benchmarks": [
-        "frontiermath",
-        "gpqa_diamond",
-        "livebench_coding",
-        "livebench_instruction_following",
-        "livebench_math",
-        "livebench_reasoning",
-        "lmarena_text_overall",
-        "simpleqa_verified",
-        "swe_bench_verified"
-      ],
-      "excluded_benchmarks": {
-        "math_level_5": {
-          "category": "math",
-          "n": 5,
-          "reason": "below min_n (5 < 15)"
-        }
-      },
-      "clipped_scores": 0
+    "arena_normalization": {
+      "method": "min-max across the cohort in this build",
+      "min": 1320.24,
+      "max": 1511.6
     }
   },
   "scores": [
@@ -49,16 +29,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 61.87,
-      "normalization": {
-        "scored": true,
-        "z": 0.9498,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
@@ -70,16 +41,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 70.84,
-      "normalization": {
-        "scored": true,
-        "z": 1.6668,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
@@ -91,16 +53,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 66.06,
-      "normalization": {
-        "scored": true,
-        "z": 1.2845,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
@@ -112,16 +65,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 70.27,
-      "normalization": {
-        "scored": true,
-        "z": 1.6218,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-fable-5",
@@ -132,16 +76,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "16056 votes; rank 5",
-      "value_normalized": 67.53,
-      "normalization": {
-        "scored": true,
-        "z": 1.4021,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "16056 votes; rank 5"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -153,16 +88,7 @@
       "measured_at": "2025-10-22",
       "contamination_flag": false,
       "notes": "variant 20251001-32k (claude-haiku-4-5-20251001_32K)",
-      "variant": "20251001-32k",
-      "value_normalized": 24.65,
-      "normalization": {
-        "scored": true,
-        "z": -2.0283,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20251001-32k"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -174,16 +100,7 @@
       "measured_at": "2025-12-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20251001-32k",
-      "value_normalized": 23.92,
-      "normalization": {
-        "scored": true,
-        "z": -2.0867,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20251001-32k"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -195,12 +112,7 @@
       "measured_at": "2025-10-22",
       "contamination_flag": false,
       "notes": "variant 20251001-32k (claude-haiku-4-5-20251001_32K)",
-      "variant": "20251001-32k",
-      "value_normalized": null,
-      "normalization": {
-        "scored": false,
-        "reason": "below min_n (5 < 15)"
-      }
+      "variant": "20251001-32k"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -212,16 +124,7 @@
       "measured_at": "2025-10-22",
       "contamination_flag": false,
       "notes": "variant 20251001-32k (claude-haiku-4-5-20251001_32K)",
-      "variant": "20251001-32k",
-      "value_normalized": 32.44,
-      "normalization": {
-        "scored": true,
-        "z": -1.4046,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20251001-32k"
     },
     {
       "model_id": "anthropic-claude-haiku-4-5",
@@ -232,16 +135,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "110068 votes; rank 136",
-      "value_normalized": 32.64,
-      "normalization": {
-        "scored": true,
-        "z": -1.3887,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "110068 votes; rank 136"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -253,16 +147,7 @@
       "measured_at": "2025-08-05",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20250805",
-      "value_normalized": 28.13,
-      "normalization": {
-        "scored": true,
-        "z": -1.7493,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250805"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -274,16 +159,7 @@
       "measured_at": "2025-08-05",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20250805",
-      "value_normalized": 32.41,
-      "normalization": {
-        "scored": true,
-        "z": -1.4072,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250805"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -295,16 +171,7 @@
       "measured_at": "2026-02-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20250805",
-      "value_normalized": 52.31,
-      "normalization": {
-        "scored": true,
-        "z": 0.1852,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250805"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -315,16 +182,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "77225 votes; rank 102",
-      "value_normalized": 40.88,
-      "normalization": {
-        "scored": true,
-        "z": -0.7299,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "77225 votes; rank 102"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -336,16 +194,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 42.81,
-      "normalization": {
-        "scored": true,
-        "z": -0.5754,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -357,16 +206,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 41.88,
-      "normalization": {
-        "scored": true,
-        "z": -0.6492,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -378,16 +218,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 53.47,
-      "normalization": {
-        "scored": true,
-        "z": 0.2775,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -399,16 +230,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 42.28,
-      "normalization": {
-        "scored": true,
-        "z": -0.6174,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -419,16 +241,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "70573 votes; rank 38",
-      "value_normalized": 51.92,
-      "normalization": {
-        "scored": true,
-        "z": 0.154,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "70573 votes; rank 38"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -440,16 +253,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 59.92,
-      "normalization": {
-        "scored": true,
-        "z": 0.7935,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -461,16 +265,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 50.9,
-      "normalization": {
-        "scored": true,
-        "z": 0.0722,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -482,16 +277,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 51.06,
-      "normalization": {
-        "scored": true,
-        "z": 0.0851,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -503,16 +289,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 43.89,
-      "normalization": {
-        "scored": true,
-        "z": -0.4887,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "anthropic-claude-opus-4-6",
@@ -523,16 +300,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "64805 votes; rank 3",
-      "value_normalized": 70.48,
-      "normalization": {
-        "scored": true,
-        "z": 1.6384,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "64805 votes; rank 3"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -544,16 +312,7 @@
       "measured_at": "2026-04-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 57.34,
-      "normalization": {
-        "scored": true,
-        "z": 0.5873,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -565,16 +324,7 @@
       "measured_at": "2026-04-16",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 54.0,
-      "normalization": {
-        "scored": true,
-        "z": 0.3202,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -586,16 +336,7 @@
       "measured_at": "2026-04-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 63.79,
-      "normalization": {
-        "scored": true,
-        "z": 1.1033,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -607,16 +348,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 56.97,
-      "normalization": {
-        "scored": true,
-        "z": 0.5573,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -628,16 +360,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 55.53,
-      "normalization": {
-        "scored": true,
-        "z": 0.4423,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -649,16 +372,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 59.0,
-      "normalization": {
-        "scored": true,
-        "z": 0.7199,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -670,16 +384,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 51.15,
-      "normalization": {
-        "scored": true,
-        "z": 0.0923,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-opus-4-7",
@@ -690,16 +395,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "52303 votes; rank 6",
-      "value_normalized": 66.03,
-      "normalization": {
-        "scored": true,
-        "z": 1.2825,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "52303 votes; rank 6"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -711,16 +407,7 @@
       "measured_at": "2026-06-07",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 58.88,
-      "normalization": {
-        "scored": true,
-        "z": 0.7102,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -732,16 +419,7 @@
       "measured_at": "2026-05-29",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 46.53,
-      "normalization": {
-        "scored": true,
-        "z": -0.2775,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -753,16 +431,7 @@
       "measured_at": "2026-06-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 66.65,
-      "normalization": {
-        "scored": true,
-        "z": 1.3317,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -774,16 +443,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 60.96,
-      "normalization": {
-        "scored": true,
-        "z": 0.8764,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -795,16 +455,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 55.17,
-      "normalization": {
-        "scored": true,
-        "z": 0.4134,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -816,16 +467,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 62.3,
-      "normalization": {
-        "scored": true,
-        "z": 0.9842,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -837,16 +479,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 62.35,
-      "normalization": {
-        "scored": true,
-        "z": 0.9883,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-4-8",
@@ -857,16 +490,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "32817 votes; rank 25",
-      "value_normalized": 56.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.5376,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "32817 votes; rank 25"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -878,16 +502,7 @@
       "measured_at": "2026-07-24",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 63.78,
-      "normalization": {
-        "scored": true,
-        "z": 1.1024,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -899,16 +514,7 @@
       "measured_at": "2026-07-24",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 58.11,
-      "normalization": {
-        "scored": true,
-        "z": 0.6487,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -920,16 +526,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 64.98,
-      "normalization": {
-        "scored": true,
-        "z": 1.1987,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -941,16 +538,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 70.84,
-      "normalization": {
-        "scored": true,
-        "z": 1.6668,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -962,16 +550,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 65.47,
-      "normalization": {
-        "scored": true,
-        "z": 1.2378,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -983,16 +562,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 44.86,
-      "normalization": {
-        "scored": true,
-        "z": -0.4108,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "anthropic-claude-opus-5",
@@ -1003,16 +573,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "2386 votes; rank 1",
-      "value_normalized": 73.61,
-      "normalization": {
-        "scored": true,
-        "z": 1.8885,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "2386 votes; rank 1"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -1024,16 +585,7 @@
       "measured_at": "2025-10-21",
       "contamination_flag": false,
       "notes": "variant 20250929 (claude-sonnet-4-5-20250929)",
-      "variant": "20250929",
-      "value_normalized": 29.01,
-      "normalization": {
-        "scored": true,
-        "z": -1.6789,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250929"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -1045,16 +597,7 @@
       "measured_at": "2025-12-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20250929",
-      "value_normalized": 28.7,
-      "normalization": {
-        "scored": true,
-        "z": -1.7044,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250929"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -1066,16 +609,7 @@
       "measured_at": "2025-11-16",
       "contamination_flag": false,
       "notes": "variant 20250929 (claude-sonnet-4-5-20250929)",
-      "variant": "20250929",
-      "value_normalized": 35.26,
-      "normalization": {
-        "scored": true,
-        "z": -1.1789,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250929"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -1087,16 +621,7 @@
       "measured_at": "2026-02-05",
       "contamination_flag": false,
       "notes": null,
-      "variant": "20250929",
-      "value_normalized": 48.3,
-      "normalization": {
-        "scored": true,
-        "z": -0.1363,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "20250929"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-5",
@@ -1107,16 +632,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "80347 votes; rank 61",
-      "value_normalized": 47.96,
-      "normalization": {
-        "scored": true,
-        "z": -0.1629,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "80347 votes; rank 61"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1128,16 +644,7 @@
       "measured_at": "2026-07-13",
       "contamination_flag": false,
       "notes": "variant medium (claude-sonnet-4-6_medium)",
-      "variant": "medium",
-      "value_normalized": 45.57,
-      "normalization": {
-        "scored": true,
-        "z": -0.3545,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1149,16 +656,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "medium",
-      "value_normalized": 52.14,
-      "normalization": {
-        "scored": true,
-        "z": 0.1712,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1170,16 +668,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "medium",
-      "value_normalized": 44.78,
-      "normalization": {
-        "scored": true,
-        "z": -0.4179,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1191,16 +680,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "medium",
-      "value_normalized": 45.83,
-      "normalization": {
-        "scored": true,
-        "z": -0.3339,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1212,16 +692,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "medium",
-      "value_normalized": 43.7,
-      "normalization": {
-        "scored": true,
-        "z": -0.504,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -1232,16 +703,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "58826 votes; rank 28",
-      "value_normalized": 54.74,
-      "normalization": {
-        "scored": true,
-        "z": 0.3791,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "58826 votes; rank 28"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1253,16 +715,7 @@
       "measured_at": "2026-07-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 58.0,
-      "normalization": {
-        "scored": true,
-        "z": 0.6398,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1274,16 +727,7 @@
       "measured_at": "2026-07-01",
       "contamination_flag": false,
       "notes": "variant xhigh (claude-sonnet-5_xhigh)",
-      "variant": "xhigh",
-      "value_normalized": 36.77,
-      "normalization": {
-        "scored": true,
-        "z": -1.0582,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1295,16 +739,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 59.96,
-      "normalization": {
-        "scored": true,
-        "z": 0.7966,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1316,16 +751,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 63.99,
-      "normalization": {
-        "scored": true,
-        "z": 1.1189,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1337,16 +763,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 59.2,
-      "normalization": {
-        "scored": true,
-        "z": 0.7361,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1358,16 +775,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 45.06,
-      "normalization": {
-        "scored": true,
-        "z": -0.3956,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "anthropic-claude-sonnet-5",
@@ -1378,16 +786,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "15622 votes; rank 56",
-      "value_normalized": 48.87,
-      "normalization": {
-        "scored": true,
-        "z": -0.0906,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "15622 votes; rank 56"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -1399,16 +798,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 23.84,
-      "normalization": {
-        "scored": true,
-        "z": -2.0927,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -1420,16 +810,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 32.11,
-      "normalization": {
-        "scored": true,
-        "z": -1.4314,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -1441,16 +822,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 29.33,
-      "normalization": {
-        "scored": true,
-        "z": -1.6537,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -1462,16 +834,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 43.53,
-      "normalization": {
-        "scored": true,
-        "z": -0.5175,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -1482,16 +845,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "46729 votes; rank 71",
-      "value_normalized": 45.84,
-      "normalization": {
-        "scored": true,
-        "z": -0.3325,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "46729 votes; rank 71"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1503,16 +857,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 47.99,
-      "normalization": {
-        "scored": true,
-        "z": -0.1606,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1524,16 +869,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 38.07,
-      "normalization": {
-        "scored": true,
-        "z": -0.9543,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1545,16 +881,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 54.12,
-      "normalization": {
-        "scored": true,
-        "z": 0.3297,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1566,16 +893,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.86,
-      "normalization": {
-        "scored": true,
-        "z": -0.6513,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -1586,16 +904,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "46848 votes; rank 37",
-      "value_normalized": 52.24,
-      "normalization": {
-        "scored": true,
-        "z": 0.179,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "46848 votes; rank 37"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-flash",
@@ -1607,16 +916,7 @@
       "measured_at": "2025-12-18",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 31.57,
-      "normalization": {
-        "scored": true,
-        "z": -1.4747,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-flash",
@@ -1627,16 +927,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "124020 votes; rank 101",
-      "value_normalized": 40.91,
-      "normalization": {
-        "scored": true,
-        "z": -0.7272,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "124020 votes; rank 101"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1648,16 +939,7 @@
       "measured_at": "2025-11-16",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 48.95,
-      "normalization": {
-        "scored": true,
-        "z": -0.0839,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1669,16 +951,7 @@
       "measured_at": "2025-12-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 57.64,
-      "normalization": {
-        "scored": true,
-        "z": 0.611,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1690,16 +963,7 @@
       "measured_at": "2025-11-24",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 39.26,
-      "normalization": {
-        "scored": true,
-        "z": -0.8592,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1711,16 +975,7 @@
       "measured_at": "2026-02-13",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 21.66,
-      "normalization": {
-        "scored": true,
-        "z": -2.2671,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -1731,16 +986,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "124076 votes; rank 27",
-      "value_normalized": 54.81,
-      "normalization": {
-        "scored": true,
-        "z": 0.3847,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "124076 votes; rank 27"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1752,16 +998,7 @@
       "measured_at": "2025-12-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 45.36,
-      "normalization": {
-        "scored": true,
-        "z": -0.3711,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1773,16 +1010,7 @@
       "measured_at": "2025-12-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 65.31,
-      "normalization": {
-        "scored": true,
-        "z": 1.2248,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1794,16 +1022,7 @@
       "measured_at": "2025-12-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 57.05,
-      "normalization": {
-        "scored": true,
-        "z": 0.5639,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1815,16 +1034,7 @@
       "measured_at": "2026-02-18",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 56.31,
-      "normalization": {
-        "scored": true,
-        "z": 0.5051,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-flash",
@@ -1835,16 +1045,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "30643 votes; rank 21",
-      "value_normalized": 57.76,
-      "normalization": {
-        "scored": true,
-        "z": 0.621,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "30643 votes; rank 21"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1856,16 +1057,7 @@
       "measured_at": "2025-11-19",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 61.59,
-      "normalization": {
-        "scored": true,
-        "z": 0.927,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1877,16 +1069,7 @@
       "measured_at": "2025-12-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 69.01,
-      "normalization": {
-        "scored": true,
-        "z": 1.521,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1898,16 +1081,7 @@
       "measured_at": "2025-11-21",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 58.67,
-      "normalization": {
-        "scored": true,
-        "z": 0.6936,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1919,16 +1093,7 @@
       "measured_at": "2026-02-13",
       "contamination_flag": false,
       "notes": null,
-      "variant": "preview",
-      "value_normalized": 51.5,
-      "normalization": {
-        "scored": true,
-        "z": 0.1199,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "preview"
     },
     {
       "model_id": "google-deepmind-gemini-3-pro",
@@ -1939,16 +1104,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "41242 votes; rank 9",
-      "value_normalized": 62.45,
-      "normalization": {
-        "scored": true,
-        "z": 0.9962,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "41242 votes; rank 9"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -1960,16 +1116,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 50.6,
-      "normalization": {
-        "scored": true,
-        "z": 0.0484,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -1981,16 +1128,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 44.4,
-      "normalization": {
-        "scored": true,
-        "z": -0.4483,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -2002,16 +1140,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 54.95,
-      "normalization": {
-        "scored": true,
-        "z": 0.3962,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -2023,16 +1152,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 77.32,
-      "normalization": {
-        "scored": true,
-        "z": 2.1858,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.1-pro",
@@ -2043,16 +1163,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "86683 votes; rank 10",
-      "value_normalized": 62.45,
-      "normalization": {
-        "scored": true,
-        "z": 0.9962,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "86683 votes; rank 10"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2064,16 +1175,7 @@
       "measured_at": "2026-05-22",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 61.92,
-      "normalization": {
-        "scored": true,
-        "z": 0.9533,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2085,16 +1187,7 @@
       "measured_at": "2026-05-27",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 65.98,
-      "normalization": {
-        "scored": true,
-        "z": 1.2787,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2106,16 +1199,7 @@
       "measured_at": "2026-05-22",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 59.8,
-      "normalization": {
-        "scored": true,
-        "z": 0.7843,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2127,16 +1211,7 @@
       "measured_at": "2026-06-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 63.94,
-      "normalization": {
-        "scored": true,
-        "z": 1.1154,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2148,16 +1223,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 46.62,
-      "normalization": {
-        "scored": true,
-        "z": -0.2707,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2169,16 +1235,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 50.9,
-      "normalization": {
-        "scored": true,
-        "z": 0.0722,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2190,16 +1247,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 48.64,
-      "normalization": {
-        "scored": true,
-        "z": -0.1091,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2211,16 +1259,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 69.91,
-      "normalization": {
-        "scored": true,
-        "z": 1.593,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "google-gemini-3.5-flash",
@@ -2231,16 +1270,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "10011 votes; rank 11",
-      "value_normalized": 61.48,
-      "normalization": {
-        "scored": true,
-        "z": 0.9184,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "10011 votes; rank 11"
     },
     {
       "model_id": "google-deepmind-gemma-4-31b",
@@ -2252,16 +1282,7 @@
       "measured_at": "2026-04-04",
       "contamination_flag": false,
       "notes": null,
-      "variant": "it",
-      "value_normalized": 26.38,
-      "normalization": {
-        "scored": true,
-        "z": -1.8896,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "it"
     },
     {
       "model_id": "google-deepmind-gemma-4-31b",
@@ -2272,16 +1293,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5841 votes; rank 53",
-      "value_normalized": 49.32,
-      "normalization": {
-        "scored": true,
-        "z": -0.0545,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "5841 votes; rank 53"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
@@ -2293,16 +1305,7 @@
       "measured_at": "2026-01-29",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 45.57,
-      "normalization": {
-        "scored": true,
-        "z": -0.3545,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
@@ -2314,16 +1317,7 @@
       "measured_at": "2026-01-30",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.15,
-      "normalization": {
-        "scored": true,
-        "z": -0.7082,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
@@ -2334,16 +1328,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "12090 votes; rank 68",
-      "value_normalized": 47.27,
-      "normalization": {
-        "scored": true,
-        "z": -0.2185,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "12090 votes; rank 68"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -2355,16 +1340,7 @@
       "measured_at": "2026-02-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 53.32,
-      "normalization": {
-        "scored": true,
-        "z": 0.2655,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -2376,16 +1352,7 @@
       "measured_at": "2026-02-19",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.15,
-      "normalization": {
-        "scored": true,
-        "z": -0.7076,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -2397,16 +1364,7 @@
       "measured_at": "2026-02-15",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 49.85,
-      "normalization": {
-        "scored": true,
-        "z": -0.0121,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -2417,16 +1375,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "27644 votes; rank 44",
-      "value_normalized": 50.54,
-      "normalization": {
-        "scored": true,
-        "z": 0.0428,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "27644 votes; rank 44"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -2438,16 +1387,7 @@
       "measured_at": "2026-05-06",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 49.28,
-      "normalization": {
-        "scored": true,
-        "z": -0.0576,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -2459,16 +1399,7 @@
       "measured_at": "2026-05-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 45.04,
-      "normalization": {
-        "scored": true,
-        "z": -0.3965,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -2480,16 +1411,7 @@
       "measured_at": "2026-05-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 55.24,
-      "normalization": {
-        "scored": true,
-        "z": 0.4189,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -2501,16 +1423,7 @@
       "measured_at": "2026-05-15",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 53.91,
-      "normalization": {
-        "scored": true,
-        "z": 0.3125,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -2521,16 +1434,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "32555 votes; rank 22",
-      "value_normalized": 57.41,
-      "normalization": {
-        "scored": true,
-        "z": 0.5932,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "32555 votes; rank 22"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -2542,16 +1446,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 39.88,
-      "normalization": {
-        "scored": true,
-        "z": -0.8099,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -2563,16 +1458,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 54.97,
-      "normalization": {
-        "scored": true,
-        "z": 0.3975,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -2584,16 +1470,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 52.1,
-      "normalization": {
-        "scored": true,
-        "z": 0.1678,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -2605,16 +1482,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.73,
-      "normalization": {
-        "scored": true,
-        "z": -0.6615,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.2",
@@ -2625,16 +1493,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "19995 votes; rank 24",
-      "value_normalized": 57.21,
-      "normalization": {
-        "scored": true,
-        "z": 0.5765,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "19995 votes; rank 24"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2646,16 +1505,7 @@
       "measured_at": "2025-10-29",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": 50.47,
-      "normalization": {
-        "scored": true,
-        "z": 0.0377,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2667,16 +1517,7 @@
       "measured_at": "2025-12-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 54.0,
-      "normalization": {
-        "scored": true,
-        "z": 0.3202,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2688,12 +1529,7 @@
       "measured_at": "2025-10-29",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": null,
-      "normalization": {
-        "scored": false,
-        "reason": "below min_n (5 < 15)"
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2705,16 +1541,7 @@
       "measured_at": "2025-11-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": 54.38,
-      "normalization": {
-        "scored": true,
-        "z": 0.3501,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2726,16 +1553,7 @@
       "measured_at": "2026-02-06",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": 52.7,
-      "normalization": {
-        "scored": true,
-        "z": 0.2162,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5",
@@ -2746,16 +1564,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "31887 votes; rank 121",
-      "value_normalized": 36.74,
-      "normalization": {
-        "scored": true,
-        "z": -1.0607,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "31887 votes; rank 121"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -2767,16 +1576,7 @@
       "measured_at": "2025-10-30",
       "contamination_flag": false,
       "notes": "variant medium (gpt-5-mini-2025-08-07_medium)",
-      "variant": "medium",
-      "value_normalized": 25.41,
-      "normalization": {
-        "scored": true,
-        "z": -1.9675,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -2788,12 +1588,7 @@
       "measured_at": "2025-10-30",
       "contamination_flag": false,
       "notes": "variant medium (gpt-5-mini-2025-08-07_medium)",
-      "variant": "medium",
-      "value_normalized": null,
-      "normalization": {
-        "scored": false,
-        "reason": "below min_n (5 < 15)"
-      }
+      "variant": "medium"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -2805,16 +1600,7 @@
       "measured_at": "2025-11-13",
       "contamination_flag": false,
       "notes": "variant medium (gpt-5-mini-2025-08-07_medium)",
-      "variant": "medium",
-      "value_normalized": 44.39,
-      "normalization": {
-        "scored": true,
-        "z": -0.4488,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -2826,16 +1612,7 @@
       "measured_at": "2026-02-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "medium",
-      "value_normalized": 35.46,
-      "normalization": {
-        "scored": true,
-        "z": -1.1629,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "medium"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -2846,16 +1623,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "26991 votes; rank 149",
-      "value_normalized": 25.73,
-      "normalization": {
-        "scored": true,
-        "z": -1.9419,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "26991 votes; rank 149"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -2867,16 +1635,7 @@
       "measured_at": "2026-07-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": 21.59,
-      "normalization": {
-        "scored": true,
-        "z": -2.2727,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -2888,16 +1647,7 @@
       "measured_at": "2025-12-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 28.16,
-      "normalization": {
-        "scored": true,
-        "z": -1.7475,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -2909,12 +1659,7 @@
       "measured_at": "2025-08-20",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": null,
-      "normalization": {
-        "scored": false,
-        "reason": "below min_n (5 < 15)"
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -2926,16 +1671,7 @@
       "measured_at": "2025-10-30",
       "contamination_flag": false,
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
-      "variant": "high",
-      "value_normalized": 34.41,
-      "normalization": {
-        "scored": true,
-        "z": -1.2471,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -2946,16 +1682,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8257 votes; rank 199",
-      "value_normalized": 7.1,
-      "normalization": {
-        "scored": true,
-        "z": -3.4318,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "8257 votes; rank 199"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -2967,16 +1694,7 @@
       "measured_at": "2025-11-17",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.1-2025-11-13_high)",
-      "variant": "high",
-      "value_normalized": 52.99,
-      "normalization": {
-        "scored": true,
-        "z": 0.2393,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -2988,16 +1706,7 @@
       "measured_at": "2025-12-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 52.86,
-      "normalization": {
-        "scored": true,
-        "z": 0.2287,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -3009,16 +1718,7 @@
       "measured_at": "2025-11-25",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.1-2025-11-13_high)",
-      "variant": "high",
-      "value_normalized": 53.23,
-      "normalization": {
-        "scored": true,
-        "z": 0.2587,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -3030,16 +1730,7 @@
       "measured_at": "2026-02-18",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.1-2025-11-13_high)",
-      "variant": "high",
-      "value_normalized": 41.89,
-      "normalization": {
-        "scored": true,
-        "z": -0.6488,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -3050,16 +1741,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "40700 votes; rank 54",
-      "value_normalized": 49.15,
-      "normalization": {
-        "scored": true,
-        "z": -0.0684,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "40700 votes; rank 54"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3071,16 +1753,7 @@
       "measured_at": "2026-07-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.2-2025-12-11_high)",
-      "variant": "high",
-      "value_normalized": 53.96,
-      "normalization": {
-        "scored": true,
-        "z": 0.3166,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3092,16 +1765,7 @@
       "measured_at": "2025-12-11",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.2-2025-12-11_high)",
-      "variant": "high",
-      "value_normalized": 45.66,
-      "normalization": {
-        "scored": true,
-        "z": -0.3475,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3113,16 +1777,7 @@
       "measured_at": "2025-12-13",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.2-2025-12-11_high)",
-      "variant": "high",
-      "value_normalized": 60.94,
-      "normalization": {
-        "scored": true,
-        "z": 0.875,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3134,16 +1789,7 @@
       "measured_at": "2026-02-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 53.11,
-      "normalization": {
-        "scored": true,
-        "z": 0.2488,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3155,16 +1801,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 49.03,
-      "normalization": {
-        "scored": true,
-        "z": -0.0776,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3176,16 +1813,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 50.74,
-      "normalization": {
-        "scored": true,
-        "z": 0.0592,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3197,16 +1825,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 59.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.7774,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3218,16 +1837,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "high",
-      "value_normalized": 40.63,
-      "normalization": {
-        "scored": true,
-        "z": -0.7496,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "high"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -3238,16 +1848,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "34060 votes; rank 59",
-      "value_normalized": 48.35,
-      "normalization": {
-        "scored": true,
-        "z": -0.1323,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "34060 votes; rank 59"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3259,16 +1860,7 @@
       "measured_at": "2026-07-15",
       "contamination_flag": false,
       "notes": "variant xhigh (gpt-5.4-2026-03-05_xhigh)",
-      "variant": "xhigh",
-      "value_normalized": 62.78,
-      "normalization": {
-        "scored": true,
-        "z": 1.0223,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3280,16 +1872,7 @@
       "measured_at": "2026-03-06",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 50.12,
-      "normalization": {
-        "scored": true,
-        "z": 0.0095,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3301,16 +1884,7 @@
       "measured_at": "2026-03-06",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 66.94,
-      "normalization": {
-        "scored": true,
-        "z": 1.3555,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3322,16 +1896,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 58.82,
-      "normalization": {
-        "scored": true,
-        "z": 0.7057,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3343,16 +1908,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 55.69,
-      "normalization": {
-        "scored": true,
-        "z": 0.4553,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3364,16 +1920,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 61.92,
-      "normalization": {
-        "scored": true,
-        "z": 0.9536,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3385,16 +1932,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 58.52,
-      "normalization": {
-        "scored": true,
-        "z": 0.6817,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -3405,16 +1943,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "60292 votes; rank 18",
-      "value_normalized": 59.12,
-      "normalization": {
-        "scored": true,
-        "z": 0.7294,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "60292 votes; rank 18"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -3426,16 +1955,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 25.32,
-      "normalization": {
-        "scored": true,
-        "z": -1.9746,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -3447,16 +1967,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 38.22,
-      "normalization": {
-        "scored": true,
-        "z": -0.9427,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -3468,16 +1979,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 26.65,
-      "normalization": {
-        "scored": true,
-        "z": -1.8677,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -3489,16 +1991,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 36.46,
-      "normalization": {
-        "scored": true,
-        "z": -1.0832,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-mini",
@@ -3509,16 +2002,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "59093 votes; rank 111",
-      "value_normalized": 39.24,
-      "normalization": {
-        "scored": true,
-        "z": -0.8606,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "59093 votes; rank 111"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -3530,16 +2014,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 44.82,
-      "normalization": {
-        "scored": true,
-        "z": -0.4143,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -3551,16 +2026,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 43.19,
-      "normalization": {
-        "scored": true,
-        "z": -0.5451,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -3572,16 +2038,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 54.8,
-      "normalization": {
-        "scored": true,
-        "z": 0.3836,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -3593,16 +2050,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 52.13,
-      "normalization": {
-        "scored": true,
-        "z": 0.1702,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -3613,16 +2061,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "58091 votes; rank 150",
-      "value_normalized": 25.45,
-      "normalization": {
-        "scored": true,
-        "z": -1.9641,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "58091 votes; rank 150"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3634,16 +2073,7 @@
       "measured_at": "2026-05-05",
       "contamination_flag": false,
       "notes": "variant xhigh (gpt-5.5-pre-release_xhigh)",
-      "variant": "xhigh",
-      "value_normalized": 63.99,
-      "normalization": {
-        "scored": true,
-        "z": 1.119,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3655,16 +2085,7 @@
       "measured_at": "2026-04-24",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 62.42,
-      "normalization": {
-        "scored": true,
-        "z": 0.9933,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3676,16 +2097,7 @@
       "measured_at": "2026-04-23",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 70.34,
-      "normalization": {
-        "scored": true,
-        "z": 1.6269,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3697,16 +2109,7 @@
       "measured_at": "2026-04-24",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 66.35,
-      "normalization": {
-        "scored": true,
-        "z": 1.308,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3718,16 +2121,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 61.87,
-      "normalization": {
-        "scored": true,
-        "z": 0.9498,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3739,16 +2133,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 59.18,
-      "normalization": {
-        "scored": true,
-        "z": 0.7343,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3760,16 +2145,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 65.76,
-      "normalization": {
-        "scored": true,
-        "z": 1.2611,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3781,16 +2157,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 59.6,
-      "normalization": {
-        "scored": true,
-        "z": 0.7681,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -3801,16 +2168,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "47572 votes; rank 19",
-      "value_normalized": 58.94,
-      "normalization": {
-        "scored": true,
-        "z": 0.7155,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "47572 votes; rank 19"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3822,16 +2180,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 59.84,
-      "normalization": {
-        "scored": true,
-        "z": 0.7875,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3843,16 +2192,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 48.01,
-      "normalization": {
-        "scored": true,
-        "z": -0.159,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3864,16 +2204,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 53.88,
-      "normalization": {
-        "scored": true,
-        "z": 0.31,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3885,16 +2216,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 53.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.2977,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3906,16 +2228,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 46.3,
-      "normalization": {
-        "scored": true,
-        "z": -0.2961,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-luna",
@@ -3927,16 +2240,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 37.14,
-      "normalization": {
-        "scored": true,
-        "z": -1.029,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -3948,16 +2252,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 63.12,
-      "normalization": {
-        "scored": true,
-        "z": 1.0499,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -3969,16 +2264,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 68.14,
-      "normalization": {
-        "scored": true,
-        "z": 1.451,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -3990,16 +2276,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 65.86,
-      "normalization": {
-        "scored": true,
-        "z": 1.2689,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -4011,16 +2288,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 62.88,
-      "normalization": {
-        "scored": true,
-        "z": 1.0307,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -4032,16 +2300,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 66.53,
-      "normalization": {
-        "scored": true,
-        "z": 1.3223,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -4053,16 +2312,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 61.97,
-      "normalization": {
-        "scored": true,
-        "z": 0.9578,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -4073,16 +2323,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8359 votes; rank 30",
-      "value_normalized": 54.04,
-      "normalization": {
-        "scored": true,
-        "z": 0.3236,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "8359 votes; rank 30"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4094,16 +2335,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 62.8,
-      "normalization": {
-        "scored": true,
-        "z": 1.0237,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4115,16 +2347,7 @@
       "measured_at": "2026-07-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 48.95,
-      "normalization": {
-        "scored": true,
-        "z": -0.0836,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4136,16 +2359,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 63.83,
-      "normalization": {
-        "scored": true,
-        "z": 1.1062,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4157,16 +2371,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 57.41,
-      "normalization": {
-        "scored": true,
-        "z": 0.5927,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4178,16 +2383,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 63.63,
-      "normalization": {
-        "scored": true,
-        "z": 1.0903,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "openai-gpt-5.6-terra",
@@ -4199,16 +2395,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 46.66,
-      "normalization": {
-        "scored": true,
-        "z": -0.2668,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "xai-grok-4-0709",
@@ -4220,16 +2407,7 @@
       "measured_at": null,
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 51.9,
-      "normalization": {
-        "scored": true,
-        "z": 0.1523,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4-0709",
@@ -4241,16 +2419,7 @@
       "measured_at": "2025-12-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 52.19,
-      "normalization": {
-        "scored": true,
-        "z": 0.1748,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4-0709",
@@ -4262,16 +2431,7 @@
       "measured_at": "2025-11-13",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 43.83,
-      "normalization": {
-        "scored": true,
-        "z": -0.4938,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4-0709",
@@ -4282,16 +2442,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "41317 votes; rank 114",
-      "value_normalized": 38.27,
-      "normalization": {
-        "scored": true,
-        "z": -0.9384,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "41317 votes; rank 114"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -4303,16 +2454,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 24.32,
-      "normalization": {
-        "scored": true,
-        "z": -2.0544,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -4324,16 +2466,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 11.9,
-      "normalization": {
-        "scored": true,
-        "z": -3.0477,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -4345,16 +2478,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 39.87,
-      "normalization": {
-        "scored": true,
-        "z": -0.8104,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -4366,16 +2490,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 42.71,
-      "normalization": {
-        "scored": true,
-        "z": -0.5836,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -4386,16 +2501,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "48239 votes; rank 127",
-      "value_normalized": 34.76,
-      "normalization": {
-        "scored": true,
-        "z": -1.2192,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "48239 votes; rank 127"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -4407,16 +2513,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 56.93,
-      "normalization": {
-        "scored": true,
-        "z": 0.5541,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -4428,16 +2525,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 52.06,
-      "normalization": {
-        "scored": true,
-        "z": 0.1647,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -4449,16 +2537,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 54.44,
-      "normalization": {
-        "scored": true,
-        "z": 0.3548,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -4470,16 +2549,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 61.29,
-      "normalization": {
-        "scored": true,
-        "z": 0.9036,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -4490,16 +2560,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "9998 votes; rank 35",
-      "value_normalized": 52.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.2179,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "9998 votes; rank 35"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
@@ -4511,16 +2572,7 @@
       "measured_at": "2025-11-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 47.1,
-      "normalization": {
-        "scored": true,
-        "z": -0.2316,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
@@ -4532,16 +2584,7 @@
       "measured_at": "2025-12-10",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.21,
-      "normalization": {
-        "scored": true,
-        "z": -0.7029,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
@@ -4552,16 +2595,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "61733 votes; rank 108",
-      "value_normalized": 39.69,
-      "normalization": {
-        "scored": true,
-        "z": -0.8245,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "61733 votes; rank 108"
     },
     {
       "model_id": "moonshot-kimi-k2.5",
@@ -4573,16 +2607,7 @@
       "measured_at": "2026-02-17",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 53.11,
-      "normalization": {
-        "scored": true,
-        "z": 0.2488,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.5",
@@ -4593,16 +2618,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "64226 votes; rank 43",
-      "value_normalized": 50.54,
-      "normalization": {
-        "scored": true,
-        "z": 0.0428,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "64226 votes; rank 43"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4614,16 +2630,7 @@
       "measured_at": "2026-05-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 58.43,
-      "normalization": {
-        "scored": true,
-        "z": 0.6743,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4635,16 +2642,7 @@
       "measured_at": "2026-05-01",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 45.99,
-      "normalization": {
-        "scored": true,
-        "z": -0.3206,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4656,16 +2654,7 @@
       "measured_at": "2026-05-07",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 59.8,
-      "normalization": {
-        "scored": true,
-        "z": 0.7843,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4677,16 +2666,7 @@
       "measured_at": "2026-05-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 58.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.6977,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4698,16 +2678,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 41.39,
-      "normalization": {
-        "scored": true,
-        "z": -0.6887,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4719,16 +2690,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 48.93,
-      "normalization": {
-        "scored": true,
-        "z": -0.0854,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4740,16 +2702,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 39.74,
-      "normalization": {
-        "scored": true,
-        "z": -0.8212,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4761,16 +2714,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 46.11,
-      "normalization": {
-        "scored": true,
-        "z": -0.3109,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -4781,16 +2725,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "37350 votes; rank 31",
-      "value_normalized": 53.84,
-      "normalization": {
-        "scored": true,
-        "z": 0.3069,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "37350 votes; rank 31"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4802,16 +2737,7 @@
       "measured_at": "2026-06-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 56.25,
-      "normalization": {
-        "scored": true,
-        "z": 0.5003,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4823,16 +2749,7 @@
       "measured_at": "2026-06-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 46.33,
-      "normalization": {
-        "scored": true,
-        "z": -0.2936,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4844,16 +2761,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 48.23,
-      "normalization": {
-        "scored": true,
-        "z": -0.1415,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4865,16 +2773,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 44.23,
-      "normalization": {
-        "scored": true,
-        "z": -0.4613,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4886,16 +2785,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 29.22,
-      "normalization": {
-        "scored": true,
-        "z": -1.6627,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k2.7-code",
@@ -4907,16 +2797,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 29.03,
-      "normalization": {
-        "scored": true,
-        "z": -1.6778,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k3",
@@ -4928,16 +2809,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 63.91,
-      "normalization": {
-        "scored": true,
-        "z": 1.1125,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k3",
@@ -4949,16 +2821,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 67.55,
-      "normalization": {
-        "scored": true,
-        "z": 1.4037,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k3",
@@ -4970,16 +2833,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 40.09,
-      "normalization": {
-        "scored": true,
-        "z": -0.7924,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k3",
@@ -4991,16 +2845,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 60.93,
-      "normalization": {
-        "scored": true,
-        "z": 0.8748,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "moonshot-kimi-k3",
@@ -5011,16 +2856,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "3559 votes; rank 14",
-      "value_normalized": 60.3,
-      "normalization": {
-        "scored": true,
-        "z": 0.8239,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "3559 votes; rank 14"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -5032,16 +2868,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 31.62,
-      "normalization": {
-        "scored": true,
-        "z": -1.4704,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -5053,16 +2880,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 34.64,
-      "normalization": {
-        "scored": true,
-        "z": -1.229,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -5074,16 +2892,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 23.26,
-      "normalization": {
-        "scored": true,
-        "z": -2.1393,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -5095,16 +2904,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 31.61,
-      "normalization": {
-        "scored": true,
-        "z": -1.4711,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "minimax-minimax-m3",
@@ -5115,16 +2915,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "29879 votes; rank 67",
-      "value_normalized": 47.34,
-      "normalization": {
-        "scored": true,
-        "z": -0.2129,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "29879 votes; rank 67"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -5136,16 +2927,7 @@
       "measured_at": "2026-04-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 56.74,
-      "normalization": {
-        "scored": true,
-        "z": 0.539,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -5157,16 +2939,7 @@
       "measured_at": "2026-04-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 64.57,
-      "normalization": {
-        "scored": true,
-        "z": 1.1656,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -5178,16 +2951,7 @@
       "measured_at": "2026-04-08",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 59.83,
-      "normalization": {
-        "scored": true,
-        "z": 0.7863,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -5198,16 +2962,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "13504 votes; rank 15",
-      "value_normalized": 60.23,
-      "normalization": {
-        "scored": true,
-        "z": 0.8183,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "13504 votes; rank 15"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
@@ -5219,16 +2974,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 58.04,
-      "normalization": {
-        "scored": true,
-        "z": 0.6435,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
@@ -5240,16 +2986,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 60.5,
-      "normalization": {
-        "scored": true,
-        "z": 0.8399,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
@@ -5261,16 +2998,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 46.16,
-      "normalization": {
-        "scored": true,
-        "z": -0.3069,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
@@ -5282,16 +3010,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "xhigh",
-      "value_normalized": 57.29,
-      "normalization": {
-        "scored": true,
-        "z": 0.5835,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "xhigh"
     },
     {
       "model_id": "meta-ai-muse-spark-1.1",
@@ -5302,16 +3021,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "9941 votes; rank 11",
-      "value_normalized": 62.31,
-      "normalization": {
-        "scored": true,
-        "z": 0.9851,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "9941 votes; rank 11"
     },
     {
       "model_id": "alibaba-qwen3",
@@ -5323,16 +3033,7 @@
       "measured_at": "2025-10-06",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 27.05,
-      "normalization": {
-        "scored": true,
-        "z": -1.8363,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3",
@@ -5344,16 +3045,7 @@
       "measured_at": "2025-12-10",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 65.36,
-      "normalization": {
-        "scored": true,
-        "z": 1.2286,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3",
@@ -5365,12 +3057,7 @@
       "measured_at": "2025-10-09",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": null,
-      "normalization": {
-        "scored": false,
-        "reason": "below min_n (5 < 15)"
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3",
@@ -5381,16 +3068,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "27675 votes; rank 58",
-      "value_normalized": 48.42,
-      "normalization": {
-        "scored": true,
-        "z": -0.1268,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "27675 votes; rank 58"
     },
     {
       "model_id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -5402,16 +3080,7 @@
       "measured_at": "2025-12-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 39.91,
-      "normalization": {
-        "scored": true,
-        "z": -0.8075,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -5423,16 +3092,7 @@
       "measured_at": "2025-12-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 53.67,
-      "normalization": {
-        "scored": true,
-        "z": 0.2933,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -5443,16 +3103,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "8983 votes; rank 109",
-      "value_normalized": 39.59,
-      "normalization": {
-        "scored": true,
-        "z": -0.8328,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "8983 votes; rank 109"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -5464,16 +3115,7 @@
       "measured_at": "2026-05-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 46.45,
-      "normalization": {
-        "scored": true,
-        "z": -0.2841,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -5485,16 +3127,7 @@
       "measured_at": "2026-05-11",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 33.25,
-      "normalization": {
-        "scored": true,
-        "z": -1.3404,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -5506,16 +3139,7 @@
       "measured_at": "2026-05-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 32.7,
-      "normalization": {
-        "scored": true,
-        "z": -1.3841,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -5526,16 +3150,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "57925 votes; rank 131",
-      "value_normalized": 34.07,
-      "normalization": {
-        "scored": true,
-        "z": -1.2748,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "57925 votes; rank 131"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -5547,16 +3162,7 @@
       "measured_at": "2026-05-15",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 55.49,
-      "normalization": {
-        "scored": true,
-        "z": 0.4395,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -5568,16 +3174,7 @@
       "measured_at": "2026-05-15",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 58.26,
-      "normalization": {
-        "scored": true,
-        "z": 0.661,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -5589,16 +3186,7 @@
       "measured_at": "2026-05-27",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 46.67,
-      "normalization": {
-        "scored": true,
-        "z": -0.2661,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -5610,16 +3198,7 @@
       "measured_at": "2026-05-28",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 58.72,
-      "normalization": {
-        "scored": true,
-        "z": 0.6977,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -5630,16 +3209,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "5159 votes; rank 43",
-      "value_normalized": 52.93,
-      "normalization": {
-        "scored": true,
-        "z": 0.2346,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "5159 votes; rank 43"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5651,16 +3221,7 @@
       "measured_at": "2026-05-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 52.54,
-      "normalization": {
-        "scored": true,
-        "z": 0.2034,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5672,16 +3233,7 @@
       "measured_at": "2026-05-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 52.99,
-      "normalization": {
-        "scored": true,
-        "z": 0.2394,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5693,16 +3245,7 @@
       "measured_at": "2026-05-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 49.25,
-      "normalization": {
-        "scored": true,
-        "z": -0.0603,
-        "mean": 27.1208,
-        "sd": 15.108261,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5714,16 +3257,7 @@
       "measured_at": "2026-05-14",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 22.22,
-      "normalization": {
-        "scored": true,
-        "z": -2.222,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5735,16 +3269,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 34.31,
-      "normalization": {
-        "scored": true,
-        "z": -1.2551,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5756,16 +3281,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 42.63,
-      "normalization": {
-        "scored": true,
-        "z": -0.59,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5777,16 +3293,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 38.48,
-      "normalization": {
-        "scored": true,
-        "z": -0.9219,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5798,16 +3305,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "plain",
-      "value_normalized": 33.37,
-      "normalization": {
-        "scored": true,
-        "z": -1.3305,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "plain"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -5818,16 +3316,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "45069 votes; rank 64",
-      "value_normalized": 47.62,
-      "normalization": {
-        "scored": true,
-        "z": -0.1907,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "45069 votes; rank 64"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5839,16 +3328,7 @@
       "measured_at": "2026-06-12",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 59.84,
-      "normalization": {
-        "scored": true,
-        "z": 0.7875,
-        "mean": 85.897222,
-        "sd": 7.241186,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5860,16 +3340,7 @@
       "measured_at": "2026-06-13",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 59.33,
-      "normalization": {
-        "scored": true,
-        "z": 0.7467,
-        "mean": 44.653333,
-        "sd": 18.571647,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5881,16 +3352,7 @@
       "measured_at": "2026-06-18",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 59.92,
-      "normalization": {
-        "scored": true,
-        "z": 0.7939,
-        "mean": 72.157778,
-        "sd": 6.439008,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5902,16 +3364,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 49.29,
-      "normalization": {
-        "scored": true,
-        "z": -0.0569,
-        "mean": 83.696667,
-        "sd": 6.267932,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5923,16 +3376,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 42.17,
-      "normalization": {
-        "scored": true,
-        "z": -0.6261,
-        "mean": 60.170667,
-        "sd": 6.91693,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5944,16 +3388,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 41.92,
-      "normalization": {
-        "scored": true,
-        "z": -0.6468,
-        "mean": 88.846667,
-        "sd": 5.561128,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5965,16 +3400,7 @@
       "measured_at": "2026-06-25",
       "contamination_flag": false,
       "notes": null,
-      "variant": "max",
-      "value_normalized": 66.61,
-      "normalization": {
-        "scored": true,
-        "z": 1.3287,
-        "mean": 66.195333,
-        "sd": 5.90389,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "variant": "max"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -5985,16 +3411,7 @@
       "source_url": "https://lmarena.ai/leaderboard",
       "measured_at": "2026-07-27",
       "contamination_flag": false,
-      "notes": "3697 votes; rank 10",
-      "value_normalized": 62.45,
-      "normalization": {
-        "scored": true,
-        "z": 0.9962,
-        "mean": 1443.66,
-        "sd": 35.975218,
-        "scale_factor": 12.5,
-        "clipped": false
-      }
+      "notes": "3697 votes; rank 10"
     }
   ]
 }
