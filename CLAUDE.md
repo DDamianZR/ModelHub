@@ -199,6 +199,13 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
 - **Layer B writes prose and nothing else.** URLs are built deterministically and then
   verified over HTTP; anything that does not resolve is withheld from the UI rather than
   shown with a caveat. The model never produces a URL, a number or a score.
+- **A description is a derivative, and carries the methodology version that produced it.**
+  It says which of a model's categories are relatively stronger, so it is only true under
+  the formula that ordered them. Normalising reordered them and 39 of the 40 descriptions
+  carrying a comparison began contradicting the bar chart directly above them. The site
+  withholds any description whose version does not match the build; `scripts/enrich/audit.py`
+  counts them and names the command to regenerate, but does not fail, because stale is the
+  correct state immediately after a version bump. R14 applies to sentences, not just floats.
 - **A rejected generation is a gap, never a partial write.** Output is validated for length,
   banned marketing vocabulary and numeric claims; failing twice skips the model and leaves
   the entry absent. Entries carrying `"manual": true` are never overwritten, including under
