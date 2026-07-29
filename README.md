@@ -1,5 +1,7 @@
 # ModelHub
 
+*[Léeme en español](README.es.md)*
+
 **The independent frontier model scoreboard.** *El baremo independiente de modelos frontera.*
 
 An open ranking of frontier AI models — closed and open-weights on the same field — built so
@@ -12,9 +14,17 @@ its own model is stored and displayed, but it never counts toward the score.
 ## Why this exists
 
 The landscape changes weekly, and there is no clean, bilingual, transparent view that puts
-closed and open models in one table. Leaderboards are scattered, several are quietly frozen
-while still looking alive, and vendor benchmark claims circulate faster than independent
-measurements.
+closed and open models in one table. Leaderboards are scattered, vendor benchmark claims
+circulate faster than independent measurements, and some sources go stale without saying so.
+
+HuggingFace's Open LLM Leaderboard still reports its Space as `RUNNING`. Its results dataset
+has not changed since March 2025. Checking that took one API call, and it is the reason
+[SOURCES.md](SOURCES.md) records what every source *actually* does rather than what it
+appears to do.
+
+The same standard applies inward. A model whose generated description contradicts itself or
+strays outside what `/data` actually records is rejected, and the site shows "description
+pending" rather than filling the space. An honest gap ships; invented filler does not.
 
 ModelHub is built for students who want numbers rather than hype.
 
@@ -101,11 +111,22 @@ Next.js 15 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (st
 Hosting on Vercel's free tier, ingest on GitHub Actions. Operating cost is zero by design, and
 any change that would introduce a bill is out of scope.
 
+## Who made this
+
+A computer science student at ESCOM-IPN, as a tool that gets used rather than a course
+project that gets graded. That is also why the rules are enforced in code: a one-person
+project cannot rely on remembering to be careful.
+
+Contributions are welcome.
+
 ## Contributing
 
 Disagreement about the weights is the point, not a problem — that is why they sit in a config
 file rather than in code. Open a pull request against `config/weights.json` with your reasoning,
 or file an issue to suggest a model or challenge a number.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to challenge a number, argue with the weights,
+or propose a source.
 
 ## Licence
 
