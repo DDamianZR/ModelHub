@@ -207,6 +207,36 @@ rather than 5 on purpose: a new model with all four benchmarks but no Arena vote
 ranks, flagged `awaiting_human_votes`. Evidence is required; novelty is not punished. The
 threshold lives in `config/weights.json` and is debatable by PR.
 
+## Decisions taken for the normalisation rework
+
+Settled 2026-07-28, each against a measurement rather than an argument. Reopening one means
+redoing its measurement, not restating the reasoning.
+
+- **A benchmark needs n ≥ 15 measurements to serve as a normalisation reference.** The
+  standard error of a standard deviation is `sd/sqrt(2(n-1))`: 35% at n=5, 17% at n=18, 12%
+  at n=34. Below the bar the reference would be noise, and every future model would be
+  graded against that noise. This excludes `math_level_5` (n=5, sd 1.1, every model between
+  94.9 and 98.1 — it does not discriminate either). The stricter n ≥ 20 was rejected on
+  measurement: it also excludes `swe_bench_verified` (n=18), and 12 of the 18 models
+  measured on it have no other coding benchmark, so 11 models fall to provisional and one
+  leaves the site entirely.
+- **Weights are multipliers, not shares of influence, and the gap is published rather than
+  engineered away.** Normalising per benchmark narrows it but cannot close it: the driver is
+  that `human_preference` is one benchmark per model while `reasoning` averages up to three,
+  and averaging k correlated benchmarks shrinks a category's variance while k=1 shrinks
+  nothing. Normalising the category score to a fixed sd would make nominal ≈ effective by
+  construction, but it fabricates discrimination — `instruction_following` (sd 5.6, models
+  that genuinely are alike) would be amplified until it looked as decisive as `math`
+  (sd 11.7). The real gap goes in `data/weight_audit.json` and onto `/methodology`.
+- **The local view needs a second registry path, because Epoch's registry is a frontier
+  registry.** Measured over LMArena's non-proprietary rows: of the candidates that plausibly
+  fit 8 GB, 0 of 43 have an Epoch registry entry; at 12 GB, 0 of 18; at 24 GB, 4 of 29.
+  Restricting the view to models already in the registry does not make it thin, it makes it
+  empty below 24 GB. Arena-only rows are labelled as such per row and never called a
+  composite.
+- **Tests run on `node:test`, not a new framework.** Zero new dependencies, consistent with
+  the stdlib-only discipline the Python side already keeps.
+
 ## Commit convention
 
 Conventional Commits, English, atomic. The author is the human.
