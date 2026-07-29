@@ -222,6 +222,25 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
   recentres the whole scale on 50, so the mean composite fell from 64.5 to 48.1 between 1.0
   and 1.1 without any model getting worse. Only the ordering carries across a version bump,
   which is why every stored row and every build records the version that produced it.
+- **Matching a model name to a HuggingFace repository is string search, and string search is
+  confidently wrong.** DeepSeek-V4-Pro, at 1.6 trillion parameters, matched a 0.1B
+  distillation's GGUF repository; GLM-4.6 matched GLM-4.6V-Flash. Both would have published
+  that a frontier model fits in 6 GB. Every file size is checked against the safetensors
+  parameter count, and a repository whose sizes cannot belong to the model is rejected whole
+  rather than per file — it is the wrong repository, not a repository with one bad file.
+- **MoE memory is total parameters, never active ones.** A 30B-A3B holds all 30B resident
+  while computing with 3B per token; sizing it on the active count gives ~2 GB instead of
+  ~18.6, and would recommend models that do not start. The easiest mistake here to
+  reintroduce, so it is commented in `lib/vram.ts` rather than left implicit.
+- **The local view plots `arena_rating`, never `score`.** Rows carry either a five-category
+  composite (0-100) or an Arena rating (past 1400). Plotting whichever a row happens to have
+  would order models by the kind of score they carry. Every row carries `arena_rating` for
+  the axis; `score` states the claim and its kind per row.
+- **Ollama's registry is excluded on its terms, not on capability.** It answers 200
+  anonymously and reports exact layer sizes, but its terms prohibit automated access without
+  permission — the same standard already applied to Artificial Analysis. HuggingFace GGUF
+  repositories give the same measurement under permissive terms and agree to 0.35%. Showing
+  a copyable `ollama pull` command is not automated access.
 - **z-score rather than percentile, on measurement.** Both order models almost identically
   (Spearman 0.9965), so the choice costs no information either way. Percentile saturates
   where the interesting comparison lives: 23 category scores land above 95 or below 5 against
@@ -298,5 +317,9 @@ or comments.** This is not negotiable.
 - [x] **Phase 3** — Compare + Model detail + `/methodology`.
 - [x] **Phase 4** — Layer B: Ollama enrichment, ES/EN descriptions, acquisition links.
 - [ ] **Phase 5** — community hardening, a11y, performance.
+
+The v3 improvement plan runs alongside these and has its own numbering. Closed so far:
+canonical identity, the full time series, per-benchmark normalisation (methodology 1.1), and
+`/local`.
 
 Update this section when a phase closes.
