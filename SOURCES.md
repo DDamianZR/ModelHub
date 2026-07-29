@@ -153,7 +153,103 @@ into the model name.
 `https://huggingface.co/api/models?sort=trendingScore&direction=-1&filter=text-generation`
 works anonymously and returns `id`, `downloads`, `likes`, `trendingScore`. Used by Layer B to
 spot trending open-weights models missing from `models.json`. **It never contributes a score**,
-so it carries no `source_type`. Exact anonymous rate limits are `unverified`.
+so it carries no `source_type`.
+
+---
+
+## Local model metadata
+
+What the `/local` view needs is not scores but *facts about a model file*: how many parameters
+it has, how its attention is shaped, and how big it actually is once quantised. None of it is
+a benchmark result, and none of it carries a `source_type`.
+
+### HuggingFace Hub API — parameter counts — *authoritative, verified 2026-07-29*
+
+`https://huggingface.co/api/models/{repo}` returns a `safetensors` block. For
+`Qwen/Qwen3-30B-A3B-Instruct-2507` it gives `{"parameters":{"BF16":30532122624},"total":
+30532122624}`, and `cardData.license` gives `apache-2.0`.
+
+This matters more than it sounds: it means **the parameter count is never estimated**. Parsing
+"30b" out of a model name is string handling, not measurement, and it is wrong often enough to
+matter for a page that tells someone whether a model will start on their card.
+
+### HuggingFace resolver — architecture — *authoritative, verified 2026-07-29*
+
+`https://huggingface.co/{repo}/resolve/main/config.json` answers **307, so the redirect has to
+be followed** (`curl -L`); without it the request fails. It gives `num_hidden_layers: 48`,
+`num_key_value_heads: 4`, `head_dim: 128`, `max_position_embeddings: 262144`,
+`model_type: qwen3_moe` and the MoE expert counts — everything the KV cache term needs.
+
+### HuggingFace GGUF repositories — quantised file sizes — *verified 2026-07-29*
+
+`https://huggingface.co/api/models/{repo}/tree/main?recursive=true` lists every file with its
+LFS size, so a community GGUF repository gives the **measured** size of each quantisation in a
+single request. For `unsloth/Qwen3-30B-A3B-Instruct-2507-GGUF`:
+
+| quantisation | bytes | bytes per weight |
+|---|---:|---:|
+| Q3_K_M | 14,711,847,328 | 0.4818 |
+| Q4_K_M | 18,556,686,752 | 0.6078 |
+| Q5_K_M | 21,725,581,728 | 0.7116 |
+| Q6_K | 25,092,532,640 | 0.8218 |
+| Q8_0 | 32,483,932,576 | 1.0639 |
+
+This is what makes `bytes_per_weight` a measured, self-calibrating table rather than a constant
+copied from a blog post.
+
+### Rate limits — *documented and observed, 2026-07-29*
+
+Documented at `https://huggingface.co/docs/hub/en/rate-limits`, and confirmed against live
+response headers, which is the part worth trusting:
+
+```
+RateLimit: "api";r=497;t=212
+RateLimit-Policy: "fixed window";"api";q=500;w=300
+```
+
+Anonymous, per IP address, over fixed 5-minute windows: **500 API requests**, **3,000 resolver
+requests** (anything under `/resolve/`), 100 page requests. Exceeding it returns **429** with
+the same headers stating exactly how many seconds remain. `robots.txt` is `Allow: /`.
+
+A full pass over ~120 models costs roughly 120 API calls and 120 resolver calls, comfortably
+inside both buckets — and near zero in the steady state, because this metadata does not change
+and is cached.
+
+**Still `unverified`: the shared-IP behaviour on a GitHub Actions runner.** The quota is per IP,
+and Actions runners use pooled Azure addresses, so the budget may already be partly spent by
+somebody else. The client therefore reads the `RateLimit` headers, treats 429 as a soft failure,
+and serves the cache — the same failure policy every other source follows.
+
+### Terms of use — *audited 2026-07-29*
+
+HuggingFace's terms of service contain **no clause restricting automated access, scraping or
+programmatic use**, and no restriction on redistributing metadata. The rate-limit documentation
+goes further and explicitly provisions an anonymous tier with published quotas, which is a
+positive statement that unauthenticated programmatic access is expected. Only factual numbers
+are stored — parameter counts, layer counts, file sizes — never model card prose.
+
+### Ollama registry — *excluded on terms, 2026-07-29*
+
+`https://registry.ollama.ai/v2/library/{model}/manifests/{tag}` answers **200 anonymously** and
+reports the model layer size exactly (18,622,549,504 bytes for `qwen3:30b-a3b-q4_K_M`). It
+works, and it is not used.
+
+Section 4 of `https://ollama.com/terms` prohibits users from:
+
+> "Use automated means to access our services without permission"
+
+That is the same standard already applied to Artificial Analysis, where a permissive robots.txt
+was not treated as permissive terms. Here the terms are not merely unverified — they are
+explicit. So the registry is not queried.
+
+Nothing is lost. HuggingFace's GGUF repositories give the same measurement from a source whose
+terms permit it, and give the whole quantisation ladder in one request instead of one request
+per tag. The two agree to **0.35%** on the same model and quantisation (0.6078 against 0.6099
+bytes per weight), which is a difference between quantiser builds rather than an error, and is
+itself a useful cross-check.
+
+The site still shows a copyable `ollama pull` command. Telling a person which command to run is
+not automated access to Ollama's services.
 
 ---
 

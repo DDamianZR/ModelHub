@@ -3,10 +3,28 @@
   "verified_at": "2026-07-27",
   "verification_method": "Direct HTTP requests against each endpoint. No source was assumed to work from documentation alone.",
   "vocabulary": {
-    "status": ["active", "archived", "paywalled", "blocked_by_tos"],
-    "freshness": ["fresh", "stale", "frozen"],
-    "v1_decision": ["include", "defer", "exclude", "excluded_license"],
-    "source_type": ["human_eval", "third_party_benchmark", "vendor_claim"]
+    "status": [
+      "active",
+      "archived",
+      "paywalled",
+      "blocked_by_tos"
+    ],
+    "freshness": [
+      "fresh",
+      "stale",
+      "frozen"
+    ],
+    "v1_decision": [
+      "include",
+      "defer",
+      "exclude",
+      "excluded_license"
+    ],
+    "source_type": [
+      "human_eval",
+      "third_party_benchmark",
+      "vendor_claim"
+    ]
   },
   "sources": [
     {
@@ -52,7 +70,11 @@
           "Started at",
           "id"
         ],
-        "external_files_extra_columns": ["Source", "Source link", "Notes"],
+        "external_files_extra_columns": [
+          "Source",
+          "Source link",
+          "Notes"
+        ],
         "capabilities_index_columns": [
           "Model version",
           "ECI Score",
@@ -160,7 +182,10 @@
           "agent_task_outcome_explicit",
           "agent_tool_hallucination"
         ],
-        "splits": ["full", "latest"],
+        "splits": [
+          "full",
+          "latest"
+        ],
         "history_depth": "full split carries every historical snapshot; a single model had 61 dated observations"
       },
       "notes": [
@@ -276,12 +301,36 @@
       ],
       "provides": {
         "leaderboards": {
-          "Verified": { "entries": 180, "open_weight_entries": 31, "newest": "2026-02-26" },
-          "Lite": { "entries": 84, "open_weight_entries": 8, "newest": "2025-09-11" },
-          "bash-only": { "entries": 48, "open_weight_entries": 11, "newest": "2026-02-26" },
-          "Multilingual": { "entries": 14, "open_weight_entries": 4, "newest": "2026-02-20" },
-          "Multimodal": { "entries": 22, "open_weight_entries": 0, "newest": "2025-11-17" },
-          "Test": { "entries": 24, "open_weight_entries": 1, "newest": "2025-12-19" }
+          "Verified": {
+            "entries": 180,
+            "open_weight_entries": 31,
+            "newest": "2026-02-26"
+          },
+          "Lite": {
+            "entries": 84,
+            "open_weight_entries": 8,
+            "newest": "2025-09-11"
+          },
+          "bash-only": {
+            "entries": 48,
+            "open_weight_entries": 11,
+            "newest": "2026-02-26"
+          },
+          "Multilingual": {
+            "entries": 14,
+            "open_weight_entries": 4,
+            "newest": "2026-02-20"
+          },
+          "Multimodal": {
+            "entries": 22,
+            "open_weight_entries": 0,
+            "newest": "2025-11-17"
+          },
+          "Test": {
+            "entries": 24,
+            "open_weight_entries": 1,
+            "newest": "2025-12-19"
+          }
         }
       },
       "notes": [
@@ -310,7 +359,7 @@
         "url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=50&filter=text-generation",
         "auth": "none (anonymous works)",
         "format": "JSON",
-        "rate_limit": "anonymous limits apply; exact quota unverified"
+        "rate_limit": "anonymous, per IP, fixed 5-minute windows: 500 API / 3000 resolver / 100 pages. Observed in live RateLimit headers 2026-07-29. 429 on exceed, with seconds-to-reset in the header."
       },
       "license": {
         "spdx": "n/a",
@@ -319,13 +368,66 @@
       "last_observed_update": "live",
       "update_cadence": "continuous",
       "provides": {
-        "fields": ["id", "downloads", "likes", "trendingScore", "tags", "pipeline_tag"]
+        "fields": [
+          "id",
+          "downloads",
+          "likes",
+          "trendingScore",
+          "tags",
+          "pipeline_tag"
+        ]
       },
       "notes": [
         "Discovery and acquisition metadata only. This source NEVER contributes a score, so it carries no source_type.",
-        "Feeds Layer B: detecting open-weights models that are trending but absent from models.json."
+        "Feeds Layer B: detecting open-weights models that are trending but absent from models.json.",
+        "Terms of service audited 2026-07-29: no clause restricts automated access or metadata redistribution, and the rate-limit documentation explicitly provisions an anonymous tier. robots.txt is Allow: /."
       ],
-      "caveats": [],
+      "caveats": [
+        "Rate limits are per IP and GitHub Actions runners share pooled addresses, so the budget may be partly spent by another tenant. Unverified. The client reads the RateLimit headers, treats 429 as a soft failure and serves the cache."
+      ],
+      "fragility": "low"
+    },
+    {
+      "id": "huggingface_model_metadata",
+      "name": "HuggingFace Hub - model metadata and GGUF file sizes",
+      "homepage": "https://huggingface.co/models",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "local_view",
+      "source_type": null,
+      "access": {
+        "type": "public_api",
+        "url": "https://huggingface.co/api/models/{repo}",
+        "secondary_url": "https://huggingface.co/{repo}/resolve/main/config.json",
+        "tertiary_url": "https://huggingface.co/api/models/{repo}/tree/main?recursive=true",
+        "auth": "none (anonymous works)",
+        "format": "JSON",
+        "rate_limit": "shares the huggingface_hub buckets: 500 API / 3000 resolver per 5 min, anonymous per IP"
+      },
+      "license": {
+        "spdx": "n/a",
+        "note": "Only factual numbers are stored - parameter counts, layer counts, file sizes. No model card prose is copied. Per-model licences are read per repo and shown per row."
+      },
+      "last_observed_update": "live",
+      "update_cadence": "continuous",
+      "expected_cadence_days": 30,
+      "provides": {
+        "fields": [
+          "safetensors.total (parameter count, authoritative)",
+          "cardData.license",
+          "config.json: num_hidden_layers, num_key_value_heads, head_dim, max_position_embeddings, model_type",
+          "GGUF file sizes per quantisation, from the repo tree"
+        ]
+      },
+      "notes": [
+        "Feeds the /local view only. Never contributes a score, so it carries no source_type.",
+        "The resolver URL answers 307; the redirect must be followed or the request fails.",
+        "Parameter counts come from safetensors and are never parsed out of a model name. A size in a name is a hint for choosing which repo to query, never a datum."
+      ],
+      "caveats": [
+        "Community GGUF repositories are third-party requantisations. The size is measured, but which repo is authoritative for a given model is a judgement, so the repo is recorded per row."
+      ],
       "fragility": "low"
     },
     {
@@ -387,7 +489,9 @@
         "auth": "none",
         "format": "parquet"
       },
-      "license": { "spdx": "unverified" },
+      "license": {
+        "spdx": "unverified"
+      },
       "last_observed_update": "results dataset last modified 2025-03-20 (~16 months before verification)",
       "update_cadence": "none — retired",
       "notes": [
@@ -415,12 +519,23 @@
         "format": "YAML",
         "payload_size_kb": 45.7
       },
-      "license": { "spdx": "Apache-2.0", "evidence": "Aider-AI/aider repo license" },
+      "license": {
+        "spdx": "Apache-2.0",
+        "evidence": "Aider-AI/aider repo license"
+      },
       "last_observed_update": "newest entry dated 2025-10-03; repo last pushed 2026-05-22",
       "update_cadence": "none — leaderboard frozen ~10 months while the project itself stayed active",
       "provides": {
         "entries": 69,
-        "fields": ["model", "pass_rate_1", "pass_rate_2", "percent_cases_well_formed", "edit_format", "total_cost", "date"]
+        "fields": [
+          "model",
+          "pass_rate_1",
+          "pass_rate_2",
+          "percent_cases_well_formed",
+          "edit_format",
+          "total_cost",
+          "date"
+        ]
       },
       "notes": [
         "The file is well-formed and easy to parse — it is simply out of date. Ingesting it would put 2025 numbers next to 2026 numbers in a 'current frontier' ranking, which is worse than omitting it.",
@@ -453,6 +568,38 @@
       "notes": [
         "Excluded by project directive. robots.txt permits crawling, but permissive robots.txt is not the same as permissive terms of use, and the terms could not be retrieved.",
         "Independently of the terms question, its benchmark coverage is largely redundant with Epoch AI, which is CC-BY licensed and offers a clean download."
+      ],
+      "caveats": [],
+      "fragility": "n/a"
+    },
+    {
+      "id": "ollama_registry",
+      "name": "Ollama model registry",
+      "homepage": "https://ollama.com/library",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "exclude",
+      "tier": "none",
+      "source_type": null,
+      "access": {
+        "type": "public_api",
+        "url": "https://registry.ollama.ai/v2/library/{model}/manifests/{tag}",
+        "auth": "none (anonymous returns 200)",
+        "format": "OCI manifest JSON",
+        "rate_limit": "not measured; the endpoint is not used"
+      },
+      "license": {
+        "spdx": "n/a",
+        "note": "Not ingested."
+      },
+      "last_observed_update": "live",
+      "update_cadence": "continuous",
+      "notes": [
+        "Technically works: returns 200 anonymously and reports the model layer size exactly (18622549504 bytes for qwen3:30b-a3b-q4_K_M, verified 2026-07-29).",
+        "Excluded on terms, not on capability. Section 4 of https://ollama.com/terms prohibits users from 'Use automated means to access our services without permission'.",
+        "Same standard already applied to Artificial Analysis: a working endpoint is not permission. Here the terms are explicit rather than merely unverified.",
+        "Nothing is lost. HuggingFace GGUF repositories give the same measurement under permissive terms, and return the whole quantisation ladder in one request. The two agree to 0.35% on the same model and quantisation (0.6078 vs 0.6099 bytes per weight).",
+        "The site still shows a copyable `ollama pull` command. Telling a person which command to run is not automated access."
       ],
       "caveats": [],
       "fragility": "n/a"
