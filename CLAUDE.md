@@ -54,6 +54,7 @@ maintain.
 /lib               types.ts (no Node imports, safe for client) + data.ts (server-only reader)
 /messages          en.json, es.json
 /data              models, scores, benchmarks, providers, aliases, history.jsonl
+/data/baseline     frozen models.json snapshots to measure a change against
 /config            weights.json, sources.json
 /scripts/ingest    run.py (orchestrator) · sources/ · composite.py · common.py
 /scripts/analysis  measurement tools, run by hand, never part of the ingest
@@ -74,6 +75,7 @@ npm run dev        # dev server
 npm run build      # production build
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit
+npm test           # node:test over lib/*.test.ts, via type stripping (needs Node >= 22.18)
 npm run ingest     # rebuild /data from live sources (python -m scripts.ingest.run)
 npm run enrich     # Layer B: local Ollama descriptions + acquisition links
 npm run onboard    # Layer B: draft entries for trending models we don't track
@@ -158,6 +160,21 @@ finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reason
 - **Measure duplication on raw rows, never deduplicated ones.** Deduplicating on
   (model, benchmark, date) first makes the ratio structurally 1.0, so the guard silently
   stops working. Rejected snapshot dates are also excluded from history explicitly.
+- **The duplication ratio is counted per (date, benchmark), not per (date, model).** While
+  history held only Arena ratings the two were the same measurement. With sixteen series per
+  model, a per-model count reads a normal day as sixteen-fold duplication and rejects every
+  date. Per benchmark the original invariant is unchanged: one model, one reading, one date.
+  `scripts/tests/test_merge_history.py` pins both halves — a tripled snapshot is still
+  rejected, and a model carrying ten benchmarks plus five categories plus the composite on
+  one date is not. A guard that stops firing looks exactly like a guard with nothing to
+  catch, which is why the rejection cases are tested and not just the acceptance ones.
+- **History stores measurements, not runs.** A benchmark row is dated by its `measured_at`,
+  so re-running the ingest re-emits identical rows that deduplicate away and the file grows
+  only when upstream actually re-measures. A score with no `measured_at` is skipped rather
+  than dated by the run: inventing a date is the one thing worse than a gap. Category and
+  composite rows are dated by the run because they are that build's computation, and they
+  carry `methodology_version` so a stored series can never be read under a formula that did
+  not produce it.
 - **A description asserts only what is in `/data`.** That is: what the model is, how it is
   obtained, and how its own measured categories compare. Use cases are deliberately absent
   from `/data`, so a description never states what a model is "for" — asking the model for
