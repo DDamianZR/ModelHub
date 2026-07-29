@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { groupHistory, parseHistory, seriesFor } from "./history";
+import type { LocalModel, VramConfig } from "./vram";
 import {
   HOME_TREND_BENCHMARK,
   type AgedSource,
@@ -135,6 +136,44 @@ export type BenchmarkReference = {
   >;
   excluded: Record<string, { category?: string; n: number; reason: string }>;
 };
+
+/**
+ * The local-view catalogue and the VRAM calibration, or nulls when absent.
+ *
+ * Both follow getAcquisition()'s pattern rather than readJson()'s: a missing or malformed
+ * file leaves the page saying so, instead of taking the whole build down. Every data file
+ * added is a new way for CI to break, and this one is populated over several runs by design,
+ * so its absence is an ordinary state rather than an error.
+ */
+export function getLocalModels(): {
+  generated_at: string;
+  ceiling: { model_name: string; arena_rating: number } | null;
+  models: LocalModel[];
+} | null {
+  const file = path.join(DATA_DIR, "local_models.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const payload = JSON.parse(fs.readFileSync(file, "utf8")) as {
+      generated_at: string;
+      ceiling: { model_name: string; arena_rating: number } | null;
+      models: LocalModel[];
+    };
+    return Array.isArray(payload?.models) ? payload : null;
+  } catch {
+    return null;
+  }
+}
+
+export function getVramConfig(): VramConfig | null {
+  const file = path.join(process.cwd(), "config", "vram.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const payload = JSON.parse(fs.readFileSync(file, "utf8")) as VramConfig;
+    return payload?.bytes_per_weight ? payload : null;
+  } catch {
+    return null;
+  }
+}
 
 /** The frozen reference, read from /config so /methodology can publish it verbatim. */
 export function getBenchmarkReference(): BenchmarkReference | null {

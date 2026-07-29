@@ -235,6 +235,12 @@ def build(arena_text: dict, ranked: dict, budget: int = hf.DEFAULT_BUDGET) -> tu
         models.append({
             "key": key,
             "display_name": (published or {}).get("display_name") or key,
+            # Carried separately from `score` and always present, because the frontier chart
+            # has to plot one scale. A composite runs 0-100 and an Arena rating runs past
+            # 1400; putting both on one axis would rank a model by which score it happens to
+            # have rather than by how good it is. `score` says what claim the row carries;
+            # this says where it sits on the axis everything shares.
+            "arena_rating": round(arena_text[key]["rating"], 1),
             "hf_repo": entry["hf_repo"],
             "registry_source": "epoch" if published else "hf_api",
             "architecture": "moe" if entry.get("n_experts") else "dense",
@@ -263,9 +269,25 @@ def build(arena_text: dict, ranked: dict, budget: int = hf.DEFAULT_BUDGET) -> tu
             "status": "verified" if complete else "unverified",
         })
 
+    # The ceiling line on the chart: the best Arena rating that exists at all, including
+    # models nobody runs at home. On the same axis as everything else, so the distance
+    # between "what you can run" and "what exists" is visible rather than implied.
+    ceiling = max(
+        ((row["model_name"], row["rating"]) for row in arena_text.values()),
+        key=lambda item: item[1],
+        default=(None, None),
+    )
+
     return {
         "schema_version": SCHEMA_VERSION,
         "generated_at": date.today().isoformat(),
+        "scale": (
+            "arena_rating is LMArena's Bradley-Terry rating and is the axis the frontier "
+            "chart plots, because every row has one. score is the richest claim a row can "
+            "make and its kind is stated per row; the two scales are never compared."
+        ),
+        "ceiling": {"model_name": ceiling[0], "arena_rating": round(ceiling[1], 1)}
+        if ceiling[1] else None,
         "models": models,
     }, stats
 
