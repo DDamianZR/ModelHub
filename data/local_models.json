@@ -1,10 +1,72 @@
 {
   "schema_version": 1,
   "generated_at": "2026-07-29",
+  "scale": "arena_rating is LMArena's Bradley-Terry rating and is the axis the frontier chart plots, because every row has one. score is the richest claim a row can make and its kind is stated per row; the two scales are never compared.",
+  "ceiling": {
+    "model_name": "claude-opus-5-max",
+    "arena_rating": 1511.6
+  },
   "models": [
+    {
+      "key": "deepseek-r1-0528",
+      "display_name": "deepseek-r1-0528",
+      "arena_rating": 1428.1,
+      "hf_repo": "deepseek-ai/DeepSeek-R1-0528",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 684531386000,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": 8,
+      "n_layers": 61,
+      "n_kv_heads": 128,
+      "head_dim": 56,
+      "max_context": 163840,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "unsloth/DeepSeek-R1-0528-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1428.1,
+        "coverage": null,
+        "votes": 18424
+      },
+      "status": "verified"
+    },
+    {
+      "key": "deepseek-v3.1",
+      "display_name": "deepseek-v3.1",
+      "arena_rating": 1419.4,
+      "hf_repo": "deepseek-ai/DeepSeek-V3.1",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 684531386000,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": 8,
+      "n_layers": 61,
+      "n_kv_heads": 128,
+      "head_dim": 56,
+      "max_context": 163840,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "unsloth/DeepSeek-V3.1-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1419.4,
+        "coverage": null,
+        "votes": 14945
+      },
+      "status": "verified"
+    },
     {
       "key": "deepseek-v3.1-terminus",
       "display_name": "deepseek-v3.1-terminus",
+      "arena_rating": 1419.9,
       "hf_repo": "deepseek-ai/DeepSeek-V3.1-Terminus",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -32,6 +94,7 @@
     {
       "key": "deepseek-v3.2",
       "display_name": "deepseek-v3.2",
+      "arena_rating": 1424.4,
       "hf_repo": "deepseek-ai/DeepSeek-V3.2",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -59,6 +122,7 @@
     {
       "key": "deepseek-v4-flash",
       "display_name": "DeepSeek v4 Flash (high)",
+      "arena_rating": 1431.7,
       "hf_repo": "deepseek-ai/DeepSeek-V4-Flash",
       "registry_source": "epoch",
       "architecture": "dense",
@@ -85,8 +149,38 @@
       "status": "verified"
     },
     {
+      "key": "deepseek-v4-pro",
+      "display_name": "DeepSeek v4 Pro (max)",
+      "arena_rating": 1450.1,
+      "hf_repo": "deepseek-ai/DeepSeek-V4-Pro",
+      "registry_source": "epoch",
+      "architecture": "dense",
+      "params_total": 1598839674782,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": 6,
+      "n_layers": 61,
+      "n_kv_heads": 1,
+      "head_dim": 512,
+      "max_context": 1048576,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "teamblobfish/DeepSeek-V4-Pro-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "composite",
+        "value": 46.45,
+        "coverage": "5/5",
+        "model_id": "deepseek-deepseek-v4-pro",
+        "provisional": false
+      },
+      "status": "verified"
+    },
+    {
       "key": "dolphin-2.2.1-mistral-7b",
       "display_name": "dolphin-2.2.1-mistral-7b",
+      "arena_rating": 1081.1,
       "hf_repo": "dphn/dolphin-2.2.1-mistral-7b",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -145,6 +239,7 @@
     {
       "key": "gemma-2-9b-it-simpo",
       "display_name": "gemma-2-9b-it-simpo",
+      "arena_rating": 1227.2,
       "hf_repo": "princeton-nlp/gemma-2-9b-it-SimPO",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -203,6 +298,7 @@
     {
       "key": "glm-4.5",
       "display_name": "glm-4.5",
+      "arena_rating": 1428.9,
       "hf_repo": "zai-org/GLM-4.5",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -228,8 +324,65 @@
       "status": "verified"
     },
     {
+      "key": "glm-4.6",
+      "display_name": "glm-4.6",
+      "arena_rating": 1440.4,
+      "hf_repo": "zai-org/GLM-4.6",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 356785898816,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": 8,
+      "n_layers": 92,
+      "n_kv_heads": 8,
+      "head_dim": 128,
+      "max_context": 202752,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "unsloth/GLM-4.6-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1440.4,
+        "coverage": null,
+        "votes": 35592
+      },
+      "status": "verified"
+    },
+    {
+      "key": "glm-4.7",
+      "display_name": "glm-4.7",
+      "arena_rating": 1435.8,
+      "hf_repo": "zai-org/GLM-4.7",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 358337791296,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": 8,
+      "n_layers": 92,
+      "n_kv_heads": 8,
+      "head_dim": 128,
+      "max_context": 202752,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "unsloth/GLM-4.7-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1435.8,
+        "coverage": null,
+        "votes": 12090
+      },
+      "status": "verified"
+    },
+    {
       "key": "glm-5",
       "display_name": "glm-5",
+      "arena_rating": 1445.2,
       "hf_repo": "zai-org/GLM-5",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -257,6 +410,7 @@
     {
       "key": "glm-5.1",
       "display_name": "glm-5.1",
+      "arena_rating": 1465.0,
       "hf_repo": "zai-org/GLM-5.1",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -284,6 +438,7 @@
     {
       "key": "glm-5.2",
       "display_name": "glm-5.2",
+      "arena_rating": 1464.4,
       "hf_repo": "zai-org/GLM-5.2",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -311,6 +466,7 @@
     {
       "key": "gpt-oss-20b",
       "display_name": "gpt-oss-20b",
+      "arena_rating": 1287.6,
       "hf_repo": "openai/gpt-oss-20b",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -336,8 +492,62 @@
       "status": "verified"
     },
     {
+      "key": "granite-3.0-2b",
+      "display_name": "granite-3.0-2b",
+      "arena_rating": 1080.0,
+      "hf_repo": "ibm-granite/granite-3.0-2b-instruct",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 2634201088,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 40,
+      "n_kv_heads": 8,
+      "head_dim": 64,
+      "max_context": 4096,
+      "config_source": "hf_config_json",
+      "quantizations": [
+        {
+          "quant": "Q4_K_M",
+          "bytes_on_disk": 1601919680,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.6081
+        },
+        {
+          "quant": "Q5_K_M",
+          "bytes_on_disk": 1874025920,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.7114
+        },
+        {
+          "quant": "Q6_K",
+          "bytes_on_disk": 2163138816,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.8212
+        },
+        {
+          "quant": "Q8_0",
+          "bytes_on_disk": 2801069184,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 1.0633
+        }
+      ],
+      "gguf_repo": "bartowski/granite-3.0-2b-instruct-GGUF",
+      "license": "apache-2.0",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1080.0,
+        "coverage": null,
+        "votes": 6837
+      },
+      "status": "verified"
+    },
+    {
       "key": "granite-3.0-8b",
       "display_name": "granite-3.0-8b",
+      "arena_rating": 1096.6,
       "hf_repo": "ibm-granite/granite-3.0-8b-instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -396,6 +606,7 @@
     {
       "key": "granite-3.1-2b",
       "display_name": "granite-3.1-2b",
+      "arena_rating": 1127.6,
       "hf_repo": "ibm-granite/granite-3.1-2b-instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -454,6 +665,7 @@
     {
       "key": "granite-3.1-8b",
       "display_name": "granite-3.1-8b",
+      "arena_rating": 1149.7,
       "hf_repo": "ibm-granite/granite-3.1-8b-instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -512,6 +724,7 @@
     {
       "key": "granite-4.1-8b",
       "display_name": "granite-4.1-8b",
+      "arena_rating": 1314.2,
       "hf_repo": "ibm-granite/granite-4.1-8b",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -570,6 +783,7 @@
     {
       "key": "hy3",
       "display_name": "hy3",
+      "arena_rating": 1442.4,
       "hf_repo": "tencent/Hy3",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -597,6 +811,7 @@
     {
       "key": "internlm2-5-20b",
       "display_name": "internlm2-5-20b",
+      "arena_rating": 1158.6,
       "hf_repo": "internlm/internlm2_5-20b-chat",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -655,6 +870,7 @@
     {
       "key": "kimi-k2.5",
       "display_name": "Kimi K2.5",
+      "arena_rating": 1445.2,
       "hf_repo": "mlx-community/Kimi-K2.5",
       "registry_source": "epoch",
       "architecture": "dense",
@@ -683,6 +899,7 @@
     {
       "key": "llama-3.1-nemotron-70b",
       "display_name": "llama-3.1-nemotron-70b",
+      "arena_rating": 1282.8,
       "hf_repo": "unsloth/Llama-3.1-Nemotron-70B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -723,6 +940,7 @@
     {
       "key": "llama-3.1-tulu-3-70b",
       "display_name": "llama-3.1-tulu-3-70b",
+      "arena_rating": 1255.9,
       "hf_repo": "allenai/Llama-3.1-Tulu-3-70B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -769,6 +987,7 @@
     {
       "key": "llama-3.1-tulu-3-8b",
       "display_name": "llama-3.1-tulu-3-8b",
+      "arena_rating": 1193.5,
       "hf_repo": "allenai/Llama-3.1-Tulu-3-8B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -827,6 +1046,7 @@
     {
       "key": "llama-3.2-3b",
       "display_name": "llama-3.2-3b",
+      "arena_rating": 1109.7,
       "hf_repo": "meta-llama/Llama-3.2-3B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -885,6 +1105,7 @@
     {
       "key": "llama-3.3-70b",
       "display_name": "llama-3.3-70b",
+      "arena_rating": 1275.1,
       "hf_repo": "meta-llama/Llama-3.3-70B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -931,6 +1152,7 @@
     {
       "key": "longcat-flash",
       "display_name": "longcat-flash",
+      "arena_rating": 1422.3,
       "hf_repo": "meituan-longcat/LongCat-Flash-Chat",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -958,6 +1180,7 @@
     {
       "key": "mimo-v2.5",
       "display_name": "mimo-v2.5",
+      "arena_rating": 1427.5,
       "hf_repo": "XiaomiMiMo/MiMo-V2.5",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -985,6 +1208,7 @@
     {
       "key": "mimo-v2.5-pro",
       "display_name": "mimo-v2.5-pro",
+      "arena_rating": 1462.2,
       "hf_repo": "XiaomiMiMo/MiMo-V2.5-Pro",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1010,8 +1234,37 @@
       "status": "verified"
     },
     {
+      "key": "mistral-7b",
+      "display_name": "mistral-7b",
+      "arena_rating": 1023.7,
+      "hf_repo": "unsloth/mistral-7b",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 7241732096,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 32,
+      "n_kv_heads": 8,
+      "head_dim": 128,
+      "max_context": 32768,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": null,
+      "license": "apache-2.0",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1023.7,
+        "coverage": null,
+        "votes": 8977
+      },
+      "status": "verified"
+    },
+    {
       "key": "mistral-7b-instruct-v0.2",
       "display_name": "mistral-7b-instruct-v0.2",
+      "arena_rating": 1089.7,
       "hf_repo": "mistralai/Mistral-7B-Instruct-v0.2",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1070,6 +1323,7 @@
     {
       "key": "mistral-small-24b-instruct-2501",
       "display_name": "mistral-small-24b-instruct-2501",
+      "arena_rating": 1233.7,
       "hf_repo": "unsloth/Mistral-Small-24B-Instruct-2501",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1122,6 +1376,7 @@
     {
       "key": "mixtral-8x22b-instruct-v0.1",
       "display_name": "mixtral-8x22b-instruct-v0.1",
+      "arena_rating": 1162.1,
       "hf_repo": "dreamgen/Mixtral-8x22B-Instruct-v0.1",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -1149,6 +1404,7 @@
     {
       "key": "nous-hermes-2-mixtral-8x7b-dpo",
       "display_name": "nous-hermes-2-mixtral-8x7b-dpo",
+      "arena_rating": 1112.2,
       "hf_repo": "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -1207,6 +1463,7 @@
     {
       "key": "nvidia-nemotron-3-nano-30b-a3b-bf16",
       "display_name": "nvidia-nemotron-3-nano-30b-a3b-bf16",
+      "arena_rating": 1349.2,
       "hf_repo": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1234,6 +1491,7 @@
     {
       "key": "olmo-2-0325-32b",
       "display_name": "olmo-2-0325-32b",
+      "arena_rating": 1218.1,
       "hf_repo": "allenai/OLMo-2-0325-32B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1292,6 +1550,7 @@
     {
       "key": "olmo-3-32b-think",
       "display_name": "olmo-3-32b-think",
+      "arena_rating": 1298.8,
       "hf_repo": "allenai/Olmo-3-32B-Think",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1350,6 +1609,7 @@
     {
       "key": "olmo-3.1-32b",
       "display_name": "olmo-3.1-32b",
+      "arena_rating": 1311.4,
       "hf_repo": "allenai/Olmo-3.1-32B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1408,6 +1668,7 @@
     {
       "key": "olmo-3.1-32b-think",
       "display_name": "olmo-3.1-32b-think",
+      "arena_rating": 1270.3,
       "hf_repo": "allenai/Olmo-3.1-32B-Think",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1464,8 +1725,37 @@
       "status": "verified"
     },
     {
+      "key": "olmo-7b",
+      "display_name": "olmo-7b",
+      "arena_rating": 1032.0,
+      "hf_repo": "allenai/OLMo-7B",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 6888095744,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": null,
+      "n_kv_heads": null,
+      "head_dim": null,
+      "max_context": null,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": "Aabbhishekk/OLMo-7B-GGUF",
+      "license": "apache-2.0",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1032.0,
+        "coverage": null,
+        "votes": 6328
+      },
+      "status": "unverified"
+    },
+    {
       "key": "openhermes-2.5-mistral-7b",
       "display_name": "openhermes-2.5-mistral-7b",
+      "arena_rating": 1092.7,
       "hf_repo": "teknium/OpenHermes-2.5-Mistral-7B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1524,6 +1814,7 @@
     {
       "key": "qwen1.5-14b",
       "display_name": "qwen1.5-14b",
+      "arena_rating": 1127.9,
       "hf_repo": "Qwen/Qwen1.5-14B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1582,6 +1873,7 @@
     {
       "key": "qwen1.5-32b",
       "display_name": "qwen1.5-32b",
+      "arena_rating": 1137.4,
       "hf_repo": "Qwen/Qwen1.5-32B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1638,8 +1930,68 @@
       "status": "verified"
     },
     {
+      "key": "qwen1.5-4b",
+      "display_name": "qwen1.5-4b",
+      "arena_rating": 997.4,
+      "hf_repo": "Qwen/Qwen1.5-4B",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 3950369280,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 40,
+      "n_kv_heads": 20,
+      "head_dim": 128,
+      "max_context": 32768,
+      "config_source": "hf_config_json",
+      "quantizations": [
+        {
+          "quant": "Q3_K_M",
+          "bytes_on_disk": 2026851904,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.5131
+        },
+        {
+          "quant": "Q4_K_M",
+          "bytes_on_disk": 2455116864,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.6215
+        },
+        {
+          "quant": "Q5_K_M",
+          "bytes_on_disk": 2839608384,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.7188
+        },
+        {
+          "quant": "Q6_K",
+          "bytes_on_disk": 3248130624,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.8222
+        },
+        {
+          "quant": "Q8_0",
+          "bytes_on_disk": 4204736064,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 1.0644
+        }
+      ],
+      "gguf_repo": "mradermacher/Qwen1.5-4B-GGUF",
+      "license": "other",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 997.4,
+        "coverage": null,
+        "votes": 7597
+      },
+      "status": "verified"
+    },
+    {
       "key": "qwen1.5-72b",
       "display_name": "qwen1.5-72b",
+      "arena_rating": 1166.3,
       "hf_repo": "Qwen/Qwen1.5-72B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1680,6 +2032,7 @@
     {
       "key": "qwen1.5-7b",
       "display_name": "qwen1.5-7b",
+      "arena_rating": 1083.6,
       "hf_repo": "Qwen/Qwen1.5-7B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1707,6 +2060,7 @@
     {
       "key": "qwen2-72b",
       "display_name": "qwen2-72b",
+      "arena_rating": 1203.4,
       "hf_repo": "Qwen/Qwen2-72B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1747,6 +2101,7 @@
     {
       "key": "qwen2.5-72b",
       "display_name": "qwen2.5-72b",
+      "arena_rating": 1269.2,
       "hf_repo": "Qwen/Qwen2.5-72B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1774,6 +2129,7 @@
     {
       "key": "qwen2.5-coder-32b",
       "display_name": "qwen2.5-coder-32b",
+      "arena_rating": 1230.2,
       "hf_repo": "Qwen/Qwen2.5-Coder-32B-Instruct",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1832,6 +2188,7 @@
     {
       "key": "qwen3-30b-a3b",
       "display_name": "qwen3-30b-a3b",
+      "arena_rating": 1317.1,
       "hf_repo": "Qwen/Qwen3-30B-A3B",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -1884,6 +2241,7 @@
     {
       "key": "qwen3-30b-a3b-instruct-2507",
       "display_name": "qwen3-30b-a3b-instruct-2507",
+      "arena_rating": 1383.9,
       "hf_repo": "Qwen/Qwen3-30B-A3B-Instruct-2507",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -1942,6 +2300,7 @@
     {
       "key": "qwen3-32b",
       "display_name": "qwen3-32b",
+      "arena_rating": 1340.1,
       "hf_repo": "Qwen/Qwen3-32B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -1994,6 +2353,7 @@
     {
       "key": "qwen3-next-80b-a3b",
       "display_name": "qwen3-next-80b-a3b",
+      "arena_rating": 1418.7,
       "hf_repo": "Qwen/Qwen3-Next-80B-A3B-Instruct",
       "registry_source": "hf_api",
       "architecture": "moe",
@@ -2046,6 +2406,7 @@
     {
       "key": "qwq-32b",
       "display_name": "qwq-32b",
+      "arena_rating": 1329.4,
       "hf_repo": "Qwen/QwQ-32B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2096,8 +2457,44 @@
       "status": "verified"
     },
     {
+      "key": "smollm2-1.7b",
+      "display_name": "smollm2-1.7b",
+      "arena_rating": 1042.2,
+      "hf_repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 1711376384,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 24,
+      "n_kv_heads": 32,
+      "head_dim": 64,
+      "max_context": 8192,
+      "config_source": "hf_config_json",
+      "quantizations": [
+        {
+          "quant": "Q4_K_M",
+          "bytes_on_disk": 1055609536,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.6168
+        }
+      ],
+      "gguf_repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF",
+      "license": "apache-2.0",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1042.2,
+        "coverage": null,
+        "votes": 2199
+      },
+      "status": "verified"
+    },
+    {
       "key": "solar-10.7b-instruct-v1.0",
       "display_name": "solar-10.7b-instruct-v1.0",
+      "arena_rating": 1083.2,
       "hf_repo": "upstage/SOLAR-10.7B-Instruct-v1.0",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2156,6 +2553,7 @@
     {
       "key": "starling-lm-7b-alpha",
       "display_name": "starling-lm-7b-alpha",
+      "arena_rating": 1107.8,
       "hf_repo": "berkeley-nest/Starling-LM-7B-alpha",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2214,6 +2612,7 @@
     {
       "key": "starling-lm-7b-beta",
       "display_name": "starling-lm-7b-beta",
+      "arena_rating": 1132.2,
       "hf_repo": "Nexusflow/Starling-LM-7B-beta",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2270,8 +2669,37 @@
       "status": "verified"
     },
     {
+      "key": "stripedhyena-nous-7b",
+      "display_name": "stripedhyena-nous-7b",
+      "arena_rating": 1038.6,
+      "hf_repo": "togethercomputer/StripedHyena-Nous-7B",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 7646024704,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": null,
+      "n_kv_heads": 32,
+      "head_dim": 128,
+      "max_context": null,
+      "config_source": "hf_config_json",
+      "quantizations": [],
+      "gguf_repo": null,
+      "license": "apache-2.0",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1038.6,
+        "coverage": null,
+        "votes": 5182
+      },
+      "status": "unverified"
+    },
+    {
       "key": "tulu-2-dpo-70b",
       "display_name": "tulu-2-dpo-70b",
+      "arena_rating": 1121.2,
       "hf_repo": "allenai/tulu-2-dpo-70b",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2318,6 +2746,7 @@
     {
       "key": "yi-1.5-34b",
       "display_name": "yi-1.5-34b",
+      "arena_rating": 1173.1,
       "hf_repo": "01-ai/Yi-1.5-34B-Chat",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2376,6 +2805,7 @@
     {
       "key": "yi-34b",
       "display_name": "yi-34b",
+      "arena_rating": 1128.6,
       "hf_repo": "01-ai/Yi-34B",
       "registry_source": "hf_api",
       "architecture": "dense",
@@ -2428,6 +2858,124 @@
         "value": 1128.6,
         "coverage": null,
         "votes": 15483
+      },
+      "status": "verified"
+    },
+    {
+      "key": "zephyr-7b-alpha",
+      "display_name": "zephyr-7b-alpha",
+      "arena_rating": 1058.5,
+      "hf_repo": "HuggingFaceH4/zephyr-7b-alpha",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 7241732096,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 32,
+      "n_kv_heads": 8,
+      "head_dim": 128,
+      "max_context": 32768,
+      "config_source": "hf_config_json",
+      "quantizations": [
+        {
+          "quant": "Q3_K_M",
+          "bytes_on_disk": 3518985920,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.4859
+        },
+        {
+          "quant": "Q4_K_M",
+          "bytes_on_disk": 4368438976,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.6032
+        },
+        {
+          "quant": "Q5_K_M",
+          "bytes_on_disk": 5131409088,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.7086
+        },
+        {
+          "quant": "Q6_K",
+          "bytes_on_disk": 5942064832,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.8205
+        },
+        {
+          "quant": "Q8_0",
+          "bytes_on_disk": 7695857344,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 1.0627
+        }
+      ],
+      "gguf_repo": "TheBloke/zephyr-7B-alpha-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1058.5,
+        "coverage": null,
+        "votes": 1785
+      },
+      "status": "verified"
+    },
+    {
+      "key": "zephyr-7b-beta",
+      "display_name": "zephyr-7b-beta",
+      "arena_rating": 1069.6,
+      "hf_repo": "HuggingFaceH4/zephyr-7b-beta",
+      "registry_source": "hf_api",
+      "architecture": "dense",
+      "params_total": 7241732096,
+      "params_source": "hf_safetensors",
+      "n_experts": null,
+      "n_experts_active": null,
+      "n_layers": 32,
+      "n_kv_heads": 8,
+      "head_dim": 128,
+      "max_context": 32768,
+      "config_source": "hf_config_json",
+      "quantizations": [
+        {
+          "quant": "Q3_K_M",
+          "bytes_on_disk": 3518985920,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.4859
+        },
+        {
+          "quant": "Q4_K_M",
+          "bytes_on_disk": 4368438976,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.6032
+        },
+        {
+          "quant": "Q5_K_M",
+          "bytes_on_disk": 5131409088,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.7086
+        },
+        {
+          "quant": "Q6_K",
+          "bytes_on_disk": 5942064832,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 0.8205
+        },
+        {
+          "quant": "Q8_0",
+          "bytes_on_disk": 7695857344,
+          "bytes_source": "hf_gguf_tree",
+          "bytes_per_weight": 1.0627
+        }
+      ],
+      "gguf_repo": "TheBloke/zephyr-7B-beta-GGUF",
+      "license": "mit",
+      "license_source": "hf_api",
+      "score": {
+        "kind": "arena_only",
+        "value": 1069.6,
+        "coverage": null,
+        "votes": 11118
       },
       "status": "verified"
     }

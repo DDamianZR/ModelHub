@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T14:23:47+00:00",
+  "generated_at": "2026-07-29T16:10:49+00:00",
   "ok": true,
   "methodology_version": "1.1",
   "sources": {
@@ -14,10 +14,9 @@
       "error": null
     },
     "lmarena": {
-      "state": "cached",
-      "last_success": "2026-07-28",
-      "age_days": 1,
-      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=24529&length=100: HTTP Error 500: Internal Server Error"
+      "state": "ok",
+      "last_success": "2026-07-29",
+      "error": null
     }
   },
   "snapshot_ages": {

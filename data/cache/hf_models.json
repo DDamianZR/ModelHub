@@ -1,4 +1,8 @@
 {
+  "alpaca-13b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
   "athene-70b-0725": {
     "reason": "no matching HF repository",
     "resolved": false
@@ -11,9 +15,73 @@
     "reason": "no matching HF repository",
     "resolved": false
   },
+  "chatglm-6b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "chatglm2-6b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "chatglm3-6b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "codellama-34b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "codellama-70b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
   "deepseek-llm-67b": {
     "reason": "no safetensors parameter count",
     "resolved": false
+  },
+  "deepseek-r1-0528": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "unsloth/DeepSeek-R1-0528-GGUF",
+    "gguf_sizes": {},
+    "head_dim": 56,
+    "hf_repo": "deepseek-ai/DeepSeek-R1-0528",
+    "hidden_size": 7168,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 163840,
+    "model_type": "deepseek_v3",
+    "n_experts": null,
+    "n_experts_active": 8,
+    "n_heads": 128,
+    "n_kv_heads": 128,
+    "n_layers": 61,
+    "params_source": "hf_safetensors",
+    "params_total": 684531386000,
+    "resolved": true
+  },
+  "deepseek-v3.1": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "unsloth/DeepSeek-V3.1-GGUF",
+    "gguf_sizes": {},
+    "head_dim": 56,
+    "hf_repo": "deepseek-ai/DeepSeek-V3.1",
+    "hidden_size": 7168,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 163840,
+    "model_type": "deepseek_v3",
+    "n_experts": null,
+    "n_experts_active": 8,
+    "n_heads": 128,
+    "n_kv_heads": 128,
+    "n_layers": 61,
+    "params_source": "hf_safetensors",
+    "params_total": 684531386000,
+    "resolved": true
   },
   "deepseek-v3.1-terminus": {
     "bytes_source": null,
@@ -81,6 +149,32 @@
     "params_total": 158069433298,
     "resolved": true
   },
+  "deepseek-v4-pro": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "teamblobfish/DeepSeek-V4-Pro-GGUF",
+    "gguf_sizes": {},
+    "head_dim": 512,
+    "hf_repo": "deepseek-ai/DeepSeek-V4-Pro",
+    "hidden_size": 7168,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 1048576,
+    "model_type": "deepseek_v4",
+    "n_experts": null,
+    "n_experts_active": 6,
+    "n_heads": 128,
+    "n_kv_heads": 1,
+    "n_layers": 61,
+    "params_source": "hf_safetensors",
+    "params_total": 1598839674782,
+    "resolved": true
+  },
+  "dolly-v2-12b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
   "dolphin-2.2.1-mistral-7b": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -108,6 +202,14 @@
     "params_source": "hf_safetensors",
     "params_total": 7241748480,
     "resolved": true
+  },
+  "fastchat-t5-3b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "gemma-1.1-2b": {
+    "reason": "https://huggingface.co/google/gemma-1.1-2b-it-GGUF/resolve/main/config.json: HTTP 401",
+    "resolved": false
   },
   "gemma-1.1-7b": {
     "reason": "https://huggingface.co/google/gemma-1.1-7b-it-GGUF/resolve/main/config.json: HTTP 401",
@@ -153,6 +255,10 @@
     "params_total": 9241705984,
     "resolved": true
   },
+  "gemma-2b": {
+    "reason": "https://huggingface.co/google/gemma-2b-GGUF/resolve/main/config.json: HTTP 401",
+    "resolved": false
+  },
   "gemma-3-12b": {
     "reason": "no matching HF repository",
     "resolved": false
@@ -177,6 +283,10 @@
     "reason": "no matching HF repository",
     "resolved": false
   },
+  "gemma-7b": {
+    "reason": "https://huggingface.co/google/gemma-7b-GGUF/resolve/main/config.json: HTTP 401",
+    "resolved": false
+  },
   "glm-4.5": {
     "bytes_source": null,
     "config_source": "hf_config_json",
@@ -189,6 +299,50 @@
     "license": "mit",
     "license_source": "hf_api",
     "max_context": 131072,
+    "model_type": "glm4_moe",
+    "n_experts": null,
+    "n_experts_active": 8,
+    "n_heads": 96,
+    "n_kv_heads": 8,
+    "n_layers": 92,
+    "params_source": "hf_safetensors",
+    "params_total": 358337791296,
+    "resolved": true
+  },
+  "glm-4.6": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "unsloth/GLM-4.6-GGUF",
+    "gguf_sizes": {},
+    "head_dim": 128,
+    "hf_repo": "zai-org/GLM-4.6",
+    "hidden_size": 5120,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 202752,
+    "model_type": "glm4_moe",
+    "n_experts": null,
+    "n_experts_active": 8,
+    "n_heads": 96,
+    "n_kv_heads": 8,
+    "n_layers": 92,
+    "params_source": "hf_safetensors",
+    "params_total": 356785898816,
+    "resolved": true
+  },
+  "glm-4.7": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "unsloth/GLM-4.7-GGUF",
+    "gguf_sizes": {},
+    "head_dim": 128,
+    "hf_repo": "zai-org/GLM-4.7",
+    "hidden_size": 5120,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 202752,
     "model_type": "glm4_moe",
     "n_experts": null,
     "n_experts_active": 8,
@@ -285,6 +439,37 @@
     "n_layers": 24,
     "params_source": "hf_safetensors",
     "params_total": 21511953984,
+    "resolved": true
+  },
+  "gpt4all-13b-snoozy": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
+  "granite-3.0-2b": {
+    "bytes_source": "hf_gguf_tree",
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "bartowski/granite-3.0-2b-instruct-GGUF",
+    "gguf_sizes": {
+      "Q4_K_M": 1601919680,
+      "Q5_K_M": 1874025920,
+      "Q6_K": 2163138816,
+      "Q8_0": 2801069184
+    },
+    "head_dim": 64,
+    "hf_repo": "ibm-granite/granite-3.0-2b-instruct",
+    "hidden_size": 2048,
+    "license": "apache-2.0",
+    "license_source": "hf_api",
+    "max_context": 4096,
+    "model_type": "granite",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 40,
+    "params_source": "hf_safetensors",
+    "params_total": 2634201088,
     "resolved": true
   },
   "granite-3.0-8b": {
@@ -399,6 +584,10 @@
     "params_total": 8791592960,
     "resolved": true
   },
+  "guanaco-33b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
   "hy3": {
     "bytes_source": null,
     "config_source": "hf_config_json",
@@ -487,12 +676,24 @@
     "reason": "no matching HF repository",
     "resolved": false
   },
+  "koala-13b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "llama-13b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
   "llama-2-13b": {
     "reason": "no safetensors parameter count",
     "resolved": false
   },
   "llama-2-70b": {
     "reason": "no safetensors parameter count",
+    "resolved": false
+  },
+  "llama-2-7b": {
+    "reason": "no matching HF repository",
     "resolved": false
   },
   "llama-3-70b": {
@@ -593,6 +794,10 @@
     "params_source": "hf_safetensors",
     "params_total": 8030326784,
     "resolved": true
+  },
+  "llama-3.2-1b": {
+    "reason": "https://huggingface.co/QuantFactory/Llama-3.2-1B-GGUF/resolve/main/config.json: HTTP 404",
+    "resolved": false
   },
   "llama-3.2-3b": {
     "bytes_source": "hf_gguf_tree",
@@ -738,6 +943,28 @@
     "reason": "no matching HF repository",
     "resolved": false
   },
+  "mistral-7b": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": null,
+    "gguf_sizes": {},
+    "head_dim": 128,
+    "hf_repo": "unsloth/mistral-7b",
+    "hidden_size": 4096,
+    "license": "apache-2.0",
+    "license_source": "hf_api",
+    "max_context": 32768,
+    "model_type": "mistral",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 32,
+    "params_source": "hf_safetensors",
+    "params_total": 7241732096,
+    "resolved": true
+  },
   "mistral-7b-instruct-v0.2": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -835,6 +1062,14 @@
     "reason": "no matching HF repository",
     "resolved": false
   },
+  "mpt-30b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "mpt-7b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
   "nous-hermes-2-mixtral-8x7b-dpo": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -888,6 +1123,10 @@
     "params_source": "hf_safetensors",
     "params_total": 31577937344,
     "resolved": true
+  },
+  "oasst-pythia-12b": {
+    "reason": "no matching HF repository",
+    "resolved": false
   },
   "olmo-2-0325-32b": {
     "bytes_source": "hf_gguf_tree",
@@ -1001,6 +1240,28 @@
     "params_total": 32233522176,
     "resolved": true
   },
+  "olmo-7b": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "Aabbhishekk/OLMo-7B-GGUF",
+    "gguf_sizes": {},
+    "head_dim": null,
+    "hf_repo": "allenai/OLMo-7B",
+    "hidden_size": null,
+    "license": "apache-2.0",
+    "license_source": "hf_api",
+    "max_context": null,
+    "model_type": "hf_olmo",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": null,
+    "n_kv_heads": null,
+    "n_layers": null,
+    "params_source": "hf_safetensors",
+    "params_total": 6888095744,
+    "resolved": true
+  },
   "openhermes-2.5-mistral-7b": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -1028,6 +1289,10 @@
     "params_source": "hf_safetensors",
     "params_total": 7241748480,
     "resolved": true
+  },
+  "qwen-14b": {
+    "reason": "no matching HF repository",
+    "resolved": false
   },
   "qwen1.5-14b": {
     "bytes_source": "hf_gguf_tree",
@@ -1083,6 +1348,34 @@
     "n_layers": 64,
     "params_source": "hf_safetensors",
     "params_total": 32512218112,
+    "resolved": true
+  },
+  "qwen1.5-4b": {
+    "bytes_source": "hf_gguf_tree",
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "mradermacher/Qwen1.5-4B-GGUF",
+    "gguf_sizes": {
+      "Q3_K_M": 2026851904,
+      "Q4_K_M": 2455116864,
+      "Q5_K_M": 2839608384,
+      "Q6_K": 3248130624,
+      "Q8_0": 4204736064
+    },
+    "head_dim": 128,
+    "hf_repo": "Qwen/Qwen1.5-4B",
+    "hidden_size": 2560,
+    "license": "other",
+    "license_source": "hf_api",
+    "max_context": 32768,
+    "model_type": "qwen2",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 20,
+    "n_kv_heads": 20,
+    "n_layers": 40,
+    "params_source": "hf_safetensors",
+    "params_total": 3950369280,
     "resolved": true
   },
   "qwen1.5-72b": {
@@ -1316,6 +1609,10 @@
     "params_total": 81324862720,
     "resolved": true
   },
+  "qwen3.5-122b-a10b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
   "qwen3.5-27b": {
     "reason": "no matching HF repository",
     "resolved": false
@@ -1351,6 +1648,34 @@
     "params_total": 32763876352,
     "resolved": true
   },
+  "rwkv-4-raven-14b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
+  "smollm2-1.7b": {
+    "bytes_source": "hf_gguf_tree",
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF",
+    "gguf_sizes": {
+      "Q4_K_M": 1055609536
+    },
+    "head_dim": 64,
+    "hf_repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "hidden_size": 2048,
+    "license": "apache-2.0",
+    "license_source": "hf_api",
+    "max_context": 8192,
+    "model_type": "llama",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 32,
+    "n_layers": 24,
+    "params_source": "hf_safetensors",
+    "params_total": 1711376384,
+    "resolved": true
+  },
   "solar-10.7b-instruct-v1.0": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -1378,6 +1703,10 @@
     "params_source": "hf_safetensors",
     "params_total": 10731524096,
     "resolved": true
+  },
+  "stablelm-tuned-alpha-7b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
   },
   "starling-lm-7b-alpha": {
     "bytes_source": "hf_gguf_tree",
@@ -1435,6 +1764,28 @@
     "params_total": 7241748480,
     "resolved": true
   },
+  "stripedhyena-nous-7b": {
+    "bytes_source": null,
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": null,
+    "gguf_sizes": {},
+    "head_dim": 128,
+    "hf_repo": "togethercomputer/StripedHyena-Nous-7B",
+    "hidden_size": 4096,
+    "license": "apache-2.0",
+    "license_source": "hf_api",
+    "max_context": null,
+    "model_type": "stripedhyena",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 32,
+    "n_layers": null,
+    "params_source": "hf_safetensors",
+    "params_total": 7646024704,
+    "resolved": true
+  },
   "tulu-2-dpo-70b": {
     "bytes_source": "hf_gguf_tree",
     "config_source": "hf_config_json",
@@ -1461,7 +1812,19 @@
     "params_total": 68976648192,
     "resolved": true
   },
+  "vicuna-13b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
   "vicuna-33b": {
+    "reason": "no matching HF repository",
+    "resolved": false
+  },
+  "vicuna-7b": {
+    "reason": "no safetensors parameter count",
+    "resolved": false
+  },
+  "wizardlm-13b": {
     "reason": "no matching HF repository",
     "resolved": false
   },
@@ -1523,6 +1886,62 @@
     "n_layers": 60,
     "params_source": "hf_safetensors",
     "params_total": 34388917248,
+    "resolved": true
+  },
+  "zephyr-7b-alpha": {
+    "bytes_source": "hf_gguf_tree",
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "TheBloke/zephyr-7B-alpha-GGUF",
+    "gguf_sizes": {
+      "Q3_K_M": 3518985920,
+      "Q4_K_M": 4368438976,
+      "Q5_K_M": 5131409088,
+      "Q6_K": 5942064832,
+      "Q8_0": 7695857344
+    },
+    "head_dim": 128,
+    "hf_repo": "HuggingFaceH4/zephyr-7b-alpha",
+    "hidden_size": 4096,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 32768,
+    "model_type": "mistral",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 32,
+    "params_source": "hf_safetensors",
+    "params_total": 7241732096,
+    "resolved": true
+  },
+  "zephyr-7b-beta": {
+    "bytes_source": "hf_gguf_tree",
+    "config_source": "hf_config_json",
+    "fetched_at": "2026-07-29",
+    "gguf_repo": "TheBloke/zephyr-7B-beta-GGUF",
+    "gguf_sizes": {
+      "Q3_K_M": 3518985920,
+      "Q4_K_M": 4368438976,
+      "Q5_K_M": 5131409088,
+      "Q6_K": 5942064832,
+      "Q8_0": 7695857344
+    },
+    "head_dim": 128,
+    "hf_repo": "HuggingFaceH4/zephyr-7b-beta",
+    "hidden_size": 4096,
+    "license": "mit",
+    "license_source": "hf_api",
+    "max_context": 32768,
+    "model_type": "mistral",
+    "n_experts": null,
+    "n_experts_active": null,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 32,
+    "params_source": "hf_safetensors",
+    "params_total": 7241732096,
     "resolved": true
   }
 }
