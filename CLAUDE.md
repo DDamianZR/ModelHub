@@ -56,6 +56,7 @@ maintain.
 /data              models, scores, benchmarks, providers, aliases, history.jsonl
 /config            weights.json, sources.json
 /scripts/ingest    run.py (orchestrator) · sources/ · composite.py · common.py
+/scripts/analysis  measurement tools, run by hand, never part of the ingest
 /.github/workflows ingest.yml (daily cron) · ci.yml
 ```
 
@@ -112,6 +113,14 @@ The pattern that set this norm: four LMArena snapshots were being rejected as du
 candidate fix was validated by measuring rating drift against the last clean snapshot —
 0.80 points for the chosen rule versus 11.94 for the alternatives, with 100 of 374 models
 moving more than 10 points under the wrong one. That is what "verified" means here.
+
+The instrument for that measurement is `scripts/analysis/compare_rankings.py`, which diffs
+two `models.json` snapshots and reports mean and max displacement, order changes, and top-10
+entries and exits. `data/baseline/` holds frozen snapshots to measure against.
+
+```bash
+python -m scripts.analysis.compare_rankings data/baseline/2026-07-28-models.json data/models.json
+```
 
 Report the weaknesses of your own fix with numbers before anyone asks. "This policy only
 finds a plain variant in 7 of 56 cases" is worth more than a paragraph of reasoning.
