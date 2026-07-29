@@ -5,7 +5,14 @@ import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
-import { getAcquisition, getModelDetail, getModelIds } from "@/lib/data";
+import { summariseTrend } from "@/lib/history";
+import {
+  getAcquisition,
+  getModelDetail,
+  getModelIds,
+  getStalenessConfig,
+  measurementAge,
+} from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { localeMetadata } from "@/lib/metadata";
 import { CATEGORIES } from "@/lib/types";
@@ -65,15 +72,22 @@ export default async function ModelPage({
   const partial = model.coverage.covered < model.coverage.total;
   const text = locale === "es" ? description?.es : description?.en;
 
-  const trend = history.map((point) => point.value);
-  const trendMin = trend.length ? Math.min(...trend) : 0;
-  const trendMax = trend.length ? Math.max(...trend) : 0;
-  const normalised =
-    trend.length < 2
-      ? []
-      : trend.map((value) =>
-          trendMax === trendMin ? 0.5 : (value - trendMin) / (trendMax - trendMin),
-        );
+  // Scaled against this series' own range here, because a detail page shows one line and
+  // there is nothing to be comparable with. The significance test still applies.
+  const trend = summariseTrend(history, null);
+
+  // Per-cell measurement age, plus the single worst one stated above the table. A score is
+  // an average of readings, and the average is only as current as its oldest input.
+  const staleness = getStalenessConfig();
+  const ages = scores.map((score) => ({
+    score,
+    age: measurementAge(score.measured_at, score.benchmark_id, staleness),
+  }));
+  const oldest = ages
+    .filter((entry) => entry.age.days !== null)
+    .sort((a, b) => (b.age.days ?? 0) - (a.age.days ?? 0))[0];
+  const trendMin = history.length ? Math.min(...history.map((p) => p.value)) : 0;
+  const trendMax = history.length ? Math.max(...history.map((p) => p.value)) : 0;
 
   return (
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -197,12 +211,24 @@ export default async function ModelPage({
 
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("history")}</h3>
-          {normalised.length >= 2 ? (
+          {trend.points.length >= 2 ? (
             <>
               <div className="flex items-center gap-3">
                 <Sparkline
-                  points={normalised}
-                  label={`${model.display_name} — ${tt("trend")}`}
+                  trend={trend}
+                  label={
+                    trend.significant
+                      ? tt("trendLabel", {
+                          model: model.display_name,
+                          from: trend.first?.toFixed(0) ?? "",
+                          to: trend.last?.toFixed(0) ?? "",
+                        })
+                      : tt("trendFlat", {
+                          model: model.display_name,
+                          span: trend.span,
+                          ci: trend.ciWidth ?? 0,
+                        })
+                  }
                 />
                 <span className="num text-[12px]" style={muted}>
                   {trendMin.toFixed(0)} → {trendMax.toFixed(0)}
@@ -231,6 +257,15 @@ export default async function ModelPage({
 
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("sources")}</h3>
+          {oldest?.age.days !== undefined && oldest?.age.days !== null && (
+            <p className="num mb-2 text-[12px]" style={muted}>
+              {t("oldestNote", {
+                days: oldest.age.days,
+                benchmark: oldest.score.benchmark?.name ?? oldest.score.benchmark_id,
+                date: oldest.score.measured_at ?? "—",
+              })}
+            </p>
+          )}
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left" style={{ minWidth: "38rem" }}>
               <thead>
@@ -256,7 +291,7 @@ export default async function ModelPage({
                 </tr>
               </thead>
               <tbody>
-                {scores.map((score) => (
+                {ages.map(({ score, age }) => (
                   <tr key={`${score.benchmark_id}`} className="border-b rule">
                     <th scope="row" className="py-2 pr-3 text-[13px] font-normal">
                       {score.benchmark?.name ?? score.benchmark_id}
@@ -309,6 +344,20 @@ export default async function ModelPage({
                     </td>
                     <td className="num py-2 pr-3 text-[11px]" style={muted}>
                       {score.measured_at ?? "—"}
+                      {/* Marked in words as well as colour, and only past the configured
+                          threshold, so the flag still means something when it appears. */}
+                      {age.freshness !== "fresh" && age.days !== null && (
+                        <span
+                          className="ml-1"
+                          style={{
+                            color:
+                              age.freshness === "stale" ? "var(--amber)" : "var(--muted)",
+                          }}
+                          title={t("staleTitle", { days: age.days })}
+                        >
+                          · {age.days}d
+                        </span>
+                      )}
                     </td>
                     <td className="py-2 text-[11px]">
                       <a

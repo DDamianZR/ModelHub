@@ -161,11 +161,23 @@ export function RankingTable({
         <td className="py-2 text-right">
           <div className="flex justify-end">
             <Sparkline
-              points={row.trend}
+              trend={row.trend}
+              // The label states the series, its range and whether the movement clears the
+              // source's own interval, because none of that is legible from 64x16 pixels.
               label={
-                row.trend.length < 2
+                row.trend.points.length < 2
                   ? t("noHistory")
-                  : `${row.display_name} — ${t("trend")}`
+                  : !row.trend.significant
+                    ? t("trendFlat", {
+                        model: row.display_name,
+                        span: row.trend.span,
+                        ci: row.trend.ciWidth ?? 0,
+                      })
+                    : t("trendLabel", {
+                        model: row.display_name,
+                        from: row.trend.first?.toFixed(0) ?? "",
+                        to: row.trend.last?.toFixed(0) ?? "",
+                      })
               }
             />
           </div>
@@ -274,7 +286,11 @@ export function RankingTable({
                 );
               })}
               <th scope="col" className="w-20 py-2 align-bottom">
-                <span className="eyebrow block text-right">{t("trend")}</span>
+                {/* The heading names the series. A column that just said "trend" let a
+                    rating be read as a rank. */}
+                <span className="eyebrow block text-right" title={t("trendNote")}>
+                  {t("trend")}
+                </span>
               </th>
             </tr>
           </thead>

@@ -5,31 +5,31 @@
   "bytes_per_weight": {
     "Q3_K_M": {
       "bytes_per_weight": 0.4859,
-      "n": 32,
+      "n": 35,
       "observed_min": 0.4811,
       "observed_max": 0.5251
     },
     "Q4_K_M": {
       "bytes_per_weight": 0.6044,
-      "n": 36,
+      "n": 41,
       "observed_min": 0.5953,
       "observed_max": 0.6522
     },
     "Q5_K_M": {
       "bytes_per_weight": 0.7092,
-      "n": 32,
+      "n": 36,
       "observed_min": 0.6973,
       "observed_max": 0.7437
     },
     "Q6_K": {
       "bytes_per_weight": 0.8206,
-      "n": 30,
+      "n": 34,
       "observed_min": 0.8058,
       "observed_max": 0.8689
     },
     "Q8_0": {
       "bytes_per_weight": 1.0627,
-      "n": 30,
+      "n": 34,
       "observed_min": 1.0429,
       "observed_max": 1.0651
     }

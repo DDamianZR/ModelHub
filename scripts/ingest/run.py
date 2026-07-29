@@ -300,9 +300,19 @@ def main() -> int:
                 continue
             try:
                 for row in lmarena.history_for(name):
+                    # The confidence interval the source publishes, carried through rather
+                    # than discarded. Without it a sparkline draws a two-point wobble as a
+                    # trend, and most of these intervals are wider than the movement they
+                    # would be drawn around.
+                    bounds = {}
+                    if row.get("rating_lower") is not None:
+                        bounds["ci_low"] = round(row["rating_lower"], 1)
+                    if row.get("rating_upper") is not None:
+                        bounds["ci_high"] = round(row["rating_upper"], 1)
                     incoming_history.append(history_row(
                         model["id"], "lmarena_text_overall", round(row["rating"], 1),
                         row["leaderboard_publish_date"], source_type="human_eval",
+                        **bounds,
                     ))
             except SourceError as exc:
                 print(f"  history: skipped {name} ({exc})")

@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { groupHistory, parseHistory, seriesFor } from "./history.ts";
+import {
+  confidenceWidth,
+  groupHistory,
+  parseHistory,
+  seriesFor,
+  sharedScale,
+  summariseTrend,
+} from "./history.ts";
 import type { HistoryRow } from "./types.ts";
 
 function row(
@@ -100,4 +107,84 @@ test("a malformed or incomplete line is skipped, not fatal", () => {
     rows.map((r) => r.value),
     [1, 4],
   );
+});
+
+test("a movement inside the published confidence interval is not drawn as a trend", () => {
+  // The failure: 23 of 49 models had a total span under 5 Elo while Arena's own interval on
+  // those models is around 25 points, and every one was drawn full height like a real climb.
+  const trend = summariseTrend(
+    [
+      { date: "2026-01-01", value: 1400, ci_low: 1388, ci_high: 1412 },
+      { date: "2026-02-01", value: 1402, ci_low: 1390, ci_high: 1414 },
+      { date: "2026-03-01", value: 1401, ci_low: 1389, ci_high: 1413 },
+    ],
+    null,
+  );
+
+  assert.equal(trend.span, 2);
+  assert.equal(trend.ciWidth, 24);
+  assert.equal(trend.significant, false);
+});
+
+test("a movement larger than the interval is drawn", () => {
+  const trend = summariseTrend(
+    [
+      { date: "2026-01-01", value: 1400, ci_low: 1394, ci_high: 1406 },
+      { date: "2026-02-01", value: 1464, ci_low: 1458, ci_high: 1470 },
+    ],
+    null,
+  );
+
+  assert.equal(trend.span, 64);
+  assert.equal(trend.ciWidth, 12);
+  assert.equal(trend.significant, true);
+});
+
+test("a series with no published interval is drawn when it moved at all", () => {
+  const trend = summariseTrend(
+    [
+      { date: "2026-01-01", value: 40 },
+      { date: "2026-02-01", value: 44 },
+    ],
+    null,
+  );
+
+  assert.equal(trend.ciWidth, null);
+  assert.equal(trend.significant, true);
+});
+
+test("a shared scale makes two series comparable instead of both filling the box", () => {
+  const small = [
+    { date: "2026-01-01", value: 1400 },
+    { date: "2026-02-01", value: 1401 },
+  ];
+  const large = [
+    { date: "2026-01-01", value: 1400 },
+    { date: "2026-02-01", value: 1464 },
+  ];
+  const scale = sharedScale([small, large]);
+
+  const a = summariseTrend(small, scale);
+  const b = summariseTrend(large, scale);
+
+  // Against its own range the small series would span the full 0..1 like the large one.
+  assert.ok(a.points[1] - a.points[0] < 0.05);
+  assert.ok(b.points[1] - b.points[0] > 0.9);
+});
+
+test("the confidence width is a median, so one huge early interval does not dominate", () => {
+  const width = confidenceWidth([
+    { date: "2026-01-01", value: 1400, ci_low: 1200, ci_high: 1600 },
+    { date: "2026-02-01", value: 1400, ci_low: 1394, ci_high: 1406 },
+    { date: "2026-03-01", value: 1400, ci_low: 1395, ci_high: 1405 },
+  ]);
+
+  assert.equal(width, 12);
+});
+
+test("a one-point series has nothing to draw", () => {
+  const trend = summariseTrend([{ date: "2026-01-01", value: 1400 }], null);
+
+  assert.deepEqual(trend.points, []);
+  assert.equal(trend.significant, false);
 });

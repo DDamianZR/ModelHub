@@ -125,9 +125,20 @@ export type HistoryRow = {
   methodology_version?: string;
   /** Present on "composite" rows: the position held that day. */
   rank?: number | null;
+  /**
+   * The confidence interval the source published for this reading, where it publishes one.
+   * Kept because a movement smaller than its own interval is not a movement.
+   */
+  ci_low?: number;
+  ci_high?: number;
 };
 
-export type HistoryPoint = { date: string; value: number };
+export type HistoryPoint = {
+  date: string;
+  value: number;
+  ci_low?: number;
+  ci_high?: number;
+};
 
 /** model_id → benchmark_id → readings, oldest first. */
 export type HistoryIndex = Map<string, Map<string, HistoryPoint[]>>;
@@ -176,9 +187,26 @@ export type Status = {
 /** A source whose upstream measurement has gone stale, even if the fetch succeeded. */
 export type AgedSource = { name: string } & SnapshotAge;
 
+/** What a series did, and whether the source's own uncertainty allows saying so. */
+export type Trend = {
+  /** Normalised 0-1 points on a scale SHARED across rows, so lines are comparable. */
+  points: number[];
+  first: number | null;
+  last: number | null;
+  /** Total movement across the series, in the series' own units. */
+  span: number;
+  /** Median width of the published confidence interval, or null when none is published. */
+  ciWidth: number | null;
+  /**
+   * Whether the movement exceeds that interval. When false the line is drawn flat: a
+   * wobble smaller than the source's own error bar is not a trend, and drawing it at full
+   * height next to a real 64-point climb says the two are the same thing.
+   */
+  significant: boolean;
+};
+
 /** A model plus everything the table needs, already resolved on the server. */
 export type Row = Model & {
   provider_name: string;
-  /** Normalised 0-1 points for the sparkline, oldest first. */
-  trend: number[];
+  trend: Trend;
 };

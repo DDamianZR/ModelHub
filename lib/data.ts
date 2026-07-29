@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { groupHistory, parseHistory, seriesFor } from "./history";
+import {
+  groupHistory,
+  parseHistory,
+  seriesFor,
+  sharedScale,
+  summariseTrend,
+} from "./history";
 import type { LocalModel, VramConfig } from "./vram";
 import {
   HOME_TREND_BENCHMARK,
@@ -25,18 +31,6 @@ function readHistory(): HistoryIndex {
   const file = path.join(DATA_DIR, "history.jsonl");
   if (!fs.existsSync(file)) return new Map();
   return groupHistory(parseHistory(fs.readFileSync(file, "utf8")));
-}
-
-/**
- * Scale a series into 0-1 against its own range. A flat series sits in the middle
- * rather than at an edge, so a model with no movement doesn't read as a collapse.
- */
-function normaliseTrend(values: number[]): number[] {
-  if (values.length < 2) return [];
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  if (max === min) return values.map(() => 0.5);
-  return values.map((v) => (v - min) / (max - min));
 }
 
 function readStatus(): Status | null {
@@ -173,6 +167,55 @@ export function getVramConfig(): VramConfig | null {
   } catch {
     return null;
   }
+}
+
+export type StalenessConfig = {
+  aging_days: number;
+  stale_days: number;
+  overrides?: Record<string, { aging_days?: number; stale_days?: number }>;
+};
+
+const STALENESS_FALLBACK: StalenessConfig = { aging_days: 180, stale_days: 270 };
+
+export function getStalenessConfig(): StalenessConfig {
+  const file = path.join(process.cwd(), "config", "staleness.json");
+  if (!fs.existsSync(file)) return STALENESS_FALLBACK;
+  try {
+    const payload = JSON.parse(fs.readFileSync(file, "utf8")) as StalenessConfig;
+    return payload?.aging_days ? payload : STALENESS_FALLBACK;
+  } catch {
+    return STALENESS_FALLBACK;
+  }
+}
+
+/**
+ * How old one measurement is, and whether that is worth flagging.
+ *
+ * Deliberately separate from source staleness in status.json. A source is late relative to
+ * its own publishing rhythm; a reading is simply old, and does not become current again
+ * because its publisher shipped something else today. Epoch publishes daily, so scaling this
+ * by cadence would flag almost every Epoch reading and the warning would stop meaning
+ * anything — the failure CLAUDE.md already records for the source-level thresholds.
+ */
+export function measurementAge(
+  measuredAt: string | null,
+  benchmarkId: string,
+  config: StalenessConfig,
+  today = new Date(),
+): { days: number | null; freshness: "fresh" | "aging" | "stale" | "unknown" } {
+  if (!measuredAt) return { days: null, freshness: "unknown" };
+  const when = new Date(`${measuredAt.slice(0, 10)}T00:00:00Z`);
+  if (Number.isNaN(when.getTime())) return { days: null, freshness: "unknown" };
+
+  const days = Math.floor((today.getTime() - when.getTime()) / 86_400_000);
+  const override = config.overrides?.[benchmarkId] ?? {};
+  const aging = override.aging_days ?? config.aging_days;
+  const stale = override.stale_days ?? config.stale_days;
+
+  return {
+    days,
+    freshness: days >= stale ? "stale" : days >= aging ? "aging" : "fresh",
+  };
 }
 
 /** The frozen reference, read from /config so /methodology can publish it verbatim. */
@@ -325,12 +368,15 @@ export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
   const history = readHistory();
   const providerNames = new Map(providers.map((p) => [p.id, p.display_name]));
 
-  const rows: Row[] = models.map((model) => ({
+  // One scale for every row, computed before any line is drawn. Scaling each series to its
+  // own range is what made a half-point wobble and a 64-point climb look identical.
+  const series = models.map((model) => seriesFor(history, model.id, HOME_TREND_BENCHMARK));
+  const scale = sharedScale(series.filter((points) => points.length >= 2));
+
+  const rows: Row[] = models.map((model, index) => ({
     ...model,
     provider_name: providerNames.get(model.provider_id) ?? model.provider_id,
-    trend: normaliseTrend(
-      seriesFor(history, model.id, HOME_TREND_BENCHMARK).map((point) => point.value),
-    ),
+    trend: summariseTrend(series[index], scale),
   }));
 
   return {

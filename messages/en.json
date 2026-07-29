@@ -41,7 +41,7 @@
     "human_preference": "Human preference",
     "instruction_following": "Instructions",
     "vision": "Vision",
-    "trend": "Trajectory",
+    "trend": "Arena trajectory",
     "sortBy": "Sort by {column}",
     "noData": "no data",
     "empty": "No model matches those filters.",
@@ -55,7 +55,10 @@
     "provisionalTitle": "Provisional · not ranked",
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotes": "No human votes yet",
-    "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty."
+    "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty.",
+    "trendLabel": "{model}: Arena rating from {from} to {to}",
+    "trendFlat": "{model}: no trend drawn — the series moved {span} rating points, inside the {ci}-point confidence interval the source publishes for it",
+    "trendNote": "This column shows the LMArena rating, not the composite. A line is only drawn when the movement exceeds the confidence interval the source publishes for that model; otherwise it is flat, because a wobble smaller than its own error bar is not a trend."
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -118,7 +121,11 @@
     "link_hf_repo": "Weights (HuggingFace)",
     "link_provider_page": "Provider",
     "link_api_docs": "API docs",
-    "link_ollama_tag": "Ollama"
+    "link_ollama_tag": "Ollama",
+    "staleTitle": "Measured {days} days ago",
+    "staleMark": "old",
+    "oldestNote": "The oldest measurement feeding this score is {days} days old ({benchmark}, measured {date}).",
+    "noDate": "This source published no measurement date."
   },
   "methodology": {
     "title": "Methodology",

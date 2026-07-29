@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "decided_at": "2026-07-29",
+  "note": "When a single measurement is old enough to say so beside it. This is about the age of a reading, which is different from whether its source is responding - that lives in data/status.json.",
+  "why_absolute_rather_than_cadence_scaled": "Source staleness is scaled by each source's publishing rhythm, because a monthly source is not late on day eight. A measurement is different: it does not become current again because its publisher shipped something else today. Epoch publishes daily, so scaling by cadence would mark every reading older than four days as degraded - which is most of them - and a warning that is always on stops being a signal.",
+  "calibration": "Measured over the 286 dated score rows on 2026-07-29: median 34 days, p75 89, p90 233, oldest 358. The warning tier catches the 15% beyond 180 days; the stale tier catches the worst 5%.",
+  "aging_days": 180,
+  "stale_days": 270,
+  "overrides": {},
+  "overrides_note": "Per-benchmark overrides go here when one is known to age faster or slower than the rest, keyed by benchmark_id with the same two fields."
+}

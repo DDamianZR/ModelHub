@@ -41,7 +41,7 @@
     "human_preference": "Preferencia humana",
     "instruction_following": "Instrucciones",
     "vision": "Visión",
-    "trend": "Trayectoria",
+    "trend": "Trayectoria Arena",
     "sortBy": "Ordenar por {column}",
     "noData": "sin dato",
     "empty": "Ningún modelo coincide con esos filtros.",
@@ -55,7 +55,10 @@
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
-    "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización."
+    "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
+    "trendLabel": "{model}: calificación de Arena de {from} a {to}",
+    "trendFlat": "{model}: no se dibuja tendencia — la serie se movió {span} puntos, dentro del intervalo de confianza de {ci} puntos que publica la fuente",
+    "trendNote": "Esta columna muestra la calificación de LMArena, no el compuesto. La línea solo se dibuja cuando el movimiento supera el intervalo de confianza que la fuente publica para ese modelo; si no, queda plana, porque un vaivén menor que su propia barra de error no es una tendencia."
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -118,7 +121,11 @@
     "link_hf_repo": "Pesos (HuggingFace)",
     "link_provider_page": "Proveedor",
     "link_api_docs": "Docs de API",
-    "link_ollama_tag": "Ollama"
+    "link_ollama_tag": "Ollama",
+    "staleTitle": "Medido hace {days} días",
+    "staleMark": "viejo",
+    "oldestNote": "La medición más antigua que alimenta este puntaje tiene {days} días ({benchmark}, medida el {date}).",
+    "noDate": "Esta fuente no publicó fecha de medición."
   },
   "methodology": {
     "title": "Metodología",
