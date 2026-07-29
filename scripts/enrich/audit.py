@@ -17,6 +17,7 @@ from collections import Counter
 from pathlib import Path
 
 from .checks import problems
+from ..ingest.composite import load_methodology_version
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -40,9 +41,12 @@ def main() -> int:
         for m in json.loads(models_path.read_text(encoding="utf-8"))["models"]
     }
 
+    current_version = load_methodology_version()
+
     kinds: Counter[str] = Counter()
     failing = 0
     orphans = 0
+    stale = 0
 
     for model_id, entry in sorted(descriptions.items()):
         model = models.get(model_id)
@@ -50,6 +54,14 @@ def main() -> int:
             # A description for a model the catalogue no longer carries is dead weight.
             orphans += 1
             print(f"ORPHAN  {model_id}: no such model in models.json")
+            continue
+
+        # A description names which categories a model is relatively stronger at, so it is
+        # only true under the formula that ordered them. One written under an earlier
+        # methodology is withheld by the site rather than shown, and counted here so the
+        # backlog is visible instead of silently growing.
+        if entry.get("methodology_version") != current_version:
+            stale += 1
             continue
 
         found = problems(entry.get("es", ""), entry.get("en", ""), model)
@@ -62,14 +74,21 @@ def main() -> int:
 
     total = len(descriptions)
     print(
-        f"\n{total} description(s) audited · {total - failing - orphans} clean · "
-        f"{failing} failing · {orphans} orphaned"
+        f"\n{total} description(s) audited · {total - failing - orphans - stale} clean · "
+        f"{failing} failing · {orphans} orphaned · {stale} stale"
     )
     if kinds:
         print("\nby kind:")
         for kind, count in kinds.most_common():
             print(f"  {count:>3}  {kind}")
+    if stale:
+        print(
+            f"\n{stale} description(s) predate methodology {current_version} and are "
+            f"withheld from the site. Regenerate with `npm run enrich -- --force`."
+        )
 
+    # Stale is not a failure: it is the correct, safe state after a methodology change, and
+    # failing CI over it would block the very commit that raised the version.
     return 1 if (failing or orphans) else 0
 
 

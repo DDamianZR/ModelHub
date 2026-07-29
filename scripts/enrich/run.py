@@ -23,6 +23,7 @@ from pathlib import Path
 from . import acquisition
 from .describe import describe
 from .ollama import OllamaError, pick_model
+from ..ingest.composite import load_methodology_version
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -96,6 +97,7 @@ def main() -> int:
 
     written = skipped = failed = locked = 0
     durations: list[float] = []
+    methodology_version = load_methodology_version()
     started = time.monotonic()
 
     for model in models:
@@ -145,6 +147,12 @@ def main() -> int:
             **text,
             "generated_by": ollama_model,
             "generated_at": date.today().isoformat(),
+            # A description states which of a model's categories are relatively stronger,
+            # so it is a derivative of the category scores and only true under the formula
+            # that produced them. Stamping it lets the site withhold prose that a later
+            # methodology has contradicted, instead of printing it next to bars that
+            # disagree. This is R14 applied to sentences rather than to numbers.
+            "methodology_version": methodology_version,
         }
         written += 1
         print(f"    ok in {elapsed:.1f}s")

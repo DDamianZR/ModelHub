@@ -158,7 +158,10 @@ export type Benchmark = {
 };
 
 /** Layer B fills this in. Until then it is legitimately empty. */
-type Descriptions = Record<string, { es?: string; en?: string }>;
+type Descriptions = Record<
+  string,
+  { es?: string; en?: string; methodology_version?: string }
+>;
 
 export function getDescriptions(): Descriptions {
   const file = path.join(DATA_DIR, "i18n", "descriptions.json");
@@ -168,6 +171,28 @@ export function getDescriptions(): Descriptions {
   } catch {
     return {};
   }
+}
+
+/**
+ * A description, or null when it was written under a superseded methodology.
+ *
+ * A description says which of a model's categories are relatively stronger, so it is a
+ * derivative of the category scores and only true under the formula that produced them.
+ * Normalising the composite reordered those categories for 39 of the 40 models carrying a
+ * comparison: prose claiming a model is best at maths now sits directly above a bar chart
+ * showing maths as its second worst.
+ *
+ * Withheld rather than shown with a caveat, which is the same rule acquisition links
+ * follow. Re-run `npm run enrich` to regenerate them under the current methodology.
+ */
+export function getDescription(
+  id: string,
+  methodologyVersion: string | undefined,
+): { es?: string; en?: string } | null {
+  const entry = getDescriptions()[id];
+  if (!entry) return null;
+  if (!methodologyVersion) return entry;
+  return entry.methodology_version === methodologyVersion ? entry : null;
 }
 
 export type AcquisitionEntry = {
@@ -223,7 +248,7 @@ export function getModelDetail(id: string): {
   history: { date: string; value: number }[];
   description: { es?: string; en?: string } | null;
 } | null {
-  const { rows } = getRanking();
+  const { rows, meta } = getRanking();
   const model = rows.find((row) => row.id === id);
   if (!model) return null;
 
@@ -243,7 +268,7 @@ export function getModelDetail(id: string): {
     model,
     scores: forModel,
     history: seriesFor(readHistory(), id, HOME_TREND_BENCHMARK),
-    description: getDescriptions()[id] ?? null,
+    description: getDescription(id, meta.methodology_version),
   };
 }
 

@@ -90,7 +90,7 @@
   },
   "model": {
     "description": "Descripción",
-    "descriptionPending": "Descripción pendiente. Las descripciones editoriales las genera la Capa B con un modelo local y las aprueba una persona antes de publicarse; todavía no se ha corrido para este modelo.",
+    "descriptionPending": "Descripción pendiente. Las descripciones editoriales las genera la Capa B con un modelo local y las aprueba una persona antes de publicarse. Las escritas bajo una versión anterior de la metodología se retienen hasta regenerarlas, porque una frase que dice dónde un modelo es relativamente más fuerte deja de ser cierta cuando las categorías se reordenan.",
     "categories": "Puntaje por categoría",
     "partialNote": "Compuesto parcial: no hay medición para {missing}. El peso se reparte solo entre las categorías disponibles y el modelo queda marcado, nunca se rellena con ceros.",
     "history": "Trayectoria",
@@ -130,7 +130,7 @@
       "inputs": "Entradas",
       "inputs_reasoning": "GPQA Diamond, SimpleQA Verified (Epoch) · LiveBench Reasoning",
       "inputs_coding": "SWE-bench Verified (Epoch) · LiveBench Coding y Agentic Coding",
-      "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
+      "inputs_math": "FrontierMath (Epoch) · LiveBench Mathematics. MATH Level 5 se mide y se muestra, pero no puntúa — ver abajo.",
       "inputs_human_preference": "LMArena, arena de texto, categoría overall",
       "inputs_instruction_following": "LiveBench IF",
       "equation": "compuesto = Σ(puntaje_categoría × peso) ÷ Σ(peso de las categorías con dato)",
