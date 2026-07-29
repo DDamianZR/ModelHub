@@ -48,6 +48,39 @@ export type Meta = {
 
 export type Provider = { id: string; display_name: string; country: string };
 
+/**
+ * One reading, for one model, on one day.
+ *
+ * `benchmark_id` is a real benchmark ("frontiermath"), a category ("category:math") or
+ * "composite". Values are always the raw measurement — never a normalised one, because a
+ * derived value stored under one reference and read back under the next is a number nobody
+ * can recompute.
+ */
+export type HistoryRow = {
+  model_id: string;
+  benchmark_id: string;
+  value: number;
+  date: string;
+  source_type?: string;
+  schema_version?: number;
+  methodology_version?: string;
+  /** Present on "composite" rows: the position held that day. */
+  rank?: number | null;
+};
+
+export type HistoryPoint = { date: string; value: number };
+
+/** model_id → benchmark_id → readings, oldest first. */
+export type HistoryIndex = Map<string, Map<string, HistoryPoint[]>>;
+
+/**
+ * The series the home page sparkline draws.
+ *
+ * Named rather than implied: the column heading has to say which series it is showing, and
+ * "whatever history happens to hold" is how a rating gets drawn as if it were a rank.
+ */
+export const HOME_TREND_BENCHMARK = "lmarena_text_overall";
+
 export type SourceState = "ok" | "cached" | "stale" | "failed";
 
 export type SourceStatus = {

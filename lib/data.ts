@@ -1,6 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { AgedSource, Meta, Model, Provider, Row, Status } from "./types";
+import { groupHistory, parseHistory, seriesFor } from "./history";
+import {
+  HOME_TREND_BENCHMARK,
+  type AgedSource,
+  type HistoryIndex,
+  type Meta,
+  type Model,
+  type Provider,
+  type Row,
+  type Status,
+} from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -8,27 +18,10 @@ function readJson<T>(file: string): T {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
 }
 
-function readHistory(): Map<string, { date: string; value: number }[]> {
+function readHistory(): HistoryIndex {
   const file = path.join(DATA_DIR, "history.jsonl");
-  const grouped = new Map<string, { date: string; value: number }[]>();
-  if (!fs.existsSync(file)) return grouped;
-
-  for (const line of fs.readFileSync(file, "utf8").split("\n")) {
-    if (!line.trim()) continue;
-    const row = JSON.parse(line) as {
-      model_id: string;
-      value: number;
-      date: string;
-    };
-    const bucket = grouped.get(row.model_id) ?? [];
-    bucket.push({ date: row.date, value: row.value });
-    grouped.set(row.model_id, bucket);
-  }
-
-  for (const bucket of grouped.values()) {
-    bucket.sort((a, b) => a.date.localeCompare(b.date));
-  }
-  return grouped;
+  if (!fs.existsSync(file)) return new Map();
+  return groupHistory(parseHistory(fs.readFileSync(file, "utf8")));
 }
 
 /**
@@ -193,7 +186,7 @@ export function getModelDetail(id: string): {
   return {
     model,
     scores: forModel,
-    history: readHistory().get(id) ?? [],
+    history: seriesFor(readHistory(), id, HOME_TREND_BENCHMARK),
     description: getDescriptions()[id] ?? null,
   };
 }
@@ -216,7 +209,7 @@ export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
     ...model,
     provider_name: providerNames.get(model.provider_id) ?? model.provider_id,
     trend: normaliseTrend(
-      (history.get(model.id) ?? []).map((point) => point.value),
+      seriesFor(history, model.id, HOME_TREND_BENCHMARK).map((point) => point.value),
     ),
   }));
 
