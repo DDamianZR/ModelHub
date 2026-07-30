@@ -322,45 +322,6 @@
       "rank": 7
     },
     {
-      "id": "alibaba-qwen3.7",
-      "display_name": "Qwen3.7-Max",
-      "provider_id": "alibaba",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-05-19",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 77.82,
-        "coding": 66.56,
-        "math": 85.25,
-        "instruction_following": 74.04,
-        "human_preference": 83.25
-      },
-      "composite": 76.74,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 8
-    },
-    {
       "id": "google-deepmind-gemini-3.6-flash",
       "display_name": "Gemini 3.6 Flash (unknown)",
       "provider_id": "google-deepmind",
@@ -403,6 +364,45 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": 8
+    },
+    {
+      "id": "alibaba-qwen3.7",
+      "display_name": "Qwen3.7-Max",
+      "provider_id": "alibaba",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-05-19",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 77.82,
+        "coding": 66.56,
+        "math": 85.25,
+        "instruction_following": 74.04,
+        "human_preference": 80.94
+      },
+      "composite": 76.39,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": null,
       "rank": 9
     },
     {
@@ -562,9 +562,9 @@
         "math": 63.6,
         "coding": 70.0,
         "instruction_following": 75.6,
-        "human_preference": 81.79
+        "human_preference": 83.67
       },
-      "composite": 74.1,
+      "composite": 74.38,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1529,46 +1529,6 @@
       "rank": 35
     },
     {
-      "id": "alibaba-qwen3.6",
-      "display_name": "Qwen 3.6 Max (Preview)",
-      "provider_id": "alibaba",
-      "is_open_weights": false,
-      "license": null,
-      "api_only": true,
-      "release_date": "2026-04-20",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 73.0,
-        "math": 23.1,
-        "coding": 76.65,
-        "human_preference": 68.9
-      },
-      "composite": 61.61,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 36
-    },
-    {
       "id": "z-ai-zhipu-ai-glm-5.1",
       "display_name": "GLM-5.1",
       "provider_id": "z-ai-zhipu-ai",
@@ -1596,6 +1556,46 @@
         "human_preference": 75.65
       },
       "composite": 61.09,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": null,
+      "rank": 36
+    },
+    {
+      "id": "alibaba-qwen3.6",
+      "display_name": "Qwen 3.6 Max (Preview)",
+      "provider_id": "alibaba",
+      "is_open_weights": false,
+      "license": null,
+      "api_only": true,
+      "release_date": "2026-04-20",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 73.0,
+        "math": 23.1,
+        "coding": 76.65,
+        "human_preference": 65.9
+      },
+      "composite": 61.08,
       "coverage": {
         "covered": 4,
         "total": 5,
