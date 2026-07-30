@@ -70,10 +70,39 @@ las sparklines.
 | Preferencia humana (LMArena) | 15% |
 | Seguimiento de instrucciones | 15% |
 
-Los benchmarks que ya vienen en escala porcentual se usan tal cual. Las calificaciones
-Bradley-Terry de LMArena se normalizan min-max sobre la cohorte presente en cada build. El
-método completo vive en `/methodology`, y cada cifra es reproducible a mano desde los
-archivos públicos.
+Cada benchmark se normaliza contra una **distribución de referencia congelada** antes de
+promediarse dentro de su categoría: `normalizado = 50 + 12.5 × (crudo − media) / desviación`.
+50 es el modelo promedio de la referencia en ese benchmark y 12.5 puntos es una desviación
+estándar.
+
+Esto importa más de lo que parece. Un puntaje crudo mide capacidad *por* dificultad del
+benchmark, así que promediar crudos ordenaba a los modelos en parte por cuáles benchmarks les
+tocaron — FrontierMath tiene mediana 28.6 y LiveBench Mathematics 90.1, y ambos son
+"matemáticas". Y como la referencia es fija y no se recalcula en cada build, el puntaje de un
+modelo ya no depende de quién más fue medido ese día: borrar un modelo movía el compuesto de 48
+de los otros 52, y ahora no mueve ninguno.
+
+El sitio sigue mostrando el número crudo en todos lados; solo el compuesto usa el convertido, y
+cada celda lleva su propia media, desviación y z para que la conversión se pueda comprobar en
+el lugar. El método completo vive en `/methodology`, con versión y
+[changelog](CHANGELOG-methodology.md), y cada cifra es reproducible a mano desde los archivos
+públicos.
+
+Los valores del compuesto **no son comparables entre versiones de metodología** — la
+normalización recentra toda la escala. Solo el orden cruza un cambio de versión, y por eso cada
+fila guardada registra la versión que la produjo y `/snapshot/<fecha>` renderiza un ranking
+pasado desde lo que se guardó en vez de recalcularlo.
+
+## Las otras vistas
+
+- **`/local`** — qué puedes correr de verdad en tu propia tarjeta. Eliges VRAM, contexto y
+  cuantización; calcula pesos más caché KV desde conteos de parámetros medidos y tamaños de
+  archivo GGUF medidos, con la fórmula en la página. Útil incluso con 8 GB.
+- **`/gaps`** — qué afirmó cada proveedor sobre su propio modelo, junto a la medición
+  independiente del mismo benchmark. La diferencia solo se calcula cuando el benchmark *y* la
+  configuración coinciden; todo lo demás se muestra lado a lado con la razón.
+- **`/snapshot/<fecha>`** — el ranking tal como estaba en una fecha, congelado, con bloque de
+  cita.
 
 ## Fuentes
 
@@ -95,6 +124,13 @@ incompatible con la licencia MIT de este repo).
 ```bash
 npm install
 npm run dev
+```
+
+Los tests corren en el runner propio de Node, sin framework que instalar. Eso pide **Node 22.18
+o superior**, que es la versión desde la que Node ejecuta TypeScript directamente:
+
+```bash
+npm test
 ```
 
 Reconstruir la data desde las fuentes en vivo solo necesita Python 3 — la ingesta usa la

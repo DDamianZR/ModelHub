@@ -19,6 +19,15 @@ __pycache__/
 *.py[cod]
 .venv/
 
+# Raw vendor announcement HTML, fetched on demand by `npm run claims`.
+#
+# NOT the evidence: each extracted claim stores the table row it was read from, verbatim, in
+# data/vendor_claims.json, and that is what a reader checks against the live post. These are
+# just a fetch cache, and they were 3.3 MB across three pages — more than half the tracked
+# repo for bytes nothing reads. data/cache/*.json (the ingest source caches) stay tracked,
+# because the tests and the offline fallback both depend on them.
+data/cache/claims/
+
 
 .claude/
 

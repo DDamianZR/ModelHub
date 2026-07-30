@@ -66,9 +66,37 @@ sparklines.
 | Human preference (LMArena) | 15% |
 | Instruction-following | 15% |
 
-Percent-scale benchmarks are used as-is. LMArena's Bradley-Terry ratings are min-max normalised
-across the cohort in each build. The full method lives at `/methodology`, and every figure is
-reproducible by hand from the public files.
+Every benchmark is normalised against a **frozen reference distribution** before its category
+average is taken: `normalized = 50 + 12.5 × (raw − mean) / sd`. 50 is the reference-average
+model on that benchmark and 12.5 points is one standard deviation.
+
+This matters more than it sounds. A raw score measures capability *times* benchmark difficulty,
+so averaging raw scores ranked models partly on which benchmarks happened to measure them —
+FrontierMath has a median of 28.6 and LiveBench Mathematics 90.1, and both are "maths". And
+because the reference is fixed rather than recomputed per build, a model's score no longer
+depends on who else was measured that day: deleting one model used to move 48 of the other 52
+composites, and now moves none.
+
+The site keeps showing the raw number everywhere; only the composite uses the converted one,
+and each cell carries its own mean, sd and z so the conversion can be checked in place. The
+full method lives at `/methodology` with a version and a
+[changelog](CHANGELOG-methodology.md), and every figure is reproducible by hand from the
+public files.
+
+Composite values are **not comparable across methodology versions** — normalisation recentres
+the whole scale. Only the ordering carries across a version bump, which is why every stored row
+records the version that produced it and why `/snapshot/<date>` renders a past ranking from
+what was stored rather than recomputing it.
+
+## The other views
+
+- **`/local`** — what you can actually run on your own card. Pick your VRAM, context and
+  quantisation; it computes weights plus KV cache from measured parameter counts and measured
+  GGUF file sizes, with the formula on the page. Useful even at 8 GB.
+- **`/gaps`** — what each vendor claimed about its own model, beside the independent
+  measurement of the same benchmark. A difference is only computed when the benchmark *and* the
+  configuration match; everything else is shown side by side with the reason.
+- **`/snapshot/<date>`** — the ranking as it stood on a date, frozen, with a citation block.
 
 ## Sources
 
@@ -90,6 +118,13 @@ and swebench.com (CC-BY-NC, incompatible with this repo's MIT licence).
 ```bash
 npm install
 npm run dev
+```
+
+Tests run on Node's own runner, with no test framework to install. That needs **Node 22.18 or
+newer**, which is the version from which Node can execute TypeScript directly:
+
+```bash
+npm test
 ```
 
 Rebuilding the dataset from the live sources requires only Python 3 — the ingest uses the

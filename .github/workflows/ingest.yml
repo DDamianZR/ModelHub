@@ -39,14 +39,19 @@ jobs:
         if: always()
         run: python scripts/ingest/report_status.py
 
+      # config/vram.json is staged as well as /data, and that is not incidental. The run
+      # recalibrates bytes_per_weight from every GGUF it has observed, and that table lives in
+      # /config because it is a published input rather than derived output. Staging only /data
+      # would regenerate it every night, leave the runner's tree dirty, and ship the very
+      # first calibration forever while the log claimed a fresh one.
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data; then
+          if git diff --quiet -- data config; then
             echo "No data changes; nothing to commit."
             exit 0
           fi
-          git add data
+          git add data config
           git commit -m "chore(data): daily ingest $(date -u +%Y-%m-%d)"
           git push
