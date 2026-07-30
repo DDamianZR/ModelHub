@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-07-29",
-    "model_count": 53,
-    "ranked_count": 41,
+    "generated_at": "2026-07-30",
+    "model_count": 56,
+    "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-29",
+      "epoch": "2026-07-30",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-27",
       "lmarena_vision": "2026-07-26"
@@ -65,7 +65,7 @@
     },
     {
       "id": "anthropic-claude-opus-5",
-      "display_name": "Claude Opus 5",
+      "display_name": "Claude Opus 5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -278,7 +278,7 @@
     },
     {
       "id": "google-deepmind-gemini-3.1-pro",
-      "display_name": "Gemini 3.1 Pro Preview",
+      "display_name": "Gemini 3.1 Pro Preview (high)",
       "provider_id": "google-deepmind",
       "is_open_weights": false,
       "license": "API access",
@@ -361,6 +361,51 @@
       "rank": 8
     },
     {
+      "id": "google-deepmind-gemini-3.6-flash",
+      "display_name": "Gemini 3.6 Flash (unknown)",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-21",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 85.15,
+        "coding": 57.21,
+        "math": 86.4,
+        "instruction_following": 75.37,
+        "human_preference": 82.17
+      },
+      "composite": 76.5,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1315.8,
+        "rank": 5,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 9
+    },
+    {
       "id": "xai-grok-4.5",
       "display_name": "Grok 4.5 (high)",
       "provider_id": "xai",
@@ -403,7 +448,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 9
+      "rank": 10
     },
     {
       "id": "openai-gpt-5.5",
@@ -448,7 +493,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10
+      "rank": 11
     },
     {
       "id": "openai-gpt-5.6-terra",
@@ -488,7 +533,7 @@
       "provisional": false,
       "awaiting_human_votes": true,
       "vision": null,
-      "rank": 11
+      "rank": 12
     },
     {
       "id": "google-gemini-3.5-flash",
@@ -533,7 +578,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 12
+      "rank": 13
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.2",
@@ -572,7 +617,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 13
+      "rank": 14
     },
     {
       "id": "anthropic-claude-sonnet-4-6",
@@ -617,11 +662,50 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 14
+      "rank": 15
+    },
+    {
+      "id": "thinking-machines-inkling",
+      "display_name": "Inkling",
+      "provider_id": "thinking-machines",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-07-15",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 78.35,
+        "coding": 58.04,
+        "math": 88.36,
+        "instruction_following": 70.1,
+        "human_preference": 63.63
+      },
+      "composite": 71.83,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": null,
+      "rank": 16
     },
     {
       "id": "anthropic-claude-opus-4-7",
-      "display_name": "Claude Opus 4.7 (low)",
+      "display_name": "Claude Opus 4.7 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -662,7 +746,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 15
+      "rank": 17
     },
     {
       "id": "deepseek-deepseek-v4-pro",
@@ -701,11 +785,11 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 16
+      "rank": 18
     },
     {
       "id": "anthropic-claude-sonnet-5",
-      "display_name": "Claude Sonnet 5 (xhigh)",
+      "display_name": "Claude Sonnet 5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -746,7 +830,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 17
+      "rank": 19
     },
     {
       "id": "anthropic-claude-opus-4-5",
@@ -785,7 +869,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 18
+      "rank": 20
     },
     {
       "id": "openai-gpt-5.4",
@@ -830,7 +914,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 19
+      "rank": 21
     },
     {
       "id": "openai-gpt-5.6-luna",
@@ -870,7 +954,7 @@
       "provisional": false,
       "awaiting_human_votes": true,
       "vision": null,
-      "rank": 20
+      "rank": 22
     },
     {
       "id": "anthropic-claude-opus-4-8",
@@ -915,7 +999,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 21
+      "rank": 23
     },
     {
       "id": "google-deepmind-gemini-3-pro",
@@ -961,7 +1045,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22
+      "rank": 24
     },
     {
       "id": "moonshot-kimi-k2.6",
@@ -1006,7 +1090,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 23
+      "rank": 25
     },
     {
       "id": "openai-gpt-5.4-nano",
@@ -1051,7 +1135,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 24
+      "rank": 26
     },
     {
       "id": "openai-gpt-5.2",
@@ -1096,7 +1180,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 25
+      "rank": 27
     },
     {
       "id": "google-deepmind-gemini-3-flash",
@@ -1142,7 +1226,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 26
+      "rank": 28
     },
     {
       "id": "moonshot-kimi-k2.7-code",
@@ -1182,7 +1266,7 @@
       "provisional": false,
       "awaiting_human_votes": true,
       "vision": null,
-      "rank": 27
+      "rank": 29
     },
     {
       "id": "openai-gpt-5",
@@ -1228,7 +1312,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28
+      "rank": 30
     },
     {
       "id": "minimax-minimax-m3",
@@ -1273,7 +1357,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 29
+      "rank": 31
     },
     {
       "id": "deepseek-deepseek-v4-flash",
@@ -1312,7 +1396,52 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 30
+      "rank": 32
+    },
+    {
+      "id": "google-deepmind-gemini-3.5-flash-lite",
+      "display_name": "Gemini 3.5 Flash-Lite",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-21",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 60.19,
+        "coding": 57.58,
+        "math": 73.74,
+        "instruction_following": 67.24,
+        "human_preference": 61.86
+      },
+      "composite": 63.56,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1256.6,
+        "rank": 38,
+        "measured_at": "2026-07-26",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 33
     },
     {
       "id": "openai-gpt-5.4-mini",
@@ -1357,7 +1486,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 31
+      "rank": 34
     },
     {
       "id": "z-ai-zhipu-ai-glm-5",
@@ -1397,7 +1526,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 32
+      "rank": 35
     },
     {
       "id": "alibaba-qwen3.6",
@@ -1437,7 +1566,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 33
+      "rank": 36
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.1",
@@ -1477,7 +1606,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 34
+      "rank": 37
     },
     {
       "id": "alibaba-qwen3.6-plus",
@@ -1516,7 +1645,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 35
+      "rank": 38
     },
     {
       "id": "xai-grok-4.3",
@@ -1561,7 +1690,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 36
+      "rank": 39
     },
     {
       "id": "openai-gpt-5-mini",
@@ -1607,7 +1736,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 37
+      "rank": 40
     },
     {
       "id": "openai-gpt-5.1",
@@ -1653,7 +1782,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 38
+      "rank": 41
     },
     {
       "id": "google-deepmind-gemini-2.5-pro",
@@ -1699,7 +1828,7 @@
         "measured_at": "2026-07-26",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39
+      "rank": 42
     },
     {
       "id": "anthropic-claude-opus-4-1",
@@ -1739,7 +1868,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 40
+      "rank": 43
     },
     {
       "id": "anthropic-claude-sonnet-4-5",
@@ -1779,7 +1908,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 41
+      "rank": 44
     },
     {
       "id": "alibaba-qwen3",

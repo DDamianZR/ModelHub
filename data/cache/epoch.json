@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-29",
+  "fetched_at": "2026-07-30",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -98,6 +98,14 @@
         "organization": "Anthropic",
         "release_date": "2025-08-05"
       },
+      "claude-opus-4-1-24k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Opus 4.1",
+        "eci": 144.22,
+        "organization": "Anthropic",
+        "release_date": "2025-08-05"
+      },
       "claude-opus-4-1-27k": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -118,6 +126,14 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Opus 4.5 (16k thinking)",
+        "eci": 149.55,
+        "organization": "Anthropic",
+        "release_date": "2025-11-24"
+      },
+      "claude-opus-4-5-48k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Opus 4.5 (48k thinking)",
         "eci": 149.55,
         "organization": "Anthropic",
         "release_date": "2025-11-24"
@@ -149,7 +165,7 @@
       "claude-opus-4-7": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.7 (low)",
+        "display_name": "Claude Opus 4.7 (max)",
         "eci": 156.07,
         "organization": "Anthropic",
         "release_date": "2026-04-16"
@@ -165,7 +181,7 @@
       "claude-opus-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 5",
+        "display_name": "Claude Opus 5 (max)",
         "eci": 159.38,
         "organization": "Anthropic",
         "release_date": "2026-07-24"
@@ -210,6 +226,14 @@
         "organization": "Anthropic",
         "release_date": "2025-09-29"
       },
+      "claude-sonnet-4-5-48k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Sonnet 4.5 (48k thinking)",
+        "eci": 146.76,
+        "organization": "Anthropic",
+        "release_date": "2025-09-29"
+      },
       "claude-sonnet-4-5-59k": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -245,7 +269,7 @@
       "claude-sonnet-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 5 (xhigh)",
+        "display_name": "Claude Sonnet 5 (max)",
         "eci": 153.47,
         "organization": "Anthropic",
         "release_date": "2026-06-30"
@@ -257,6 +281,30 @@
         "eci": 0.0,
         "organization": "Mistral AI",
         "release_date": "2025-07-30"
+      },
+      "cogito-671b-v2.1": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "Cogito v2.1 (671B)",
+        "eci": 0.0,
+        "organization": "Deep Cogito",
+        "release_date": "2025-11-19"
+      },
+      "command-a-plus-05-2026": {
+        "accessibility": "",
+        "country": "Canada",
+        "display_name": "Command A+",
+        "eci": 0.0,
+        "organization": "Cohere",
+        "release_date": "2026-05-20"
+      },
+      "composer-2.5": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Composer 2.5",
+        "eci": 0.0,
+        "organization": "Cursor",
+        "release_date": "2026-05-18"
       },
       "deepinfra/qwen3-next-80b-a3b": {
         "accessibility": "",
@@ -337,6 +385,14 @@
         "eci": 146.59,
         "organization": "DeepSeek",
         "release_date": "2025-12-01"
+      },
+      "devstral-small-2512": {
+        "accessibility": "",
+        "country": "France",
+        "display_name": "Devstral Small 2",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-12-09"
       },
       "fireworks/deepseek-v3p2": {
         "accessibility": "Open weights (unrestricted)",
@@ -501,7 +557,7 @@
       "gemini-3.1-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 3.1 Pro Preview",
+        "display_name": "Gemini 3.1 Pro Preview (high)",
         "eci": 154.9,
         "organization": "Google DeepMind",
         "release_date": "2026-02-19"
@@ -522,6 +578,14 @@
         "organization": "Google",
         "release_date": "2026-05-19"
       },
+      "gemini-3.5-flash-lite": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Gemini 3.5 Flash-Lite",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-07-21"
+      },
       "gemini-3.5-flash-minimal": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -530,6 +594,14 @@
         "organization": "Google",
         "release_date": "2026-05-19"
       },
+      "gemini-3.6-flash": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Gemini 3.6 Flash (unknown)",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-07-21"
+      },
       "gemini-robotics-er-1.5": {
         "accessibility": "",
         "country": "",
@@ -537,6 +609,14 @@
         "eci": 0.0,
         "organization": "Unknown",
         "release_date": "2025-09-26"
+      },
+      "gemini-robotics-er-1.6": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Gemini Robotics-ER 1.6 Preview",
+        "eci": 0.0,
+        "organization": "Google",
+        "release_date": "2026-04-14"
       },
       "gemma-4-26b-a4b": {
         "accessibility": "Open weights (unrestricted)",
@@ -621,7 +701,7 @@
       "gpt-5-codex": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5-codex",
+        "display_name": "GPT-5-codex (high)",
         "eci": 0.0,
         "organization": "OpenAI",
         "release_date": "2025-09-15"
@@ -834,6 +914,14 @@
         "organization": "OpenAI",
         "release_date": "2025-08-05"
       },
+      "granite-4.1-30b": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Granite 4.1 30B",
+        "eci": 0.0,
+        "organization": "IBM",
+        "release_date": "2026-04-29"
+      },
       "grok-3-mini": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -930,6 +1018,14 @@
         "organization": "xAI",
         "release_date": "2026-07-08"
       },
+      "grok-build-0.1": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Grok Build 0.1",
+        "eci": 0.0,
+        "organization": "xAI",
+        "release_date": "2026-05-29"
+      },
       "grok-code-fast-1": {
         "accessibility": "",
         "country": "",
@@ -937,6 +1033,14 @@
         "eci": 0.0,
         "organization": "Unknown",
         "release_date": "2025-08-28"
+      },
+      "inkling": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Inkling",
+        "eci": 0.0,
+        "organization": "Thinking Machines",
+        "release_date": "2026-07-15"
       },
       "kimi-k2": {
         "accessibility": "Open weights (restricted use)",
@@ -1002,6 +1106,22 @@
         "organization": "Moonshot",
         "release_date": "2026-07-16"
       },
+      "laguna-m.1": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Laguna M.1",
+        "eci": 0.0,
+        "organization": "Poolside",
+        "release_date": "2026-04-28"
+      },
+      "laguna-xs.2": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Laguna XS.2",
+        "eci": 0.0,
+        "organization": "Poolside",
+        "release_date": "2026-04-28"
+      },
       "magistral-medium-2506": {
         "accessibility": "API access",
         "country": "France",
@@ -1010,6 +1130,14 @@
         "organization": "Mistral AI",
         "release_date": "2025-06-10"
       },
+      "magistral-medium-2509": {
+        "accessibility": "API access",
+        "country": "France",
+        "display_name": "Magistral Medium 1.2",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-09-18"
+      },
       "magistral-small-2506": {
         "accessibility": "Open weights (unrestricted)",
         "country": "France",
@@ -1017,6 +1145,14 @@
         "eci": 133.08,
         "organization": "Mistral AI",
         "release_date": "2025-06-10"
+      },
+      "magistral-small-2509": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "France",
+        "display_name": "Magistral Small 1.2",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-09-18"
       },
       "minimax-m1-80k": {
         "accessibility": "Open weights (unrestricted)",
@@ -1066,6 +1202,14 @@
         "organization": "MiniMax",
         "release_date": "2026-06-01"
       },
+      "mistral-large-2512": {
+        "accessibility": "",
+        "country": "France",
+        "display_name": "Mistral Large 3",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-12-02"
+      },
       "mistral-medium-2508": {
         "accessibility": "",
         "country": "",
@@ -1073,6 +1217,30 @@
         "eci": 0.0,
         "organization": "Unknown",
         "release_date": "2025-08-12"
+      },
+      "mistral-medium-2604": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "France",
+        "display_name": "Mistral Medium 3.5",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2026-04-28"
+      },
+      "mistral-small-2506": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "France",
+        "display_name": "Mistral Small 3.2",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-06-20"
+      },
+      "mistral-small-2603": {
+        "accessibility": "",
+        "country": "France",
+        "display_name": "Mistral Small 4",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2026-03-16"
       },
       "moonshotai/kimi-k2": {
         "accessibility": "Open weights (restricted use)",
@@ -1106,6 +1274,14 @@
         "organization": "Meta AI",
         "release_date": "2026-07-09"
       },
+      "nemotron-3-super": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Nemotron 3 Super",
+        "eci": 0.0,
+        "organization": "NVIDIA",
+        "release_date": "2026-03-11"
+      },
       "nemotron-3-ultra": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
@@ -1113,6 +1289,14 @@
         "eci": 0.0,
         "organization": "NVIDIA",
         "release_date": "2026-06-04"
+      },
+      "nova-2.0-pro": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Nova 2.0 Pro Preview (medium)",
+        "eci": 0.0,
+        "organization": "Amazon",
+        "release_date": "2025-12-02"
       },
       "nvidia-nemotron-nano-9b-v2": {
         "accessibility": "",
@@ -1274,6 +1458,54 @@
         "organization": "Alibaba",
         "release_date": "2026-05-19"
       },
+      "qwen3.7-plus": {
+        "accessibility": "",
+        "country": "China",
+        "display_name": "Qwen3.7 Plus",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-06-02"
+      },
+      "ring-2.6-1t": {
+        "accessibility": "",
+        "country": "China",
+        "display_name": "Ring-2.6-1T",
+        "eci": 0.0,
+        "organization": "Ant Group",
+        "release_date": "2026-05-14"
+      },
+      "solar-pro-3": {
+        "accessibility": "",
+        "country": "Korea (Republic of)",
+        "display_name": "Solar Pro 3",
+        "eci": 0.0,
+        "organization": "Upstage",
+        "release_date": "2026-01-27"
+      },
+      "step-3.7-flash": {
+        "accessibility": "",
+        "country": "China",
+        "display_name": "Step 3.7 Flash",
+        "eci": 0.0,
+        "organization": "StepFun",
+        "release_date": "2026-05-29"
+      },
+      "swe-1.6": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "SWE-1.6",
+        "eci": 0.0,
+        "organization": "Cognition",
+        "release_date": "2026-04-07"
+      },
+      "swe-1.7": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "SWE-1.7",
+        "eci": 0.0,
+        "organization": "Cognition",
+        "release_date": "2026-07-08"
+      },
       "tiny-recursion-model": {
         "accessibility": "",
         "country": "",
@@ -1281,6 +1513,14 @@
         "eci": 0.0,
         "organization": "Unknown",
         "release_date": "2025-10-06"
+      },
+      "trinity-large": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Trinity Large Thinking",
+        "eci": 0.0,
+        "organization": "Arcee AI",
+        "release_date": "2026-04-01"
       },
       "video-salmonn-2plus": {
         "accessibility": "",

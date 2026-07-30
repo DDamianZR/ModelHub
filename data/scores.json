@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-07-29",
-    "model_count": 53,
-    "ranked_count": 41,
+    "generated_at": "2026-07-30",
+    "model_count": 56,
+    "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-29",
+      "epoch": "2026-07-30",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-27",
       "lmarena_vision": "2026-07-26"
@@ -1270,6 +1270,124 @@
       "measured_at": "2026-07-27",
       "contamination_flag": false,
       "notes": "10011 votes; rank 11"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "livebench_reasoning",
+      "value": 60.19,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "livebench_coding",
+      "value": 57.58,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "livebench_math",
+      "value": 73.74,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 67.24,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1438.6,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-27",
+      "contamination_flag": false,
+      "notes": "6015 votes; rank 60"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "livebench_reasoning",
+      "value": 85.15,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "livebench_coding",
+      "value": 57.21,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "livebench_math",
+      "value": 86.4,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 75.37,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1477.5,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-27",
+      "contamination_flag": false,
+      "notes": "6065 votes; rank 12"
     },
     {
       "model_id": "google-deepmind-gemma-4-31b",
@@ -2560,6 +2678,65 @@
       "measured_at": "2026-07-27",
       "contamination_flag": false,
       "notes": "9998 votes; rank 35"
+    },
+    {
+      "model_id": "thinking-machines-inkling",
+      "benchmark_id": "livebench_reasoning",
+      "value": 78.35,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "thinking-machines-inkling",
+      "benchmark_id": "livebench_coding",
+      "value": 58.04,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "thinking-machines-inkling",
+      "benchmark_id": "livebench_math",
+      "value": 88.36,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "thinking-machines-inkling",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 70.1,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "thinking-machines-inkling",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1442.0,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-27",
+      "contamination_flag": false,
+      "notes": "7501 votes; rank 52"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
