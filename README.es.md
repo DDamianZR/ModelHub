@@ -124,6 +124,10 @@ y no como un proyecto de clase que se califica. Esa es también la razón de que
 estén aplicadas en código: un proyecto de una sola persona no puede depender de acordarse de
 tener cuidado.
 
+- **Repositorio:** [github.com/DDamianZR/ModelHub](https://github.com/DDamianZR/ModelHub)
+- **Portafolio / Sitio personal:** [ddzendreros.github.io/dzendreros](https://ddzendreros.github.io/dzendreros)
+- **Instagram:** [@diego_zr.p](https://www.instagram.com/diego_zr.p/)
+
 Las contribuciones son bienvenidas.
 
 ## Contribuir
