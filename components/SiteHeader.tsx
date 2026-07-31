@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { LogoMark } from "@/components/LogoMark";
 
 export async function SiteHeader({
   locale,
@@ -22,16 +23,21 @@ export async function SiteHeader({
   return (
     <header className="pt-8">
       <div className="flex items-start justify-between gap-6">
-        <div>
-          <Link href="/">
-            <h1
-              className="text-[34px] leading-[1.05] tracking-[-0.01em] sm:text-[42px]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {t("wordmark")}
-            </h1>
-          </Link>
-          <p className="eyebrow mt-1">{t("tagline")}</p>
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Decorative beside the linked wordmark: making it a second link to "/" would
+              have screen readers announce the same destination twice. */}
+          <LogoMark className="h-11 w-11 shrink-0 sm:h-[52px] sm:w-[52px]" />
+          <div>
+            <Link href="/">
+              <h1
+                className="text-[34px] leading-[1.05] tracking-[-0.01em] sm:text-[42px]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {t("wordmark")}
+              </h1>
+            </Link>
+            <p className="eyebrow mt-1">{t("tagline")}</p>
+          </div>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">

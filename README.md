@@ -1,3 +1,5 @@
+<img src="public/logo.png" alt="ModelHub" width="380">
+
 # ModelHub
 
 *[Léeme en español](README.es.md)*

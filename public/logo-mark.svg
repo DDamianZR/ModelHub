@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ModelHub">
+  <style>
+    /* Standalone file: it is loaded through &lt;img&gt; and in READMEs, where there is no
+       currentColor to inherit, so the two palettes are declared here instead. */
+    .s { stroke: #1a1a1a; }
+    @media (prefers-color-scheme: dark) { .s { stroke: #eae7e0; } }
+  </style>
+  <!-- stroke= is the fallback for renderers that drop the style block, notably GitHub's
+       markdown sanitiser; the class overrides it wherever CSS does apply. -->
+  <g class="s" fill="none" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 32 17.8 L 44.3 24.9 L 44.3 39.1 L 32 46.2 L 19.7 39.1 L 19.7 24.9 Z"/>
+    <path d="M 32 17.8 L 32 8.5"/>
+    <path d="M 44.3 24.9 L 52.35 20.25"/>
+    <path d="M 44.3 39.1 L 52.35 43.75"/>
+    <path d="M 32 46.2 L 32 55.5"/>
+    <path d="M 19.7 39.1 L 11.65 43.75"/>
+    <path d="M 19.7 24.9 L 11.65 20.25"/>
+    <circle cx="32" cy="4.5" r="3.4" stroke-width="2.2"/>
+    <circle cx="55.82" cy="18.25" r="3.4" stroke-width="2.2"/>
+    <circle cx="55.82" cy="45.75" r="3.4" stroke-width="2.2"/>
+    <circle cx="32" cy="59.5" r="3.4" stroke-width="2.2"/>
+    <circle cx="8.18" cy="45.75" r="3.4" stroke-width="2.2"/>
+    <circle cx="8.18" cy="18.25" r="3.4" stroke-width="2.2"/>
+  </g>
+  <path d="M 32 25.9 L 37.28 28.95 L 37.28 35.05 L 32 38.1 L 26.72 35.05 L 26.72 28.95 Z" fill="#8157fd"/>
+</svg>
