@@ -1,174 +1,174 @@
 {
-  "fetched_at": "2026-07-30",
+  "fetched_at": "2026-07-31",
   "payload": {
     "rejected_snapshots": [],
-    "snapshot": "2026-07-27",
+    "snapshot": "2026-07-30",
     "text": {
       "alpaca-13b": {
         "license": "Non-commercial",
         "model_name": "alpaca-13b",
-        "rank": 375.0,
+        "rank": 377.0,
         "rating": 932.9672729205272,
         "vote_count": 5745.0
       },
       "amazon-nova-experimental-chat-10-09": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-10-09",
-        "rank": 162.0,
+        "rank": 164.0,
         "rating": 1364.5644198643902,
         "vote_count": 2823.0
       },
       "amazon-nova-experimental-chat-10-20": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-10-20",
-        "rank": 134.0,
+        "rank": 136.0,
         "rating": 1394.3597228478152,
         "vote_count": 11452.0
       },
       "amazon-nova-experimental-chat-11-10": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-11-10",
-        "rank": 105.0,
+        "rank": 107.0,
         "rating": 1416.3298599116674,
         "vote_count": 25252.0
       },
       "amazon-nova-experimental-chat-12-10": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-12-10",
-        "rank": 93.0,
+        "rank": 95.0,
         "rating": 1419.7583313683444,
         "vote_count": 3675.0
       },
       "amazon-nova-experimental-chat-26-01-10": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-26-01-10",
-        "rank": 129.0,
+        "rank": 131.0,
         "rating": 1398.672805865751,
         "vote_count": 3395.0
       },
       "amazon-nova-experimental-chat-26-02-10": {
         "license": "Proprietary",
         "model_name": "amazon-nova-experimental-chat-26-02-10",
-        "rank": 40.0,
+        "rank": 41.0,
         "rating": 1447.2944076134954,
         "vote_count": 3395.0
       },
       "amazon-nova-lite-v1.0": {
         "license": "Proprietary",
         "model_name": "amazon-nova-lite-v1.0",
-        "rank": 268.0,
+        "rank": 270.0,
         "rating": 1228.637020374575,
         "vote_count": 19372.0
       },
       "amazon-nova-micro-v1.0": {
         "license": "Proprietary",
         "model_name": "amazon-nova-micro-v1.0",
-        "rank": 280.0,
+        "rank": 282.0,
         "rating": 1208.5725603018113,
         "vote_count": 19364.0
       },
       "amazon-nova-pro-v1.0": {
         "license": "Proprietary",
         "model_name": "amazon-nova-pro-v1.0",
-        "rank": 256.0,
+        "rank": 258.0,
         "rating": 1258.827136568134,
         "vote_count": 24745.0
       },
       "athene-70b-0725": {
         "license": "CC-BY-NC-4.0",
         "model_name": "athene-70b-0725",
-        "rank": 250.0,
+        "rank": 252.0,
         "rating": 1265.3023627437342,
         "vote_count": 19621.0
       },
       "athene-v2": {
         "license": "NexusFlow",
         "model_name": "athene-v2-chat",
-        "rank": 221.0,
+        "rank": 223.0,
         "rating": 1291.621769677835,
         "vote_count": 24739.0
       },
       "c4ai-aya-expanse-32b": {
         "license": "CC-BY-NC-4.0",
         "model_name": "c4ai-aya-expanse-32b",
-        "rank": 274.0,
+        "rank": 276.0,
         "rating": 1224.1757535731047,
         "vote_count": 27124.0
       },
       "c4ai-aya-expanse-8b": {
         "license": "CC-BY-NC-4.0",
         "model_name": "c4ai-aya-expanse-8b",
-        "rank": 294.0,
+        "rank": 296.0,
         "rating": 1185.2790944939143,
         "vote_count": 9818.0
       },
       "chatglm-6b": {
         "license": "Non-commercial",
         "model_name": "chatglm-6b",
-        "rank": 376.0,
+        "rank": 378.0,
         "rating": 918.6211177710144,
         "vote_count": 4914.0
       },
       "chatglm2-6b": {
         "license": "Apache-2.0",
         "model_name": "chatglm2-6b",
-        "rank": 374.0,
+        "rank": 376.0,
         "rating": 938.7842265535457,
         "vote_count": 2658.0
       },
       "chatglm3-6b": {
         "license": "Apache-2.0",
         "model_name": "chatglm3-6b",
-        "rank": 370.0,
+        "rank": 372.0,
         "rating": 972.1953322533828,
         "vote_count": 4658.0
       },
       "chatgpt-4o": {
         "license": "Proprietary",
         "model_name": "chatgpt-4o-latest-20250326",
-        "rank": 75.0,
+        "rank": 77.0,
         "rating": 1428.8852584986753,
         "vote_count": 82360.0
       },
       "claude-3-5-haiku": {
         "license": "Proprietary",
         "model_name": "claude-3-5-haiku-20241022",
-        "rank": 258.0,
+        "rank": 260.0,
         "rating": 1255.4422979610517,
         "vote_count": 69912.0
       },
       "claude-3-5-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-5-sonnet-20241022",
-        "rank": 217.0,
+        "rank": 219.0,
         "rating": 1297.7942693215218,
         "vote_count": 88297.0
       },
       "claude-3-7-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-7-sonnet-20250219-thinking-32k",
-        "rank": 206.0,
+        "rank": 208.0,
         "rating": 1314.5300606064511,
         "vote_count": 38796.0
       },
       "claude-3-haiku": {
         "license": "Proprietary",
         "model_name": "claude-3-haiku-20240307",
-        "rank": 286.0,
+        "rank": 288.0,
         "rating": 1194.8400201495747,
         "vote_count": 117701.0
       },
       "claude-3-opus": {
         "license": "Proprietary",
         "model_name": "claude-3-opus-20240229",
-        "rank": 254.0,
+        "rank": 256.0,
         "rating": 1262.1694444264679,
         "vote_count": 194909.0
       },
       "claude-3-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-sonnet-20240229",
-        "rank": 276.0,
+        "rank": 278.0,
         "rating": 1218.199619827033,
         "vote_count": 109284.0
       },
@@ -182,28 +182,28 @@
       "claude-haiku-4-5": {
         "license": "Proprietary",
         "model_name": "claude-haiku-4-5-20251001",
-        "rank": 136.0,
+        "rank": 138.0,
         "rating": 1393.7244503082202,
         "vote_count": 110068.0
       },
       "claude-opus-4": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-20250514",
-        "rank": 161.0,
+        "rank": 163.0,
         "rating": 1364.5737905293004,
         "vote_count": 44141.0
       },
       "claude-opus-4-1": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-1-20250805",
-        "rank": 102.0,
+        "rank": 104.0,
         "rating": 1417.421781456801,
         "vote_count": 77225.0
       },
       "claude-opus-4-1-thinking-16k": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-1-20250805-thinking-16k",
-        "rank": 98.0,
+        "rank": 100.0,
         "rating": 1418.4089936457617,
         "vote_count": 49741.0
       },
@@ -238,7 +238,7 @@
       "claude-opus-4-thinking-16k": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-20250514-thinking-16k",
-        "rank": 146.0,
+        "rank": 148.0,
         "rating": 1375.4470309124463,
         "vote_count": 36843.0
       },
@@ -252,14 +252,14 @@
       "claude-sonnet-4": {
         "license": "Proprietary",
         "model_name": "claude-sonnet-4-20250514-thinking-32k",
-        "rank": 177.0,
+        "rank": 179.0,
         "rating": 1348.4240417756403,
         "vote_count": 35053.0
       },
       "claude-sonnet-4-5": {
         "license": "Proprietary",
         "model_name": "claude-sonnet-4-5-20250929",
-        "rank": 61.0,
+        "rank": 62.0,
         "rating": 1437.7826463608426,
         "vote_count": 80347.0
       },
@@ -273,147 +273,147 @@
       "claude-sonnet-5": {
         "license": "Proprietary",
         "model_name": "claude-sonnet-5-high",
-        "rank": 56.0,
+        "rank": 57.0,
         "rating": 1440.3632146899877,
         "vote_count": 15622.0
       },
       "codellama-34b": {
         "license": "Llama 2 Community",
         "model_name": "codellama-34b-instruct",
-        "rank": 349.0,
+        "rank": 351.0,
         "rating": 1065.6423004183093,
         "vote_count": 7366.0
       },
       "codellama-70b": {
         "license": "Llama 2 Community",
         "model_name": "codellama-70b-instruct",
-        "rank": 352.0,
+        "rank": 354.0,
         "rating": 1057.40049362416,
         "vote_count": 1143.0
       },
       "command-a-03-2025": {
         "license": "CC-BY-NC-4.0",
         "model_name": "command-a-03-2025",
-        "rank": 193.0,
+        "rank": 195.0,
         "rating": 1331.465652400436,
         "vote_count": 56196.0
       },
       "command-r": {
         "license": "CC-BY-NC-4.0",
         "model_name": "command-r",
-        "rank": 303.0,
+        "rank": 305.0,
         "rating": 1163.295194200872,
         "vote_count": 54036.0
       },
       "command-r-08-2024": {
         "license": "CC-BY-NC-4.0",
         "model_name": "command-r-08-2024",
-        "rank": 290.0,
+        "rank": 292.0,
         "rating": 1187.5204729800917,
         "vote_count": 10140.0
       },
       "command-r-plus": {
         "license": "CC-BY-NC-4.0",
         "model_name": "command-r-plus",
-        "rank": 283.0,
+        "rank": 285.0,
         "rating": 1203.9920919791232,
         "vote_count": 77554.0
       },
       "command-r-plus-08-2024": {
         "license": "CC-BY-NC-4.0",
         "model_name": "command-r-plus-08-2024",
-        "rank": 267.0,
+        "rank": 269.0,
         "rating": 1229.0600943917925,
         "vote_count": 9866.0
       },
       "dbrx": {
         "license": "DBRX LICENSE",
         "model_name": "dbrx-instruct-preview",
-        "rank": 322.0,
+        "rank": 324.0,
         "rating": 1119.028697527524,
         "vote_count": 32191.0
       },
       "deepseek-coder-v2": {
         "license": "DeepSeek License",
         "model_name": "deepseek-coder-v2",
-        "rank": 288.0,
+        "rank": 290.0,
         "rating": 1191.3520748866172,
         "vote_count": 15147.0
       },
       "deepseek-llm-67b": {
         "license": "DeepSeek License",
         "model_name": "deepseek-llm-67b-chat",
-        "rank": 330.0,
+        "rank": 332.0,
         "rating": 1105.188951396291,
         "vote_count": 4932.0
       },
       "deepseek-r1": {
         "license": "MIT",
         "model_name": "deepseek-r1",
-        "rank": 151.0,
+        "rank": 153.0,
         "rating": 1372.79077624749,
         "vote_count": 18524.0
       },
       "deepseek-r1-0528": {
         "license": "MIT",
         "model_name": "deepseek-r1-0528",
-        "rank": 76.0,
+        "rank": 78.0,
         "rating": 1428.0676560600837,
         "vote_count": 18424.0
       },
       "deepseek-v2.5": {
         "license": "DeepSeek",
         "model_name": "deepseek-v2.5",
-        "rank": 245.0,
+        "rank": 247.0,
         "rating": 1271.4095321556051,
         "vote_count": 24572.0
       },
       "deepseek-v2.5-1210": {
         "license": "DeepSeek",
         "model_name": "deepseek-v2.5-1210",
-        "rank": 219.0,
+        "rank": 221.0,
         "rating": 1294.105390172193,
         "vote_count": 6795.0
       },
       "deepseek-v3": {
         "license": "DeepSeek",
         "model_name": "deepseek-v3",
-        "rank": 191.0,
+        "rank": 193.0,
         "rating": 1332.639472562802,
         "vote_count": 21770.0
       },
       "deepseek-v3-0324": {
         "license": "MIT",
         "model_name": "deepseek-v3-0324",
-        "rank": 147.0,
+        "rank": 149.0,
         "rating": 1374.9490223352636,
         "vote_count": 45444.0
       },
       "deepseek-v3.1": {
         "license": "MIT",
         "model_name": "deepseek-v3.1",
-        "rank": 95.0,
+        "rank": 97.0,
         "rating": 1419.3970462007514,
         "vote_count": 14945.0
       },
       "deepseek-v3.1-terminus": {
         "license": "MIT",
         "model_name": "deepseek-v3.1-terminus-thinking",
-        "rank": 91.0,
+        "rank": 93.0,
         "rating": 1419.9309874461337,
         "vote_count": 3457.0
       },
       "deepseek-v3.2": {
         "license": "MIT",
         "model_name": "deepseek-v3.2",
-        "rank": 81.0,
+        "rank": 83.0,
         "rating": 1424.385181549259,
         "vote_count": 47019.0
       },
       "deepseek-v4-flash": {
         "license": "MIT",
         "model_name": "deepseek-v4-flash",
-        "rank": 71.0,
+        "rank": 72.0,
         "rating": 1431.6731375746144,
         "vote_count": 46729.0
       },
@@ -427,42 +427,42 @@
       "dola-seed-2.0-pro": {
         "license": "Proprietary",
         "model_name": "dola-seed-2.0-pro",
-        "rank": 39.0,
+        "rank": 40.0,
         "rating": 1447.8597980345735,
         "vote_count": 69821.0
       },
       "dolly-v2-12b": {
         "license": "MIT",
         "model_name": "dolly-v2-12b",
-        "rank": 380.0,
+        "rank": 382.0,
         "rating": 851.2841031284613,
         "vote_count": 3412.0
       },
       "dolphin-2.2.1-mistral-7b": {
         "license": "Apache-2.0",
         "model_name": "dolphin-2.2.1-mistral-7b",
-        "rank": 342.0,
+        "rank": 344.0,
         "rating": 1081.1319300313492,
         "vote_count": 1679.0
       },
       "ernie-5.0-0110": {
         "license": "Proprietary",
         "model_name": "ernie-5.0-0110",
-        "rank": 45.0,
+        "rank": 46.0,
         "rating": 1445.0349292057808,
         "vote_count": 35065.0
       },
       "ernie-5.0-preview-1022": {
         "license": "Proprietary",
         "model_name": "ernie-5.0-preview-1022",
-        "rank": 72.0,
+        "rank": 73.0,
         "rating": 1429.6478906980037,
         "vote_count": 4702.0
       },
       "ernie-5.0-preview-1203": {
         "license": "Proprietary",
         "model_name": "ernie-5.0-preview-1203",
-        "rank": 51.0,
+        "rank": 52.0,
         "rating": 1442.35389716612,
         "vote_count": 9732.0
       },
@@ -476,91 +476,91 @@
       "falcon-180b": {
         "license": "Falcon-180B TII License",
         "model_name": "falcon-180b-chat",
-        "rank": 355.0,
+        "rank": 357.0,
         "rating": 1054.5117236282017,
         "vote_count": 1295.0
       },
       "fastchat-t5-3b": {
         "license": "Apache 2.0",
         "model_name": "fastchat-t5-3b",
-        "rank": 378.0,
+        "rank": 380.0,
         "rating": 894.5556060867372,
         "vote_count": 4203.0
       },
       "gemini-1.5-flash-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-001",
-        "rank": 262.0,
+        "rank": 264.0,
         "rating": 1239.4627785963685,
         "vote_count": 62833.0
       },
       "gemini-1.5-flash-002": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-002",
-        "rank": 227.0,
+        "rank": 229.0,
         "rating": 1286.8142808278028,
         "vote_count": 34902.0
       },
       "gemini-1.5-flash-8b-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-8b-001",
-        "rank": 272.0,
+        "rank": 274.0,
         "rating": 1226.021756349338,
         "vote_count": 35558.0
       },
       "gemini-1.5-pro-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-pro-001",
-        "rank": 243.0,
+        "rank": 245.0,
         "rating": 1273.65546807578,
         "vote_count": 79138.0
       },
       "gemini-1.5-pro-002": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-pro-002",
-        "rank": 202.0,
+        "rank": 204.0,
         "rating": 1319.2860762090845,
         "vote_count": 55606.0
       },
       "gemini-2.0-flash-001": {
         "license": "Proprietary",
         "model_name": "gemini-2.0-flash-001",
-        "rank": 171.0,
+        "rank": 173.0,
         "rating": 1354.1679778901384,
         "vote_count": 43719.0
       },
       "gemini-2.0-flash-lite-preview-02-05": {
         "license": "Proprietary",
         "model_name": "gemini-2.0-flash-lite-preview-02-05",
-        "rank": 195.0,
+        "rank": 197.0,
         "rating": 1329.6841053363937,
         "vote_count": 24955.0
       },
       "gemini-2.5-flash": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash",
-        "rank": 101.0,
+        "rank": 103.0,
         "rating": 1417.4597250062766,
         "vote_count": 124020.0
       },
       "gemini-2.5-flash-lite-preview-06-17": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-lite-preview-06-17-thinking",
-        "rank": 154.0,
+        "rank": 156.0,
         "rating": 1368.591049836782,
         "vote_count": 32854.0
       },
       "gemini-2.5-flash-lite-preview-09-2025-no": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-lite-preview-09-2025-no-thinking",
-        "rank": 143.0,
+        "rank": 145.0,
         "rating": 1379.2389114488092,
         "vote_count": 47159.0
       },
       "gemini-2.5-flash-preview-09-2025": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-preview-09-2025",
-        "rank": 119.0,
+        "rank": 121.0,
         "rating": 1406.9239558083077,
         "vote_count": 32864.0
       },
@@ -581,7 +581,7 @@
       "gemini-3-flash-(thinking-minimal)": {
         "license": "Proprietary",
         "model_name": "gemini-3-flash (thinking-minimal)",
-        "rank": 49.0,
+        "rank": 50.0,
         "rating": 1442.9520916706651,
         "vote_count": 85621.0
       },
@@ -595,7 +595,7 @@
       "gemini-3.1-flash-lite": {
         "license": "Proprietary",
         "model_name": "gemini-3.1-flash-lite-preview",
-        "rank": 107.0,
+        "rank": 109.0,
         "rating": 1415.2441067660834,
         "vote_count": 60164.0
       },
@@ -616,7 +616,7 @@
       "gemini-3.5-flash-lite": {
         "license": "Proprietary",
         "model_name": "gemini-3.5-flash-lite",
-        "rank": 60.0,
+        "rank": 61.0,
         "rating": 1438.6096852669602,
         "vote_count": 6015.0
       },
@@ -630,196 +630,196 @@
       "gemini-advanced-0514": {
         "license": "Proprietary",
         "model_name": "gemini-advanced-0514",
-        "rank": 239.0,
+        "rank": 241.0,
         "rating": 1278.7197687408823,
         "vote_count": 50148.0
       },
       "gemini-pro": {
         "license": "Proprietary",
         "model_name": "gemini-pro",
-        "rank": 315.0,
+        "rank": 317.0,
         "rating": 1130.6983514370868,
         "vote_count": 6390.0
       },
       "gemini-pro-dev-api": {
         "license": "Proprietary",
         "model_name": "gemini-pro-dev-api",
-        "rank": 309.0,
+        "rank": 311.0,
         "rating": 1149.0085282758587,
         "vote_count": 18354.0
       },
       "gemma-1.1-2b": {
         "license": "Gemma license",
         "model_name": "gemma-1.1-2b-it",
-        "rank": 366.0,
+        "rank": 368.0,
         "rating": 1022.3820583872258,
         "vote_count": 10854.0
       },
       "gemma-1.1-7b": {
         "license": "Gemma license",
         "model_name": "gemma-1.1-7b-it",
-        "rank": 336.0,
+        "rank": 338.0,
         "rating": 1094.1320321041453,
         "vote_count": 23893.0
       },
       "gemma-2-27b": {
         "license": "Gemma license",
         "model_name": "gemma-2-27b-it",
-        "rank": 265.0,
+        "rank": 267.0,
         "rating": 1231.5346103635466,
         "vote_count": 75754.0
       },
       "gemma-2-2b": {
         "license": "Gemma license",
         "model_name": "gemma-2-2b-it",
-        "rank": 307.0,
+        "rank": 309.0,
         "rating": 1155.9309667962855,
         "vote_count": 46616.0
       },
       "gemma-2-9b": {
         "license": "Gemma license",
         "model_name": "gemma-2-9b-it",
-        "rank": 281.0,
+        "rank": 283.0,
         "rating": 1207.5484529381536,
         "vote_count": 54611.0
       },
       "gemma-2-9b-it-simpo": {
         "license": "MIT",
         "model_name": "gemma-2-9b-it-simpo",
-        "rank": 270.0,
+        "rank": 272.0,
         "rating": 1227.226089018805,
         "vote_count": 10072.0
       },
       "gemma-2b": {
         "license": "Gemma license",
         "model_name": "gemma-2b-it",
-        "rank": 367.0,
+        "rank": 369.0,
         "rating": 1002.3049862581692,
         "vote_count": 4780.0
       },
       "gemma-3-12b": {
         "license": "Gemma",
         "model_name": "gemma-3-12b-it",
-        "rank": 189.0,
+        "rank": 191.0,
         "rating": 1334.2928483814073,
         "vote_count": 3829.0
       },
       "gemma-3-27b": {
         "license": "Gemma",
         "model_name": "gemma-3-27b-it",
-        "rank": 167.0,
+        "rank": 169.0,
         "rating": 1358.294556631406,
         "vote_count": 47471.0
       },
       "gemma-3-4b": {
         "license": "Gemma",
         "model_name": "gemma-3-4b-it",
-        "rank": 222.0,
+        "rank": 224.0,
         "rating": 1290.8833637129605,
         "vote_count": 4171.0
       },
       "gemma-3n-e4b": {
         "license": "Gemma",
         "model_name": "gemma-3n-e4b-it",
-        "rank": 210.0,
+        "rank": 212.0,
         "rating": 1306.198337956324,
         "vote_count": 22553.0
       },
       "gemma-4-26b-a4b": {
         "license": "Apache 2.0",
         "model_name": "gemma-4-26b-a4b",
-        "rank": 69.0,
+        "rank": 70.0,
         "rating": 1434.6882315894004,
         "vote_count": 5754.0
       },
       "gemma-4-31b": {
         "license": "Apache 2.0",
         "model_name": "gemma-4-31b",
-        "rank": 53.0,
+        "rank": 54.0,
         "rating": 1441.6904377662995,
         "vote_count": 5841.0
       },
       "gemma-7b": {
         "license": "Gemma license",
         "model_name": "gemma-7b-it",
-        "rank": 353.0,
+        "rank": 355.0,
         "rating": 1056.313281583417,
         "vote_count": 8925.0
       },
       "glm-4-0520": {
         "license": "Proprietary",
         "model_name": "glm-4-0520",
-        "rank": 271.0,
+        "rank": 273.0,
         "rating": 1226.0698146063664,
         "vote_count": 9788.0
       },
       "glm-4-plus": {
         "license": "Proprietary",
         "model_name": "glm-4-plus",
-        "rank": 223.0,
+        "rank": 225.0,
         "rating": 1289.811155610511,
         "vote_count": 26126.0
       },
       "glm-4-plus-0111": {
         "license": "Proprietary",
         "model_name": "glm-4-plus-0111",
-        "rank": 194.0,
+        "rank": 196.0,
         "rating": 1330.9712806160396,
         "vote_count": 5760.0
       },
       "glm-4.5": {
         "license": "MIT",
         "model_name": "glm-4.5",
-        "rank": 74.0,
+        "rank": 76.0,
         "rating": 1428.9422888335143,
         "vote_count": 24277.0
       },
       "glm-4.5-air": {
         "license": "MIT",
         "model_name": "glm-4.5-air",
-        "rank": 140.0,
+        "rank": 142.0,
         "rating": 1382.655452207297,
         "vote_count": 31042.0
       },
       "glm-4.5v": {
         "license": "MIT",
         "model_name": "glm-4.5v",
-        "rank": 190.0,
+        "rank": 192.0,
         "rating": 1333.6407341353902,
         "vote_count": 4955.0
       },
       "glm-4.6": {
         "license": "MIT",
         "model_name": "glm-4.6",
-        "rank": 55.0,
+        "rank": 56.0,
         "rating": 1440.3774880919214,
         "vote_count": 35592.0
       },
       "glm-4.6v": {
         "license": "MIT",
         "model_name": "glm-4.6v",
-        "rank": 148.0,
+        "rank": 150.0,
         "rating": 1374.8396389565264,
         "vote_count": 2796.0
       },
       "glm-4.7": {
         "license": "MIT",
         "model_name": "glm-4.7",
-        "rank": 68.0,
+        "rank": 69.0,
         "rating": 1435.8379345708067,
         "vote_count": 12090.0
       },
       "glm-4.7-flash": {
         "license": "MIT",
         "model_name": "glm-4.7-flash",
-        "rank": 172.0,
+        "rank": 174.0,
         "rating": 1353.380539308661,
         "vote_count": 11690.0
       },
       "glm-5": {
         "license": "MIT",
         "model_name": "glm-5",
-        "rank": 44.0,
+        "rank": 45.0,
         "rating": 1445.1679139721614,
         "vote_count": 27644.0
       },
@@ -840,140 +840,140 @@
       "glm-5v-turbo": {
         "license": "Proprietary",
         "model_name": "glm-5v-turbo",
-        "rank": 63.0,
+        "rank": 64.0,
         "rating": 1437.2438054142071,
         "vote_count": 9294.0
       },
       "gpt-3.5-turbo-0125": {
         "license": "Proprietary",
         "model_name": "gpt-3.5-turbo-0125",
-        "rank": 319.0,
+        "rank": 321.0,
         "rating": 1125.080799729535,
         "vote_count": 66207.0
       },
       "gpt-3.5-turbo-1106": {
         "license": "Proprietary",
         "model_name": "gpt-3.5-turbo-1106",
-        "rank": 335.0,
+        "rank": 337.0,
         "rating": 1094.280307901563,
         "vote_count": 16619.0
       },
       "gpt-4-0125": {
         "license": "Proprietary",
         "model_name": "gpt-4-0125-preview",
-        "rank": 253.0,
+        "rank": 255.0,
         "rating": 1262.3638201767908,
         "vote_count": 93439.0
       },
       "gpt-4-0314": {
         "license": "Proprietary",
         "model_name": "gpt-4-0314",
-        "rank": 282.0,
+        "rank": 284.0,
         "rating": 1206.169529960404,
         "vote_count": 54173.0
       },
       "gpt-4-0613": {
         "license": "Proprietary",
         "model_name": "gpt-4-0613",
-        "rank": 293.0,
+        "rank": 295.0,
         "rating": 1186.167307310095,
         "vote_count": 88723.0
       },
       "gpt-4-1106": {
         "license": "Proprietary",
         "model_name": "gpt-4-1106-preview",
-        "rank": 251.0,
+        "rank": 253.0,
         "rating": 1263.597561658491,
         "vote_count": 100105.0
       },
       "gpt-4-turbo": {
         "license": "Proprietary",
         "model_name": "gpt-4-turbo-2024-04-09",
-        "rank": 244.0,
+        "rank": 246.0,
         "rating": 1271.8507789111884,
         "vote_count": 98114.0
       },
       "gpt-4.1": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-2025-04-14",
-        "rank": 141.0,
+        "rank": 143.0,
         "rating": 1382.0595590106277,
         "vote_count": 50904.0
       },
       "gpt-4.1-mini": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-mini-2025-04-14",
-        "rank": 181.0,
+        "rank": 183.0,
         "rating": 1340.686181673433,
         "vote_count": 39287.0
       },
       "gpt-4.1-nano": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-nano-2025-04-14",
-        "rank": 229.0,
+        "rank": 231.0,
         "rating": 1284.8736458321011,
         "vote_count": 6103.0
       },
       "gpt-4.5": {
         "license": "Proprietary",
         "model_name": "gpt-4.5-preview-2025-02-27",
-        "rank": 100.0,
+        "rank": 102.0,
         "rating": 1417.4720634207774,
         "vote_count": 14547.0
       },
       "gpt-4o": {
         "license": "Proprietary",
         "model_name": "gpt-4o-2024-05-13",
-        "rank": 213.0,
+        "rank": 215.0,
         "rating": 1300.5995528267847,
         "vote_count": 112881.0
       },
       "gpt-4o-mini": {
         "license": "Proprietary",
         "model_name": "gpt-4o-mini-2024-07-18",
-        "rank": 228.0,
+        "rank": 230.0,
         "rating": 1286.5706992638566,
         "vote_count": 68707.0
       },
       "gpt-5": {
         "license": "Proprietary",
         "model_name": "gpt-5-high",
-        "rank": 121.0,
+        "rank": 123.0,
         "rating": 1405.4792979672684,
         "vote_count": 31887.0
       },
       "gpt-5-mini": {
         "license": "Proprietary",
         "model_name": "gpt-5-mini-high",
-        "rank": 149.0,
+        "rank": 151.0,
         "rating": 1373.8422922061495,
         "vote_count": 26991.0
       },
       "gpt-5-nano": {
         "license": "Proprietary",
         "model_name": "gpt-5-nano-high",
-        "rank": 199.0,
+        "rank": 201.0,
         "rating": 1320.2420065933811,
         "vote_count": 8257.0
       },
       "gpt-5.1": {
         "license": "Proprietary",
         "model_name": "gpt-5.1-high",
-        "rank": 54.0,
+        "rank": 55.0,
         "rating": 1441.165737895301,
         "vote_count": 40700.0
       },
       "gpt-5.2": {
         "license": "Proprietary",
         "model_name": "gpt-5.2-chat-latest-20260210",
-        "rank": 59.0,
+        "rank": 60.0,
         "rating": 1438.92448312761,
         "vote_count": 34060.0
       },
       "gpt-5.3": {
         "license": "Proprietary",
         "model_name": "gpt-5.3-chat-latest",
-        "rank": 138.0,
+        "rank": 140.0,
         "rating": 1387.637750239362,
         "vote_count": 32624.0
       },
@@ -987,14 +987,14 @@
       "gpt-5.4-mini": {
         "license": "Proprietary",
         "model_name": "gpt-5.4-mini-high",
-        "rank": 111.0,
+        "rank": 113.0,
         "rating": 1412.704981127093,
         "vote_count": 59093.0
       },
       "gpt-5.4-nano": {
         "license": "Proprietary",
         "model_name": "gpt-5.4-nano-high",
-        "rank": 150.0,
+        "rank": 152.0,
         "rating": 1373.0366862902617,
         "vote_count": 58091.0
       },
@@ -1008,9 +1008,16 @@
       "gpt-5.5-instant": {
         "license": "Proprietary",
         "model_name": "gpt-5.5-instant",
-        "rank": 94.0,
+        "rank": 96.0,
         "rating": 1419.679779986218,
         "vote_count": 25708.0
+      },
+      "gpt-5.6-luna": {
+        "license": "Proprietary",
+        "model_name": "gpt-5.6-luna-xhigh",
+        "rank": 75.0,
+        "rating": 1429.2137372658854,
+        "vote_count": 8890.0
       },
       "gpt-5.6-sol": {
         "license": "Proprietary",
@@ -1019,122 +1026,129 @@
         "rating": 1455.2892466368594,
         "vote_count": 8359.0
       },
+      "gpt-5.6-terra": {
+        "license": "Proprietary",
+        "model_name": "gpt-5.6-terra-xhigh",
+        "rank": 39.0,
+        "rating": 1448.8252228749911,
+        "vote_count": 8621.0
+      },
       "gpt-oss-120b": {
         "license": "Apache 2.0",
         "model_name": "gpt-oss-120b",
-        "rank": 160.0,
+        "rank": 162.0,
         "rating": 1365.6804681025478,
         "vote_count": 30615.0
       },
       "gpt-oss-20b": {
         "license": "Apache 2.0",
         "model_name": "gpt-oss-20b",
-        "rank": 226.0,
+        "rank": 228.0,
         "rating": 1287.5753026950417,
         "vote_count": 10621.0
       },
       "gpt4all-13b-snoozy": {
         "license": "Non-commercial",
         "model_name": "gpt4all-13b-snoozy",
-        "rank": 371.0,
+        "rank": 373.0,
         "rating": 956.3381184528371,
         "vote_count": 1743.0
       },
       "granite-3.0-2b": {
         "license": "Apache 2.0",
         "model_name": "granite-3.0-2b-instruct",
-        "rank": 344.0,
+        "rank": 346.0,
         "rating": 1080.0024380217424,
         "vote_count": 6837.0
       },
       "granite-3.0-8b": {
         "license": "Apache 2.0",
         "model_name": "granite-3.0-8b-instruct",
-        "rank": 334.0,
+        "rank": 336.0,
         "rating": 1096.5990897301956,
         "vote_count": 6638.0
       },
       "granite-3.1-2b": {
         "license": "Apache 2.0",
         "model_name": "granite-3.1-2b-instruct",
-        "rank": 318.0,
+        "rank": 320.0,
         "rating": 1127.5778631164026,
         "vote_count": 3188.0
       },
       "granite-3.1-8b": {
         "license": "Apache 2.0",
         "model_name": "granite-3.1-8b-instruct",
-        "rank": 308.0,
+        "rank": 310.0,
         "rating": 1149.6959563702926,
         "vote_count": 3090.0
       },
       "granite-4.1-8b": {
         "license": "Apache 2.0",
         "model_name": "granite-4.1-8b",
-        "rank": 220.0,
+        "rank": 222.0,
         "rating": 1292.5999533759768,
         "vote_count": 4001.0
       },
       "grok-2": {
         "license": "Proprietary",
         "model_name": "grok-2-2024-08-13",
-        "rank": 211.0,
+        "rank": 213.0,
         "rating": 1304.741352737355,
         "vote_count": 63498.0
       },
       "grok-2-mini": {
         "license": "Proprietary",
         "model_name": "grok-2-mini-2024-08-13",
-        "rank": 237.0,
+        "rank": 239.0,
         "rating": 1280.858696689878,
         "vote_count": 52567.0
       },
       "grok-3-mini": {
         "license": "Proprietary",
         "model_name": "grok-3-mini-high",
-        "rank": 156.0,
+        "rank": 158.0,
         "rating": 1367.0032692860182,
         "vote_count": 16938.0
       },
       "grok-3-mini-beta": {
         "license": "Proprietary",
         "model_name": "grok-3-mini-beta",
-        "rank": 164.0,
+        "rank": 166.0,
         "rating": 1362.7359490316749,
         "vote_count": 22674.0
       },
       "grok-3-preview-02-24": {
         "license": "Proprietary",
         "model_name": "grok-3-preview-02-24",
-        "rank": 79.0,
+        "rank": 81.0,
         "rating": 1425.0044692182669,
         "vote_count": 32863.0
       },
       "grok-4-0709": {
         "license": "Proprietary",
         "model_name": "grok-4-0709",
-        "rank": 114.0,
+        "rank": 116.0,
         "rating": 1409.9083721251295,
         "vote_count": 41317.0
       },
       "grok-4-1-fast": {
         "license": "Proprietary",
         "model_name": "grok-4-1-fast-reasoning",
-        "rank": 117.0,
+        "rank": 119.0,
         "rating": 1408.5373202098672,
         "vote_count": 56476.0
       },
       "grok-4-fast": {
         "license": "Proprietary",
         "model_name": "grok-4-fast-chat",
-        "rank": 116.0,
+        "rank": 118.0,
         "rating": 1409.1250091676561,
         "vote_count": 6805.0
       },
       "grok-4.1": {
         "license": "Proprietary",
         "model_name": "grok-4.1-thinking",
-        "rank": 62.0,
+        "rank": 63.0,
         "rating": 1437.6749321839293,
         "vote_count": 65116.0
       },
@@ -1148,7 +1162,7 @@
       "grok-4.20-beta1": {
         "license": "Proprietary",
         "model_name": "grok-4.20-beta1",
-        "rank": 48.0,
+        "rank": 49.0,
         "rating": 1444.1332305840833,
         "vote_count": 26598.0
       },
@@ -1162,7 +1176,7 @@
       "grok-4.3": {
         "license": "Proprietary",
         "model_name": "grok-4.3",
-        "rank": 127.0,
+        "rank": 129.0,
         "rating": 1399.771401496103,
         "vote_count": 48239.0
       },
@@ -1176,154 +1190,154 @@
       "guanaco-33b": {
         "license": "Non-commercial",
         "model_name": "guanaco-33b",
-        "rank": 357.0,
+        "rank": 359.0,
         "rating": 1053.5367552942125,
         "vote_count": 2921.0
       },
       "hunyuan-hy3": {
         "license": "tencent-hunyuan-community",
         "model_name": "hunyuan-hy3-preview",
-        "rank": 123.0,
+        "rank": 125.0,
         "rating": 1404.377975119528,
         "vote_count": 6575.0
       },
       "hunyuan-large": {
         "license": "Proprietary",
         "model_name": "hunyuan-large-2025-02-10",
-        "rank": 224.0,
+        "rank": 226.0,
         "rating": 1288.0877860114756,
         "vote_count": 3738.0
       },
       "hunyuan-large-vision": {
         "license": "Proprietary",
         "model_name": "hunyuan-large-vision",
-        "rank": 252.0,
+        "rank": 254.0,
         "rating": 1263.4393739377024,
         "vote_count": 5364.0
       },
       "hunyuan-standard": {
         "license": "Proprietary",
         "model_name": "hunyuan-standard-2025-02-10",
-        "rank": 242.0,
+        "rank": 244.0,
         "rating": 1274.133040142288,
         "vote_count": 3904.0
       },
       "hunyuan-standard-256k": {
         "license": "Proprietary",
         "model_name": "hunyuan-standard-256k",
-        "rank": 285.0,
+        "rank": 287.0,
         "rating": 1202.0824997026898,
         "vote_count": 2728.0
       },
       "hunyuan-t1": {
         "license": "Proprietary",
         "model_name": "hunyuan-t1-20250711",
-        "rank": 128.0,
+        "rank": 130.0,
         "rating": 1399.6502122819065,
         "vote_count": 4697.0
       },
       "hunyuan-turbo-0110": {
         "license": "Proprietary",
         "model_name": "hunyuan-turbo-0110",
-        "rank": 207.0,
+        "rank": 209.0,
         "rating": 1311.5492173239882,
         "vote_count": 2290.0
       },
       "hunyuan-turbos": {
         "license": "Proprietary",
         "model_name": "hunyuan-turbos-20250416",
-        "rank": 145.0,
+        "rank": 147.0,
         "rating": 1376.0431529668845,
         "vote_count": 10716.0
       },
       "hunyuan-vision-1.5": {
         "license": "Proprietary",
         "model_name": "hunyuan-vision-1.5-thinking",
-        "rank": 120.0,
+        "rank": 122.0,
         "rating": 1406.0350309911191,
         "vote_count": 2215.0
       },
       "hy3": {
         "license": "Apache 2.0",
         "model_name": "hy3",
-        "rank": 50.0,
+        "rank": 51.0,
         "rating": 1442.4262838204677,
         "vote_count": 3267.0
       },
       "ibm-granite-h-small": {
         "license": "Apache 2.0",
         "model_name": "ibm-granite-h-small",
-        "rank": 261.0,
+        "rank": 263.0,
         "rating": 1241.65390838325,
         "vote_count": 5676.0
       },
       "inkling": {
         "license": "Apache 2.0",
         "model_name": "inkling",
-        "rank": 52.0,
+        "rank": 53.0,
         "rating": 1441.9959977037956,
         "vote_count": 7501.0
       },
       "intellect-3": {
         "license": "MIT",
         "model_name": "intellect-3",
-        "rank": 170.0,
+        "rank": 172.0,
         "rating": 1356.1367521665425,
         "vote_count": 5328.0
       },
       "internlm2-5-20b": {
         "license": "Other",
         "model_name": "internlm2_5-20b-chat",
-        "rank": 306.0,
+        "rank": 308.0,
         "rating": 1158.6059158218563,
         "vote_count": 9901.0
       },
       "jamba-1.5-large": {
         "license": "Jamba Open",
         "model_name": "jamba-1.5-large",
-        "rank": 263.0,
+        "rank": 265.0,
         "rating": 1237.1861168676805,
         "vote_count": 8662.0
       },
       "jamba-1.5-mini": {
         "license": "Jamba Open",
         "model_name": "jamba-1.5-mini",
-        "rank": 291.0,
+        "rank": 293.0,
         "rating": 1186.8376593078174,
         "vote_count": 8858.0
       },
       "kimi-k2-0711": {
         "license": "Modified MIT",
         "model_name": "kimi-k2-0711-preview",
-        "rank": 152.0,
+        "rank": 154.0,
         "rating": 1370.7462022634186,
         "vote_count": 27592.0
       },
       "kimi-k2-0905": {
         "license": "Modified MIT",
         "model_name": "kimi-k2-0905-preview",
-        "rank": 142.0,
+        "rank": 144.0,
         "rating": 1379.4453953109464,
         "vote_count": 11765.0
       },
       "kimi-k2-thinking-turbo": {
         "license": "Modified MIT",
         "model_name": "kimi-k2-thinking-turbo",
-        "rank": 108.0,
+        "rank": 110.0,
         "rating": 1414.0104865778035,
         "vote_count": 61733.0
       },
       "kimi-k2.5": {
         "license": "Modified MIT",
         "model_name": "kimi-k2.5-thinking",
-        "rank": 43.0,
+        "rank": 44.0,
         "rating": 1445.1905606878586,
         "vote_count": 64226.0
       },
       "kimi-k2.5-instant": {
         "license": "Modified MIT",
         "model_name": "kimi-k2.5-instant",
-        "rank": 90.0,
+        "rank": 92.0,
         "rating": 1420.4990609440047,
         "vote_count": 8146.0
       },
@@ -1344,238 +1358,238 @@
       "koala-13b": {
         "license": "Non-commercial",
         "model_name": "koala-13b",
-        "rank": 369.0,
+        "rank": 371.0,
         "rating": 989.7659909557059,
         "vote_count": 6965.0
       },
       "ling-flash-2.0": {
         "license": "MIT",
         "model_name": "ling-flash-2.0",
-        "rank": 163.0,
+        "rank": 165.0,
         "rating": 1363.1940510583217,
         "vote_count": 6993.0
       },
       "llama-13b": {
         "license": "Non-commercial",
         "model_name": "llama-13b",
-        "rank": 381.0,
+        "rank": 383.0,
         "rating": 833.6670303217638,
         "vote_count": 2391.0
       },
       "llama-2-13b": {
         "license": "Llama 2 Community",
         "model_name": "llama-2-13b-chat",
-        "rank": 339.0,
+        "rank": 341.0,
         "rating": 1084.6163013009195,
         "vote_count": 19174.0
       },
       "llama-2-70b": {
         "license": "Llama 2 Community",
         "model_name": "llama-2-70b-chat",
-        "rank": 323.0,
+        "rank": 325.0,
         "rating": 1115.38762815211,
         "vote_count": 38492.0
       },
       "llama-2-7b": {
         "license": "Llama 2 Community",
         "model_name": "llama-2-7b-chat",
-        "rank": 356.0,
+        "rank": 358.0,
         "rating": 1053.5568284920957,
         "vote_count": 14148.0
       },
       "llama-3-70b": {
         "license": "Llama 3 Community",
         "model_name": "llama-3-70b-instruct",
-        "rank": 275.0,
+        "rank": 277.0,
         "rating": 1220.9582781188788,
         "vote_count": 156876.0
       },
       "llama-3-8b": {
         "license": "Llama 3 Community",
         "model_name": "llama-3-8b-instruct",
-        "rank": 300.0,
+        "rank": 302.0,
         "rating": 1165.7645837916136,
         "vote_count": 104642.0
       },
       "llama-3.1-405b-instruct-bf16": {
         "license": "Llama 3.1 Community",
         "model_name": "llama-3.1-405b-instruct-bf16",
-        "rank": 230.0,
+        "rank": 232.0,
         "rating": 1283.8379096641838,
         "vote_count": 41375.0
       },
       "llama-3.1-405b-instruct-fp8": {
         "license": "Llama 3.1 Community",
         "model_name": "llama-3.1-405b-instruct-fp8",
-        "rank": 235.0,
+        "rank": 237.0,
         "rating": 1281.9678476728004,
         "vote_count": 59656.0
       },
       "llama-3.1-70b": {
         "license": "Llama 3.1 Community",
         "model_name": "llama-3.1-70b-instruct",
-        "rank": 255.0,
+        "rank": 257.0,
         "rating": 1261.0733492791169,
         "vote_count": 55240.0
       },
       "llama-3.1-8b": {
         "license": "Llama 3.1 Community",
         "model_name": "llama-3.1-8b-instruct",
-        "rank": 292.0,
+        "rank": 294.0,
         "rating": 1186.7414732783227,
         "vote_count": 49605.0
       },
       "llama-3.1-nemotron-51b": {
         "license": "Llama 3.1",
         "model_name": "llama-3.1-nemotron-51b-instruct",
-        "rank": 269.0,
+        "rank": 271.0,
         "rating": 1228.1467761826925,
         "vote_count": 3749.0
       },
       "llama-3.1-nemotron-70b": {
         "license": "Llama 3.1",
         "model_name": "llama-3.1-nemotron-70b-instruct",
-        "rank": 231.0,
+        "rank": 233.0,
         "rating": 1282.8102151637374,
         "vote_count": 7140.0
       },
       "llama-3.1-nemotron-ultra-253b-v1": {
         "license": "Nvidia Open Model",
         "model_name": "llama-3.1-nemotron-ultra-253b-v1",
-        "rank": 201.0,
+        "rank": 203.0,
         "rating": 1319.5743849983126,
         "vote_count": 2549.0
       },
       "llama-3.1-tulu-3-70b": {
         "license": "Llama 3.1",
         "model_name": "llama-3.1-tulu-3-70b",
-        "rank": 257.0,
+        "rank": 259.0,
         "rating": 1255.8943812174005,
         "vote_count": 2846.0
       },
       "llama-3.1-tulu-3-8b": {
         "license": "Llama 3.1",
         "model_name": "llama-3.1-tulu-3-8b",
-        "rank": 287.0,
+        "rank": 289.0,
         "rating": 1193.476903225292,
         "vote_count": 2896.0
       },
       "llama-3.2-1b": {
         "license": "Llama 3.2",
         "model_name": "llama-3.2-1b-instruct",
-        "rank": 354.0,
+        "rank": 356.0,
         "rating": 1054.7949428315087,
         "vote_count": 8045.0
       },
       "llama-3.2-3b": {
         "license": "Llama 3.2",
         "model_name": "llama-3.2-3b-instruct",
-        "rank": 326.0,
+        "rank": 328.0,
         "rating": 1109.6945850618763,
         "vote_count": 7936.0
       },
       "llama-3.3-70b": {
         "license": "Llama-3.3",
         "model_name": "llama-3.3-70b-instruct",
-        "rank": 241.0,
+        "rank": 243.0,
         "rating": 1275.0576360412058,
         "vote_count": 54712.0
       },
       "llama-3.3-nemotron-49b-super-v1": {
         "license": "Nvidia",
         "model_name": "llama-3.3-nemotron-49b-super-v1",
-        "rank": 209.0,
+        "rank": 211.0,
         "rating": 1308.5040528764148,
         "vote_count": 2218.0
       },
       "llama-4-maverick-17b-128e": {
         "license": "Llama 4",
         "model_name": "llama-4-maverick-17b-128e-instruct",
-        "rank": 225.0,
+        "rank": 227.0,
         "rating": 1287.8048312388055,
         "vote_count": 39934.0
       },
       "llama-4-scout-17b-16e": {
         "license": "Llama",
         "model_name": "llama-4-scout-17b-16e-instruct",
-        "rank": 238.0,
+        "rank": 240.0,
         "rating": 1280.854107284757,
         "vote_count": 30259.0
       },
       "llama2-70b-steerlm": {
         "license": "Llama 2 Community",
         "model_name": "llama2-70b-steerlm-chat",
-        "rank": 332.0,
+        "rank": 334.0,
         "rating": 1098.2498487455791,
         "vote_count": 3585.0
       },
       "longcat-flash": {
         "license": "MIT",
         "model_name": "longcat-flash-chat",
-        "rank": 85.0,
+        "rank": 87.0,
         "rating": 1422.3155179497471,
         "vote_count": 11380.0
       },
       "longcat-flash-chat-2602": {
         "license": "Proprietary",
         "model_name": "longcat-flash-chat-2602-exp",
-        "rank": 80.0,
+        "rank": 82.0,
         "rating": 1424.917850923489,
         "vote_count": 27761.0
       },
       "magistral-medium-2506": {
         "license": "Proprietary",
         "model_name": "magistral-medium-2506",
-        "rank": 259.0,
+        "rank": 261.0,
         "rating": 1254.5751883274027,
         "vote_count": 11618.0
       },
       "mercury": {
         "license": "Proprietary",
         "model_name": "mercury",
-        "rank": 233.0,
+        "rank": 235.0,
         "rating": 1282.5885160739326,
         "vote_count": 1949.0
       },
       "mercury-2": {
         "license": "Proprietary",
         "model_name": "mercury-2",
-        "rank": 168.0,
+        "rank": 170.0,
         "rating": 1357.6505520411895,
         "vote_count": 3099.0
       },
       "mimo-v2-flash-(non-thinking)": {
         "license": "MIT",
         "model_name": "mimo-v2-flash (non-thinking)",
-        "rank": 113.0,
+        "rank": 115.0,
         "rating": 1411.287813145117,
         "vote_count": 46276.0
       },
       "mimo-v2-flash-(thinking)": {
         "license": "MIT",
         "model_name": "mimo-v2-flash (thinking)",
-        "rank": 133.0,
+        "rank": 135.0,
         "rating": 1395.1980251515874,
         "vote_count": 10928.0
       },
       "mimo-v2-omni": {
         "license": "Proprietary",
         "model_name": "mimo-v2-omni",
-        "rank": 87.0,
+        "rank": 89.0,
         "rating": 1421.8727654978243,
         "vote_count": 19224.0
       },
       "mimo-v2-pro": {
         "license": "Proprietary",
         "model_name": "mimo-v2-pro",
-        "rank": 66.0,
+        "rank": 67.0,
         "rating": 1436.1506901851035,
         "vote_count": 24257.0
       },
       "mimo-v2.5": {
         "license": "MIT",
         "model_name": "mimo-v2.5",
-        "rank": 77.0,
+        "rank": 79.0,
         "rating": 1427.4807595370962,
         "vote_count": 44261.0
       },
@@ -1589,175 +1603,175 @@
       "minimax-m1": {
         "license": "Apache 2.0",
         "model_name": "minimax-m1",
-        "rank": 178.0,
+        "rank": 180.0,
         "rating": 1342.5055623748108,
         "vote_count": 35135.0
       },
       "minimax-m2": {
         "license": "Apache 2.0",
         "model_name": "minimax-m2",
-        "rank": 179.0,
+        "rank": 181.0,
         "rating": 1342.3680644886467,
         "vote_count": 6861.0
       },
       "minimax-m2.1": {
         "license": "MIT",
         "model_name": "minimax-m2.1-preview",
-        "rank": 137.0,
+        "rank": 139.0,
         "rating": 1391.055789986296,
         "vote_count": 17065.0
       },
       "minimax-m2.5": {
         "license": "Modified MIT",
         "model_name": "minimax-m2.5",
-        "rank": 166.0,
+        "rank": 168.0,
         "rating": 1358.546909748522,
         "vote_count": 40783.0
       },
       "minimax-m2.7": {
         "license": "Modified MIT",
         "model_name": "minimax-m2.7",
-        "rank": 122.0,
+        "rank": 124.0,
         "rating": 1405.3238788848698,
         "vote_count": 51372.0
       },
       "minimax-m3": {
         "license": "MiniMax Community License",
         "model_name": "minimax-m3",
-        "rank": 67.0,
+        "rank": 68.0,
         "rating": 1435.9543245106888,
         "vote_count": 29879.0
       },
       "ministral-8b-2410": {
         "license": "MRL",
         "model_name": "ministral-8b-2410",
-        "rank": 289.0,
+        "rank": 291.0,
         "rating": 1191.0732649614647,
         "vote_count": 4781.0
       },
       "mistral": {
         "license": "Proprietary",
         "model_name": "mistral-medium",
-        "rank": 301.0,
+        "rank": 303.0,
         "rating": 1165.2988277481463,
         "vote_count": 34550.0
       },
       "mistral-7b": {
         "license": "Apache 2.0",
         "model_name": "mistral-7b-instruct",
-        "rank": 365.0,
+        "rank": 367.0,
         "rating": 1023.6654956136882,
         "vote_count": 8977.0
       },
       "mistral-7b-instruct-v0.2": {
         "license": "Apache-2.0",
         "model_name": "mistral-7b-instruct-v0.2",
-        "rank": 338.0,
+        "rank": 340.0,
         "rating": 1089.72421987198,
         "vote_count": 19402.0
       },
       "mistral-large-2402": {
         "license": "Proprietary",
         "model_name": "mistral-large-2402",
-        "rank": 295.0,
+        "rank": 297.0,
         "rating": 1176.6380317132648,
         "vote_count": 62436.0
       },
       "mistral-large-2407": {
         "license": "Mistral Research",
         "model_name": "mistral-large-2407",
-        "rank": 248.0,
+        "rank": 250.0,
         "rating": 1266.3038492737128,
         "vote_count": 45459.0
       },
       "mistral-large-2411": {
         "license": "MRL",
         "model_name": "mistral-large-2411",
-        "rank": 249.0,
+        "rank": 251.0,
         "rating": 1265.4449390273712,
         "vote_count": 28073.0
       },
       "mistral-large-3": {
         "license": "Apache 2.0",
         "model_name": "mistral-large-3",
-        "rank": 73.0,
+        "rank": 74.0,
         "rating": 1429.499787992313,
         "vote_count": 52509.0
       },
       "mistral-medium-2505": {
         "license": "Proprietary",
         "model_name": "mistral-medium-2505",
-        "rank": 153.0,
+        "rank": 155.0,
         "rating": 1369.433713958458,
         "vote_count": 33177.0
       },
       "mistral-medium-2508": {
         "license": "Proprietary",
         "model_name": "mistral-medium-2508",
-        "rank": 78.0,
+        "rank": 80.0,
         "rating": 1425.317718377241,
         "vote_count": 93448.0
       },
       "mistral-medium-3.5": {
         "license": "Modified MIT",
         "model_name": "mistral-medium-3.5",
-        "rank": 89.0,
+        "rank": 91.0,
         "rating": 1421.0894012525305,
         "vote_count": 10917.0
       },
       "mistral-small-24b-instruct-2501": {
         "license": "Apache 2.0",
         "model_name": "mistral-small-24b-instruct-2501",
-        "rank": 264.0,
+        "rank": 266.0,
         "rating": 1233.6755561042826,
         "vote_count": 14681.0
       },
       "mistral-small-2506": {
         "license": "Apache 2.0",
         "model_name": "mistral-small-2506",
-        "rank": 183.0,
+        "rank": 185.0,
         "rating": 1339.1226710680642,
         "vote_count": 17688.0
       },
       "mistral-small-3.1-24b-instruct-2503": {
         "license": "Apache 2.0",
         "model_name": "mistral-small-3.1-24b-instruct-2503",
-        "rank": 240.0,
+        "rank": 242.0,
         "rating": 1277.8897803192424,
         "vote_count": 33183.0
       },
       "mixtral-8x22b-instruct-v0.1": {
         "license": "Apache 2.0",
         "model_name": "mixtral-8x22b-instruct-v0.1",
-        "rank": 304.0,
+        "rank": 306.0,
         "rating": 1162.1475830897302,
         "vote_count": 51416.0
       },
       "mixtral-8x7b-instruct-v0.1": {
         "license": "Apache 2.0",
         "model_name": "mixtral-8x7b-instruct-v0.1",
-        "rank": 314.0,
+        "rank": 316.0,
         "rating": 1131.718629303959,
         "vote_count": 73503.0
       },
       "molmo-2-8b": {
         "license": "Apache 2.0",
         "model_name": "molmo-2-8b",
-        "rank": 218.0,
+        "rank": 220.0,
         "rating": 1295.3914698004237,
         "vote_count": 799.0
       },
       "mpt-30b": {
         "license": "CC-BY-NC-SA-4.0",
         "model_name": "mpt-30b-chat",
-        "rank": 348.0,
+        "rank": 350.0,
         "rating": 1068.767543063719,
         "vote_count": 2572.0
       },
       "mpt-7b": {
         "license": "CC-BY-NC-SA-4.0",
         "model_name": "mpt-7b-chat",
-        "rank": 372.0,
+        "rank": 374.0,
         "rating": 955.3757746112757,
         "vote_count": 3924.0
       },
@@ -1778,371 +1792,371 @@
       "nemotron-4-340b": {
         "license": "NVIDIA Open Model",
         "model_name": "nemotron-4-340b-instruct",
-        "rank": 273.0,
+        "rank": 275.0,
         "rating": 1224.9750810455575,
         "vote_count": 19659.0
       },
       "nous-hermes-2-mixtral-8x7b-dpo": {
         "license": "Apache-2.0",
         "model_name": "nous-hermes-2-mixtral-8x7b-dpo",
-        "rank": 324.0,
+        "rank": 326.0,
         "rating": 1112.198513114692,
         "vote_count": 3777.0
       },
       "nova-2-lite": {
         "license": "Proprietary",
         "model_name": "nova-2-lite",
-        "rank": 165.0,
+        "rank": 167.0,
         "rating": 1362.7026052942088,
         "vote_count": 12213.0
       },
       "nvidia-llama-3.3-nemotron-super-49b-v1.5": {
         "license": "Nvidia Open",
         "model_name": "nvidia-llama-3.3-nemotron-super-49b-v1.5",
-        "rank": 185.0,
+        "rank": 187.0,
         "rating": 1337.9630859882486,
         "vote_count": 3344.0
       },
       "nvidia-nemotron-3-nano-30b-a3b-bf16": {
         "license": "NVIDIA Open Model",
         "model_name": "nvidia-nemotron-3-nano-30b-a3b-bf16",
-        "rank": 176.0,
+        "rank": 178.0,
         "rating": 1349.1788507035944,
         "vote_count": 15492.0
       },
       "nvidia-nemotron-3-super-120b-a12b": {
         "license": "NVIDIA Open Model",
         "model_name": "nvidia-nemotron-3-super-120b-a12b",
-        "rank": 144.0,
+        "rank": 146.0,
         "rating": 1378.048580263533,
         "vote_count": 7491.0
       },
       "nvidia-nemotron-3-ultra-550b-a55b-nvfp4": {
         "license": "OpenMDW-1.1",
         "model_name": "nvidia-nemotron-3-ultra-550b-a55b-nvfp4",
-        "rank": 47.0,
+        "rank": 48.0,
         "rating": 1444.5544628535504,
         "vote_count": 10583.0
       },
       "o1": {
         "license": "Proprietary",
         "model_name": "o1-2024-12-17",
-        "rank": 158.0,
+        "rank": 160.0,
         "rating": 1365.9643408491133,
         "vote_count": 27807.0
       },
       "o1-mini": {
         "license": "Proprietary",
         "model_name": "o1-mini",
-        "rank": 204.0,
+        "rank": 206.0,
         "rating": 1317.234578795621,
         "vote_count": 51981.0
       },
       "o3": {
         "license": "Proprietary",
         "model_name": "o3-2025-04-16",
-        "rank": 115.0,
+        "rank": 117.0,
         "rating": 1409.5023119151538,
         "vote_count": 59667.0
       },
       "o3-mini": {
         "license": "Proprietary",
         "model_name": "o3-mini-high",
-        "rank": 187.0,
+        "rank": 189.0,
         "rating": 1336.6868836256049,
         "vote_count": 18589.0
       },
       "o4-mini": {
         "license": "Proprietary",
         "model_name": "o4-mini-2025-04-16",
-        "rank": 174.0,
+        "rank": 176.0,
         "rating": 1352.7397092319281,
         "vote_count": 45385.0
       },
       "oasst-pythia-12b": {
         "license": "Apache 2.0",
         "model_name": "oasst-pythia-12b",
-        "rank": 377.0,
+        "rank": 379.0,
         "rating": 916.2230419444312,
         "vote_count": 6310.0
       },
       "olmo-2-0325-32b": {
         "license": "Apache-2.0",
         "model_name": "olmo-2-0325-32b-instruct",
-        "rank": 278.0,
+        "rank": 280.0,
         "rating": 1218.0560700333524,
         "vote_count": 3334.0
       },
       "olmo-3-32b-think": {
         "license": "Apache 2.0",
         "model_name": "olmo-3-32b-think",
-        "rank": 216.0,
+        "rank": 218.0,
         "rating": 1298.7801100730794,
         "vote_count": 5931.0
       },
       "olmo-3.1-32b": {
         "license": "Apache 2.0",
         "model_name": "olmo-3.1-32b-instruct",
-        "rank": 208.0,
+        "rank": 210.0,
         "rating": 1311.3801823566623,
         "vote_count": 12200.0
       },
       "olmo-3.1-32b-think": {
         "license": "Apache 2.0",
         "model_name": "olmo-3.1-32b-think",
-        "rank": 246.0,
+        "rank": 248.0,
         "rating": 1270.3109411356836,
         "vote_count": 8496.0
       },
       "olmo-7b": {
         "license": "Apache-2.0",
         "model_name": "olmo-7b-instruct",
-        "rank": 362.0,
+        "rank": 364.0,
         "rating": 1031.96904826443,
         "vote_count": 6328.0
       },
       "openchat-3.5": {
         "license": "Apache-2.0",
         "model_name": "openchat-3.5",
-        "rank": 333.0,
+        "rank": 335.0,
         "rating": 1097.1914909124403,
         "vote_count": 7968.0
       },
       "openchat-3.5-0106": {
         "license": "Apache-2.0",
         "model_name": "openchat-3.5-0106",
-        "rank": 328.0,
+        "rank": 330.0,
         "rating": 1106.7680977647901,
         "vote_count": 12637.0
       },
       "openhermes-2.5-mistral-7b": {
         "license": "Apache-2.0",
         "model_name": "openhermes-2.5-mistral-7b",
-        "rank": 337.0,
+        "rank": 339.0,
         "rating": 1092.6584156967074,
         "vote_count": 5006.0
       },
       "palm-2": {
         "license": "Proprietary",
         "model_name": "palm-2",
-        "rank": 364.0,
+        "rank": 366.0,
         "rating": 1027.3954851959384,
         "vote_count": 8554.0
       },
       "phi-3-medium-4k": {
         "license": "MIT",
         "model_name": "phi-3-medium-4k-instruct",
-        "rank": 311.0,
+        "rank": 313.0,
         "rating": 1137.7108227096182,
         "vote_count": 25055.0
       },
       "phi-3-mini": {
         "license": "MIT",
         "model_name": "phi-3-mini-128k-instruct",
-        "rank": 359.0,
+        "rank": 361.0,
         "rating": 1050.5478131573477,
         "vote_count": 20685.0
       },
       "phi-3-mini-4k": {
         "license": "MIT",
         "model_name": "phi-3-mini-4k-instruct",
-        "rank": 346.0,
+        "rank": 348.0,
         "rating": 1073.4652206023252,
         "vote_count": 20118.0
       },
       "phi-3-mini-4k-instruct-june-2024": {
         "license": "MIT",
         "model_name": "phi-3-mini-4k-instruct-june-2024",
-        "rank": 343.0,
+        "rank": 345.0,
         "rating": 1080.115151352215,
         "vote_count": 12297.0
       },
       "phi-3-small-8k": {
         "license": "MIT",
         "model_name": "phi-3-small-8k-instruct",
-        "rank": 325.0,
+        "rank": 327.0,
         "rating": 1109.982992535212,
         "vote_count": 17766.0
       },
       "phi-4": {
         "license": "MIT",
         "model_name": "phi-4",
-        "rank": 279.0,
+        "rank": 281.0,
         "rating": 1216.8367524357532,
         "vote_count": 24126.0
       },
       "qwen-14b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen-14b-chat",
-        "rank": 358.0,
+        "rank": 360.0,
         "rating": 1051.1855105932277,
         "vote_count": 4964.0
       },
       "qwen-max-0919": {
         "license": "Qwen",
         "model_name": "qwen-max-0919",
-        "rank": 234.0,
+        "rank": 236.0,
         "rating": 1282.0383147388447,
         "vote_count": 16478.0
       },
       "qwen-plus-0125": {
         "license": "Proprietary",
         "model_name": "qwen-plus-0125",
-        "rank": 197.0,
+        "rank": 199.0,
         "rating": 1326.5466542394693,
         "vote_count": 5819.0
       },
       "qwen1.5-110b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-110b-chat",
-        "rank": 296.0,
+        "rank": 298.0,
         "rating": 1174.7316981729998,
         "vote_count": 26195.0
       },
       "qwen1.5-14b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-14b-chat",
-        "rank": 317.0,
+        "rank": 319.0,
         "rating": 1127.853727092806,
         "vote_count": 17839.0
       },
       "qwen1.5-32b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-32b-chat",
-        "rank": 312.0,
+        "rank": 314.0,
         "rating": 1137.3629210608651,
         "vote_count": 21741.0
       },
       "qwen1.5-4b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-4b-chat",
-        "rank": 368.0,
+        "rank": 370.0,
         "rating": 997.3923489291516,
         "vote_count": 7597.0
       },
       "qwen1.5-72b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-72b-chat",
-        "rank": 299.0,
+        "rank": 301.0,
         "rating": 1166.3129070543075,
         "vote_count": 39302.0
       },
       "qwen1.5-7b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen1.5-7b-chat",
-        "rank": 340.0,
+        "rank": 342.0,
         "rating": 1083.6190196287416,
         "vote_count": 4737.0
       },
       "qwen2-72b": {
         "license": "Qianwen LICENSE",
         "model_name": "qwen2-72b-instruct",
-        "rank": 284.0,
+        "rank": 286.0,
         "rating": 1203.4338754068442,
         "vote_count": 37325.0
       },
       "qwen2.5": {
         "license": "Proprietary",
         "model_name": "qwen2.5-max",
-        "rank": 157.0,
+        "rank": 159.0,
         "rating": 1366.6481732691877,
         "vote_count": 32589.0
       },
       "qwen2.5-72b": {
         "license": "Qwen",
         "model_name": "qwen2.5-72b-instruct",
-        "rank": 247.0,
+        "rank": 249.0,
         "rating": 1269.1840233746316,
         "vote_count": 39406.0
       },
       "qwen2.5-coder-32b": {
         "license": "Apache 2.0",
         "model_name": "qwen2.5-coder-32b-instruct",
-        "rank": 266.0,
+        "rank": 268.0,
         "rating": 1230.2093150239318,
         "vote_count": 5432.0
       },
       "qwen2.5-plus-1127": {
         "license": "Proprietary",
         "model_name": "qwen2.5-plus-1127",
-        "rank": 215.0,
+        "rank": 217.0,
         "rating": 1299.3118560608173,
         "vote_count": 10187.0
       },
       "qwen3": {
         "license": "Proprietary",
         "model_name": "qwen3-max-preview",
-        "rank": 58.0,
+        "rank": 59.0,
         "rating": 1439.073812903598,
         "vote_count": 27675.0
       },
       "qwen3-235b-a22b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-235b-a22b",
-        "rank": 159.0,
+        "rank": 161.0,
         "rating": 1365.9367024733456,
         "vote_count": 26244.0
       },
       "qwen3-235b-a22b-instruct-2507": {
         "license": "Apache 2.0",
         "model_name": "qwen3-235b-a22b-instruct-2507",
-        "rank": 96.0,
+        "rank": 98.0,
         "rating": 1419.295269063411,
         "vote_count": 96779.0
       },
       "qwen3-235b-a22b-no": {
         "license": "Apache 2.0",
         "model_name": "qwen3-235b-a22b-no-thinking",
-        "rank": 135.0,
+        "rank": 137.0,
         "rating": 1393.7772150148517,
         "vote_count": 38150.0
       },
       "qwen3-235b-a22b-thinking-2507": {
         "license": "Apache 2.0",
         "model_name": "qwen3-235b-a22b-thinking-2507",
-        "rank": 109.0,
+        "rank": 111.0,
         "rating": 1413.740365452646,
         "vote_count": 8983.0
       },
       "qwen3-30b-a3b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-30b-a3b",
-        "rank": 205.0,
+        "rank": 207.0,
         "rating": 1317.104386921733,
         "vote_count": 26450.0
       },
       "qwen3-30b-a3b-instruct-2507": {
         "license": "Apache 2.0",
         "model_name": "qwen3-30b-a3b-instruct-2507",
-        "rank": 139.0,
+        "rank": 141.0,
         "rating": 1383.938539827786,
         "vote_count": 23706.0
       },
       "qwen3-32b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-32b",
-        "rank": 182.0,
+        "rank": 184.0,
         "rating": 1340.1475559285457,
         "vote_count": 3926.0
       },
       "qwen3-coder-480b-a35b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-coder-480b-a35b-instruct",
-        "rank": 169.0,
+        "rank": 171.0,
         "rating": 1356.3934332153426,
         "vote_count": 25681.0
       },
       "qwen3-next-80b-a3b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-next-80b-a3b-instruct",
-        "rank": 97.0,
+        "rank": 99.0,
         "rating": 1418.7164341658718,
         "vote_count": 22846.0
       },
       "qwen3-vl-235b-a22b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-vl-235b-a22b-instruct",
-        "rank": 88.0,
+        "rank": 90.0,
         "rating": 1421.4815260578512,
         "vote_count": 11489.0
       },
@@ -2156,49 +2170,49 @@
       "qwen3.5-122b-a10b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-122b-a10b",
-        "rank": 99.0,
+        "rank": 101.0,
         "rating": 1417.7213133827418,
         "vote_count": 28247.0
       },
       "qwen3.5-27b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-27b",
-        "rank": 118.0,
+        "rank": 120.0,
         "rating": 1408.077634429033,
         "vote_count": 27096.0
       },
       "qwen3.5-35b-a3b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-35b-a3b",
-        "rank": 132.0,
+        "rank": 134.0,
         "rating": 1395.597806115663,
         "vote_count": 28909.0
       },
       "qwen3.5-397b-a17b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-397b-a17b",
-        "rank": 57.0,
+        "rank": 58.0,
         "rating": 1439.0911715041957,
         "vote_count": 59613.0
       },
       "qwen3.5-flash": {
         "license": "Proprietary",
         "model_name": "qwen3.5-flash",
-        "rank": 131.0,
+        "rank": 133.0,
         "rating": 1397.750947115404,
         "vote_count": 57925.0
       },
       "qwen3.6": {
         "license": "Proprietary",
         "model_name": "qwen3.6-max-preview",
-        "rank": 42.0,
+        "rank": 43.0,
         "rating": 1446.3504166943599,
         "vote_count": 5159.0
       },
       "qwen3.6-plus": {
         "license": "Proprietary",
         "model_name": "qwen3.6-plus",
-        "rank": 64.0,
+        "rank": 65.0,
         "rating": 1436.7546380036815,
         "vote_count": 45069.0
       },
@@ -2219,217 +2233,217 @@
       "qwq-32b": {
         "license": "Apache 2.0",
         "model_name": "qwq-32b",
-        "rank": 196.0,
+        "rank": 198.0,
         "rating": 1329.360401640037,
         "vote_count": 25366.0
       },
       "reka-core": {
         "license": "Proprietary",
         "model_name": "reka-core-20240904",
-        "rank": 260.0,
+        "rank": 262.0,
         "rating": 1248.542323323233,
         "vote_count": 7312.0
       },
       "reka-flash": {
         "license": "Proprietary",
         "model_name": "reka-flash-20240904",
-        "rank": 277.0,
+        "rank": 279.0,
         "rating": 1218.0814935571952,
         "vote_count": 7536.0
       },
       "reka-flash-21b": {
         "license": "Proprietary",
         "model_name": "reka-flash-21b-20240226",
-        "rank": 302.0,
+        "rank": 304.0,
         "rating": 1165.1489991576545,
         "vote_count": 24806.0
       },
       "reka-flash-21b-online": {
         "license": "Proprietary",
         "model_name": "reka-flash-21b-20240226-online",
-        "rank": 298.0,
+        "rank": 300.0,
         "rating": 1170.5933866952987,
         "vote_count": 15450.0
       },
       "ring-flash-2.0": {
         "license": "MIT",
         "model_name": "ring-flash-2.0",
-        "rank": 192.0,
+        "rank": 194.0,
         "rating": 1331.7708257457384,
         "vote_count": 7132.0
       },
       "rwkv-4-raven-14b": {
         "license": "Apache 2.0",
         "model_name": "RWKV-4-Raven-14B",
-        "rank": 373.0,
+        "rank": 375.0,
         "rating": 948.542668206804,
         "vote_count": 4845.0
       },
       "smollm2-1.7b": {
         "license": "Apache 2.0",
         "model_name": "smollm2-1.7b-instruct",
-        "rank": 360.0,
+        "rank": 362.0,
         "rating": 1042.1868571475916,
         "vote_count": 2199.0
       },
       "snowflake-arctic": {
         "license": "Apache 2.0",
         "model_name": "snowflake-arctic-instruct",
-        "rank": 331.0,
+        "rank": 333.0,
         "rating": 1101.1349872394371,
         "vote_count": 32832.0
       },
       "solar-10.7b-instruct-v1.0": {
         "license": "CC-BY-NC-4.0",
         "model_name": "solar-10.7b-instruct-v1.0",
-        "rank": 341.0,
+        "rank": 343.0,
         "rating": 1083.246329987092,
         "vote_count": 4155.0
       },
       "stablelm-tuned-alpha-7b": {
         "license": "CC-BY-NC-SA-4.0",
         "model_name": "stablelm-tuned-alpha-7b",
-        "rank": 379.0,
+        "rank": 381.0,
         "rating": 866.7297708785331,
         "vote_count": 3287.0
       },
       "starling-lm-7b-alpha": {
         "license": "CC-BY-NC-4.0",
         "model_name": "starling-lm-7b-alpha",
-        "rank": 327.0,
+        "rank": 329.0,
         "rating": 1107.820545098521,
         "vote_count": 10224.0
       },
       "starling-lm-7b-beta": {
         "license": "Apache-2.0",
         "model_name": "starling-lm-7b-beta",
-        "rank": 313.0,
+        "rank": 315.0,
         "rating": 1132.203342053971,
         "vote_count": 16056.0
       },
       "step-1o-turbo-202506": {
         "license": "Proprietary",
         "model_name": "step-1o-turbo-202506",
-        "rank": 188.0,
+        "rank": 190.0,
         "rating": 1335.4979800556362,
         "vote_count": 9018.0
       },
       "step-2-16k-exp-202412": {
         "license": "Proprietary",
         "model_name": "step-2-16k-exp-202412",
-        "rank": 198.0,
+        "rank": 200.0,
         "rating": 1321.0738922365988,
         "vote_count": 4833.0
       },
       "step-3": {
         "license": "Apache 2.0",
         "model_name": "step-3",
-        "rank": 175.0,
+        "rank": 177.0,
         "rating": 1349.741941849294,
         "vote_count": 6534.0
       },
       "step-3.5-flash": {
         "license": "Apache 2.0",
         "model_name": "step-3.5-flash",
-        "rank": 124.0,
+        "rank": 126.0,
         "rating": 1404.0428927414082,
         "vote_count": 57037.0
       },
       "stripedhyena-nous-7b": {
         "license": "Apache 2.0",
         "model_name": "stripedhyena-nous-7b",
-        "rank": 361.0,
+        "rank": 363.0,
         "rating": 1038.5977972427909,
         "vote_count": 5182.0
       },
       "trinity-large": {
         "license": "Apache 2.0",
         "model_name": "trinity-large-thinking",
-        "rank": 180.0,
+        "rank": 182.0,
         "rating": 1341.570193824145,
         "vote_count": 28834.0
       },
       "tulu-2-dpo-70b": {
         "license": "AI2 ImpACT Low-risk",
         "model_name": "tulu-2-dpo-70b",
-        "rank": 320.0,
+        "rank": 322.0,
         "rating": 1121.1947525330474,
         "vote_count": 6535.0
       },
       "vicuna-13b": {
         "license": "Llama 2 Community",
         "model_name": "vicuna-13b",
-        "rank": 351.0,
+        "rank": 353.0,
         "rating": 1057.8162975071318,
         "vote_count": 19367.0
       },
       "vicuna-33b": {
         "license": "Non-commercial",
         "model_name": "vicuna-33b",
-        "rank": 329.0,
+        "rank": 331.0,
         "rating": 1105.4195214533697,
         "vote_count": 22479.0
       },
       "vicuna-7b": {
         "license": "Llama 2 Community",
         "model_name": "vicuna-7b",
-        "rank": 363.0,
+        "rank": 365.0,
         "rating": 1031.1045156412474,
         "vote_count": 6923.0
       },
       "wizardlm-13b": {
         "license": "Llama 2 Community",
         "model_name": "wizardlm-13b",
-        "rank": 345.0,
+        "rank": 347.0,
         "rating": 1076.6965754972794,
         "vote_count": 7044.0
       },
       "wizardlm-70b": {
         "license": "Llama 2 Community",
         "model_name": "wizardlm-70b",
-        "rank": 321.0,
+        "rank": 323.0,
         "rating": 1119.680372112698,
         "vote_count": 8214.0
       },
       "yi-1.5-34b": {
         "license": "Apache-2.0",
         "model_name": "yi-1.5-34b-chat",
-        "rank": 297.0,
+        "rank": 299.0,
         "rating": 1173.1191054664082,
         "vote_count": 24146.0
       },
       "yi-34b": {
         "license": "Yi License",
         "model_name": "yi-34b-chat",
-        "rank": 316.0,
+        "rank": 318.0,
         "rating": 1128.6303508164992,
         "vote_count": 15483.0
       },
       "yi-lightning": {
         "license": "Proprietary",
         "model_name": "yi-lightning",
-        "rank": 212.0,
+        "rank": 214.0,
         "rating": 1301.6891932254866,
         "vote_count": 27332.0
       },
       "zephyr-7b-alpha": {
         "license": "MIT",
         "model_name": "zephyr-7b-alpha",
-        "rank": 350.0,
+        "rank": 352.0,
         "rating": 1058.5276676607684,
         "vote_count": 1785.0
       },
       "zephyr-7b-beta": {
         "license": "MIT",
         "model_name": "zephyr-7b-beta",
-        "rank": 347.0,
+        "rank": 349.0,
         "rating": 1069.5803928881087,
         "vote_count": 11118.0
       },
       "zephyr-orpo-141b-a35b-v0.1": {
         "license": "Apache 2.0",
         "model_name": "zephyr-orpo-141b-A35b-v0.1",
-        "rank": 310.0,
+        "rank": 312.0,
         "rating": 1143.852829158192,
         "vote_count": 4652.0
       }
@@ -2438,70 +2452,70 @@
       "amazon-nova-lite-v1.0": {
         "license": "Proprietary",
         "model_name": "amazon-nova-lite-v1.0",
-        "rank": 125,
+        "rank": 128,
         "rating": 990.5780172679627,
         "vote_count": 1854
       },
       "amazon-nova-pro-v1.0": {
         "license": "Proprietary",
         "model_name": "amazon-nova-pro-v1.0",
-        "rank": 128,
+        "rank": 131,
         "rating": 980.5842562146657,
         "vote_count": 2335
       },
       "c4ai-aya-vision-32b": {
         "license": "CC-BY-NC-4.0",
         "model_name": "c4ai-aya-vision-32b",
-        "rank": 124,
+        "rank": 127,
         "rating": 995.825375323272,
         "vote_count": 847
       },
       "chatgpt-4o": {
         "license": "Proprietary",
         "model_name": "chatgpt-4o-latest-20250326",
-        "rank": 49,
+        "rank": 52,
         "rating": 1244.7711226048934,
         "vote_count": 23228
       },
       "claude-3-5-haiku": {
         "license": "Proprietary",
         "model_name": "claude-3-5-haiku-20241022",
-        "rank": 105,
+        "rank": 108,
         "rating": 1092.7838823437708,
         "vote_count": 1407
       },
       "claude-3-5-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-5-sonnet-20241022",
-        "rank": 99,
+        "rank": 102,
         "rating": 1125.4798034503006,
         "vote_count": 10389
       },
       "claude-3-7-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-7-sonnet-20250219-thinking-32k",
-        "rank": 83,
+        "rank": 86,
         "rating": 1171.4603456725047,
         "vote_count": 1452
       },
       "claude-3-haiku": {
         "license": "Proprietary",
         "model_name": "claude-3-haiku-20240307",
-        "rank": 132,
+        "rank": 135,
         "rating": 950.286801867841,
         "vote_count": 13380
       },
       "claude-3-opus": {
         "license": "Proprietary",
         "model_name": "claude-3-opus-20240229",
-        "rank": 117,
+        "rank": 120,
         "rating": 1023.0589062738977,
         "vote_count": 15565
       },
       "claude-3-sonnet": {
         "license": "Proprietary",
         "model_name": "claude-3-sonnet-20240229",
-        "rank": 127,
+        "rank": 130,
         "rating": 984.0509425916155,
         "vote_count": 12314
       },
@@ -2515,7 +2529,7 @@
       "claude-opus-4": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-20250514",
-        "rank": 81,
+        "rank": 84,
         "rating": 1175.6238569031204,
         "vote_count": 2201
       },
@@ -2543,7 +2557,7 @@
       "claude-opus-4-thinking-16k": {
         "license": "Proprietary",
         "model_name": "claude-opus-4-20250514-thinking-16k",
-        "rank": 73,
+        "rank": 76,
         "rating": 1190.9548529201172,
         "vote_count": 1299
       },
@@ -2557,7 +2571,7 @@
       "claude-sonnet-4": {
         "license": "Proprietary",
         "model_name": "claude-sonnet-4-20250514-thinking-32k",
-        "rank": 72,
+        "rank": 75,
         "rating": 1192.312776128887,
         "vote_count": 1160
       },
@@ -2578,105 +2592,105 @@
       "cogvlm2-llama3-chat-19b": {
         "license": "CogVLM2",
         "model_name": "cogvlm2-llama3-chat-19b",
-        "rank": 136,
+        "rank": 139,
         "rating": 927.6782485596027,
         "vote_count": 1991
       },
       "dola-seed-2.0-pro": {
         "license": "Proprietary",
         "model_name": "dola-seed-2.0-pro",
-        "rank": 26,
+        "rank": 27,
         "rating": 1275.4962608663918,
         "vote_count": 10274
       },
       "ernie-5.0-preview-1220": {
         "license": "Proprietary",
         "model_name": "ernie-5.0-preview-1220",
-        "rank": 44,
+        "rank": 47,
         "rating": 1247.7329289698844,
         "vote_count": 3158
       },
       "gemini-1.5-flash-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-001",
-        "rank": 120,
+        "rank": 123,
         "rating": 1008.0911403095114,
         "vote_count": 13260
       },
       "gemini-1.5-flash-002": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-002",
-        "rank": 96,
+        "rank": 99,
         "rating": 1140.7768625843576,
         "vote_count": 7241
       },
       "gemini-1.5-flash-8b-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-flash-8b-001",
-        "rank": 116,
+        "rank": 119,
         "rating": 1044.2376673418248,
         "vote_count": 6243
       },
       "gemini-1.5-pro-001": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-pro-001",
-        "rank": 108,
+        "rank": 111,
         "rating": 1088.431007065387,
         "vote_count": 16734
       },
       "gemini-1.5-pro-002": {
         "license": "Proprietary",
         "model_name": "gemini-1.5-pro-002",
-        "rank": 88,
+        "rank": 91,
         "rating": 1161.556960397126,
         "vote_count": 8902
       },
       "gemini-2.0-flash-001": {
         "license": "Proprietary",
         "model_name": "gemini-2.0-flash-001",
-        "rank": 89,
+        "rank": 92,
         "rating": 1158.459401855592,
         "vote_count": 10165
       },
       "gemini-2.0-flash-lite-preview-02-05": {
         "license": "Proprietary",
         "model_name": "gemini-2.0-flash-lite-preview-02-05",
-        "rank": 104,
+        "rank": 107,
         "rating": 1100.6255117528212,
         "vote_count": 3991
       },
       "gemini-2.5-flash": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash",
-        "rank": 52,
+        "rank": 55,
         "rating": 1235.3767675112438,
         "vote_count": 59219
       },
       "gemini-2.5-flash-lite-preview-06-17": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-lite-preview-06-17-thinking",
-        "rank": 74,
+        "rank": 77,
         "rating": 1187.4899920451323,
         "vote_count": 36323
       },
       "gemini-2.5-flash-lite-preview-09-2025-no": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-lite-preview-09-2025-no-thinking",
-        "rank": 69,
+        "rank": 72,
         "rating": 1198.3494438703854,
         "vote_count": 4736
       },
       "gemini-2.5-flash-preview-09-2025": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-flash-preview-09-2025",
-        "rank": 42,
+        "rank": 45,
         "rating": 1248.7666199369814,
         "vote_count": 4685
       },
       "gemini-2.5-pro": {
         "license": "Proprietary",
         "model_name": "gemini-2.5-pro",
-        "rank": 33,
+        "rank": 35,
         "rating": 1261.6701602542216,
         "vote_count": 88495
       },
@@ -2690,7 +2704,7 @@
       "gemini-3-flash-(thinking-minimal)": {
         "license": "Proprietary",
         "model_name": "gemini-3-flash (thinking-minimal)",
-        "rank": 32,
+        "rank": 34,
         "rating": 1263.7324771024555,
         "vote_count": 33247
       },
@@ -2704,7 +2718,7 @@
       "gemini-3.1-flash-lite": {
         "license": "Proprietary",
         "model_name": "gemini-3.1-flash-lite-preview",
-        "rank": 51,
+        "rank": 54,
         "rating": 1240.0879978266528,
         "vote_count": 25942
       },
@@ -2725,7 +2739,7 @@
       "gemini-3.5-flash-lite": {
         "license": "Proprietary",
         "model_name": "gemini-3.5-flash-lite",
-        "rank": 38,
+        "rank": 40,
         "rating": 1256.63236723311,
         "vote_count": 247
       },
@@ -2739,126 +2753,126 @@
       "gemma-3-27b": {
         "license": "Gemma",
         "model_name": "gemma-3-27b-it",
-        "rank": 86,
+        "rank": 89,
         "rating": 1165.1783012095702,
         "vote_count": 17185
       },
       "gemma-4-26b-a4b": {
         "license": "Apache 2.0",
         "model_name": "gemma-4-26b-a4b",
-        "rank": 37,
+        "rank": 39,
         "rating": 1256.7085164109506,
         "vote_count": 21642
       },
       "gemma-4-31b": {
         "license": "Apache 2.0",
         "model_name": "gemma-4-31b",
-        "rank": 27,
+        "rank": 29,
         "rating": 1271.6036165802527,
         "vote_count": 31845
       },
       "glm-4.5v": {
         "license": "MIT",
         "model_name": "glm-4.5v",
-        "rank": 91,
+        "rank": 94,
         "rating": 1156.046589066912,
         "vote_count": 3281
       },
       "glm-4.6v": {
         "license": "MIT",
         "model_name": "glm-4.6v",
-        "rank": 85,
+        "rank": 88,
         "rating": 1166.426338761427,
         "vote_count": 2312
       },
       "glm-5v-turbo": {
         "license": "Proprietary",
         "model_name": "glm-5v-turbo",
-        "rank": 31,
+        "rank": 33,
         "rating": 1264.0383368772887,
         "vote_count": 27421
       },
       "gpt-4-turbo": {
         "license": "Proprietary",
         "model_name": "gpt-4-turbo-2024-04-09",
-        "rank": 106,
+        "rank": 109,
         "rating": 1089.9984913957264,
         "vote_count": 13391
       },
       "gpt-4.1": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-2025-04-14",
-        "rank": 63,
+        "rank": 66,
         "rating": 1209.8620163588298,
         "vote_count": 41571
       },
       "gpt-4.1-mini": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-mini-2025-04-14",
-        "rank": 77,
+        "rank": 80,
         "rating": 1182.6530005175375,
         "vote_count": 40854
       },
       "gpt-4.1-nano": {
         "license": "Proprietary",
         "model_name": "gpt-4.1-nano-2025-04-14",
-        "rank": 112,
+        "rank": 115,
         "rating": 1063.5330807427085,
         "vote_count": 1211
       },
       "gpt-4.5": {
         "license": "Proprietary",
         "model_name": "gpt-4.5-preview-2025-02-27",
-        "rank": 70,
+        "rank": 73,
         "rating": 1195.124907476819,
         "vote_count": 2925
       },
       "gpt-4o": {
         "license": "Proprietary",
         "model_name": "gpt-4o-2024-05-13",
-        "rank": 98,
+        "rank": 101,
         "rating": 1136.7541689060886,
         "vote_count": 23273
       },
       "gpt-4o-mini": {
         "license": "Proprietary",
         "model_name": "gpt-4o-mini-2024-07-18",
-        "rank": 110,
+        "rank": 113,
         "rating": 1065.7573525666908,
         "vote_count": 17341
       },
       "gpt-5": {
         "license": "Proprietary",
         "model_name": "gpt-5-chat",
-        "rank": 55,
+        "rank": 58,
         "rating": 1231.6291051226694,
         "vote_count": 40200
       },
       "gpt-5-mini": {
         "license": "Proprietary",
         "model_name": "gpt-5-mini-high",
-        "rank": 66,
+        "rank": 69,
         "rating": 1202.6603679474556,
         "vote_count": 29230
       },
       "gpt-5-nano": {
         "license": "Proprietary",
         "model_name": "gpt-5-nano-high",
-        "rank": 87,
+        "rank": 90,
         "rating": 1161.6865303014793,
         "vote_count": 3974
       },
       "gpt-5.1": {
         "license": "Proprietary",
         "model_name": "gpt-5.1-high",
-        "rank": 43,
+        "rank": 46,
         "rating": 1248.269530957082,
         "vote_count": 9178
       },
       "gpt-5.2": {
         "license": "Proprietary",
         "model_name": "gpt-5.2-chat-latest-20260210",
-        "rank": 28,
+        "rank": 30,
         "rating": 1266.9834486866125,
         "vote_count": 15403
       },
@@ -2872,14 +2886,14 @@
       "gpt-5.4-mini": {
         "license": "Proprietary",
         "model_name": "gpt-5.4-mini-high",
-        "rank": 45,
+        "rank": 48,
         "rating": 1246.960128730655,
         "vote_count": 22573
       },
       "gpt-5.4-nano": {
         "license": "Proprietary",
         "model_name": "gpt-5.4-nano-high",
-        "rank": 68,
+        "rank": 71,
         "rating": 1199.112405738836,
         "vote_count": 22467
       },
@@ -2893,42 +2907,63 @@
       "gpt-5.5-instant": {
         "license": "Proprietary",
         "model_name": "gpt-5.5-instant",
-        "rank": 41,
+        "rank": 43,
         "rating": 1250.8087160613031,
         "vote_count": 7234
+      },
+      "gpt-5.6-luna": {
+        "license": "Proprietary",
+        "model_name": "gpt-5.6-luna-xhigh",
+        "rank": 44,
+        "rating": 1248.773072745291,
+        "vote_count": 2299
+      },
+      "gpt-5.6-sol": {
+        "license": "Proprietary",
+        "model_name": "gpt-5.6-sol-xhigh",
+        "rank": 28,
+        "rating": 1273.5300772372468,
+        "vote_count": 2444
+      },
+      "gpt-5.6-terra": {
+        "license": "Proprietary",
+        "model_name": "gpt-5.6-terra-xhigh",
+        "rank": 26,
+        "rating": 1276.9706626372279,
+        "vote_count": 2285
       },
       "grok-4-0709": {
         "license": "Proprietary",
         "model_name": "grok-4-0709",
-        "rank": 64,
+        "rank": 67,
         "rating": 1208.7659824936864,
         "vote_count": 32287
       },
       "grok-4-1-fast": {
         "license": "Proprietary",
         "model_name": "grok-4-1-fast-reasoning",
-        "rank": 67,
+        "rank": 70,
         "rating": 1200.2239151081772,
         "vote_count": 12505
       },
       "grok-4.20-beta-0309": {
         "license": "Proprietary",
         "model_name": "grok-4.20-beta-0309-reasoning",
-        "rank": 34,
+        "rank": 36,
         "rating": 1261.5593818247182,
         "vote_count": 23547
       },
       "grok-4.20-multi-agent-beta-0309": {
         "license": "Proprietary",
         "model_name": "grok-4.20-multi-agent-beta-0309",
-        "rank": 35,
+        "rank": 37,
         "rating": 1259.728082769929,
         "vote_count": 21509
       },
       "grok-4.3": {
         "license": "Proprietary",
         "model_name": "grok-4.3",
-        "rank": 54,
+        "rank": 57,
         "rating": 1232.653119642174,
         "vote_count": 17174
       },
@@ -2942,49 +2977,49 @@
       "hunyuan-large-vision": {
         "license": "Proprietary",
         "model_name": "hunyuan-large-vision",
-        "rank": 78,
+        "rank": 81,
         "rating": 1182.2549338117176,
         "vote_count": 1291
       },
       "hunyuan-standard-vision": {
         "license": "Proprietary",
         "model_name": "hunyuan-standard-vision-2024-12-31",
-        "rank": 123,
+        "rank": 126,
         "rating": 999.275465232768,
         "vote_count": 809
       },
       "hunyuan-vision-1.5": {
         "license": "Proprietary",
         "model_name": "hunyuan-vision-1.5-thinking",
-        "rank": 76,
+        "rank": 79,
         "rating": 1183.457943965886,
         "vote_count": 2397
       },
       "internvl2-26b": {
         "license": "MIT",
         "model_name": "internvl2-26b",
-        "rank": 121,
+        "rank": 124,
         "rating": 1004.705674427275,
         "vote_count": 5148
       },
       "internvl2-4b": {
         "license": "MIT",
         "model_name": "internvl2-4b",
-        "rank": 133,
+        "rank": 136,
         "rating": 941.4528438565713,
         "vote_count": 3703
       },
       "kimi-k2.5": {
         "license": "Modified MIT",
         "model_name": "kimi-k2.5-thinking",
-        "rank": 30,
+        "rank": 32,
         "rating": 1265.7015579449462,
         "vote_count": 25353
       },
       "kimi-k2.5-instant": {
         "license": "Modified MIT",
         "model_name": "kimi-k2.5-instant",
-        "rank": 39,
+        "rank": 41,
         "rating": 1254.0874524615783,
         "vote_count": 3856
       },
@@ -2998,133 +3033,133 @@
       "llama-3.2-vision-11b": {
         "license": "Llama 3.2",
         "model_name": "llama-3.2-vision-11b-instruct",
-        "rank": 130,
+        "rank": 133,
         "rating": 966.5157823955471,
         "vote_count": 4817
       },
       "llama-3.2-vision-90b": {
         "license": "Llama 3.2",
         "model_name": "llama-3.2-vision-90b-instruct",
-        "rank": 122,
+        "rank": 125,
         "rating": 999.7985686301079,
         "vote_count": 8682
       },
       "llama-4-maverick-17b-128e": {
         "license": "Llama 4",
         "model_name": "llama-4-maverick-17b-128e-instruct",
-        "rank": 94,
+        "rank": 97,
         "rating": 1142.9803869886277,
         "vote_count": 7002
       },
       "llama-4-scout-17b-16e": {
         "license": "Llama",
         "model_name": "llama-4-scout-17b-16e-instruct",
-        "rank": 102,
+        "rank": 105,
         "rating": 1118.2465551111356,
         "vote_count": 6488
       },
       "llava-onevision-qwen2-72b-ov": {
         "license": "Apache 2.0",
         "model_name": "llava-onevision-qwen2-72b-ov",
-        "rank": 137,
+        "rank": 140,
         "rating": 922.9621779994911,
         "vote_count": 1321
       },
       "llava-v1.6-34b": {
         "license": "Apache 2.0",
         "model_name": "llava-v1.6-34b",
-        "rank": 135,
+        "rank": 138,
         "rating": 936.5845115489126,
         "vote_count": 4531
       },
       "mimo-v2-omni": {
         "license": "Proprietary",
         "model_name": "mimo-v2-omni",
-        "rank": 56,
+        "rank": 59,
         "rating": 1229.113019025861,
         "vote_count": 10114
       },
       "mimo-v2.5": {
         "license": "MIT",
         "model_name": "mimo-v2.5",
-        "rank": 40,
+        "rank": 42,
         "rating": 1253.5269863144606,
         "vote_count": 20029
       },
       "minicpm-v-2-6": {
         "license": "Apache 2.0",
         "model_name": "minicpm-v-2_6",
-        "rank": 138,
+        "rank": 141,
         "rating": 911.7571855443375,
         "vote_count": 1987
       },
       "minimax-m3": {
         "license": "MiniMax Community License",
         "model_name": "minimax-m3",
-        "rank": 36,
+        "rank": 38,
         "rating": 1258.264149384399,
         "vote_count": 10059
       },
       "mistral-large-3": {
         "license": "Apache 2.0",
         "model_name": "mistral-large-3",
-        "rank": 58,
+        "rank": 61,
         "rating": 1224.0100307367268,
         "vote_count": 2193
       },
       "mistral-medium-2505": {
         "license": "Proprietary",
         "model_name": "mistral-medium-2505",
-        "rank": 90,
+        "rank": 93,
         "rating": 1157.5426900864138,
         "vote_count": 10897
       },
       "mistral-medium-2508": {
         "license": "Proprietary",
         "model_name": "mistral-medium-2508",
-        "rank": 82,
+        "rank": 85,
         "rating": 1172.008159364511,
         "vote_count": 41643
       },
       "mistral-medium-3.5": {
         "license": "Modified MIT",
         "model_name": "mistral-medium-3.5",
-        "rank": 59,
+        "rank": 62,
         "rating": 1221.7626447985174,
         "vote_count": 5123
       },
       "mistral-small-2506": {
         "license": "Apache 2.0",
         "model_name": "mistral-small-2506",
-        "rank": 95,
+        "rank": 98,
         "rating": 1142.321106767391,
         "vote_count": 10991
       },
       "mistral-small-3.1-24b-instruct-2503": {
         "license": "Apache 2.0",
         "model_name": "mistral-small-3.1-24b-instruct-2503",
-        "rank": 97,
+        "rank": 100,
         "rating": 1136.86784714495,
         "vote_count": 28901
       },
       "molmo-2-8b": {
         "license": "Apache 2.0",
         "model_name": "molmo-2-8b",
-        "rank": 109,
+        "rank": 112,
         "rating": 1075.628919582992,
         "vote_count": 1160
       },
       "molmo-72b-0924": {
         "license": "Apache 2.0",
         "model_name": "molmo-72b-0924",
-        "rank": 118,
+        "rank": 121,
         "rating": 1012.4297476869842,
         "vote_count": 3048
       },
       "molmo-7b-d-0924": {
         "license": "Apache 2.0",
         "model_name": "molmo-7b-d-0924",
-        "rank": 131,
+        "rank": 134,
         "rating": 958.8327170526078,
         "vote_count": 2815
       },
@@ -3145,126 +3180,126 @@
       "nvila-internal-15b-v1": {
         "license": "-",
         "model_name": "nvila-internal-15b-v1",
-        "rank": 134,
+        "rank": 137,
         "rating": 940.2982476642215,
         "vote_count": 1077
       },
       "o1": {
         "license": "Proprietary",
         "model_name": "o1-2024-12-17",
-        "rank": 84,
+        "rank": 87,
         "rating": 1168.5839602989172,
         "vote_count": 3694
       },
       "o3": {
         "license": "Proprietary",
         "model_name": "o3-2025-04-16",
-        "rank": 60,
+        "rank": 63,
         "rating": 1215.4102808449368,
         "vote_count": 46114
       },
       "o4-mini": {
         "license": "Proprietary",
         "model_name": "o4-mini-2025-04-16",
-        "rank": 71,
+        "rank": 74,
         "rating": 1194.8269295083942,
         "vote_count": 41845
       },
       "phi-3-vision": {
         "license": "MIT",
         "model_name": "phi-3-vision-128k-instruct",
-        "rank": 140,
+        "rank": 143,
         "rating": 811.8574089168726,
         "vote_count": 1401
       },
       "phi-3.5-vision": {
         "license": "MIT",
         "model_name": "phi-3.5-vision-instruct",
-        "rank": 139,
+        "rank": 142,
         "rating": 851.6043385240357,
         "vote_count": 2592
       },
       "pixtral-12b-2409": {
         "license": "Apache 2.0",
         "model_name": "pixtral-12b-2409",
-        "rank": 119,
+        "rank": 122,
         "rating": 1008.7163296152223,
         "vote_count": 7511
       },
       "pixtral-large-2411": {
         "license": "MRL",
         "model_name": "pixtral-large-2411",
-        "rank": 107,
+        "rank": 110,
         "rating": 1089.5828363933283,
         "vote_count": 5423
       },
       "qwen-vl": {
         "license": "Proprietary",
         "model_name": "qwen-vl-max-2025-08-13",
-        "rank": 61,
+        "rank": 64,
         "rating": 1213.7339184195773,
         "vote_count": 3202
       },
       "qwen-vl-max-1119": {
         "license": "Proprietary",
         "model_name": "qwen-vl-max-1119",
-        "rank": 113,
+        "rank": 116,
         "rating": 1057.7269077444032,
         "vote_count": 1422
       },
       "qwen2-vl-72b": {
         "license": "Qwen",
         "model_name": "qwen2-vl-72b",
-        "rank": 114,
+        "rank": 117,
         "rating": 1047.0718954081037,
         "vote_count": 5937
       },
       "qwen2-vl-7b": {
         "license": "Apache 2.0",
         "model_name": "qwen2-vl-7b-instruct",
-        "rank": 126,
+        "rank": 129,
         "rating": 990.0445901919229,
         "vote_count": 5766
       },
       "qwen2.5-vl-32b": {
         "license": "Apache 2.0",
         "model_name": "qwen2.5-vl-32b-instruct",
-        "rank": 92,
+        "rank": 95,
         "rating": 1152.491417171411,
         "vote_count": 1490
       },
       "qwen2.5-vl-72b": {
         "license": "Qwen",
         "model_name": "qwen2.5-vl-72b-instruct",
-        "rank": 103,
+        "rank": 106,
         "rating": 1107.575968838113,
         "vote_count": 3768
       },
       "qwen3-vl-235b-a22b": {
         "license": "Apache 2.0",
         "model_name": "qwen3-vl-235b-a22b-instruct",
-        "rank": 46,
+        "rank": 49,
         "rating": 1246.716737329256,
         "vote_count": 12108
       },
       "qwen3.5-122b-a10b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-122b-a10b",
-        "rank": 48,
+        "rank": 51,
         "rating": 1246.0399484406114,
         "vote_count": 12459
       },
       "qwen3.5-27b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-27b",
-        "rank": 50,
+        "rank": 53,
         "rating": 1240.777816646086,
         "vote_count": 20708
       },
       "qwen3.5-397b-a17b": {
         "license": "Apache 2.0",
         "model_name": "qwen3.5-397b-a17b",
-        "rank": 29,
+        "rank": 31,
         "rating": 1266.033930434585,
         "vote_count": 23077
       },
@@ -3278,39 +3313,39 @@
       "step-1o-turbo-202506": {
         "license": "Proprietary",
         "model_name": "step-1o-turbo-202506",
-        "rank": 75,
+        "rank": 78,
         "rating": 1186.6070516634188,
         "vote_count": 1920
       },
       "step-1o-vision-32k-highres": {
         "license": "Proprietary",
         "model_name": "step-1o-vision-32k-highres",
-        "rank": 100,
+        "rank": 103,
         "rating": 1121.9736799877248,
         "vote_count": 2833
       },
       "step-1v": {
         "license": "Proprietary",
         "model_name": "step-1v-32k",
-        "rank": 115,
+        "rank": 118,
         "rating": 1046.0956963841297,
         "vote_count": 1534
       },
       "step-3": {
         "license": "Apache 2.0",
         "model_name": "step-3",
-        "rank": 79,
+        "rank": 82,
         "rating": 1176.3096253903589,
         "vote_count": 3265
       },
       "yi-vision": {
         "license": "Proprietary",
         "model_name": "yi-vision",
-        "rank": 129,
+        "rank": 132,
         "rating": 977.8686618513266,
         "vote_count": 1219
       }
     },
-    "vision_snapshot": "2026-07-26"
+    "vision_snapshot": "2026-07-30"
   }
 }

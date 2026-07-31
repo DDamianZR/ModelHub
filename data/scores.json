@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-07-30",
+    "generated_at": "2026-07-31",
     "model_count": 56,
     "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-07-30",
+      "epoch": "2026-07-31",
       "livebench": "2026-06-25",
-      "lmarena_text": "2026-07-27",
-      "lmarena_vision": "2026-07-26"
+      "lmarena_text": "2026-07-30",
+      "lmarena_vision": "2026-07-30"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
@@ -73,7 +73,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "16056 votes; rank 5"
     },
@@ -132,9 +132,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "110068 votes; rank 136"
+      "notes": "110068 votes; rank 138"
     },
     {
       "model_id": "anthropic-claude-opus-4-1",
@@ -179,9 +179,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "77225 votes; rank 102"
+      "notes": "77225 votes; rank 104"
     },
     {
       "model_id": "anthropic-claude-opus-4-5",
@@ -238,7 +238,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "70573 votes; rank 38"
     },
@@ -297,7 +297,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "64805 votes; rank 3"
     },
@@ -392,7 +392,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "52303 votes; rank 6"
     },
@@ -487,7 +487,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "32817 votes; rank 25"
     },
@@ -570,7 +570,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "2386 votes; rank 1"
     },
@@ -629,9 +629,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "80347 votes; rank 61"
+      "notes": "80347 votes; rank 62"
     },
     {
       "model_id": "anthropic-claude-sonnet-4-6",
@@ -700,7 +700,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "58826 votes; rank 28"
     },
@@ -783,9 +783,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "15622 votes; rank 56"
+      "notes": "15622 votes; rank 57"
     },
     {
       "model_id": "deepseek-deepseek-v4-flash",
@@ -842,9 +842,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "46729 votes; rank 71"
+      "notes": "46729 votes; rank 72"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",
@@ -901,7 +901,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "46848 votes; rank 37"
     },
@@ -924,9 +924,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "124020 votes; rank 101"
+      "notes": "124020 votes; rank 103"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-pro",
@@ -983,7 +983,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "124076 votes; rank 27"
     },
@@ -1042,7 +1042,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "30643 votes; rank 21"
     },
@@ -1101,7 +1101,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "41242 votes; rank 9"
     },
@@ -1160,7 +1160,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "86683 votes; rank 10"
     },
@@ -1267,7 +1267,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "10011 votes; rank 8"
     },
@@ -1326,9 +1326,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "6015 votes; rank 60"
+      "notes": "6015 votes; rank 61"
     },
     {
       "model_id": "google-deepmind-gemini-3.6-flash",
@@ -1385,7 +1385,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "6065 votes; rank 12"
     },
@@ -1408,9 +1408,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "5841 votes; rank 53"
+      "notes": "5841 votes; rank 54"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-4.7",
@@ -1443,9 +1443,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "12090 votes; rank 68"
+      "notes": "12090 votes; rank 69"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5",
@@ -1490,9 +1490,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "27644 votes; rank 44"
+      "notes": "27644 votes; rank 45"
     },
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
@@ -1549,7 +1549,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "32555 votes; rank 22"
     },
@@ -1608,7 +1608,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "19995 votes; rank 24"
     },
@@ -1679,9 +1679,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "31887 votes; rank 121"
+      "notes": "31887 votes; rank 123"
     },
     {
       "model_id": "openai-gpt-5-mini",
@@ -1738,9 +1738,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "26991 votes; rank 149"
+      "notes": "26991 votes; rank 151"
     },
     {
       "model_id": "openai-gpt-5-nano",
@@ -1797,9 +1797,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "8257 votes; rank 199"
+      "notes": "8257 votes; rank 201"
     },
     {
       "model_id": "openai-gpt-5.1",
@@ -1856,9 +1856,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "40700 votes; rank 54"
+      "notes": "40700 votes; rank 55"
     },
     {
       "model_id": "openai-gpt-5.2",
@@ -1963,9 +1963,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "34060 votes; rank 59"
+      "notes": "34060 votes; rank 60"
     },
     {
       "model_id": "openai-gpt-5.4",
@@ -2058,7 +2058,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "60292 votes; rank 18"
     },
@@ -2117,9 +2117,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "59093 votes; rank 111"
+      "notes": "59093 votes; rank 113"
     },
     {
       "model_id": "openai-gpt-5.4-nano",
@@ -2176,9 +2176,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "58091 votes; rank 150"
+      "notes": "58091 votes; rank 152"
     },
     {
       "model_id": "openai-gpt-5.5",
@@ -2283,7 +2283,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "47572 votes; rank 19"
     },
@@ -2358,6 +2358,17 @@
       "contamination_flag": false,
       "notes": null,
       "variant": "max"
+    },
+    {
+      "model_id": "openai-gpt-5.6-luna",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1429.2,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-30",
+      "contamination_flag": false,
+      "notes": "8890 votes; rank 75"
     },
     {
       "model_id": "openai-gpt-5.6-sol",
@@ -2438,7 +2449,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "8359 votes; rank 30"
     },
@@ -2515,6 +2526,17 @@
       "variant": "max"
     },
     {
+      "model_id": "openai-gpt-5.6-terra",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1448.8,
+      "unit": "bradley_terry_rating",
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-07-30",
+      "contamination_flag": false,
+      "notes": "8621 votes; rank 39"
+    },
+    {
       "model_id": "xai-grok-4-0709",
       "benchmark_id": "gpqa_diamond",
       "value": 87.0,
@@ -2557,9 +2579,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "41317 votes; rank 114"
+      "notes": "41317 votes; rank 116"
     },
     {
       "model_id": "xai-grok-4.3",
@@ -2616,9 +2638,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "48239 votes; rank 127"
+      "notes": "48239 votes; rank 129"
     },
     {
       "model_id": "xai-grok-4.5",
@@ -2675,7 +2697,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "9998 votes; rank 35"
     },
@@ -2734,9 +2756,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "7501 votes; rank 52"
+      "notes": "7501 votes; rank 53"
     },
     {
       "model_id": "moonshot-kimi-k2-thinking-turbo",
@@ -2769,9 +2791,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "61733 votes; rank 108"
+      "notes": "61733 votes; rank 110"
     },
     {
       "model_id": "moonshot-kimi-k2.5",
@@ -2792,9 +2814,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "64226 votes; rank 43"
+      "notes": "64226 votes; rank 44"
     },
     {
       "model_id": "moonshot-kimi-k2.6",
@@ -2899,7 +2921,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "37350 votes; rank 31"
     },
@@ -3030,7 +3052,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "3559 votes; rank 14"
     },
@@ -3089,9 +3111,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "29879 votes; rank 67"
+      "notes": "29879 votes; rank 68"
     },
     {
       "model_id": "meta-ai-muse-spark",
@@ -3136,7 +3158,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "13504 votes; rank 15"
     },
@@ -3195,7 +3217,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "9941 votes; rank 11"
     },
@@ -3242,9 +3264,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "27675 votes; rank 58"
+      "notes": "27675 votes; rank 59"
     },
     {
       "model_id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -3277,9 +3299,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "8983 votes; rank 109"
+      "notes": "8983 votes; rank 111"
     },
     {
       "model_id": "alibaba-qwen3.5-flash",
@@ -3324,9 +3346,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "57925 votes; rank 131"
+      "notes": "57925 votes; rank 133"
     },
     {
       "model_id": "alibaba-qwen3.6",
@@ -3383,9 +3405,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "5159 votes; rank 42"
+      "notes": "5159 votes; rank 43"
     },
     {
       "model_id": "alibaba-qwen3.6-plus",
@@ -3490,9 +3512,9 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
-      "notes": "45069 votes; rank 64"
+      "notes": "45069 votes; rank 65"
     },
     {
       "model_id": "alibaba-qwen3.7",
@@ -3585,7 +3607,7 @@
       "unit": "bradley_terry_rating",
       "source_type": "human_eval",
       "source_url": "https://lmarena.ai/leaderboard",
-      "measured_at": "2026-07-27",
+      "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "3697 votes; rank 13"
     }
