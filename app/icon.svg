@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    /* Tab strips come in both themes and the favicon cannot inherit the page palette. */
+    .s { stroke: #1a1a1a; }
+    @media (prefers-color-scheme: dark) { .s { stroke: #eae7e0; } }
+  </style>
+  <!-- stroke= keeps the mark visible if a favicon rasteriser ignores the style block. -->
+  <g class="s" fill="none" stroke="#1a1a1a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 32 17.8 L 44.3 24.9 L 44.3 39.1 L 32 46.2 L 19.7 39.1 L 19.7 24.9 Z"/>
+    <path d="M 32 17.8 L 32 9"/>
+    <path d="M 44.3 24.9 L 51.9 20.5"/>
+    <path d="M 44.3 39.1 L 51.9 43.5"/>
+    <path d="M 32 46.2 L 32 55"/>
+    <path d="M 19.7 39.1 L 12.1 43.5"/>
+    <path d="M 19.7 24.9 L 12.1 20.5"/>
+    <circle cx="32" cy="4.9" r="3.1" stroke-width="2.8"/>
+    <circle cx="55.4" cy="18.45" r="3.1" stroke-width="2.8"/>
+    <circle cx="55.4" cy="45.55" r="3.1" stroke-width="2.8"/>
+    <circle cx="32" cy="59.1" r="3.1" stroke-width="2.8"/>
+    <circle cx="8.6" cy="45.55" r="3.1" stroke-width="2.8"/>
+    <circle cx="8.6" cy="18.45" r="3.1" stroke-width="2.8"/>
+  </g>
+  <path d="M 32 25.4 L 37.72 28.7 L 37.72 35.3 L 32 38.6 L 26.28 35.3 L 26.28 28.7 Z" fill="#8157fd"/>
+</svg>
