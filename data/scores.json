@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-01",
+    "generated_at": "2026-08-02",
     "model_count": 56,
     "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-01",
+      "epoch": "2026-08-02",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-30",
       "lmarena_vision": "2026-07-30"
@@ -1329,6 +1329,30 @@
       "measured_at": "2026-07-30",
       "contamination_flag": false,
       "notes": "6015 votes; rank 61"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "gpqa_diamond",
+      "value": 94.13,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-02",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.6-flash",
+      "benchmark_id": "simpleqa_verified",
+      "value": 68.7,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-02",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.6-flash",

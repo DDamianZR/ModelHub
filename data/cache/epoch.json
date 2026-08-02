@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-01",
+  "fetched_at": "2026-08-02",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -597,7 +597,7 @@
       "gemini-3.6-flash": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 3.6 Flash (unknown)",
+        "display_name": "Gemini 3.6 Flash (high)",
         "eci": 153.95,
         "organization": "Google DeepMind",
         "release_date": "2026-07-21"
@@ -2500,6 +2500,26 @@
           "source_url": "https://epoch.ai/benchmarks",
           "value": 86.36,
           "variant": "gemini-3.5-flash_minimal"
+        }
+      ],
+      "gemini-3.6-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 94.13,
+          "variant": "gemini-3.6-flash_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 68.7,
+          "variant": "gemini-3.6-flash_high"
         }
       ],
       "gemma-4-31b": [

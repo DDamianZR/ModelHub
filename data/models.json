@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-01",
+    "generated_at": "2026-08-02",
     "model_count": 56,
     "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-01",
+      "epoch": "2026-08-02",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-07-30",
       "lmarena_vision": "2026-07-30"
@@ -328,51 +328,6 @@
       "rank": 7
     },
     {
-      "id": "google-deepmind-gemini-3.6-flash",
-      "display_name": "Gemini 3.6 Flash (unknown)",
-      "provider_id": "google-deepmind",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-07-21",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 85.15,
-        "coding": 57.21,
-        "math": 86.4,
-        "instruction_following": 75.37,
-        "human_preference": 82.17
-      },
-      "composite": 76.5,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1315.8,
-        "rank": 5,
-        "measured_at": "2026-07-30",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 8
-    },
-    {
       "id": "alibaba-qwen3.7",
       "display_name": "Qwen3.7-Max",
       "provider_id": "alibaba",
@@ -409,7 +364,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 9
+      "rank": 8
     },
     {
       "id": "xai-grok-4.5",
@@ -451,6 +406,51 @@
       "vision": {
         "rating": 1293.4,
         "rank": 18,
+        "measured_at": "2026-07-30",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 9
+    },
+    {
+      "id": "google-deepmind-gemini-3.6-flash",
+      "display_name": "Gemini 3.6 Flash (high)",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-21",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 82.66,
+        "coding": 57.21,
+        "math": 86.4,
+        "instruction_following": 75.37,
+        "human_preference": 82.17
+      },
+      "composite": 75.88,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1315.8,
+        "rank": 5,
         "measured_at": "2026-07-30",
         "source_url": "https://lmarena.ai/leaderboard"
       },
