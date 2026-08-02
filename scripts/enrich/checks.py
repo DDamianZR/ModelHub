@@ -63,6 +63,27 @@ _ENGLISH_IN_SPANISH = (
     "released on", "developed by",
 )
 
+# Phrasings that assert a category is absent. If any of these appears next to a category
+# that IS in category_scores, the model invented a coverage gap. Verified on the 2026-08-02
+# pass: Inkling had 5/5 measured and the model wrote "No data for Instructions"; four older
+# entries in the committed file had the same defect. The prior audit missed all of them
+# because it only checked structural rules.
+#
+# PRE-markers come before the category name ("no data for X"); POST-markers come after
+# ("X was not measured"). Both directions occur in generated text; catch both.
+_ABSENT_PRE_ES = (
+    "sin datos en", "sin datos para", "sin medir en",
+    "no hay datos en", "no hay datos para", "no hay datos sobre",
+    "no se midió", "no se midio", "no se ha medido",
+)
+_ABSENT_PRE_EN = (
+    "no data for", "no data in", "no data on",
+    "not measured in", "not measured for",
+    "no measurement for", "no measurement in",
+)
+_ABSENT_POST_EN = ("was not measured", "were not measured", "is not measured")
+_ABSENT_POST_ES = ()  # Spanish "X no se midió" is rare; the pre-form covers it.
+
 # Comparative language, which a thinly measured model must not receive.
 _COMPARATIVE = (
     "destaca", "relativamente mejor", "relativamente peor", "muestra debilidad",
@@ -153,6 +174,22 @@ def _one_language(text: str, locale: str, display_name: str, coverage: int) -> l
     return problems
 
 
+def _hallucinated_gaps(text: str, locale: str, measured_labels: list[str]) -> list[str]:
+    """Text claims a measured category is absent — the model invented a coverage gap."""
+    lowered = text.lower()
+    pre = _ABSENT_PRE_ES if locale == "es" else _ABSENT_PRE_EN
+    post = _ABSENT_POST_ES if locale == "es" else _ABSENT_POST_EN
+    for label in measured_labels:
+        label_l = label.lower()
+        for marker in pre:
+            if f"{marker} {label_l}" in lowered:
+                return [f"{locale}: claims {label!r} is unmeasured, but it is measured"]
+        for marker in post:
+            if f"{label_l} {marker}" in lowered:
+                return [f"{locale}: claims {label!r} is unmeasured, but it is measured"]
+    return []
+
+
 def problems(es: str, en: str, model: dict) -> list[str]:
     """Every reason this pair may not be published. Empty list means publishable."""
     display_name = model.get("display_name", "")
@@ -160,6 +197,17 @@ def problems(es: str, en: str, model: dict) -> list[str]:
 
     found = _one_language(es, "es", display_name, coverage)
     found += _one_language(en, "en", display_name, coverage)
+
+    scores = model.get("category_scores") or {}
+    measured_keys = [k for k, v in scores.items() if v is not None]
+    labels_es = category_labels("es")
+    labels_en = category_labels("en")
+    found += _hallucinated_gaps(
+        es, "es", [labels_es[k] for k in measured_keys if k in labels_es]
+    )
+    found += _hallucinated_gaps(
+        en, "en", [labels_en[k] for k in measured_keys if k in labels_en]
+    )
 
     es_l, en_l = es.lower(), en.lower()
 
