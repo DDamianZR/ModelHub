@@ -6,8 +6,8 @@
   --color-ink: #1a1a1a;
   --color-muted: #6e6862;
   --color-rule: #e2ded4;
-  --color-amber: #b45309;
-  --color-amber-soft: #f3e6d2;
+  --color-amber: #6d28d9;
+  --color-amber-soft: #ede4ff;
 
   --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -20,11 +20,11 @@
   --ink: #1a1a1a;
   --muted: #6e6862;
   --rule: #e2ded4;
-  --amber: #b45309;
-  --amber-soft: #f3e6d2;
+  --amber: #6d28d9;
+  --amber-soft: #ede4ff;
   /* Chart marks and body text have different jobs, so they get different steps.
      Both validated for contrast against their own surface. */
-  --mark: #b45309;
+  --mark: #8157fd;
   color-scheme: light;
 }
 
@@ -35,9 +35,9 @@
     --ink: #eae7e0;
     --muted: #948d84;
     --rule: #2b2926;
-    --amber: #e08b3c;
-    --amber-soft: #2e2113;
-    --mark: #d2792b;
+    --amber: #b794ff;
+    --amber-soft: #2a1d4a;
+    --mark: #a78bfa;
     color-scheme: dark;
   }
 }
