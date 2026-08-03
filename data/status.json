@@ -1,27 +1,26 @@
 {
-  "generated_at": "2026-08-02T08:36:28+00:00",
+  "generated_at": "2026-08-03T10:09:02+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-08-02",
+      "last_success": "2026-08-03",
       "error": null
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-08-02",
+      "last_success": "2026-08-03",
       "error": null
     },
     "lmarena": {
-      "state": "cached",
-      "last_success": "2026-08-01",
-      "age_days": 1,
-      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=19972&length=100: HTTP Error 500: Internal Server Error"
+      "state": "ok",
+      "last_success": "2026-08-03",
+      "error": null
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-08-02",
+      "date": "2026-08-03",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -30,7 +29,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 38,
+      "age_days": 39,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -38,8 +37,8 @@
       "category": "instruction_following"
     },
     "lmarena": {
-      "date": "2026-07-30",
-      "age_days": 3,
+      "date": "2026-08-02",
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,

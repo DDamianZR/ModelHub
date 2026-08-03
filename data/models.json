@@ -1,20 +1,20 @@
 {
   "meta": {
-    "generated_at": "2026-08-02",
+    "generated_at": "2026-08-03",
     "model_count": 56,
     "ranked_count": 44,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-02",
+      "epoch": "2026-08-03",
       "livebench": "2026-06-25",
-      "lmarena_text": "2026-07-30",
-      "lmarena_vision": "2026-07-30"
+      "lmarena_text": "2026-08-02",
+      "lmarena_vision": "2026-08-02"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
-      "min": 1320.24,
-      "max": 1511.6
+      "min": 1320.28,
+      "max": 1507.26
     }
   },
   "models": [
@@ -45,9 +45,9 @@
         "coding": 71.7,
         "math": 95.99,
         "instruction_following": 75.77,
-        "human_preference": 90.85
+        "human_preference": 93.74
       },
-      "composite": 84.53,
+      "composite": 84.96,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -56,9 +56,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1334.2,
+        "rating": 1333.6,
         "rank": 1,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 1
@@ -101,9 +101,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1328.7,
+        "rating": 1325.2,
         "rank": 2,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 2
@@ -134,9 +134,9 @@
         "coding": 69.88,
         "math": 84.44,
         "instruction_following": 71.36,
-        "human_preference": 80.0
+        "human_preference": 81.66
       },
-      "composite": 79.73,
+      "composite": 79.98,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -174,9 +174,9 @@
         "coding": 60.67,
         "math": 89.32,
         "instruction_following": 63.31,
-        "human_preference": 95.29
+        "human_preference": 97.82
       },
-      "composite": 78.99,
+      "composite": 79.37,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -185,9 +185,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1316.2,
-        "rank": 4,
-        "measured_at": "2026-07-30",
+        "rating": 1315.4,
+        "rank": 5,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 4
@@ -219,9 +219,9 @@
         "coding": 67.3,
         "math": 96.2,
         "instruction_following": 71.85,
-        "human_preference": 70.57
+        "human_preference": 71.24
       },
-      "composite": 78.82,
+      "composite": 78.92,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -230,9 +230,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1273.5,
+        "rating": 1274.8,
         "rank": 28,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 5
@@ -264,9 +264,9 @@
         "coding": 65.98,
         "math": 87.14,
         "instruction_following": 69.64,
-        "human_preference": 83.01
+        "human_preference": 84.11
       },
-      "composite": 78.75,
+      "composite": 78.92,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -275,9 +275,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1295.7,
-        "rank": 14,
-        "measured_at": "2026-07-30",
+        "rating": 1295.8,
+        "rank": 15,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 6
@@ -309,9 +309,9 @@
         "coding": 57.07,
         "math": 91.05,
         "instruction_following": 79.1,
-        "human_preference": 83.2
+        "human_preference": 84.85
       },
-      "composite": 77.82,
+      "composite": 78.07,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -320,9 +320,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1295.1,
+        "rating": 1295.3,
         "rank": 16,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 7
@@ -353,9 +353,9 @@
         "coding": 66.56,
         "math": 85.25,
         "instruction_following": 74.04,
-        "human_preference": 80.94
+        "human_preference": 82.86
       },
-      "composite": 76.39,
+      "composite": 76.68,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -393,9 +393,9 @@
         "coding": 61.31,
         "math": 90.82,
         "instruction_following": 71.53,
-        "human_preference": 68.57
+        "human_preference": 70.43
       },
-      "composite": 76.3,
+      "composite": 76.58,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -404,9 +404,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1293.4,
-        "rank": 18,
-        "measured_at": "2026-07-30",
+        "rating": 1293.3,
+        "rank": 19,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 9
@@ -438,9 +438,9 @@
         "coding": 57.21,
         "math": 86.4,
         "instruction_following": 75.37,
-        "human_preference": 82.17
+        "human_preference": 84.3
       },
-      "composite": 75.88,
+      "composite": 76.2,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -449,9 +449,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1315.8,
-        "rank": 5,
-        "measured_at": "2026-07-30",
+        "rating": 1306.9,
+        "rank": 9,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 10
@@ -483,9 +483,9 @@
         "math": 73.78,
         "coding": 72.91,
         "instruction_following": 70.73,
-        "human_preference": 77.94
+        "human_preference": 80.33
       },
-      "composite": 75.85,
+      "composite": 76.2,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -494,9 +494,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1297.3,
-        "rank": 13,
-        "measured_at": "2026-07-30",
+        "rating": 1296.8,
+        "rank": 14,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 11
@@ -528,9 +528,9 @@
         "math": 63.6,
         "coding": 70.0,
         "instruction_following": 75.6,
-        "human_preference": 83.67
+        "human_preference": 85.68
       },
-      "composite": 74.38,
+      "composite": 74.68,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -539,9 +539,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1308.6,
+        "rating": 1307.1,
         "rank": 8,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 12
@@ -572,9 +572,9 @@
         "coding": 62.92,
         "math": 89.78,
         "instruction_following": 62.29,
-        "human_preference": 75.31
+        "human_preference": 77.13
       },
-      "composite": 73.98,
+      "composite": 74.25,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -612,9 +612,9 @@
         "coding": 64.27,
         "math": 94.91,
         "instruction_following": 64.62,
-        "human_preference": 67.2
+        "human_preference": 68.53
       },
-      "composite": 73.74,
+      "composite": 73.94,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -623,9 +623,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1277.0,
-        "rank": 26,
-        "measured_at": "2026-07-30",
+        "rating": 1273.3,
+        "rank": 29,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 14
@@ -657,9 +657,9 @@
         "coding": 57.28,
         "math": 86.99,
         "instruction_following": 63.22,
-        "human_preference": 71.63
+        "human_preference": 73.15
       },
-      "composite": 72.96,
+      "composite": 73.19,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -668,51 +668,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1281.5,
+        "rating": 1281.9,
         "rank": 24,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 15
-    },
-    {
-      "id": "thinking-machines-inkling",
-      "display_name": "Inkling",
-      "provider_id": "thinking-machines",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-07-15",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 78.35,
-        "coding": 58.04,
-        "math": 88.36,
-        "instruction_following": 70.1,
-        "human_preference": 63.63
-      },
-      "composite": 71.83,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 16
     },
     {
       "id": "anthropic-claude-opus-4-7",
@@ -741,9 +702,9 @@
         "math": 68.32,
         "coding": 63.23,
         "instruction_following": 66.74,
-        "human_preference": 88.6
+        "human_preference": 90.32
       },
-      "composite": 71.77,
+      "composite": 72.03,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -752,12 +713,12 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1318.0,
-        "rank": 3,
-        "measured_at": "2026-07-30",
+        "rating": 1317.5,
+        "rank": 4,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 17
+      "rank": 16
     },
     {
       "id": "deepseek-deepseek-v4-pro",
@@ -785,9 +746,9 @@
         "coding": 53.57,
         "math": 90.68,
         "instruction_following": 62.35,
-        "human_preference": 67.85
+        "human_preference": 69.86
       },
-      "composite": 71.73,
+      "composite": 72.03,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -796,7 +757,7 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": null,
-      "rank": 18
+      "rank": 17
     },
     {
       "id": "anthropic-claude-sonnet-5",
@@ -825,9 +786,9 @@
         "coding": 67.91,
         "math": 92.94,
         "instruction_following": 63.86,
-        "human_preference": 62.77
+        "human_preference": 65.67
       },
-      "composite": 71.58,
+      "composite": 72.01,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -836,11 +797,50 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1281.9,
-        "rank": 23,
-        "measured_at": "2026-07-30",
+        "rating": 1285.4,
+        "rank": 22,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": 18
+    },
+    {
+      "id": "thinking-machines-inkling",
+      "display_name": "Inkling",
+      "provider_id": "thinking-machines",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-07-15",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 78.35,
+        "coding": 58.04,
+        "math": 88.36,
+        "instruction_following": 70.1,
+        "human_preference": 64.03
+      },
+      "composite": 71.89,
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": null,
       "rank": 19
     },
     {
@@ -869,9 +869,9 @@
         "coding": 55.68,
         "math": 90.39,
         "instruction_following": 62.55,
-        "human_preference": 67.42
+        "human_preference": 69.05
       },
-      "composite": 71.52,
+      "composite": 71.76,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -909,9 +909,9 @@
         "math": 70.88,
         "coding": 63.32,
         "instruction_following": 70.22,
-        "human_preference": 78.21
+        "human_preference": 79.93
       },
-      "composite": 71.13,
+      "composite": 71.38,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -920,9 +920,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1299.8,
-        "rank": 12,
-        "measured_at": "2026-07-30",
+        "rating": 1298.2,
+        "rank": 13,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 21
@@ -954,9 +954,9 @@
         "math": 70.78,
         "coding": 63.03,
         "instruction_following": 72.03,
-        "human_preference": 74.59
+        "human_preference": 76.35
       },
-      "composite": 70.22,
+      "composite": 70.48,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -965,9 +965,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1294.2,
+        "rating": 1294.8,
         "rank": 17,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 22
@@ -998,9 +998,9 @@
         "reasoning": 82.75,
         "math": 37.6,
         "coding": 72.93,
-        "human_preference": 83.21
+        "human_preference": 85.19
       },
-      "composite": 69.32,
+      "composite": 69.67,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1011,9 +1011,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1304.7,
-        "rank": 10,
-        "measured_at": "2026-07-30",
+        "rating": 1304.9,
+        "rank": 11,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 23
@@ -1045,9 +1045,9 @@
         "coding": 62.23,
         "math": 87.2,
         "instruction_following": 60.12,
-        "human_preference": 56.95
+        "human_preference": 57.25
       },
-      "composite": 68.8,
+      "composite": 68.85,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1056,9 +1056,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1248.8,
-        "rank": 44,
-        "measured_at": "2026-07-30",
+        "rating": 1249.3,
+        "rank": 45,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 24
@@ -1090,9 +1090,9 @@
         "math": 61.62,
         "coding": 68.12,
         "instruction_following": 64.36,
-        "human_preference": 70.28
+        "human_preference": 71.91
       },
-      "composite": 66.95,
+      "composite": 67.2,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1101,9 +1101,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1282.1,
-        "rank": 22,
-        "measured_at": "2026-07-30",
+        "rating": 1281.5,
+        "rank": 25,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 25
@@ -1135,9 +1135,9 @@
         "coding": 56.4,
         "math": 90.98,
         "instruction_following": 67.2,
-        "human_preference": 27.59
+        "human_preference": 28.11
       },
-      "composite": 66.79,
+      "composite": 66.87,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1146,12 +1146,58 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1199.1,
-        "rank": 71,
-        "measured_at": "2026-07-30",
+        "rating": 1198.1,
+        "rank": 73,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 26
+    },
+    {
+      "id": "google-deepmind-gemini-3-flash",
+      "display_name": "Gemini 3 Flash",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-12-17",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 75.31,
+        "math": 35.64,
+        "coding": 75.41,
+        "human_preference": 77.97
+      },
+      "composite": 66.47,
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "vision": {
+        "rating": 1283.4,
+        "rank": 23,
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 27
     },
     {
       "id": "openai-gpt-5.2",
@@ -1180,9 +1226,9 @@
         "math": 66.75,
         "coding": 67.17,
         "instruction_following": 61.77,
-        "human_preference": 62.02
+        "human_preference": 63.45
       },
-      "composite": 66.18,
+      "composite": 66.39,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1191,55 +1237,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1267.0,
-        "rank": 30,
-        "measured_at": "2026-07-30",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 27
-    },
-    {
-      "id": "google-deepmind-gemini-3-flash",
-      "display_name": "Gemini 3 Flash",
-      "provider_id": "google-deepmind",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-12-17",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 75.31,
-        "math": 35.64,
-        "coding": 75.41,
-        "human_preference": 76.19
-      },
-      "composite": 66.16,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1283.6,
-        "rank": 21,
-        "measured_at": "2026-07-30",
+        "rating": 1266.9,
+        "rank": 32,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 28
@@ -1310,9 +1310,9 @@
         "reasoning": 68.39,
         "math": 65.27,
         "coding": 73.55,
-        "human_preference": 44.54
+        "human_preference": 45.55
       },
-      "composite": 64.96,
+      "composite": 65.14,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1325,7 +1325,7 @@
       "vision": {
         "rating": 1231.6,
         "rank": 58,
-        "measured_at": "2026-07-30",
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 30
@@ -1357,9 +1357,9 @@
         "coding": 51.67,
         "math": 76.95,
         "instruction_following": 57.51,
-        "human_preference": 60.47
+        "human_preference": 62.26
       },
-      "composite": 64.62,
+      "composite": 64.89,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1368,9 +1368,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1258.3,
-        "rank": 38,
-        "measured_at": "2026-07-30",
+        "rating": 1257.0,
+        "rank": 40,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 31
@@ -1401,9 +1401,9 @@
         "coding": 50.27,
         "math": 79.65,
         "instruction_following": 63.14,
-        "human_preference": 58.23
+        "human_preference": 59.46
       },
-      "composite": 64.35,
+      "composite": 64.53,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1441,9 +1441,9 @@
         "coding": 57.58,
         "math": 73.74,
         "instruction_following": 67.24,
-        "human_preference": 61.86
+        "human_preference": 61.79
       },
-      "composite": 63.56,
+      "composite": 63.54,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1452,9 +1452,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1256.6,
-        "rank": 40,
-        "measured_at": "2026-07-30",
+        "rating": 1258.2,
+        "rank": 39,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 33
@@ -1486,9 +1486,9 @@
         "coding": 53.65,
         "math": 78.46,
         "instruction_following": 59.8,
-        "human_preference": 48.32
+        "human_preference": 49.27
       },
-      "composite": 63.15,
+      "composite": 63.29,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1497,9 +1497,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1247.0,
-        "rank": 48,
-        "measured_at": "2026-07-30",
+        "rating": 1248.5,
+        "rank": 47,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 34
@@ -1529,9 +1529,9 @@
         "reasoning": 87.82,
         "math": 16.43,
         "coding": 72.08,
-        "human_preference": 65.29
+        "human_preference": 66.78
       },
-      "composite": 62.42,
+      "composite": 62.68,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1569,9 +1569,9 @@
         "reasoning": 61.39,
         "math": 33.45,
         "coding": 74.17,
-        "human_preference": 75.65
+        "human_preference": 77.6
       },
-      "composite": 61.09,
+      "composite": 61.44,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1609,9 +1609,9 @@
         "reasoning": 73.0,
         "math": 23.1,
         "coding": 76.65,
-        "human_preference": 65.9
+        "human_preference": 67.29
       },
-      "composite": 61.08,
+      "composite": 61.32,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1650,9 +1650,9 @@
         "math": 54.97,
         "coding": 56.97,
         "instruction_following": 58.34,
-        "human_preference": 60.89
+        "human_preference": 62.37
       },
-      "composite": 60.81,
+      "composite": 61.04,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1690,9 +1690,9 @@
         "coding": 39.09,
         "math": 84.34,
         "instruction_following": 62.75,
-        "human_preference": 41.56
+        "human_preference": 42.24
       },
-      "composite": 59.99,
+      "composite": 60.09,
       "coverage": {
         "covered": 5,
         "total": 5,
@@ -1701,9 +1701,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1232.7,
-        "rank": 57,
-        "measured_at": "2026-07-30",
+        "rating": 1231.4,
+        "rank": 59,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 39
@@ -1734,9 +1734,9 @@
         "reasoning": 71.65,
         "math": 58.57,
         "coding": 64.67,
-        "human_preference": 28.01
+        "human_preference": 28.66
       },
-      "composite": 58.82,
+      "composite": 58.93,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1747,9 +1747,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1202.7,
-        "rank": 69,
-        "measured_at": "2026-07-30",
+        "rating": 1202.8,
+        "rank": 70,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 40
@@ -1780,9 +1780,9 @@
         "reasoning": 68.27,
         "math": 31.03,
         "coding": 67.98,
-        "human_preference": 63.19
+        "human_preference": 64.67
       },
-      "composite": 58.53,
+      "composite": 58.79,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1793,9 +1793,9 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1248.3,
-        "rank": 46,
-        "measured_at": "2026-07-30",
+        "rating": 1248.4,
+        "rank": 48,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 41
@@ -1826,9 +1826,9 @@
         "reasoning": 70.65,
         "math": 14.14,
         "coding": 57.56,
-        "human_preference": 71.74
+        "human_preference": 73.4
       },
-      "composite": 53.7,
+      "composite": 53.99,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1840,8 +1840,8 @@
       "awaiting_human_votes": false,
       "vision": {
         "rating": 1261.7,
-        "rank": 35,
-        "measured_at": "2026-07-30",
+        "rank": 37,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 42
@@ -1871,9 +1871,9 @@
         "reasoning": 73.23,
         "math": 5.86,
         "coding": 73.35,
-        "human_preference": 50.79
+        "human_preference": 51.99
       },
-      "composite": 53.45,
+      "composite": 53.67,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1911,9 +1911,9 @@
         "reasoning": 43.37,
         "math": 9.31,
         "coding": 71.28,
-        "human_preference": 61.43
+        "human_preference": 62.86
       },
-      "composite": 46.75,
+      "composite": 47.0,
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1950,9 +1950,9 @@
       "category_scores": {
         "reasoning": 70.03,
         "math": 97.13,
-        "human_preference": 62.1
+        "human_preference": 63.55
       },
-      "composite": 77.08,
+      "composite": 77.44,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -1990,9 +1990,9 @@
       "status": "verified",
       "category_scores": {
         "coding": 73.76,
-        "human_preference": 65.3
+        "human_preference": 66.9
       },
-      "composite": 70.59,
+      "composite": 71.19,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2005,9 +2005,9 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1265.7,
-        "rank": 32,
-        "measured_at": "2026-07-30",
+        "rating": 1267.2,
+        "rank": 31,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
@@ -2037,9 +2037,9 @@
       "category_scores": {
         "reasoning": 78.05,
         "math": 39.0,
-        "human_preference": 79.87
+        "human_preference": 81.73
       },
-      "composite": 65.49,
+      "composite": 65.95,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2051,9 +2051,9 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1307.1,
-        "rank": 9,
-        "measured_at": "2026-07-30",
+        "rating": 1306.7,
+        "rank": 10,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
@@ -2081,9 +2081,9 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 65.08,
-        "human_preference": 48.86
+        "human_preference": 49.99
       },
-      "composite": 59.0,
+      "composite": 59.42,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2121,9 +2121,9 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.41,
-        "human_preference": 60.41
+        "human_preference": 61.78
       },
-      "composite": 58.53,
+      "composite": 59.05,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2161,9 +2161,9 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.91,
-        "human_preference": 49.0
+        "human_preference": 50.13
       },
-      "composite": 54.57,
+      "composite": 54.99,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2203,9 +2203,9 @@
       "category_scores": {
         "reasoning": 67.45,
         "math": 19.66,
-        "human_preference": 46.86
+        "human_preference": 47.95
       },
-      "composite": 46.37,
+      "composite": 46.65,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2217,9 +2217,9 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1208.8,
-        "rank": 67,
-        "measured_at": "2026-07-30",
+        "rating": 1208.9,
+        "rank": 68,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
@@ -2248,9 +2248,9 @@
       "category_scores": {
         "reasoning": 38.55,
         "math": 51.13,
-        "human_preference": 38.4
+        "human_preference": 39.24
       },
-      "composite": 42.71,
+      "composite": 42.92,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2304,8 +2304,8 @@
       "awaiting_human_votes": false,
       "vision": {
         "rating": 1161.7,
-        "rank": 90,
-        "measured_at": "2026-07-30",
+        "rank": 91,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
@@ -2334,9 +2334,9 @@
       "category_scores": {
         "reasoning": 51.8,
         "math": 6.21,
-        "human_preference": 40.51
+        "human_preference": 41.35
       },
-      "composite": 33.78,
+      "composite": 33.99,
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2374,9 +2374,9 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 9.56,
-        "human_preference": 63.47
+        "human_preference": 64.82
       },
-      "composite": 29.78,
+      "composite": 30.28,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2389,9 +2389,9 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1271.6,
-        "rank": 29,
-        "measured_at": "2026-07-30",
+        "rating": 1271.5,
+        "rank": 30,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null
@@ -2420,9 +2420,9 @@
       "status": "verified",
       "category_scores": {
         "math": 4.84,
-        "human_preference": 50.81
+        "human_preference": 51.98
       },
-      "composite": 24.54,
+      "composite": 25.04,
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2435,9 +2435,9 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "vision": {
-        "rating": 1235.4,
-        "rank": 55,
-        "measured_at": "2026-07-30",
+        "rating": 1235.3,
+        "rank": 56,
+        "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null

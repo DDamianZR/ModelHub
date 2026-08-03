@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-02",
+  "fetched_at": "2026-08-03",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -369,6 +369,14 @@
         "eci": 0.0,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
+      },
+      "deepseek-v4-flash-0731": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "DeepSeek V4 Flash 0731 (max)",
+        "eci": 0.0,
+        "organization": "DeepSeek",
+        "release_date": "2026-07-31"
       },
       "deepseek-v4-pro": {
         "accessibility": "Open weights (unrestricted)",
@@ -2186,6 +2194,26 @@
           "source_url": "https://epoch.ai/benchmarks",
           "value": 27.5,
           "variant": "deepseek-reasoner"
+        }
+      ],
+      "deepseek-v4-flash-0731": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 91.04,
+          "variant": "deepseek-v4-flash-0731_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "value": 34.67,
+          "variant": "deepseek-v4-flash-0731_max"
         }
       ],
       "deepseek-v4-pro": [
