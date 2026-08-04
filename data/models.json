@@ -2,13 +2,13 @@
   "meta": {
     "generated_at": "2026-08-04",
     "model_count": 57,
-    "ranked_count": 45,
-    "provisional_count": 12,
+    "ranked_count": 44,
+    "provisional_count": 13,
     "min_coverage_for_ranking": 4,
     "snapshots": {
       "epoch": "2026-08-04",
       "livebench": "2026-06-25",
-      "lmarena_text": "2026-08-02",
+      "lmarena_text": "2026-08-03",
       "lmarena_vision": "2026-08-02"
     },
     "arena_normalization": {
@@ -47,21 +47,44 @@
         "instruction_following": 75.77,
         "human_preference": 93.74
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.119
+      },
       "composite": 84.96,
+      "composite_error": 0.47,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1333.6,
         "rank": 1,
+        "variant": "claude-fable-5",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 1
+      "rank": 1,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-5",
@@ -92,21 +115,44 @@
         "instruction_following": 63.77,
         "human_preference": 100.0
       },
+      "category_errors": {
+        "reasoning": 1.408,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 4.684
+      },
       "composite": 81.79,
+      "composite_error": 0.79,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1325.2,
         "rank": 2,
+        "variant": "claude-opus-5-high",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 2
+      "rank": 2,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k3",
@@ -133,64 +179,41 @@
         "reasoning": 90.67,
         "coding": 69.88,
         "math": 84.44,
-        "instruction_following": 71.36,
-        "human_preference": 81.66
+        "instruction_following": 71.36
       },
-      "composite": 79.98,
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null
+      },
+      "composite": 79.68,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
-        "covered": 5,
+        "covered": 4,
         "total": 5,
-        "missing": []
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
       },
       "provisional": false,
-      "awaiting_human_votes": false,
+      "awaiting_human_votes": true,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 3
-    },
-    {
-      "id": "anthropic-claude-opus-4-6",
-      "display_name": "Claude Opus 4.6 (max)",
-      "provider_id": "anthropic",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-02-05",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 88.67,
-        "coding": 60.67,
-        "math": 89.32,
-        "instruction_following": 63.31,
-        "human_preference": 97.82
-      },
-      "composite": 79.37,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1315.4,
-        "rank": 5,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 4
+      "rank": 3,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-sol",
@@ -221,21 +244,44 @@
         "instruction_following": 71.85,
         "human_preference": 71.24
       },
+      "category_errors": {
+        "reasoning": 1.386,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.454
+      },
       "composite": 78.92,
+      "composite_error": 0.62,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "xhigh",
       "vision": {
         "rating": 1274.8,
         "rank": 28,
+        "variant": "gpt-5.6-sol-xhigh",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 5
+      "rank": 4,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark-1.1",
@@ -266,21 +312,112 @@
         "instruction_following": 69.64,
         "human_preference": 84.11
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.322
+      },
       "composite": 78.92,
+      "composite_error": 0.5,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1295.8,
         "rank": 15,
+        "variant": "muse-spark-1.1",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 6
+      "rank": 4,
+      "tied_with": 2,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "anthropic-claude-opus-4-6",
+      "display_name": "Claude Opus 4.6 (max)",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-02-05",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 88.67,
+        "coding": 60.67,
+        "math": 89.32,
+        "instruction_following": 63.31,
+        "human_preference": 94.38
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 1.876
+      },
+      "composite": 78.85,
+      "composite_error": 0.28,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1315.4,
+        "rank": 5,
+        "variant": "claude-opus-4-6-thinking",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 4,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.1-pro",
@@ -311,21 +448,44 @@
         "instruction_following": 79.1,
         "human_preference": 84.85
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 1.826
+      },
       "composite": 78.07,
+      "composite_error": 0.27,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": "preview",
       "vision": {
         "rating": 1295.3,
         "rank": 16,
+        "variant": "gemini-3.1-pro-preview",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 7
+      "rank": 6,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.7",
@@ -355,16 +515,38 @@
         "instruction_following": 74.04,
         "human_preference": 82.86
       },
+      "category_errors": {
+        "reasoning": 1.497,
+        "coding": 1.869,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 5.339
+      },
       "composite": 76.68,
+      "composite_error": 1.0,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 8,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 8
+      "rank": 8,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.5",
@@ -395,21 +577,44 @@
         "instruction_following": 71.53,
         "human_preference": 70.43
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.318
+      },
       "composite": 76.58,
+      "composite_error": 0.5,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1293.3,
         "rank": 19,
+        "variant": "grok-4.5",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 9
+      "rank": 8,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.6-flash",
@@ -440,21 +645,44 @@
         "instruction_following": 75.37,
         "human_preference": 84.3
       },
+      "category_errors": {
+        "reasoning": 1.326,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.806
+      },
       "composite": 76.2,
+      "composite_error": 0.66,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1306.9,
         "rank": 9,
+        "variant": "gemini-3.6-flash",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10
+      "rank": 8,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.5",
@@ -483,23 +711,46 @@
         "math": 73.78,
         "coding": 72.91,
         "instruction_following": 70.73,
-        "human_preference": 80.33
+        "human_preference": 77.63
       },
-      "composite": 76.2,
+      "category_errors": {
+        "reasoning": 1.42,
+        "math": 2.842,
+        "coding": 1.764,
+        "instruction_following": null,
+        "human_preference": 2.237
+      },
+      "composite": 75.8,
+      "composite_error": 0.87,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 9,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1296.8,
         "rank": 14,
+        "variant": "gpt-5.5",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 11
+      "rank": 8,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "google-gemini-3.5-flash",
@@ -528,23 +779,46 @@
         "math": 63.6,
         "coding": 70.0,
         "instruction_following": 75.6,
-        "human_preference": 85.68
+        "human_preference": 85.02
       },
-      "composite": 74.68,
+      "category_errors": {
+        "reasoning": 1.439,
+        "math": 2.812,
+        "coding": 1.805,
+        "instruction_following": null,
+        "human_preference": 3.457
+      },
+      "composite": 74.58,
+      "composite_error": 0.96,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 9,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1307.1,
         "rank": 8,
+        "variant": "gemini-3.5-flash-medium",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 12
+      "rank": 11,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4-flash-0731",
@@ -573,7 +847,19 @@
         "math": 86.79,
         "instruction_following": 65.52
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null
+      },
       "composite": 74.54,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -581,10 +867,19 @@
           "human_preference"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
       "provisional": false,
       "awaiting_human_votes": true,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 13
+      "rank": 12,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.2",
@@ -614,16 +909,38 @@
         "instruction_following": 62.29,
         "human_preference": 77.13
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.877
+      },
       "composite": 74.25,
+      "composite_error": 0.43,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": "max",
       "vision": null,
-      "rank": 14
+      "rank": 12,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-terra",
@@ -654,21 +971,44 @@
         "instruction_following": 64.62,
         "human_preference": 68.53
       },
+      "category_errors": {
+        "reasoning": 1.434,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.398
+      },
       "composite": 73.94,
+      "composite_error": 0.62,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "xhigh",
       "vision": {
         "rating": 1273.3,
         "rank": 29,
+        "variant": "gpt-5.6-terra-xhigh",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 15
+      "rank": 12,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-4-6",
@@ -699,105 +1039,44 @@
         "instruction_following": 63.22,
         "human_preference": 73.15
       },
+      "category_errors": {
+        "reasoning": 2.602,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 1.985
+      },
       "composite": 73.19,
+      "composite_error": 0.72,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "medium",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1281.9,
         "rank": 24,
+        "variant": "claude-sonnet-4-6",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 16
-    },
-    {
-      "id": "anthropic-claude-opus-4-7",
-      "display_name": "Claude Opus 4.7 (max)",
-      "provider_id": "anthropic",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-04-16",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 75.98,
-        "math": 68.32,
-        "coding": 63.23,
-        "instruction_following": 66.74,
-        "human_preference": 90.32
-      },
-      "composite": 72.03,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1317.5,
-        "rank": 4,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 17
-    },
-    {
-      "id": "deepseek-deepseek-v4-pro",
-      "display_name": "DeepSeek v4 Pro (max)",
-      "provider_id": "deepseek",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-04-24",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 82.69,
-        "coding": 53.57,
-        "math": 90.68,
-        "instruction_following": 62.35,
-        "human_preference": 69.86
-      },
-      "composite": 72.03,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 18
+      "rank": 13,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-5",
@@ -828,21 +1107,105 @@
         "instruction_following": 63.86,
         "human_preference": 65.67
       },
+      "category_errors": {
+        "reasoning": 1.47,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.001
+      },
       "composite": 72.01,
+      "composite_error": 0.58,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "high",
       "vision": {
         "rating": 1285.4,
         "rank": 22,
+        "variant": "claude-sonnet-5-high",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 19
+      "rank": 16,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "deepseek-deepseek-v4-pro",
+      "display_name": "DeepSeek v4 Pro (max)",
+      "provider_id": "deepseek",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-04-24",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 82.69,
+        "coding": 53.57,
+        "math": 90.68,
+        "instruction_following": 62.35,
+        "human_preference": 69.86
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.235
+      },
+      "composite": 72.03,
+      "composite_error": 0.34,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 17,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "thinking-machines-inkling",
@@ -872,16 +1235,38 @@
         "instruction_following": 70.1,
         "human_preference": 64.03
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.465
+      },
       "composite": 71.89,
+      "composite_error": 0.52,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
       "vision": null,
-      "rank": 20
+      "rank": 17,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-5",
@@ -911,70 +1296,47 @@
         "instruction_following": 62.55,
         "human_preference": 69.05
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 1.702
+      },
       "composite": 71.76,
+      "composite_error": 0.26,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": "20251101",
       "vision": null,
-      "rank": 21
+      "rank": 17,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
-      "id": "openai-gpt-5.4",
-      "display_name": "GPT-5.4 Pro",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-03-05",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 75.42,
-        "math": 70.88,
-        "coding": 63.32,
-        "instruction_following": 70.22,
-        "human_preference": 79.93
-      },
-      "composite": 71.38,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1298.2,
-        "rank": 13,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 22
-    },
-    {
-      "id": "anthropic-claude-opus-4-8",
-      "display_name": "Claude Opus 4.8",
+      "id": "anthropic-claude-opus-4-7",
+      "display_name": "Claude Opus 4.7 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2026-05-28",
+      "release_date": "2026-04-16",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
@@ -990,27 +1352,50 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 73.24,
-        "math": 70.78,
-        "coding": 63.03,
-        "instruction_following": 72.03,
-        "human_preference": 76.35
+        "reasoning": 75.98,
+        "math": 68.32,
+        "coding": 63.23,
+        "instruction_following": 66.74,
+        "human_preference": 85.93
       },
-      "composite": 70.48,
+      "category_errors": {
+        "reasoning": 1.588,
+        "math": 2.86,
+        "coding": null,
+        "instruction_following": null,
+        "human_preference": 2.152
+      },
+      "composite": 71.37,
+      "composite_error": 0.77,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 8,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
       "vision": {
-        "rating": 1294.8,
-        "rank": 17,
+        "rating": 1317.5,
+        "rank": 4,
+        "variant": "claude-opus-4-7-thinking",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 23
+      "rank": 17,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3-pro",
@@ -1040,7 +1425,19 @@
         "coding": 72.93,
         "human_preference": 85.19
       },
+      "category_errors": {
+        "reasoning": 2.127,
+        "math": 5.566,
+        "coding": 3.963,
+        "human_preference": 2.042
+      },
       "composite": 69.67,
+      "composite_error": 1.9,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1048,15 +1445,161 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "preview",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1304.9,
         "rank": 11,
+        "variant": "gemini-3-pro",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 24
+      "rank": 18,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5.4",
+      "display_name": "GPT-5.4 Pro",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-03-05",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 75.42,
+        "math": 70.88,
+        "coding": 63.32,
+        "instruction_following": 70.22,
+        "human_preference": 70.41
+      },
+      "category_errors": {
+        "reasoning": 1.563,
+        "math": 2.842,
+        "coding": null,
+        "instruction_following": null,
+        "human_preference": 2.035
+      },
+      "composite": 69.96,
+      "composite_error": 0.75,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 8,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1298.2,
+        "rank": 13,
+        "variant": "gpt-5.4-high",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 21,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "anthropic-claude-opus-4-8",
+      "display_name": "Claude Opus 4.8",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-05-28",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 73.24,
+        "math": 70.78,
+        "coding": 63.03,
+        "instruction_following": 72.03,
+        "human_preference": 71.2
+      },
+      "category_errors": {
+        "reasoning": 1.609,
+        "math": 2.878,
+        "coding": null,
+        "instruction_following": null,
+        "human_preference": 2.599
+      },
+      "composite": 69.71,
+      "composite_error": 0.8,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 8,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1294.8,
+        "rank": 17,
+        "variant": "claude-opus-4-8-thinking",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 22,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-luna",
@@ -1087,21 +1630,112 @@
         "instruction_following": 60.12,
         "human_preference": 57.25
       },
+      "category_errors": {
+        "reasoning": 1.521,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.405
+      },
       "composite": 68.85,
+      "composite_error": 0.64,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "xhigh",
       "vision": {
         "rating": 1249.3,
         "rank": 45,
+        "variant": "gpt-5.6-luna-xhigh",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 25
+      "rank": 22,
+      "tied_with": 1,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "google-deepmind-gemini-3-flash",
+      "display_name": "Gemini 3 Flash",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-12-17",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 75.31,
+        "math": 35.64,
+        "coding": 75.41,
+        "human_preference": 77.97
+      },
+      "category_errors": {
+        "reasoning": 2.365,
+        "math": 5.531,
+        "coding": 3.84,
+        "human_preference": 2.344
+      },
+      "composite": 66.47,
+      "composite_error": 1.9,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "preview",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1283.4,
+        "rank": 23,
+        "variant": "gemini-3-flash",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 24,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.6",
@@ -1132,21 +1766,44 @@
         "instruction_following": 64.36,
         "human_preference": 71.91
       },
+      "category_errors": {
+        "reasoning": 1.507,
+        "math": 2.812,
+        "coding": 1.887,
+        "instruction_following": null,
+        "human_preference": 2.431
+      },
       "composite": 67.2,
+      "composite_error": 0.9,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 9,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1281.5,
         "rank": 25,
+        "variant": "kimi-k2.6",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 26
+      "rank": 25,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4-nano",
@@ -1177,112 +1834,44 @@
         "instruction_following": 67.2,
         "human_preference": 28.11
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.078
+      },
       "composite": 66.87,
+      "composite_error": 0.31,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "high",
       "vision": {
         "rating": 1198.1,
         "rank": 73,
+        "variant": "gpt-5.4-nano-high",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27
-    },
-    {
-      "id": "google-deepmind-gemini-3-flash",
-      "display_name": "Gemini 3 Flash",
-      "provider_id": "google-deepmind",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-12-17",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 75.31,
-        "math": 35.64,
-        "coding": 75.41,
-        "human_preference": 77.97
-      },
-      "composite": 66.47,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1283.4,
-        "rank": 23,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 28
-    },
-    {
-      "id": "openai-gpt-5.2",
-      "display_name": "GPT-5.2 (none)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-12-11",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 69.87,
-        "math": 66.75,
-        "coding": 67.17,
-        "instruction_following": 61.77,
-        "human_preference": 63.45
-      },
-      "composite": 66.39,
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1266.9,
-        "rank": 32,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 29
+      "rank": 26,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.7-code",
@@ -1311,7 +1900,19 @@
         "math": 79.6,
         "instruction_following": 56.29
       },
+      "category_errors": {
+        "reasoning": 1.537,
+        "coding": null,
+        "math": null,
+        "instruction_following": null
+      },
       "composite": 66.16,
+      "composite_error": 0.45,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1319,10 +1920,19 @@
           "human_preference"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
       "provisional": false,
       "awaiting_human_votes": true,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 30
+      "rank": 26,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5",
@@ -1352,7 +1962,19 @@
         "coding": 73.55,
         "human_preference": 45.55
       },
+      "category_errors": {
+        "reasoning": 2.56,
+        "math": 2.716,
+        "coding": 3.934,
+        "human_preference": 2.365
+      },
       "composite": 65.14,
+      "composite_error": 1.58,
+      "uncertainty": {
+        "measured_inputs": 6,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1360,15 +1982,25 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1231.6,
         "rank": 58,
+        "variant": "gpt-5-chat",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 31
+      "rank": 26,
+      "tied_with": 2,
+      "cohort_recalibration": null
     },
     {
       "id": "minimax-minimax-m3",
@@ -1399,21 +2031,112 @@
         "instruction_following": 57.51,
         "human_preference": 62.26
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.658
+      },
       "composite": 64.89,
+      "composite_error": 0.4,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1257.0,
         "rank": 40,
+        "variant": "minimax-m3",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 32
+      "rank": 29,
+      "tied_with": 3,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5.2",
+      "display_name": "GPT-5.2 (none)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-12-11",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 69.87,
+        "math": 66.75,
+        "coding": 67.17,
+        "instruction_following": 61.77,
+        "human_preference": 51.33
+      },
+      "category_errors": {
+        "reasoning": 1.604,
+        "math": 2.829,
+        "coding": 1.962,
+        "instruction_following": null,
+        "human_preference": 1.927
+      },
+      "composite": 64.58,
+      "composite_error": 0.9,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 9,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1266.9,
+        "rank": 32,
+        "variant": "gpt-5.2-chat-latest-20260210",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 29,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4-flash",
@@ -1443,16 +2166,99 @@
         "instruction_following": 63.14,
         "human_preference": 59.46
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.222
+      },
       "composite": 64.53,
+      "composite_error": 0.33,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 33
+      "rank": 29,
+      "tied_with": 3,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "z-ai-zhipu-ai-glm-5",
+      "display_name": "GLM-5",
+      "provider_id": "z-ai-zhipu-ai",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-02-11",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 87.82,
+        "math": 16.43,
+        "coding": 72.08,
+        "human_preference": 66.78
+      },
+      "category_errors": {
+        "reasoning": 4.579,
+        "math": 4.302,
+        "coding": 4.094,
+        "human_preference": 2.318
+      },
+      "composite": 62.68,
+      "composite_error": 2.11,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 29,
+      "tied_with": 3,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.5-flash-lite",
@@ -1483,21 +2289,44 @@
         "instruction_following": 67.24,
         "human_preference": 61.79
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.71
+      },
       "composite": 63.54,
+      "composite_error": 0.56,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1258.2,
         "rank": 39,
+        "variant": "gemini-3.5-flash-lite",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 34
+      "rank": 32,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4-mini",
@@ -1528,61 +2357,44 @@
         "instruction_following": 59.8,
         "human_preference": 49.27
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.06
+      },
       "composite": 63.29,
+      "composite_error": 0.31,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 8
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "high",
       "vision": {
         "rating": 1248.5,
         "rank": 47,
+        "variant": "gpt-5.4-mini-high",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 35
-    },
-    {
-      "id": "z-ai-zhipu-ai-glm-5",
-      "display_name": "GLM-5",
-      "provider_id": "z-ai-zhipu-ai",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-02-11",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 87.82,
-        "math": 16.43,
-        "coding": 72.08,
-        "human_preference": 66.78
-      },
-      "composite": 62.68,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": null,
-      "rank": 36
+      "rank": 33,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.1",
@@ -1611,7 +2423,19 @@
         "coding": 74.17,
         "human_preference": 77.6
       },
+      "category_errors": {
+        "reasoning": 2.521,
+        "math": 5.439,
+        "coding": 3.9,
+        "human_preference": 2.332
+      },
       "composite": 61.44,
+      "composite_error": 1.92,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1619,10 +2443,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 37
+      "rank": 34,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6",
@@ -1651,7 +2484,19 @@
         "coding": 76.65,
         "human_preference": 67.29
       },
+      "category_errors": {
+        "reasoning": 2.39,
+        "math": 4.859,
+        "coding": 3.773,
+        "human_preference": 4.475
+      },
       "composite": 61.32,
+      "composite_error": 1.91,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1659,10 +2504,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 38
+      "rank": 34,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6-plus",
@@ -1692,16 +2546,106 @@
         "instruction_following": 58.34,
         "human_preference": 62.37
       },
+      "category_errors": {
+        "reasoning": 1.616,
+        "math": 2.535,
+        "coding": 2.202,
+        "instruction_following": null,
+        "human_preference": 2.271
+      },
       "composite": 61.04,
+      "composite_error": 0.92,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 9,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 9
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 39
+      "rank": 36,
+      "tied_with": 1,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5.1",
+      "display_name": "GPT-5.1 (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-11-13",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 68.27,
+        "math": 31.03,
+        "coding": 67.98,
+        "human_preference": 64.67
+      },
+      "category_errors": {
+        "reasoning": 2.404,
+        "math": 5.333,
+        "coding": 4.161,
+        "human_preference": 2.001
+      },
+      "composite": 58.79,
+      "composite_error": 1.92,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1248.4,
+        "rank": 48,
+        "variant": "gpt-5.1-high",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 36,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.3",
@@ -1732,113 +2676,44 @@
         "instruction_following": 62.75,
         "human_preference": 42.24
       },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.21
+      },
       "composite": 60.09,
+      "composite_error": 0.33,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 5,
         "total": 5,
         "missing": []
       },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1231.4,
         "rank": 59,
+        "variant": "grok-4.3",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 40
-    },
-    {
-      "id": "openai-gpt-5-mini",
-      "display_name": "GPT-5 mini (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-08-07",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 71.65,
-        "math": 58.57,
-        "coding": 64.67,
-        "human_preference": 28.66
-      },
-      "composite": 58.93,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1202.8,
-        "rank": 70,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 41
-    },
-    {
-      "id": "openai-gpt-5.1",
-      "display_name": "GPT-5.1 (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-11-13",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 68.27,
-        "math": 31.03,
-        "coding": 67.98,
-        "human_preference": 64.67
-      },
-      "composite": 58.79,
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "vision": {
-        "rating": 1248.4,
-        "rank": 48,
-        "measured_at": "2026-08-02",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 42
+      "rank": 37,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-pro",
@@ -1868,7 +2743,19 @@
         "coding": 57.56,
         "human_preference": 73.4
       },
+      "category_errors": {
+        "reasoning": 2.583,
+        "math": 4.016,
+        "coding": 4.412,
+        "human_preference": 1.32
+      },
       "composite": 53.99,
+      "composite_error": 1.79,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1876,15 +2763,25 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1261.7,
         "rank": 37,
+        "variant": "gemini-2.5-pro",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 43
+      "rank": 42,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-1",
@@ -1913,7 +2810,19 @@
         "coding": 73.35,
         "human_preference": 51.99
       },
+      "category_errors": {
+        "reasoning": 6.182,
+        "math": 2.709,
+        "coding": 3.944,
+        "human_preference": 1.6
+      },
       "composite": 53.67,
+      "composite_error": 2.27,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1921,10 +2830,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "20250805",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 44
+      "rank": 42,
+      "tied_with": 1,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-4-5",
@@ -1953,7 +2871,19 @@
         "coding": 71.28,
         "human_preference": 62.86
       },
+      "category_errors": {
+        "reasoning": 3.245,
+        "math": 3.35,
+        "coding": 4.036,
+        "human_preference": 1.556
+      },
       "composite": 47.0,
+      "composite_error": 1.74,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 4,
         "total": 5,
@@ -1961,10 +2891,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
       "provisional": false,
       "awaiting_human_votes": false,
+      "variant": "20250929",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": 45
+      "rank": 44,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3",
@@ -1992,7 +2931,18 @@
         "math": 97.13,
         "human_preference": 63.55
       },
+      "category_errors": {
+        "reasoning": 3.049,
+        "math": 0.823,
+        "human_preference": 2.404
+      },
       "composite": 77.44,
+      "composite_error": 1.43,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2001,10 +2951,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.5",
@@ -2032,7 +2991,17 @@
         "coding": 73.76,
         "human_preference": 66.9
       },
+      "category_errors": {
+        "coding": 3.924,
+        "human_preference": 1.842
+      },
       "composite": 71.19,
+      "composite_error": 2.55,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2042,15 +3011,25 @@
           "reasoning"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1267.2,
         "rank": 31,
+        "variant": "kimi-k2.5-thinking",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark",
@@ -2079,7 +3058,18 @@
         "math": 39.0,
         "human_preference": 81.73
       },
+      "category_errors": {
+        "reasoning": 2.609,
+        "math": 5.684,
+        "human_preference": 3.129
+      },
       "composite": 65.95,
+      "composite_error": 2.32,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2088,15 +3078,25 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1306.7,
         "rank": 10,
+        "variant": "muse-spark",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -2123,7 +3123,17 @@
         "reasoning": 65.08,
         "human_preference": 49.99
       },
+      "category_errors": {
+        "reasoning": 2.984,
+        "human_preference": 3.472
+      },
       "composite": 59.42,
+      "composite_error": 2.27,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 3,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2133,10 +3143,19 @@
           "math"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-4.7",
@@ -2163,7 +3182,17 @@
         "reasoning": 57.41,
         "human_preference": 61.78
       },
+      "category_errors": {
+        "reasoning": 2.659,
+        "human_preference": 3.241
+      },
       "composite": 59.05,
+      "composite_error": 2.06,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 3,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2173,10 +3202,19 @@
           "math"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2-thinking-turbo",
@@ -2203,7 +3241,17 @@
         "reasoning": 57.91,
         "human_preference": 50.13
       },
+      "category_errors": {
+        "reasoning": 2.503,
+        "human_preference": 1.677
+      },
       "composite": 54.99,
+      "composite_error": 1.69,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 3,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2213,10 +3261,86 @@
           "math"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5-mini",
+      "display_name": "GPT-5 mini (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-08-07",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 48.0,
+        "math": 62.54,
+        "human_preference": 28.66
+      },
+      "category_errors": {
+        "reasoning": 2.564,
+        "math": 2.588,
+        "human_preference": 2.428
+      },
+      "composite": 48.01,
+      "composite_error": 1.5,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1202.8,
+        "rank": 70,
+        "variant": "gpt-5-mini-high",
+        "measured_at": "2026-08-02",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4-0709",
@@ -2245,7 +3369,18 @@
         "math": 19.66,
         "human_preference": 47.95
       },
+      "category_errors": {
+        "reasoning": 2.499,
+        "math": 4.582,
+        "human_preference": 2.075
+      },
       "composite": 46.65,
+      "composite_error": 1.92,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2254,15 +3389,25 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1208.9,
         "rank": 68,
+        "variant": "grok-4-0709",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-haiku-4-5",
@@ -2290,7 +3435,18 @@
         "math": 51.13,
         "human_preference": 39.24
       },
+      "category_errors": {
+        "reasoning": 3.245,
+        "math": 1.454,
+        "human_preference": 1.41
+      },
       "composite": 42.92,
+      "composite_error": 1.48,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2299,10 +3455,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "20251001-32k",
+      "human_preference_variant": "20251001",
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5-nano",
@@ -2331,7 +3496,18 @@
         "math": 51.59,
         "human_preference": 0.0
       },
+      "category_errors": {
+        "reasoning": 2.888,
+        "math": 1.658,
+        "human_preference": 3.639
+      },
       "composite": 34.21,
+      "composite_error": 1.61,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2340,15 +3516,25 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1161.7,
         "rank": 91,
+        "variant": "gpt-5-nano-high",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-flash",
@@ -2376,7 +3562,18 @@
         "math": 6.21,
         "human_preference": 41.35
       },
+      "category_errors": {
+        "reasoning": 2.487,
+        "math": 2.781,
+        "human_preference": 2.018
+      },
       "composite": 33.99,
+      "composite_error": 1.48,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 3,
         "total": 5,
@@ -2385,10 +3582,19 @@
           "instruction_following"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": null,
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemma-4-31b",
@@ -2416,7 +3622,17 @@
         "reasoning": 9.56,
         "human_preference": 64.82
       },
+      "category_errors": {
+        "reasoning": 1.838,
+        "human_preference": 4.055
+      },
       "composite": 30.28,
+      "composite_error": 1.91,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2426,15 +3642,25 @@
           "math"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "it",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1271.5,
         "rank": 30,
+        "variant": "gemma-4-31b",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-flash",
@@ -2462,7 +3688,17 @@
         "math": 4.84,
         "human_preference": 51.98
       },
+      "category_errors": {
+        "math": 2.479,
+        "human_preference": 1.301
+      },
       "composite": 25.04,
+      "composite_error": 1.52,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
       "coverage": {
         "covered": 2,
         "total": 5,
@@ -2472,15 +3708,25 @@
           "reasoning"
         ]
       },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
       "provisional": true,
       "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
       "vision": {
         "rating": 1235.3,
         "rank": 56,
+        "variant": "gemini-2.5-flash",
         "measured_at": "2026-08-02",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": null
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
     }
   ]
 }
