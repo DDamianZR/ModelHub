@@ -107,7 +107,17 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
                     {row.provider_name}
                     {row.release_date ? ` · ${row.release_date}` : ""}
                   </div>
-                  <div className="num mt-2 text-[24px]">{row.composite.toFixed(1)}</div>
+                  {/* The interval belongs here more than anywhere: this is the page
+                      where two numbers get read against each other, so a difference
+                      smaller than the error is exactly what must not look like a win. */}
+                  <div className="num mt-2 text-[24px]">
+                    {row.composite.toFixed(1)}
+                    <span className="ml-1 text-[12px]" style={{ color: "var(--muted)" }}>
+                      {row.composite_error === null
+                        ? "±?"
+                        : `±${row.composite_error.toFixed(2)}`}
+                    </span>
+                  </div>
                   <div className="mt-1 flex items-center gap-2">
                     <CoverageMeter
                       covered={row.coverage.covered}
@@ -202,6 +212,14 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
                     </th>
                     <td className="num py-2 pr-3 text-right text-[13px]">
                       {row.composite.toFixed(1)}
+                      <span
+                        className="ml-1 text-[10px]"
+                        style={{ color: "var(--muted)" }}
+                      >
+                        {row.composite_error === null
+                          ? "±?"
+                          : `±${row.composite_error.toFixed(2)}`}
+                      </span>
                     </td>
                     <td className="num py-2 pr-3 text-right text-[12px]">
                       {row.coverage.covered}/{row.coverage.total}

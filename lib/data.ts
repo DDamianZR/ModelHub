@@ -1,6 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { AgedSource, Meta, Model, Provider, Row, Status } from "./types";
+import type {
+  AgedSource,
+  Meta,
+  Model,
+  Provider,
+  RejectedSnapshot,
+  Row,
+  SnapshotAge,
+  Status,
+} from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -91,6 +100,14 @@ export type ScoreRow = {
   benchmark_id: string;
   value: number;
   unit: string;
+  /** As the source published it. null where the source publishes none. */
+  stderr?: number | null;
+  /** The same figure as a 95% half-width, in the score's own units. */
+  half_width_95?: number | null;
+  /** The configuration this row measures, when it is not the model's chosen one. */
+  variant_mismatch?: string | null;
+  /** The exact name the source published for the row that scored. */
+  measured_name?: string | null;
   source_type: "human_eval" | "third_party_benchmark" | "vendor_claim";
   source_url: string;
   measured_at: string | null;
@@ -196,6 +213,136 @@ export function getModelDetail(id: string): {
     history: readHistory().get(id) ?? [],
     description: getDescriptions()[id] ?? null,
   };
+}
+
+export type AliasEntry = {
+  id: string;
+  canonical_key: string;
+  display_name: string;
+  variant: string | null;
+  scored_arena_name: string | null;
+  names: string[];
+  matched: Record<string, string[]>;
+};
+
+/**
+ * What each source called this model. A wrong match silently credits one model with
+ * another's scores, which is the worst failure this pipeline can have and the one it
+ * cannot detect on its own — so the mapping is published for anyone to check.
+ */
+export function getAliases(): AliasEntry[] {
+  const file = path.join(DATA_DIR, "aliases.json");
+  if (!fs.existsSync(file)) return [];
+  const payload = JSON.parse(fs.readFileSync(file, "utf8")) as Record<
+    string,
+    Omit<AliasEntry, "id">
+  >;
+  return Object.entries(payload)
+    .map(([id, entry]) => ({ id, ...entry }))
+    .sort((a, b) => a.display_name.localeCompare(b.display_name));
+}
+
+/** Digests and rejections the ingest recorded, for the audit pages. */
+export function getIntegrity(): Status["integrity"] {
+  return readStatus()?.integrity;
+}
+
+export function getRejectedSnapshots(): RejectedSnapshot[] {
+  const rejected = readStatus()?.rejected_snapshots;
+  return Array.isArray(rejected) ? (rejected as RejectedSnapshot[]) : [];
+}
+
+/**
+ * The figures /methodology quotes about itself, derived from /data on every build.
+ *
+ * They were hardcoded into messages/*.json first, which was a mistake of exactly the kind
+ * this project exists to catch: a number written by hand into prose is a claim with no
+ * source and no date, and it goes quietly false the next time the cohort changes. Anything
+ * the data can recompute is recomputed here; anything it cannot is dated in the copy.
+ */
+export function getMethodologyStats() {
+  const { rows } = getRanking();
+  const ranked = rows
+    .filter((row) => !row.provisional)
+    .sort((a, b) => b.composite - a.composite);
+
+  const gaps: number[] = [];
+  let overlapping = 0;
+  let identical = 0;
+  for (let i = 1; i < ranked.length; i += 1) {
+    const better = ranked[i - 1];
+    const worse = ranked[i];
+    const gap = better.composite - worse.composite;
+    gaps.push(gap);
+    if (gap < 0.005) identical += 1;
+    if (
+      worse.composite + (worse.composite_error ?? 0) >=
+      better.composite - (better.composite_error ?? 0)
+    ) {
+      overlapping += 1;
+    }
+  }
+  gaps.sort((a, b) => a - b);
+  const medianGap = gaps.length
+    ? gaps.length % 2
+      ? gaps[(gaps.length - 1) / 2]
+      : (gaps[gaps.length / 2 - 1] + gaps[gaps.length / 2]) / 2
+    : 0;
+
+  const measuredInputs = ranked.reduce((n, r) => n + r.uncertainty.measured_inputs, 0);
+  const totalInputs = ranked.reduce((n, r) => n + r.uncertainty.total_inputs, 0);
+
+  // Per-benchmark median published error, so the page can state the real spread rather
+  // than a remembered one.
+  const { scores } = readJson<{ scores: ScoreRow[] }>("scores.json");
+  const byBenchmark = new Map<string, number[]>();
+  for (const score of scores) {
+    if (score.unit !== "percent" || score.stderr == null) continue;
+    const bucket = byBenchmark.get(score.benchmark_id) ?? [];
+    bucket.push(score.stderr);
+    byBenchmark.set(score.benchmark_id, bucket);
+  }
+  const medians: number[] = [];
+  for (const values of byBenchmark.values()) {
+    values.sort((a, b) => a - b);
+    medians.push(values[Math.floor(values.length / 2)]);
+  }
+  medians.sort((a, b) => a - b);
+
+  // How much an Arena rating moves between consecutive snapshots, from the series itself.
+  // This is what justifies calling a rating "still" in the recalibration notice, so it is
+  // measured on every build rather than quoted from the day someone last checked.
+  const moves: number[] = [];
+  for (const series of readHistory().values()) {
+    for (let i = 1; i < series.length; i += 1) {
+      moves.push(Math.abs(series[i].value - series[i - 1].value));
+    }
+  }
+  moves.sort((a, b) => a - b);
+  const at = (q: number) => moves[Math.floor(moves.length * q)] ?? 0;
+
+  return {
+    transitions: moves.length,
+    moveMedian: at(0.5).toFixed(2),
+    moveP75: at(0.75).toFixed(2),
+    stillPoints: readStatus()?.thresholds?.recalibration_raw_still ?? null,
+    ranked: ranked.length,
+    distinctRanks: new Set(ranked.map((row) => row.rank)).size,
+    overlappingPairs: overlapping,
+    adjacentPairs: gaps.length,
+    identicalPairs: identical,
+    medianGap: medianGap.toFixed(2),
+    measuredInputs,
+    totalInputs,
+    withoutInterval: ranked.filter((row) => row.composite_error === null).length,
+    stderrLow: (medians[0] ?? 0).toFixed(2),
+    stderrHigh: (medians[medians.length - 1] ?? 0).toFixed(2),
+  };
+}
+
+/** Declared versus observed publishing rhythm, for the cadence paragraph. */
+export function getCadence(source: string): SnapshotAge | null {
+  return readStatus()?.snapshot_ages?.[source] ?? null;
 }
 
 export function getModelIds(): string[] {
