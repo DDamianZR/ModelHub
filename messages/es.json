@@ -55,7 +55,12 @@
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
-    "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización."
+    "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
+    "tiedTitle": "Empatado con otros {count} modelos: sus intervalos al 95 % se solapan, así que la medición no los separa.",
+    "errorTitle": "Semiancho del intervalo al 95 % sobre el compuesto. Es un piso: {measured} de {total} entradas publican su error, las demás aportan cero, así que el intervalo real solo puede ser más ancho.",
+    "errorUnknownTitle": "Ninguna de las fuentes de este modelo publica su error. El intervalo se desconoce; no es cero.",
+    "evidenceShort": "{benchmarks} bm",
+    "evidenceTitle": "Densidad de evidencia: {benchmarks} benchmarks de {sources} de {max} fuentes independientes sostienen este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4."
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -77,7 +82,8 @@
     "label": "Secciones",
     "ranking": "Ranking",
     "compare": "Comparar",
-    "methodology": "Metodología"
+    "methodology": "Metodología",
+    "aliases": "Alias"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -112,7 +118,18 @@
     "link_hf_repo": "Pesos (HuggingFace)",
     "link_provider_page": "Proveedor",
     "link_api_docs": "Docs de API",
-    "link_ollama_tag": "Ollama"
+    "link_ollama_tag": "Ollama",
+    "configuration": "Configuración",
+    "configurationNote": "Todos los números de abajo describen la variante {variant} publicada por el proveedor. Se elige una sola configuración para el modelo entero: tomar la mejor de cada benchmark describiría un montaje que nadie ejecuta.",
+    "configurationPlain": "Todos los números de abajo describen la variante que el proveedor publicó sin calificador de esfuerzo.",
+    "configurationMismatch": "La preferencia humana es la excepción: LMArena nunca publicó la variante {variant}, así que ese voto mide {measured}. Se conserva el dato y se declara la diferencia en lugar de descartar votos humanos reales por una diferencia de nomenclatura entre fuentes.",
+    "tiedShort": "(empate con {count})",
+    "errorNotPublished": "sin error publicado",
+    "uncertaintyNote": "El ±{error} es el semiancho de un intervalo al 95 % sobre el compuesto, y es un piso, no una estimación: {measured} de {total} entradas publican su error y las demás aportan cero. El intervalo real solo puede ser más ancho, nunca más estrecho.",
+    "uncertaintyNone": "Ninguna de las fuentes de este modelo publica su margen de error, así que su compuesto no lleva intervalo. Eso es «se desconoce», no «es exacto»: su posición en la tabla es la menos defendible de todas, porque se compara como si fuera un valor puntual.",
+    "uncertaintyTied": "Comparte rango con otros {count} modelos porque sus intervalos se solapan.",
+    "recalibration": "Recalibración de cohorte, no cambio de medición. Su valor normalizado de preferencia humana se movió {normalized} puntos mientras su rating de Arena solo cambió {raw}: entró o salió un modelo con rating extremo y la escala se reajustó debajo. El efecto sobre el compuesto es de {composite} puntos —por encima de {threshold}, la separación mediana entre vecinos de esta corrida— y no lo causó nadie votando distinto.",
+    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}"
   },
   "methodology": {
     "title": "Metodología",
@@ -151,7 +168,10 @@
       "option_best": "usa el puntaje más alto entre las variantes. Refleja el techo del modelo, pero premia a quien publica más variantes: el máximo de cinco tiradas supera al de una.",
       "option_average": "promedia las variantes. Descartado como default: nadie ejecuta «el promedio de niveles de esfuerzo», así que inventa una configuración que no existe, subestima el pico y sobreestima la variante barata.",
       "option_separate": "no agrupar, tratar cada variante como su propio modelo. Es lo más consistente con la regla de andamiajes, pero hoy no es viable: cada fuente nombra las variantes distinto (Epoch usa «_max», LiveBench «-max-effort», LMArena «-high»), así que sin agrupar habría que mantener a mano una tabla de alias por variante y por fuente. Eso choca con la restricción de cero mantenimiento diario, y además fragmentaría la cobertura hasta vaciar el ranking principal. No está implementado.",
-      "current": "Cada número afectado dice en la ficha del modelo qué configuración se usó. Con la política actual, la variante sin calificador gana en la mayoría de los casos; le siguen xhigh, high y max. Cuando un benchmark no midió la configuración elegida, preferimos dejar el hueco y bajar la cobertura antes que sustituirla por otra: un compuesto con una casilla menos es más honesto que uno que mezcla configuraciones."
+      "current": "Cada número afectado dice en la ficha del modelo qué configuración se usó. Con la política actual, la variante sin calificador gana en la mayoría de los casos; le siguen xhigh, high y max. Cuando un benchmark no midió la configuración elegida, preferimos dejar el hueco y bajar la cobertura antes que sustituirla por otra: un compuesto con una casilla menos es más honesto que uno que mezcla configuraciones.",
+      "arena": "La preferencia humana participa en la elección de configuración, pero solo como desempate: cuando dos etiquetas cubren los mismos benchmarks, gana la que LMArena también midió, porque es la única que se puede reportar de punta a punta. Darle voto completo se probó el 2026-08-03 y se descartó con la medición delante: una sola fila de Arena volteaba etiquetas que cuatro benchmarks ya sostenían, y sobre la cohorte de ese día le costaba a Claude Opus 4.6 todos sus scores de LiveBench y 17.88 puntos de compuesto.",
+      "mismatch": "Cuando LMArena no publicó la configuración elegida, aquí sí conservamos su fila —la mejor determinada, la de más votos— y la ficha del modelo declara qué variante mide. Es la excepción deliberada a la regla del hueco, y la razón es que los vocabularios no son comparables: Epoch etiqueta niveles de esfuerzo («_max», «_high») mientras Arena publica sobre todo un nombre simple y una variante de razonamiento. En un benchmark, que falte la configuración elegida significa que no se midió; en Arena suele significar que se nombra distinto. Descartarla se midió el 2026-08-03 y costaba la preferencia humana de 21 de 43 modelos de aquella cohorte: tirar votos humanos reales por una diferencia de nomenclatura cambia una medición conocida por ninguna.",
+      "mismatchBest": "Lo que no sobrevivió en ningún caso fue elegir la fila de Arena por rating máximo. Eso es la política «best» que este proyecto descartó por escrito, aplicada en silencio al 15 % del peso: favorecía a todo modelo con una variante fuerte. Hoy, cuando hay que elegir sin coincidencia de etiqueta, gana la fila con más votos. Medido el 2026-08-03, el cambio quitó 11.6 puntos de rating de media —22.7 en el peor caso— a los 6 modelos que afectaba entonces."
     },
     "dedup": {
       "title": "El guard de duplicados de LMArena",
@@ -185,6 +205,53 @@
       "body": "No hay base de datos externa. Todo lo que alimenta esta página son archivos de texto versionados:",
       "git": "Cada corrida diaria queda como un commit. Eso significa que cualquier cambio en cualquier número es un diff auditable: puedes ver cuándo cambió, cuánto y por qué corrida.",
       "link": "Ver el repositorio"
+    },
+    "uncertainty": {
+      "title": "Incertidumbre y empates estadísticos",
+      "body": "Epoch publica un error estándar en cada fila y LMArena publica un intervalo de confianza en cada rating. Ese dato existía en las fuentes desde el primer día y se descartaba al mostrar. Ahora se propaga hasta el compuesto y se enseña.",
+      "why": "Hace falta porque la tabla está mucho más apretada que su propia precisión. Ahora mismo la separación mediana entre modelos vecinos es de {medianGap} puntos de compuesto, mientras que el error estándar mediano por benchmark de Epoch va de {stderrLow} a {stderrHigh} puntos. Publicar un orden estricto sobre esas diferencias es prometer una precisión que la medición no tiene: hoy hay {identicalPairs, plural, =0 {parejas de vecinos separadas por menos de una centésima que igual comparten rango} one {una pareja separada por menos de una centésima} other {# parejas separadas por menos de una centésima}}.",
+      "formula": "Todo se lleva a semianchos de un intervalo al 95 %. El error estándar de Epoch se multiplica por 1.96; el intervalo de LMArena ya viene al 95 % y solo se reescala junto con el rating. La media de una categoría propaga como √(Σ e²)/n y el compuesto como √(Σ (wᵢ/W)² eᵢ²).",
+      "floor": "El número publicado es un piso, no una estimación. Dos razones, ambas en la misma dirección: LiveBench no publica error por fila, así que sus entradas aportan cero —en esta corrida {measuredInputs} de {totalInputs} entradas llevan error publicado—, y la fórmula supone que las categorías son independientes cuando no lo son del todo. El intervalo real solo puede ser más ancho.",
+      "sound": "Esa asimetría es lo que lo mantiene utilizable. Un intervalo que solo puede ensancharse sigue sosteniendo «estos dos se solapan», pero nunca «estos dos son distintos». Por eso se declaran empates y no se declaran diferencias: dos modelos sin empate marcado pueden estar empatados igualmente.",
+      "rank": "El rango es un rango de significancia, no una posición en una lista ordenada: un modelo está en uno más el número de modelos medibles por delante. Se cuentan modelos estrictamente mejores en vez de agrupar vecinos porque el solapamiento no es transitivo —A puede solaparse con B y B con C mientras A y C están limpiamente separados—. En esta corrida, de {ranked} modelos rankeados quedan {distinctRanks} rangos distintos, y {overlappingPairs} de {adjacentPairs} parejas adyacentes se solapan.",
+      "unknown": "{withoutInterval, plural, =0 {Ahora mismo todos los modelos rankeados llevan intervalo.} one {Hoy un modelo no lleva intervalo porque ninguna de sus fuentes publica error.} other {Hoy # modelos no llevan intervalo porque ninguna de sus fuentes publica error.}} Se comparan como valores puntuales, que es la única vez que este cálculo rellena con ceros, y por eso su ficha lo dice explícitamente. La alternativa —negarse a separarlos de nadie— era peor: subía a empatar por el primer puesto a un modelo muy por detrás del líder, a cambio de saber menos de él."
+    },
+    "cohort": {
+      "title": "Acoplamiento de cohorte en LMArena",
+      "body": "Los ratings de Arena son Bradley-Terry, no porcentajes, así que se normalizan min-max contra la cohorte presente en cada build. Eso tiene una consecuencia que no es obvia: cuando entra un modelo con un rating extremo, el valor normalizado de todos los demás se mueve aunque sus ratings crudos no hayan cambiado.",
+      "measured": "Medido el 2026-08-03 sobre la cohorte de ese día: un modelo nuevo 60 puntos por encima del mejor de entonces movía el valor normalizado 16.03 puntos de media y 24.29 en el peor caso, es decir 2.40 y 3.64 puntos de compuesto. Con la separación mediana entre vecinos que hay hoy ({medianGap} puntos), un desplazamiento así basta para reordenar la tabla solo.",
+      "disclosure": "Por eso cada corrida registra el delta crudo y el normalizado por separado. Cuando el normalizado se mueve y el crudo no, la ficha del modelo lo dice: recalibración de cohorte, no cambio de medición. Un modelo puede perder posiciones sin que nadie haya votado distinto, y esa distinción es del lector, no nuestra.",
+      "notchanged": "No se cambió el normalizador. Sustituir min-max por z-score se probó el 2026-08-03 y se descartó con la medición delante: sobre la cohorte de ese día movía 16 de 44 modelos con 2.27 puntos de deriva media y no podía demostrar que la posición nueva fuera más correcta que la vieja, así que introducía movimiento sin introducir verdad. Además no arregla el problema —la media y la desviación dependen de la cohorte exactamente igual que el mínimo y el máximo— y la sigmoide que se proponía encima comprime justo la cabeza de la tabla, que es donde el lector mira. Desacoplar de verdad exigiría un ancla fija entre builds, y eso es un estudio aparte que todavía no está hecho.",
+      "threshold": "El aviso no usa un umbral fijo. Se muestra cuando el efecto sobre el compuesto alcanza la separación mediana entre modelos vecinos de esa misma corrida ({medianGap} puntos hoy), que es exactamente el tamaño a partir del cual un desplazamiento puede cambiar posiciones. Así el umbral se reajusta solo cuando la tabla se aprieta o se abre, en vez de congelar el criterio de un día concreto. El otro lado del aviso —«el rating apenas se movió»— son {stillPoints} puntos de rating, contrastados contra la propia serie: sobre {transitions} transiciones consecutivas del histórico, la mediana de movimiento es {moveMedian} y el percentil 75 es {moveP75}."
+    },
+    "rejections": {
+      "title": "Guardas que dispararon",
+      "body": "Las políticas de rechazo están enunciadas por toda esta página. Aquí es donde enseñan su trabajo: una guarda que nadie puede ver disparar es indistinguible de una que no corre. Cada corrida registra los snapshots que rechazó, con el ratio observado, el umbral y cuál se usó en su lugar.",
+      "none": "Ningún snapshot fue rechazado en la última corrida. Eso significa que el filtro de porciones mal etiquetadas resolvió todo lo que llegó, no que la guarda esté apagada: sigue midiéndose sobre las filas crudas, antes de deduplicar, precisamente para que pueda dispararse.",
+      "date": "Fecha",
+      "source": "Fuente",
+      "ratio": "Ratio",
+      "reason": "Motivo",
+      "cadence": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. LiveBench declara {declared} días; su mediana observada sobre {snapshots} snapshots publicados es de {median}, así que la declaración se sostiene. Su hueco más largo fue de {longest} días, y durante ese hueco el estado degradado sí se activó, a los {degraded}. Fuentes envejecidas ahora mismo:",
+      "agedItem": "{days} días de antigüedad, estado {state}",
+      "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
+      "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. Fuentes envejecidas ahora mismo:"
     }
+  },
+  "aliases": {
+    "title": "Auditoría de nombres",
+    "intro": "Cada fuente llama distinto al mismo modelo: «claude-opus-5_max» en Epoch, «claude-opus-5-max-effort» en LiveBench, «claude-opus-5-max» en LMArena. La ingesta los colapsa sobre una clave canónica. Si ese colapso se equivoca, un modelo se lleva los números de otro: es el peor fallo que puede tener este proyecto y el único que no se puede detectar solo. Por eso el mapeo entero está publicado.",
+    "counts": "{models} modelos, {names} nombres publicados emparejados sobre ellos. En {ambiguous} casos una misma fuente aportó más de un nombre a la misma clave: ahí es donde se escondería un colapso mal hecho, así que son los que más conviene revisar.",
+    "report": "Si ves un emparejamiento mal hecho, no hace falta ser colaborador para decirlo:",
+    "reportLink": "abre un issue con el formato prellenado",
+    "model": "Modelo",
+    "canonical": "Clave canónica",
+    "variant": "configuración: {variant}",
+    "scoredNote": "Se listan todos los nombres que emparejaron con la clave canónica, no solo los que puntúan. Del compuesto solo salen los que corresponden a la configuración elegida del modelo, indicada bajo su nombre. En la columna de LMArena, el nombre resaltado es la fila que realmente puntúa.",
+    "integrityTitle": "Integridad de la descarga",
+    "integrityBody": "Cada corrida hashea lo que descargó. El digest «upstream» es de los bytes que sirvió el publicador: descarga la misma URL, saca su SHA-256 y tiene que coincidir. El digest «normalizado» cubre lo que la ingesta hizo con esos bytes, que es de donde sale /data. Si el upstream coincide y el normalizado no, el cambio es nuestro.",
+    "normalised": "normalizado",
+    "paginated": "Fuente paginada: {requests} peticiones en esta corrida, así que se publica el digest del payload normalizado en vez de una lista de URLs que nadie podría comprobar a mano.",
+    "scoredMarker": "esta es la fila que puntúa"
   }
 }

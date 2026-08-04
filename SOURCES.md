@@ -19,6 +19,8 @@ Machine-readable version: [`config/sources.json`](config/sources.json).
 | Open LLM Leaderboard v2 | archived | frozen (2025-03-20) | exclude | — | — |
 | Aider Polyglot | active | frozen (2025-10-03) | exclude | — | Apache-2.0 |
 | Artificial Analysis | active | fresh | exclude | — | unverified |
+| La Leaderboard (ES) | active | stalled (2026-02-20) | **exclude** | HF dataset | Apache-2.0 |
+| IberBench (ES) | archived | frozen (2025-03-20) | **exclude** | HF dataset | unverified |
 
 ---
 
@@ -208,6 +210,45 @@ browser.
 
 Independently of that, its coverage is largely redundant with Epoch AI, which is CC-BY licensed
 and offers a clean download.
+
+---
+
+## Spanish-language evaluation — checked 2026-08-03, both excluded
+
+The strongest argument for a Spanish-quality track is that no mainstream leaderboard measures
+it and this project's audience is Spanish-speaking. The argument survives; the sources do not.
+
+### La Leaderboard — excluded, no cohort overlap
+
+HF Space `la-leaderboard/la-leaderboard`, Apache-2.0 on both the Space and the
+`la-leaderboard/results` dataset (read from `cardData.license` on the API, not the repo badge).
+
+It is the better of the two and it still fails on the only question that matters here:
+
+> **51 models evaluated, 57 in ModelHub, intersection zero.**
+
+It measures small regional open models — `salamandra-2b`, `flor-6.3b`, `aguila-7b`,
+`bertin-gpt-j-6b`, `alia-40b`, `gemma-3-1b`, `deepseek-r1-distill-qwen-1.5b` — in the 1B to 40B
+range. ModelHub tracks frontier models. A "Spanish quality" column would be empty for every row
+in the table, and populating it would mean adding 51 models that fail the coverage gate on
+every other axis.
+
+Secondary, and enough on its own: the Space is in `RUNTIME_ERROR` and the results dataset was
+last updated **2026-02-20**, five months before this check.
+
+### IberBench — excluded, frozen
+
+HF Space `iberbench/leaderboard` is `SLEEPING`; the `iberbench/iberbench_all` dataset was last
+updated **2025-03-20**, sixteen months before this check. The Space declares MIT but the
+dataset declares no license at all, so the results are unlicensed rather than permissive. The
+homepage `iberbench.uni.lu` proposed for it does not resolve.
+
+### What this leaves
+
+The gap is real and neither of these fills it. Measuring frontier models in Spanish would mean
+running the evaluation, not ingesting someone else's — which is a different project with a
+different cost structure, and it collides with R1 and R2 rather than fitting inside them.
+Recorded here so the next person to have this idea starts from the measurement.
 
 ---
 

@@ -75,14 +75,52 @@ export default async function ModelPage({
           {model.release_date ? ` · ${model.release_date}` : ""}
         </p>
 
+        {/* Which published configuration every number below describes. Stated because
+            the sources disagree about it more often than not: 24 of 57 models carry a
+            human preference rating measured on a variant their benchmarks don't use. */}
+        {model.variant && (
+          <p
+            className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
+            style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
+          >
+            <span className="eyebrow">{t("configuration")}</span>{" "}
+            {model.variant === "plain"
+              ? t("configurationPlain")
+              : t("configurationNote", { variant: model.variant })}
+            {model.human_preference_variant && (
+              <>
+                {" "}
+                {t("configurationMismatch", {
+                  variant: model.variant,
+                  measured: model.human_preference_variant,
+                })}
+              </>
+            )}
+          </p>
+        )}
+
         <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-y rule py-3">
           <div>
             <dt className="eyebrow">{tt("composite")}</dt>
-            <dd className="num text-[26px]">{model.composite.toFixed(1)}</dd>
+            <dd className="num text-[26px]">
+              {model.composite.toFixed(1)}
+              <span className="ml-1 text-[13px]" style={muted}>
+                {model.composite_error === null
+                  ? "±?"
+                  : `±${model.composite_error.toFixed(2)}`}
+              </span>
+            </dd>
           </div>
           <div>
             <dt className="eyebrow">{tt("rank")}</dt>
-            <dd className="num text-[26px]">{model.rank ?? "—"}</dd>
+            <dd className="num text-[26px]">
+              {model.rank ?? "—"}
+              {model.tied_with > 0 && (
+                <span className="ml-1 text-[13px]" style={muted}>
+                  {t("tiedShort", { count: model.tied_with })}
+                </span>
+              )}
+            </dd>
           </div>
           <div>
             <dt className="eyebrow">{tt("coverage")}</dt>
@@ -147,6 +185,35 @@ export default async function ModelPage({
             </p>
           )}
         </section>
+
+        {/* What the interval is and what it is not. It is a floor: sources that publish
+            no error contribute nothing to it, so the true interval can only be wider. */}
+        <p className="mt-4 text-[12px] leading-[1.6]" style={muted}>
+          {model.composite_error === null
+            ? t("uncertaintyNone")
+            : t("uncertaintyNote", {
+                error: model.composite_error.toFixed(2),
+                measured: model.uncertainty.measured_inputs,
+                total: model.uncertainty.total_inputs,
+              })}
+          {model.tied_with > 0 && ` ${t("uncertaintyTied", { count: model.tied_with })}`}
+        </p>
+
+        {/* Moved without being voted on differently. Said out loud so the reader does not
+            read a scale change as a change in the model. */}
+        {model.cohort_recalibration && (
+          <p
+            className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
+            style={{ borderColor: "var(--amber)", color: "var(--muted)" }}
+          >
+            {t("recalibration", {
+              normalized: model.cohort_recalibration.normalized_delta.toFixed(2),
+              raw: model.cohort_recalibration.raw_delta.toFixed(2),
+              composite: model.cohort_recalibration.composite_effect.toFixed(2),
+              threshold: model.cohort_recalibration.threshold.toFixed(2),
+            })}
+          </p>
+        )}
 
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("history")}</h3>
@@ -215,11 +282,31 @@ export default async function ModelPage({
                           {score.notes}
                         </span>
                       )}
+                      {score.variant_mismatch && (
+                        <span
+                          className="block text-[10px]"
+                          style={{ color: "var(--amber)" }}
+                        >
+                          {t("scoreVariantMismatch", {
+                            measured: score.variant_mismatch,
+                            name: score.measured_name ?? "",
+                            variant: model.variant ?? "",
+                          })}
+                        </span>
+                      )}
                     </th>
                     <td className="num py-2 pr-3 text-right text-[13px]">
                       {score.value.toFixed(score.unit === "percent" ? 1 : 0)}
                       <span className="text-[10px]" style={muted}>
                         {score.unit === "percent" ? "%" : ""}
+                      </span>
+                      {/* Empty where the source publishes no error, never rendered as
+                          zero: LiveBench ships none, and a blank says so honestly. */}
+                      <span className="block text-[10px]" style={muted}>
+                        {score.half_width_95 !== null &&
+                        score.half_width_95 !== undefined
+                          ? `± ${score.half_width_95.toFixed(2)}`
+                          : t("errorNotPublished")}
                       </span>
                     </td>
                     <td className="num py-2 pr-3 text-[11px]" style={muted}>

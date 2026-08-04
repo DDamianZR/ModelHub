@@ -195,7 +195,10 @@ def main() -> int:
         known[model["id"]] = model["display_name"]
         known_norms.add(normalise(model["display_name"]))
         known_norms.add(normalise(model["id"]))
-    for names in aliases.values():
+    for entry in aliases.values():
+        # Entries carry per-source provenance since the /aliases audit was added; older
+        # files stored a bare list.
+        names = entry["names"] if isinstance(entry, dict) else entry
         for name in names:
             known_norms.add(normalise(name))
 

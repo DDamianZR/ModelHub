@@ -1,6 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getRanking } from "@/lib/data";
+import {
+  getAgedSources,
+  getCadence,
+  getMethodologyStats,
+  getRanking,
+  getRejectedSnapshots,
+} from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 
@@ -49,6 +55,12 @@ export default async function MethodologyPage({
   const t = await getTranslations("methodology");
   const tt = await getTranslations("table");
   const { meta } = getRanking();
+  const rejected = getRejectedSnapshots();
+  const aged = getAgedSources();
+  // Recomputed every build. These figures used to be typed into the copy by hand, which
+  // made them claims with no source and no date the moment the cohort moved.
+  const stats = getMethodologyStats();
+  const livebench = getCadence("livebench");
 
   const muted = { color: "var(--muted)" } as const;
 
@@ -114,6 +126,63 @@ export default async function MethodologyPage({
           <p style={muted}>{t("formula.multimodal")}</p>
         </Section>
 
+        <Section id="uncertainty" title={t("uncertainty.title")}>
+          <p style={muted}>{t("uncertainty.body")}</p>
+          <p
+            className="border-l-2 py-2 pl-3 text-[15px]"
+            style={{ borderColor: "var(--amber)" }}
+          >
+            {t("uncertainty.why", {
+              medianGap: stats.medianGap,
+              stderrLow: stats.stderrLow,
+              stderrHigh: stats.stderrHigh,
+              identicalPairs: stats.identicalPairs,
+            })}
+          </p>
+          <p style={muted}>{t("uncertainty.formula")}</p>
+          <p style={muted}>
+            {t("uncertainty.floor", {
+              measuredInputs: stats.measuredInputs,
+              totalInputs: stats.totalInputs,
+            })}
+          </p>
+          <p style={muted}>{t("uncertainty.sound")}</p>
+          <p style={muted}>
+            {t("uncertainty.rank", {
+              ranked: stats.ranked,
+              distinctRanks: stats.distinctRanks,
+              overlappingPairs: stats.overlappingPairs,
+              adjacentPairs: stats.adjacentPairs,
+            })}
+          </p>
+          <p style={muted}>
+            {t("uncertainty.unknown", { withoutInterval: stats.withoutInterval })}
+          </p>
+        </Section>
+
+        <Section id="cohort" title={t("cohort.title")}>
+          <p style={muted}>{t("cohort.body")}</p>
+          <p
+            className="border-l-2 py-2 pl-3 text-[15px]"
+            style={{ borderColor: "var(--amber)" }}
+          >
+            {t("cohort.measured", { medianGap: stats.medianGap })}
+          </p>
+          <p style={muted}>{t("cohort.disclosure")}</p>
+          {stats.stillPoints !== null && (
+            <p style={muted}>
+              {t("cohort.threshold", {
+                medianGap: stats.medianGap,
+                stillPoints: stats.stillPoints,
+                transitions: stats.transitions,
+                moveMedian: stats.moveMedian,
+                moveP75: stats.moveP75,
+              })}
+            </p>
+          )}
+          <p style={muted}>{t("cohort.notchanged")}</p>
+        </Section>
+
         <Section id="coverage" title={t("coverage.title")}>
           <p style={muted}>{t("coverage.body")}</p>
           <p style={muted}>{t("coverage.example")}</p>
@@ -147,6 +216,85 @@ export default async function MethodologyPage({
             ))}
           </ul>
           <p style={muted}>{t("variants.current")}</p>
+          <p style={muted}>{t("variants.arena")}</p>
+          <p style={muted}>{t("variants.mismatch")}</p>
+          <p style={muted}>{t("variants.mismatchBest")}</p>
+        </Section>
+
+        {/* The guards are stated all over this page. This is where they show their work:
+            a policy nobody can see fire is indistinguishable from one that never runs. */}
+        <Section id="rejections" title={t("rejections.title")}>
+          <p style={muted}>{t("rejections.body")}</p>
+          {rejected.length === 0 ? (
+            <p style={muted}>{t("rejections.none")}</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-left" style={{ minWidth: "34rem" }}>
+                <thead>
+                  <tr className="border-b rule">
+                    <th scope="col" className="py-2 pr-3">
+                      <span className="eyebrow">{t("rejections.date")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3">
+                      <span className="eyebrow">{t("rejections.source")}</span>
+                    </th>
+                    <th scope="col" className="py-2 pr-3 text-right">
+                      <span className="eyebrow">{t("rejections.ratio")}</span>
+                    </th>
+                    <th scope="col" className="py-2">
+                      <span className="eyebrow">{t("rejections.reason")}</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rejected.map((row) => (
+                    <tr key={`${row.config}-${row.date}`} className="border-b rule">
+                      <td className="num py-2 pr-3 text-[12px]">{row.date}</td>
+                      <td className="num py-2 pr-3 text-[12px]" style={muted}>
+                        lmarena/{row.config}
+                      </td>
+                      <td className="num py-2 pr-3 text-right text-[12px]">
+                        {row.ratio}×
+                      </td>
+                      <td className="py-2 text-[12px]" style={muted}>
+                        {row.reason}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* Declared versus observed, both read from the run that produced this build.
+              The fallback exists because the snapshot list is the most fragile fetch in
+              the pipeline: when it fails there is no observed rhythm, and saying so is
+              better than quoting the last one we happened to remember. */}
+          <p className="mt-2" style={muted}>
+            {livebench?.observed && livebench.cadence_days && livebench.degraded_days
+              ? t("rejections.cadence", {
+                  declared: livebench.cadence_days,
+                  snapshots: livebench.observed.snapshots,
+                  median: livebench.observed.median_gap_days,
+                  longest: livebench.observed.longest_gap_days,
+                  degraded: livebench.degraded_days,
+                })
+              : t("rejections.cadenceUnknown")}
+          </p>
+          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+            {aged.map((source) => (
+              <li key={source.name} className="list-disc">
+                <span className="num text-[12px]">{source.name}</span> —{" "}
+                {t("rejections.agedItem", {
+                  days: source.age_days ?? 0,
+                  state: source.freshness,
+                })}
+              </li>
+            ))}
+            {aged.length === 0 && (
+              <li className="list-disc">{t("rejections.agedNone")}</li>
+            )}
+          </ul>
         </Section>
 
         <Section id="dedup" title={t("dedup.title")}>

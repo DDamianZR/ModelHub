@@ -55,7 +55,12 @@
     "provisionalTitle": "Provisional · not ranked",
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotes": "No human votes yet",
-    "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty."
+    "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty.",
+    "tiedTitle": "Tied with {count} other models: their 95% intervals overlap, so the measurement does not separate them.",
+    "errorTitle": "Half-width of a 95% interval on the composite. A floor: {measured} of {total} inputs publish their error and the rest contribute zero, so the real interval can only be wider.",
+    "errorUnknownTitle": "None of this model's sources publish their error. The interval is unknown, not zero.",
+    "evidenceShort": "{benchmarks} bm",
+    "evidenceTitle": "Evidence density: {benchmarks} benchmarks from {sources} of {max} independent sources stand behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4."
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -77,7 +82,8 @@
     "label": "Sections",
     "ranking": "Ranking",
     "compare": "Compare",
-    "methodology": "Methodology"
+    "methodology": "Methodology",
+    "aliases": "Aliases"
   },
   "compare": {
     "title": "Compare models",
@@ -112,7 +118,18 @@
     "link_hf_repo": "Weights (HuggingFace)",
     "link_provider_page": "Provider",
     "link_api_docs": "API docs",
-    "link_ollama_tag": "Ollama"
+    "link_ollama_tag": "Ollama",
+    "configuration": "Configuration",
+    "configurationNote": "Every number below describes the {variant} variant as the vendor published it. One configuration is chosen for the whole model: taking each benchmark's best would describe a setup nobody runs.",
+    "configurationPlain": "Every number below describes the variant the vendor published without an effort qualifier.",
+    "configurationMismatch": "Human preference is the exception: LMArena never published the {variant} variant, so that vote measures {measured}. The figure is kept and the difference stated, rather than discarding real human votes over a naming difference between sources.",
+    "tiedShort": "(tied with {count})",
+    "errorNotPublished": "no error published",
+    "uncertaintyNote": "The ±{error} is the half-width of a 95% interval on the composite, and it is a floor rather than an estimate: {measured} of {total} inputs publish their error and the rest contribute zero. The real interval can only be wider, never narrower.",
+    "uncertaintyNone": "None of this model's sources publish a margin of error, so its composite carries no interval. That means \"unknown\", not \"exact\": its place in the table is the least defensible of any, because it is compared as a point value.",
+    "uncertaintyTied": "It shares a rank with {count} other models because their intervals overlap.",
+    "recalibration": "Cohort recalibration, not a change in measurement. Its normalised human preference value moved {normalized} points while its Arena rating changed only {raw}: a model with an extreme rating joined or left and the scale shifted underneath. The effect on the composite is {composite} points — above {threshold}, this run's median gap between neighbours — and nobody voted differently to cause it.",
+    "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}"
   },
   "methodology": {
     "title": "Methodology",
@@ -151,7 +168,10 @@
       "option_best": "use the highest score across variants. It reflects the model's ceiling, but rewards publishing more variants: the maximum of five draws beats the maximum of one.",
       "option_average": "average the variants. Rejected as the default: nobody runs 'the mean effort level', so it invents a configuration that does not exist, understating the peak and overstating the cheap variant.",
       "option_separate": "do not group; treat each variant as its own model. This is the most consistent with the scaffold rule, but it is not viable today: each source names variants differently (Epoch uses '_max', LiveBench '-max-effort', LMArena '-high'), so without grouping we would hand-maintain an alias table per variant per source. That collides with the zero-daily-maintenance constraint, and it would fragment coverage enough to empty the main ranking. Not implemented.",
-      "current": "Every affected number states on the model page which configuration was used. Under the current policy the unqualified variant wins most often, followed by xhigh, high and max. When a benchmark never measured the chosen configuration we prefer to leave the gap and lower the coverage rather than substitute another one: a composite with one cell fewer is more honest than one that mixes configurations."
+      "current": "Every affected number states on the model page which configuration was used. Under the current policy the unqualified variant wins most often, followed by xhigh, high and max. When a benchmark never measured the chosen configuration we prefer to leave the gap and lower the coverage rather than substitute another one: a composite with one cell fewer is more honest than one that mixes configurations.",
+      "arena": "Human preference takes part in choosing the configuration, but only as a tie-breaker: when two labels cover the same benchmarks, the one LMArena also measured wins, because it is the only one that can be reported end to end. Giving it a full vote was tried on 2026-08-03 and rejected with the measurement in hand: a single Arena row overturned labels four benchmarks already agreed on, and against that day's cohort it cost Claude Opus 4.6 every LiveBench score and 17.88 composite points.",
+      "mismatch": "Where LMArena never published the chosen configuration, its row is kept here — the best-determined one, with the most votes — and the model page states which variant it measures. This is the deliberate exception to the leave-the-gap rule, and the reason is that the vocabularies are not comparable: Epoch labels effort levels (\"_max\", \"_high\") while Arena mostly publishes a plain name and a thinking variant. On a benchmark, a missing configuration means it was not measured; on Arena it usually means it is named differently. Dropping it was measured on 2026-08-03 and cost human preference on 21 of 43 models in that cohort: discarding real human votes over a naming difference trades a known measurement for none.",
+      "mismatchBest": "What did not survive in any case is picking the Arena row by highest rating. That is the \"best\" policy this project rejected in writing, applied silently to 15% of the weight: it flattered every model with a strong variant. Today, when a choice has to be made without a label match, the row with the most votes wins. Measured on 2026-08-03, the change took 11.6 rating points on average — 22.7 in the worst case — off the 6 models it affected then."
     },
     "dedup": {
       "title": "The LMArena duplication guard",
@@ -185,6 +205,53 @@
       "body": "There is no external database. Everything feeding this page is a versioned text file:",
       "git": "Every daily run lands as a commit. That means any change to any number is an auditable diff: you can see when it changed, by how much, and which run did it.",
       "link": "View the repository"
+    },
+    "uncertainty": {
+      "title": "Uncertainty and statistical ties",
+      "body": "Epoch publishes a standard error on every row and LMArena publishes a confidence interval on every rating. That data was in the sources from day one and was dropped on the way to the page. It is now propagated to the composite and shown.",
+      "why": "It is needed because the table is far tighter than its own precision. Right now the median gap between neighbouring models is {medianGap} composite points, while Epoch's median per-benchmark standard error runs from {stderrLow} to {stderrHigh} points. Publishing a strict order over differences that small promises a precision the measurement does not have: today {identicalPairs, plural, =0 {no pair sits less than a hundredth apart, but that is this run, not a rule} one {one pair sits less than a hundredth apart} other {# pairs sit less than a hundredth apart}}.",
+      "formula": "Everything is carried as the half-width of a 95% interval. Epoch's standard error is multiplied by 1.96; LMArena's interval is already at 95% and is only rescaled along with the rating. A category mean propagates as √(Σ e²)/n and the composite as √(Σ (wᵢ/W)² eᵢ²).",
+      "floor": "The published figure is a floor, not an estimate. Two reasons, both pointing the same way: LiveBench publishes no per-row error, so its inputs contribute zero — on this run {measuredInputs} of {totalInputs} inputs carry a published error — and the formula assumes the categories are independent when they are not entirely. The real interval can only be wider.",
+      "sound": "That asymmetry is what keeps it usable. An interval that can only widen still supports \"these two overlap\" but never \"these two differ\". So ties are declared and differences are not: two models without a tie mark may well be tied anyway.",
+      "rank": "The rank is a significance rank, not a position in a sorted list: a model sits at one plus the number of models measurably ahead of it. Strictly-better models are counted rather than neighbours grouped, because overlap is not transitive — A can overlap B and B overlap C while A and C are cleanly separated. On this run, {ranked} ranked models leave {distinctRanks} distinct ranks, and {overlappingPairs} of {adjacentPairs} adjacent pairs overlap.",
+      "unknown": "{withoutInterval, plural, =0 {Right now every ranked model carries an interval.} one {Today one model carries no interval because none of its sources publish an error.} other {Today # models carry no interval because none of their sources publish an error.}} They are compared as point values, the one place this calculation zero-fills, which is why their model page says so outright. The alternative — refusing to separate them from anyone — was worse: it lifted a model well behind the leader into a tie for first, in exchange for knowing less about it."
+    },
+    "cohort": {
+      "title": "Cohort coupling in LMArena",
+      "body": "Arena ratings are Bradley-Terry, not percentages, so they are min-max normalised against the cohort present in each build. That has a consequence which is not obvious: when a model with an extreme rating joins, everyone else's normalised value moves even though their raw ratings did not change.",
+      "measured": "Measured on 2026-08-03 against that day's cohort: a new model 60 points above the best of the time moved the normalised value by 16.03 points on average and 24.29 in the worst case — 2.40 and 3.64 composite points. Against today's median gap between neighbours ({medianGap} points), a shift like that is enough to reorder the table on its own.",
+      "disclosure": "So every run records the raw delta and the normalised delta separately. When the normalised one moves and the raw one does not, the model page says so: cohort recalibration, not a change in measurement. A model can lose places without anyone voting differently, and that distinction belongs to the reader, not to us.",
+      "notchanged": "The normaliser was not changed. Replacing min-max with a z-score was tried on 2026-08-03 and rejected with the measurement in hand: against that day's cohort it moved 16 of 44 models with 2.27 points of mean drift and could not show the new position was more correct than the old one, so it introduced movement without introducing truth. It also does not fix the problem — the mean and standard deviation depend on the cohort exactly as much as the min and max do — and the sigmoid proposed on top compresses precisely the head of the table, which is where readers look. Genuinely decoupling would need a fixed anchor across builds, and that is a separate study nobody has done yet.",
+      "threshold": "The notice does not use a fixed threshold. It appears when the effect on the composite reaches the median gap between neighbouring models in that same run ({medianGap} points today), which is exactly the size at which a shift can change places. The threshold therefore retunes itself as the table tightens or spreads, instead of freezing one day's judgement. The other half of the notice — \"the rating barely moved\" — is {stillPoints} rating points, checked against the series itself: across {transitions} consecutive transitions in the history, the median movement is {moveMedian} and the 75th percentile is {moveP75}."
+    },
+    "rejections": {
+      "title": "Guards that fired",
+      "body": "The rejection policies are stated all over this page. This is where they show their work: a guard nobody can see fire is indistinguishable from one that never runs. Every run records the snapshots it rejected, with the observed ratio, the threshold, and which one was used instead.",
+      "none": "No snapshot was rejected on the last run. That means the mislabelled-slice filter resolved everything that arrived, not that the guard is off: it is still measured on the raw rows, before deduplication, precisely so that it can fire.",
+      "date": "Date",
+      "source": "Source",
+      "ratio": "Ratio",
+      "reason": "Reason",
+      "cadence": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. LiveBench declares {declared} days; its observed median across {snapshots} published snapshots is {median}, so the declaration holds. Its longest gap was {longest} days, and during that gap the degraded state did fire, at {degraded}. Sources ageing right now:",
+      "agedItem": "{days} days old, state {state}",
+      "agedNone": "None. All three sources are within their declared rhythm.",
+      "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. Sources ageing right now:"
     }
+  },
+  "aliases": {
+    "title": "Name-matching audit",
+    "intro": "Every source calls the same model something different: \"claude-opus-5_max\" on Epoch, \"claude-opus-5-max-effort\" on LiveBench, \"claude-opus-5-max\" on LMArena. The ingest collapses them onto one canonical key. If that collapse is wrong, one model is credited with another's numbers — the worst failure this project can have, and the only one it cannot detect on its own. So the whole mapping is published.",
+    "counts": "{models} models, {names} published names matched onto them. In {ambiguous} cases a single source contributed more than one name to the same key: that is where a bad collapse would hide, so those are the ones worth checking first.",
+    "report": "If you spot a bad match, you do not need to be a contributor to say so:",
+    "reportLink": "open an issue with the form pre-filled",
+    "model": "Model",
+    "canonical": "Canonical key",
+    "variant": "configuration: {variant}",
+    "scoredNote": "Every name that matched the canonical key is listed, not only the ones that score. Only the names belonging to the model's chosen configuration — shown under its name — feed the composite. In the LMArena column, the highlighted name is the row that actually scores.",
+    "integrityTitle": "Download integrity",
+    "integrityBody": "Every run hashes what it downloaded. The \"upstream\" digest covers the bytes the publisher served: download the same URL, take its SHA-256, and it has to match. The \"normalised\" digest covers what the ingest made of those bytes, which is what /data is built from. If upstream matches and normalised does not, the change is ours.",
+    "normalised": "normalised",
+    "paginated": "Paginated source: {requests} requests this run, so the normalised payload digest is published instead of a URL list nobody could check by hand.",
+    "scoredMarker": "this is the row that scores"
   }
 }

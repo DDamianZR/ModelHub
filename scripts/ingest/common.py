@@ -1,6 +1,7 @@
 """Shared helpers for the daily ingest. Stdlib only."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import urllib.error
@@ -19,13 +20,25 @@ class SourceError(RuntimeError):
     """A source could not be read. The run continues without it."""
 
 
+# Every artifact downloaded this run, keyed by URL, in fetch order. Recorded so the site
+# can publish what it actually read: a reader who downloads the same URL and hashes it
+# gets the same digest, or the numbers did not come from where we say they did.
+DIGESTS: dict[str, dict] = {}
+
+
+def digest_bytes(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
+
+
 def fetch(url: str, timeout: int = 120) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as response:
-            return response.read()
+            body = response.read()
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         raise SourceError(f"{url}: {exc}") from exc
+    DIGESTS[url] = {"sha256": digest_bytes(body), "bytes": len(body)}
+    return body
 
 
 def fetch_json(url: str, timeout: int = 120) -> dict:

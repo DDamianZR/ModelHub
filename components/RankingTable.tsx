@@ -56,7 +56,17 @@ export function RankingTable({
     });
 
     return [...filtered].sort((a, b) => {
-      if (sort === "rank" || sort === "composite") return b.composite - a.composite;
+      // Rank and composite are no longer the same order. A significance rank is not
+      // monotonic in the score, so sorting by score would print a rank column that runs
+      // 13, 17, 16 downward; sorting by rank keeps the column readable and puts the
+      // score in charge only inside a tied group.
+      if (sort === "rank") {
+        return (
+          (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER) ||
+          b.composite - a.composite
+        );
+      }
+      if (sort === "composite") return b.composite - a.composite;
       const av = a.category_scores[sort];
       const bv = b.category_scores[sort];
       // Models without a measurement sink to the bottom instead of scoring zero.
@@ -95,8 +105,19 @@ export function RankingTable({
 
     return (
       <tr key={row.id} className="row-shift border-b rule hover:bg-[var(--paper-sunk)]">
-        <td className="num py-2 pr-2 text-[12px]" style={{ color: "var(--muted)" }}>
-          {row.rank ?? "·"}
+        {/* "=4" is the conventional notation for a joint placing, and a repeated number
+            is the honest outcome here rather than a rendering glitch. The glyph is
+            cryptic on its own, so the explanation is also in the accessible name rather
+            than only in a title attribute, which screen readers skip on a table cell. */}
+        <td
+          className="num py-2 pr-2 text-[12px]"
+          style={{ color: "var(--muted)" }}
+          title={row.tied_with > 0 ? t("tiedTitle", { count: row.tied_with }) : undefined}
+        >
+          {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
+          {row.tied_with > 0 && (
+            <span className="sr-only"> {t("tiedTitle", { count: row.tied_with })}</span>
+          )}
         </td>
         <td className="py-2 pr-4">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -129,6 +150,31 @@ export function RankingTable({
         </td>
         <td className="num py-2 pr-3 text-right text-[15px]">
           {row.composite.toFixed(1)}
+          <span
+            className="ml-1 text-[11px]"
+            style={{ color: "var(--muted)" }}
+            title={
+              row.composite_error === null
+                ? t("errorUnknownTitle")
+                : t("errorTitle", {
+                    measured: row.uncertainty.measured_inputs,
+                    total: row.uncertainty.total_inputs,
+                  })
+            }
+          >
+            {row.composite_error === null
+              ? "±?"
+              : `±${row.composite_error.toFixed(2)}`}
+            <span className="sr-only">
+              {" "}
+              {row.composite_error === null
+                ? t("errorUnknownTitle")
+                : t("errorTitle", {
+                    measured: row.uncertainty.measured_inputs,
+                    total: row.uncertainty.total_inputs,
+                  })}
+            </span>
+          </span>
         </td>
         <td className="py-2 pr-4 text-right">
           <CoverageMeter
@@ -136,6 +182,27 @@ export function RankingTable({
             total={row.coverage.total}
             label={coverageLabel}
           />
+          {/* Beside coverage, not inside it: coverage is how much of the composite was
+              measured, this is how much evidence stands behind what was. */}
+          <span
+            className="num mt-0.5 block text-[10px]"
+            style={{ color: "var(--muted)" }}
+            title={t("evidenceTitle", {
+              benchmarks: row.evidence.benchmarks,
+              sources: row.evidence.sources,
+              max: row.evidence.max_sources,
+            })}
+          >
+            {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
+            <span className="sr-only">
+              {" "}
+              {t("evidenceTitle", {
+                benchmarks: row.evidence.benchmarks,
+                sources: row.evidence.sources,
+                max: row.evidence.max_sources,
+              })}
+            </span>
+          </span>
         </td>
         {CATEGORIES.map((category) => {
           const value = row.category_scores[category];
