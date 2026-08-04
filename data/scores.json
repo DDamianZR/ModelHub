@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-03",
-    "model_count": 56,
-    "ranked_count": 44,
+    "generated_at": "2026-08-04",
+    "model_count": 57,
+    "ranked_count": 45,
     "provisional_count": 12,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-03",
+      "epoch": "2026-08-04",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-02",
       "lmarena_vision": "2026-08-02"
@@ -845,6 +845,54 @@
       "measured_at": "2026-08-02",
       "contamination_flag": false,
       "notes": "48667 votes; rank 73"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-flash-0731",
+      "benchmark_id": "livebench_reasoning",
+      "value": 86.63,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-flash-0731",
+      "benchmark_id": "livebench_coding",
+      "value": 58.05,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-flash-0731",
+      "benchmark_id": "livebench_math",
+      "value": 86.79,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-flash-0731",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 65.52,
+      "unit": "percent",
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
     },
     {
       "model_id": "deepseek-deepseek-v4-pro",

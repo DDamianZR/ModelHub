@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-03",
+  "fetched_at": "2026-08-04",
   "payload": {
     "scores": {
       "claude-fable-5": [
@@ -342,6 +342,44 @@
           "source_url": "https://livebench.ai/",
           "value": 63.14,
           "variant": "deepseek-v4-flash"
+        }
+      ],
+      "deepseek-v4-flash-0731": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.63,
+          "variant": "deepseek-v4-flash-0731"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 58.05,
+          "variant": "deepseek-v4-flash-0731"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.79,
+          "variant": "deepseek-v4-flash-0731"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.52,
+          "variant": "deepseek-v4-flash-0731"
         }
       ],
       "deepseek-v4-pro": [
@@ -1368,6 +1406,44 @@
           "source_url": "https://livebench.ai/",
           "value": 74.04,
           "variant": "qwen3.7-max"
+        }
+      ],
+      "qwen3.8": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.21,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.94,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.31,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.08,
+          "variant": "qwen3.8-max"
         }
       ]
     },
