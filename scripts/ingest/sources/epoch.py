@@ -76,6 +76,13 @@ def collect() -> dict:
                 value = float(raw) * 100.0
             except ValueError:
                 continue
+            # Published on the same 0-1 scale as the score, so it scales with it. Epoch
+            # carries this on every row we use; a missing one stays None rather than
+            # being read as zero uncertainty.
+            try:
+                stderr = round(float(row["stderr"]) * 100.0, 3)
+            except (KeyError, TypeError, ValueError):
+                stderr = None
             scores.setdefault(key, []).append({
                 "benchmark_id": benchmark_id,
                 "category": category,
@@ -83,6 +90,7 @@ def collect() -> dict:
                 # effort levels instead of silently blending them.
                 "variant": row.get("Model version", "").strip(),
                 "value": round(value, 2),
+                "stderr": stderr,
                 "source_type": "third_party_benchmark",
                 "source_url": ATTRIBUTION,
                 "measured_at": (row.get("Started at") or "")[:10] or None,

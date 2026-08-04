@@ -25,12 +25,15 @@ CATEGORY_MAP = {
 }
 
 
-def _resolve_snapshot() -> str:
-    """Newest published snapshot date.
+def _resolve_snapshots() -> list[str]:
+    """Every published snapshot date, oldest first.
 
     The snapshot list lives in a JS array inside a hash-named bundle, which makes this the
     most fragile step in the pipeline. Failure here is a SourceError, so the run falls back
     to the cached payload rather than dying.
+
+    The whole list is returned, not just the newest, so the run can compare the cadence
+    this source actually keeps against the one config/sources.json declares for it.
     """
     html = fetch(f"{SITE}/").decode("utf-8", "replace")
     bundle = re.search(r'src="\.?/?(static/js/main\.[0-9a-f]+\.js)"', html)
@@ -42,14 +45,15 @@ def _resolve_snapshot() -> str:
     if not array:
         raise SourceError("livebench: could not locate the snapshot list")
 
-    dates = re.findall(r"20\d{2}-\d{2}-\d{2}", array.group(1))
+    dates = sorted(set(re.findall(r"20\d{2}-\d{2}-\d{2}", array.group(1))))
     if not dates:
         raise SourceError("livebench: snapshot list was empty")
-    return max(dates)
+    return dates
 
 
 def collect() -> dict:
-    snapshot = _resolve_snapshot()
+    published = _resolve_snapshots()
+    snapshot = published[-1]
     slug = snapshot.replace("-", "_")
 
     table = fetch(f"{SITE}/table_{slug}.csv").decode("utf-8", "replace")
@@ -91,4 +95,4 @@ def collect() -> dict:
     if not scores:
         raise SourceError("livebench: no rows parsed")
 
-    return {"snapshot": snapshot, "scores": scores}
+    return {"snapshot": snapshot, "published_snapshots": published, "scores": scores}

@@ -144,6 +144,51 @@ def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
     )
 
 
+def variants_by_key(rows: list[dict]) -> dict[str, list[dict]]:
+    """Every published variant per canonical key, strongest rating first.
+
+    This deliberately does NOT collapse to the highest-rated variant. Picking the best
+    rating is the "best" variant policy, which config/weights.json did not choose: it
+    would hand a model its human preference from one configuration and its benchmark
+    scores from another, which is the mixed-configuration result the policy in
+    composite.py exists to prevent. The choice belongs there, with the benchmark
+    coverage in view, so every variant published on the same day is passed through.
+    """
+    grouped: dict[str, list[dict]] = {}
+    for row in rows:
+        grouped.setdefault(norm(row["model_name"]), []).append({
+            "model_name": row["model_name"],
+            "rating": row["rating"],
+            "rating_lower": row.get("rating_lower"),
+            "rating_upper": row.get("rating_upper"),
+            "variance": row.get("variance"),
+            "rank": row["rank"],
+            "vote_count": row["vote_count"],
+            "license": row.get("license"),
+        })
+    for entries in grouped.values():
+        entries.sort(key=lambda entry: entry["rating"], reverse=True)
+    return grouped
+
+
+def upgrade_payload(payload: dict) -> dict:
+    """Bring a cached payload written before variants were kept up to the current shape.
+
+    The cache is only read when today's fetch failed, which is exactly when a shape
+    mismatch would be hardest to notice, so an old single-row entry is widened into a
+    one-element list rather than left to fail an index further down.
+    """
+    for config in ("text", "vision"):
+        section = payload.get(config)
+        if not isinstance(section, dict):
+            continue
+        payload[config] = {
+            key: value if isinstance(value, list) else [value]
+            for key, value in section.items()
+        }
+    return payload
+
+
 def collect() -> dict:
     text_rows, text_snapshot, text_rejected = _clean_snapshot("text")
 
@@ -153,26 +198,12 @@ def collect() -> dict:
     except SourceError:
         vision_rows, vision_snapshot, vision_rejected = [], None, []
 
-    def best_by_key(rows: list[dict]) -> dict[str, dict]:
-        best: dict[str, dict] = {}
-        for row in rows:
-            key = norm(row["model_name"])
-            if key not in best or row["rating"] > best[key]["rating"]:
-                best[key] = {
-                    "model_name": row["model_name"],
-                    "rating": row["rating"],
-                    "rank": row["rank"],
-                    "vote_count": row["vote_count"],
-                    "license": row.get("license"),
-                }
-        return best
-
     return {
         "snapshot": text_snapshot,
         "vision_snapshot": vision_snapshot,
         "rejected_snapshots": text_rejected + vision_rejected,
-        "text": best_by_key(text_rows),
-        "vision": best_by_key(vision_rows),
+        "text": variants_by_key(text_rows),
+        "vision": variants_by_key(vision_rows),
     }
 
 
