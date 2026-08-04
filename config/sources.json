@@ -3,10 +3,28 @@
   "verified_at": "2026-07-27",
   "verification_method": "Direct HTTP requests against each endpoint. No source was assumed to work from documentation alone.",
   "vocabulary": {
-    "status": ["active", "archived", "paywalled", "blocked_by_tos"],
-    "freshness": ["fresh", "stale", "frozen"],
-    "v1_decision": ["include", "defer", "exclude", "excluded_license"],
-    "source_type": ["human_eval", "third_party_benchmark", "vendor_claim"]
+    "status": [
+      "active",
+      "archived",
+      "paywalled",
+      "blocked_by_tos"
+    ],
+    "freshness": [
+      "fresh",
+      "stale",
+      "frozen"
+    ],
+    "v1_decision": [
+      "include",
+      "defer",
+      "exclude",
+      "excluded_license"
+    ],
+    "source_type": [
+      "human_eval",
+      "third_party_benchmark",
+      "vendor_claim"
+    ]
   },
   "sources": [
     {
@@ -52,7 +70,11 @@
           "Started at",
           "id"
         ],
-        "external_files_extra_columns": ["Source", "Source link", "Notes"],
+        "external_files_extra_columns": [
+          "Source",
+          "Source link",
+          "Notes"
+        ],
         "capabilities_index_columns": [
           "Model version",
           "ECI Score",
@@ -160,7 +182,10 @@
           "agent_task_outcome_explicit",
           "agent_tool_hallucination"
         ],
-        "splits": ["full", "latest"],
+        "splits": [
+          "full",
+          "latest"
+        ],
         "history_depth": "full split carries every historical snapshot; a single model had 61 dated observations"
       },
       "notes": [
@@ -276,12 +301,36 @@
       ],
       "provides": {
         "leaderboards": {
-          "Verified": { "entries": 180, "open_weight_entries": 31, "newest": "2026-02-26" },
-          "Lite": { "entries": 84, "open_weight_entries": 8, "newest": "2025-09-11" },
-          "bash-only": { "entries": 48, "open_weight_entries": 11, "newest": "2026-02-26" },
-          "Multilingual": { "entries": 14, "open_weight_entries": 4, "newest": "2026-02-20" },
-          "Multimodal": { "entries": 22, "open_weight_entries": 0, "newest": "2025-11-17" },
-          "Test": { "entries": 24, "open_weight_entries": 1, "newest": "2025-12-19" }
+          "Verified": {
+            "entries": 180,
+            "open_weight_entries": 31,
+            "newest": "2026-02-26"
+          },
+          "Lite": {
+            "entries": 84,
+            "open_weight_entries": 8,
+            "newest": "2025-09-11"
+          },
+          "bash-only": {
+            "entries": 48,
+            "open_weight_entries": 11,
+            "newest": "2026-02-26"
+          },
+          "Multilingual": {
+            "entries": 14,
+            "open_weight_entries": 4,
+            "newest": "2026-02-20"
+          },
+          "Multimodal": {
+            "entries": 22,
+            "open_weight_entries": 0,
+            "newest": "2025-11-17"
+          },
+          "Test": {
+            "entries": 24,
+            "open_weight_entries": 1,
+            "newest": "2025-12-19"
+          }
         }
       },
       "notes": [
@@ -319,7 +368,14 @@
       "last_observed_update": "live",
       "update_cadence": "continuous",
       "provides": {
-        "fields": ["id", "downloads", "likes", "trendingScore", "tags", "pipeline_tag"]
+        "fields": [
+          "id",
+          "downloads",
+          "likes",
+          "trendingScore",
+          "tags",
+          "pipeline_tag"
+        ]
       },
       "notes": [
         "Discovery and acquisition metadata only. This source NEVER contributes a score, so it carries no source_type.",
@@ -387,7 +443,9 @@
         "auth": "none",
         "format": "parquet"
       },
-      "license": { "spdx": "unverified" },
+      "license": {
+        "spdx": "unverified"
+      },
       "last_observed_update": "results dataset last modified 2025-03-20 (~16 months before verification)",
       "update_cadence": "none — retired",
       "notes": [
@@ -415,12 +473,23 @@
         "format": "YAML",
         "payload_size_kb": 45.7
       },
-      "license": { "spdx": "Apache-2.0", "evidence": "Aider-AI/aider repo license" },
+      "license": {
+        "spdx": "Apache-2.0",
+        "evidence": "Aider-AI/aider repo license"
+      },
       "last_observed_update": "newest entry dated 2025-10-03; repo last pushed 2026-05-22",
       "update_cadence": "none — leaderboard frozen ~10 months while the project itself stayed active",
       "provides": {
         "entries": 69,
-        "fields": ["model", "pass_rate_1", "pass_rate_2", "percent_cases_well_formed", "edit_format", "total_cost", "date"]
+        "fields": [
+          "model",
+          "pass_rate_1",
+          "pass_rate_2",
+          "percent_cases_well_formed",
+          "edit_format",
+          "total_cost",
+          "date"
+        ]
       },
       "notes": [
         "The file is well-formed and easy to parse — it is simply out of date. Ingesting it would put 2025 numbers next to 2026 numbers in a 'current frontier' ranking, which is worse than omitting it.",
@@ -456,6 +525,36 @@
       ],
       "caveats": [],
       "fragility": "n/a"
+    },
+    {
+      "id": "la_leaderboard",
+      "name": "La Leaderboard (evaluacion en espanol)",
+      "homepage": "https://huggingface.co/spaces/la-leaderboard/la-leaderboard",
+      "status": "stalled",
+      "tier": "none",
+      "source_type": "third_party_benchmark",
+      "license": {
+        "spdx": "Apache-2.0",
+        "evidence": "cardData.license on the HF API response for both the Space and la-leaderboard/results, verified 2026-08-03"
+      },
+      "decision": "exclude",
+      "decision_rationale": "Zero cohort overlap: 51 models evaluated, 57 in ModelHub, intersection 0. It measures small regional open models (1B-40B: salamandra, flor, aguila, bertin) while ModelHub tracks frontier models. A Spanish-quality column would be empty for every model in the table. Separately, the Space is in RUNTIME_ERROR and la-leaderboard/results was last updated 2026-02-20.",
+      "verified_at": "2026-08-03"
+    },
+    {
+      "id": "iberbench",
+      "name": "IberBench (BSC / Univ. Luxembourg)",
+      "homepage": "https://huggingface.co/spaces/iberbench/leaderboard",
+      "status": "frozen",
+      "tier": "none",
+      "source_type": "third_party_benchmark",
+      "license": {
+        "spdx": "unverified",
+        "evidence": "The Space declares MIT; the iberbench/iberbench_all dataset declares no license at all. Verified 2026-08-03."
+      },
+      "decision": "exclude",
+      "decision_rationale": "Frozen: iberbench/iberbench_all last updated 2025-03-20, sixteen months before checking, and the Space is SLEEPING. The proposed homepage iberbench.uni.lu does not resolve.",
+      "verified_at": "2026-08-03"
     }
   ]
 }
