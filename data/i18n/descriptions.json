@@ -107,6 +107,12 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "deepseek-deepseek-v4-flash-0731": {
+    "en": "DeepSeek V4 Flash 0731 is a language model built by DeepSeek in China in July 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively lower in Coding and Instructions. No data for Human preference.",
+    "es": "DeepSeek V4 Flash 0731 es un modelo de lenguaje desarrollado por DeepSeek en China en julio de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones. Sin datos en Preferencia humana.",
+    "generated_at": "2026-08-05",
+    "generated_by": "qwen3-coder:30b"
+  },
   "deepseek-deepseek-v4-pro": {
     "en": "DeepSeek v4 Pro is a language model built by DeepSeek in April 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Somewhat lower in Coding and Instructions.",
     "es": "DeepSeek v4 Pro es un modelo de lenguaje desarrollado por DeepSeek en abril de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Código e Instrucciones.",
@@ -148,6 +154,12 @@
     "es": "Gemini 3.5 Flash-Lite es un modelo de lenguaje desarrollado por Google DeepMind en julio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Se mide en Matemáticas e Instrucciones, donde destaca relativo. En Código y Razonamiento, su desempeño es algo por debajo. No hay datos en Preferencia humana.",
     "generated_at": "2026-07-31",
     "generated_by": "qwen3:8b"
+  },
+  "google-deepmind-gemini-3.6-flash": {
+    "en": "Gemini 3.6 Flash is a language model built by Google DeepMind in July 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Human preference. Relatively weaker in Coding and Instructions.",
+    "es": "Gemini 3.6 Flash es un modelo de lenguaje desarrollado por Google DeepMind en julio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Preferencia humana. Relativamente más débil en Código e Instrucciones.",
+    "generated_at": "2026-08-05",
+    "generated_by": "qwen3-coder:30b"
   },
   "google-deepmind-gemma-4-31b": {
     "en": "Gemma 4 31B IT is a language model built by Google DeepMind in April 2026. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
@@ -255,6 +267,12 @@
     "en": "GPT-5.6 Terra is a language model built by OpenAI in July 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Instructions and Coding. Human preference not measured.",
     "es": "GPT-5.6 Terra es un modelo de lenguaje desarrollado por OpenAI en julio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Instrucciones y Código. Preferencia humana no medida.",
     "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "thinking-machines-inkling": {
+    "en": "Inkling is a language model built by Thinking Machines in July 2026. It is open-weights: downloadable and runnable locally. It performs relatively stronger in Math and Reasoning. It is relatively lower in Coding and Human preference. No data for Instructions.",
+    "es": "Inkling es un modelo de lenguaje desarrollado por Thinking Machines en julio de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Destaca relativamente en Matemáticas y Razonamiento. Se desempeña algo por debajo en Código y Preferencia humana. No hay datos en Instrucciones.",
+    "generated_at": "2026-08-05",
     "generated_by": "qwen3-coder:30b"
   },
   "xai-grok-4-0709": {
