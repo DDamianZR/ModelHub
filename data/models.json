@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-04",
+    "generated_at": "2026-08-05",
     "model_count": 57,
     "ranked_count": 44,
     "provisional_count": 13,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-04",
+      "epoch": "2026-08-05",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-03",
       "lmarena_vision": "2026-08-02"
@@ -2006,9 +2006,9 @@
       "id": "minimax-minimax-m3",
       "display_name": "MiniMax-M3",
       "provider_id": "minimax",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
+      "is_open_weights": true,
+      "license": "Open weights (restricted use)",
+      "api_only": false,
       "release_date": "2026-06-01",
       "country": "China",
       "context_window": null,
