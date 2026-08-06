@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-05",
-    "model_count": 57,
-    "ranked_count": 44,
+    "generated_at": "2026-08-06",
+    "model_count": 58,
+    "ranked_count": 45,
     "provisional_count": 13,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-05",
+      "epoch": "2026-08-06",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-03",
       "lmarena_vision": "2026-08-02"
@@ -4451,6 +4451,78 @@
       "variant": "max",
       "variant_mismatch": null,
       "measured_name": "qwen3.7-max-preview"
+    },
+    {
+      "model_id": "alibaba-qwen3.8",
+      "benchmark_id": "livebench_reasoning",
+      "value": 88.21,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "alibaba-qwen3.8",
+      "benchmark_id": "livebench_coding",
+      "value": 67.94,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "alibaba-qwen3.8",
+      "benchmark_id": "livebench_math",
+      "value": 91.31,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "alibaba-qwen3.8",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 74.08,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "max"
+    },
+    {
+      "model_id": "alibaba-qwen3.8",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1496.1,
+      "unit": "bradley_terry_rating",
+      "stderr": null,
+      "half_width_95": 10.3,
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-08-03",
+      "contamination_flag": false,
+      "notes": "3327 votes; rank 5",
+      "variant": "max",
+      "variant_mismatch": null,
+      "measured_name": "qwen3.8-max"
     }
   ]
 }
