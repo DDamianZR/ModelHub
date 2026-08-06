@@ -37,7 +37,7 @@
       "claude-fable-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Fable 5 (low)",
+        "display_name": "Claude Fable 5 (max)",
         "eci": 161.53,
         "organization": "Anthropic",
         "release_date": "2026-06-09"
@@ -117,7 +117,7 @@
       "claude-opus-4-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.5 (no thinking)",
+        "display_name": "Claude Opus 4.5 (128k thinking)",
         "eci": 149.91,
         "organization": "Anthropic",
         "release_date": "2025-11-24"
@@ -165,7 +165,7 @@
       "claude-opus-4-7": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.7 (low)",
+        "display_name": "Claude Opus 4.7 (max)",
         "eci": 155.76,
         "organization": "Anthropic",
         "release_date": "2026-04-16"
@@ -181,7 +181,7 @@
       "claude-opus-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 5 (low)",
+        "display_name": "Claude Opus 5 (max)",
         "eci": 161.02,
         "organization": "Anthropic",
         "release_date": "2026-07-24"
@@ -253,7 +253,7 @@
       "claude-sonnet-4-6": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 4.6 (max)",
+        "display_name": "Claude Sonnet 4.6 (high)",
         "eci": 152.39,
         "organization": "Anthropic",
         "release_date": "2026-02-17"
@@ -269,7 +269,7 @@
       "claude-sonnet-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 5 (low)",
+        "display_name": "Claude Sonnet 5 (max)",
         "eci": 155.53,
         "organization": "Anthropic",
         "release_date": "2026-06-30"
@@ -597,7 +597,7 @@
       "gemini-3.5-flash-lite": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 3.5 Flash-Lite (high)",
+        "display_name": "Gemini 3.5 Flash-Lite",
         "eci": 0.0,
         "organization": "Google DeepMind",
         "release_date": "2026-07-21"
@@ -725,7 +725,7 @@
       "gpt-5-mini": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5 mini (low)",
+        "display_name": "GPT-5 mini (high)",
         "eci": 145.64,
         "organization": "OpenAI",
         "release_date": "2025-08-07"
@@ -853,7 +853,7 @@
       "gpt-5.4-nano": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.4 nano (no thinking)",
+        "display_name": "GPT-5.4 nano (high)",
         "eci": 146.24,
         "organization": "OpenAI",
         "release_date": "2026-03-17"
@@ -901,7 +901,7 @@
       "gpt-5.6-luna": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Luna (none)",
+        "display_name": "GPT-5.6 Luna (max)",
         "eci": 156.13,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -909,7 +909,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (low)",
+        "display_name": "GPT-5.6 Sol (max)",
         "eci": 161.65,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -917,7 +917,7 @@
       "gpt-5.6-terra": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Terra (none)",
+        "display_name": "GPT-5.6 Terra (max)",
         "eci": 158.96,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1133,7 +1133,7 @@
       "kimi-k3": {
         "accessibility": "Open weights (non-commercial)",
         "country": "China",
-        "display_name": "Kimi K3 (low)",
+        "display_name": "Kimi K3 (max)",
         "eci": 157.01,
         "organization": "Moonshot",
         "release_date": "2026-07-16"
