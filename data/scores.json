@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-06",
-    "model_count": 58,
+    "generated_at": "2026-08-07",
+    "model_count": 59,
     "ranked_count": 45,
-    "provisional_count": 13,
+    "provisional_count": 14,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-06",
+      "epoch": "2026-08-07",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-03",
       "lmarena_vision": null
@@ -18,6 +18,20 @@
     }
   },
   "scores": [
+    {
+      "model_id": "anthropic-claude-fable-5",
+      "benchmark_id": "gpqa_diamond",
+      "value": 85.86,
+      "unit": "percent",
+      "stderr": 2.483,
+      "half_width_95": 4.867,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-06",
+      "contamination_flag": false,
+      "notes": "variant max (claude-fable-5_max)",
+      "variant": "max"
+    },
     {
       "model_id": "anthropic-claude-fable-5",
       "benchmark_id": "livebench_reasoning",
@@ -373,9 +387,9 @@
       "half_width_95": 3.618,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-04-17",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant xhigh (claude-opus-4-7_xhigh)",
       "variant": "xhigh"
     },
     {
@@ -487,9 +501,9 @@
       "half_width_95": 3.755,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-06-07",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant max (claude-opus-4-8_max)",
       "variant": "max"
     },
     {
@@ -601,9 +615,9 @@
       "half_width_95": 2.897,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-24",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant max (claude-opus-5_max)",
       "variant": "max"
     },
     {
@@ -773,7 +787,7 @@
       "half_width_95": 5.204,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-13",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
       "notes": "variant medium (claude-sonnet-4-6_medium)",
       "variant": "medium"
@@ -859,9 +873,9 @@
       "half_width_95": 3.497,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-01",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant xhigh (claude-sonnet-5_xhigh)",
       "variant": "xhigh"
     },
     {
@@ -1261,9 +1275,9 @@
       "half_width_95": 3.732,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2025-12-17",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant preview (gemini-3-flash-preview)",
       "variant": "preview"
     },
     {
@@ -1397,6 +1411,50 @@
       "measured_name": "gemini-3-pro"
     },
     {
+      "model_id": "google-gemini-3.1-flash-lite",
+      "benchmark_id": "gpqa_diamond",
+      "value": 81.82,
+      "unit": "percent",
+      "stderr": 2.748,
+      "half_width_95": 5.386,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-06",
+      "contamination_flag": false,
+      "notes": "variant high (gemini-3.1-flash-lite_high)",
+      "variant": "high"
+    },
+    {
+      "model_id": "google-gemini-3.1-flash-lite",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1415.4,
+      "unit": "bradley_terry_rating",
+      "stderr": null,
+      "half_width_95": 3.8,
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-08-03",
+      "contamination_flag": false,
+      "notes": "60150 votes; rank 109",
+      "variant": "high",
+      "variant_mismatch": "preview",
+      "measured_name": "gemini-3.1-flash-lite-preview"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.1-pro",
+      "benchmark_id": "gpqa_diamond",
+      "value": 94.44,
+      "unit": "percent",
+      "stderr": 1.632,
+      "half_width_95": 3.199,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-06",
+      "contamination_flag": false,
+      "notes": "variant high (gemini-3.1-pro-preview_high)",
+      "variant": "high"
+    },
+    {
       "model_id": "google-deepmind-gemini-3.1-pro",
       "benchmark_id": "livebench_reasoning",
       "value": 84.0,
@@ -1477,9 +1535,9 @@
       "half_width_95": 3.212,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-22",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant high (gemini-3.5-flash_high)",
       "variant": "high"
     },
     {
@@ -1598,6 +1656,20 @@
     },
     {
       "model_id": "google-deepmind-gemini-3.5-flash-lite",
+      "benchmark_id": "gpqa_diamond",
+      "value": 83.33,
+      "unit": "percent",
+      "stderr": 2.655,
+      "half_width_95": 5.204,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-06",
+      "contamination_flag": false,
+      "notes": "variant high (gemini-3.5-flash-lite_high)",
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.5-flash-lite",
       "benchmark_id": "livebench_reasoning",
       "value": 60.19,
       "unit": "percent",
@@ -1677,9 +1749,9 @@
       "half_width_95": 2.75,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-08-02",
+      "measured_at": "2026-08-06",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant high (gemini-3.6-flash_high)",
       "variant": "high"
     },
     {
@@ -2283,7 +2355,7 @@
       "half_width_95": 3.675,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2025-11-17",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": "variant high (gpt-5.1-2025-11-13_high)",
       "variant": "high"
@@ -2590,6 +2662,20 @@
     },
     {
       "model_id": "openai-gpt-5.4-mini",
+      "benchmark_id": "gpqa_diamond",
+      "value": 86.87,
+      "unit": "percent",
+      "stderr": 2.406,
+      "half_width_95": 4.716,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-07",
+      "contamination_flag": false,
+      "notes": "variant xhigh (gpt-5.4-mini-2026-03-17_xhigh)",
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "openai-gpt-5.4-mini",
       "benchmark_id": "livebench_reasoning",
       "value": 71.32,
       "unit": "percent",
@@ -2741,7 +2827,7 @@
       "half_width_95": 3.032,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-05",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": "variant xhigh (gpt-5.5-pre-release_xhigh)",
       "variant": "xhigh"
@@ -2869,9 +2955,9 @@
       "half_width_95": 3.387,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-09",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant max (gpt-5.6-luna_max)",
       "variant": "max"
     },
     {
@@ -2969,9 +3055,9 @@
       "half_width_95": 3.077,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-09",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant max (gpt-5.6-sol_max)",
       "variant": "max"
     },
     {
@@ -3069,9 +3155,9 @@
       "half_width_95": 3.011,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-07-09",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
-      "notes": null,
+      "notes": "variant max (gpt-5.6-terra_max)",
       "variant": "max"
     },
     {
@@ -3639,13 +3725,13 @@
     {
       "model_id": "moonshot-kimi-k2.7-code",
       "benchmark_id": "gpqa_diamond",
-      "value": 89.52,
+      "value": 87.88,
       "unit": "percent",
-      "stderr": 1.775,
-      "half_width_95": 3.479,
+      "stderr": 2.325,
+      "half_width_95": 4.557,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-06-12",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": null,
       "variant": "plain"
@@ -4083,13 +4169,13 @@
     {
       "model_id": "alibaba-qwen3.5-flash",
       "benchmark_id": "gpqa_diamond",
-      "value": 83.84,
+      "value": 82.32,
       "unit": "percent",
-      "stderr": 2.201,
-      "half_width_95": 4.314,
+      "stderr": 2.718,
+      "half_width_95": 5.327,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-11",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": null,
       "variant": "plain"
@@ -4141,13 +4227,13 @@
     {
       "model_id": "alibaba-qwen3.6",
       "benchmark_id": "gpqa_diamond",
-      "value": 89.08,
+      "value": 87.37,
       "unit": "percent",
-      "stderr": 1.867,
-      "half_width_95": 3.659,
+      "stderr": 2.366,
+      "half_width_95": 4.637,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-15",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": null,
       "variant": "max"
@@ -4213,13 +4299,13 @@
     {
       "model_id": "alibaba-qwen3.6-plus",
       "benchmark_id": "gpqa_diamond",
-      "value": 87.37,
+      "value": 88.38,
       "unit": "percent",
-      "stderr": 1.901,
-      "half_width_95": 3.726,
+      "stderr": 2.283,
+      "half_width_95": 4.475,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-12",
+      "measured_at": "2026-08-07",
       "contamination_flag": false,
       "notes": null,
       "variant": "plain"

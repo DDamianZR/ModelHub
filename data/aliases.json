@@ -1,7 +1,7 @@
 {
   "anthropic-claude-fable-5": {
     "canonical_key": "claude-fable-5",
-    "display_name": "Claude Fable 5 (max)",
+    "display_name": "Claude Fable 5 (low)",
     "variant": "max",
     "scored_arena_name": "claude-fable-5",
     "names": [
@@ -9,6 +9,9 @@
     ],
     "matched": {
       "epoch": [
+        "claude-fable-5_high",
+        "claude-fable-5_low",
+        "claude-fable-5_max",
         "claude-fable-5_xhigh"
       ],
       "livebench": [
@@ -60,7 +63,7 @@
   },
   "anthropic-claude-opus-4-5": {
     "canonical_key": "claude-opus-4-5",
-    "display_name": "Claude Opus 4.5 (128k thinking)",
+    "display_name": "Claude Opus 4.5 (no thinking)",
     "variant": "high",
     "scored_arena_name": "claude-opus-4-5-20251101",
     "names": [
@@ -141,7 +144,9 @@
     ],
     "matched": {
       "epoch": [
-        "claude-opus-4-8_max"
+        "claude-opus-4-8_low",
+        "claude-opus-4-8_max",
+        "claude-opus-4-8_none"
       ],
       "livebench": [
         "claude-opus-4-8-max-effort"
@@ -154,7 +159,7 @@
   },
   "anthropic-claude-opus-5": {
     "canonical_key": "claude-opus-5",
-    "display_name": "Claude Opus 5 (max)",
+    "display_name": "Claude Opus 5 (low)",
     "variant": "max",
     "scored_arena_name": "claude-opus-5-max",
     "names": [
@@ -164,6 +169,8 @@
     ],
     "matched": {
       "epoch": [
+        "claude-opus-5",
+        "claude-opus-5_low",
         "claude-opus-5_max"
       ],
       "livebench": [
@@ -199,7 +206,7 @@
   },
   "anthropic-claude-sonnet-4-6": {
     "canonical_key": "claude-sonnet-4-6",
-    "display_name": "Claude Sonnet 4.6 (high)",
+    "display_name": "Claude Sonnet 4.6 (max)",
     "variant": "medium",
     "scored_arena_name": "claude-sonnet-4-6",
     "names": [
@@ -210,6 +217,7 @@
         "claude-sonnet-4-6",
         "claude-sonnet-4-6_32K",
         "claude-sonnet-4-6_high",
+        "claude-sonnet-4-6_max",
         "claude-sonnet-4-6_medium"
       ],
       "livebench": [
@@ -282,7 +290,7 @@
   },
   "deepseek-deepseek-v4-pro": {
     "canonical_key": "deepseek-v4-pro",
-    "display_name": "DeepSeek v4 Pro (max)",
+    "display_name": "DeepSeek v4 Pro (unknown thinking)",
     "variant": "plain",
     "scored_arena_name": "deepseek-v4-pro",
     "names": [
@@ -291,7 +299,8 @@
     ],
     "matched": {
       "epoch": [
-        "deepseek-v4-pro_max"
+        "deepseek-v4-pro_max",
+        "deepseek-v4-pro_none"
       ],
       "livebench": [
         "deepseek-v4-pro"
@@ -340,7 +349,7 @@
   },
   "google-deepmind-gemini-3-flash": {
     "canonical_key": "gemini-3-flash",
-    "display_name": "Gemini 3 Flash",
+    "display_name": "Gemini 3 Flash Preview",
     "variant": "preview",
     "scored_arena_name": "gemini-3-flash",
     "names": [
@@ -348,7 +357,8 @@
     ],
     "matched": {
       "epoch": [
-        "gemini-3-flash-preview"
+        "gemini-3-flash-preview",
+        "gemini-3-flash-preview_high"
       ],
       "livebench": [],
       "lmarena": [
@@ -374,9 +384,29 @@
       ]
     }
   },
+  "google-gemini-3.1-flash-lite": {
+    "canonical_key": "gemini-3.1-flash-lite",
+    "display_name": "Gemini 3.1 Flash-Lite",
+    "variant": "high",
+    "scored_arena_name": "gemini-3.1-flash-lite-preview",
+    "names": [
+      "gemini-3.1-flash-lite",
+      "gemini-3.1-flash-lite-preview"
+    ],
+    "matched": {
+      "epoch": [
+        "gemini-3.1-flash-lite_high",
+        "gemini-3.1-flash-lite_low"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "gemini-3.1-flash-lite-preview"
+      ]
+    }
+  },
   "google-deepmind-gemini-3.1-pro": {
     "canonical_key": "gemini-3.1-pro",
-    "display_name": "Gemini 3.1 Pro Preview (high)",
+    "display_name": "Gemini 3.1 Pro Preview",
     "variant": "high",
     "scored_arena_name": "gemini-3.1-pro-preview",
     "names": [
@@ -385,7 +415,8 @@
     ],
     "matched": {
       "epoch": [
-        "gemini-3.1-pro-preview"
+        "gemini-3.1-pro-preview",
+        "gemini-3.1-pro-preview_high"
       ],
       "livebench": [
         "gemini-3.1-pro-preview-high"
@@ -397,7 +428,7 @@
   },
   "google-gemini-3.5-flash": {
     "canonical_key": "gemini-3.5-flash",
-    "display_name": "Gemini 3.5 Flash (high)",
+    "display_name": "Gemini 3.5 Flash",
     "variant": "high",
     "scored_arena_name": "gemini-3.5-flash-high",
     "names": [
@@ -407,7 +438,8 @@
     ],
     "matched": {
       "epoch": [
-        "gemini-3.5-flash_high"
+        "gemini-3.5-flash_high",
+        "gemini-3.5-flash_low"
       ],
       "livebench": [
         "gemini-3.5-flash-high"
@@ -427,7 +459,10 @@
       "gemini-3.5-flash-lite"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "gemini-3.5-flash-lite_high",
+        "gemini-3.5-flash-lite_low"
+      ],
       "livebench": [
         "gemini-3.5-flash-lite-high"
       ],
@@ -438,7 +473,7 @@
   },
   "google-deepmind-gemini-3.6-flash": {
     "canonical_key": "gemini-3.6-flash",
-    "display_name": "Gemini 3.6 Flash (high)",
+    "display_name": "Gemini 3.6 Flash",
     "variant": "high",
     "scored_arena_name": "gemini-3.6-flash",
     "names": [
@@ -446,7 +481,8 @@
     ],
     "matched": {
       "epoch": [
-        "gemini-3.6-flash_high"
+        "gemini-3.6-flash_high",
+        "gemini-3.6-flash_low"
       ],
       "livebench": [
         "gemini-3.6-flash-high"
@@ -593,7 +629,7 @@
   },
   "openai-gpt-5-nano": {
     "canonical_key": "gpt-5-nano",
-    "display_name": "GPT-5 nano (low)",
+    "display_name": "GPT-5 nano (high)",
     "variant": "high",
     "scored_arena_name": "gpt-5-nano-high",
     "names": [
@@ -614,7 +650,7 @@
   },
   "openai-gpt-5.1": {
     "canonical_key": "gpt-5.1",
-    "display_name": "GPT-5.1 (high)",
+    "display_name": "GPT-5.1 (no thinking)",
     "variant": "high",
     "scored_arena_name": "gpt-5.1-high",
     "names": [
@@ -700,7 +736,9 @@
     ],
     "matched": {
       "epoch": [
-        "gpt-5.4-mini-2026-03-17_high"
+        "gpt-5.4-mini-2026-03-17_high",
+        "gpt-5.4-mini-2026-03-17_none",
+        "gpt-5.4-mini-2026-03-17_xhigh"
       ],
       "livebench": [
         "gpt-5.4-mini-xhigh"
@@ -712,7 +750,7 @@
   },
   "openai-gpt-5.4-nano": {
     "canonical_key": "gpt-5.4-nano",
-    "display_name": "GPT-5.4 nano (high)",
+    "display_name": "GPT-5.4 nano (no thinking)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.4-nano-high",
     "names": [
@@ -721,7 +759,9 @@
     ],
     "matched": {
       "epoch": [
-        "gpt-5.4-nano-2026-03-17_high"
+        "gpt-5.4-nano-2026-03-17_high",
+        "gpt-5.4-nano-2026-03-17_low",
+        "gpt-5.4-nano-2026-03-17_none"
       ],
       "livebench": [
         "gpt-5.4-nano-xhigh"
@@ -743,7 +783,8 @@
     "matched": {
       "epoch": [
         "gpt-5.5-pre-release_xhigh",
-        "gpt-5.5_low"
+        "gpt-5.5_low",
+        "gpt-5.5_none"
       ],
       "livebench": [
         "gpt-5.5-xhigh"
@@ -756,7 +797,7 @@
   },
   "openai-gpt-5.6-luna": {
     "canonical_key": "gpt-5.6-luna",
-    "display_name": "GPT-5.6 Luna (max)",
+    "display_name": "GPT-5.6 Luna (none)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-luna-xhigh",
     "names": [
@@ -765,7 +806,9 @@
     ],
     "matched": {
       "epoch": [
-        "gpt-5.6-luna_max"
+        "gpt-5.6-luna_low",
+        "gpt-5.6-luna_max",
+        "gpt-5.6-luna_none"
       ],
       "livebench": [
         "gpt-5.6-luna-max"
@@ -777,7 +820,7 @@
   },
   "openai-gpt-5.6-sol": {
     "canonical_key": "gpt-5.6-sol",
-    "display_name": "GPT-5.6 Sol (max)",
+    "display_name": "GPT-5.6 Sol (none)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-sol-xhigh",
     "names": [
@@ -786,7 +829,9 @@
     ],
     "matched": {
       "epoch": [
-        "gpt-5.6-sol_max"
+        "gpt-5.6-sol_low",
+        "gpt-5.6-sol_max",
+        "gpt-5.6-sol_none"
       ],
       "livebench": [
         "gpt-5.6-sol-max"
@@ -798,7 +843,7 @@
   },
   "openai-gpt-5.6-terra": {
     "canonical_key": "gpt-5.6-terra",
-    "display_name": "GPT-5.6 Terra (max)",
+    "display_name": "GPT-5.6 Terra (none)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-terra-xhigh",
     "names": [
@@ -807,7 +852,9 @@
     ],
     "matched": {
       "epoch": [
-        "gpt-5.6-terra_max"
+        "gpt-5.6-terra_low",
+        "gpt-5.6-terra_max",
+        "gpt-5.6-terra_none"
       ],
       "livebench": [
         "gpt-5.6-terra-max"
@@ -970,7 +1017,7 @@
   },
   "moonshot-kimi-k3": {
     "canonical_key": "kimi-k3",
-    "display_name": "Kimi K3 (max)",
+    "display_name": "Kimi K3 (low)",
     "variant": "plain",
     "scored_arena_name": null,
     "names": [
@@ -978,6 +1025,8 @@
     ],
     "matched": {
       "epoch": [
+        "kimi-k3_high",
+        "kimi-k3_low",
         "kimi-k3_max"
       ],
       "livebench": [
@@ -1081,7 +1130,7 @@
   },
   "alibaba-qwen3.5-flash": {
     "canonical_key": "qwen3.5-flash",
-    "display_name": "Qwen 3.5 Flash (hosted 35B-A3B)",
+    "display_name": "Qwen3.5 Flash",
     "variant": "plain",
     "scored_arena_name": "qwen3.5-flash",
     "names": [
