@@ -299,6 +299,7 @@
     ],
     "matched": {
       "epoch": [
+        "deepseek-v4-pro_high",
         "deepseek-v4-pro_max",
         "deepseek-v4-pro_none"
       ],
@@ -864,6 +865,24 @@
       ]
     }
   },
+  "openai-gpt-oss-20b": {
+    "canonical_key": "gpt-oss-20b",
+    "display_name": "gpt-oss-20b",
+    "variant": "high",
+    "scored_arena_name": "gpt-oss-20b",
+    "names": [
+      "gpt-oss-20b"
+    ],
+    "matched": {
+      "epoch": [
+        "gpt-oss-20b_high"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "gpt-oss-20b"
+      ]
+    }
+  },
   "xai-grok-4-0709": {
     "canonical_key": "grok-4-0709",
     "display_name": "Grok 4",
@@ -1019,9 +1038,10 @@
     "canonical_key": "kimi-k3",
     "display_name": "Kimi K3 (low)",
     "variant": "plain",
-    "scored_arena_name": null,
+    "scored_arena_name": "kimi-k3-max",
     "names": [
-      "kimi-k3"
+      "kimi-k3",
+      "kimi-k3-max"
     ],
     "matched": {
       "epoch": [
@@ -1032,7 +1052,9 @@
       "livebench": [
         "kimi-k3"
       ],
-      "lmarena": []
+      "lmarena": [
+        "kimi-k3-max"
+      ]
     }
   },
   "minimax-minimax-m3": {
@@ -1128,6 +1150,25 @@
       ]
     }
   },
+  "alibaba-qwen3.5-397b-a17b": {
+    "canonical_key": "qwen3.5-397b-a17b",
+    "display_name": "Qwen3.5 397B-A17B",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.5-397b-a17b",
+    "names": [
+      "qwen3.5-397b-a17b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-397b-a17b_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3.5-397b-a17b"
+      ]
+    }
+  },
   "alibaba-qwen3.5-flash": {
     "canonical_key": "qwen3.5-flash",
     "display_name": "Qwen3.5 Flash",
@@ -1165,6 +1206,25 @@
       ]
     }
   },
+  "alibaba-qwen3.6-27b": {
+    "canonical_key": "qwen3.6-27b",
+    "display_name": "Qwen3.6 27B",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "qwen3.6-27b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.6-27b",
+        "qwen3.6-27b_none"
+      ],
+      "livebench": [
+        "qwen3.6-27b"
+      ],
+      "lmarena": []
+    }
+  },
   "alibaba-qwen3.6-plus": {
     "canonical_key": "qwen3.6-plus",
     "display_name": "Qwen 3.6 Plus (2026-04-02)",
@@ -1187,7 +1247,7 @@
   },
   "alibaba-qwen3.7": {
     "canonical_key": "qwen3.7",
-    "display_name": "Qwen3.7-Max",
+    "display_name": "Qwen3.7 Max",
     "variant": "max",
     "scored_arena_name": "qwen3.7-max-preview",
     "names": [
@@ -1203,6 +1263,25 @@
       ],
       "lmarena": [
         "qwen3.7-max-preview"
+      ]
+    }
+  },
+  "alibaba-qwen3.7-plus": {
+    "canonical_key": "qwen3.7-plus",
+    "display_name": "Qwen3.7 Plus",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.7-plus",
+    "names": [
+      "qwen3.7-plus"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.7-plus",
+        "qwen3.7-plus_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3.7-plus"
       ]
     }
   },

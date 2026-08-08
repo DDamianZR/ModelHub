@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-07",
+  "fetched_at": "2026-08-08",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -1461,15 +1461,23 @@
       "qwen3.5-27b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Qwen3.5-27B",
+        "display_name": "Qwen3.5 27B",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
       },
+      "qwen3.5-397b-a17b": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Qwen3.5 397B-A17B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-13"
+      },
       "qwen3.5-9b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Qwen3.5-9B",
+        "display_name": "Qwen3.5 9B",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1485,7 +1493,7 @@
       "qwen3.5-plus": {
         "accessibility": "",
         "country": "China",
-        "display_name": "Qwen 3.5 Plus (hosted 397B-A17B)",
+        "display_name": "Qwen3.5 Plus",
         "eci": 146.84,
         "organization": "Alibaba",
         "release_date": "2026-02-16"
@@ -1498,10 +1506,18 @@
         "organization": "Alibaba",
         "release_date": "2026-04-20"
       },
+      "qwen3.6-27b": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Qwen3.6 27B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-04-22"
+      },
       "qwen3.6-35b-a3b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen 3.6 35B-A3B",
+        "display_name": "Qwen3.6 35B-A3B",
         "eci": 143.5,
         "organization": "Alibaba",
         "release_date": "2026-04-14"
@@ -1525,10 +1541,18 @@
       "qwen3.7": {
         "accessibility": "API access",
         "country": "China",
-        "display_name": "Qwen3.7-Max",
+        "display_name": "Qwen3.7 Max",
         "eci": 153.81,
         "organization": "Alibaba",
         "release_date": "2026-05-19"
+      },
+      "qwen3.7-flash": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Qwen3.7 Flash",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-07-27"
       },
       "qwen3.7-plus": {
         "accessibility": "",
@@ -2476,6 +2500,16 @@
           "stderr": 3.154,
           "value": 73.23,
           "variant": "deepseek-v4-pro_none"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.048,
+          "value": 90.91,
+          "variant": "deepseek-v4-pro_high"
         },
         {
           "benchmark_id": "gpqa_diamond",
@@ -4112,6 +4146,18 @@
           "variant": "gpt-5.6-terra_max"
         }
       ],
+      "gpt-oss-20b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 3.551,
+          "value": 45.96,
+          "variant": "gpt-oss-20b_high"
+        }
+      ],
       "grok-4-0709": [
         {
           "benchmark_id": "gpqa_diamond",
@@ -4354,11 +4400,11 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
-          "measured_at": "2025-06-10",
+          "measured_at": "2026-08-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "stderr": 2.264,
-          "value": 48.42,
+          "stderr": 3.536,
+          "value": 56.06,
           "variant": "magistral-small-2506"
         }
       ],
@@ -4494,6 +4540,28 @@
           "variant": "Qwen3-235B-A22B-Thinking-2507"
         }
       ],
+      "qwen3.5-397b-a17b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.483,
+          "value": 85.86,
+          "variant": "qwen3.5-397b-a17b"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.445,
+          "value": 86.36,
+          "variant": "qwen3.5-397b-a17b_none"
+        }
+      ],
       "qwen3.5-flash": [
         {
           "benchmark_id": "gpqa_diamond",
@@ -4600,6 +4668,28 @@
           "variant": "qwen3.6-max-preview"
         }
       ],
+      "qwen3.6-27b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.483,
+          "value": 85.86,
+          "variant": "qwen3.6-27b"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.555,
+          "value": 84.85,
+          "variant": "qwen3.6-27b_none"
+        }
+      ],
       "qwen3.6-35b-a3b": [
         {
           "benchmark_id": "gpqa_diamond",
@@ -4610,6 +4700,16 @@
           "stderr": 2.623,
           "value": 83.84,
           "variant": "qwen3.6-35b-a3b"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.555,
+          "value": 84.85,
+          "variant": "qwen3.6-35b-a3b_none"
         }
       ],
       "qwen3.6-flash": [
@@ -4690,11 +4790,11 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
-          "measured_at": "2026-06-12",
+          "measured_at": "2026-08-07",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "stderr": 1.677,
-          "value": 91.6,
+          "stderr": 2.048,
+          "value": 90.91,
           "variant": "qwen3.7-max"
         },
         {
@@ -4716,6 +4816,50 @@
           "stderr": 1.907,
           "value": 77.27,
           "variant": "qwen3.7-max"
+        }
+      ],
+      "qwen3.7-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.718,
+          "value": 82.32,
+          "variant": "qwen3.7-flash"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.806,
+          "value": 80.81,
+          "variant": "qwen3.7-flash_none"
+        }
+      ],
+      "qwen3.7-plus": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.325,
+          "value": 87.88,
+          "variant": "qwen3.7-plus"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.748,
+          "value": 81.82,
+          "variant": "qwen3.7-plus_none"
         }
       ],
       "qwen3.8": [

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-07",
+  "fetched_at": "2026-08-08",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -1305,6 +1305,44 @@
           "source_url": "https://livebench.ai/",
           "value": 69.64,
           "variant": "muse-spark-1.1-xhigh"
+        }
+      ],
+      "muse-spark-1.2": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.0,
+          "variant": "muse-spark-1.2-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.56,
+          "variant": "muse-spark-1.2-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.2,
+          "variant": "muse-spark-1.2-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.33,
+          "variant": "muse-spark-1.2-xhigh"
         }
       ],
       "qwen3.6-27b": [
