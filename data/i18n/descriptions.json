@@ -11,16 +11,28 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "alibaba-qwen3.5-397b-a17b": {
+    "en": "Qwen3.5 397B-A17B is a language model built by Alibaba in February 2026. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
+    "es": "Qwen3.5 397B-A17B es un modelo de lenguaje desarrollado por Alibaba en febrero de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
+    "generated_at": "2026-08-09",
+    "generated_by": "qwen3-coder:30b"
+  },
   "alibaba-qwen3.5-flash": {
-    "en": "Qwen 3.5 Flash is a language model built by Alibaba in February 2026. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding, Instructions.",
-    "es": "Qwen 3.5 Flash es un modelo de lenguaje desarrollado por Alibaba en febrero de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código, Instrucciones.",
-    "generated_at": "2026-07-28",
+    "en": "Qwen3.5 Flash is a language model built by Alibaba in February 2026. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding or Instructions.",
+    "es": "Qwen3.5 Flash es un modelo de lenguaje desarrollado por Alibaba en febrero de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código, Instrucciones.",
+    "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
   "alibaba-qwen3.6": {
     "en": "Qwen 3.6 Max (Preview) is a language model built by Alibaba in April 2026. API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Coding and Reasoning, but is somewhat lower in Math and Human preference. Instructions were not measured.",
     "es": "Qwen 3.6 Max (Preview) es un modelo de lenguaje desarrollado por Alibaba en abril de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Código y Razonamiento, pero está algo por debajo en Matemáticas y Preferencia humana. No se midió Instrucciones.",
     "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "alibaba-qwen3.6-27b": {
+    "en": "Qwen3.6 27B is a language model built by Alibaba in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions. No data for Human preference.",
+    "es": "Qwen3.6 27B es un modelo de lenguaje desarrollado por Alibaba en 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones. Sin datos en Preferencia humana.",
+    "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
   "alibaba-qwen3.6-plus": {
@@ -33,6 +45,12 @@
     "en": "Qwen3.7-Max is a language model built by Alibaba in China in 2026. It is API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is somewhat lower in Coding and Instructions. No data for any unmeasured category.",
     "es": "Qwen3.7-Max es un modelo de lenguaje desarrollado por Alibaba en China en 2026. Se obtiene solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Es algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
     "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "alibaba-qwen3.7-plus": {
+    "en": "Qwen3.7 Plus is a language model built by Alibaba in June 2026. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
+    "es": "Qwen3.7 Plus es un modelo de lenguaje desarrollado por Alibaba en junio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
+    "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
   "alibaba-qwen3.8": {
@@ -273,6 +291,12 @@
     "en": "GPT-5.6 Terra is a language model built by OpenAI in July 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Instructions and Coding. Human preference not measured.",
     "es": "GPT-5.6 Terra es un modelo de lenguaje desarrollado por OpenAI en julio de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Instrucciones y Código. Preferencia humana no medida.",
     "generated_at": "2026-07-28",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "openai-gpt-oss-20b": {
+    "en": "gpt-oss-20b is a language model built by OpenAI in the United States. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
+    "es": "gpt-oss-20b es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Es de pesos abiertos: se descarga y corre localmente. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
+    "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
   "thinking-machines-inkling": {
