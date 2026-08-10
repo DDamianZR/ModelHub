@@ -1,26 +1,27 @@
 {
-  "generated_at": "2026-08-09T07:18:09+00:00",
+  "generated_at": "2026-08-10T08:02:35+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-08-09",
+      "last_success": "2026-08-10",
       "error": null
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-08-09",
+      "last_success": "2026-08-10",
       "error": null
     },
     "lmarena": {
-      "state": "ok",
+      "state": "cached",
       "last_success": "2026-08-09",
-      "error": null
+      "age_days": 1,
+      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=22924&length=100: HTTP Error 500: Internal Server Error"
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-08-09",
+      "date": "2026-08-10",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -29,7 +30,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 45,
+      "age_days": 46,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -45,7 +46,7 @@
     },
     "lmarena": {
       "date": "2026-08-06",
-      "age_days": 3,
+      "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -66,8 +67,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "afc6e474b629db963d5a877ec0ce6e8239074233dd5584c3ce46166501bb0e8b",
-          "bytes": 452159
+          "sha256": "8793b34fc6ec48a2537df9dde084eda25d2042546b37908d8bbe9212dd725d87",
+          "bytes": 452155
         }
       ]
     },
@@ -99,8 +100,14 @@
     },
     "lmarena": {
       "normalised_sha256": "f6761c7c63ee3205c67734368d6346ed6fbb2478d87d657b48a6e0788cd00da5",
-      "requests": 15,
-      "upstream": []
+      "requests": 1,
+      "upstream": [
+        {
+          "url": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1",
+          "sha256": "57f4b8c6a6395cb1db4a41b56292891833dfd403ceda2da248038492977b9cd0",
+          "bytes": 1318
+        }
+      ]
     }
   }
 }
