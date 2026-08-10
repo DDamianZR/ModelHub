@@ -9,7 +9,7 @@
       "epoch": "2026-08-10",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-06",
-      "lmarena_vision": "2026-08-06"
+      "lmarena_vision": null
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
@@ -29,8 +29,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -75,13 +74,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1330.5,
-        "rank": 1,
-        "variant": "claude-fable-5",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 1,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -97,8 +90,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -143,13 +135,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1314.6,
-        "rank": 6,
-        "variant": "qwen3.8-max",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 2,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -165,8 +151,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -211,13 +196,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1327.3,
-        "rank": 2,
-        "variant": "claude-opus-5-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 2,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -294,8 +273,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -340,13 +318,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": "preview",
-      "vision": {
-        "rating": 1294.1,
-        "rank": 18,
-        "variant": "gemini-3.1-pro-preview",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 4,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -362,8 +334,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -408,13 +379,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": "xhigh",
-      "vision": {
-        "rating": 1273.8,
-        "rank": 30,
-        "variant": "gpt-5.6-sol-xhigh",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 4,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -430,8 +395,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -476,13 +440,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1295.5,
-        "rank": 16,
-        "variant": "muse-spark-1.1",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 5,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -498,8 +456,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -544,13 +501,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1315.8,
-        "rank": 5,
-        "variant": "claude-opus-4-6-thinking",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 6,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -566,8 +517,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -612,13 +562,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1295.4,
-        "rank": 17,
-        "variant": "grok-4.5",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 9,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -695,8 +639,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -741,13 +684,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1310.9,
-        "rank": 8,
-        "variant": "gemini-3.6-flash",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 9,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -763,8 +700,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -809,13 +745,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1296.3,
-        "rank": 15,
-        "variant": "gpt-5.5",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 9,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -831,8 +761,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -877,13 +806,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1309.1,
-        "rank": 9,
-        "variant": "gemini-3.5-flash-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 12,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -960,8 +883,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1006,13 +928,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": "xhigh",
-      "vision": {
-        "rating": 1274.7,
-        "rank": 29,
-        "variant": "gpt-5.6-terra-xhigh",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 13,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1028,8 +944,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1074,13 +989,7 @@
       "awaiting_human_votes": false,
       "variant": "medium",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1282.2,
-        "rank": 25,
-        "variant": "claude-sonnet-4-6",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 13,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1157,8 +1066,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1203,13 +1111,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "high",
-      "vision": {
-        "rating": 1283.4,
-        "rank": 23,
-        "variant": "claude-sonnet-5-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 17,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -1408,8 +1310,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1454,13 +1355,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1316.4,
-        "rank": 3,
-        "variant": "claude-opus-4-7",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 18,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1476,8 +1371,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1522,13 +1416,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1299.8,
-        "rank": 14,
-        "variant": "gpt-5.4-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 22,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1544,8 +1432,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1590,13 +1477,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1292.5,
-        "rank": 21,
-        "variant": "claude-opus-4-8-thinking",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 22,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1612,8 +1493,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1658,13 +1538,7 @@
       "awaiting_human_votes": false,
       "variant": "preview",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1304.9,
-        "rank": 12,
-        "variant": "gemini-3-pro",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 22,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1680,8 +1554,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1726,13 +1599,7 @@
       "awaiting_human_votes": false,
       "variant": "max",
       "human_preference_variant": "xhigh",
-      "vision": {
-        "rating": 1251.5,
-        "rank": 45,
-        "variant": "gpt-5.6-luna-xhigh",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 23,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -1748,8 +1615,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1794,13 +1660,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "high",
-      "vision": {
-        "rating": 1198.5,
-        "rank": 73,
-        "variant": "gpt-5.4-nano-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 26,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -1816,8 +1676,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1862,13 +1721,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1281.4,
-        "rank": 26,
-        "variant": "kimi-k2.6",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 26,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -1884,8 +1737,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1930,13 +1782,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1263.5,
-        "rank": 37,
-        "variant": "gemini-3.5-flash-lite",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 26,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -1952,8 +1798,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -1998,13 +1843,7 @@
       "awaiting_human_votes": false,
       "variant": "preview",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1283.4,
-        "rank": 24,
-        "variant": "gemini-3-flash",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 26,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -2020,8 +1859,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2066,13 +1904,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1231.7,
-        "rank": 59,
-        "variant": "gpt-5-chat",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 28,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -2149,8 +1981,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2195,13 +2026,7 @@
       "awaiting_human_votes": false,
       "variant": "xhigh",
       "human_preference_variant": "high",
-      "vision": {
-        "rating": 1246.4,
-        "rank": 52,
-        "variant": "gpt-5.4-mini-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 28,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -2278,8 +2103,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2324,13 +2148,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1257.7,
-        "rank": 42,
-        "variant": "minimax-m3",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 30,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -2346,8 +2164,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2392,13 +2209,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1267.1,
-        "rank": 32,
-        "variant": "gpt-5.2-chat-latest-20260210",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 30,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -2719,8 +2530,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2765,13 +2575,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1231.3,
-        "rank": 60,
-        "variant": "grok-4.3",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 38,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -2787,8 +2591,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2833,13 +2636,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1248.2,
-        "rank": 48,
-        "variant": "gpt-5.1-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 38,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -2916,8 +2713,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -2962,13 +2758,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1261.8,
-        "rank": 39,
-        "variant": "gemini-2.5-pro",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": 44,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -3045,8 +2835,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3089,13 +2878,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1277.7,
-        "rank": 27,
-        "variant": "qwen3.7-plus",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3111,8 +2894,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3155,13 +2937,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1265.0,
-        "rank": 34,
-        "variant": "qwen3.5-397b-a17b",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3237,8 +3013,7 @@
       "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3281,13 +3056,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1266.5,
-        "rank": 33,
-        "variant": "kimi-k2.5-thinking",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3303,8 +3072,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3347,13 +3115,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": "preview",
-      "vision": {
-        "rating": 1239.8,
-        "rank": 56,
-        "variant": "gemini-3.1-flash-lite-preview",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3369,8 +3131,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3414,13 +3175,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1306.7,
-        "rank": 11,
-        "variant": "muse-spark",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3613,8 +3368,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3658,13 +3412,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1202.8,
-        "rank": 71,
-        "variant": "gpt-5-mini-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3680,8 +3428,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3725,13 +3472,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1208.9,
-        "rank": 69,
-        "variant": "grok-4-0709",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3807,8 +3548,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3852,13 +3592,7 @@
       "awaiting_human_votes": false,
       "variant": "high",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1161.7,
-        "rank": 92,
-        "variant": "gpt-5-nano-high",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -3934,8 +3668,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -3978,13 +3711,7 @@
       "awaiting_human_votes": false,
       "variant": "it",
       "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1270.1,
-        "rank": 31,
-        "variant": "gemma-4-31b",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -4059,8 +3786,7 @@
       "country": "United States of America",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -4103,13 +3829,7 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": null,
-      "vision": {
-        "rating": 1235.5,
-        "rank": 57,
-        "variant": "gemini-2.5-flash",
-        "measured_at": "2026-08-06",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
