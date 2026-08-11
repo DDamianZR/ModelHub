@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-10",
+    "generated_at": "2026-08-11",
     "model_count": 63,
     "ranked_count": 46,
     "provisional_count": 17,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-10",
+      "epoch": "2026-08-11",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-06",
       "lmarena_vision": null
@@ -1975,13 +1975,13 @@
     {
       "model_id": "z-ai-zhipu-ai-glm-5.1",
       "benchmark_id": "gpqa_diamond",
-      "value": 85.48,
+      "value": 89.9,
       "unit": "percent",
-      "stderr": 2.065,
-      "half_width_95": 4.047,
+      "stderr": 2.147,
+      "half_width_95": 4.208,
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
-      "measured_at": "2026-05-06",
+      "measured_at": "2026-08-10",
       "contamination_flag": false,
       "notes": null,
       "variant": "plain"
@@ -3907,6 +3907,20 @@
       "variant": "plain",
       "variant_mismatch": "max",
       "measured_name": "kimi-k3-max"
+    },
+    {
+      "model_id": "minimax-minimax-m3",
+      "benchmark_id": "gpqa_diamond",
+      "value": 90.91,
+      "unit": "percent",
+      "stderr": 2.048,
+      "half_width_95": 4.014,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-08-10",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
     },
     {
       "model_id": "minimax-minimax-m3",

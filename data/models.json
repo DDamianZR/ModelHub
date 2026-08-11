@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-10",
+    "generated_at": "2026-08-11",
     "model_count": 63,
     "ranked_count": 46,
     "provisional_count": 17,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-10",
+      "epoch": "2026-08-11",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-06",
       "lmarena_vision": null
@@ -20,7 +20,7 @@
   "models": [
     {
       "id": "anthropic-claude-fable-5",
-      "display_name": "Claude Fable 5 (low)",
+      "display_name": "Claude Fable 5 (high)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -325,7 +325,7 @@
     },
     {
       "id": "openai-gpt-5.6-sol",
-      "display_name": "GPT-5.6 Sol (none)",
+      "display_name": "GPT-5.6 Sol (high)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -1662,7 +1662,7 @@
       "human_preference_variant": "high",
       "vision": null,
       "rank": 26,
-      "tied_with": 3,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -1723,7 +1723,68 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 26,
-      "tied_with": 3,
+      "tied_with": 4,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "minimax-minimax-m3",
+      "display_name": "MiniMax-M3",
+      "provider_id": "minimax",
+      "is_open_weights": true,
+      "license": "Open weights (restricted use)",
+      "api_only": false,
+      "release_date": "2026-06-01",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 82.69,
+        "coding": 51.67,
+        "math": 76.95,
+        "instruction_following": 57.51,
+        "human_preference": 68.19
+      },
+      "category_errors": {
+        "reasoning": 2.007,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.202
+      },
+      "composite": 67.83,
+      "composite_error": 0.6,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 26,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -1784,7 +1845,7 @@
       "human_preference_variant": "plain",
       "vision": null,
       "rank": 26,
-      "tied_with": 3,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -1845,7 +1906,7 @@
       "human_preference_variant": "plain",
       "vision": null,
       "rank": 26,
-      "tied_with": 3,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -1906,7 +1967,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 28,
-      "tied_with": 2,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1967,7 +2028,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 28,
-      "tied_with": 2,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -2027,8 +2088,8 @@
       "variant": "xhigh",
       "human_preference_variant": "high",
       "vision": null,
-      "rank": 28,
-      "tied_with": 2,
+      "rank": 29,
+      "tied_with": 0,
       "cohort_recalibration": null
     },
     {
@@ -2088,69 +2149,8 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 30,
-      "tied_with": 3,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "minimax-minimax-m3",
-      "display_name": "MiniMax-M3",
-      "provider_id": "minimax",
-      "is_open_weights": true,
-      "license": "Open weights (restricted use)",
-      "api_only": false,
-      "release_date": "2026-06-01",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 74.48,
-        "coding": 51.67,
-        "math": 76.95,
-        "instruction_following": 57.51,
-        "human_preference": 68.19
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 2.202
-      },
-      "composite": 65.78,
-      "composite_error": 0.33,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 30,
-      "tied_with": 3,
+      "rank": 31,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -2210,8 +2210,8 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 30,
-      "tied_with": 3,
+      "rank": 31,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -2271,8 +2271,8 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 30,
-      "tied_with": 3,
+      "rank": 31,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -2332,8 +2332,69 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 32,
+      "rank": 33,
       "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "z-ai-zhipu-ai-glm-5.1",
+      "display_name": "GLM-5.1",
+      "provider_id": "z-ai-zhipu-ai",
+      "is_open_weights": false,
+      "license": null,
+      "api_only": true,
+      "release_date": "2026-04-07",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 63.59,
+        "math": 33.45,
+        "coding": 74.17,
+        "human_preference": 81.02
+      },
+      "category_errors": {
+        "reasoning": 2.586,
+        "math": 5.439,
+        "coding": 3.9,
+        "human_preference": 1.954
+      },
+      "composite": 62.69,
+      "composite_error": 1.91,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 38,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -2391,67 +2452,6 @@
       "provisional": false,
       "awaiting_human_votes": false,
       "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 38,
-      "tied_with": 4,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "z-ai-zhipu-ai-glm-5.1",
-      "display_name": "GLM-5.1",
-      "provider_id": "z-ai-zhipu-ai",
-      "is_open_weights": false,
-      "license": null,
-      "api_only": true,
-      "release_date": "2026-04-07",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 61.39,
-        "math": 33.45,
-        "coding": 74.17,
-        "human_preference": 81.02
-      },
-      "category_errors": {
-        "reasoning": 2.521,
-        "math": 5.439,
-        "coding": 3.9,
-        "human_preference": 1.954
-      },
-      "composite": 62.04,
-      "composite_error": 1.9,
-      "uncertainty": {
-        "measured_inputs": 5,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
       "rank": 38,

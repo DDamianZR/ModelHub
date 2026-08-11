@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-10",
+  "fetched_at": "2026-08-11",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -37,7 +37,7 @@
       "claude-fable-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Fable 5 (low)",
+        "display_name": "Claude Fable 5 (high)",
         "eci": 161.53,
         "organization": "Anthropic",
         "release_date": "2026-06-09"
@@ -949,7 +949,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (none)",
+        "display_name": "GPT-5.6 Sol (high)",
         "eci": 161.65,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1083,7 +1083,7 @@
         "release_date": "2026-07-08"
       },
       "grok-build-0.1": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Grok Build 0.1",
         "eci": 0.0,
@@ -1595,7 +1595,7 @@
         "release_date": "2026-05-29"
       },
       "swe-1.6": {
-        "accessibility": "",
+        "accessibility": "Hosted access (no API)",
         "country": "United States of America",
         "display_name": "SWE-1.6",
         "eci": 0.0,
@@ -3080,11 +3080,11 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
-          "measured_at": "2026-05-06",
+          "measured_at": "2026-08-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
-          "stderr": 2.065,
-          "value": 85.48,
+          "stderr": 2.147,
+          "value": 89.9,
           "variant": "glm-5.1"
         },
         {
@@ -3119,6 +3119,16 @@
         }
       ],
       "glm-5.2": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 3.226,
+          "value": 71.21,
+          "variant": "glm-5.2_none"
+        },
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
@@ -4406,6 +4416,18 @@
           "stderr": 3.536,
           "value": 56.06,
           "variant": "magistral-small-2506"
+        }
+      ],
+      "minimax-m3": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.048,
+          "value": 90.91,
+          "variant": "MiniMax-M3"
         }
       ],
       "moonshotai/kimi-k2": [
