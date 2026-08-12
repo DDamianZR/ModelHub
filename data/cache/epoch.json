@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-11",
+  "fetched_at": "2026-08-12",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -181,7 +181,7 @@
       "claude-opus-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 5 (low)",
+        "display_name": "Claude Opus 5 (max)",
         "eci": 161.02,
         "organization": "Anthropic",
         "release_date": "2026-07-24"
@@ -283,7 +283,7 @@
         "release_date": "2025-07-30"
       },
       "cogito-671b-v2.1": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "",
         "display_name": "Cogito v2.1 (671B)",
         "eci": 0.0,
@@ -291,11 +291,11 @@
         "release_date": "2025-11-19"
       },
       "command-a-plus-05-2026": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "Canada",
         "display_name": "Command A+",
         "eci": 0.0,
-        "organization": "Cohere",
+        "organization": "Cohere,Cohere Labs (formerly Cohere for AI)",
         "release_date": "2026-05-20"
       },
       "composer-2.5": {
@@ -659,7 +659,7 @@
         "release_date": "2025-09-26"
       },
       "gemini-robotics-er-1.6": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Gemini Robotics-ER 1.6 Preview",
         "eci": 0.0,
@@ -949,7 +949,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (high)",
+        "display_name": "GPT-5.6 Sol (medium)",
         "eci": 161.65,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -979,7 +979,7 @@
         "release_date": "2025-08-05"
       },
       "granite-4.1-30b": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
         "display_name": "Granite 4.1 30B",
         "eci": 0.0,
@@ -1187,7 +1187,7 @@
         "release_date": "2026-04-28"
       },
       "laguna-xs.2": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
         "display_name": "Laguna XS.2",
         "eci": 0.0,
@@ -1275,7 +1275,7 @@
         "release_date": "2026-06-01"
       },
       "mistral-large-2512": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "France",
         "display_name": "Mistral Large 3",
         "eci": 0.0,
@@ -1307,7 +1307,7 @@
         "release_date": "2025-06-20"
       },
       "mistral-small-2603": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "France",
         "display_name": "Mistral Small 4",
         "eci": 0.0,
@@ -1363,7 +1363,7 @@
         "release_date": "2026-06-04"
       },
       "nova-2.0-pro": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Nova 2.0 Pro Preview (medium)",
         "eci": 0.0,
@@ -1571,7 +1571,7 @@
         "release_date": "2026-08-02"
       },
       "ring-2.6-1t": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "China",
         "display_name": "Ring-2.6-1T",
         "eci": 0.0,
@@ -1579,7 +1579,7 @@
         "release_date": "2026-05-14"
       },
       "solar-pro-3": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "Korea (Republic of)",
         "display_name": "Solar Pro 3",
         "eci": 0.0,
