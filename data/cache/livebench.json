@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-12",
+  "fetched_at": "2026-08-13",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -431,6 +431,44 @@
           "source_url": "https://livebench.ai/",
           "value": 62.35,
           "variant": "deepseek-v4-pro"
+        }
+      ],
+      "deepseek-v4-pro-0813": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.84,
+          "variant": "deepseek-v4-pro-0813"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 63.83,
+          "variant": "deepseek-v4-pro-0813"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 95.09,
+          "variant": "deepseek-v4-pro-0813"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.7,
+          "variant": "deepseek-v4-pro-0813"
         }
       ],
       "gemini-3.1-pro": [
@@ -1039,6 +1077,44 @@
           "source_url": "https://livebench.ai/",
           "value": 71.53,
           "variant": "grok-4.5"
+        }
+      ],
+      "grok-4.6": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.22,
+          "variant": "grok-4.6-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.54,
+          "variant": "grok-4.6-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 93.05,
+          "variant": "grok-4.6-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.48,
+          "variant": "grok-4.6-xhigh"
         }
       ],
       "grok-build-0.1": [

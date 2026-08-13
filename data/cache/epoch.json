@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-12",
+  "fetched_at": "2026-08-13",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -165,7 +165,7 @@
       "claude-opus-4-7": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.7 (max)",
+        "display_name": "Claude Opus 4.7 (high)",
         "eci": 155.76,
         "organization": "Anthropic",
         "release_date": "2026-04-16"
@@ -299,7 +299,7 @@
         "release_date": "2026-05-20"
       },
       "composer-2.5": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Composer 2.5",
         "eci": 0.0,
@@ -373,7 +373,7 @@
       "deepseek-v4-flash": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek v4 Flash (high)",
+        "display_name": "DeepSeek v4 Flash (max)",
         "eci": 0.0,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
@@ -731,7 +731,7 @@
         "release_date": "2026-02-11"
       },
       "glm-5.1": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "China",
         "display_name": "GLM-5.1",
         "eci": 150.74,
@@ -1341,13 +1341,13 @@
       "muse-spark-1.1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Muse Spark 1.1",
+        "display_name": "Muse Spark 1.1 (high)",
         "eci": 154.75,
         "organization": "Meta AI",
         "release_date": "2026-07-09"
       },
       "nemotron-3-super": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
         "display_name": "Nemotron 3 Super",
         "eci": 0.0,
@@ -1379,7 +1379,7 @@
         "release_date": "2025-08-18"
       },
       "o3-pro": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "o3-pro",
         "eci": 147.54,
