@@ -252,7 +252,7 @@
   },
   "deepseek-deepseek-v4-flash": {
     "canonical_key": "deepseek-v4-flash",
-    "display_name": "DeepSeek v4 Flash (max)",
+    "display_name": "DeepSeek v4 Flash (high)",
     "variant": "plain",
     "scored_arena_name": "deepseek-v4-flash",
     "names": [
@@ -676,7 +676,7 @@
   },
   "openai-gpt-5.2": {
     "canonical_key": "gpt-5.2",
-    "display_name": "GPT-5.2 (none)",
+    "display_name": "GPT-5.2 (high)",
     "variant": "high",
     "scored_arena_name": "gpt-5.2-high",
     "names": [
@@ -795,6 +795,24 @@
       "lmarena": [
         "gpt-5.5",
         "gpt-5.5-high"
+      ]
+    }
+  },
+  "openai-gpt-5.5-instant": {
+    "canonical_key": "gpt-5.5-instant",
+    "display_name": "GPT-5.5 Instant",
+    "variant": "plain",
+    "scored_arena_name": "gpt-5.5-instant",
+    "names": [
+      "gpt-5.5-instant"
+    ],
+    "matched": {
+      "epoch": [
+        "gpt-5.5-instant"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "gpt-5.5-instant"
       ]
     }
   },
@@ -943,16 +961,39 @@
       ]
     }
   },
+  "xai-grok-4.6": {
+    "canonical_key": "grok-4.6",
+    "display_name": "Grok 4.6 (high)",
+    "variant": "plain",
+    "scored_arena_name": "grok-4.6-high",
+    "names": [
+      "grok-4.6",
+      "grok-4.6-high"
+    ],
+    "matched": {
+      "epoch": [
+        "grok-4.6_high"
+      ],
+      "livebench": [
+        "grok-4.6"
+      ],
+      "lmarena": [
+        "grok-4.6-high"
+      ]
+    }
+  },
   "thinking-machines-inkling": {
     "canonical_key": "inkling",
-    "display_name": "Inkling",
+    "display_name": "Inkling (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "inkling",
     "names": [
       "inkling"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "Inkling_xhigh"
+      ],
       "livebench": [
         "inkling-xhigh"
       ],
@@ -1099,7 +1140,7 @@
   },
   "meta-ai-muse-spark-1.1": {
     "canonical_key": "muse-spark-1.1",
-    "display_name": "Muse Spark 1.1 (high)",
+    "display_name": "Muse Spark 1.1",
     "variant": "xhigh",
     "scored_arena_name": "muse-spark-1.1",
     "names": [

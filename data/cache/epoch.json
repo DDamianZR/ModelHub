@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-13",
+  "fetched_at": "2026-08-14",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -373,7 +373,7 @@
       "deepseek-v4-flash": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek v4 Flash (max)",
+        "display_name": "DeepSeek v4 Flash (high)",
         "eci": 0.0,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
@@ -837,7 +837,7 @@
       "gpt-5.2": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.2 (none)",
+        "display_name": "GPT-5.2 (high)",
         "eci": 153.52,
         "organization": "OpenAI",
         "release_date": "2025-12-11"
@@ -1082,6 +1082,14 @@
         "organization": "xAI",
         "release_date": "2026-07-08"
       },
+      "grok-4.6": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Grok 4.6 (high)",
+        "eci": 0.0,
+        "organization": "xAI",
+        "release_date": "2026-08-12"
+      },
       "grok-build-0.1": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -1101,7 +1109,7 @@
       "inkling": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "Inkling",
+        "display_name": "Inkling (xhigh)",
         "eci": 149.54,
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
@@ -1341,7 +1349,7 @@
       "muse-spark-1.1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Muse Spark 1.1 (high)",
+        "display_name": "Muse Spark 1.1",
         "eci": 154.75,
         "organization": "Meta AI",
         "release_date": "2026-07-09"
@@ -3988,6 +3996,28 @@
           "variant": "gpt-5.5-pre-release_xhigh"
         }
       ],
+      "gpt-5.5-instant": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.253,
+          "value": 82.51,
+          "variant": "gpt-5.5-instant"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.536,
+          "value": 38.0,
+          "variant": "gpt-5.5-instant"
+        }
+      ],
       "gpt-5.5-pro": [
         {
           "benchmark_id": "gpqa_diamond",
@@ -4264,6 +4294,50 @@
           "stderr": 1.578,
           "value": 53.5,
           "variant": "grok-4.5_high"
+        }
+      ],
+      "grok-4.6": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-12",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.448,
+          "value": 94.0,
+          "variant": "grok-4.6_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-12",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.579,
+          "value": 53.0,
+          "variant": "grok-4.6_high"
+        }
+      ],
+      "inkling": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-05",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.936,
+          "value": 88.26,
+          "variant": "Inkling_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-05",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.551,
+          "value": 40.2,
+          "variant": "Inkling_xhigh"
         }
       ],
       "kimi-k2-thinking-turbo": [
