@@ -54,7 +54,10 @@ BANNED = (
 )
 
 _OPEN_CLAIM = ("pesos abiertos", "open-weights", "open weights")
-_CLOSED_CLAIM = ("solo por api", "solo api", "api-only", "api only", "no publica sus pesos")
+_CLOSED_CLAIM = (
+    "solo por api", "solo api", "api-only", "api only", "no publica sus pesos",
+    "via api", "by api", "through api", "mediante api", "por api"
+)
 
 # Phrases from the English half that turned up untranslated inside the Spanish half.
 _ENGLISH_IN_SPANISH = (

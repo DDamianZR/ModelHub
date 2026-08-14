@@ -264,10 +264,10 @@
     "generated_by": "qwen3:8b"
   },
   "openai-gpt-5-nano": {
-    "en": "GPT-5 nano is a language model developed by OpenAI released on August 7, 2025. It is available only via API: its weights are not published, so it cannot be run locally. Measured in Reasoning and Human preference; no data in Math or Coding.",
-    "es": "GPT-5 nano es un modelo de lenguaje desarrollado por OpenAI lanzado el 7 de agosto de 2025. Se obtiene solo a través de API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento y Preferencia humana; sin datos en Matemáticas ni Código.",
-    "generated_at": "2026-08-10",
-    "generated_by": "qwen2.5-coder:14b"
+    "en": "GPT-5 nano is a language model built by OpenAI in the United States. It is API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding or Instructions.",
+    "es": "GPT-5 nano es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Se obtiene únicamente mediante API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código ni Instrucciones.",
+    "generated_at": "2026-08-14",
+    "generated_by": "qwen3-coder:30b"
   },
   "openai-gpt-5.1": {
     "en": "GPT-5.1 is a language model built by OpenAI in the United States. Released on November 13, 2025. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Reasoning and Coding. Relatively weaker in Math and Human preference. Instructions was not measured.",
@@ -300,10 +300,16 @@
     "generated_by": "qwen3-coder:30b"
   },
   "openai-gpt-5.5": {
-    "en": "GPT-5.5 Pro is a language model developed by OpenAI released in 2026. It is available only via API; its weights are not published and cannot be run locally. The model performs relatively better in Reasoning and Human preference but is weaker in Instructions and Coding.",
-    "es": "GPT-5.5 Pro es un modelo de lenguaje desarrollado por OpenAI lanzado en 2026. Solo se puede acceder a través de API; sus pesos no se publican y no se ejecuta localmente. Es más fuerte en Razonamiento y Preferencia humana, pero algo por debajo en Instrucciones y Código.",
-    "generated_at": "2026-08-10",
-    "generated_by": "qwen2.5-coder:14b"
+    "en": "GPT-5.5 Pro is a language model built by OpenAI in the United States in April 2026. It is obtained API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Reasoning and Human preference. It is relatively lower in Instructions and Coding. No additional categories were measured.",
+    "es": "GPT-5.5 Pro es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos en abril de 2026. Se obtiene únicamente mediante API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Razonamiento y Preferencia humana. Deja algo por debajo en Instrucciones y Código. No se midieron categorías adicionales.",
+    "generated_at": "2026-08-14",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "openai-gpt-5.5-instant": {
+    "en": "GPT-5.5 Instant is a language model built by OpenAI in the United States. It is obtained API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
+    "es": "GPT-5.5 Instant es un modelo de lenguaje desarrollado por OpenAI en Estados Unidos. Se obtiene únicamente mediante API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
+    "generated_at": "2026-08-14",
+    "generated_by": "qwen3-coder:30b"
   },
   "openai-gpt-5.6-luna": {
     "en": "GPT-5.6 Luna is a language model built by OpenAI in July 2026. API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Reasoning. It is relatively lower in Instructions and Coding. Human preference was not measured.",
@@ -353,6 +359,12 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "xai-grok-4.6": {
+    "en": "Grok 4.6 is a language model built by xAI in the United States in August 2026. API-only: its weights are not published, so it cannot be run locally. Performs relatively stronger in Math and Reasoning. Somewhat lower in Coding and Instructions. No data for any unmeasured category.",
+    "es": "Grok 4.6 es un modelo de lenguaje desarrollado por xAI en Estados Unidos en agosto de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Razonamiento. Deja algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
+    "generated_at": "2026-08-14",
+    "generated_by": "qwen3-coder:30b"
+  },
   "z-ai-zhipu-ai-glm-4.7": {
     "en": "GLM-4.7 is a language model developed by Z.ai (Zhipu AI) in China, released on December 22, 2025. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
     "es": "GLM-4.7 es un modelo de lenguaje desarrollado por Z.ai (Zhipu AI) en China, lanzado el 22 de diciembre de 2025. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
@@ -366,9 +378,9 @@
     "generated_by": "qwen3-coder:30b"
   },
   "z-ai-zhipu-ai-glm-5.1": {
-    "en": "GLM-5.1 is a language model built by Z.ai in April 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Human preference and Coding. Relatively lower in Math and Reasoning. Instructions was not measured.",
-    "es": "GLM-5.1 es un modelo de lenguaje desarrollado por Z.ai en abril de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Preferencia humana y Código. Relativamente más débil en Matemáticas y Razonamiento. No se midió Instrucciones.",
-    "generated_at": "2026-07-28",
+    "en": "GLM-5.1 is a language model built by Z.ai in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Human preference and Coding. Relatively lower in Math and Reasoning. No data for Instructions.",
+    "es": "GLM-5.1 es un modelo de lenguaje desarrollado por Z.ai en 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Preferencia humana y Código. Relativamente más débil en Matemáticas y Razonamiento. Sin datos en Instrucciones.",
+    "generated_at": "2026-08-14",
     "generated_by": "qwen3-coder:30b"
   },
   "z-ai-zhipu-ai-glm-5.2": {
