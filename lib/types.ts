@@ -159,3 +159,29 @@ export type Row = Model & {
   /** Normalised 0-1 points for the sparkline, oldest first. */
   trend: number[];
 };
+
+/**
+ * Narrowed shape for the ranking table. Strips fields that are 0/65 populated
+ * (pricing, context_window) so the RSC payload stays small.
+ */
+export type RankingRow = Pick<
+  Row,
+  | "id"
+  | "rank"
+  | "display_name"
+  | "provider_name"
+  | "is_open_weights"
+  | "release_date"
+  | "country"
+  | "composite"
+  | "composite_error"
+  | "uncertainty"
+  | "tied_with"
+  | "coverage"
+  | "evidence"
+  | "category_scores"
+  | "provisional"
+  | "awaiting_human_votes"
+  | "trend"
+  | "vision"
+>;

@@ -1,44 +1,145 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { CoverageMeter } from "./CoverageMeter";
 import { Sparkline } from "./Sparkline";
-import type { Row } from "@/lib/types";
+import type { RankingRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
+import clsx from "clsx";
 
 type SortKey = "rank" | "composite" | (typeof CATEGORIES)[number];
 type Access = "all" | "open" | "api";
+type MobileMetric = "composite" | (typeof CATEGORIES)[number];
 
-const CONSOLE_BUTTON = "px-2 py-[3px] text-[11px] tracking-wide row-shift border";
-
-function chipStyle(active: boolean) {
-  return active
-    ? { background: "var(--amber)", borderColor: "var(--amber)", color: "var(--paper)" }
-    : { background: "transparent", borderColor: "var(--rule)", color: "var(--muted)" };
+// ── Filter chip ────────────────────────────────────────────────────────────────
+function FilterChip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className="eyebrow row-shift border px-2 py-[3px]"
+      style={
+        active
+          ? {
+              background: "var(--accent)",
+              borderColor: "var(--accent)",
+              color: "var(--text-on-accent)",
+            }
+          : {
+              borderColor: "var(--line-default)",
+              color: "var(--text-tertiary)",
+            }
+      }
+    >
+      {children}
+    </button>
+  );
 }
 
+// ── Sort button ────────────────────────────────────────────────────────────────
+function SortBtn({
+  sortKey,
+  currentSort,
+  onSort,
+  label,
+  align = "right",
+}: {
+  sortKey: SortKey;
+  currentSort: SortKey;
+  onSort: (key: SortKey) => void;
+  label: string;
+  align?: "left" | "right";
+}) {
+  const active = currentSort === sortKey;
+  return (
+    <button
+      type="button"
+      onClick={() => onSort(sortKey)}
+      className={clsx(
+        "eyebrow row-shift w-full flex items-center gap-0.5",
+        align === "right" ? "justify-end" : "justify-start",
+      )}
+      style={{ color: active ? "var(--accent)" : "var(--text-tertiary)" }}
+    >
+      {label}
+      {active && (
+        <span aria-hidden="true" className="ml-0.5">
+          ↓
+        </span>
+      )}
+    </button>
+  );
+}
+
+// ── Main component ─────────────────────────────────────────────────────────────
 export function RankingTable({
   rows,
   minCoverage,
   categoryAges = {},
 }: {
-  rows: Row[];
+  rows: RankingRow[];
   minCoverage: number;
-  /** Categories whose upstream snapshot has aged, keyed by category. */
   categoryAges?: Record<string, { age_days: number | null; freshness: string }>;
 }) {
   const t = useTranslations("table");
   const tf = useTranslations("filters");
+  const router = useRouter();
+  const pathname = usePathname();
 
   const [query, setQuery] = useState("");
   const [access, setAccess] = useState<Access>("all");
   const [origin, setOrigin] = useState<string>("all");
+  const [provider, setProvider] = useState<string>("all");
   const [sort, setSort] = useState<SortKey>("rank");
+  const [mobileMetric, setMobileMetric] = useState<MobileMetric>("composite");
+
+  // Restore filters from URL on mount — avoids useSearchParams + Suspense.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    const a = params.get("access");
+    const o = params.get("origin");
+    const p = params.get("provider");
+    const s = params.get("sort");
+    if (q) setQuery(q);
+    if (a && (["all", "open", "api"] as const).includes(a as Access))
+      setAccess(a as Access);
+    if (o) setOrigin(o);
+    if (p) setProvider(p);
+    if (s && (s === "rank" || s === "composite" || (CATEGORIES as readonly string[]).includes(s)))
+      setSort(s as SortKey);
+  }, []);
+
+  // Keep URL in sync with filter state.
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (query) params.set("q", query);
+    if (access !== "all") params.set("access", access);
+    if (origin !== "all") params.set("origin", origin);
+    if (provider !== "all") params.set("provider", provider);
+    if (sort !== "rank") params.set("sort", sort);
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  }, [query, access, origin, provider, sort, pathname, router]);
 
   const origins = useMemo(
     () => Array.from(new Set(rows.map((r) => r.country).filter(Boolean))).sort(),
+    [rows],
+  );
+
+  const providers = useMemo(
+    () => Array.from(new Set(rows.map((r) => r.provider_name).filter(Boolean))).sort(),
     [rows],
   );
 
@@ -48,6 +149,7 @@ export function RankingTable({
       if (access === "open" && !row.is_open_weights) return false;
       if (access === "api" && row.is_open_weights) return false;
       if (origin !== "all" && row.country !== origin) return false;
+      if (provider !== "all" && row.provider_name !== provider) return false;
       if (!needle) return true;
       return (
         row.display_name.toLowerCase().includes(needle) ||
@@ -56,10 +158,6 @@ export function RankingTable({
     });
 
     return [...filtered].sort((a, b) => {
-      // Rank and composite are no longer the same order. A significance rank is not
-      // monotonic in the score, so sorting by score would print a rank column that runs
-      // 13, 17, 16 downward; sorting by rank keeps the column readable and puts the
-      // score in charge only inside a tied group.
       if (sort === "rank") {
         return (
           (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER) ||
@@ -69,49 +167,35 @@ export function RankingTable({
       if (sort === "composite") return b.composite - a.composite;
       const av = a.category_scores[sort];
       const bv = b.category_scores[sort];
-      // Models without a measurement sink to the bottom instead of scoring zero.
       if (av === undefined && bv === undefined) return b.composite - a.composite;
       if (av === undefined) return 1;
       if (bv === undefined) return -1;
       return bv - av;
     });
-  }, [rows, query, access, origin, sort]);
+  }, [rows, query, access, origin, provider, sort]);
 
   const ranked = visible.filter((row) => !row.provisional);
   const provisional = visible.filter((row) => row.provisional);
   const columnCount = 4 + CATEGORIES.length + 1;
+  const hasFilters =
+    query !== "" || access !== "all" || origin !== "all" || provider !== "all";
 
-  const headerButton = (key: SortKey, label: string, align: "left" | "right") => (
-    <button
-      type="button"
-      onClick={() => setSort(key)}
-      className="eyebrow row-shift w-full"
-      style={{
-        textAlign: align,
-        color: sort === key ? "var(--amber)" : "var(--muted)",
-      }}
-      aria-label={t("sortBy", { column: label })}
-      aria-pressed={sort === key}
-    >
-      {label}
-    </button>
-  );
-
-  const renderRow = (row: Row) => {
+  // ── Desktop table row ────────────────────────────────────────────────────────
+  const renderRow = (row: RankingRow) => {
     const partial = row.coverage.covered < row.coverage.total;
     const coverageLabel = partial
       ? t("partial", { covered: row.coverage.covered, total: row.coverage.total })
       : t("complete", { total: row.coverage.total });
 
     return (
-      <tr key={row.id} className="row-shift border-b rule hover:bg-[var(--paper-sunk)]">
-        {/* "=4" is the conventional notation for a joint placing, and a repeated number
-            is the honest outcome here rather than a rendering glitch. The glyph is
-            cryptic on its own, so the explanation is also in the accessible name rather
-            than only in a title attribute, which screen readers skip on a table cell. */}
+      <tr
+        key={row.id}
+        className="row-shift border-b"
+        style={{ borderColor: "var(--line-subtle)" }}
+      >
         <td
           className="num py-2 pr-2 text-[12px]"
-          style={{ color: "var(--muted)" }}
+          style={{ color: "var(--text-tertiary)" }}
           title={row.tied_with > 0 ? t("tiedTitle", { count: row.tied_with }) : undefined}
         >
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
@@ -119,6 +203,7 @@ export function RankingTable({
             <span className="sr-only"> {t("tiedTitle", { count: row.tied_with })}</span>
           )}
         </td>
+
         <td className="py-2 pr-4">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <Link
@@ -129,30 +214,33 @@ export function RankingTable({
             </Link>
             <span
               className="eyebrow"
-              style={{ color: row.is_open_weights ? "var(--amber)" : "var(--muted)" }}
+              style={{
+                color: row.is_open_weights ? "var(--accent)" : "var(--text-tertiary)",
+              }}
             >
               {row.is_open_weights ? t("openWeights") : t("apiOnly")}
             </span>
             {row.awaiting_human_votes && !row.provisional && (
               <span
                 className="eyebrow border px-1"
-                style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
+                style={{ borderColor: "var(--line-subtle)", color: "var(--text-tertiary)" }}
                 title={t("awaitingVotesTitle")}
               >
                 {t("awaitingVotes")}
               </span>
             )}
           </div>
-          <div className="num text-[11px]" style={{ color: "var(--muted)" }}>
+          <div className="num text-[11px]" style={{ color: "var(--text-tertiary)" }}>
             {row.provider_name}
             {row.release_date ? ` · ${row.release_date}` : ""}
           </div>
         </td>
+
         <td className="num py-2 pr-3 text-right text-[15px]">
           {row.composite.toFixed(1)}
           <span
             className="ml-1 text-[11px]"
-            style={{ color: "var(--muted)" }}
+            style={{ color: "var(--text-tertiary)" }}
             title={
               row.composite_error === null
                 ? t("errorUnknownTitle")
@@ -165,28 +253,18 @@ export function RankingTable({
             {row.composite_error === null
               ? "±?"
               : `±${row.composite_error.toFixed(2)}`}
-            <span className="sr-only">
-              {" "}
-              {row.composite_error === null
-                ? t("errorUnknownTitle")
-                : t("errorTitle", {
-                    measured: row.uncertainty.measured_inputs,
-                    total: row.uncertainty.total_inputs,
-                  })}
-            </span>
           </span>
         </td>
+
         <td className="py-2 pr-4 text-right">
           <CoverageMeter
             covered={row.coverage.covered}
             total={row.coverage.total}
             label={coverageLabel}
           />
-          {/* Beside coverage, not inside it: coverage is how much of the composite was
-              measured, this is how much evidence stands behind what was. */}
           <span
             className="num mt-0.5 block text-[10px]"
-            style={{ color: "var(--muted)" }}
+            style={{ color: "var(--text-tertiary)" }}
             title={t("evidenceTitle", {
               benchmarks: row.evidence.benchmarks,
               sources: row.evidence.sources,
@@ -194,28 +272,19 @@ export function RankingTable({
             })}
           >
             {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
-            <span className="sr-only">
-              {" "}
-              {t("evidenceTitle", {
-                benchmarks: row.evidence.benchmarks,
-                sources: row.evidence.sources,
-                max: row.evidence.max_sources,
-              })}
-            </span>
           </span>
         </td>
+
         {CATEGORIES.map((category) => {
           const value = row.category_scores[category];
           return (
             <td
               key={category}
               className="num py-2 pr-3 text-right text-[12px]"
-              style={{ color: value === undefined ? "var(--muted)" : "inherit" }}
+              style={{ color: value === undefined ? "var(--text-tertiary)" : "inherit" }}
             >
               {value === undefined ? (
                 <>
-                  {/* The dot means "not measured", so it needs real contrast and a
-                      text equivalent rather than being a faint visual cue. */}
                   <span aria-hidden="true">·</span>
                   <span className="sr-only">{t("noData")}</span>
                 </>
@@ -225,6 +294,7 @@ export function RankingTable({
             </td>
           );
         })}
+
         <td className="py-2 text-right">
           <div className="flex justify-end">
             <Sparkline
@@ -241,107 +311,225 @@ export function RankingTable({
     );
   };
 
+  // ── Mobile list row ──────────────────────────────────────────────────────────
+  const renderMobileRow = (row: RankingRow) => {
+    const metricValue =
+      mobileMetric === "composite" ? row.composite : row.category_scores[mobileMetric];
+    const partial = row.coverage.covered < row.coverage.total;
+
+    return (
+      <li key={row.id}>
+        <Link
+          href={`/model/${row.id}`}
+          className="flex items-center gap-3 border-b py-3 row-shift"
+          style={{ borderColor: "var(--line-subtle)" }}
+        >
+          <span
+            className="num w-7 shrink-0 text-right text-[12px]"
+            style={{ color: "var(--text-tertiary)" }}
+          >
+            {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="truncate text-[14px]">{row.display_name}</div>
+            <div className="num truncate text-[11px]" style={{ color: "var(--text-tertiary)" }}>
+              {row.provider_name}
+            </div>
+          </div>
+          <div className="shrink-0 text-right">
+            <div
+              className="num text-[16px]"
+              style={{ color: metricValue === undefined ? "var(--text-tertiary)" : "inherit" }}
+            >
+              {metricValue === undefined ? "—" : metricValue.toFixed(1)}
+            </div>
+            <CoverageMeter
+              covered={row.coverage.covered}
+              total={row.coverage.total}
+              label={
+                partial
+                  ? t("partial", {
+                      covered: row.coverage.covered,
+                      total: row.coverage.total,
+                    })
+                  : t("complete", { total: row.coverage.total })
+              }
+            />
+          </div>
+        </Link>
+      </li>
+    );
+  };
+
+  const mobileMetrics: Array<{ key: MobileMetric; label: string }> = [
+    { key: "composite", label: t("composite") },
+    ...CATEGORIES.map((cat) => ({ key: cat as MobileMetric, label: t(cat) })),
+  ];
+
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-y rule py-3">
-        <label className="flex items-center gap-2">
-          <span className="eyebrow">{tf("label")}</span>
+      {/* ── Filter bar ── */}
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-y py-3"
+        style={{ borderColor: "var(--line-subtle)" }}>
+
+        <div className="flex items-center gap-2">
+          <label htmlFor="ranking-search" className="eyebrow">
+            {tf("label")}
+          </label>
           <input
+            id="ranking-search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={tf("search")}
             className="num border-b bg-transparent px-1 py-[2px] text-[12px] outline-none"
-            style={{ borderColor: "var(--rule)", minWidth: "13rem" }}
+            style={{ borderColor: "var(--line-default)", minWidth: "13rem" }}
           />
-        </label>
+        </div>
 
-        <div className="flex items-center gap-1.5">
-          <span className="eyebrow">{tf("access")}</span>
+        <div role="group" aria-label={tf("access")} className="flex items-center gap-1.5">
+          <span className="eyebrow" style={{ color: "var(--text-tertiary)" }}>
+            {tf("access")}
+          </span>
           {(["all", "open", "api"] as const).map((value) => (
-            <button
+            <FilterChip
               key={value}
-              type="button"
+              active={access === value}
               onClick={() => setAccess(value)}
-              className={CONSOLE_BUTTON}
-              style={chipStyle(access === value)}
-              aria-pressed={access === value}
             >
               {tf(value)}
-            </button>
+            </FilterChip>
           ))}
         </div>
+
+        {origins.length > 1 && (
+          <div role="group" aria-label={tf("origin")} className="flex items-center gap-1.5">
+            <span className="eyebrow" style={{ color: "var(--text-tertiary)" }}>
+              {tf("origin")}
+            </span>
+            <FilterChip active={origin === "all"} onClick={() => setOrigin("all")}>
+              {tf("all")}
+            </FilterChip>
+            {origins.map((country) => (
+              <FilterChip
+                key={country}
+                active={origin === country}
+                onClick={() => setOrigin(country)}
+              >
+                {country === "United States of America" ? "USA" : country}
+              </FilterChip>
+            ))}
+          </div>
+        )}
 
         <div className="flex items-center gap-1.5">
-          <span className="eyebrow">{tf("origin")}</span>
-          <button
-            type="button"
-            onClick={() => setOrigin("all")}
-            className={CONSOLE_BUTTON}
-            style={chipStyle(origin === "all")}
-            aria-pressed={origin === "all"}
+          <label htmlFor="provider-filter" className="eyebrow" style={{ color: "var(--text-tertiary)" }}>
+            {tf("provider")}
+          </label>
+          <select
+            id="provider-filter"
+            value={provider}
+            onChange={(e) => setProvider(e.target.value)}
+            className="eyebrow border bg-transparent px-1 py-[3px]"
+            style={{ borderColor: "var(--line-default)", color: "var(--text-tertiary)" }}
           >
-            {tf("all")}
-          </button>
-          {origins.map((country) => (
-            <button
-              key={country}
-              type="button"
-              onClick={() => setOrigin(country)}
-              className={CONSOLE_BUTTON}
-              style={chipStyle(origin === country)}
-              aria-pressed={origin === country}
-            >
-              {country === "United States of America" ? "USA" : country}
-            </button>
-          ))}
+            <option value="all">{tf("all")}</option>
+            {providers.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <span className="num ml-auto text-[11px]" style={{ color: "var(--muted)" }}>
+        {hasFilters && (
+          <button
+            type="button"
+            onClick={() => {
+              setQuery("");
+              setAccess("all");
+              setOrigin("all");
+              setProvider("all");
+              setSort("rank");
+            }}
+            className="eyebrow row-shift border px-2 py-[3px]"
+            style={{ borderColor: "var(--line-default)", color: "var(--text-tertiary)" }}
+          >
+            {tf("clear")}
+          </button>
+        )}
+
+        <span className="num ml-auto text-[11px]" style={{ color: "var(--text-tertiary)" }}>
           {tf("showing", { count: visible.length, total: rows.length })}
         </span>
       </div>
 
-      <div className="overflow-x-auto">
+      {/* ── Desktop table (≥ md) ── */}
+      <div
+        className="hidden md:block overflow-x-auto"
+        role="region"
+        aria-label={t("composite")}
+        tabIndex={0}
+      >
         <table className="w-full border-collapse text-left" style={{ minWidth: "62rem" }}>
-          <caption className="sr-only">{t("composite")}</caption>
           <thead>
-            <tr className="border-b rule">
-              <th scope="col" className="w-10 py-2 pr-2 align-bottom">
-                <span className="eyebrow">{t("rank")}</span>
+            <tr className="border-b" style={{ borderColor: "var(--line-subtle)" }}>
+              <th scope="col" className="w-10 py-2 pr-2 align-bottom"
+                aria-sort={sort === "rank" ? "descending" : "none"}>
+                {/* "#" sorts by rank — the actual ranking column. */}
+                <SortBtn sortKey="rank" currentSort={sort} onSort={setSort} label={t("rank")} align="left" />
               </th>
               <th scope="col" className="py-2 pr-4 align-bottom">
-                {headerButton("rank", t("model"), "left")}
+                <span className="eyebrow" style={{ color: "var(--text-tertiary)" }}>
+                  {t("model")}
+                </span>
               </th>
-              <th scope="col" className="w-24 py-2 pr-3 align-bottom">
-                {headerButton("composite", t("composite"), "right")}
+              <th scope="col" className="w-24 py-2 pr-3 align-bottom"
+                aria-sort={sort === "composite" ? "descending" : "none"}>
+                <SortBtn sortKey="composite" currentSort={sort} onSort={setSort} label={t("composite")} />
               </th>
               <th scope="col" className="w-20 py-2 pr-4 align-bottom">
-                <span className="eyebrow block text-right">{t("coverage")}</span>
+                <span
+                  className="eyebrow block text-right"
+                  style={{ color: "var(--text-tertiary)" }}
+                >
+                  {t("coverage")}
+                </span>
               </th>
               {CATEGORIES.map((category) => {
                 const aged = categoryAges[category];
                 return (
-                  <th key={category} scope="col" className="w-20 py-2 pr-3 align-bottom">
+                  <th key={category} scope="col" className="w-20 py-2 pr-3 align-bottom"
+                    aria-sort={sort === category ? "descending" : "none"}>
                     {aged?.age_days != null && (
                       <span
                         className="eyebrow block text-right"
                         style={{
                           color:
                             aged.freshness === "degraded"
-                              ? "var(--amber)"
-                              : "var(--muted)",
+                              ? "var(--accent)"
+                              : "var(--text-tertiary)",
                         }}
                         title={t("agedCategoryTitle", { days: aged.age_days })}
                       >
                         {t("agedCategory", { days: aged.age_days })}
                       </span>
                     )}
-                    {headerButton(category, t(category), "right")}
+                    <SortBtn
+                      sortKey={category}
+                      currentSort={sort}
+                      onSort={setSort}
+                      label={t(category)}
+                    />
                   </th>
                 );
               })}
               <th scope="col" className="w-20 py-2 align-bottom">
-                <span className="eyebrow block text-right">{t("trend")}</span>
+                <span
+                  className="eyebrow block text-right"
+                  style={{ color: "var(--text-tertiary)" }}
+                >
+                  {t("trend")}
+                </span>
               </th>
             </tr>
           </thead>
@@ -352,13 +540,16 @@ export function RankingTable({
             <tbody>
               <tr>
                 <th colSpan={columnCount} scope="colgroup" className="pt-8">
-                  <div className="border-t rule pt-3 text-left">
-                    <span className="eyebrow" style={{ color: "var(--amber)" }}>
+                  <div
+                    className="border-t pt-3 text-left"
+                    style={{ borderColor: "var(--line-subtle)" }}
+                  >
+                    <span className="eyebrow" style={{ color: "var(--accent)" }}>
                       {t("provisionalTitle")}
                     </span>
                     <p
                       className="mt-1 max-w-[46rem] text-[12px] font-normal leading-[1.55]"
-                      style={{ color: "var(--muted)" }}
+                      style={{ color: "var(--text-tertiary)" }}
                     >
                       {t("provisionalNote", { min: minCoverage, total: CATEGORIES.length })}
                     </p>
@@ -371,9 +562,74 @@ export function RankingTable({
         </table>
 
         {visible.length === 0 && (
-          <p className="py-10 text-center text-[13px]" style={{ color: "var(--muted)" }}>
+          <p
+            className="py-10 text-center text-[13px]"
+            style={{ color: "var(--text-tertiary)" }}
+          >
             {t("empty")}
           </p>
+        )}
+      </div>
+
+      {/* ── Mobile list (< md) ── */}
+      <div className="md:hidden">
+        {/* Metric selector */}
+        <div
+          className="overflow-x-auto no-scrollbar border-b"
+          style={{ borderColor: "var(--line-subtle)" }}
+        >
+          <div
+            className="flex gap-1 py-2"
+            role="group"
+            aria-label={t("composite")}
+          >
+            {mobileMetrics.map(({ key, label }) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setMobileMetric(key)}
+                aria-pressed={mobileMetric === key}
+                className="eyebrow shrink-0 row-shift border px-2 py-[3px]"
+                style={
+                  mobileMetric === key
+                    ? {
+                        background: "var(--accent)",
+                        borderColor: "var(--accent)",
+                        color: "var(--text-on-accent)",
+                      }
+                    : {
+                        borderColor: "var(--line-default)",
+                        color: "var(--text-tertiary)",
+                      }
+                }
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {visible.length === 0 ? (
+          <p
+            className="py-10 text-center text-[13px]"
+            style={{ color: "var(--text-tertiary)" }}
+          >
+            {t("empty")}
+          </p>
+        ) : (
+          <ol aria-label={t("composite")}>
+            {ranked.map(renderMobileRow)}
+            {provisional.length > 0 && (
+              <>
+                <li className="pb-2 pt-6">
+                  <span className="eyebrow" style={{ color: "var(--accent)" }}>
+                    {t("provisionalTitle")}
+                  </span>
+                </li>
+                {provisional.map(renderMobileRow)}
+              </>
+            )}
+          </ol>
         )}
       </div>
     </div>

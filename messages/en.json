@@ -28,7 +28,8 @@
     "api": "API only",
     "origin": "Origin",
     "showing": "{count} of {total} models",
-    "clear": "Clear"
+    "clear": "Clear",
+    "provider": "Provider"
   },
   "table": {
     "rank": "#",
@@ -94,7 +95,8 @@
     "empty": "Select at least one model to compare.",
     "tableView": "The same numbers, as a table",
     "visionNote": "Outside the composite. Measured separately, because a text-only model doesn't compete here.",
-    "visionRating": "{rating} · rank {rank} in the vision arena"
+    "visionRating": "{rating} · rank {rank} in the vision arena",
+    "full": "Maximum reached — remove a model first"
   },
   "model": {
     "description": "Description",
@@ -237,6 +239,19 @@
       "agedNone": "None. All three sources are within their declared rhythm.",
       "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. Sources ageing right now:"
     }
+  },
+  "ui": {
+    "close": "Close",
+    "viewModel": "Full model page",
+    "addToCompare": "Add to compare",
+    "prevModel": "Previous model",
+    "nextModel": "Next model",
+    "drawerRegion": "Model preview"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "This page does not exist or the model could not be found.",
+    "back": "Back to ranking"
   },
   "aliases": {
     "title": "Name-matching audit",
