@@ -57,11 +57,13 @@
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
     "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
-    "tiedTitle": "Empatado con otros {count} modelos: sus intervalos al 95 % se solapan, así que la medición no los separa.",
-    "errorTitle": "Semiancho del intervalo al 95 % sobre el compuesto. Es un piso: {measured} de {total} entradas publican su error, las demás aportan cero, así que el intervalo real solo puede ser más ancho.",
     "errorUnknownTitle": "Ninguna de las fuentes de este modelo publica su error. El intervalo se desconoce; no es cero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Densidad de evidencia: {benchmarks} benchmarks de {sources} de {max} fuentes independientes sostienen este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4."
+    "rankDesc": "Rango de significancia: un modelo está en uno más el número de modelos medibles por delante. Un número precedido de = es un empate: los intervalos al 95 % se solapan y la medición no separa a esos modelos.",
+    "compositeDesc": "Compuesto ponderado sobre 100, seguido del semiancho de un intervalo al 95 %. Ese intervalo es un piso, no una estimación: las entradas que no publican error aportan cero, así que el intervalo real solo puede ser más ancho. ±? significa que ninguna fuente publicó error, lo que es «se desconoce», no «es cero».",
+    "coverageDesc": "Cinco segmentos, uno por categoría, rellenos donde esa categoría se midió. Al lado, el número de benchmarks que sostienen el compuesto: una pregunta distinta de cuántas categorías se cubrieron.",
+    "trendUp": "al alza",
+    "trendDown": "a la baja"
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -96,7 +98,12 @@
     "tableView": "Los mismos números, en tabla",
     "visionNote": "Fuera del compuesto. Se mide aparte porque un modelo de solo texto no compite aquí.",
     "visionRating": "{rating} · puesto {rank} en Arena visión",
-    "full": "Máximo alcanzado — elimina un modelo primero"
+    "full": "Máximo alcanzado — elimina un modelo primero",
+    "delta": "Δ vs {baseline}",
+    "baseline": "referencia",
+    "notSeparated": "no separados",
+    "notSeparatedTitle": "La diferencia entre estos dos compuestos ({gap}) es menor que su intervalo combinado al 95 % (±{combined}). La medición no los separa, así que no se afirma ninguna diferencia.",
+    "deltaNote": "El Δ se mide contra el primer modelo seleccionado. Cuando la diferencia cae dentro del intervalo combinado de ambos modelos se lee «no separados»: la misma regla que usa el ranking, aplicada aquí para que una diferencia menor que el error nunca parezca una victoria."
   },
   "model": {
     "description": "Descripción",
@@ -131,7 +138,8 @@
     "uncertaintyNone": "Ninguna de las fuentes de este modelo publica su margen de error, así que su compuesto no lleva intervalo. Eso es «se desconoce», no «es exacto»: su posición en la tabla es la menos defendible de todas, porque se compara como si fuera un valor puntual.",
     "uncertaintyTied": "Comparte rango con otros {count} modelos porque sus intervalos se solapan.",
     "recalibration": "Recalibración de cohorte, no cambio de medición. Su valor normalizado de preferencia humana se movió {normalized} puntos mientras su rating de Arena solo cambió {raw}: entró o salió un modelo con rating extremo y la escala se reajustó debajo. El efecto sobre el compuesto es de {composite} puntos —por encima de {threshold}, la separación mediana entre vecinos de esta corrida— y no lo causó nadie votando distinto.",
-    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}"
+    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}",
+    "contaminated": "Hay evidencia de contaminación de entrenamiento en este benchmark"
   },
   "methodology": {
     "title": "Metodología",
@@ -241,12 +249,10 @@
     }
   },
   "ui": {
-    "close": "Cerrar",
-    "viewModel": "Ficha completa del modelo",
-    "addToCompare": "Agregar a comparación",
-    "prevModel": "Modelo anterior",
-    "nextModel": "Modelo siguiente",
-    "drawerRegion": "Vista previa del modelo"
+    "skipToContent": "Saltar al contenido",
+    "sections": "Secciones",
+    "pageSections": "Secciones de esta página",
+    "modelNav": "Modelo anterior y siguiente por puesto"
   },
   "notFound": {
     "title": "Página no encontrada",

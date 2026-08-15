@@ -33,4 +33,16 @@ jobs:
 
       - run: npm run typecheck
 
+      # A token pairing below 3:1 fails the build rather than being found later.
+      # Same principle as the enrich audit above: a check that only runs during
+      # the post-mortem is not a check.
+      - name: Verify token contrast
+        run: npm run check:contrast
+
       - run: npm run build
+
+      # Reads the prerendered output, so it has to follow the build. Guards payload
+      # size, dead tokens, locale parity and the accessibility floor — every figure
+      # the UX work committed to, measured rather than asserted.
+      - name: UX acceptance harness
+        run: npm run check:ux

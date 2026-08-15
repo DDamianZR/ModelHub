@@ -30,7 +30,6 @@ export default async function AliasesPage({
   const t = await getTranslations("aliases");
   const entries = getAliases();
   const integrity = getIntegrity();
-  const muted = { color: "var(--muted)" } as const;
 
   // Not "matched in more than one source": a model needs two sources to appear at all,
   // so that number is always the whole table and says nothing. The audit risk is a
@@ -51,15 +50,14 @@ export default async function AliasesPage({
 
       <div className="mt-8 max-w-[46rem]">
         <h2
-          className="text-[30px] leading-tight"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-2xl leading-tight font-display"
         >
           {t("title")}
         </h2>
-        <p className="mt-3 text-[15px] leading-[1.65]" style={muted}>
+        <p className="mt-3 text-md leading-[1.65] text-tertiary">
           {t("intro")}
         </p>
-        <p className="mt-3 text-[14px] leading-[1.65]" style={muted}>
+        <p className="mt-3 text-base leading-[1.65] text-tertiary">
           {t("counts", {
             models: entries.length,
             names: totalNames,
@@ -67,8 +65,7 @@ export default async function AliasesPage({
           })}
         </p>
         <p
-          className="mt-3 border-l-2 py-2 pl-3 text-[14px] leading-[1.6]"
-          style={{ borderColor: "var(--amber)" }}
+          className="mt-3 border-l-2 py-2 pl-3 text-base leading-[1.6] border-accent"
         >
           {t("report")}{" "}
           <a
@@ -79,8 +76,7 @@ export default async function AliasesPage({
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2"
-            style={{ color: "var(--amber)" }}
+            className="underline underline-offset-2 text-accent"
           >
             {t("reportLink")}
           </a>
@@ -88,10 +84,9 @@ export default async function AliasesPage({
       </div>
 
       <section className="mt-10">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" role="region" aria-label={t("title")} tabIndex={0}>
           <table
-            className="w-full border-collapse text-left"
-            style={{ minWidth: "58rem" }}
+            className="w-full border-collapse text-left min-w-[58rem]"
           >
             <caption className="sr-only">{t("title")}</caption>
             <thead>
@@ -112,7 +107,7 @@ export default async function AliasesPage({
             <tbody>
               {entries.map((entry) => (
                 <tr key={entry.id} className="border-b rule align-top">
-                  <th scope="row" className="py-2 pr-3 text-[13px] font-normal">
+                  <th scope="row" className="py-2 pr-3 text-sm font-normal">
                     <a
                       href={`/${locale}/model/${entry.id}`}
                       className="underline-offset-2 hover:underline"
@@ -120,20 +115,20 @@ export default async function AliasesPage({
                       {entry.display_name}
                     </a>
                     {entry.variant && (
-                      <span className="num block text-[10px]" style={muted}>
+                      <span className="num block text-2xs text-tertiary">
                         {t("variant", { variant: entry.variant })}
                       </span>
                     )}
                   </th>
-                  <td className="num py-2 pr-3 text-[11px]" style={muted}>
+                  <td className="num py-2 pr-3 text-2xs text-tertiary">
                     {entry.canonical_key}
                   </td>
                   {SOURCES.map((source) => {
                     const names = entry.matched[source] ?? [];
                     return (
-                      <td key={source} className="num py-2 pr-3 text-[11px]">
+                      <td key={source} className="num py-2 pr-3 text-2xs">
                         {names.length === 0 ? (
-                          <span style={muted}>—</span>
+                          <span className="text-tertiary">—</span>
                         ) : (
                           names.map((name) => {
                             // The Arena row actually scored, as opposed to the other
@@ -143,8 +138,7 @@ export default async function AliasesPage({
                             return (
                               <span
                                 key={name}
-                                className="block"
-                                style={scored ? { color: "var(--amber)" } : muted}
+                                className={`block ${scored ? "text-accent" : "text-tertiary"}`}
                               >
                                 {/* Marked in text as well as in colour. Hue alone fails
                                     anyone who cannot see it, and the project already
@@ -166,7 +160,7 @@ export default async function AliasesPage({
             </tbody>
           </table>
         </div>
-        <p className="mt-3 text-[12px]" style={muted}>
+        <p className="mt-3 text-xs text-tertiary">
           {t("scoredNote")}
         </p>
       </section>
@@ -174,33 +168,31 @@ export default async function AliasesPage({
       {integrity && (
         <section className="mt-12 max-w-[46rem]">
           <h3
-            className="border-b rule pb-2 text-[22px] leading-tight"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="border-b rule pb-2 text-lg leading-tight font-display"
           >
             {t("integrityTitle")}
           </h3>
-          <p className="mt-3 text-[14px] leading-[1.65]" style={muted}>
+          <p className="mt-3 text-base leading-[1.65] text-tertiary">
             {t("integrityBody")}
           </p>
           <div className="mt-4 flex flex-col gap-4">
             {Object.entries(integrity).map(([source, record]) => (
               <div key={source}>
                 <p className="eyebrow">{source}</p>
-                <p className="num mt-1 break-all text-[11px]" style={muted}>
+                <p className="num mt-1 break-all text-2xs text-tertiary">
                   {t("normalised")} {record.normalised_sha256}
                 </p>
                 {record.upstream.length > 0 ? (
                   record.upstream.map((artifact) => (
                     <p
                       key={artifact.url}
-                      className="num mt-1 break-all text-[11px]"
-                      style={muted}
+                      className="num mt-1 break-all text-2xs text-tertiary"
                     >
                       {artifact.url} — {artifact.sha256} ({artifact.bytes} B)
                     </p>
                   ))
                 ) : (
-                  <p className="num mt-1 text-[11px]" style={muted}>
+                  <p className="num mt-1 text-2xs text-tertiary">
                     {t("paginated", { requests: record.requests })}
                   </p>
                 )}

@@ -34,12 +34,11 @@ function Section({
   return (
     <section id={id} className="mt-10 scroll-mt-6">
       <h2
-        className="font-display border-b pb-2 text-[22px] leading-tight"
-        style={{ borderColor: "var(--line-subtle)" }}
+        className="font-display border-b pb-2 text-lg leading-tight border-subtle"
       >
         {title}
       </h2>
-      <div className="mt-3 flex flex-col gap-3 text-[14px] leading-[1.65] text-tertiary">
+      <div className="mt-3 flex flex-col gap-3 text-base leading-[1.65] text-tertiary">
         {children}
       </div>
     </section>
@@ -67,10 +66,10 @@ export default async function MethodologyPage({
       <SiteHeader locale={locale} active="methodology" />
 
       <div className="mt-8 max-w-[46rem]">
-        <h2 className="font-display text-[30px] leading-tight">
+        <h2 className="font-display text-2xl leading-tight">
           {t("title")}
         </h2>
-        <p className="mt-3 text-[15px] leading-[1.65] text-tertiary">
+        <p className="mt-3 text-md leading-[1.65] text-tertiary">
           {t("intro")}
         </p>
       </div>
@@ -81,7 +80,7 @@ export default async function MethodologyPage({
 
           <table className="mt-1 w-full border-collapse text-left">
             <thead>
-              <tr className="border-b" style={{ borderColor: "var(--line-subtle)" }}>
+              <tr className="border-b border-subtle">
                 <th scope="col" className="py-2">
                   <span className="eyebrow">{t("formula.category")}</span>
                 </th>
@@ -97,14 +96,13 @@ export default async function MethodologyPage({
               {CATEGORIES.map((category) => (
                 <tr
                   key={category}
-                  className="border-b"
-                  style={{ borderColor: "var(--line-subtle)" }}
+                  className="border-b border-subtle"
                 >
-                  <th scope="row" className="py-2 text-[13px] font-normal">
+                  <th scope="row" className="py-2 text-sm font-normal">
                     {tt(category)}
                   </th>
-                  <td className="num py-2 text-right text-[13px]">{WEIGHTS[category]}%</td>
-                  <td className="num py-2 pl-4 text-[11px]">
+                  <td className="num py-2 text-right text-sm">{WEIGHTS[category]}%</td>
+                  <td className="num py-2 pl-4 text-2xs">
                     {t(`formula.inputs_${category}`)}
                   </td>
                 </tr>
@@ -113,8 +111,7 @@ export default async function MethodologyPage({
           </table>
 
           <p
-            className="num mt-1 border-l-2 py-2 pl-3 text-[12px] leading-[1.6]"
-            style={{ borderColor: "var(--accent)" }}
+            className="num mt-1 border-l-2 py-2 pl-3 text-xs leading-[1.6] border-accent"
           >
             {t("formula.equation")}
           </p>
@@ -132,8 +129,7 @@ export default async function MethodologyPage({
         <Section id="uncertainty" title={t("uncertainty.title")}>
           <p>{t("uncertainty.body")}</p>
           <p
-            className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--accent)" }}
+            className="border-l-2 py-2 pl-3 text-md border-accent"
           >
             {t("uncertainty.why", {
               medianGap: stats.medianGap,
@@ -164,8 +160,7 @@ export default async function MethodologyPage({
         <Section id="cohort" title={t("cohort.title")}>
           <p>{t("cohort.body")}</p>
           <p
-            className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--accent)" }}
+            className="border-l-2 py-2 pl-3 text-md border-accent"
           >
             {t("cohort.measured", { medianGap: stats.medianGap })}
           </p>
@@ -188,7 +183,7 @@ export default async function MethodologyPage({
           <p>{t("coverage.body")}</p>
           <p>{t("coverage.example")}</p>
           <p>{t("coverage.newModels")}</p>
-          <p className="num text-[12px]">
+          <p className="num text-xs">
             {t("coverage.current", {
               ranked: meta.ranked_count,
               provisional: meta.provisional_count,
@@ -199,8 +194,7 @@ export default async function MethodologyPage({
 
         <Section id="variants" title={t("variants.title")}>
           <p
-            className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--accent)" }}
+            className="border-l-2 py-2 pl-3 text-md border-accent"
           >
             {t("variants.tradeoff")}
           </p>
@@ -211,7 +205,7 @@ export default async function MethodologyPage({
           <ul className="flex flex-col gap-2 pl-4">
             {(["model", "default", "best", "average", "separate"] as const).map((option) => (
               <li key={option} className="list-disc">
-                <span className="num text-[12px]">{option}</span> —{" "}
+                <span className="num text-xs">{option}</span> —{" "}
                 {t(`variants.option_${option}`)}
               </li>
             ))}
@@ -227,13 +221,12 @@ export default async function MethodologyPage({
           {rejected.length === 0 ? (
             <p>{t("rejections.none")}</p>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" role="region" aria-label={t("rejections.title")} tabIndex={0}>
               <table
-                className="w-full border-collapse text-left"
-                style={{ minWidth: "34rem" }}
+                className="w-full border-collapse text-left min-w-[34rem]"
               >
                 <thead>
-                  <tr className="border-b" style={{ borderColor: "var(--line-subtle)" }}>
+                  <tr className="border-b border-subtle">
                     <th scope="col" className="py-2 pr-3">
                       <span className="eyebrow">{t("rejections.date")}</span>
                     </th>
@@ -252,17 +245,16 @@ export default async function MethodologyPage({
                   {rejected.map((row) => (
                     <tr
                       key={`${row.config}-${row.date}`}
-                      className="border-b"
-                      style={{ borderColor: "var(--line-subtle)" }}
+                      className="border-b border-subtle"
                     >
-                      <td className="num py-2 pr-3 text-[12px]">{row.date}</td>
-                      <td className="num py-2 pr-3 text-[12px]">
+                      <td className="num py-2 pr-3 text-xs">{row.date}</td>
+                      <td className="num py-2 pr-3 text-xs">
                         lmarena/{row.config}
                       </td>
-                      <td className="num py-2 pr-3 text-right text-[12px]">
+                      <td className="num py-2 pr-3 text-right text-xs">
                         {row.ratio}×
                       </td>
-                      <td className="py-2 text-[12px]">{row.reason}</td>
+                      <td className="py-2 text-xs">{row.reason}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -284,7 +276,7 @@ export default async function MethodologyPage({
           <ul className="flex flex-col gap-2 pl-4">
             {aged.map((source) => (
               <li key={source.name} className="list-disc">
-                <span className="num text-[12px]">{source.name}</span> —{" "}
+                <span className="num text-xs">{source.name}</span> —{" "}
                 {t("rejections.agedItem", {
                   days: source.age_days ?? 0,
                   state: source.freshness,
@@ -308,7 +300,7 @@ export default async function MethodologyPage({
           <ul className="flex flex-col gap-2 pl-4">
             {(["human_eval", "third_party_benchmark", "vendor_claim"] as const).map((kind) => (
               <li key={kind} className="list-disc">
-                <span className="num text-[12px]">{kind}</span> —{" "}
+                <span className="num text-xs">{kind}</span> —{" "}
                 {t(`sourceTypes.${kind}`)}
               </li>
             ))}
@@ -334,18 +326,17 @@ export default async function MethodologyPage({
         <Section id="reproduce" title={t("reproduce.title")}>
           <p>{t("reproduce.body")}</p>
           <ul className="flex flex-col gap-1 pl-4">
-            <li className="list-disc num text-[12px]">data/models.json</li>
-            <li className="list-disc num text-[12px]">data/scores.json</li>
-            <li className="list-disc num text-[12px]">data/history.jsonl</li>
-            <li className="list-disc num text-[12px]">config/weights.json</li>
-            <li className="list-disc num text-[12px]">data/status.json</li>
+            <li className="list-disc num text-xs">data/models.json</li>
+            <li className="list-disc num text-xs">data/scores.json</li>
+            <li className="list-disc num text-xs">data/history.jsonl</li>
+            <li className="list-disc num text-xs">config/weights.json</li>
+            <li className="list-disc num text-xs">data/status.json</li>
           </ul>
           <p>{t("reproduce.git")}</p>
           <p className="mt-1">
             <a
               href="https://github.com/DDamianZR/ModelHub"
-              className="eyebrow underline underline-offset-2"
-              style={{ color: "var(--accent)" }}
+              className="eyebrow underline underline-offset-2 text-accent"
             >
               {t("reproduce.link")}
             </a>

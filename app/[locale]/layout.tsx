@@ -71,6 +71,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const tui = await getTranslations({ locale, namespace: "ui" });
 
   return (
     <html
@@ -79,7 +80,7 @@ export default async function LocaleLayout({
     >
       <body>
         <a href="#main-content" className="skip-link">
-          Skip to content
+          {tui("skipToContent")}
         </a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

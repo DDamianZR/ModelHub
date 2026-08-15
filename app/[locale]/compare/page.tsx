@@ -24,12 +24,11 @@ export default async function ComparePage({
       <SiteHeader locale={locale} active="compare" />
 
       <section className="mt-8">
-        <h2 className="font-display text-[26px] leading-tight">
+        <h2 className="font-display text-xl leading-tight">
           {t("title")}
         </h2>
         <p
-          className="mt-2 max-w-[46rem] text-[14px] leading-[1.6]"
-          style={{ color: "var(--text-tertiary)" }}
+          className="mt-2 max-w-[46rem] text-base leading-[1.6] text-tertiary"
         >
           {t("intro")}
         </p>
