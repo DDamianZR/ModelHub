@@ -81,15 +81,7 @@ export default async function LocaleLayout({
         {/* First focusable element in the document, invisible until a keyboard user
             tabs to it - the escape hatch past SiteHeader's logo/links/nav, which
             otherwise repeats in full before every page's actual content. */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border focus:px-3 focus:py-2 focus:text-[13px]"
-          style={{
-            background: "var(--paper)",
-            borderColor: "var(--amber)",
-            color: "var(--ink)",
-          }}
-        >
+        <a href="#main-content" className="skip-link">
           {t("skipToContent")}
         </a>
         {/* No `messages` prop: without one, next-intl's Next.js integration falls back

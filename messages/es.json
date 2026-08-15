@@ -30,7 +30,8 @@
     "origin": "Origen",
     "showing": "{count, plural, one {# modelo} other {# modelos}} de {total}",
     "clear": "Limpiar",
-    "mobileColumnsHidden": "Las categorías se ocultan en pantallas pequeñas. Abre la ficha de un modelo para verlas."
+    "mobileColumnsHidden": "Las categorías se ocultan en pantallas pequeñas. Abre la ficha de un modelo para verlas.",
+    "provider": "Proveedor"
   },
   "table": {
     "rank": "#",
@@ -103,7 +104,8 @@
     "empty": "Selecciona al menos un modelo para comparar.",
     "tableView": "Los mismos números, en tabla",
     "visionNote": "Fuera del compuesto. Se mide aparte porque un modelo de solo texto no compite aquí.",
-    "visionRating": "{rating} · puesto {rank} en Arena visión"
+    "visionRating": "{rating} · puesto {rank} en Arena visión",
+    "full": "Máximo alcanzado — elimina un modelo primero"
   },
   "model": {
     "description": "Descripción",
@@ -259,6 +261,19 @@
       "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
       "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. Fuentes envejecidas ahora mismo:"
     }
+  },
+  "ui": {
+    "close": "Cerrar",
+    "viewModel": "Ficha completa del modelo",
+    "addToCompare": "Agregar a comparación",
+    "prevModel": "Modelo anterior",
+    "nextModel": "Modelo siguiente",
+    "drawerRegion": "Vista previa del modelo"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "Esta página no existe o no se encontró el modelo.",
+    "back": "Volver al ranking"
   },
   "aliases": {
     "title": "Auditoría de nombres",

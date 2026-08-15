@@ -1,50 +1,140 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #faf9f6;
-  --color-paper-sunk: #f2f0ea;
-  --color-ink: #1a1a1a;
-  --color-muted: #6e6862;
-  --color-rule: #e2ded4;
-  --color-amber: #6d28d9;
-  --color-amber-soft: #ede4ff;
-
   --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
+/* ── Semantic design tokens ── */
 :root {
-  --paper: #faf9f6;
-  --paper-sunk: #f2f0ea;
-  --ink: #1a1a1a;
-  --muted: #6e6862;
-  --rule: #e2ded4;
-  --amber: #6d28d9;
-  --amber-soft: #ede4ff;
-  /* Chart marks and body text have different jobs, so they get different steps.
-     Both validated for contrast against their own surface. */
+  /* Surfaces: plane 0 (canvas) → plane 3 (overlay) */
+  --surface-canvas:  #faf9f6;
+  --surface-default: #f5f3ee;
+  --surface-raised:  #ebe8e1;
+  --surface-sunk:    #f2f0ea;
+  --surface-overlay: #fdfcfa;
+
+  /* Text */
+  --text-primary:   #1a1a1a;
+  --text-secondary: #4a4540;
+  --text-tertiary:  #6e6862;
+  --text-on-accent: #ffffff;
+
+  /* Lines — line-subtle is decorative only (< 3:1 on canvas).
+     line-default is the ONLY token permitted on interactive control boundaries: ≥ 3:1. */
+  --line-subtle:  #e2ded4;
+  --line-default: #8a867e;
+  --line-strong:  #524e49;
+  --line-accent:  #6d28d9;
+
+  /* Accent */
+  --accent:       #6d28d9;
+  --accent-soft:  #ede4ff;
+  --accent-hover: #5b21b6;
+  --focus-ring:   #6d28d9;
+
+  /* Semantic signals — unified today, separable by palette swap later */
+  --signal-degraded:    #6d28d9;
+  --signal-provisional: #6d28d9;
+  --signal-unmeasured:  #6e6862;
+
+  /* Chart / data marks */
   --mark: #8157fd;
+
+  /* Radius */
+  --radius-control: 3px;
+  --radius-surface: 4px;
+  --radius-overlay: 6px;
+
+  /* Motion */
+  --dur-fast:    90ms;
+  --dur-base:    120ms;
+  --dur-slow:    180ms;
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --ease-spatial: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Elevation — only overlay gets a real shadow */
+  --elevation-overlay: 0 4px 24px rgb(0 0 0 / 0.12), 0 1px 4px rgb(0 0 0 / 0.08);
+
+  /* Z-index */
+  --z-sticky:  10;
+  --z-drawer:  40;
+  --z-palette: 50;
+
+  /* Legacy aliases so existing var() references keep working while migrating */
+  --paper:      var(--surface-canvas);
+  --paper-sunk: var(--surface-sunk);
+  --ink:        var(--text-primary);
+  --muted:      var(--text-tertiary);
+  --rule:       var(--line-subtle);
+  --amber:      var(--accent);
+  --amber-soft: var(--accent-soft);
+
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0e0e0e;
-    --paper-sunk: #161513;
-    --ink: #eae7e0;
-    --muted: #948d84;
-    --rule: #2b2926;
-    --amber: #b794ff;
-    --amber-soft: #2a1d4a;
+    --surface-canvas:  #0e0e0e;
+    --surface-default: #131210;
+    --surface-raised:  #1e1b17;
+    --surface-sunk:    #161513;
+    --surface-overlay: #1c1a17;
+
+    --text-primary:   #eae7e0;
+    --text-secondary: #b8b3aa;
+    --text-tertiary:  #948d84;
+    --text-on-accent: #0e0e0e;
+
+    --line-subtle:  #2b2926;
+    --line-default: #5e5b58;
+    --line-strong:  #948d84;
+    --line-accent:  #b794ff;
+
+    --accent:       #b794ff;
+    --accent-soft:  #2a1d4a;
+    --accent-hover: #c4aaff;
+    --focus-ring:   #b794ff;
+
+    --signal-degraded:    #b794ff;
+    --signal-provisional: #b794ff;
+    --signal-unmeasured:  #948d84;
+
     --mark: #a78bfa;
+
+    --elevation-overlay: 0 4px 24px rgb(0 0 0 / 0.4), 0 1px 4px rgb(0 0 0 / 0.3);
+
     color-scheme: dark;
   }
 }
 
+/* ── Tailwind utility mapping.
+   @theme inline emits var() references rather than static values, so the
+   generated utilities inherit dark mode from :root — the only safe pattern. ── */
+@theme inline {
+  --color-canvas:      var(--surface-canvas);
+  --color-surface:     var(--surface-default);
+  --color-raised:      var(--surface-raised);
+  --color-sunk:        var(--surface-sunk);
+  --color-overlay:     var(--surface-overlay);
+  --color-primary:     var(--text-primary);
+  --color-secondary:   var(--text-secondary);
+  --color-tertiary:    var(--text-tertiary);
+  --color-on-accent:   var(--text-on-accent);
+  --color-accent:      var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-subtle:      var(--line-subtle);
+  --color-line:        var(--line-default);
+  --color-strong:      var(--line-strong);
+  --color-signal:      var(--signal-degraded);
+  --color-mark:        var(--mark);
+}
+
+/* ── Base ── */
 html {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--surface-canvas);
+  color: var(--text-primary);
 }
 
 body {
@@ -54,42 +144,62 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Numbers are the whole point of a ranking: keep every digit on the same rail. */
+/* Numbers are the whole point of a ranking. */
 .num {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
 
-.rule {
-  border-color: var(--rule);
-}
+/* Decorative border. NEVER use on interactive control boundaries. */
+.rule { border-color: var(--line-subtle); }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-tertiary);
 }
 
-/* Filtering and sorting must feel instant, per the brief's 150-200ms budget. */
+/* Filtering / sorting must feel instant — 90 ms avoids sluggish feel. */
 .row-shift {
-  transition: background-color 160ms ease, color 160ms ease;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color            var(--dur-fast) var(--ease-out),
+    border-color     var(--dur-fast) var(--ease-out);
 }
+
+/* Skip link — hidden until focused by keyboard. */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: var(--z-palette);
+  padding: 0.4rem 1rem;
+  background: var(--surface-overlay);
+  color: var(--text-primary);
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-control);
+  font-size: 14px;
+}
+.skip-link:focus { top: 1rem; left: 1rem; }
+
+/* Hide scrollbar for metric carousel on mobile. */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }

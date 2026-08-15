@@ -6,6 +6,7 @@ import type {
   Model,
   Provider,
   RejectedSnapshot,
+  RankingRow,
   Row,
   SnapshotAge,
   Status,
@@ -383,6 +384,56 @@ export function getCategorySources(): Record<string, string[]> {
 export function getModelIds(): string[] {
   const { models } = readJson<{ models: Model[] }>("models.json");
   return models.map((model) => model.id);
+}
+
+/** Narrowed rows for the ranking table — smaller RSC payload than full Row[]. */
+export function getRankingRows(): RankingRow[] {
+  const { rows } = getRanking();
+  return rows.map((row) => ({
+    id: row.id,
+    rank: row.rank,
+    display_name: row.display_name,
+    provider_name: row.provider_name,
+    is_open_weights: row.is_open_weights,
+    release_date: row.release_date,
+    country: row.country,
+    composite: row.composite,
+    composite_error: row.composite_error,
+    uncertainty: row.uncertainty,
+    tied_with: row.tied_with,
+    coverage: row.coverage,
+    evidence: row.evidence,
+    category_scores: row.category_scores,
+    provisional: row.provisional,
+    awaiting_human_votes: row.awaiting_human_votes,
+    trend: row.trend,
+    vision: row.vision,
+  }));
+}
+
+/** Prev/next ranked neighbours for model-page navigation. */
+export function getAdjacentModels(
+  id: string,
+): {
+  prev: { id: string; display_name: string } | null;
+  next: { id: string; display_name: string } | null;
+} {
+  const { rows } = getRanking();
+  const sorted = rows
+    .filter((r) => !r.provisional)
+    .sort(
+      (a, b) =>
+        (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER) ||
+        b.composite - a.composite,
+    );
+  const idx = sorted.findIndex((r) => r.id === id);
+  return {
+    prev: idx > 0 ? { id: sorted[idx - 1].id, display_name: sorted[idx - 1].display_name } : null,
+    next:
+      idx >= 0 && idx < sorted.length - 1
+        ? { id: sorted[idx + 1].id, display_name: sorted[idx + 1].display_name }
+        : null,
+  };
 }
 
 export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {

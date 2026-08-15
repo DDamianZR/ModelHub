@@ -35,12 +35,14 @@ function Section({
   return (
     <section id={id} className="mt-10 scroll-mt-6">
       <h2
-        className="border-b rule pb-2 text-[22px] leading-tight"
-        style={{ fontFamily: "var(--font-display)" }}
+        className="font-display border-b pb-2 text-[22px] leading-tight"
+        style={{ borderColor: "var(--line-subtle)" }}
       >
         {title}
       </h2>
-      <div className="mt-3 flex flex-col gap-3 text-[14px] leading-[1.65]">{children}</div>
+      <div className="mt-3 flex flex-col gap-3 text-[14px] leading-[1.65] text-tertiary">
+        {children}
+      </div>
     </section>
   );
 }
@@ -58,37 +60,30 @@ export default async function MethodologyPage({
   const { meta } = getRanking();
   const rejected = getRejectedSnapshots();
   const aged = getAgedSources();
-  // Recomputed every build. These figures used to be typed into the copy by hand, which
-  // made them claims with no source and no date the moment the cohort moved.
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
   const categorySources = getCategorySources();
 
-  const muted = { color: "var(--muted)" } as const;
-
   return (
-    <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
+    <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="methodology" />
 
-      <div id="main-content" className="mt-8 max-w-[46rem]">
-        <h2
-          className="text-[30px] leading-tight"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+      <div className="mt-8 max-w-[46rem]">
+        <h2 className="font-display text-[30px] leading-tight">
           {t("title")}
         </h2>
-        <p className="mt-3 text-[15px] leading-[1.65]" style={muted}>
+        <p className="mt-3 text-[15px] leading-[1.65] text-tertiary">
           {t("intro")}
         </p>
       </div>
 
       <div className="max-w-[46rem]">
         <Section id="formula" title={t("formula.title")}>
-          <p style={muted}>{t("formula.body")}</p>
+          <p>{t("formula.body")}</p>
 
           <table className="mt-1 w-full border-collapse text-left">
             <thead>
-              <tr className="border-b rule">
+              <tr className="border-b" style={{ borderColor: "var(--line-subtle)" }}>
                 <th scope="col" className="py-2">
                   <span className="eyebrow">{t("formula.category")}</span>
                 </th>
@@ -104,19 +99,23 @@ export default async function MethodologyPage({
               {CATEGORIES.map((category) => {
                 const singleSource = (categorySources[category]?.length ?? 0) === 1;
                 return (
-                  <tr key={category} className="border-b rule">
+                  <tr
+                    key={category}
+                    className="border-b"
+                    style={{ borderColor: "var(--line-subtle)" }}
+                  >
                     <th scope="row" className="py-2 text-[13px] font-normal">
                       {tt(category)}
                     </th>
                     <td className="num py-2 text-right text-[13px]">
                       {WEIGHTS[category]}%
                     </td>
-                    <td className="num py-2 pl-4 text-[11px]" style={muted}>
+                    <td className="num py-2 pl-4 text-[11px] text-tertiary">
                       {t(`formula.inputs_${category}`)}
                       {singleSource && (
                         <span
                           className="ml-2 inline-block"
-                          style={{ color: "var(--amber)" }}
+                          style={{ color: "var(--accent)" }}
                           title={t("formula.singleSourceNote")}
                         >
                           · {t("formula.singleSource")}
@@ -129,24 +128,28 @@ export default async function MethodologyPage({
             </tbody>
           </table>
 
-          <p className="num mt-1 border-l-2 py-2 pl-3 text-[12px] leading-[1.6]"
-             style={{ borderColor: "var(--amber)" }}>
+          <p
+            className="num mt-1 border-l-2 py-2 pl-3 text-[12px] leading-[1.6]"
+            style={{ borderColor: "var(--accent)" }}
+          >
             {t("formula.equation")}
           </p>
 
-          <p style={muted}>{t("formula.normalisation", {
-            min: meta.arena_normalization.min,
-            max: meta.arena_normalization.max,
-          })}</p>
+          <p>
+            {t("formula.normalisation", {
+              min: meta.arena_normalization.min,
+              max: meta.arena_normalization.max,
+            })}
+          </p>
 
-          <p style={muted}>{t("formula.multimodal")}</p>
+          <p>{t("formula.multimodal")}</p>
         </Section>
 
         <Section id="uncertainty" title={t("uncertainty.title")}>
-          <p style={muted}>{t("uncertainty.body")}</p>
+          <p>{t("uncertainty.body")}</p>
           <p
             className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--amber)" }}
+            style={{ borderColor: "var(--accent)" }}
           >
             {t("uncertainty.why", {
               medianGap: stats.medianGap,
@@ -155,15 +158,15 @@ export default async function MethodologyPage({
               identicalPairs: stats.identicalPairs,
             })}
           </p>
-          <p style={muted}>{t("uncertainty.formula")}</p>
-          <p style={muted}>
+          <p>{t("uncertainty.formula")}</p>
+          <p>
             {t("uncertainty.floor", {
               measuredInputs: stats.measuredInputs,
               totalInputs: stats.totalInputs,
             })}
           </p>
-          <p style={muted}>{t("uncertainty.sound")}</p>
-          <p style={muted}>
+          <p>{t("uncertainty.sound")}</p>
+          <p>
             {t("uncertainty.rank", {
               ranked: stats.ranked,
               distinctRanks: stats.distinctRanks,
@@ -171,22 +174,20 @@ export default async function MethodologyPage({
               adjacentPairs: stats.adjacentPairs,
             })}
           </p>
-          <p style={muted}>
-            {t("uncertainty.unknown", { withoutInterval: stats.withoutInterval })}
-          </p>
+          <p>{t("uncertainty.unknown", { withoutInterval: stats.withoutInterval })}</p>
         </Section>
 
         <Section id="cohort" title={t("cohort.title")}>
-          <p style={muted}>{t("cohort.body")}</p>
+          <p>{t("cohort.body")}</p>
           <p
             className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--amber)" }}
+            style={{ borderColor: "var(--accent)" }}
           >
             {t("cohort.measured", { medianGap: stats.medianGap })}
           </p>
-          <p style={muted}>{t("cohort.disclosure")}</p>
+          <p>{t("cohort.disclosure")}</p>
           {stats.stillPoints !== null && (
-            <p style={muted}>
+            <p>
               {t("cohort.threshold", {
                 medianGap: stats.medianGap,
                 stillPoints: stats.stillPoints,
@@ -196,35 +197,35 @@ export default async function MethodologyPage({
               })}
             </p>
           )}
-          <p style={muted}>{t("cohort.notchanged")}</p>
+          <p>{t("cohort.notchanged")}</p>
         </Section>
 
         <Section id="coverage" title={t("coverage.title")}>
-          <p style={muted}>{t("coverage.body")}</p>
-          <p style={muted}>{t("coverage.example")}</p>
-          <p style={muted}>{t("coverage.newModels")}</p>
-          <p className="num text-[12px]" style={muted}>
+          <p>{t("coverage.body")}</p>
+          <p>{t("coverage.example")}</p>
+          <p>{t("coverage.newModels")}</p>
+          <p className="num text-[12px]">
             {t("coverage.current", {
               ranked: meta.ranked_count,
               provisional: meta.provisional_count,
               min: meta.min_coverage_for_ranking,
             })}
           </p>
-          <p style={muted}>{t("coverage.scope", { date: meta.min_release_date })}</p>
+          <p>{t("coverage.scope", { date: meta.min_release_date })}</p>
         </Section>
 
         <Section id="variants" title={t("variants.title")}>
           <p
             className="border-l-2 py-2 pl-3 text-[15px]"
-            style={{ borderColor: "var(--amber)" }}
+            style={{ borderColor: "var(--accent)" }}
           >
             {t("variants.tradeoff")}
           </p>
-          <p style={muted}>{t("variants.body")}</p>
-          <p style={muted}>{t("variants.bug")}</p>
-          <p style={muted}>{t("variants.principle")}</p>
-          <p style={muted}>{t("variants.disclosure")}</p>
-          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+          <p>{t("variants.body")}</p>
+          <p>{t("variants.bug")}</p>
+          <p>{t("variants.principle")}</p>
+          <p>{t("variants.disclosure")}</p>
+          <ul className="flex flex-col gap-2 pl-4">
             {(["model", "default", "best", "average", "separate"] as const).map((option) => (
               <li key={option} className="list-disc">
                 <span className="num text-[12px]">{option}</span> —{" "}
@@ -232,23 +233,24 @@ export default async function MethodologyPage({
               </li>
             ))}
           </ul>
-          <p style={muted}>{t("variants.current")}</p>
-          <p style={muted}>{t("variants.arena")}</p>
-          <p style={muted}>{t("variants.mismatch")}</p>
-          <p style={muted}>{t("variants.mismatchBest")}</p>
+          <p>{t("variants.current")}</p>
+          <p>{t("variants.arena")}</p>
+          <p>{t("variants.mismatch")}</p>
+          <p>{t("variants.mismatchBest")}</p>
         </Section>
 
-        {/* The guards are stated all over this page. This is where they show their work:
-            a policy nobody can see fire is indistinguishable from one that never runs. */}
         <Section id="rejections" title={t("rejections.title")}>
-          <p style={muted}>{t("rejections.body")}</p>
+          <p>{t("rejections.body")}</p>
           {rejected.length === 0 ? (
-            <p style={muted}>{t("rejections.none")}</p>
+            <p>{t("rejections.none")}</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left" style={{ minWidth: "34rem" }}>
+              <table
+                className="w-full border-collapse text-left"
+                style={{ minWidth: "34rem" }}
+              >
                 <thead>
-                  <tr className="border-b rule">
+                  <tr className="border-b" style={{ borderColor: "var(--line-subtle)" }}>
                     <th scope="col" className="py-2 pr-3">
                       <span className="eyebrow">{t("rejections.date")}</span>
                     </th>
@@ -265,17 +267,19 @@ export default async function MethodologyPage({
                 </thead>
                 <tbody>
                   {rejected.map((row) => (
-                    <tr key={`${row.config}-${row.date}`} className="border-b rule">
+                    <tr
+                      key={`${row.config}-${row.date}`}
+                      className="border-b"
+                      style={{ borderColor: "var(--line-subtle)" }}
+                    >
                       <td className="num py-2 pr-3 text-[12px]">{row.date}</td>
-                      <td className="num py-2 pr-3 text-[12px]" style={muted}>
+                      <td className="num py-2 pr-3 text-[12px]">
                         lmarena/{row.config}
                       </td>
                       <td className="num py-2 pr-3 text-right text-[12px]">
                         {row.ratio}×
                       </td>
-                      <td className="py-2 text-[12px]" style={muted}>
-                        {row.reason}
-                      </td>
+                      <td className="py-2 text-[12px]">{row.reason}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -283,11 +287,7 @@ export default async function MethodologyPage({
             </div>
           )}
 
-          {/* Declared versus observed, both read from the run that produced this build.
-              The fallback exists because the snapshot list is the most fragile fetch in
-              the pipeline: when it fails there is no observed rhythm, and saying so is
-              better than quoting the last one we happened to remember. */}
-          <p className="mt-2" style={muted}>
+          <p className="mt-2">
             {livebench?.observed && livebench.cadence_days && livebench.degraded_days
               ? t("rejections.cadence", {
                   declared: livebench.cadence_days,
@@ -298,7 +298,7 @@ export default async function MethodologyPage({
                 })
               : t("rejections.cadenceUnknown")}
           </p>
-          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+          <ul className="flex flex-col gap-2 pl-4">
             {aged.map((source) => (
               <li key={source.name} className="list-disc">
                 <span className="num text-[12px]">{source.name}</span> —{" "}
@@ -315,26 +315,27 @@ export default async function MethodologyPage({
         </Section>
 
         <Section id="dedup" title={t("dedup.title")}>
-          <p style={muted}>{t("dedup.body")}</p>
-          <p style={muted}>{t("dedup.example")}</p>
-          <p style={muted}>{t("dedup.rule")}</p>
+          <p>{t("dedup.body")}</p>
+          <p>{t("dedup.example")}</p>
+          <p>{t("dedup.rule")}</p>
         </Section>
 
         <Section id="sourceTypes" title={t("sourceTypes.title")}>
-          <p style={muted}>{t("sourceTypes.body")}</p>
-          <ul className="flex flex-col gap-2 pl-4" style={muted}>
+          <p>{t("sourceTypes.body")}</p>
+          <ul className="flex flex-col gap-2 pl-4">
             {(["human_eval", "third_party_benchmark", "vendor_claim"] as const).map((kind) => (
               <li key={kind} className="list-disc">
-                <span className="num text-[12px]">{kind}</span> — {t(`sourceTypes.${kind}`)}
+                <span className="num text-[12px]">{kind}</span> —{" "}
+                {t(`sourceTypes.${kind}`)}
               </li>
             ))}
           </ul>
-          <p style={muted}>{t("sourceTypes.why")}</p>
+          <p>{t("sourceTypes.why")}</p>
         </Section>
 
         <Section id="contamination" title={t("contamination.title")}>
-          <p style={muted}>{t("contamination.body")}</p>
-          <p className="num text-[12px]" style={muted}>
+          <p>{t("contamination.body")}</p>
+          <p className="num text-[12px]">
             {meta.contamination_reviewed_at
               ? stats.contaminatedBenchmarks > 0
                 ? t("contamination.count", {
@@ -347,35 +348,35 @@ export default async function MethodologyPage({
         </Section>
 
         <Section id="breaks" title={t("breaks.title")}>
-          <p style={muted}>{t("breaks.body")}</p>
-          <ul className="flex flex-col gap-1 pl-4" style={muted}>
+          <p>{t("breaks.body")}</p>
+          <ul className="flex flex-col gap-1 pl-4">
             <li className="list-disc">{t("breaks.b1")}</li>
             <li className="list-disc">{t("breaks.b2")}</li>
             <li className="list-disc">{t("breaks.b3")}</li>
           </ul>
-          <p style={muted}>{t("breaks.window")}</p>
+          <p>{t("breaks.window")}</p>
         </Section>
 
         <Section id="exclusions" title={t("exclusions.title")}>
-          <p style={muted}>{t("exclusions.swebench")}</p>
-          <p style={muted}>{t("exclusions.others")}</p>
+          <p>{t("exclusions.swebench")}</p>
+          <p>{t("exclusions.others")}</p>
         </Section>
 
         <Section id="reproduce" title={t("reproduce.title")}>
-          <p style={muted}>{t("reproduce.body")}</p>
-          <ul className="flex flex-col gap-1 pl-4" style={muted}>
+          <p>{t("reproduce.body")}</p>
+          <ul className="flex flex-col gap-1 pl-4">
             <li className="list-disc num text-[12px]">data/models.json</li>
             <li className="list-disc num text-[12px]">data/scores.json</li>
             <li className="list-disc num text-[12px]">data/history.jsonl</li>
             <li className="list-disc num text-[12px]">config/weights.json</li>
             <li className="list-disc num text-[12px]">data/status.json</li>
           </ul>
-          <p style={muted}>{t("reproduce.git")}</p>
+          <p>{t("reproduce.git")}</p>
           <p className="mt-1">
             <a
               href="https://github.com/DDamianZR/ModelHub"
               className="eyebrow inline-block py-[6px] underline underline-offset-2"
-              style={{ color: "var(--amber)" }}
+              style={{ color: "var(--accent)" }}
             >
               {t("reproduce.link")}
             </a>
