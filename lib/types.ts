@@ -163,8 +163,12 @@ export type Row = Model & {
 };
 
 /**
- * Narrowed shape for the ranking table. Strips fields that are 0/65 populated
- * (pricing, context_window) so the RSC payload stays small.
+ * Narrowed shape for the ranking table: exactly the fields it reads, and nothing else.
+ *
+ * The full `Row` carries 28 fields and the table renders 16 of them. The rest were being
+ * serialised into every browser, including two the schema defines but no source populates.
+ * Anything added here must have a call site in RankingTable — the projection is the
+ * contract, and a field nobody reads is payload nobody asked for.
  */
 export type RankingRow = Pick<
   Row,
@@ -177,7 +181,6 @@ export type RankingRow = Pick<
   | "country"
   | "composite"
   | "composite_error"
-  | "uncertainty"
   | "tied_with"
   | "coverage"
   | "evidence"
@@ -185,5 +188,4 @@ export type RankingRow = Pick<
   | "provisional"
   | "awaiting_human_votes"
   | "trend"
-  | "vision"
 >;

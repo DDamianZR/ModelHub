@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 /**
  * Five segments, one per weighted category, filled when that category has data.
  *
@@ -27,12 +29,11 @@ export function CoverageMeter({
         <span
           key={i}
           aria-hidden="true"
-          className="block h-[13px] w-[3px]"
-          style={{
-            background: i < covered ? "var(--amber)" : "transparent",
-            border: i < covered ? "none" : "1px solid var(--rule)",
-            opacity: i < covered && partial ? 0.65 : 1,
-          }}
+          className={clsx(
+            "block h-[13px] w-[3px]",
+            i < covered ? "bg-accent" : "border border-line",
+            i < covered && partial && "opacity-65",
+          )}
         />
       ))}
     </span>

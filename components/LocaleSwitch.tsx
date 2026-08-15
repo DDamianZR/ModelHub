@@ -12,8 +12,7 @@ export function LocaleSwitch({ locale }: { locale: string }) {
     <Link
       href={pathname}
       locale={other}
-      className="eyebrow row-shift shrink-0 border px-2 py-[5px]"
-      style={{ borderColor: "var(--line-default)", color: "var(--text-tertiary)" }}
+      className="tactile tactile-sm eyebrow shrink-0"
       aria-label={tl("switchAria")}
     >
       {tl("switch")}

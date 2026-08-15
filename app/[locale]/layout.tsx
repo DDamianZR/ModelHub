@@ -70,7 +70,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "nav" });
+  const tui = await getTranslations({ locale, namespace: "ui" });
 
   return (
     <html
@@ -82,7 +82,7 @@ export default async function LocaleLayout({
             tabs to it - the escape hatch past SiteHeader's logo/links/nav, which
             otherwise repeats in full before every page's actual content. */}
         <a href="#main-content" className="skip-link">
-          {t("skipToContent")}
+          {tui("skipToContent")}
         </a>
         {/* No `messages` prop: without one, next-intl's Next.js integration falls back
             to forwarding the FULL locale catalogue to the client, which is most of what

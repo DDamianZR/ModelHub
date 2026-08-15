@@ -44,13 +44,18 @@ function readHistory(): Map<string, { date: string; value: number }[]> {
 /**
  * Scale a series into 0-1 against its own range. A flat series sits in the middle
  * rather than at an edge, so a model with no movement doesn't read as a collapse.
+ *
+ * Rounded to three decimals because the only consumer is a 64x16 sparkline that already
+ * rounds its coordinates to one decimal before drawing. Full float precision was 41 788
+ * characters of the home page's RSC payload — 29% of it — expressing detail no pixel on
+ * that chart can show.
  */
 function normaliseTrend(values: number[]): number[] {
   if (values.length < 2) return [];
   const min = Math.min(...values);
   const max = Math.max(...values);
   if (max === min) return values.map(() => 0.5);
-  return values.map((v) => (v - min) / (max - min));
+  return values.map((v) => Math.round(((v - min) / (max - min)) * 1000) / 1000);
 }
 
 function readStatus(): Status | null {
@@ -399,7 +404,6 @@ export function getRankingRows(): RankingRow[] {
     country: row.country,
     composite: row.composite,
     composite_error: row.composite_error,
-    uncertainty: row.uncertainty,
     tied_with: row.tied_with,
     coverage: row.coverage,
     evidence: row.evidence,
@@ -407,7 +411,6 @@ export function getRankingRows(): RankingRow[] {
     provisional: row.provisional,
     awaiting_human_votes: row.awaiting_human_votes,
     trend: row.trend,
-    vision: row.vision,
   }));
 }
 

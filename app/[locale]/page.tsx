@@ -3,7 +3,13 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { RankingTable } from "@/components/RankingTable";
 import { SiteHeader } from "@/components/SiteHeader";
 import { IconGitHub, IconGlobe, IconInstagram } from "@/components/icons";
-import { getAgedSources, getCategoryAges, getDegradedSources, getRanking } from "@/lib/data";
+import {
+  getAgedSources,
+  getCategoryAges,
+  getDegradedSources,
+  getRanking,
+  getRankingRows,
+} from "@/lib/data";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -25,6 +31,9 @@ export default async function HomePage({
   const messages = await getMessages();
 
   const { rows, meta, sourceCount } = getRanking();
+  // The table gets the narrowed projection, not the full Row: fields the ranking never
+  // reads were being serialised into every browser, including two that are 0/65 populated.
+  const tableRows = getRankingRows();
   const degraded = getDegradedSources();
   const aged = getAgedSources();
   const categoryAges = getCategoryAges();
@@ -41,29 +50,27 @@ export default async function HomePage({
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
 
-      <div className="pt-6">
-        <p
-          className="mt-6 max-w-[46rem] text-[15px] leading-[1.6]"
-          style={{ color: "var(--text-tertiary)" }}
-        >
+      {/* Instrument panel: the state of the data, stated before any ranking is shown.
+          On mobile the prose and the snapshot list step aside — the state is still
+          declared, but in two readings rather than six lines. */}
+      <section className="pt-3 sm:pt-6" aria-labelledby="state-heading">
+        <h2 id="state-heading" className="sr-only">
+          {tp("snapshots")}
+        </h2>
+        <p className="mt-6 hidden max-w-[46rem] text-md leading-[1.6] text-tertiary sm:block">
           {t("blurb")}
         </p>
 
-        {/* Instrument panel: the state of the data, stated before any ranking is shown.
-            Heading is sr-only: it gives the section a landmark a screen reader can jump
-            to without adding visible text the layout wasn't designed around. */}
-        <h2 className="sr-only">{tp("statusHeading")}</h2>
-        <dl className="mt-7 flex flex-wrap gap-x-10 gap-y-3 border-y py-3"
-          style={{ borderColor: "var(--line-subtle)" }}>
-          {readings.map(([label, value]) => (
-            <div key={label}>
+        <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2 border-y border-subtle py-2 sm:mt-7 sm:gap-x-10 sm:gap-y-3 sm:py-3">
+          {readings.map(([label, value], i) => (
+            <div key={label} className={i > 1 ? "hidden sm:block" : undefined}>
               <dt className="eyebrow">{label}</dt>
-              <dd className="num text-[15px]">{value}</dd>
+              <dd className="num text-sm sm:text-md">{value}</dd>
             </div>
           ))}
-          <div className="ml-auto">
+          <div className="ml-auto hidden sm:block">
             <dt className="eyebrow">{tp("snapshots")}</dt>
-            <dd className="num text-[11px]" style={{ color: "var(--text-tertiary)" }}>
+            <dd className="num text-2xs text-tertiary">
               {Object.entries(meta.snapshots)
                 .filter(([, value]) => value)
                 .map(([key, value]) => `${key} ${value}`)
@@ -71,48 +78,38 @@ export default async function HomePage({
             </dd>
           </div>
         </dl>
-      </div>
 
-      {degraded.length > 0 && (
-        <p
-          className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
-          style={{ borderColor: "var(--accent)", color: "var(--text-tertiary)" }}
-        >
-          <span className="eyebrow" style={{ color: "var(--accent)" }}>
-            {tp("degraded")}
-          </span>{" "}
-          {degraded
-            .map((entry) =>
-              tp("degradedSource", {
-                source: entry.name,
-                date: entry.status.last_success ?? "—",
-              }),
-            )
-            .join(" · ")}
-        </p>
-      )}
+        {degraded.length > 0 && (
+          <p className="note note-accent mt-4 text-xs leading-[1.6]">
+            <span className="eyebrow text-accent">{tp("degraded")}</span>{" "}
+            {degraded
+              .map((entry) =>
+                tp("degradedSource", {
+                  source: entry.name,
+                  date: entry.status.last_success ?? "—",
+                }),
+              )
+              .join(" · ")}
+          </p>
+        )}
 
-      {aged.length > 0 && (
-        <p
-          className="mt-4 border-l-2 py-1 pl-3 text-[12px] leading-[1.6]"
-          style={{ borderColor: "var(--accent)", color: "var(--text-tertiary)" }}
-        >
-          <span className="eyebrow" style={{ color: "var(--accent)" }}>
-            {tp("aging")}
-          </span>{" "}
-          {aged
-            .map((entry) =>
-              tp("agingSource", {
-                source: entry.name,
-                days: entry.age_days ?? 0,
-                date: entry.date ?? "—",
-              }),
-            )
-            .join(" · ")}
-        </p>
-      )}
+        {aged.length > 0 && (
+          <p className="note note-accent mt-4 text-xs leading-[1.6]">
+            <span className="eyebrow text-accent">{tp("aging")}</span>{" "}
+            {aged
+              .map((entry) =>
+                tp("agingSource", {
+                  source: entry.name,
+                  days: entry.age_days ?? 0,
+                  date: entry.date ?? "—",
+                }),
+              )
+              .join(" · ")}
+          </p>
+        )}
+      </section>
 
-      <section className="mt-8" aria-labelledby="ranking-heading">
+      <section id="ranking" className="mt-3 scroll-mt-6 sm:mt-8" aria-labelledby="ranking-heading">
         <h2 id="ranking-heading" className="sr-only">
           {tn("ranking")}
         </h2>
@@ -124,33 +121,22 @@ export default async function HomePage({
           messages={{ table: messages.table, filters: messages.filters }}
         >
           <RankingTable
-            rows={rows}
+            rows={tableRows}
             minCoverage={meta.min_coverage_for_ranking}
             categoryAges={categoryAges}
           />
         </NextIntlClientProvider>
       </section>
 
-      <footer
-        className="mt-12 border-t pt-6"
-        style={{ borderColor: "var(--line-subtle)" }}
-      >
-        <p
-          className="max-w-[46rem] text-[13px] leading-[1.65]"
-          style={{ color: "var(--text-tertiary)" }}
-        >
-          {tf("methodNote")}
-        </p>
-        <p
-          className="mt-3 max-w-[46rem] text-[13px] leading-[1.65]"
-          style={{ color: "var(--text-tertiary)" }}
-        >
+      <footer className="mt-12 border-t border-subtle pt-6" aria-labelledby="notes-heading">
+        <h2 id="notes-heading" className="sr-only">
+          {tf("sources")}
+        </h2>
+        <p className="max-w-[46rem] text-sm leading-[1.65] text-tertiary">{tf("methodNote")}</p>
+        <p className="mt-3 max-w-[46rem] text-sm leading-[1.65] text-tertiary">
           {tf("sourceNote")}
         </p>
-        <p
-          className="mt-3 max-w-[46rem] text-[13px] leading-[1.65]"
-          style={{ color: "var(--text-tertiary)" }}
-        >
+        <p className="mt-3 max-w-[46rem] text-sm leading-[1.65] text-tertiary">
           {tf("swebenchNote")}{" "}
           {/* No touch-target padding here on purpose: WCAG 2.5.8 exempts a target
               "in a sentence... constrained by the line-height of non-target text",
@@ -160,22 +146,20 @@ export default async function HomePage({
             href="https://www.swebench.com/"
             rel="noopener noreferrer"
             target="_blank"
-            className="underline underline-offset-2"
-            style={{ color: "var(--accent)" }}
+            className="text-accent underline underline-offset-2"
           >
             {tf("swebenchLink")}
           </a>
           .
         </p>
-        <div className="eyebrow mt-5 flex flex-wrap items-center gap-x-4 gap-y-2"
-          style={{ color: "var(--text-tertiary)" }}>
+        <div className="eyebrow mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
           <a
             href="https://github.com/DDamianZR/ModelHub"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 transition-opacity hover:opacity-80"
           >
-            <IconGitHub className="w-3.5 h-3.5" />
+            <IconGitHub className="h-3.5 w-3.5" />
             {tf("repo")}
           </a>
           <span aria-hidden="true">·</span>
@@ -183,9 +167,9 @@ export default async function HomePage({
             href="https://ddzendreros.github.io/dzendreros"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 transition-opacity hover:opacity-80"
           >
-            <IconGlobe className="w-3.5 h-3.5" />
+            <IconGlobe className="h-3.5 w-3.5" />
             {tf("portfolio")}
           </a>
           <span aria-hidden="true">·</span>
@@ -193,9 +177,9 @@ export default async function HomePage({
             href="https://www.instagram.com/diego_zr.p/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 transition-opacity hover:opacity-80"
           >
-            <IconInstagram className="w-3.5 h-3.5" />
+            <IconInstagram className="h-3.5 w-3.5" />
             {tf("instagram")}
           </a>
           <span aria-hidden="true">·</span>
