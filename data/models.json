@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-14",
+    "generated_at": "2026-08-15",
     "model_count": 65,
     "ranked_count": 47,
     "provisional_count": 18,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-14",
+      "epoch": "2026-08-15",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-12",
       "lmarena_vision": "2026-08-06"
@@ -489,7 +489,7 @@
     },
     {
       "id": "meta-ai-muse-spark-1.1",
-      "display_name": "Muse Spark 1.1",
+      "display_name": "Muse Spark 1.1 (high)",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -2466,7 +2466,7 @@
     },
     {
       "id": "deepseek-deepseek-v4-flash",
-      "display_name": "DeepSeek v4 Flash (high)",
+      "display_name": "DeepSeek v4 Flash (max)",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-14",
+  "fetched_at": "2026-08-15",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -373,7 +373,7 @@
       "deepseek-v4-flash": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek v4 Flash (high)",
+        "display_name": "DeepSeek v4 Flash (max)",
         "eci": 0.0,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
@@ -1349,7 +1349,7 @@
       "muse-spark-1.1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Muse Spark 1.1",
+        "display_name": "Muse Spark 1.1 (high)",
         "eci": 154.75,
         "organization": "Meta AI",
         "release_date": "2026-07-09"
