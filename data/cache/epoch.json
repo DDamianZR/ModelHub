@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-15",
+  "fetched_at": "2026-08-16",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -650,6 +650,14 @@
         "organization": "Google DeepMind",
         "release_date": "2026-07-21"
       },
+      "gemini-3.7-flash": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Gemini 3.7 Flash (high)",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-08-13"
+      },
       "gemini-robotics-er-1.5": {
         "accessibility": "",
         "country": "",
@@ -1085,7 +1093,7 @@
       "grok-4.6": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.6 (high)",
+        "display_name": "Grok 4.6 (xhigh)",
         "eci": 0.0,
         "organization": "xAI",
         "release_date": "2026-08-12"
@@ -1117,7 +1125,7 @@
       "inkling-small": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "Inkling Small",
+        "display_name": "Inkling Small (xhigh)",
         "eci": 0.0,
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
@@ -3006,6 +3014,28 @@
           "variant": "gemini-3.6-flash_minimal"
         }
       ],
+      "gemini-3.7-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.346,
+          "value": 94.82,
+          "variant": "gemini-3.7-flash_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.433,
+          "value": 71.2,
+          "variant": "gemini-3.7-flash_high"
+        }
+      ],
       "gemma-4-31b": [
         {
           "benchmark_id": "simpleqa_verified",
@@ -4300,12 +4330,32 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.52,
+          "value": 93.18,
+          "variant": "grok-4.6_xhigh"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
           "measured_at": "2026-08-12",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
           "stderr": 1.448,
           "value": 94.0,
           "variant": "grok-4.6_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.576,
+          "value": 54.4,
+          "variant": "grok-4.6_xhigh"
         },
         {
           "benchmark_id": "simpleqa_verified",
@@ -4338,6 +4388,28 @@
           "stderr": 1.551,
           "value": 40.2,
           "variant": "Inkling_xhigh"
+        }
+      ],
+      "inkling-small": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.91,
+          "value": 88.51,
+          "variant": "inkling-small_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-14",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.254,
+          "value": 19.5,
+          "variant": "inkling-small_xhigh"
         }
       ],
       "kimi-k2-thinking-turbo": [

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-15",
-    "model_count": 65,
-    "ranked_count": 47,
+    "generated_at": "2026-08-16",
+    "model_count": 66,
+    "ranked_count": 48,
     "provisional_count": 18,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-15",
+      "epoch": "2026-08-16",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-12",
       "lmarena_vision": "2026-08-06"
@@ -280,7 +280,68 @@
       "human_preference_variant": "max",
       "vision": null,
       "rank": 4,
-      "tied_with": 1,
+      "tied_with": 2,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "google-deepmind-gemini-3.7-flash",
+      "display_name": "Gemini 3.7 Flash (high)",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-08-13",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 84.61,
+        "coding": 66.53,
+        "math": 93.47,
+        "instruction_following": 79.93
+      },
+      "category_errors": {
+        "reasoning": 1.285,
+        "coding": null,
+        "math": null,
+        "instruction_following": null
+      },
+      "composite": 80.55,
+      "composite_error": 0.38,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 4,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -348,7 +409,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 4,
-      "tied_with": 1,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -415,7 +476,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 5,
+      "rank": 6,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -483,7 +544,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 5,
+      "rank": 6,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -551,13 +612,13 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 5,
+      "rank": 6,
       "tied_with": 3,
       "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.6",
-      "display_name": "Grok 4.6 (high)",
+      "display_name": "Grok 4.6 (xhigh)",
       "provider_id": "xai",
       "is_open_weights": false,
       "license": "API access",
@@ -612,7 +673,7 @@
       "variant": "plain",
       "human_preference_variant": "high",
       "vision": null,
-      "rank": 5,
+      "rank": 6,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -680,7 +741,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10,
+      "rank": 11,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -741,7 +802,7 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 10,
+      "rank": 11,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -809,7 +870,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10,
+      "rank": 11,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -877,7 +938,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10,
+      "rank": 11,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -945,7 +1006,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 13,
+      "rank": 14,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1006,7 +1067,7 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
-      "rank": 14,
+      "rank": 15,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1067,7 +1128,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 14,
+      "rank": 15,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1135,7 +1196,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 14,
+      "rank": 15,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1203,7 +1264,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 15,
+      "rank": 16,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1271,7 +1332,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 18,
+      "rank": 19,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1332,7 +1393,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 19,
+      "rank": 20,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1393,7 +1454,7 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 19,
+      "rank": 20,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1461,7 +1522,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 19,
+      "rank": 20,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1529,7 +1590,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22,
+      "rank": 23,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1597,7 +1658,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22,
+      "rank": 23,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1665,7 +1726,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22,
+      "rank": 23,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -1726,7 +1787,7 @@
       "variant": "xhigh",
       "human_preference_variant": "plain",
       "vision": null,
-      "rank": 23,
+      "rank": 24,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -1794,7 +1855,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 23,
+      "rank": 24,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -1862,7 +1923,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
+      "rank": 28,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -1930,7 +1991,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
+      "rank": 28,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -1998,7 +2059,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
+      "rank": 28,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -2066,7 +2127,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
+      "rank": 28,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -2134,7 +2195,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28,
+      "rank": 29,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2202,7 +2263,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 29,
+      "rank": 30,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2263,7 +2324,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 29,
+      "rank": 30,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2331,7 +2392,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 30,
+      "rank": 31,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2392,7 +2453,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 32,
+      "rank": 33,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2460,7 +2521,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 32,
+      "rank": 33,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2521,7 +2582,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 33,
+      "rank": 34,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2582,7 +2643,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 34,
+      "rank": 35,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2643,7 +2704,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 39,
+      "rank": 40,
       "tied_with": 4,
       "cohort_recalibration": null
     },
@@ -2704,7 +2765,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 39,
+      "rank": 40,
       "tied_with": 4,
       "cohort_recalibration": null
     },
@@ -2765,7 +2826,7 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 39,
+      "rank": 40,
       "tied_with": 4,
       "cohort_recalibration": null
     },
@@ -2833,7 +2894,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39,
+      "rank": 40,
       "tied_with": 4,
       "cohort_recalibration": null
     },
@@ -2901,7 +2962,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39,
+      "rank": 40,
       "tied_with": 4,
       "cohort_recalibration": null
     },
@@ -2962,7 +3023,7 @@
       "variant": "20250805",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 45,
+      "rank": 46,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3030,7 +3091,7 @@
         "measured_at": "2026-08-06",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 45,
+      "rank": 46,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3091,7 +3152,7 @@
       "variant": "20250929",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 47,
+      "rank": 48,
       "tied_with": 0,
       "cohort_recalibration": null
     },
