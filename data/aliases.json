@@ -312,6 +312,24 @@
       ]
     }
   },
+  "deepseek-deepseek-v4-pro-0813": {
+    "canonical_key": "deepseek-v4-pro-0813",
+    "display_name": "DeepSeek V4 Pro 0813 (max)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "deepseek-v4-pro-0813"
+    ],
+    "matched": {
+      "epoch": [
+        "deepseek-v4-pro-0813_max"
+      ],
+      "livebench": [
+        "deepseek-v4-pro-0813"
+      ],
+      "lmarena": []
+    }
+  },
   "google-deepmind-gemini-2.5-flash": {
     "canonical_key": "gemini-2.5-flash",
     "display_name": "Gemini 2.5 Flash",

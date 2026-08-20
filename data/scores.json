@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-08-19",
-    "model_count": 66,
-    "ranked_count": 48,
+    "generated_at": "2026-08-20",
+    "model_count": 67,
+    "ranked_count": 49,
     "provisional_count": 18,
     "min_coverage_for_ranking": 4,
     "snapshots": {
-      "epoch": "2026-08-19",
+      "epoch": "2026-08-20",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-12",
       "lmarena_vision": "2026-08-06"
@@ -1163,6 +1163,62 @@
       "variant": "plain",
       "variant_mismatch": null,
       "measured_name": "deepseek-v4-pro"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-pro-0813",
+      "benchmark_id": "livebench_reasoning",
+      "value": 85.84,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-pro-0813",
+      "benchmark_id": "livebench_coding",
+      "value": 63.83,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-pro-0813",
+      "benchmark_id": "livebench_math",
+      "value": 95.09,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "deepseek-deepseek-v4-pro-0813",
+      "benchmark_id": "livebench_instruction_following",
+      "value": 67.7,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-06-25",
+      "contamination_flag": false,
+      "notes": null,
+      "variant": "plain"
     },
     {
       "model_id": "google-deepmind-gemini-2.5-flash",
