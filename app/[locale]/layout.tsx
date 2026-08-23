@@ -93,7 +93,16 @@ export default async function LocaleLayout({
         >
           {t("skipToContent")}
         </a>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        {/* No `messages` prop: without one, next-intl's Next.js integration falls back
+            to forwarding the FULL locale catalogue to the client, which is most of what
+            Block 6 exists to undo. Only two components use useTranslations on the client
+            (RankingTable, CompareBoard, both verified via `grep -rn useTranslations
+            components app`) and each wraps itself in its own scoped provider where it's
+            rendered - see app/[locale]/page.tsx and app/[locale]/compare/page.tsx. This
+            outer provider exists only so useLocale()/the next-intl Link component still
+            resolve for any client component that needs the current locale but not any
+            message text. */}
+        <NextIntlClientProvider messages={{}}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { CompareBoard } from "@/components/CompareBoard";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getRanking } from "@/lib/data";
@@ -17,6 +18,7 @@ export default async function ComparePage({
   setRequestLocale(locale);
 
   const t = await getTranslations("compare");
+  const messages = await getMessages();
   const { rows } = getRanking();
 
   return (
@@ -39,7 +41,11 @@ export default async function ComparePage({
       </section>
 
       <section className="mt-6">
-        <CompareBoard rows={rows} />
+        <NextIntlClientProvider
+          messages={{ compare: messages.compare, table: messages.table }}
+        >
+          <CompareBoard rows={rows} />
+        </NextIntlClientProvider>
       </section>
     </main>
   );

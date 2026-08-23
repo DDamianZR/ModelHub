@@ -1,4 +1,5 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { RankingTable } from "@/components/RankingTable";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getAgedSources, getCategoryAges, getDegradedSources, getRanking } from "@/lib/data";
@@ -20,6 +21,7 @@ export default async function HomePage({
   const tp = await getTranslations("panel");
   const tf = await getTranslations("footer");
   const tn = await getTranslations("nav");
+  const messages = await getMessages();
 
   const { rows, meta, sourceCount } = getRanking();
   const degraded = getDegradedSources();
@@ -110,11 +112,19 @@ export default async function HomePage({
 
       <section className="mt-8">
         <h2 className="sr-only">{tn("ranking")}</h2>
-        <RankingTable
-          rows={rows}
-          minCoverage={meta.min_coverage_for_ranking}
-          categoryAges={categoryAges}
-        />
+        {/* Scoped to just what the client component uses (verified via `grep -rn
+            useTranslations components`), instead of the whole locale catalogue the root
+            provider used to forward - methodology alone is 61% of es.json and this page
+            has no use for it. */}
+        <NextIntlClientProvider
+          messages={{ table: messages.table, filters: messages.filters }}
+        >
+          <RankingTable
+            rows={rows}
+            minCoverage={meta.min_coverage_for_ranking}
+            categoryAges={categoryAges}
+          />
+        </NextIntlClientProvider>
       </section>
 
       <footer className="mt-12 border-t rule pt-6">
