@@ -425,6 +425,11 @@ def main() -> int:
     # A cache written before variants were kept holds one row per model instead of a
     # list. Widen it here so a failed fetch degrades to old numbers, not to a crash.
     arena_payload = lmarena.upgrade_payload(arena_payload)
+    if arena_status["state"] == "ok":
+        # Which endpoint answered today - "filter" or "rows-latest". Surfaced so a silent
+        # path change (e.g. HuggingFace repairing /filter) shows up in status.json instead
+        # of only changing behaviour no one is watching for.
+        arena_status["served_by"] = arena_payload.get("served_by")
 
     statuses = {
         "epoch": epoch_status,
@@ -460,24 +465,38 @@ def main() -> int:
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
+        # served_by "filter" still has history_for's full per-model backfill available.
+        # "rows-latest" does not - /rows cannot query by date - so each model gains only
+        # today's point, taken from the same fetch collect() already made.
+        served_by = arena_payload.get("served_by")
+        history_points = arena_payload.get("history_points") or {}
         for model in models:
             name = model.get("arena_name")
             if not name:
                 continue
-            try:
-                for row in lmarena.history_for(name):
-                    incoming_history.append({
-                        "model_id": model["id"],
-                        "benchmark_id": ARENA_BENCHMARK,
-                        "value": round(row["rating"], 1),
-                        "date": row["leaderboard_publish_date"],
-                        "source_type": "human_eval",
-                        # Which published variant this series describes, so a change of
-                        # configuration restarts it instead of splicing two.
-                        "variant": name,
-                    })
-            except SourceError as exc:
-                print(f"  history: skipped {name} ({exc})")
+            if served_by == "filter":
+                try:
+                    points = [
+                        (row["rating"], row["leaderboard_publish_date"])
+                        for row in lmarena.history_for(name)
+                    ]
+                except SourceError as exc:
+                    print(f"  history: skipped {name} ({exc})")
+                    continue
+            else:
+                point = history_points.get(name)
+                points = [(point["rating"], point["date"])] if point else []
+            for rating, day in points:
+                incoming_history.append({
+                    "model_id": model["id"],
+                    "benchmark_id": ARENA_BENCHMARK,
+                    "value": round(rating, 1),
+                    "date": day,
+                    "source_type": "human_eval",
+                    # Which published variant this series describes, so a change of
+                    # configuration restarts it instead of splicing two.
+                    "variant": name,
+                })
 
     recalibrated = flag_recalibration(
         models, score_rows, weights, previous_models, previous_ratings

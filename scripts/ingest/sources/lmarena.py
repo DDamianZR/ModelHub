@@ -3,18 +3,35 @@
 Blind human voting, read through the HuggingFace datasets-server REST API so the ingest
 needs no Python dependencies.
 
-The `full` split is used rather than `latest`: it carries the complete history the
-sparklines need, and it lets the duplication guard below pick which snapshot to trust.
+Two endpoints, tried in order. `/filter` over the `full` split is preferred: it carries
+complete history and lets the duplication guard below walk back through several
+candidate snapshots. But `/filter` has answered 500 to any `where` clause on this
+dataset since at least 2026-08-13 (verified 2026-08-23) - the query string itself is
+fine, the endpoint is broken for this dataset specifically. `/rows` over the `latest`
+split is the fallback: it holds exactly one snapshot (every category, one publish date)
+so there is nothing to walk back through, only the same duplication guard as a backstop.
+If HuggingFace repairs `/filter`, the first path recovers automatically and so does the
+deeper per-model backfill in `history_for`.
 """
 from __future__ import annotations
 
+import time
 import urllib.parse
 
 from ..common import SourceError, fetch_json, norm
 
-ENDPOINT = "https://datasets-server.huggingface.co/filter"
+FILTER_ENDPOINT = "https://datasets-server.huggingface.co/filter"
+ROWS_ENDPOINT = "https://datasets-server.huggingface.co/rows"
 DATASET = "lmarena-ai/leaderboard-dataset"
 ATTRIBUTION = "https://lmarena.ai/leaderboard"
+
+# The server rejects length > 100 for this dataset with a 422.
+ROWS_PAGE = 100
+
+# /rows has no `where` clause, so a `latest`-split fetch pulls every category. Observed
+# 2026-08-23: 10,383 rows for `text`. Capped well above that so a growing dataset doesn't
+# silently truncate; raised again if it ever gets close.
+ROWS_CAP = 20000
 
 # A snapshot with materially more rows than distinct models is duplicated and untrustworthy.
 # Observed 2026-07-27: the 2026-07-20 and 2026-07-21 snapshots sat near 2.9, which would have
@@ -38,7 +55,7 @@ def _query(config: str, where: str, offset: int = 0, length: int = 100) -> dict:
         "dataset": DATASET, "config": config, "split": "full",
         "where": where, "offset": offset, "length": length,
     })
-    return fetch_json(f"{ENDPOINT}?{params}")
+    return fetch_json(f"{FILTER_ENDPOINT}?{params}")
 
 
 def _all(config: str, where: str, cap: int = 2000) -> list[dict]:
@@ -53,6 +70,68 @@ def _all(config: str, where: str, cap: int = 2000) -> list[dict]:
         offset += 100
         if offset >= page["num_rows_total"]:
             break
+    return rows
+
+
+ROWS_RETRIES = 4
+ROWS_RETRY_BASE_SECONDS = 3.0
+
+# Transient - worth a backoff and retry, unlike the /filter 500 (see below).
+_TRANSIENT_STATUSES = ("429", "502", "503", "504")
+
+
+def _fetch_rows_page(url: str) -> dict:
+    """fetch_json, but a transient status gets a short exponential backoff instead of
+    failing the whole snapshot.
+
+    This is unlike the /filter 500: that is the endpoint refusing this dataset outright,
+    where retrying only waits for a non-weather problem to clear (rejected in the audit
+    for that reason). 429/502/503/504 are rate-limiting and gateway hiccups, which is what
+    backoff exists for - observed 2026-08-23 when paginated fetches against this
+    unauthenticated endpoint hit both a 429 and, on a later run, a 502. Anything else
+    still raises immediately.
+    """
+    delay = ROWS_RETRY_BASE_SECONDS
+    for attempt in range(ROWS_RETRIES + 1):
+        try:
+            return fetch_json(url)
+        except SourceError as exc:
+            message = str(exc)
+            transient = any(f"HTTP Error {code}" in message for code in _TRANSIENT_STATUSES)
+            if not transient or attempt == ROWS_RETRIES:
+                raise
+            time.sleep(delay)
+            delay *= 2
+    raise AssertionError("unreachable")  # loop always returns or raises above
+
+
+def _rows_all(config: str, split: str, cap: int = ROWS_CAP) -> list[dict]:
+    """Every row of one config/split via /rows. No `where` clause exists on this
+    endpoint, so the caller filters in Python.
+
+    A full `text/latest` fetch is ~104 requests. Paced with a small delay between pages -
+    an unpaced run tripped this same unauthenticated endpoint's rate limit at request 97
+    during testing (verified 2026-08-23) - and each page retries a 429 with backoff.
+    """
+    rows: list[dict] = []
+    offset = 0
+    total: int | None = None
+    while offset < cap:
+        params = urllib.parse.urlencode({
+            "dataset": DATASET, "config": config, "split": split,
+            "offset": offset, "length": ROWS_PAGE,
+        })
+        page = _fetch_rows_page(f"{ROWS_ENDPOINT}?{params}")
+        if total is None:
+            total = page["num_rows_total"]
+        batch = [item["row"] for item in page["rows"]]
+        if not batch:
+            break
+        rows.extend(batch)
+        offset += ROWS_PAGE
+        if offset >= total:
+            break
+        time.sleep(0.2)
     return rows
 
 
@@ -106,8 +185,12 @@ def collapse_slices(rows: list[dict]) -> list[dict]:
     return list(best.values())
 
 
-def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
-    """Newest snapshot that survives the duplication guard, plus the ones rejected."""
+def _clean_snapshot_via_filter(config: str) -> tuple[list[dict], str, list[dict]]:
+    """Newest snapshot that survives the duplication guard, plus the ones rejected.
+
+    Walks back through the last few published dates over /filter, so it recovers even
+    when the very newest snapshot is duplicated.
+    """
     rejected: list[dict] = []
     for snapshot in _recent_snapshots(config):
         rows = _all(
@@ -142,6 +225,58 @@ def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict]]:
         f"lmarena/{config}: every recent snapshot failed the duplication guard "
         f"({summary or 'no snapshots found'})"
     )
+
+
+def _clean_snapshot_via_latest(config: str) -> tuple[list[dict], str, list[dict]]:
+    """The one snapshot the `latest` split holds, filtered to category='overall'.
+
+    There is only ever one leaderboard_publish_date in this split, so there is no older
+    snapshot to walk back to if this one fails the guard - only the guard itself, kept as
+    a backstop rather than a search.
+    """
+    rows = _rows_all(config, "latest")
+    if not rows:
+        raise SourceError(f"lmarena/{config}: latest split returned no rows")
+
+    overall = [row for row in rows if row["category"] == "overall"]
+    if not overall:
+        raise SourceError(f"lmarena/{config}: latest split has no 'overall' rows")
+
+    snapshot = overall[0]["leaderboard_publish_date"]
+    raw_ratio = len(overall) / len({row["model_name"] for row in overall})
+    collapsed = collapse_slices(overall)
+
+    residual = len(collapsed) / len({row["model_name"] for row in collapsed})
+    if residual > DUPLICATE_RATIO_LIMIT:
+        raise SourceError(
+            f"lmarena/{config}: latest snapshot {snapshot} failed the duplication guard "
+            f"({residual:.2f}x after slice collapse)"
+        )
+    if raw_ratio > DUPLICATE_RATIO_LIMIT:
+        print(f"  lmarena/{config}: collapsed {len(overall)} rows to {len(collapsed)} "
+              f"for {snapshot} ({raw_ratio:.2f}x mislabelled slices filtered)")
+    return collapsed, snapshot, []
+
+
+def _clean_snapshot(config: str) -> tuple[list[dict], str, list[dict], str]:
+    """Newest snapshot that survives the duplication guard, however it had to be reached.
+
+    Returns (rows, snapshot_date, rejected_snapshots, served_by), where served_by is
+    "filter" or "rows-latest" - recorded in status.json so a silent path change is
+    visible rather than assumed.
+    """
+    try:
+        rows, snapshot, rejected = _clean_snapshot_via_filter(config)
+        return rows, snapshot, rejected, "filter"
+    except SourceError as exc:
+        filter_error = str(exc)
+    try:
+        rows, snapshot, rejected = _clean_snapshot_via_latest(config)
+        return rows, snapshot, rejected, "rows-latest"
+    except SourceError as exc:
+        raise SourceError(
+            f"{filter_error}; rows-latest fallback also failed: {exc}"
+        ) from exc
 
 
 def variants_by_key(rows: list[dict]) -> dict[str, list[dict]]:
@@ -190,11 +325,11 @@ def upgrade_payload(payload: dict) -> dict:
 
 
 def collect() -> dict:
-    text_rows, text_snapshot, text_rejected = _clean_snapshot("text")
+    text_rows, text_snapshot, text_rejected, served_by = _clean_snapshot("text")
 
     # Vision is optional: it feeds the separate vision score, never the composite.
     try:
-        vision_rows, vision_snapshot, vision_rejected = _clean_snapshot("vision")
+        vision_rows, vision_snapshot, vision_rejected, _ = _clean_snapshot("vision")
     except SourceError:
         vision_rows, vision_snapshot, vision_rejected = [], None, []
 
@@ -202,8 +337,20 @@ def collect() -> dict:
         "snapshot": text_snapshot,
         "vision_snapshot": vision_snapshot,
         "rejected_snapshots": text_rejected + vision_rejected,
+        "served_by": served_by,
         "text": variants_by_key(text_rows),
         "vision": variants_by_key(vision_rows),
+        # One point per model from this same fetch, so run.py can add today's rating to
+        # the history series when served_by is "rows-latest" and history_for (which needs
+        # /filter) is not available. This cannot backfill - only history_for can - so a
+        # model's series only gains today's point this way.
+        "history_points": {
+            row["model_name"]: {
+                "rating": row["rating"],
+                "date": row["leaderboard_publish_date"],
+            }
+            for row in text_rows
+        },
     }
 
 
