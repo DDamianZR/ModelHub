@@ -9,6 +9,7 @@
     "blurb": "Closed and open-weights models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
   },
   "panel": {
+    "statusHeading": "Data status",
     "updated": "Updated",
     "models": "Models tracked",
     "sources": "Sources",
@@ -28,7 +29,8 @@
     "api": "API only",
     "origin": "Origin",
     "showing": "{count, plural, one {# model} other {# models}} of {total}",
-    "clear": "Clear"
+    "clear": "Clear",
+    "mobileColumnsHidden": "Categories are hidden on small screens. Open a model's page to see them."
   },
   "table": {
     "rank": "#",
@@ -60,7 +62,13 @@
     "errorTitle": "Half-width of a 95% interval on the composite. A floor: {measured} of {total} inputs publish their error and the rest contribute zero, so the real interval can only be wider.",
     "errorUnknownTitle": "None of this model's sources publish their error. The interval is unknown, not zero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Evidence density: {benchmarks, plural, one {# benchmark} other {# benchmarks}} from {sources} of {max} independent sources {benchmarks, plural, one {stands} other {stand}} behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4."
+    "evidenceTitle": "Evidence density: {benchmarks, plural, one {# benchmark} other {# benchmarks}} from {sources} of {max} independent sources {benchmarks, plural, one {stands} other {stand}} behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4.",
+    "rankColumnHint": "A leading equals sign before the rank marks a tie: those models' 95% intervals overlap, so the measurement does not separate them.",
+    "tiedShort": "(tied with {count, plural, one {#} other {#}})",
+    "errorColumnHint": "Half-width of a 95% interval on the composite. A floor: entries with no published error contribute zero, so the real interval can only be wider.",
+    "errorCount": "{measured} of {total} publish their error",
+    "coverageColumnHint": "Evidence density: how many benchmarks and independent sources stand behind the composite. Different from coverage, which measures how many of the five categories were measured.",
+    "evidenceCount": "{benchmarks} benchmarks, {sources} of {max} sources"
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -80,6 +88,7 @@
   },
   "nav": {
     "label": "Sections",
+    "skipToContent": "Skip to content",
     "ranking": "Ranking",
     "compare": "Compare",
     "methodology": "Methodology",

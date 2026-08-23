@@ -46,7 +46,7 @@ export async function SiteHeader({
             href="https://github.com/DDamianZR/ModelHub"
             target="_blank"
             rel="noopener noreferrer"
-            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[3px]"
+            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[5px]"
             style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
             title="GitHub Repository"
             aria-label="GitHub Repository"
@@ -61,7 +61,7 @@ export async function SiteHeader({
             href="https://ddzendreros.github.io/dzendreros"
             target="_blank"
             rel="noopener noreferrer"
-            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[3px]"
+            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[5px]"
             style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
             title="Portfolio"
             aria-label="Portfolio"
@@ -76,7 +76,7 @@ export async function SiteHeader({
             href="https://www.instagram.com/diego_zr.p/"
             target="_blank"
             rel="noopener noreferrer"
-            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[3px]"
+            className="eyebrow row-shift flex items-center gap-1.5 border px-2 py-[5px]"
             style={{ borderColor: "var(--rule)", color: "var(--muted)" }}
             title="Instagram"
             aria-label="Instagram"
@@ -90,7 +90,7 @@ export async function SiteHeader({
           <Link
             href="/"
             locale={other}
-            className="eyebrow row-shift shrink-0 border px-2 py-[3px]"
+            className="eyebrow row-shift shrink-0 border px-2 py-[5px]"
             style={{ borderColor: "var(--rule)" }}
             aria-label={tl("switchAria")}
           >
@@ -109,7 +109,8 @@ export async function SiteHeader({
               color: active === link.key ? "var(--amber)" : "var(--muted)",
               borderBottom:
                 active === link.key ? "1px solid var(--amber)" : "1px solid transparent",
-              paddingBottom: "6px",
+              paddingTop: "3px",
+              paddingBottom: "7px",
               marginBottom: "-9px",
             }}
             aria-current={active === link.key ? "page" : undefined}

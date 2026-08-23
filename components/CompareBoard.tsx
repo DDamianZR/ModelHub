@@ -56,7 +56,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t("search")}
-            className="num border-b bg-transparent px-1 py-[2px] text-[12px] outline-none"
+            className="num border-b bg-transparent px-1 py-1 text-[12px] outline-none"
             style={{ borderColor: "var(--rule)", minWidth: "14rem" }}
           />
           <span className="num text-[11px]" style={{ color: "var(--muted)" }}>

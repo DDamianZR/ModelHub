@@ -71,6 +71,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "nav" });
 
   return (
     <html
@@ -78,6 +79,20 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        {/* First focusable element in the document, invisible until a keyboard user
+            tabs to it - the escape hatch past SiteHeader's logo/links/nav, which
+            otherwise repeats in full before every page's actual content. */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border focus:px-3 focus:py-2 focus:text-[13px]"
+          style={{
+            background: "var(--paper)",
+            borderColor: "var(--amber)",
+            color: "var(--ink)",
+          }}
+        >
+          {t("skipToContent")}
+        </a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

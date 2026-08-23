@@ -49,7 +49,7 @@ export default async function AliasesPage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="aliases" />
 
-      <div className="mt-8 max-w-[46rem]">
+      <div id="main-content" className="mt-8 max-w-[46rem]">
         <h2
           className="text-[30px] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
@@ -115,7 +115,7 @@ export default async function AliasesPage({
                   <th scope="row" className="py-2 pr-3 text-[13px] font-normal">
                     <a
                       href={`/${locale}/model/${entry.id}`}
-                      className="underline-offset-2 hover:underline"
+                      className="inline-block py-[5px] underline-offset-2 hover:underline"
                     >
                       {entry.display_name}
                     </a>

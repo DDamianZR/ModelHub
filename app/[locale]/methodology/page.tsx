@@ -68,7 +68,7 @@ export default async function MethodologyPage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="methodology" />
 
-      <div className="mt-8 max-w-[46rem]">
+      <div id="main-content" className="mt-8 max-w-[46rem]">
         <h2
           className="text-[30px] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
@@ -343,7 +343,7 @@ export default async function MethodologyPage({
           <p className="mt-1">
             <a
               href="https://github.com/DDamianZR/ModelHub"
-              className="eyebrow underline underline-offset-2"
+              className="eyebrow inline-block py-[6px] underline underline-offset-2"
               style={{ color: "var(--amber)" }}
             >
               {t("reproduce.link")}

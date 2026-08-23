@@ -85,13 +85,12 @@ export function RankingTable({
     <button
       type="button"
       onClick={() => setSort(key)}
-      className="eyebrow row-shift w-full"
+      className="eyebrow row-shift w-full py-1.5"
       style={{
         textAlign: align,
         color: sort === key ? "var(--amber)" : "var(--muted)",
       }}
       aria-label={t("sortBy", { column: label })}
-      aria-pressed={sort === key}
     >
       {label}
     </button>
@@ -116,14 +115,14 @@ export function RankingTable({
         >
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
           {row.tied_with > 0 && (
-            <span className="sr-only"> {t("tiedTitle", { count: row.tied_with })}</span>
+            <span className="sr-only"> {t("tiedShort", { count: row.tied_with })}</span>
           )}
         </td>
         <td className="py-2 pr-4">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <Link
               href={`/model/${row.id}`}
-              className="row-shift text-[14px] underline-offset-2 hover:underline"
+              className="row-shift inline-block py-[2px] text-[14px] underline-offset-2 hover:underline"
             >
               {row.display_name}
             </Link>
@@ -167,12 +166,10 @@ export function RankingTable({
               : `±${row.composite_error.toFixed(2)}`}
             <span className="sr-only">
               {" "}
-              {row.composite_error === null
-                ? t("errorUnknownTitle")
-                : t("errorTitle", {
-                    measured: row.uncertainty.measured_inputs,
-                    total: row.uncertainty.total_inputs,
-                  })}
+              {t("errorCount", {
+                measured: row.uncertainty.measured_inputs,
+                total: row.uncertainty.total_inputs,
+              })}
             </span>
           </span>
         </td>
@@ -196,7 +193,7 @@ export function RankingTable({
             {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
             <span className="sr-only">
               {" "}
-              {t("evidenceTitle", {
+              {t("evidenceCount", {
                 benchmarks: row.evidence.benchmarks,
                 sources: row.evidence.sources,
                 max: row.evidence.max_sources,
@@ -209,7 +206,7 @@ export function RankingTable({
           return (
             <td
               key={category}
-              className="num py-2 pr-3 text-right text-[12px]"
+              className="num hidden py-2 pr-3 text-right text-[12px] sm:table-cell"
               style={{ color: value === undefined ? "var(--muted)" : "inherit" }}
             >
               {value === undefined ? (
@@ -250,7 +247,7 @@ export function RankingTable({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={tf("search")}
-            className="num border-b bg-transparent px-1 py-[2px] text-[12px] outline-none"
+            className="num border-b bg-transparent px-1 py-1 text-[12px] outline-none"
             style={{ borderColor: "var(--rule)", minWidth: "13rem" }}
           />
         </label>
@@ -296,32 +293,61 @@ export function RankingTable({
           ))}
         </div>
 
-        <span className="num ml-auto text-[11px]" style={{ color: "var(--muted)" }}>
+        <span
+          className="num ml-auto text-[11px]"
+          style={{ color: "var(--muted)" }}
+          role="status"
+          aria-live="polite"
+        >
           {tf("showing", { count: visible.length, total: rows.length })}
         </span>
       </div>
 
+      {/* The five category columns are hidden below sm (see the "hidden sm:table-cell"
+          cells below) to cut how much of the table sits off-screen on a phone. They stay
+          reachable - every model name links to its own page, where all five are shown -
+          but that isn't obvious from the table alone, so it's said here. */}
+      <p className="mt-2 text-[12px] sm:hidden" style={{ color: "var(--muted)" }}>
+        {tf("mobileColumnsHidden")}
+      </p>
+
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left" style={{ minWidth: "62rem" }}>
+        <table className="w-full min-w-[28rem] border-collapse text-left sm:min-w-[62rem]">
           <caption className="sr-only">{t("composite")}</caption>
           <thead>
             <tr className="border-b rule">
               <th scope="col" className="w-10 py-2 pr-2 align-bottom">
                 <span className="eyebrow">{t("rank")}</span>
+                <span className="sr-only"> {t("rankColumnHint")}</span>
               </th>
-              <th scope="col" className="py-2 pr-4 align-bottom">
+              <th
+                scope="col"
+                className="py-2 pr-4 align-bottom"
+                aria-sort={sort === "rank" ? "descending" : "none"}
+              >
                 {headerButton("rank", t("model"), "left")}
               </th>
-              <th scope="col" className="w-24 py-2 pr-3 align-bottom">
+              <th
+                scope="col"
+                className="w-24 py-2 pr-3 align-bottom"
+                aria-sort={sort === "composite" ? "descending" : "none"}
+              >
                 {headerButton("composite", t("composite"), "right")}
+                <span className="sr-only"> {t("errorColumnHint")}</span>
               </th>
               <th scope="col" className="w-20 py-2 pr-4 align-bottom">
                 <span className="eyebrow block text-right">{t("coverage")}</span>
+                <span className="sr-only"> {t("coverageColumnHint")}</span>
               </th>
               {CATEGORIES.map((category) => {
                 const aged = categoryAges[category];
                 return (
-                  <th key={category} scope="col" className="w-20 py-2 pr-3 align-bottom">
+                  <th
+                    key={category}
+                    scope="col"
+                    className="hidden w-20 py-2 pr-3 align-bottom sm:table-cell"
+                    aria-sort={sort === category ? "descending" : "none"}
+                  >
                     {aged?.age_days != null && (
                       <span
                         className="eyebrow block text-right"

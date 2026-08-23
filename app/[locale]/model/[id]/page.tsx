@@ -48,7 +48,7 @@ export default async function ModelPage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
 
-      <article className="mt-8 max-w-[52rem]">
+      <article id="main-content" className="mt-8 max-w-[52rem]">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h2
             className="text-[32px] leading-tight"
@@ -334,7 +334,7 @@ export default async function ModelPage({
                         href={score.source_url}
                         rel="noopener noreferrer"
                         target="_blank"
-                        className="underline underline-offset-2"
+                        className="inline-block py-[6px] underline underline-offset-2"
                         style={{ color: "var(--amber)" }}
                       >
                         {score.benchmark?.source ?? t("link")}
@@ -359,7 +359,7 @@ export default async function ModelPage({
                       href={link.url}
                       rel="noopener noreferrer"
                       target="_blank"
-                      className="underline underline-offset-2"
+                      className="inline-block py-[5px] underline underline-offset-2"
                       style={{ color: "var(--amber)" }}
                     >
                       {link.url.replace(/^https?:\/\//, "")}

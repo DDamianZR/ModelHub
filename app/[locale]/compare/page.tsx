@@ -23,7 +23,7 @@ export default async function ComparePage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="compare" />
 
-      <section className="mt-8">
+      <section id="main-content" className="mt-8">
         <h2
           className="text-[26px] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}

@@ -9,6 +9,7 @@
     "blurb": "Modelos cerrados y de pesos abiertos en la misma cancha. Los números vienen de evaluaciones de terceros y de votación humana; lo que dice el proveedor nunca cuenta para el score."
   },
   "panel": {
+    "statusHeading": "Estado de los datos",
     "updated": "Actualizado",
     "models": "Modelos rastreados",
     "sources": "Fuentes",
@@ -28,7 +29,8 @@
     "api": "Solo API",
     "origin": "Origen",
     "showing": "{count, plural, one {# modelo} other {# modelos}} de {total}",
-    "clear": "Limpiar"
+    "clear": "Limpiar",
+    "mobileColumnsHidden": "Las categorías se ocultan en pantallas pequeñas. Abre la ficha de un modelo para verlas."
   },
   "table": {
     "rank": "#",
@@ -60,7 +62,13 @@
     "errorTitle": "Semiancho del intervalo al 95 % sobre el compuesto. Es un piso: {measured} de {total} entradas publican su error, las demás aportan cero, así que el intervalo real solo puede ser más ancho.",
     "errorUnknownTitle": "Ninguna de las fuentes de este modelo publica su error. El intervalo se desconoce; no es cero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Densidad de evidencia: {benchmarks, plural, one {# benchmark} other {# benchmarks}} de {sources} de {max} fuentes independientes {benchmarks, plural, one {sostiene} other {sostienen}} este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4."
+    "evidenceTitle": "Densidad de evidencia: {benchmarks, plural, one {# benchmark} other {# benchmarks}} de {sources} de {max} fuentes independientes {benchmarks, plural, one {sostiene} other {sostienen}} este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4.",
+    "rankColumnHint": "Un signo igual antes del número marca un empate: los intervalos al 95 % de esos modelos se solapan, así que la medición no los separa.",
+    "tiedShort": "(empate con {count, plural, one {#} other {#}})",
+    "errorColumnHint": "Semiancho de un intervalo al 95 % sobre el compuesto. Es un piso: las entradas sin error publicado aportan cero, así que el intervalo real solo puede ser más ancho.",
+    "errorCount": "{measured} de {total} con error publicado",
+    "coverageColumnHint": "Densidad de evidencia: cuántos benchmarks y cuántas fuentes independientes sostienen el compuesto. Distinto de la cobertura, que mide cuántas de las cinco categorías se midieron.",
+    "evidenceCount": "{benchmarks} benchmarks, {sources} de {max} fuentes"
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -80,6 +88,7 @@
   },
   "nav": {
     "label": "Secciones",
+    "skipToContent": "Saltar al contenido",
     "ranking": "Ranking",
     "compare": "Comparar",
     "methodology": "Metodología",
