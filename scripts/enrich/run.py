@@ -9,6 +9,7 @@ Usage:
     python -m scripts.enrich.run --limit 5       # stop after five models
     python -m scripts.enrich.run --only <id>     # a single model
     python -m scripts.enrich.run --force         # regenerate, still skipping manual edits
+    python -m scripts.enrich.run --restale       # regenerate only entries checks.contradicts_data flags
     python -m scripts.enrich.run --links-only    # acquisition links, no model calls
 """
 from __future__ import annotations
@@ -21,6 +22,7 @@ from datetime import date
 from pathlib import Path
 
 from . import acquisition
+from .checks import contradicts_data
 from .describe import describe
 from .ollama import OllamaError, pick_model
 
@@ -63,6 +65,9 @@ def main() -> int:
     parser.add_argument("--only", type=str, default="")
     parser.add_argument("--force", action="store_true",
                         help="regenerate even when a description exists")
+    parser.add_argument("--restale", action="store_true",
+                        help="regenerate only entries checks.contradicts_data flags "
+                             "against today's scores; ignores --force")
     parser.add_argument("--links-only", action="store_true",
                         help="rebuild acquisition links without calling the model")
     args = parser.parse_args()
@@ -124,7 +129,14 @@ def main() -> int:
         if args.links_only:
             continue
 
-        if existing and not args.force:
+        if args.restale:
+            stale = existing and contradicts_data(
+                existing.get("es", ""), existing.get("en", ""), model
+            )
+            if not stale:
+                skipped += 1
+                continue
+        elif existing and not args.force:
             skipped += 1
             continue
 

@@ -92,6 +92,166 @@ def category_labels(locale: str) -> dict[str, str]:
     }
 
 
+def profile(model: dict, locale: str) -> tuple[str, str, str]:
+    """Return (strengths, weaknesses, measured list) using canonical category names.
+
+    Lives here rather than in describe.py so contradicts_data() below can recompute
+    today's profile with the exact function the generator was fed, instead of a second
+    implementation that could quietly drift from it.
+    """
+    labels = category_labels(locale)
+    scores = {k: v for k, v in (model.get("category_scores") or {}).items() if v is not None}
+    measured = ", ".join(labels.get(k, k) for k in scores)
+
+    if not scores:
+        return "", "", measured
+
+    ordered = sorted(scores.items(), key=lambda item: item[1], reverse=True)
+    # Strengths and weaknesses must not overlap. A naive top-2 / bottom-2 split returns the
+    # same category twice when there are three or fewer, and the model then writes that it
+    # is both good and bad at it. That happened 24 times in one pass.
+    half = max(1, min(2, len(ordered) // 2))
+    top = ordered[:half]
+    bottom = [item for item in ordered[len(ordered) - half:] if item not in top]
+
+    strengths = ", ".join(labels.get(k, k) for k, _ in top)
+    weaknesses = ", ".join(labels.get(k, k) for k, _ in reversed(bottom))
+    return strengths, weaknesses, measured
+
+
+# Stems, not full phrases: describe.py's prompt asks for "relatively stronger in X", but
+# the model doesn't always comply verbatim - "destaca relativamente en X" was observed in
+# the committed corpus, which a marker ending in "en"/"in" would miss entirely because
+# "relativamente" sits between the verb and the preposition. A category name found after
+# one of these, before the next marker or the sentence's end, is what the text claims
+# about that category. Blunt on purpose: a paraphrase using none of these slips through.
+_STRONG_MARKERS = (
+    "más fuerte", "destaca", "relativamente mejor", "sobresale", "ventaja relativa",
+    "relatively stronger", "excels", "stronger in", "better in",
+)
+_WEAK_MARKERS = (
+    "algo por debajo", "por debajo", "relativamente peor", "muestra debilidad",
+    "más débil", "desventaja relativa",
+    "relatively lower", "shows weakness", "weaker in", "worse in", "somewhat lower",
+)
+# The prompt explicitly asks for "sin datos en X" / "no data for X" and explicitly asks
+# the model NOT to write "no se midió X" / "X was not measured" - and the model writes
+# the forbidden form anyway often enough that both are covered here.
+_NO_DATA_MARKERS = (
+    "sin datos en", "no hay datos en", "no se midió", "no se midieron",
+    "no data for", "no data on", "not measured",
+)
+
+_STRONG_WEAK_MARKERS = (
+    [(m, "strong") for m in _STRONG_MARKERS] + [(m, "weak") for m in _WEAK_MARKERS]
+)
+
+
+def _claims(text: str, labels: dict[str, str]) -> dict[str, set[str]]:
+    """Category keys the text claims as strong/weak/no_data.
+
+    Processed one sentence at a time, so a marker's clause never bleeds into a later,
+    unrelated sentence - the bug that first version of this had: "...somewhat lower in
+    Math. Instructions were not measured." attributed "Instructions" to the "lower"
+    marker in the PREVIOUS sentence, because nothing stopped that marker's clause at the
+    period. Within one sentence, a marker's clause runs from right after it to right
+    before the next marker (or the sentence's end), which is what lets one marker govern
+    a conjunction like "stronger in Reasoning and Coding".
+
+    A no-data marker claims every category named anywhere in its clause rather than just
+    what follows it, since the model's own "X were not measured" phrasing puts the
+    category BEFORE the marker - and a clause built entirely around one no-data marker
+    doesn't also carry a strong/weak claim to disentangle it from. Split on ";" as well as
+    sentence endings: the provisional-model shape is one sentence with the measured list
+    and the unmeasured list on either side of a semicolon ("Medido en X, Y; sin datos en
+    Z"), and without that split every category in the measured half reads as unmeasured.
+    """
+    claims: dict[str, set[str]] = {"strong": set(), "weak": set(), "no_data": set()}
+    sentences = [s for s in re.split(r"(?<=[.!?;])\s+", text.strip()) if s.strip()]
+
+    for sentence in sentences:
+        lowered = sentence.lower()
+
+        if any(marker in lowered for marker in _NO_DATA_MARKERS):
+            for key, label in labels.items():
+                if re.search(re.escape(label.lower()), lowered):
+                    claims["no_data"].add(key)
+            continue
+
+        hits: list[tuple[int, int, str]] = []
+        for marker, polarity in _STRONG_WEAK_MARKERS:
+            start = 0
+            while True:
+                idx = lowered.find(marker, start)
+                if idx == -1:
+                    break
+                hits.append((idx, idx + len(marker), polarity))
+                start = idx + 1
+        hits.sort()
+
+        for i, (_, m_end, polarity) in enumerate(hits):
+            segment_end = hits[i + 1][0] if i + 1 < len(hits) else len(lowered)
+            segment = lowered[m_end:segment_end]
+            for key, label in labels.items():
+                if re.search(re.escape(label.lower()), segment):
+                    claims[polarity].add(key)
+
+    return claims
+
+
+def contradicts_data(es: str, en: str, model: dict) -> list[str]:
+    """Where the text asserts a strength, weakness or "not measured" that today's scores
+    no longer support.
+
+    Recomputes today's profile with profile() above - the exact function the generator
+    was fed - so "today" means the same thing it meant when the text was written; only
+    the scores underneath may have moved since.
+
+    The no-data claim is checked at any coverage, since a stale "not measured" is wrong
+    regardless. Strong/weak claims are only checked when the model is ranked today
+    (coverage >= MIN_COVERAGE_FOR_COMPARISON): below that, checks._COMPARATIVE above
+    already rejects any comparison outright, so re-checking it here would be redundant,
+    not stricter.
+    """
+    problems: list[str] = []
+    scores = {k: v for k, v in (model.get("category_scores") or {}).items() if v is not None}
+    coverage = int((model.get("coverage") or {}).get("covered", 0))
+    measured_keys = set(scores)
+
+    for locale, text in (("es", es), ("en", en)):
+        if not text:
+            continue
+        labels = category_labels(locale)
+        claims = _claims(text, labels)
+
+        for key in claims["no_data"]:
+            if key in measured_keys:
+                problems.append(
+                    f"{locale}: claims no data for {labels.get(key, key)!r}, which is "
+                    f"measured today"
+                )
+
+        if coverage < MIN_COVERAGE_FOR_COMPARISON:
+            continue
+
+        strengths, weaknesses, _ = profile(model, locale)
+        strong_today = set(strengths.split(", ")) if strengths else set()
+        weak_today = set(weaknesses.split(", ")) if weaknesses else set()
+
+        for key in claims["strong"]:
+            label = labels.get(key, key)
+            if label not in strong_today:
+                where = "a weakness" if label in weak_today else "not among its strengths"
+                problems.append(f"{locale}: claims strength in {label!r}, today {where}")
+        for key in claims["weak"]:
+            label = labels.get(key, key)
+            if label not in weak_today:
+                where = "a strength" if label in strong_today else "not among its weaknesses"
+                problems.append(f"{locale}: claims weakness in {label!r}, today {where}")
+
+    return problems
+
+
 def _one_language(text: str, locale: str, display_name: str, coverage: int) -> list[str]:
     problems: list[str] = []
     if not text or not text.strip():
@@ -184,5 +344,7 @@ def problems(es: str, en: str, model: dict) -> list[str]:
         found.append("claims API-only for an open-weights model")
     if not is_open and (es_open or en_open):
         found.append("claims open weights for an API-only model")
+
+    found += contradicts_data(es, en, model)
 
     return found

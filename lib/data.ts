@@ -126,7 +126,10 @@ export type Benchmark = {
 };
 
 /** Layer B fills this in. Until then it is legitimately empty. */
-type Descriptions = Record<string, { es?: string; en?: string }>;
+type Descriptions = Record<
+  string,
+  { es?: string; en?: string; generated_at?: string; generated_by?: string; manual?: boolean }
+>;
 
 export function getDescriptions(): Descriptions {
   const file = path.join(DATA_DIR, "i18n", "descriptions.json");
@@ -189,7 +192,9 @@ export function getModelDetail(id: string): {
   model: Row;
   scores: (ScoreRow & { benchmark: Benchmark | null })[];
   history: { date: string; value: number }[];
-  description: { es?: string; en?: string } | null;
+  description:
+    | { es?: string; en?: string; generated_at?: string; generated_by?: string; manual?: boolean }
+    | null;
 } | null {
   const { rows } = getRanking();
   const model = rows.find((row) => row.id === id);

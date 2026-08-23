@@ -10,6 +10,7 @@ from .checks import (
     MIN_COVERAGE_FOR_COMPARISON,
     category_labels,
     problems,
+    profile,
 )
 from .ollama import generate_json
 
@@ -86,35 +87,13 @@ _PROVISIONAL_THIRD = """3. One sentence: state plainly WHICH categories have bee
 """
 
 
-def _profile(model: dict, locale: str) -> tuple[str, str, str]:
-    """Return (strengths, weaknesses, measured list) using canonical category names."""
-    labels = category_labels(locale)
-    scores = {k: v for k, v in (model.get("category_scores") or {}).items() if v is not None}
-    measured = ", ".join(labels.get(k, k) for k in scores)
-
-    if not scores:
-        return "", "", measured
-
-    ordered = sorted(scores.items(), key=lambda item: item[1], reverse=True)
-    # Strengths and weaknesses must not overlap. A naive top-2 / bottom-2 split returns the
-    # same category twice when there are three or fewer, and the model then writes that it
-    # is both good and bad at it. That happened 24 times in one pass.
-    half = max(1, min(2, len(ordered) // 2))
-    top = ordered[:half]
-    bottom = [item for item in ordered[len(ordered) - half:] if item not in top]
-
-    strengths = ", ".join(labels.get(k, k) for k, _ in top)
-    weaknesses = ", ".join(labels.get(k, k) for k, _ in reversed(bottom))
-    return strengths, weaknesses, measured
-
-
 def _coverage_facts(model: dict) -> str:
     labels_es, labels_en = category_labels("es"), category_labels("en")
     missing = model.get("coverage", {}).get("missing") or []
     ranked = int(model.get("coverage", {}).get("covered", 0)) >= MIN_COVERAGE_FOR_COMPARISON
 
-    s_es, w_es, m_es = _profile(model, "es")
-    s_en, w_en, m_en = _profile(model, "en")
+    s_es, w_es, m_es = profile(model, "es")
+    s_en, w_en, m_en = profile(model, "en")
 
     lines = [
         f"- Categories measured, Spanish names: {m_es}",

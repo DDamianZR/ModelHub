@@ -155,7 +155,21 @@ export default async function ModelPage({
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("description")}</h3>
           {text ? (
-            <p className="text-[15px] leading-[1.65]">{text}</p>
+            <>
+              <p className="text-[15px] leading-[1.65]">{text}</p>
+              {description?.manual ? (
+                <p className="num mt-2 text-[11px]" style={muted}>
+                  {t("descriptionManual")}
+                </p>
+              ) : description?.generated_at ? (
+                <p className="num mt-2 text-[11px]" style={muted}>
+                  {t("descriptionGenerated", {
+                    date: description.generated_at,
+                    model: description.generated_by ?? "?",
+                  })}
+                </p>
+              ) : null}
+            </>
           ) : (
             <p
               className="border-l-2 py-1 pl-3 text-[13px]"

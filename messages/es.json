@@ -99,6 +99,8 @@
   "model": {
     "description": "Descripción",
     "descriptionPending": "Descripción pendiente. Las descripciones editoriales las genera la Capa B con un modelo local y las aprueba una persona antes de publicarse; todavía no se ha corrido para este modelo.",
+    "descriptionGenerated": "Generado el {date} con {model}",
+    "descriptionManual": "Editado a mano",
     "categories": "Puntaje por categoría",
     "partialNote": "Compuesto parcial: no hay medición para {missing}. El peso se reparte solo entre las categorías disponibles y el modelo queda marcado, nunca se rellena con ceros.",
     "history": "Trayectoria",
