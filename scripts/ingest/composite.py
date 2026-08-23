@@ -262,6 +262,49 @@ def minmax(values: list[float]) -> tuple[float, float]:
     return (low, high) if high > low else (low, low + 1.0)
 
 
+def assign_significance_ranks(models: list[dict]) -> None:
+    """Set `rank` and `tied_with` on every model, in place.
+
+    Ranked and provisional are ordered independently; only the ranked set gets numbers,
+    so a thinly measured model can never occupy a top-N slot.
+
+    The number itself is a significance rank, not a position in a sorted list: a model
+    sits at one plus the count of models measurably ahead of it, so anything the
+    measurement cannot separate shares a rank. Ordinal ranking was making a promise the
+    data does not support - the median gap between neighbours was 0.43 composite points
+    against a median Epoch stderr of 1.51 to 2.59, and two pairs sat at exactly 0.00 and
+    still received different numbers.
+
+    Overlap is not transitive, which is why this counts strictly-better models instead
+    of grouping runs of neighbours: A can overlap B and B overlap C while A and C are
+    cleanly separated, and a chain rule would merge all three.
+
+    A model whose inputs published no uncertainty is compared as a point value. That is
+    zero-filling, and it is the one place here that does it, so it is flagged per model
+    rather than hidden: `composite_error` is null and the page says the precision was
+    never measured. The alternative - refusing to separate it from anyone - reads worse,
+    because it would lift a model 5 points behind the leader into a tie for first on the
+    strength of knowing less about it.
+    """
+    ranked = [m for m in models if not m["provisional"]]
+    for model in models:
+        if model["provisional"]:
+            model["rank"] = None
+            model["tied_with"] = 0
+            continue
+        floor = model["composite"] + (model["composite_error"] or 0.0)
+        model["rank"] = 1 + sum(
+            1 for other in ranked
+            if other is not model
+            and other["composite"] - (other["composite_error"] or 0.0) > floor
+        )
+    shared: dict[int, int] = {}
+    for model in ranked:
+        shared[model["rank"]] = shared.get(model["rank"], 0) + 1
+    for model in ranked:
+        model["tied_with"] = shared[model["rank"]] - 1
+
+
 def build_models(
     registry: dict,
     epoch_scores: dict,
@@ -575,44 +618,8 @@ def build_models(
             "matched": {source: sorted(names) for source, names in matched.items()},
         }
 
-    # Ranked and provisional are ordered independently; only the ranked set gets numbers,
-    # so a thinly measured model can never occupy a top-N slot.
-    #
-    # The number itself is a significance rank, not a position in a sorted list: a model
-    # sits at one plus the count of models measurably ahead of it, so anything the
-    # measurement cannot separate shares a rank. Ordinal ranking was making a promise the
-    # data does not support - the median gap between neighbours was 0.43 composite points
-    # against a median Epoch stderr of 1.51 to 2.59, and two pairs sat at exactly 0.00 and
-    # still received different numbers.
-    #
-    # Overlap is not transitive, which is why this counts strictly-better models instead
-    # of grouping runs of neighbours: A can overlap B and B overlap C while A and C are
-    # cleanly separated, and a chain rule would merge all three.
-    #
-    # A model whose inputs published no uncertainty is compared as a point value. That is
-    # zero-filling, and it is the one place here that does it, so it is flagged per model
-    # rather than hidden: `composite_error` is null and the page says the precision was
-    # never measured. The alternative - refusing to separate it from anyone - reads worse,
-    # because it would lift a model 5 points behind the leader into a tie for first on the
-    # strength of knowing less about it.
     models.sort(key=lambda m: m["composite"], reverse=True)
-    ranked = [m for m in models if not m["provisional"]]
-    for model in models:
-        if model["provisional"]:
-            model["rank"] = None
-            model["tied_with"] = 0
-            continue
-        floor = model["composite"] + (model["composite_error"] or 0.0)
-        model["rank"] = 1 + sum(
-            1 for other in ranked
-            if other is not model
-            and other["composite"] - (other["composite_error"] or 0.0) > floor
-        )
-    shared: dict[int, int] = {}
-    for model in ranked:
-        shared[model["rank"]] = shared.get(model["rank"], 0) + 1
-    for model in ranked:
-        model["tied_with"] = shared[model["rank"]] - 1
+    assign_significance_ranks(models)
 
     # Ordered by rank, then by score inside a rank. Sorting by score alone would print a
     # rank column that runs 13, 17, 16 downward and read as a bug: a significance rank is
