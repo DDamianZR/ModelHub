@@ -50,3 +50,10 @@ jobs:
           git add data
           git commit -m "chore(data): daily ingest $(date -u +%Y-%m-%d)"
           git push
+
+      # Runs after the commit on purpose: the site must update with today's data even
+      # when a source is degraded. This step only turns a repeated failure into a red,
+      # emailed workflow run - it never blocks the data from shipping.
+      - name: Fail on a source stuck for 3+ runs
+        if: always()
+        run: python scripts/ingest/fail_stale.py

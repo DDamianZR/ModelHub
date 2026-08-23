@@ -235,6 +235,21 @@ RECALIBRATION_RAW_STILL = 0.5
 MIN_RECALIBRATION_EFFECT = 0.05    # composite points, floor for a degenerate cohort
 
 
+def previous_statuses() -> dict[str, dict]:
+    """Last build's per-source status, read before status.json is overwritten.
+
+    A source that fetches perfectly once and fails once looks the same as one that has
+    failed every day for a month, unless something keeps count.
+    """
+    path = DATA / "status.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8")).get("sources", {})
+    except json.JSONDecodeError:
+        return {}
+
+
 def previous_build() -> tuple[dict[str, dict], dict[str, float]]:
     """Last build's models and raw Arena ratings, read before /data is overwritten."""
     models_path, scores_path = DATA / "models.json", DATA / "scores.json"
@@ -436,6 +451,10 @@ def main() -> int:
         "livebench": livebench_status,
         "lmarena": arena_status,
     }
+    prev_statuses = previous_statuses()
+    for name, status in statuses.items():
+        prev_failures = prev_statuses.get(name, {}).get("consecutive_failures", 0)
+        status["consecutive_failures"] = 0 if status["state"] == "ok" else prev_failures + 1
 
     registry = epoch_payload.get("registry") or {}
     if not registry:
