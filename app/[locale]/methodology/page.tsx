@@ -332,6 +332,20 @@ export default async function MethodologyPage({
           <p style={muted}>{t("sourceTypes.why")}</p>
         </Section>
 
+        <Section id="contamination" title={t("contamination.title")}>
+          <p style={muted}>{t("contamination.body")}</p>
+          <p className="num text-[12px]" style={muted}>
+            {meta.contamination_reviewed_at
+              ? stats.contaminatedBenchmarks > 0
+                ? t("contamination.count", {
+                    date: meta.contamination_reviewed_at,
+                    count: stats.contaminatedBenchmarks,
+                  })
+                : t("contamination.empty", { date: meta.contamination_reviewed_at })
+              : null}
+          </p>
+        </Section>
+
         <Section id="breaks" title={t("breaks.title")}>
           <p style={muted}>{t("breaks.body")}</p>
           <ul className="flex flex-col gap-1 pl-4" style={muted}>

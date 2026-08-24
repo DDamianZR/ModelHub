@@ -35,7 +35,10 @@ ModelHub is built for students who want numbers rather than hype.
 It is enforced in the schema and the pipeline, not in a disclaimer.
 
 - Every score is tagged `human_eval`, `third_party_benchmark`, or `vendor_claim`. **Only the
-  first two feed the composite.**
+  first two feed the composite.** The three sources currently ingested — Epoch AI,
+  LiveBench, LMArena — are all third-party or human-eval; nothing here has ingested a
+  vendor's own claim yet, so `vendor_claim` is schema support waiting for a source, not a
+  populated category today.
 - Nothing is shown without `measured_at`. No number floats free of a date.
 - Models missing a category are marked partial and scored on the weight actually available,
   never zero-filled. The table shows a five-segment coverage meter next to each score, so a

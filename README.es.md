@@ -37,7 +37,10 @@ ModelHub está hecho para estudiantes que quieren números, no hype.
 Está aplicado en el esquema y en el pipeline, no en un disclaimer.
 
 - Cada score lleva etiqueta `human_eval`, `third_party_benchmark` o `vendor_claim`. **Solo
-  los dos primeros alimentan el compuesto.**
+  los dos primeros alimentan el compuesto.** Las tres fuentes que se ingieren hoy — Epoch
+  AI, LiveBench, LMArena — son todas de terceros o de voto humano; ninguna aporta la
+  cifra propia de un proveedor todavía, así que `vendor_claim` es soporte en el esquema
+  a la espera de una fuente, no una categoría con datos hoy.
 - Nada se muestra sin `measured_at`. Ningún número flota sin fecha.
 - A los modelos que no tienen dato en una categoría se les marca como parciales y se les
   puntúa sobre el peso realmente disponible, nunca rellenando con ceros. La tabla muestra un

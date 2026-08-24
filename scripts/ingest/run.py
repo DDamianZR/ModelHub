@@ -28,7 +28,7 @@ from .common import (
     write_cache,
     write_json,
 )
-from .composite import ARENA_BENCHMARK, build_models, load_weights
+from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .sources import epoch, livebench, lmarena
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -552,6 +552,7 @@ def main() -> int:
         # remembered one - a scope decision that used to live only as a bare constant in
         # epoch.py, invisible to anyone who didn't read that file.
         "min_release_date": epoch.min_release_date(),
+        "contamination_reviewed_at": contamination_reviewed_at(),
         "snapshots": {
             "epoch": epoch_status.get("last_success"),
             "livebench": livebench_payload.get("snapshot"),

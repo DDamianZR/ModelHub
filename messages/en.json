@@ -140,7 +140,9 @@
     "uncertaintyNone": "None of this model's sources publish a margin of error, so its composite carries no interval. That means \"unknown\", not \"exact\": its place in the table is the least defensible of any, because it is compared as a point value.",
     "uncertaintyTied": "It shares a rank with {count, plural, one {# other model} other {# other models}} because their intervals overlap.",
     "recalibration": "Cohort recalibration, not a change in measurement. Its normalised human preference value moved {normalized} points while its Arena rating changed only {raw}: a model with an extreme rating joined or left and the scale shifted underneath. The effect on the composite is {composite} points — above {threshold}, this run's median gap between neighbours — and nobody voted differently to cause it.",
-    "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}"
+    "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}",
+    "contaminationFlag": "Contamination reported ({date}): {note}",
+    "contaminationLink": "see evidence"
   },
   "methodology": {
     "title": "Methodology",
@@ -200,6 +202,12 @@
       "third_party_benchmark": "an evaluation run by an independent third party, such as Epoch AI or LiveBench. Enters the composite.",
       "vendor_claim": "a figure published by whoever sells the model. Stored and displayed, but NEVER entered into the composite.",
       "why": "A vendor has a direct incentive to pick the setup that flatters it, and there is no way to audit a run it never published. The exclusion is therefore structural rather than a case-by-case judgement: it doesn't depend on whether we happen to trust a given company."
+    },
+    "contamination": {
+      "title": "Training contamination",
+      "body": "A contaminated benchmark is one whose questions or answers show up in the data a model was trained on, inflating the score without measuring real capability. This site never attenuates a score for suspected contamination - doing so would be fabricating a number from an estimate. What it does instead is log public evidence, with its link, next to the affected score, in config/contamination.json.",
+      "empty": "Reviewed on {date}. No benchmark has logged evidence yet. That is a checkable claim about what has been logged as of today, not a promise that no benchmark here has ever been contaminated.",
+      "count": "Reviewed on {date}. {count, plural, one {# benchmark has} other {# benchmarks have}} public evidence on record, flagged on every affected model's page next to the source link."
     },
     "breaks": {
       "title": "LMArena's methodology breaks",

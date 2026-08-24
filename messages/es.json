@@ -140,7 +140,9 @@
     "uncertaintyNone": "Ninguna de las fuentes de este modelo publica su margen de error, así que su compuesto no lleva intervalo. Eso es «se desconoce», no «es exacto»: su posición en la tabla es la menos defendible de todas, porque se compara como si fuera un valor puntual.",
     "uncertaintyTied": "Comparte rango con {count, plural, one {otro # modelo} other {otros # modelos}} porque sus intervalos se solapan.",
     "recalibration": "Recalibración de cohorte, no cambio de medición. Su valor normalizado de preferencia humana se movió {normalized} puntos mientras su rating de Arena solo cambió {raw}: entró o salió un modelo con rating extremo y la escala se reajustó debajo. El efecto sobre el compuesto es de {composite} puntos —por encima de {threshold}, la separación mediana entre vecinos de esta corrida— y no lo causó nadie votando distinto.",
-    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}"
+    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}",
+    "contaminationFlag": "Contaminación reportada ({date}): {note}",
+    "contaminationLink": "ver evidencia"
   },
   "methodology": {
     "title": "Metodología",
@@ -200,6 +202,12 @@
       "third_party_benchmark": "evaluación corrida por un tercero independiente, como Epoch AI o LiveBench. Entra al compuesto.",
       "vendor_claim": "cifra publicada por quien vende el modelo. Se guarda y se muestra, pero JAMÁS entra al compuesto.",
       "why": "Un proveedor tiene incentivo directo para elegir el escenario que mejor lo deja, y no hay forma de auditar una corrida que no publicó. Por eso la exclusión es estructural, no un juicio caso por caso: no depende de si confiamos en tal o cual empresa."
+    },
+    "contamination": {
+      "title": "Contaminación de entrenamiento",
+      "body": "Un benchmark contaminado es uno cuyas preguntas o respuestas aparecen en los datos con los que se entrenó el modelo, lo que infla el puntaje sin medir capacidad real. Este sitio no atenúa ningún puntaje por sospecha de contaminación: hacerlo sería fabricar un número a partir de una estimación. Lo que hace es registrar evidencia pública, con su enlace, junto al puntaje afectado, en config/contamination.json.",
+      "empty": "Revisado el {date}. Ningún benchmark tiene evidencia registrada todavía. Es una afirmación comprobable sobre lo que se ha registrado hasta hoy, no una promesa de que ningún benchmark aquí ha sido contaminado nunca.",
+      "count": "Revisado el {date}. {count, plural, one {# benchmark tiene} other {# benchmarks tienen}} evidencia pública registrada, marcada en la ficha de cada modelo afectado junto al enlace de la fuente."
     },
     "breaks": {
       "title": "Los quiebres de metodología de LMArena",

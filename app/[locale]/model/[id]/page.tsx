@@ -308,6 +308,27 @@ export default async function ModelPage({
                           })}
                         </span>
                       )}
+                      {score.contamination_flag &&
+                        score.contamination_evidence?.map((entry) => (
+                          <span
+                            key={entry.evidence_url}
+                            className="block text-[10px]"
+                            style={{ color: "var(--amber)" }}
+                          >
+                            {t("contaminationFlag", {
+                              date: entry.noted_at,
+                              note: entry.note,
+                            })}{" "}
+                            <a
+                              href={entry.evidence_url}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                              className="underline underline-offset-2"
+                            >
+                              {t("contaminationLink")}
+                            </a>
+                          </span>
+                        ))}
                     </th>
                     <td className="num py-2 pr-3 text-right text-[13px]">
                       {score.value.toFixed(score.unit === "percent" ? 1 : 0)}

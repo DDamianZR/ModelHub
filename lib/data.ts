@@ -112,6 +112,9 @@ export type ScoreRow = {
   source_url: string;
   measured_at: string | null;
   contamination_flag: boolean;
+  /** Public evidence backing the flag, from config/contamination.json. Empty when the
+   * flag is false - never used to attenuate the value above, only to disclose it. */
+  contamination_evidence?: { evidence_url: string; noted_at: string; note: string }[];
   notes: string | null;
 };
 
@@ -326,7 +329,12 @@ export function getMethodologyStats() {
   moves.sort((a, b) => a - b);
   const at = (q: number) => moves[Math.floor(moves.length * q)] ?? 0;
 
+  const contaminatedBenchmarks = new Set(
+    scores.filter((s) => s.contamination_flag).map((s) => s.benchmark_id),
+  ).size;
+
   return {
+    contaminatedBenchmarks,
     transitions: moves.length,
     moveMedian: at(0.5).toFixed(2),
     moveP75: at(0.75).toFixed(2),

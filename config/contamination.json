@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "note": "Registry of benchmarks with public evidence of training-set contamination. A flagged benchmark's score is never attenuated for it - attenuating a score by estimated risk is fabricating a number, which this project does not do. The flag and its evidence are shown next to the score instead, and the reader judges. Add an entry only with a URL that has actually been opened and actually says what the note claims; verified, not remembered. Update reviewed_at whenever the registry is checked, whether or not anything changes - it is what makes an empty registry a dated claim about what has been logged rather than a promise with nothing behind it.",
+  "reviewed_at": "2026-08-24",
+  "benchmarks": {}
+}

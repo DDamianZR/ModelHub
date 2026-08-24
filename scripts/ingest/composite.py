@@ -78,6 +78,32 @@ def load_weights() -> tuple[dict[str, float], int, str]:
     return dict(weights), minimum, policy
 
 
+def load_contamination_registry() -> dict[str, list[dict]]:
+    """Public evidence of training-set contamination, by benchmark_id.
+
+    Never used to attenuate a score - that was rejected during Fase 5 as fabricating a
+    number from an estimate. This is the registry side that decision kept: the flag and
+    its evidence are shown next to the score, and the reader judges. Starts empty rather
+    than with an invented entry; /methodology states the date it was last checked, which
+    is itself a real claim - "nothing logged yet" - not a promise with nothing behind it.
+    """
+    path = CONFIG / "contamination.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload.get("benchmarks") or {}
+
+
+def contamination_reviewed_at() -> str | None:
+    """When the registry above was last checked, published so an empty registry reads
+    as "nothing logged as of this date" rather than an unstated promise."""
+    path = CONFIG / "contamination.json"
+    if not path.exists():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload.get("reviewed_at")
+
+
 def choose_model_variant(
     merged: dict[str, dict], key: str, arena_variants: list[dict] | None = None
 ) -> str | None:
@@ -316,6 +342,7 @@ def build_models(
 ) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
     """Return (models, score rows, providers, aliases, arena min-max used)."""
     weights, min_coverage, variant_policy = load_weights()
+    contamination = load_contamination_registry()
 
     # A model needs corroboration from at least two independent sources to appear at all.
     keys = sorted(
@@ -440,6 +467,7 @@ def build_models(
             if half_width is not None:
                 measured_errors += 1
 
+            evidence = contamination.get(benchmark_id) or []
             score_rows.append({
                 "model_id": model_id,
                 "benchmark_id": benchmark_id,
@@ -450,7 +478,8 @@ def build_models(
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
                 "measured_at": slot["measured_at"],
-                "contamination_flag": False,
+                "contamination_flag": bool(evidence),
+                "contamination_evidence": evidence,
                 "notes": note or None,
                 "variant": chosen_label if variant_policy == "model" else None,
             })
@@ -487,6 +516,7 @@ def build_models(
                 measured_errors += 1
 
             notes = f"{int(row['vote_count'])} votes; rank {int(row['rank'])}"
+            arena_evidence = contamination.get(ARENA_BENCHMARK) or []
             score_rows.append({
                 "model_id": model_id,
                 "benchmark_id": ARENA_BENCHMARK,
@@ -502,7 +532,8 @@ def build_models(
                 "source_type": "human_eval",
                 "source_url": "https://lmarena.ai/leaderboard",
                 "measured_at": arena_snapshot,
-                "contamination_flag": False,
+                "contamination_flag": bool(arena_evidence),
+                "contamination_evidence": arena_evidence,
                 "notes": notes,
                 "variant": chosen_label if variant_policy == "model" else None,
                 # Structured, not prose: the page is bilingual, so the sentence belongs
