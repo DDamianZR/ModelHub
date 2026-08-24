@@ -11,6 +11,8 @@
   },
   "min_coverage_for_ranking": 4,
   "min_coverage_rationale": "Renormalising over available weight lets a thinly measured model rank high on what it is missing rather than on being better. Models below the bar are shown in a provisional section instead of competing for a top-N slot. The bar is 4 of 5 so that a new model with all four benchmarks but no Arena votes yet still ranks, flagged as awaiting human votes.",
+  "min_release_date": "2025-06-01",
+  "min_release_date_rationale": "This is a frontier-model scoreboard, not a historical archive of every model Epoch has ever measured - Epoch's own registry goes back years further than this. The cutoff keeps the catalogue to models a reader would recognise as current. It is arbitrary in the way any cutoff is: a model released the day before it is invisible to the whole site, never even shown as provisional. Debatable by PR like every other number here.",
   "normalization": {
     "percent_benchmarks": "used as-is on a 0-100 scale",
     "lmarena": "min-max normalized across the cohort present in each build"

@@ -548,6 +548,10 @@ def main() -> int:
         "ranked_count": len(models) - provisional,
         "provisional_count": provisional,
         "min_coverage_for_ranking": min_coverage,
+        # Published so /methodology states the cutoff actually applied this build, not a
+        # remembered one - a scope decision that used to live only as a bare constant in
+        # epoch.py, invisible to anyone who didn't read that file.
+        "min_release_date": epoch.min_release_date(),
         "snapshots": {
             "epoch": epoch_status.get("last_success"),
             "livebench": livebench_payload.get("snapshot"),

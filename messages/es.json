@@ -156,6 +156,8 @@
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, arena de texto, categoría overall",
       "inputs_instruction_following": "LiveBench IF",
+      "singleSource": "fuente única",
+      "singleSourceNote": "«Fuente única» marca las categorías que dependen de un solo proveedor de datos: si esa fuente se cae, la categoría entera queda sin corte nuevo, no solo un benchmark dentro de ella.",
       "equation": "compuesto = Σ(puntaje_categoría × peso) ÷ Σ(peso de las categorías con dato)",
       "normalisation": "Los benchmarks que ya vienen en porcentaje se usan tal cual. Las calificaciones Bradley-Terry de LMArena no son porcentajes, así que se normalizan min-max contra el conjunto de modelos presente en cada build: en el build actual, {min} y {max} son el 0 y el 100. Esto significa que el valor normalizado de Arena de un modelo puede moverse aunque su calificación no cambie, si entra o sale un modelo del extremo.",
       "multimodal": "Lo multimodal no entra al compuesto. Se muestra como puntaje de visión aparte. Meter una categoría en la que la mayoría de modelos de texto no compite obligaría a penalizarlos por una ausencia que no dice nada sobre su calidad."
@@ -165,7 +167,8 @@
       "body": "Un modelo necesita dato en al menos 4 de las 5 categorías para entrar al ranking principal. Por debajo aparece en la sección Provisional: visible, con su compuesto calculado, pero sin número de puesto.",
       "example": "Existe por un problema real. Como el peso se reparte solo entre las categorías con dato, un modelo poco medido sube por lo que le FALTA, no por ser mejor. Qwen3-Max-Instruct, con 3 de 5 categorías, aparecía en el puesto 5 por encima de modelos medidos en las cinco. Ese es exactamente el sesgo que este sitio existe para combatir, así que se corrige en el código y no con una nota al pie.",
       "newModels": "El umbral es 4 y no 5 a propósito. Un modelo recién salido puede tener los cuatro benchmarks y todavía no acumular votos en LMArena; ese caso rankea normal, marcado como «sin voto humano aún». Se exige evidencia suficiente, no se castiga ser nuevo.",
-      "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5."
+      "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5.",
+      "scope": "El catálogo entero también tiene una fecha de corte: solo entran modelos publicados desde el {date}. No es un umbral de medición como el de arriba — es un filtro de alcance, y decide qué modelos existen en el sitio antes de que se mida nada. El valor vive en config/weights.json, con su razón documentada ahí mismo, y es debatible por PR como cualquier otro número de esta página."
     },
     "variants": {
       "title": "Variantes del mismo modelo",

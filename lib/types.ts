@@ -82,6 +82,7 @@ export type Meta = {
   ranked_count: number;
   provisional_count: number;
   min_coverage_for_ranking: number;
+  min_release_date: string;
   snapshots: Record<string, string | null>;
   arena_normalization: { method: string; min: number; max: number };
 };

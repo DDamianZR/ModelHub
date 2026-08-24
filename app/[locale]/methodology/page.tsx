@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import {
   getAgedSources,
   getCadence,
+  getCategorySources,
   getMethodologyStats,
   getRanking,
   getRejectedSnapshots,
@@ -61,6 +62,7 @@ export default async function MethodologyPage({
   // made them claims with no source and no date the moment the cohort moved.
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
+  const categorySources = getCategorySources();
 
   const muted = { color: "var(--muted)" } as const;
 
@@ -99,17 +101,31 @@ export default async function MethodologyPage({
               </tr>
             </thead>
             <tbody>
-              {CATEGORIES.map((category) => (
-                <tr key={category} className="border-b rule">
-                  <th scope="row" className="py-2 text-[13px] font-normal">
-                    {tt(category)}
-                  </th>
-                  <td className="num py-2 text-right text-[13px]">{WEIGHTS[category]}%</td>
-                  <td className="num py-2 pl-4 text-[11px]" style={muted}>
-                    {t(`formula.inputs_${category}`)}
-                  </td>
-                </tr>
-              ))}
+              {CATEGORIES.map((category) => {
+                const singleSource = (categorySources[category]?.length ?? 0) === 1;
+                return (
+                  <tr key={category} className="border-b rule">
+                    <th scope="row" className="py-2 text-[13px] font-normal">
+                      {tt(category)}
+                    </th>
+                    <td className="num py-2 text-right text-[13px]">
+                      {WEIGHTS[category]}%
+                    </td>
+                    <td className="num py-2 pl-4 text-[11px]" style={muted}>
+                      {t(`formula.inputs_${category}`)}
+                      {singleSource && (
+                        <span
+                          className="ml-2 inline-block"
+                          style={{ color: "var(--amber)" }}
+                          title={t("formula.singleSourceNote")}
+                        >
+                          · {t("formula.singleSource")}
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 
@@ -194,6 +210,7 @@ export default async function MethodologyPage({
               min: meta.min_coverage_for_ranking,
             })}
           </p>
+          <p style={muted}>{t("coverage.scope", { date: meta.min_release_date })}</p>
         </Section>
 
         <Section id="variants" title={t("variants.title")}>

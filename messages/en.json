@@ -156,6 +156,8 @@
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, text arena, overall category",
       "inputs_instruction_following": "LiveBench IF",
+      "singleSource": "single source",
+      "singleSourceNote": "\"Single source\" marks categories that depend on one data provider: if that source goes down, the whole category gets no new snapshot, not just one benchmark inside it.",
       "equation": "composite = Σ(category score × weight) ÷ Σ(weight of categories with data)",
       "normalisation": "Benchmarks already reported as percentages are used as-is. LMArena's Bradley-Terry ratings are not percentages, so they are min-max normalised against the cohort present in each build: in the current build, {min} and {max} are the 0 and the 100. This means a model's normalised Arena value can move even when its rating doesn't, if a model enters or leaves either extreme.",
       "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality."
@@ -165,7 +167,8 @@
       "body": "A model needs data in at least 4 of the 5 categories to enter the main ranking. Below that it appears in the Provisional section: visible, with its composite computed, but without a rank number.",
       "example": "This exists because of a real problem. Since the weight is spread across only the categories that have data, a thinly measured model rises on what it is MISSING rather than on being better. Qwen3-Max-Instruct, with 3 of 5 categories, was landing at rank 5, above models measured on all five. That is precisely the bias this site exists to fight, so it is corrected in code rather than in a footnote.",
       "newModels": "The threshold is 4 and not 5 on purpose. A newly released model can have all four benchmarks and no LMArena votes yet; that case ranks normally, flagged as awaiting human votes. Sufficient evidence is required; being new is not punished.",
-      "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5."
+      "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5.",
+      "scope": "The whole catalogue also has a cutoff date: only models published on or after {date} are eligible at all. That is not a measurement threshold like the one above - it is a scope filter, and it decides which models exist on the site before anything is measured. The value lives in config/weights.json, with its reasoning documented right there, and is debatable by PR like any other number on this page."
     },
     "variants": {
       "title": "Variants of the same model",

@@ -350,6 +350,28 @@ export function getCadence(source: string): SnapshotAge | null {
   return readStatus()?.snapshot_ages?.[source] ?? null;
 }
 
+/**
+ * Which named sources feed each weighted category, from the benchmark catalogue itself
+ * rather than typed by hand - a category backed by one source is a fact about the data,
+ * not an opinion, and it drifts the moment a source is added or dropped from BENCHMARK_
+ * CATALOGUE in scripts/ingest/run.py.
+ */
+export function getCategorySources(): Record<string, string[]> {
+  const { benchmarks } = readJson<{ benchmarks: Benchmark[] }>("benchmarks.json");
+  const byCategory = new Map<string, Set<string>>();
+  for (const benchmark of benchmarks) {
+    const sources = byCategory.get(benchmark.category) ?? new Set<string>();
+    sources.add(benchmark.source);
+    byCategory.set(benchmark.category, sources);
+  }
+  return Object.fromEntries(
+    Array.from(byCategory.entries()).map(([category, sources]) => [
+      category,
+      Array.from(sources).sort(),
+    ]),
+  );
+}
+
 export function getModelIds(): string[] {
   const { models } = readJson<{ models: Model[] }>("models.json");
   return models.map((model) => model.id);
