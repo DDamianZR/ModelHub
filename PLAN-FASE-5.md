@@ -90,7 +90,7 @@ en un momento concreto»*— es genuinamente la mejor línea de los dos document
 
 **Sesgos detectados:**
 
-1. **Mímesis de registro.** Está escrito en el dialecto exacto de `CLAUDE.md`: mismas
+1. **Mímesis de registro.** Está escrito en el dialecto exacto de las notas del proyecto: mismas
    estructuras, mismo tipo de nota al margen, mismo tono de norma ganada a golpes. Eso hace
    que *se sienta* verificado aunque él mismo declare que no lo está. Es el sesgo que más me
    afectó a mí al leerlo, y es la razón de que la Etapa 2 del protocolo exista.
@@ -288,8 +288,8 @@ admite: no está confirmado qué iniciativa sigue viva ni si exporta datos legib
   penalizaría a modelos que simplemente no se entrenaron para español, que es el mismo sesgo
   que el proyecto combate.
 
-**Aquí aplico mi propia declaración de posición:** mi entrenamiento hace que HELM o BFCL me
-suenen más sólidos que una iniciativa del BSC. Esa diferencia es de familiaridad, no de
+**Aquí aplico mi propia declaración de posición:** mi formación en este campo hace que HELM o
+BFCL me suenen más sólidos que una iniciativa del BSC. Esa diferencia es de familiaridad, no de
 evidencia. Enmascarando ambas y comparando solo endpoint, licencia, cadencia y cobertura, la
 evaluación en español es la que tiene mayor valor marginal para **este** proyecto: es la única
 que ninguna alternativa le ofrece a su audiencia.
@@ -323,14 +323,14 @@ según la Etapa 8.
 Etapa 8, y límite conocido del protocolo: solo evalúa lo que alguien propuso.
 
 - **Ninguno de los dos documentos propuso nada sobre accesibilidad**, que es literalmente lo que
-  la Fase 5 declara en `CLAUDE.md` («community hardening, a11y, performance»). Los dos
+  la Fase 5 declara en las notas del proyecto («community hardening, a11y, performance»). Los dos
   documentos redefinieron la fase hacia lo que a sus autores les interesaba. Yo tampoco lo
   detecté hasta releer el estado de fases — anotarlo es más honesto que corregirlo en
   silencio.
 - **Ninguno propuso reducir nada.** 42 y 15 ítems, todos aditivos. Un proyecto de una persona
   con R8 debería preguntarse también qué quitar.
-- **Nadie fuera del ecosistema anglófono ha revisado esta lista**, y quien la escribe está
-  entrenado mayoritariamente en ese ecosistema. `propuestas.md` §4.4 pide esa revisión externa;
+- **Nadie fuera del ecosistema anglófono ha revisado esta lista**, y quien la escribe se formó
+  mayoritariamente leyendo en ese ecosistema. `propuestas.md` §4.4 pide esa revisión externa;
   sigue pendiente y este documento no la sustituye.
 
 ---
@@ -471,4 +471,5 @@ Por la Etapa 8: los errores propios se publican igual que los aciertos.
 5. Metí prosa en inglés dentro del ingest en un proyecto bilingüe por arquitectura (R4).
 6. Defendí el track de español como el ítem de mayor valor y no sobrevivió a su propia
    verificación.
-7. Corrí `npm run build` con el dev server levantado, que CLAUDE.md prohíbe expresamente.
+7. Corrí `npm run build` con el dev server levantado, que las notas del proyecto prohíben
+   expresamente.
