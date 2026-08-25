@@ -23,7 +23,7 @@ jobs:
           python-version: "3.12"
 
       # Stdlib only, so no install step - unittest ships with the interpreter. Each of
-      # these fixes a rule CLAUDE.md documents as having been wrong at least once already.
+      # these fixes a rule the project notes document as having been wrong at least once already.
       - name: Run ingest/enrich unit tests
         run: python -m unittest discover -s tests
 

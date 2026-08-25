@@ -1,7 +1,7 @@
 """Golden test: rebuild models.json and scores.json from the versioned data/cache/*.json
 payloads and check the result against the committed files bit for bit.
 
-This is what "how to change anything that moves a number" (CLAUDE.md) asks for made
+This is what the project's "how to change anything that moves a number" rule asks for made
 executable: any change to the composite pipeline shows up here as a concrete, named diff
 instead of a claim that it's probably fine.
 

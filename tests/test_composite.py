@@ -1,5 +1,5 @@
 """composite.py: variant selection, uncertainty combination, and the significance rank.
-Each test fixes a rule CLAUDE.md documents as having been wrong once already.
+Each test fixes a rule the project notes document as having been wrong once already.
 """
 import unittest
 

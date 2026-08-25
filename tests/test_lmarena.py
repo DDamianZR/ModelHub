@@ -1,7 +1,7 @@
 """lmarena.collapse_slices - the mislabelled-slice filter, and the duplication guard it
 feeds. Verified 2026-07-28 against the last clean snapshot: max vote_count gives 0.80
-mean rating drift, first-row or max-rating give 11.94 (see CLAUDE.md). This module fixes
-that behaviour so a refactor can't silently swap it back.
+mean rating drift, first-row or max-rating give 11.94 (see the project notes). This module
+fixes that behaviour so a refactor can't silently swap it back.
 """
 import unittest
 
