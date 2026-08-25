@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-24",
+  "fetched_at": "2026-08-25",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -735,6 +735,44 @@
           "source_url": "https://livebench.ai/",
           "value": 62.29,
           "variant": "glm-5.2"
+        }
+      ],
+      "glm-5.3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.8,
+          "variant": "glm-5.3"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 68.13,
+          "variant": "glm-5.3"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.9,
+          "variant": "glm-5.3"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.3,
+          "variant": "glm-5.3"
         }
       ],
       "gpt-5.2": [
