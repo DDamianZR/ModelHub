@@ -1,22 +1,25 @@
 {
-  "generated_at": "2026-08-25T07:06:38+00:00",
+  "generated_at": "2026-08-25T23:24:27+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
       "last_success": "2026-08-25",
-      "error": null
+      "error": null,
+      "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
       "last_success": "2026-08-25",
-      "error": null
+      "error": null,
+      "consecutive_failures": 0
     },
     "lmarena": {
-      "state": "stale",
-      "last_success": "2026-08-13",
-      "age_days": 12,
-      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error"
+      "state": "ok",
+      "last_success": "2026-08-25",
+      "error": null,
+      "served_by": "filter",
+      "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
@@ -45,9 +48,9 @@
       }
     },
     "lmarena": {
-      "date": "2026-08-12",
-      "age_days": 13,
-      "freshness": "aging",
+      "date": "2026-08-21",
+      "age_days": 4,
+      "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
@@ -62,13 +65,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "192debd5525c910fd2a6f1b4d9acdd83485745339f3813852b2f91acd24945c0",
+      "normalised_sha256": "2096fdf5a898b4c5c106257300e9d105f5a971eeab8292d468289e6303b43e23",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "14b8f6fbe4b552d998a58eb6437ade58d0a47d48f55ee7b4f4500e831095d434",
-          "bytes": 464412
+          "sha256": "53931532ef9b56140e855c810b268709fe38fbd6128382cc8a7e0d81580db918",
+          "bytes": 469454
         }
       ]
     },
@@ -99,8 +102,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "b190ea9a10ff290ddce19a644b1649b6189a06cec996c3eb79323a6c3165f231",
-      "requests": 0,
+      "normalised_sha256": "5e60033528926d67d632c17e2532b088d321bd6c2439bd0c7e8f6fe2eeca00cc",
+      "requests": 20,
       "upstream": []
     }
   }
