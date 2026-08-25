@@ -22,6 +22,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Stdlib only, so no install step - unittest ships with the interpreter. Each of
+      # these fixes a rule the project notes document as having been wrong at least once already.
+      - name: Run ingest/enrich unit tests
+        run: python -m unittest discover -s tests
+
       # The description generator and this audit share checks.py. Running it here is what
       # stops the two standards drifting apart again.
       - name: Audit generated descriptions

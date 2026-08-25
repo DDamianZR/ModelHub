@@ -8,9 +8,14 @@ found 55 defects in. The two are now the same code; this entry point is what sto
 diverging again.
 
 Usage: python -m scripts.enrich.audit
+       python -m scripts.enrich.audit --warn   # always exit 0; used from the daily
+                                                 # ingest, which moves the scores that can
+                                                 # make a description stale and must not
+                                                 # block today's data commit over it
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from collections import Counter
@@ -23,6 +28,11 @@ DATA = ROOT / "data"
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Audit committed descriptions")
+    parser.add_argument("--warn", action="store_true",
+                        help="report via ::warning:: annotations but always exit 0")
+    args = parser.parse_args()
+
     descriptions_path = DATA / "i18n" / "descriptions.json"
     models_path = DATA / "models.json"
 
@@ -50,6 +60,8 @@ def main() -> int:
             # A description for a model the catalogue no longer carries is dead weight.
             orphans += 1
             print(f"ORPHAN  {model_id}: no such model in models.json")
+            if args.warn:
+                print(f"::warning::{model_id}: description orphaned, no such model")
             continue
 
         found = problems(entry.get("es", ""), entry.get("en", ""), model)
@@ -59,6 +71,8 @@ def main() -> int:
             for problem in found:
                 print(f"          {problem}")
                 kinds[problem.split(":")[0].split("(")[0].strip()] += 1
+            if args.warn:
+                print(f"::warning::{model_id}: {'; '.join(found)}")
 
     total = len(descriptions)
     print(
@@ -70,6 +84,8 @@ def main() -> int:
         for kind, count in kinds.most_common():
             print(f"  {count:>3}  {kind}")
 
+    if args.warn:
+        return 0
     return 1 if (failing or orphans) else 0
 
 

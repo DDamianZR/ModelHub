@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import {
   getAgedSources,
   getCadence,
+  getCategorySources,
   getMethodologyStats,
   getRanking,
   getRejectedSnapshots,
@@ -61,6 +62,7 @@ export default async function MethodologyPage({
   // made them claims with no source and no date the moment the cohort moved.
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
+  const categorySources = getCategorySources();
 
   const muted = { color: "var(--muted)" } as const;
 
@@ -68,7 +70,7 @@ export default async function MethodologyPage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="methodology" />
 
-      <div className="mt-8 max-w-[46rem]">
+      <div id="main-content" className="mt-8 max-w-[46rem]">
         <h2
           className="text-[30px] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
@@ -99,17 +101,31 @@ export default async function MethodologyPage({
               </tr>
             </thead>
             <tbody>
-              {CATEGORIES.map((category) => (
-                <tr key={category} className="border-b rule">
-                  <th scope="row" className="py-2 text-[13px] font-normal">
-                    {tt(category)}
-                  </th>
-                  <td className="num py-2 text-right text-[13px]">{WEIGHTS[category]}%</td>
-                  <td className="num py-2 pl-4 text-[11px]" style={muted}>
-                    {t(`formula.inputs_${category}`)}
-                  </td>
-                </tr>
-              ))}
+              {CATEGORIES.map((category) => {
+                const singleSource = (categorySources[category]?.length ?? 0) === 1;
+                return (
+                  <tr key={category} className="border-b rule">
+                    <th scope="row" className="py-2 text-[13px] font-normal">
+                      {tt(category)}
+                    </th>
+                    <td className="num py-2 text-right text-[13px]">
+                      {WEIGHTS[category]}%
+                    </td>
+                    <td className="num py-2 pl-4 text-[11px]" style={muted}>
+                      {t(`formula.inputs_${category}`)}
+                      {singleSource && (
+                        <span
+                          className="ml-2 inline-block"
+                          style={{ color: "var(--amber)" }}
+                          title={t("formula.singleSourceNote")}
+                        >
+                          · {t("formula.singleSource")}
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 
@@ -194,6 +210,7 @@ export default async function MethodologyPage({
               min: meta.min_coverage_for_ranking,
             })}
           </p>
+          <p style={muted}>{t("coverage.scope", { date: meta.min_release_date })}</p>
         </Section>
 
         <Section id="variants" title={t("variants.title")}>
@@ -315,6 +332,20 @@ export default async function MethodologyPage({
           <p style={muted}>{t("sourceTypes.why")}</p>
         </Section>
 
+        <Section id="contamination" title={t("contamination.title")}>
+          <p style={muted}>{t("contamination.body")}</p>
+          <p className="num text-[12px]" style={muted}>
+            {meta.contamination_reviewed_at
+              ? stats.contaminatedBenchmarks > 0
+                ? t("contamination.count", {
+                    date: meta.contamination_reviewed_at,
+                    count: stats.contaminatedBenchmarks,
+                  })
+                : t("contamination.empty", { date: meta.contamination_reviewed_at })
+              : null}
+          </p>
+        </Section>
+
         <Section id="breaks" title={t("breaks.title")}>
           <p style={muted}>{t("breaks.body")}</p>
           <ul className="flex flex-col gap-1 pl-4" style={muted}>
@@ -343,7 +374,7 @@ export default async function MethodologyPage({
           <p className="mt-1">
             <a
               href="https://github.com/DDamianZR/ModelHub"
-              className="eyebrow underline underline-offset-2"
+              className="eyebrow inline-block py-[6px] underline underline-offset-2"
               style={{ color: "var(--amber)" }}
             >
               {t("reproduce.link")}

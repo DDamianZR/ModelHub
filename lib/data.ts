@@ -112,6 +112,9 @@ export type ScoreRow = {
   source_url: string;
   measured_at: string | null;
   contamination_flag: boolean;
+  /** Public evidence backing the flag, from config/contamination.json. Empty when the
+   * flag is false - never used to attenuate the value above, only to disclose it. */
+  contamination_evidence?: { evidence_url: string; noted_at: string; note: string }[];
   notes: string | null;
 };
 
@@ -126,7 +129,10 @@ export type Benchmark = {
 };
 
 /** Layer B fills this in. Until then it is legitimately empty. */
-type Descriptions = Record<string, { es?: string; en?: string }>;
+type Descriptions = Record<
+  string,
+  { es?: string; en?: string; generated_at?: string; generated_by?: string; manual?: boolean }
+>;
 
 export function getDescriptions(): Descriptions {
   const file = path.join(DATA_DIR, "i18n", "descriptions.json");
@@ -189,7 +195,9 @@ export function getModelDetail(id: string): {
   model: Row;
   scores: (ScoreRow & { benchmark: Benchmark | null })[];
   history: { date: string; value: number }[];
-  description: { es?: string; en?: string } | null;
+  description:
+    | { es?: string; en?: string; generated_at?: string; generated_by?: string; manual?: boolean }
+    | null;
 } | null {
   const { rows } = getRanking();
   const model = rows.find((row) => row.id === id);
@@ -321,7 +329,12 @@ export function getMethodologyStats() {
   moves.sort((a, b) => a - b);
   const at = (q: number) => moves[Math.floor(moves.length * q)] ?? 0;
 
+  const contaminatedBenchmarks = new Set(
+    scores.filter((s) => s.contamination_flag).map((s) => s.benchmark_id),
+  ).size;
+
   return {
+    contaminatedBenchmarks,
     transitions: moves.length,
     moveMedian: at(0.5).toFixed(2),
     moveP75: at(0.75).toFixed(2),
@@ -343,6 +356,28 @@ export function getMethodologyStats() {
 /** Declared versus observed publishing rhythm, for the cadence paragraph. */
 export function getCadence(source: string): SnapshotAge | null {
   return readStatus()?.snapshot_ages?.[source] ?? null;
+}
+
+/**
+ * Which named sources feed each weighted category, from the benchmark catalogue itself
+ * rather than typed by hand - a category backed by one source is a fact about the data,
+ * not an opinion, and it drifts the moment a source is added or dropped from BENCHMARK_
+ * CATALOGUE in scripts/ingest/run.py.
+ */
+export function getCategorySources(): Record<string, string[]> {
+  const { benchmarks } = readJson<{ benchmarks: Benchmark[] }>("benchmarks.json");
+  const byCategory = new Map<string, Set<string>>();
+  for (const benchmark of benchmarks) {
+    const sources = byCategory.get(benchmark.category) ?? new Set<string>();
+    sources.add(benchmark.source);
+    byCategory.set(benchmark.category, sources);
+  }
+  return Object.fromEntries(
+    Array.from(byCategory.entries()).map(([category, sources]) => [
+      category,
+      Array.from(sources).sort(),
+    ]),
+  );
 }
 
 export function getModelIds(): string[] {

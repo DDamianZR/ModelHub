@@ -28,7 +28,7 @@ from .common import (
     write_cache,
     write_json,
 )
-from .composite import ARENA_BENCHMARK, build_models, load_weights
+from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .sources import epoch, livebench, lmarena
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -235,6 +235,21 @@ RECALIBRATION_RAW_STILL = 0.5
 MIN_RECALIBRATION_EFFECT = 0.05    # composite points, floor for a degenerate cohort
 
 
+def previous_statuses() -> dict[str, dict]:
+    """Last build's per-source status, read before status.json is overwritten.
+
+    A source that fetches perfectly once and fails once looks the same as one that has
+    failed every day for a month, unless something keeps count.
+    """
+    path = DATA / "status.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8")).get("sources", {})
+    except json.JSONDecodeError:
+        return {}
+
+
 def previous_build() -> tuple[dict[str, dict], dict[str, float]]:
     """Last build's models and raw Arena ratings, read before /data is overwritten."""
     models_path, scores_path = DATA / "models.json", DATA / "scores.json"
@@ -425,12 +440,21 @@ def main() -> int:
     # A cache written before variants were kept holds one row per model instead of a
     # list. Widen it here so a failed fetch degrades to old numbers, not to a crash.
     arena_payload = lmarena.upgrade_payload(arena_payload)
+    if arena_status["state"] == "ok":
+        # Which endpoint answered today - "filter" or "rows-latest". Surfaced so a silent
+        # path change (e.g. HuggingFace repairing /filter) shows up in status.json instead
+        # of only changing behaviour no one is watching for.
+        arena_status["served_by"] = arena_payload.get("served_by")
 
     statuses = {
         "epoch": epoch_status,
         "livebench": livebench_status,
         "lmarena": arena_status,
     }
+    prev_statuses = previous_statuses()
+    for name, status in statuses.items():
+        prev_failures = prev_statuses.get(name, {}).get("consecutive_failures", 0)
+        status["consecutive_failures"] = 0 if status["state"] == "ok" else prev_failures + 1
 
     registry = epoch_payload.get("registry") or {}
     if not registry:
@@ -460,24 +484,38 @@ def main() -> int:
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
+        # served_by "filter" still has history_for's full per-model backfill available.
+        # "rows-latest" does not - /rows cannot query by date - so each model gains only
+        # today's point, taken from the same fetch collect() already made.
+        served_by = arena_payload.get("served_by")
+        history_points = arena_payload.get("history_points") or {}
         for model in models:
             name = model.get("arena_name")
             if not name:
                 continue
-            try:
-                for row in lmarena.history_for(name):
-                    incoming_history.append({
-                        "model_id": model["id"],
-                        "benchmark_id": ARENA_BENCHMARK,
-                        "value": round(row["rating"], 1),
-                        "date": row["leaderboard_publish_date"],
-                        "source_type": "human_eval",
-                        # Which published variant this series describes, so a change of
-                        # configuration restarts it instead of splicing two.
-                        "variant": name,
-                    })
-            except SourceError as exc:
-                print(f"  history: skipped {name} ({exc})")
+            if served_by == "filter":
+                try:
+                    points = [
+                        (row["rating"], row["leaderboard_publish_date"])
+                        for row in lmarena.history_for(name)
+                    ]
+                except SourceError as exc:
+                    print(f"  history: skipped {name} ({exc})")
+                    continue
+            else:
+                point = history_points.get(name)
+                points = [(point["rating"], point["date"])] if point else []
+            for rating, day in points:
+                incoming_history.append({
+                    "model_id": model["id"],
+                    "benchmark_id": ARENA_BENCHMARK,
+                    "value": round(rating, 1),
+                    "date": day,
+                    "source_type": "human_eval",
+                    # Which published variant this series describes, so a change of
+                    # configuration restarts it instead of splicing two.
+                    "variant": name,
+                })
 
     recalibrated = flag_recalibration(
         models, score_rows, weights, previous_models, previous_ratings
@@ -510,6 +548,11 @@ def main() -> int:
         "ranked_count": len(models) - provisional,
         "provisional_count": provisional,
         "min_coverage_for_ranking": min_coverage,
+        # Published so /methodology states the cutoff actually applied this build, not a
+        # remembered one - a scope decision that used to live only as a bare constant in
+        # epoch.py, invisible to anyone who didn't read that file.
+        "min_release_date": epoch.min_release_date(),
+        "contamination_reviewed_at": contamination_reviewed_at(),
         "snapshots": {
             "epoch": epoch_status.get("last_success"),
             "livebench": livebench_payload.get("snapshot"),

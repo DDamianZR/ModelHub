@@ -50,3 +50,19 @@ jobs:
           git add data
           git commit -m "chore(data): daily ingest $(date -u +%Y-%m-%d)"
           git push
+
+      # Runs after the commit on purpose: the site must update with today's data even
+      # when a source is degraded. This step only turns a repeated failure into a red,
+      # emailed workflow run - it never blocks the data from shipping.
+      - name: Fail on a source stuck for 3+ runs
+        if: always()
+        run: python scripts/ingest/fail_stale.py
+
+      # Today's score movement is exactly what can make a description's strength/weakness
+      # claim stale - this is the run that moves the numbers underneath it. --warn always
+      # exits 0: it surfaces drift the day it appears instead of a month later, but a
+      # description going stale is not a reason to withhold today's data commit, which
+      # has already happened by this point.
+      - name: Check descriptions against today's scores
+        if: always()
+        run: python -m scripts.enrich.audit --warn

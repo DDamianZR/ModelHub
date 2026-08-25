@@ -78,6 +78,32 @@ def load_weights() -> tuple[dict[str, float], int, str]:
     return dict(weights), minimum, policy
 
 
+def load_contamination_registry() -> dict[str, list[dict]]:
+    """Public evidence of training-set contamination, by benchmark_id.
+
+    Never used to attenuate a score - that was rejected during Fase 5 as fabricating a
+    number from an estimate. This is the registry side that decision kept: the flag and
+    its evidence are shown next to the score, and the reader judges. Starts empty rather
+    than with an invented entry; /methodology states the date it was last checked, which
+    is itself a real claim - "nothing logged yet" - not a promise with nothing behind it.
+    """
+    path = CONFIG / "contamination.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload.get("benchmarks") or {}
+
+
+def contamination_reviewed_at() -> str | None:
+    """When the registry above was last checked, published so an empty registry reads
+    as "nothing logged as of this date" rather than an unstated promise."""
+    path = CONFIG / "contamination.json"
+    if not path.exists():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload.get("reviewed_at")
+
+
 def choose_model_variant(
     merged: dict[str, dict], key: str, arena_variants: list[dict] | None = None
 ) -> str | None:
@@ -262,6 +288,49 @@ def minmax(values: list[float]) -> tuple[float, float]:
     return (low, high) if high > low else (low, low + 1.0)
 
 
+def assign_significance_ranks(models: list[dict]) -> None:
+    """Set `rank` and `tied_with` on every model, in place.
+
+    Ranked and provisional are ordered independently; only the ranked set gets numbers,
+    so a thinly measured model can never occupy a top-N slot.
+
+    The number itself is a significance rank, not a position in a sorted list: a model
+    sits at one plus the count of models measurably ahead of it, so anything the
+    measurement cannot separate shares a rank. Ordinal ranking was making a promise the
+    data does not support - the median gap between neighbours was 0.43 composite points
+    against a median Epoch stderr of 1.51 to 2.59, and two pairs sat at exactly 0.00 and
+    still received different numbers.
+
+    Overlap is not transitive, which is why this counts strictly-better models instead
+    of grouping runs of neighbours: A can overlap B and B overlap C while A and C are
+    cleanly separated, and a chain rule would merge all three.
+
+    A model whose inputs published no uncertainty is compared as a point value. That is
+    zero-filling, and it is the one place here that does it, so it is flagged per model
+    rather than hidden: `composite_error` is null and the page says the precision was
+    never measured. The alternative - refusing to separate it from anyone - reads worse,
+    because it would lift a model 5 points behind the leader into a tie for first on the
+    strength of knowing less about it.
+    """
+    ranked = [m for m in models if not m["provisional"]]
+    for model in models:
+        if model["provisional"]:
+            model["rank"] = None
+            model["tied_with"] = 0
+            continue
+        floor = model["composite"] + (model["composite_error"] or 0.0)
+        model["rank"] = 1 + sum(
+            1 for other in ranked
+            if other is not model
+            and other["composite"] - (other["composite_error"] or 0.0) > floor
+        )
+    shared: dict[int, int] = {}
+    for model in ranked:
+        shared[model["rank"]] = shared.get(model["rank"], 0) + 1
+    for model in ranked:
+        model["tied_with"] = shared[model["rank"]] - 1
+
+
 def build_models(
     registry: dict,
     epoch_scores: dict,
@@ -273,6 +342,7 @@ def build_models(
 ) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
     """Return (models, score rows, providers, aliases, arena min-max used)."""
     weights, min_coverage, variant_policy = load_weights()
+    contamination = load_contamination_registry()
 
     # A model needs corroboration from at least two independent sources to appear at all.
     keys = sorted(
@@ -397,6 +467,7 @@ def build_models(
             if half_width is not None:
                 measured_errors += 1
 
+            evidence = contamination.get(benchmark_id) or []
             score_rows.append({
                 "model_id": model_id,
                 "benchmark_id": benchmark_id,
@@ -407,7 +478,8 @@ def build_models(
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
                 "measured_at": slot["measured_at"],
-                "contamination_flag": False,
+                "contamination_flag": bool(evidence),
+                "contamination_evidence": evidence,
                 "notes": note or None,
                 "variant": chosen_label if variant_policy == "model" else None,
             })
@@ -444,6 +516,7 @@ def build_models(
                 measured_errors += 1
 
             notes = f"{int(row['vote_count'])} votes; rank {int(row['rank'])}"
+            arena_evidence = contamination.get(ARENA_BENCHMARK) or []
             score_rows.append({
                 "model_id": model_id,
                 "benchmark_id": ARENA_BENCHMARK,
@@ -459,7 +532,8 @@ def build_models(
                 "source_type": "human_eval",
                 "source_url": "https://lmarena.ai/leaderboard",
                 "measured_at": arena_snapshot,
-                "contamination_flag": False,
+                "contamination_flag": bool(arena_evidence),
+                "contamination_evidence": arena_evidence,
                 "notes": notes,
                 "variant": chosen_label if variant_policy == "model" else None,
                 # Structured, not prose: the page is bilingual, so the sentence belongs
@@ -575,44 +649,8 @@ def build_models(
             "matched": {source: sorted(names) for source, names in matched.items()},
         }
 
-    # Ranked and provisional are ordered independently; only the ranked set gets numbers,
-    # so a thinly measured model can never occupy a top-N slot.
-    #
-    # The number itself is a significance rank, not a position in a sorted list: a model
-    # sits at one plus the count of models measurably ahead of it, so anything the
-    # measurement cannot separate shares a rank. Ordinal ranking was making a promise the
-    # data does not support - the median gap between neighbours was 0.43 composite points
-    # against a median Epoch stderr of 1.51 to 2.59, and two pairs sat at exactly 0.00 and
-    # still received different numbers.
-    #
-    # Overlap is not transitive, which is why this counts strictly-better models instead
-    # of grouping runs of neighbours: A can overlap B and B overlap C while A and C are
-    # cleanly separated, and a chain rule would merge all three.
-    #
-    # A model whose inputs published no uncertainty is compared as a point value. That is
-    # zero-filling, and it is the one place here that does it, so it is flagged per model
-    # rather than hidden: `composite_error` is null and the page says the precision was
-    # never measured. The alternative - refusing to separate it from anyone - reads worse,
-    # because it would lift a model 5 points behind the leader into a tie for first on the
-    # strength of knowing less about it.
     models.sort(key=lambda m: m["composite"], reverse=True)
-    ranked = [m for m in models if not m["provisional"]]
-    for model in models:
-        if model["provisional"]:
-            model["rank"] = None
-            model["tied_with"] = 0
-            continue
-        floor = model["composite"] + (model["composite_error"] or 0.0)
-        model["rank"] = 1 + sum(
-            1 for other in ranked
-            if other is not model
-            and other["composite"] - (other["composite_error"] or 0.0) > floor
-        )
-    shared: dict[int, int] = {}
-    for model in ranked:
-        shared[model["rank"]] = shared.get(model["rank"], 0) + 1
-    for model in ranked:
-        model["tied_with"] = shared[model["rank"]] - 1
+    assign_significance_ranks(models)
 
     # Ordered by rank, then by score inside a rank. Sorting by score alone would print a
     # rank column that runs 13, 17, 16 downward and read as a bug: a significance rank is

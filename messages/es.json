@@ -6,9 +6,10 @@
   "masthead": {
     "wordmark": "ModelHub",
     "tagline": "El baremo independiente de modelos frontera",
-    "blurb": "Modelos cerrados y open source en la misma cancha. Los números vienen de evaluaciones de terceros y de votación humana; lo que dice el proveedor nunca cuenta para el score."
+    "blurb": "Modelos cerrados y de pesos abiertos en la misma cancha. Los números vienen de evaluaciones de terceros y de votación humana; lo que dice el proveedor nunca cuenta para el score."
   },
   "panel": {
+    "statusHeading": "Estado de los datos",
     "updated": "Actualizado",
     "models": "Modelos rastreados",
     "sources": "Fuentes",
@@ -17,7 +18,7 @@
     "degraded": "Fuente sin actualizar",
     "degradedSource": "{source} no respondió en la última corrida; se muestran sus datos del {date}",
     "aging": "Dato envejecido",
-    "agingSource": "{source} lleva {days} días sin publicar corte nuevo (último: {date})"
+    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar corte nuevo (último: {date})"
   },
   "filters": {
     "label": "Filtros",
@@ -27,8 +28,9 @@
     "open": "Open weights",
     "api": "Solo API",
     "origin": "Origen",
-    "showing": "{count} de {total} modelos",
-    "clear": "Limpiar"
+    "showing": "{count, plural, one {# modelo} other {# modelos}} de {total}",
+    "clear": "Limpiar",
+    "mobileColumnsHidden": "Las categorías se ocultan en pantallas pequeñas. Abre la ficha de un modelo para verlas."
   },
   "table": {
     "rank": "#",
@@ -50,17 +52,23 @@
     "openWeights": "Open weights",
     "apiOnly": "Solo API",
     "noHistory": "Sin historial suficiente",
-    "agedCategory": "{days}d",
-    "agedCategoryTitle": "La fuente de esta categoría no publica corte nuevo desde hace {days} días",
+    "agedCategory": "{days, plural, one {#d} other {#d}}",
+    "agedCategoryTitle": "La fuente de esta categoría no publica corte nuevo desde hace {days, plural, one {# día} other {# días}}",
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
     "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
-    "tiedTitle": "Empatado con otros {count} modelos: sus intervalos al 95 % se solapan, así que la medición no los separa.",
+    "tiedTitle": "Empatado con {count, plural, one {otro # modelo} other {otros # modelos}}: sus intervalos al 95 % se solapan, así que la medición no los separa.",
     "errorTitle": "Semiancho del intervalo al 95 % sobre el compuesto. Es un piso: {measured} de {total} entradas publican su error, las demás aportan cero, así que el intervalo real solo puede ser más ancho.",
     "errorUnknownTitle": "Ninguna de las fuentes de este modelo publica su error. El intervalo se desconoce; no es cero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Densidad de evidencia: {benchmarks} benchmarks de {sources} de {max} fuentes independientes sostienen este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4."
+    "evidenceTitle": "Densidad de evidencia: {benchmarks, plural, one {# benchmark} other {# benchmarks}} de {sources} de {max} fuentes independientes {benchmarks, plural, one {sostiene} other {sostienen}} este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4.",
+    "rankColumnHint": "Un signo igual antes del número marca un empate: los intervalos al 95 % de esos modelos se solapan, así que la medición no los separa.",
+    "tiedShort": "(empate con {count, plural, one {#} other {#}})",
+    "errorColumnHint": "Semiancho de un intervalo al 95 % sobre el compuesto. Es un piso: las entradas sin error publicado aportan cero, así que el intervalo real solo puede ser más ancho.",
+    "errorCount": "{measured} de {total} con error publicado",
+    "coverageColumnHint": "Densidad de evidencia: cuántos benchmarks y cuántas fuentes independientes sostienen el compuesto. Distinto de la cobertura, que mide cuántas de las cinco categorías se midieron.",
+    "evidenceCount": "{benchmarks} benchmarks, {sources} de {max} fuentes"
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -80,6 +88,7 @@
   },
   "nav": {
     "label": "Secciones",
+    "skipToContent": "Saltar al contenido",
     "ranking": "Ranking",
     "compare": "Comparar",
     "methodology": "Metodología",
@@ -90,7 +99,7 @@
     "intro": "Elige entre dos y cuatro modelos. Las barras comparten un eje 0–100, así que las longitudes son directamente comparables entre categorías y entre modelos.",
     "pick": "Selecciona hasta {max}",
     "search": "Buscar modelo o proveedor",
-    "selected": "{count} de {max} seleccionados",
+    "selected": "{count, plural, one {# seleccionado} other {# seleccionados}} de {max}",
     "empty": "Selecciona al menos un modelo para comparar.",
     "tableView": "Los mismos números, en tabla",
     "visionNote": "Fuera del compuesto. Se mide aparte porque un modelo de solo texto no compite aquí.",
@@ -99,10 +108,12 @@
   "model": {
     "description": "Descripción",
     "descriptionPending": "Descripción pendiente. Las descripciones editoriales las genera la Capa B con un modelo local y las aprueba una persona antes de publicarse; todavía no se ha corrido para este modelo.",
+    "descriptionGenerated": "Generado el {date} con {model}",
+    "descriptionManual": "Editado a mano",
     "categories": "Puntaje por categoría",
     "partialNote": "Compuesto parcial: no hay medición para {missing}. El peso se reparte solo entre las categorías disponibles y el modelo queda marcado, nunca se rellena con ceros.",
     "history": "Trayectoria",
-    "historyRange": "{points} observaciones, del {from} al {to}",
+    "historyRange": "{points, plural, one {# observación} other {# observaciones}}, del {from} al {to}",
     "historyScope": "El histórico disponible hoy viene de LMArena, la única fuente que publica su serie temporal completa. Epoch y LiveBench publican cortes puntuales, así que su histórico se irá acumulando corrida a corrida desde que arrancó la ingesta diaria.",
     "historyBreaks": "La ventana arranca el 2026-01-01, después del último cambio de metodología de Arena. Por eso la línea se puede dibujar continua sin mentir: no cruza ningún quiebre.",
     "sources": "Fuentes de cada número",
@@ -114,7 +125,7 @@
     "acquisition": "Dónde conseguirlo",
     "acquisitionPending": "Pendiente. Los enlaces de adquisición (repo de HuggingFace, página del proveedor, docs de API, tag de Ollama) los arma la Capa B de forma determinística; los campos existen en el esquema y están vacíos hasta entonces.",
     "acquisitionChecked": "Enlaces comprobados el {date}",
-    "acquisitionWithheld": "{count} sin verificar, ocultos hasta revisión manual",
+    "acquisitionWithheld": "{count, plural, one {# sin verificar, oculto hasta revisión manual} other {# sin verificar, ocultos hasta revisión manual}}",
     "link_hf_repo": "Pesos (HuggingFace)",
     "link_provider_page": "Proveedor",
     "link_api_docs": "Docs de API",
@@ -123,13 +134,15 @@
     "configurationNote": "Todos los números de abajo describen la variante {variant} publicada por el proveedor. Se elige una sola configuración para el modelo entero: tomar la mejor de cada benchmark describiría un montaje que nadie ejecuta.",
     "configurationPlain": "Todos los números de abajo describen la variante que el proveedor publicó sin calificador de esfuerzo.",
     "configurationMismatch": "La preferencia humana es la excepción: LMArena nunca publicó la variante {variant}, así que ese voto mide {measured}. Se conserva el dato y se declara la diferencia en lugar de descartar votos humanos reales por una diferencia de nomenclatura entre fuentes.",
-    "tiedShort": "(empate con {count})",
+    "tiedShort": "(empate con {count, plural, one {#} other {#}})",
     "errorNotPublished": "sin error publicado",
     "uncertaintyNote": "El ±{error} es el semiancho de un intervalo al 95 % sobre el compuesto, y es un piso, no una estimación: {measured} de {total} entradas publican su error y las demás aportan cero. El intervalo real solo puede ser más ancho, nunca más estrecho.",
     "uncertaintyNone": "Ninguna de las fuentes de este modelo publica su margen de error, así que su compuesto no lleva intervalo. Eso es «se desconoce», no «es exacto»: su posición en la tabla es la menos defendible de todas, porque se compara como si fuera un valor puntual.",
-    "uncertaintyTied": "Comparte rango con otros {count} modelos porque sus intervalos se solapan.",
+    "uncertaintyTied": "Comparte rango con {count, plural, one {otro # modelo} other {otros # modelos}} porque sus intervalos se solapan.",
     "recalibration": "Recalibración de cohorte, no cambio de medición. Su valor normalizado de preferencia humana se movió {normalized} puntos mientras su rating de Arena solo cambió {raw}: entró o salió un modelo con rating extremo y la escala se reajustó debajo. El efecto sobre el compuesto es de {composite} puntos —por encima de {threshold}, la separación mediana entre vecinos de esta corrida— y no lo causó nadie votando distinto.",
-    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}"
+    "scoreVariantMismatch": "Mide la variante {measured} ({name}), no {variant}",
+    "contaminationFlag": "Contaminación reportada ({date}): {note}",
+    "contaminationLink": "ver evidencia"
   },
   "methodology": {
     "title": "Metodología",
@@ -145,6 +158,8 @@
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, arena de texto, categoría overall",
       "inputs_instruction_following": "LiveBench IF",
+      "singleSource": "fuente única",
+      "singleSourceNote": "«Fuente única» marca las categorías que dependen de un solo proveedor de datos: si esa fuente se cae, la categoría entera queda sin corte nuevo, no solo un benchmark dentro de ella.",
       "equation": "compuesto = Σ(puntaje_categoría × peso) ÷ Σ(peso de las categorías con dato)",
       "normalisation": "Los benchmarks que ya vienen en porcentaje se usan tal cual. Las calificaciones Bradley-Terry de LMArena no son porcentajes, así que se normalizan min-max contra el conjunto de modelos presente en cada build: en el build actual, {min} y {max} son el 0 y el 100. Esto significa que el valor normalizado de Arena de un modelo puede moverse aunque su calificación no cambie, si entra o sale un modelo del extremo.",
       "multimodal": "Lo multimodal no entra al compuesto. Se muestra como puntaje de visión aparte. Meter una categoría en la que la mayoría de modelos de texto no compite obligaría a penalizarlos por una ausencia que no dice nada sobre su calidad."
@@ -154,7 +169,8 @@
       "body": "Un modelo necesita dato en al menos 4 de las 5 categorías para entrar al ranking principal. Por debajo aparece en la sección Provisional: visible, con su compuesto calculado, pero sin número de puesto.",
       "example": "Existe por un problema real. Como el peso se reparte solo entre las categorías con dato, un modelo poco medido sube por lo que le FALTA, no por ser mejor. Qwen3-Max-Instruct, con 3 de 5 categorías, aparecía en el puesto 5 por encima de modelos medidos en las cinco. Ese es exactamente el sesgo que este sitio existe para combatir, así que se corrige en el código y no con una nota al pie.",
       "newModels": "El umbral es 4 y no 5 a propósito. Un modelo recién salido puede tener los cuatro benchmarks y todavía no acumular votos en LMArena; ese caso rankea normal, marcado como «sin voto humano aún». Se exige evidencia suficiente, no se castiga ser nuevo.",
-      "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5."
+      "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5.",
+      "scope": "El catálogo entero también tiene una fecha de corte: solo entran modelos publicados desde el {date}. No es un umbral de medición como el de arriba — es un filtro de alcance, y decide qué modelos existen en el sitio antes de que se mida nada. El valor vive en config/weights.json, con su razón documentada ahí mismo, y es debatible por PR como cualquier otro número de esta página."
     },
     "variants": {
       "title": "Variantes del mismo modelo",
@@ -186,6 +202,12 @@
       "third_party_benchmark": "evaluación corrida por un tercero independiente, como Epoch AI o LiveBench. Entra al compuesto.",
       "vendor_claim": "cifra publicada por quien vende el modelo. Se guarda y se muestra, pero JAMÁS entra al compuesto.",
       "why": "Un proveedor tiene incentivo directo para elegir el escenario que mejor lo deja, y no hay forma de auditar una corrida que no publicó. Por eso la exclusión es estructural, no un juicio caso por caso: no depende de si confiamos en tal o cual empresa."
+    },
+    "contamination": {
+      "title": "Contaminación de entrenamiento",
+      "body": "Un benchmark contaminado es uno cuyas preguntas o respuestas aparecen en los datos con los que se entrenó el modelo, lo que infla el puntaje sin medir capacidad real. Este sitio no atenúa ningún puntaje por sospecha de contaminación: hacerlo sería fabricar un número a partir de una estimación. Lo que hace es registrar evidencia pública, con su enlace, junto al puntaje afectado, en config/contamination.json.",
+      "empty": "Revisado el {date}. Ningún benchmark tiene evidencia registrada todavía. Es una afirmación comprobable sobre lo que se ha registrado hasta hoy, no una promesa de que ningún benchmark aquí ha sido contaminado nunca.",
+      "count": "Revisado el {date}. {count, plural, one {# benchmark tiene} other {# benchmarks tienen}} evidencia pública registrada, marcada en la ficha de cada modelo afectado junto al enlace de la fuente."
     },
     "breaks": {
       "title": "Los quiebres de metodología de LMArena",
@@ -233,7 +255,7 @@
       "ratio": "Ratio",
       "reason": "Motivo",
       "cadence": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. LiveBench declara {declared} días; su mediana observada sobre {snapshots} snapshots publicados es de {median}, así que la declaración se sostiene. Su hueco más largo fue de {longest} días, y durante ese hueco el estado degradado sí se activó, a los {degraded}. Fuentes envejecidas ahora mismo:",
-      "agedItem": "{days} días de antigüedad, estado {state}",
+      "agedItem": "{days, plural, one {# día} other {# días}} de antigüedad, estado {state}",
       "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
       "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. Fuentes envejecidas ahora mismo:"
     }

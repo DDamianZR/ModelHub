@@ -9,13 +9,30 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import zipfile
 
-from ..common import SourceError, fetch, norm
+from ..common import CONFIG, SourceError, fetch, norm
 
 URL = "https://epoch.ai/data/benchmark_data.zip"
 ATTRIBUTION = "https://epoch.ai/benchmarks"
-MIN_RELEASE_DATE = "2025-06-01"
+
+# Fallback only: normal operation reads this from config/weights.json, where it is a
+# methodology choice documented and debatable by PR, not a bare constant buried in an
+# adapter. This value is what ships if that file is ever missing or malformed.
+_FALLBACK_MIN_RELEASE_DATE = "2025-06-01"
+
+
+def min_release_date() -> str:
+    """Public: also read from run.py to publish the same value into meta.min_release_date,
+    so the frontend states the cutoff it actually applied rather than a remembered one."""
+    path = CONFIG / "weights.json"
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return _FALLBACK_MIN_RELEASE_DATE
+    return payload.get("min_release_date") or _FALLBACK_MIN_RELEASE_DATE
+
 
 BENCHMARKS = {
     "gpqa_diamond.csv": ("gpqa_diamond", "reasoning"),
@@ -39,9 +56,10 @@ def collect() -> dict:
     except KeyError as exc:
         raise SourceError("epoch: capabilities index missing from archive") from exc
 
+    cutoff = min_release_date()
     registry: dict[str, dict] = {}
     for row in index:
-        if (row.get("Release date") or "") < MIN_RELEASE_DATE:
+        if (row.get("Release date") or "") < cutoff:
             continue
         key = norm(row["Model version"])
         if not key:

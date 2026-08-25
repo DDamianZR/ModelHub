@@ -48,7 +48,7 @@ export default async function ModelPage({
     <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
 
-      <article className="mt-8 max-w-[52rem]">
+      <article id="main-content" className="mt-8 max-w-[52rem]">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h2
             className="text-[32px] leading-tight"
@@ -155,7 +155,21 @@ export default async function ModelPage({
         <section className="mt-8">
           <h3 className="eyebrow mb-2">{t("description")}</h3>
           {text ? (
-            <p className="text-[15px] leading-[1.65]">{text}</p>
+            <>
+              <p className="text-[15px] leading-[1.65]">{text}</p>
+              {description?.manual ? (
+                <p className="num mt-2 text-[11px]" style={muted}>
+                  {t("descriptionManual")}
+                </p>
+              ) : description?.generated_at ? (
+                <p className="num mt-2 text-[11px]" style={muted}>
+                  {t("descriptionGenerated", {
+                    date: description.generated_at,
+                    model: description.generated_by ?? "?",
+                  })}
+                </p>
+              ) : null}
+            </>
           ) : (
             <p
               className="border-l-2 py-1 pl-3 text-[13px]"
@@ -294,6 +308,27 @@ export default async function ModelPage({
                           })}
                         </span>
                       )}
+                      {score.contamination_flag &&
+                        score.contamination_evidence?.map((entry) => (
+                          <span
+                            key={entry.evidence_url}
+                            className="block text-[10px]"
+                            style={{ color: "var(--amber)" }}
+                          >
+                            {t("contaminationFlag", {
+                              date: entry.noted_at,
+                              note: entry.note,
+                            })}{" "}
+                            <a
+                              href={entry.evidence_url}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                              className="underline underline-offset-2"
+                            >
+                              {t("contaminationLink")}
+                            </a>
+                          </span>
+                        ))}
                     </th>
                     <td className="num py-2 pr-3 text-right text-[13px]">
                       {score.value.toFixed(score.unit === "percent" ? 1 : 0)}
@@ -320,7 +355,7 @@ export default async function ModelPage({
                         href={score.source_url}
                         rel="noopener noreferrer"
                         target="_blank"
-                        className="underline underline-offset-2"
+                        className="inline-block py-[6px] underline underline-offset-2"
                         style={{ color: "var(--amber)" }}
                       >
                         {score.benchmark?.source ?? t("link")}
@@ -345,7 +380,7 @@ export default async function ModelPage({
                       href={link.url}
                       rel="noopener noreferrer"
                       target="_blank"
-                      className="underline underline-offset-2"
+                      className="inline-block py-[5px] underline underline-offset-2"
                       style={{ color: "var(--amber)" }}
                     >
                       {link.url.replace(/^https?:\/\//, "")}

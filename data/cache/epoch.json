@@ -178,6 +178,14 @@
         "organization": "Anthropic",
         "release_date": "2026-05-28"
       },
+      "claude-opus-4-8-24k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Opus 4.8 (24k thinking)",
+        "eci": 157.78,
+        "organization": "Anthropic",
+        "release_date": "2026-05-28"
+      },
       "claude-opus-5": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -270,6 +278,14 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Sonnet 5 (max)",
+        "eci": 155.9,
+        "organization": "Anthropic",
+        "release_date": "2026-06-30"
+      },
+      "claude-sonnet-5-16k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Sonnet 5 (16k thinking)",
         "eci": 155.9,
         "organization": "Anthropic",
         "release_date": "2026-06-30"
@@ -762,6 +778,14 @@
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-06-16"
       },
+      "glm-5.3": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "GLM-5.3 (high)",
+        "eci": 0.0,
+        "organization": "Z.ai (Zhipu AI)",
+        "release_date": "2026-08-14"
+      },
       "gpt-5": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -966,6 +990,14 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "GPT-5.6 Sol (medium)",
+        "eci": 161.08,
+        "organization": "OpenAI",
+        "release_date": "2026-07-09"
+      },
+      "gpt-5.6-sol-proxhigh": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "GPT-5.6 Sol (pro, xhigh)",
         "eci": 161.08,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1378,6 +1410,14 @@
         "organization": "Meta AI",
         "release_date": "2026-07-09"
       },
+      "muse-spark-1.2": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Muse Spark 1.2",
+        "eci": 0.0,
+        "organization": "Meta AI",
+        "release_date": "2026-08-05"
+      },
       "nemotron-3-super": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
@@ -1602,6 +1642,14 @@
         "organization": "Alibaba",
         "release_date": "2026-08-02"
       },
+      "qwen3.8-27b": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Qwen3.8 27B (xhigh)",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-08-14"
+      },
       "ring-2.6-1t": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
@@ -1665,14 +1713,6 @@
         "eci": 0.0,
         "organization": "ByteDance",
         "release_date": "2025-06-18"
-      },
-      "xiaoyi-deepresearch": {
-        "accessibility": "",
-        "country": "",
-        "display_name": "xiaoyi-deepresearch",
-        "eci": 0.0,
-        "organization": "Unknown",
-        "release_date": "2026-03-06"
       },
       "zai-org/glm-4.6": {
         "accessibility": "Open weights (unrestricted)",

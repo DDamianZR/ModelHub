@@ -6,9 +6,10 @@
   "masthead": {
     "wordmark": "ModelHub",
     "tagline": "The independent frontier model scoreboard",
-    "blurb": "Closed and open-source models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
+    "blurb": "Closed and open-weights models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
   },
   "panel": {
+    "statusHeading": "Data status",
     "updated": "Updated",
     "models": "Models tracked",
     "sources": "Sources",
@@ -17,7 +18,7 @@
     "degraded": "Source not refreshed",
     "degradedSource": "{source} did not respond on the last run; showing its data from {date}",
     "aging": "Data ageing",
-    "agingSource": "{source} has not published a new snapshot in {days} days (last: {date})"
+    "agingSource": "{source} has not published a new snapshot in {days, plural, one {# day} other {# days}} (last: {date})"
   },
   "filters": {
     "label": "Filters",
@@ -27,8 +28,9 @@
     "open": "Open weights",
     "api": "API only",
     "origin": "Origin",
-    "showing": "{count} of {total} models",
-    "clear": "Clear"
+    "showing": "{count, plural, one {# model} other {# models}} of {total}",
+    "clear": "Clear",
+    "mobileColumnsHidden": "Categories are hidden on small screens. Open a model's page to see them."
   },
   "table": {
     "rank": "#",
@@ -50,17 +52,23 @@
     "openWeights": "Open weights",
     "apiOnly": "API only",
     "noHistory": "Not enough history",
-    "agedCategory": "{days}d",
-    "agedCategoryTitle": "The source behind this category has not published a new snapshot in {days} days",
+    "agedCategory": "{days, plural, one {#d} other {#d}}",
+    "agedCategoryTitle": "The source behind this category has not published a new snapshot in {days, plural, one {# day} other {# days}}",
     "provisionalTitle": "Provisional · not ranked",
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotes": "No human votes yet",
     "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty.",
-    "tiedTitle": "Tied with {count} other models: their 95% intervals overlap, so the measurement does not separate them.",
+    "tiedTitle": "Tied with {count, plural, one {# other model} other {# other models}}: their 95% intervals overlap, so the measurement does not separate them.",
     "errorTitle": "Half-width of a 95% interval on the composite. A floor: {measured} of {total} inputs publish their error and the rest contribute zero, so the real interval can only be wider.",
     "errorUnknownTitle": "None of this model's sources publish their error. The interval is unknown, not zero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Evidence density: {benchmarks} benchmarks from {sources} of {max} independent sources stand behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4."
+    "evidenceTitle": "Evidence density: {benchmarks, plural, one {# benchmark} other {# benchmarks}} from {sources} of {max} independent sources {benchmarks, plural, one {stands} other {stand}} behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4.",
+    "rankColumnHint": "A leading equals sign before the rank marks a tie: those models' 95% intervals overlap, so the measurement does not separate them.",
+    "tiedShort": "(tied with {count, plural, one {#} other {#}})",
+    "errorColumnHint": "Half-width of a 95% interval on the composite. A floor: entries with no published error contribute zero, so the real interval can only be wider.",
+    "errorCount": "{measured} of {total} publish their error",
+    "coverageColumnHint": "Evidence density: how many benchmarks and independent sources stand behind the composite. Different from coverage, which measures how many of the five categories were measured.",
+    "evidenceCount": "{benchmarks} benchmarks, {sources} of {max} sources"
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -80,6 +88,7 @@
   },
   "nav": {
     "label": "Sections",
+    "skipToContent": "Skip to content",
     "ranking": "Ranking",
     "compare": "Compare",
     "methodology": "Methodology",
@@ -90,7 +99,7 @@
     "intro": "Pick two to four models. The bars share a 0–100 axis, so lengths are directly comparable across categories and across models.",
     "pick": "Select up to {max}",
     "search": "Search model or provider",
-    "selected": "{count} of {max} selected",
+    "selected": "{count, plural, one {# of {max} selected} other {# of {max} selected}}",
     "empty": "Select at least one model to compare.",
     "tableView": "The same numbers, as a table",
     "visionNote": "Outside the composite. Measured separately, because a text-only model doesn't compete here.",
@@ -99,10 +108,12 @@
   "model": {
     "description": "Description",
     "descriptionPending": "Description pending. Editorial descriptions are generated by Layer B using a local model and approved by a person before publishing; it hasn't been run for this model yet.",
+    "descriptionGenerated": "Generated on {date} with {model}",
+    "descriptionManual": "Hand-edited",
     "categories": "Score by category",
     "partialNote": "Partial composite: no measurement for {missing}. The weight is spread across the available categories only, and the model is flagged rather than zero-filled.",
     "history": "Trajectory",
-    "historyRange": "{points} observations, {from} to {to}",
+    "historyRange": "{points, plural, one {# observation} other {# observations}}, {from} to {to}",
     "historyScope": "The history available today comes from LMArena, the only source that publishes its full time series. Epoch and LiveBench publish point-in-time snapshots, so their history accumulates run by run from the day the daily ingest started.",
     "historyBreaks": "The window starts on 2026-01-01, after Arena's most recent methodology change. That is why this line can be drawn continuous without lying: it doesn't cross a break.",
     "sources": "Where each number comes from",
@@ -114,7 +125,7 @@
     "acquisition": "Where to get it",
     "acquisitionPending": "Pending. Acquisition links (HuggingFace repo, provider page, API docs, Ollama tag) are assembled deterministically by Layer B; the fields exist in the schema and stay empty until then.",
     "acquisitionChecked": "Links checked on {date}",
-    "acquisitionWithheld": "{count} unverified, withheld pending manual review",
+    "acquisitionWithheld": "{count, plural, one {# unverified, withheld pending manual review} other {# unverified, withheld pending manual review}}",
     "link_hf_repo": "Weights (HuggingFace)",
     "link_provider_page": "Provider",
     "link_api_docs": "API docs",
@@ -123,13 +134,15 @@
     "configurationNote": "Every number below describes the {variant} variant as the vendor published it. One configuration is chosen for the whole model: taking each benchmark's best would describe a setup nobody runs.",
     "configurationPlain": "Every number below describes the variant the vendor published without an effort qualifier.",
     "configurationMismatch": "Human preference is the exception: LMArena never published the {variant} variant, so that vote measures {measured}. The figure is kept and the difference stated, rather than discarding real human votes over a naming difference between sources.",
-    "tiedShort": "(tied with {count})",
+    "tiedShort": "(tied with {count, plural, one {#} other {#}})",
     "errorNotPublished": "no error published",
     "uncertaintyNote": "The ±{error} is the half-width of a 95% interval on the composite, and it is a floor rather than an estimate: {measured} of {total} inputs publish their error and the rest contribute zero. The real interval can only be wider, never narrower.",
     "uncertaintyNone": "None of this model's sources publish a margin of error, so its composite carries no interval. That means \"unknown\", not \"exact\": its place in the table is the least defensible of any, because it is compared as a point value.",
-    "uncertaintyTied": "It shares a rank with {count} other models because their intervals overlap.",
+    "uncertaintyTied": "It shares a rank with {count, plural, one {# other model} other {# other models}} because their intervals overlap.",
     "recalibration": "Cohort recalibration, not a change in measurement. Its normalised human preference value moved {normalized} points while its Arena rating changed only {raw}: a model with an extreme rating joined or left and the scale shifted underneath. The effect on the composite is {composite} points — above {threshold}, this run's median gap between neighbours — and nobody voted differently to cause it.",
-    "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}"
+    "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}",
+    "contaminationFlag": "Contamination reported ({date}): {note}",
+    "contaminationLink": "see evidence"
   },
   "methodology": {
     "title": "Methodology",
@@ -145,6 +158,8 @@
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, text arena, overall category",
       "inputs_instruction_following": "LiveBench IF",
+      "singleSource": "single source",
+      "singleSourceNote": "\"Single source\" marks categories that depend on one data provider: if that source goes down, the whole category gets no new snapshot, not just one benchmark inside it.",
       "equation": "composite = Σ(category score × weight) ÷ Σ(weight of categories with data)",
       "normalisation": "Benchmarks already reported as percentages are used as-is. LMArena's Bradley-Terry ratings are not percentages, so they are min-max normalised against the cohort present in each build: in the current build, {min} and {max} are the 0 and the 100. This means a model's normalised Arena value can move even when its rating doesn't, if a model enters or leaves either extreme.",
       "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality."
@@ -154,7 +169,8 @@
       "body": "A model needs data in at least 4 of the 5 categories to enter the main ranking. Below that it appears in the Provisional section: visible, with its composite computed, but without a rank number.",
       "example": "This exists because of a real problem. Since the weight is spread across only the categories that have data, a thinly measured model rises on what it is MISSING rather than on being better. Qwen3-Max-Instruct, with 3 of 5 categories, was landing at rank 5, above models measured on all five. That is precisely the bias this site exists to fight, so it is corrected in code rather than in a footnote.",
       "newModels": "The threshold is 4 and not 5 on purpose. A newly released model can have all four benchmarks and no LMArena votes yet; that case ranks normally, flagged as awaiting human votes. Sufficient evidence is required; being new is not punished.",
-      "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5."
+      "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5.",
+      "scope": "The whole catalogue also has a cutoff date: only models published on or after {date} are eligible at all. That is not a measurement threshold like the one above - it is a scope filter, and it decides which models exist on the site before anything is measured. The value lives in config/weights.json, with its reasoning documented right there, and is debatable by PR like any other number on this page."
     },
     "variants": {
       "title": "Variants of the same model",
@@ -186,6 +202,12 @@
       "third_party_benchmark": "an evaluation run by an independent third party, such as Epoch AI or LiveBench. Enters the composite.",
       "vendor_claim": "a figure published by whoever sells the model. Stored and displayed, but NEVER entered into the composite.",
       "why": "A vendor has a direct incentive to pick the setup that flatters it, and there is no way to audit a run it never published. The exclusion is therefore structural rather than a case-by-case judgement: it doesn't depend on whether we happen to trust a given company."
+    },
+    "contamination": {
+      "title": "Training contamination",
+      "body": "A contaminated benchmark is one whose questions or answers show up in the data a model was trained on, inflating the score without measuring real capability. This site never attenuates a score for suspected contamination - doing so would be fabricating a number from an estimate. What it does instead is log public evidence, with its link, next to the affected score, in config/contamination.json.",
+      "empty": "Reviewed on {date}. No benchmark has logged evidence yet. That is a checkable claim about what has been logged as of today, not a promise that no benchmark here has ever been contaminated.",
+      "count": "Reviewed on {date}. {count, plural, one {# benchmark has} other {# benchmarks have}} public evidence on record, flagged on every affected model's page next to the source link."
     },
     "breaks": {
       "title": "LMArena's methodology breaks",
@@ -233,7 +255,7 @@
       "ratio": "Ratio",
       "reason": "Reason",
       "cadence": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. LiveBench declares {declared} days; its observed median across {snapshots} published snapshots is {median}, so the declaration holds. Its longest gap was {longest} days, and during that gap the degraded state did fire, at {degraded}. Sources ageing right now:",
-      "agedItem": "{days} days old, state {state}",
+      "agedItem": "{days, plural, one {# day} other {# days}} old, state {state}",
       "agedNone": "None. All three sources are within their declared rhythm.",
       "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. Sources ageing right now:"
     }
