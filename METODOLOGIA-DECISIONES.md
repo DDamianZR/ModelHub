@@ -16,21 +16,22 @@ disculparse: para que el lector pueda descontarlos.
 
 ### Declaración de quien escribió este documento
 
-Soy un modelo de lenguaje de Anthropic. No puedo salirme de eso; pedirlo y decir que lo logré
-sería el primer sesgo. Lo que sí puedo hacer es enumerar de dónde tira mi posición y poner un
-contrapeso procedimental a cada tirón. Los seis que aplican aquí:
+Mantengo ModelHub yo solo. No puedo evaluar una propuesta desde un punto neutral; decir que sí
+lo logré sería el primer sesgo. Lo que sí puedo hacer es enumerar de dónde tira mi posición y
+poner un contrapeso procedimental a cada tirón. Los seis que aplican aquí:
 
 | Sesgo | De dónde viene | Contrapeso en este protocolo |
 |---|---|---|
-| **Complacencia** | Estoy optimizado para ser útil. "Todo esto es buenísimo, aquí van los 42 ítems" es mi camino de menor resistencia. | Etapa 5: cuota de rechazo obligatoria. |
-| **Producir por producir** | Se me evalúa por entregar. Añadir una feature siempre parece progreso; no hacer nada nunca lo parece. | Etapa 4: la opción nula compite con puntaje. |
-| **Pro-LLM** | Soy un LLM hecho por una empresa que vende LLMs. Toda propuesta que amplíe la Capa B me gusta por razones que no son del proyecto. | Etapa 6: pregunta explícita "¿lo aprobaría si no involucrara un LLM?". |
-| **Prestigio anglófono** | Mi entrenamiento está dominado por el discurso de IA en inglés. *Stanford*, *Berkeley*, *NVIDIA* me suenan a rigor; *Barcelona Supercomputing Center* me suena a desconocido. Eso es un artefacto de entrenamiento, no una diferencia de evidencia. | Etapa 2: enmascarado de prestigio. |
+| **Apego a lo construido** | Refactorizar lo propio duele más que añadir algo nuevo encima. Tocar una función que ya funciona se siente como riesgo gratuito. | Etapa 4: la opción nula compite con puntaje. |
+| **Producir por producir** | Una feature nueva se ve como avance; no tocar código que ya funciona no se ve como nada, aunque sea la decisión correcta. | Etapa 4: la opción nula compite con puntaje. |
+| **Prestigio anglófono** | La bibliografía de referencia de este campo está casi toda en inglés. *Stanford*, *Berkeley*, *NVIDIA* me suenan a rigor; *Barcelona Supercomputing Center* me suena a desconocido. Eso es un artefacto de qué he leído, no una diferencia de evidencia. | Etapa 2: enmascarado de prestigio. |
 | **Sofisticación** | Z-score, sigmoide, SHA-256, frontera de Pareto *leen* como rigor. La complejidad se confunde con la corrección. | Etapa 3: prueba del delta medido. Lo complejo que no mueve un número medido no entra. |
-| **Falso balance** | Ante dos documentos, me empuja a tratarlos como igual de válidos y sintetizarlos. No siempre lo son. | Etapa 1: cada documento se puntúa por su tasa de verificación, no por su tono. |
+| **Falso balance** | Ante dos propuestas, me empuja a tratarlas como igual de válidas y sintetizarlas. No siempre lo son. | Etapa 1: cada documento se puntúa por su tasa de verificación, no por su tono. |
+| **Cansancio** | Un proyecto de una sola persona rechaza menos en la semana catorce que en la semana uno. | Etapa 5: cuota de rechazo obligatoria. |
 
-Un evaluador humano escribiría otra tabla: reputación ante colaboradores, apego a lo ya
-construido, cansancio. El formato es el mismo; el contenido cambia según quién evalúe.
+Un equipo evaluando esto en lugar de una persona sola escribiría otra tabla: política interna,
+reputación ante colaboradores, presión de plazos compartidos. El formato es el mismo; el
+contenido cambia según quién evalúe.
 
 ---
 
@@ -65,8 +66,8 @@ Queda solo la mecánica: qué endpoint, qué licencia, qué cadencia observada, 
 alimenta, qué pasa si falla. Se puntúa esa versión. Se desenmascara **después**.
 
 Esto ataca dos sesgos a la vez: el prestigio institucional y la **mímesis de registro** —una
-propuesta escrita en el mismo dialecto que `CLAUDE.md` se siente verificada aunque ella misma
-declare que no lo está.
+propuesta escrita en el mismo dialecto que las notas del proyecto se siente verificada aunque
+ella misma declare que no lo está.
 
 ---
 
