@@ -11,6 +11,11 @@ skipped, because it unconditionally writes "cohort_recalibration": null onto eve
 file on that key. An empty previous build can never actually flag anything (the "before"
 lookup is always a miss), so this is a deterministic no-op rather than a comparison
 against a moving target.
+
+Corollary: when a real ingest run's previous build was non-empty and cohort renormalisation
+genuinely moved a model, the committed file carries a real cohort_recalibration record that
+this harness's null rebuild cannot reproduce. The field is compared by shape instead of by
+value for that reason - see test_models_match_field_for_field.
 """
 import json
 import unittest
@@ -70,7 +75,22 @@ class GoldenCompositeTests(unittest.TestCase):
         self.assertEqual(set(by_id_rebuilt), set(by_id_committed))
         for model_id, committed in by_id_committed.items():
             with self.subTest(model=model_id):
-                self.assertEqual(by_id_rebuilt[model_id], committed)
+                rebuilt = dict(by_id_rebuilt[model_id])
+                committed = dict(committed)
+                rebuilt_recal = rebuilt.pop("cohort_recalibration", None)
+                committed_recal = committed.pop("cohort_recalibration", None)
+                self.assertIsNone(rebuilt_recal)
+                if committed_recal is not None:
+                    expected_keys = {
+                        "raw_delta",
+                        "normalized_delta",
+                        "composite_effect",
+                        "threshold",
+                    }
+                    self.assertEqual(set(committed_recal), expected_keys)
+                    for key in expected_keys:
+                        self.assertIsInstance(committed_recal[key], (int, float))
+                self.assertEqual(rebuilt, committed)
 
     def test_scores_match(self):
         key = lambda row: (row["model_id"], row["benchmark_id"])
