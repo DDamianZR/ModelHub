@@ -86,27 +86,52 @@ export default async function HomePage({
               .map((entry) =>
                 tp("degradedSource", {
                   source: entry.name,
-                  date: entry.status.last_success ?? "—",
+                  since: entry.status.last_success ?? "—",
+                  snapshot: entry.snapshotDate ?? "—",
                 }),
               )
               .join(" · ")}
           </p>
         )}
 
-        {aged.length > 0 && (
-          <p className="note note-accent mt-4 text-xs leading-[1.6]">
-            <span className="eyebrow text-accent">{tp("aging")}</span>{" "}
-            {aged
-              .map((entry) =>
-                tp("agingSource", {
-                  source: entry.name,
-                  days: entry.age_days ?? 0,
-                  date: entry.date ?? "—",
-                }),
-              )
-              .join(" · ")}
-          </p>
-        )}
+        {aged.length > 0 && (() => {
+          // Within-rhythm gaps read as a neutral fact, not an alarm: this source's own
+          // observed cadence (median_gap_days) already explains the gap, so nothing here
+          // is actually surprising. Only a gap that exceeds twice that median gets the
+          // amber treatment - see lib/data.ts's getAgedSources for why state "ok" is
+          // required to appear here at all.
+          const withinRhythm = (entry: (typeof aged)[number]) => {
+            const median = entry.observed?.median_gap_days;
+            return median != null && (entry.age_days ?? Infinity) <= median * 2;
+          };
+          const anyExceeding = aged.some((entry) => !withinRhythm(entry));
+          return (
+            <p className="mt-4 text-xs leading-[1.6]">
+              <span className={`eyebrow ${anyExceeding ? "text-accent" : "text-tertiary"}`}>
+                {tp("aging")}
+              </span>{" "}
+              {aged.map((entry, i) => {
+                const normal = withinRhythm(entry);
+                return (
+                  <span key={entry.name} className={normal ? "text-tertiary" : "text-accent"}>
+                    {i > 0 && " · "}
+                    {normal
+                      ? tp("agingSourceNormal", {
+                          source: entry.name,
+                          days: entry.age_days ?? 0,
+                          median: entry.observed!.median_gap_days.toFixed(1),
+                        })
+                      : tp("agingSource", {
+                          source: entry.name,
+                          days: entry.age_days ?? 0,
+                          date: entry.date ?? "—",
+                        })}
+                  </span>
+                );
+              })}
+            </p>
+          );
+        })()}
       </section>
 
       <section id="ranking" className="mt-3 scroll-mt-6 sm:mt-8" aria-labelledby="ranking-heading">

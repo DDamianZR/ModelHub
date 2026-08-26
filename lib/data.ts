@@ -73,12 +73,21 @@ function readStatus(): Status | null {
  *
  * Distinct from a failed fetch: these fetched fine, but the numbers behind them are old.
  * That is the failure that ages in silence, so it is stated rather than left implicit.
+ *
+ * Requires state "ok" for the same reason: a source that is not fetching cleanly has no
+ * measurable age at all - its last known snapshot might be stale, or the source might have
+ * published five new ones today. Claiming otherwise would be an assertion about a third
+ * party the site never actually checked. That source is already named in the degraded
+ * banner, which is a statement about this site's own fetch, not about the source.
  */
 export function getAgedSources(): AgedSource[] {
   const status = readStatus();
   if (!status?.snapshot_ages) return [];
   return Object.entries(status.snapshot_ages)
-    .filter(([, value]) => value.freshness === "aging" || value.freshness === "degraded")
+    .filter(([name, value]) => {
+      if (value.freshness !== "aging" && value.freshness !== "degraded") return false;
+      return status.sources?.[name]?.state === "ok";
+    })
     .map(([name, value]) => ({ name, ...value }));
 }
 
@@ -91,14 +100,28 @@ export function getCategoryAges(): Record<string, AgedSource> {
   return out;
 }
 
-/** Sources that did not refresh on the last run, so the page can say so out loud. */
-export function getDegradedSources(): { name: string; status: Status["sources"][string] }[] {
+/**
+ * Sources that did not refresh on the last run, so the page can say so out loud.
+ *
+ * `status.last_success` is the day the fetch last worked - not the day the data is from.
+ * `snapshotDate` (status.snapshot_ages[name].date) is the actual date of what's shown, so
+ * the banner can state both instead of passing off the fetch date as the data's own.
+ */
+export function getDegradedSources(): {
+  name: string;
+  status: Status["sources"][string];
+  snapshotDate: string | null;
+}[] {
   const file = path.join(DATA_DIR, "status.json");
   if (!fs.existsSync(file)) return [];
   const status = JSON.parse(fs.readFileSync(file, "utf8")) as Status;
   return Object.entries(status.sources ?? {})
     .filter(([, value]) => value.state !== "ok")
-    .map(([name, value]) => ({ name, status: value }));
+    .map(([name, value]) => ({
+      name,
+      status: value,
+      snapshotDate: status.snapshot_ages?.[name]?.date ?? null,
+    }));
 }
 
 export type ScoreRow = {
