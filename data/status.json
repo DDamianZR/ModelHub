@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-08-25T23:24:27+00:00",
+  "generated_at": "2026-08-26T07:07:58+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-08-25",
+      "last_success": "2026-08-26",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-08-25",
+      "last_success": "2026-08-26",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
-      "state": "ok",
+      "state": "cached",
       "last_success": "2026-08-25",
-      "error": null,
-      "served_by": "filter",
-      "consecutive_failures": 0
+      "age_days": 1,
+      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=5700&length=100: HTTP Error 429: Too Many Requests",
+      "consecutive_failures": 1
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-08-25",
+      "date": "2026-08-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 61,
+      "age_days": 62,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,7 +49,7 @@
     },
     "lmarena": {
       "date": "2026-08-21",
-      "age_days": 4,
+      "age_days": 5,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -70,7 +70,7 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "53931532ef9b56140e855c810b268709fe38fbd6128382cc8a7e0d81580db918",
+          "sha256": "4e99087c8017b9e70e77e56b2530db4784a85b5e314c5af3afb78a30e264b891",
           "bytes": 469454
         }
       ]
@@ -103,7 +103,7 @@
     },
     "lmarena": {
       "normalised_sha256": "5e60033528926d67d632c17e2532b088d321bd6c2439bd0c7e8f6fe2eeca00cc",
-      "requests": 20,
+      "requests": 57,
       "upstream": []
     }
   }

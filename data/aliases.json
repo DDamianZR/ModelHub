@@ -295,6 +295,7 @@
     "scored_arena_name": "deepseek-v4-pro",
     "names": [
       "deepseek-v4-pro",
+      "deepseek-v4-pro-high-20260813",
       "deepseek-v4-pro-high-preview"
     ],
     "matched": {
@@ -308,6 +309,7 @@
       ],
       "lmarena": [
         "deepseek-v4-pro",
+        "deepseek-v4-pro-high-20260813",
         "deepseek-v4-pro-high-preview"
       ]
     }
@@ -516,9 +518,10 @@
     "canonical_key": "gemini-3.7-flash",
     "display_name": "Gemini 3.7 Flash (high)",
     "variant": "high",
-    "scored_arena_name": null,
+    "scored_arena_name": "gemini-3.7-flash-high",
     "names": [
-      "gemini-3.7-flash"
+      "gemini-3.7-flash",
+      "gemini-3.7-flash-high"
     ],
     "matched": {
       "epoch": [
@@ -527,7 +530,9 @@
       "livebench": [
         "gemini-3.7-flash-high"
       ],
-      "lmarena": []
+      "lmarena": [
+        "gemini-3.7-flash-high"
+      ]
     }
   },
   "google-deepmind-gemma-4-31b": {
@@ -621,6 +626,25 @@
       ],
       "lmarena": [
         "glm-5.2-max"
+      ]
+    }
+  },
+  "z-ai-zhipu-ai-glm-5.3": {
+    "canonical_key": "glm-5.3",
+    "display_name": "GLM-5.3 (high)",
+    "variant": "plain",
+    "scored_arena_name": "glm-5.3-max",
+    "names": [
+      "glm-5.3",
+      "glm-5.3-max"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "glm-5.3"
+      ],
+      "lmarena": [
+        "glm-5.3-max"
       ]
     }
   },
@@ -1039,6 +1063,25 @@
       ]
     }
   },
+  "thinking-machines-inkling-small": {
+    "canonical_key": "inkling-small",
+    "display_name": "Inkling Small (xhigh)",
+    "variant": "xhigh",
+    "scored_arena_name": "Inkling Small",
+    "names": [
+      "Inkling Small",
+      "inkling-small"
+    ],
+    "matched": {
+      "epoch": [
+        "inkling-small_xhigh"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Inkling Small"
+      ]
+    }
+  },
   "moonshot-kimi-k2-thinking-turbo": {
     "canonical_key": "kimi-k2-thinking-turbo",
     "display_name": "Kimi K2 Thinking Turbo",
@@ -1385,6 +1428,24 @@
       ],
       "lmarena": [
         "qwen3.8-max"
+      ]
+    }
+  },
+  "alibaba-qwen3.8-27b": {
+    "canonical_key": "qwen3.8-27b",
+    "display_name": "Qwen3.8 27B (xhigh)",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.8-27b",
+    "names": [
+      "qwen3.8-27b"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "qwen3.8-27b"
+      ],
+      "lmarena": [
+        "qwen3.8-27b"
       ]
     }
   }
