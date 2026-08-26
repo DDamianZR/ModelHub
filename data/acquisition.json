@@ -6,7 +6,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -21,7 +21,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -36,7 +36,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -51,7 +51,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -66,7 +66,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -81,7 +81,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -96,7 +96,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -111,7 +111,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -126,7 +126,7 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -141,10 +141,25 @@
       "ollama_tag": null,
       "provider_page": "https://qwen.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "alibaba-qwen3.8-27b": {
+    "acquisition": {
+      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
+      "hf_repo": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "ollama_tag": null,
+      "provider_page": "https://qwen.ai/"
+    },
+    "checked_at": "2026-08-26",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": true,
       "ollama_tag": false,
       "provider_page": true
     }
@@ -156,7 +171,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -171,7 +186,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -186,7 +201,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -201,7 +216,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -216,7 +231,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -231,7 +246,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -246,7 +261,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -261,7 +276,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -276,7 +291,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -291,7 +306,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -306,7 +321,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -321,7 +336,7 @@
       "ollama_tag": "deepseek-v4-flash",
       "provider_page": "https://www.deepseek.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -336,7 +351,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.deepseek.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -351,7 +366,7 @@
       "ollama_tag": "deepseek-v4-pro",
       "provider_page": "https://www.deepseek.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -366,7 +381,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.deepseek.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -381,7 +396,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -396,7 +411,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -411,7 +426,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -426,7 +441,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -441,7 +456,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -456,7 +471,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -471,7 +486,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -486,7 +501,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -501,7 +516,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -516,7 +531,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -531,7 +546,7 @@
       "ollama_tag": null,
       "provider_page": "https://deepmind.google/models/gemini/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -546,7 +561,7 @@
       "ollama_tag": null,
       "provider_page": "https://ai.meta.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -561,7 +576,7 @@
       "ollama_tag": null,
       "provider_page": "https://ai.meta.com/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -576,7 +591,7 @@
       "ollama_tag": "minimax-m3",
       "provider_page": null
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": false,
       "hf_repo": true,
@@ -591,7 +606,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.moonshot.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -606,7 +621,7 @@
       "ollama_tag": "kimi-k2.5",
       "provider_page": "https://www.moonshot.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -621,7 +636,7 @@
       "ollama_tag": "kimi-k2.6",
       "provider_page": "https://www.moonshot.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -636,7 +651,7 @@
       "ollama_tag": "kimi-k2.7-code",
       "provider_page": "https://www.moonshot.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -651,7 +666,7 @@
       "ollama_tag": "kimi-k3",
       "provider_page": "https://www.moonshot.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -666,12 +681,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5-mini": {
@@ -681,12 +696,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5-nano": {
@@ -696,12 +711,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.1": {
@@ -711,12 +726,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.2": {
@@ -726,7 +741,7 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -741,12 +756,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.4-mini": {
@@ -756,7 +771,7 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -771,12 +786,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.5": {
@@ -786,12 +801,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.5-instant": {
@@ -801,12 +816,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.6-luna": {
@@ -816,7 +831,7 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -831,12 +846,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.6-terra": {
@@ -846,12 +861,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-oss-20b": {
@@ -861,12 +876,12 @@
       "ollama_tag": null,
       "provider_page": "https://openai.com/api/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "thinking-machines-inkling": {
@@ -876,7 +891,22 @@
       "ollama_tag": null,
       "provider_page": null
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
+    "verified": {
+      "api_docs": false,
+      "hf_repo": true,
+      "ollama_tag": false,
+      "provider_page": false
+    }
+  },
+  "thinking-machines-inkling-small": {
+    "acquisition": {
+      "api_docs": null,
+      "hf_repo": "https://huggingface.co/thinkingmachines/Inkling-Small-NVFP4",
+      "ollama_tag": null,
+      "provider_page": null
+    },
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": false,
       "hf_repo": true,
@@ -891,7 +921,7 @@
       "ollama_tag": null,
       "provider_page": "https://x.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -906,7 +936,7 @@
       "ollama_tag": null,
       "provider_page": "https://x.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -921,7 +951,7 @@
       "ollama_tag": null,
       "provider_page": "https://x.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -936,7 +966,7 @@
       "ollama_tag": null,
       "provider_page": "https://x.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -951,7 +981,7 @@
       "ollama_tag": "glm-4.7",
       "provider_page": "https://z.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -966,7 +996,7 @@
       "ollama_tag": "glm-5",
       "provider_page": "https://z.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -981,7 +1011,7 @@
       "ollama_tag": "glm-5.1",
       "provider_page": "https://z.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
@@ -996,11 +1026,26 @@
       "ollama_tag": "glm-5.2",
       "provider_page": "https://z.ai/"
     },
-    "checked_at": "2026-08-25",
+    "checked_at": "2026-08-26",
     "verified": {
       "api_docs": true,
       "hf_repo": true,
       "ollama_tag": true,
+      "provider_page": true
+    }
+  },
+  "z-ai-zhipu-ai-glm-5.3": {
+    "acquisition": {
+      "api_docs": "https://docs.z.ai/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://z.ai/"
+    },
+    "checked_at": "2026-08-26",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
       "provider_page": true
     }
   }
