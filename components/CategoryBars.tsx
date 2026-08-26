@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 /**
  * Horizontal bars on a shared 0-100 axis, one row per series.
  *
@@ -22,17 +24,15 @@ export function CategoryBars({
         <div key={`${row.label}-${index}`} className="grid grid-cols-[1fr_auto] gap-2">
           <div className="min-w-0">
             <div className="flex items-baseline justify-between gap-3">
-              <span className="truncate text-[12px]">{row.label}</span>
+              <span className="truncate text-xs">{row.label}</span>
               <span
-                className="num shrink-0 text-[12px]"
-                style={{ color: row.value === undefined ? "var(--muted)" : "inherit" }}
+                className={clsx("num shrink-0 text-xs", row.value === undefined && "text-tertiary")}
               >
                 {row.value === undefined ? emptyLabel : row.value.toFixed(1)}
               </span>
             </div>
             <div
-              className="mt-[3px] h-[6px] w-full"
-              style={{ background: "var(--paper-sunk)" }}
+              className="mt-[3px] h-[6px] w-full bg-sunk"
               role="img"
               aria-label={`${row.label}: ${
                 row.value === undefined ? emptyLabel : row.value.toFixed(1)
@@ -40,19 +40,13 @@ export function CategoryBars({
             >
               {row.value !== undefined && (
                 <div
-                  className="h-full"
-                  style={{
-                    width: `${Math.max(0, Math.min(100, row.value))}%`,
-                    background: "var(--mark)",
-                    borderRadius: "0 3px 3px 0",
-                  }}
+                  className="h-full rounded-r-[3px] bg-mark"
+                  style={{ width: `${Math.max(0, Math.min(100, row.value))}%` }}
                 />
               )}
             </div>
             {row.sublabel && (
-              <div className="num mt-[2px] text-[10px]" style={{ color: "var(--muted)" }}>
-                {row.sublabel}
-              </div>
+              <div className="num mt-[2px] text-2xs text-tertiary">{row.sublabel}</div>
             )}
           </div>
         </div>

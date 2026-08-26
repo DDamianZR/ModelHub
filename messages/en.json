@@ -9,7 +9,6 @@
     "blurb": "Closed and open-weights models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
   },
   "panel": {
-    "statusHeading": "Data status",
     "updated": "Updated",
     "models": "Models tracked",
     "sources": "Sources",
@@ -30,7 +29,7 @@
     "origin": "Origin",
     "showing": "{count, plural, one {# model} other {# models}} of {total}",
     "clear": "Clear",
-    "mobileColumnsHidden": "Categories are hidden on small screens. Open a model's page to see them."
+    "provider": "Provider"
   },
   "table": {
     "rank": "#",
@@ -58,17 +57,13 @@
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotes": "No human votes yet",
     "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty.",
-    "tiedTitle": "Tied with {count, plural, one {# other model} other {# other models}}: their 95% intervals overlap, so the measurement does not separate them.",
-    "errorTitle": "Half-width of a 95% interval on the composite. A floor: {measured} of {total} inputs publish their error and the rest contribute zero, so the real interval can only be wider.",
     "errorUnknownTitle": "None of this model's sources publish their error. The interval is unknown, not zero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Evidence density: {benchmarks, plural, one {# benchmark} other {# benchmarks}} from {sources} of {max} independent sources {benchmarks, plural, one {stands} other {stand}} behind this composite. Different from coverage, which measures how many of the five categories were measured. Two models with the same score can rest on 9 benchmarks and on 4.",
-    "rankColumnHint": "A leading equals sign before the rank marks a tie: those models' 95% intervals overlap, so the measurement does not separate them.",
-    "tiedShort": "(tied with {count, plural, one {#} other {#}})",
-    "errorColumnHint": "Half-width of a 95% interval on the composite. A floor: entries with no published error contribute zero, so the real interval can only be wider.",
-    "errorCount": "{measured} of {total} publish their error",
-    "coverageColumnHint": "Evidence density: how many benchmarks and independent sources stand behind the composite. Different from coverage, which measures how many of the five categories were measured.",
-    "evidenceCount": "{benchmarks} benchmarks, {sources} of {max} sources"
+    "rankDesc": "Significance rank: a model sits at one plus the number of models measurably ahead of it. A number prefixed with = is a joint placing, meaning the 95% intervals overlap and the measurement does not separate those models.",
+    "compositeDesc": "Weighted composite out of 100, followed by the half-width of a 95% interval. That interval is a floor, not an estimate: inputs that publish no error contribute zero, so the real interval can only be wider. ±? means no source published an error at all, which is unknown rather than zero.",
+    "coverageDesc": "Five segments, one per category, filled where that category was measured. Beside it, the number of benchmarks standing behind the composite — a different question from how many categories were covered.",
+    "trendUp": "rising",
+    "trendDown": "falling"
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -103,7 +98,13 @@
     "empty": "Select at least one model to compare.",
     "tableView": "The same numbers, as a table",
     "visionNote": "Outside the composite. Measured separately, because a text-only model doesn't compete here.",
-    "visionRating": "{rating} · rank {rank} in the vision arena"
+    "visionRating": "{rating} · rank {rank} in the vision arena",
+    "full": "Maximum reached — remove a model first",
+    "delta": "Δ vs {baseline}",
+    "baseline": "baseline",
+    "notSeparated": "not separated",
+    "notSeparatedTitle": "The gap between these two composites ({gap}) is smaller than their combined 95% interval (±{combined}). The measurement does not separate them, so no difference is claimed.",
+    "deltaNote": "Δ is measured against the first selected model. Where the gap falls inside the two models' combined interval it reads \"not separated\": the same rule the ranking uses, applied here so a difference smaller than the error never looks like a win."
   },
   "model": {
     "description": "Description",
@@ -259,6 +260,17 @@
       "agedNone": "None. All three sources are within their declared rhythm.",
       "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. Sources ageing right now:"
     }
+  },
+  "ui": {
+    "skipToContent": "Skip to content",
+    "sections": "Sections",
+    "pageSections": "Sections of this page",
+    "modelNav": "Previous and next model by rank"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "This page does not exist or the model could not be found.",
+    "back": "Back to ranking"
   },
   "aliases": {
     "title": "Name-matching audit",

@@ -22,19 +22,15 @@ export default async function ComparePage({
   const { rows } = getRanking();
 
   return (
-    <main className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
+    <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="compare" />
 
-      <section id="main-content" className="mt-8">
-        <h2
-          className="text-[26px] leading-tight"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+      <section className="mt-8">
+        <h2 className="font-display text-xl leading-tight">
           {t("title")}
         </h2>
         <p
-          className="mt-2 max-w-[46rem] text-[14px] leading-[1.6]"
-          style={{ color: "var(--muted)" }}
+          className="mt-2 max-w-[46rem] text-base leading-[1.6] text-tertiary"
         >
           {t("intro")}
         </p>

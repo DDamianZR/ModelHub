@@ -1,50 +1,119 @@
 @import "tailwindcss";
 
-@theme {
-  --color-paper: #faf9f6;
-  --color-paper-sunk: #f2f0ea;
-  --color-ink: #1a1a1a;
-  --color-muted: #6e6862;
-  --color-rule: #e2ded4;
-  --color-amber: #6d28d9;
-  --color-amber-soft: #ede4ff;
-
-  --font-display: var(--font-instrument-serif), Georgia, serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-}
-
+/* ── Semantic design tokens ──────────────────────────────────────────────────
+   Every colour below is verified by scripts/check-contrast.mjs, which parses
+   THIS file. Do not hand-tune a value without re-running it: the boundary
+   tokens are load-bearing for WCAG 1.4.11 and the margins are thin.          */
 :root {
-  --paper: #faf9f6;
-  --paper-sunk: #f2f0ea;
-  --ink: #1a1a1a;
-  --muted: #6e6862;
-  --rule: #e2ded4;
-  --amber: #6d28d9;
-  --amber-soft: #ede4ff;
-  /* Chart marks and body text have different jobs, so they get different steps.
-     Both validated for contrast against their own surface. */
+  /* Surfaces: plane 0 (canvas) → plane 3 (overlay) */
+  --surface-canvas:  #faf9f6;
+  --surface-default: #f5f3ee;
+  --surface-sunk:    #f2f0ea;
+  --surface-raised:  #e3e0d9;  /* hover plane — 1.25:1 vs canvas */
+  --surface-overlay: #fdfcfa;
+
+  /* Text */
+  --text-primary:   #1a1a1a;
+  --text-tertiary:  #68625c;   /* 4.56:1 on raised, the worst surface it sits on */
+  --text-on-accent: #ffffff;
+
+  /* Lines. line-subtle is decorative and may sit below 3:1; it is NEVER the
+     boundary of an interactive control. line-default and above carry contrast. */
+  --line-subtle:  #e2ded4;
+  --line-default: #837f77;     /* 3.02:1 on raised, 3.79:1 on canvas */
+  --line-strong:  #524e49;
+
+  /* Accent */
+  --accent:       #6d28d9;
+  --focus-ring:   #6d28d9;
+
+  /* Chart / data marks */
   --mark: #8157fd;
+
+  /* Radius */
+  --radius-control: 3px;
+  --radius-surface: 4px;
+  --radius-overlay: 6px;
+
+  /* Motion */
+  --dur-fast:     90ms;
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+
+  /* Z-index */
+  --z-sticky:  10;
+  --z-palette: 50;
+
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0e0e0e;
-    --paper-sunk: #161513;
-    --ink: #eae7e0;
-    --muted: #948d84;
-    --rule: #2b2926;
-    --amber: #b794ff;
-    --amber-soft: #2a1d4a;
+    --surface-canvas:  #0e0e0e;
+    --surface-default: #131210;
+    --surface-sunk:    #161513;
+    --surface-raised:  #282521;  /* 1.27:1 vs canvas */
+    --surface-overlay: #1e1c19;
+
+    --text-primary:   #eae7e0;
+    --text-tertiary:  #928b82;   /* 4.53:1 on raised */
+    --text-on-accent: #0e0e0e;
+
+    --line-subtle:  #2b2926;
+    --line-default: #716e6b;     /* 3.01:1 on raised, 3.81:1 on canvas */
+    --line-strong:  #a29a90;
+
+    --accent:       #b794ff;
+    --focus-ring:   #b794ff;
+
     --mark: #a78bfa;
+
     color-scheme: dark;
   }
 }
 
+/* ── Tailwind mapping ────────────────────────────────────────────────────────
+   @theme inline emits var() references rather than resolved values, so the
+   generated utilities follow :root into dark mode. A plain @theme block would
+   bake today's light value in and silently break the dark palette — that is
+   what the previous, unused colour block did.                                */
+@theme inline {
+  --color-sunk:        var(--surface-sunk);
+
+  --color-primary:     var(--text-primary);
+  --color-tertiary:    var(--text-tertiary);
+
+  --color-accent:      var(--accent);
+
+  --color-subtle:      var(--line-subtle);
+  --color-line:        var(--line-default);
+  --color-mark:        var(--mark);
+
+  --radius-control: var(--radius-control);
+  --radius-surface: var(--radius-surface);
+  --radius-overlay: var(--radius-overlay);
+}
+
+/* Type scale. Nine sizes, down from sixteen ad-hoc arbitrary values. */
+@theme {
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-body:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-md:   15px;
+  --text-lg:   22px;
+  --text-xl:   26px;
+  --text-2xl:  32px;
+  --text-3xl:  42px;
+}
+
+/* ── Base ── */
 html {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--surface-canvas);
+  color: var(--text-primary);
 }
 
 body {
@@ -54,43 +123,154 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Numbers are the whole point of a ranking: keep every digit on the same rail. */
+/* Numbers are the whole point of a ranking. */
 .num {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
 
-.rule {
-  border-color: var(--rule);
-}
-
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-tertiary);
 }
 
-/* Filtering and sorting must feel instant, per the brief's 150-200ms budget. */
-.row-shift {
-  transition: background-color 160ms ease, color 160ms ease;
+/* ── Neo-Tactile control layer (D2) ──────────────────────────────────────────
+   A 1px displacement plus a border that carries contrast. Deliberately not
+   classic neomorphism: there, the control's boundary IS its shadow, and a soft
+   shadow cannot reach the 3:1 that SC 1.4.11 requires of a control boundary
+   while remaining soft. So the tactility is a real border plus a 1px shift the
+   eye reads as physical. Scope: chips, toggles, sort headers, locale switch.
+   Never on table rows, data cells, the instrument panel or the masthead.     */
+.tactile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-control);
+  background: var(--surface-default);
+  color: var(--text-tertiary);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color     var(--dur-fast) var(--ease-out),
+    color            var(--dur-fast) var(--ease-out),
+    transform        var(--dur-fast) var(--ease-out);
 }
+
+.tactile:hover:not(:disabled) {
+  background: var(--surface-raised);
+  border-color: var(--line-strong);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.tactile:active:not(:disabled) {
+  background: var(--surface-sunk);
+  border-color: var(--line-strong);
+  box-shadow: inset 0 1px 0 0 var(--line-strong);
+  transform: translateY(0);
+}
+
+/* Selected. Fill plus border, so the state survives greyscale.
+   Driven by a class rather than by an [aria-pressed="true"] selector so the paint
+   does not depend on an accessibility attribute staying in sync with the styling
+   contract. The component sets both from the same boolean. */
+.tactile-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-on-accent);
+  transform: translateY(0);
+}
+.tactile-on:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.tactile:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Compact variant for dense filter rows. Still clears 32px via the parent gap. */
+.tactile-sm {
+  min-height: 28px;
+  padding: 0 0.45rem;
+}
+
+/* ── Table row hover: two channels, surface AND a leading accent edge ── */
+.row-hover {
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    box-shadow       var(--dur-fast) var(--ease-out);
+}
+.row-hover:hover {
+  background: var(--surface-raised);
+  box-shadow: inset 2px 0 0 0 var(--accent);
+}
+
+/* Filtering and sorting must feel instant. */
+.row-shift {
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color            var(--dur-fast) var(--ease-out),
+    border-color     var(--dur-fast) var(--ease-out);
+}
+
+/* Bordered callout used for degraded/aging/configuration notes. */
+.note {
+  border-left: 2px solid var(--line-subtle);
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  color: var(--text-tertiary);
+}
+.note-accent { border-left-color: var(--accent); }
+
+/* Sticky table header. border-collapse: separate is required for sticky cells
+   to paint their own background instead of showing rows through. */
+.table-sticky { border-collapse: separate; border-spacing: 0; }
+.table-sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--surface-canvas);
+}
+
+/* Skip link — hidden until focused. */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: var(--z-palette);
+  padding: 0.4rem 1rem;
+  background: var(--surface-overlay);
+  color: var(--text-primary);
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-control);
+  font-size: 14px;
+}
+.skip-link:focus { top: 1rem; left: 1rem; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+  .tactile:hover:not(:disabled) { transform: none; }
 }

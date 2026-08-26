@@ -9,7 +9,6 @@
     "blurb": "Modelos cerrados y de pesos abiertos en la misma cancha. Los números vienen de evaluaciones de terceros y de votación humana; lo que dice el proveedor nunca cuenta para el score."
   },
   "panel": {
-    "statusHeading": "Estado de los datos",
     "updated": "Actualizado",
     "models": "Modelos rastreados",
     "sources": "Fuentes",
@@ -30,7 +29,7 @@
     "origin": "Origen",
     "showing": "{count, plural, one {# modelo} other {# modelos}} de {total}",
     "clear": "Limpiar",
-    "mobileColumnsHidden": "Las categorías se ocultan en pantallas pequeñas. Abre la ficha de un modelo para verlas."
+    "provider": "Proveedor"
   },
   "table": {
     "rank": "#",
@@ -58,17 +57,13 @@
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
     "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
-    "tiedTitle": "Empatado con {count, plural, one {otro # modelo} other {otros # modelos}}: sus intervalos al 95 % se solapan, así que la medición no los separa.",
-    "errorTitle": "Semiancho del intervalo al 95 % sobre el compuesto. Es un piso: {measured} de {total} entradas publican su error, las demás aportan cero, así que el intervalo real solo puede ser más ancho.",
     "errorUnknownTitle": "Ninguna de las fuentes de este modelo publica su error. El intervalo se desconoce; no es cero.",
     "evidenceShort": "{benchmarks} bm",
-    "evidenceTitle": "Densidad de evidencia: {benchmarks, plural, one {# benchmark} other {# benchmarks}} de {sources} de {max} fuentes independientes {benchmarks, plural, one {sostiene} other {sostienen}} este compuesto. Es distinto de la cobertura, que mide cuántas de las cinco categorías se midieron. Dos modelos con el mismo puntaje pueden apoyarse en 9 benchmarks y en 4.",
-    "rankColumnHint": "Un signo igual antes del número marca un empate: los intervalos al 95 % de esos modelos se solapan, así que la medición no los separa.",
-    "tiedShort": "(empate con {count, plural, one {#} other {#}})",
-    "errorColumnHint": "Semiancho de un intervalo al 95 % sobre el compuesto. Es un piso: las entradas sin error publicado aportan cero, así que el intervalo real solo puede ser más ancho.",
-    "errorCount": "{measured} de {total} con error publicado",
-    "coverageColumnHint": "Densidad de evidencia: cuántos benchmarks y cuántas fuentes independientes sostienen el compuesto. Distinto de la cobertura, que mide cuántas de las cinco categorías se midieron.",
-    "evidenceCount": "{benchmarks} benchmarks, {sources} de {max} fuentes"
+    "rankDesc": "Rango de significancia: un modelo está en uno más el número de modelos medibles por delante. Un número precedido de = es un empate: los intervalos al 95 % se solapan y la medición no separa a esos modelos.",
+    "compositeDesc": "Compuesto ponderado sobre 100, seguido del semiancho de un intervalo al 95 %. Ese intervalo es un piso, no una estimación: las entradas que no publican error aportan cero, así que el intervalo real solo puede ser más ancho. ±? significa que ninguna fuente publicó error, lo que es «se desconoce», no «es cero».",
+    "coverageDesc": "Cinco segmentos, uno por categoría, rellenos donde esa categoría se midió. Al lado, el número de benchmarks que sostienen el compuesto: una pregunta distinta de cuántas categorías se cubrieron.",
+    "trendUp": "al alza",
+    "trendDown": "a la baja"
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -103,7 +98,13 @@
     "empty": "Selecciona al menos un modelo para comparar.",
     "tableView": "Los mismos números, en tabla",
     "visionNote": "Fuera del compuesto. Se mide aparte porque un modelo de solo texto no compite aquí.",
-    "visionRating": "{rating} · puesto {rank} en Arena visión"
+    "visionRating": "{rating} · puesto {rank} en Arena visión",
+    "full": "Máximo alcanzado — elimina un modelo primero",
+    "delta": "Δ vs {baseline}",
+    "baseline": "referencia",
+    "notSeparated": "no separados",
+    "notSeparatedTitle": "La diferencia entre estos dos compuestos ({gap}) es menor que su intervalo combinado al 95 % (±{combined}). La medición no los separa, así que no se afirma ninguna diferencia.",
+    "deltaNote": "El Δ se mide contra el primer modelo seleccionado. Cuando la diferencia cae dentro del intervalo combinado de ambos modelos se lee «no separados»: la misma regla que usa el ranking, aplicada aquí para que una diferencia menor que el error nunca parezca una victoria."
   },
   "model": {
     "description": "Descripción",
@@ -259,6 +260,17 @@
       "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
       "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. Fuentes envejecidas ahora mismo:"
     }
+  },
+  "ui": {
+    "skipToContent": "Saltar al contenido",
+    "sections": "Secciones",
+    "pageSections": "Secciones de esta página",
+    "modelNav": "Modelo anterior y siguiente por puesto"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "Esta página no existe o no se encontró el modelo.",
+    "back": "Volver al ranking"
   },
   "aliases": {
     "title": "Auditoría de nombres",

@@ -161,3 +161,31 @@ export type Row = Model & {
   /** Normalised 0-1 points for the sparkline, oldest first. */
   trend: number[];
 };
+
+/**
+ * Narrowed shape for the ranking table: exactly the fields it reads, and nothing else.
+ *
+ * The full `Row` carries 28 fields and the table renders 16 of them. The rest were being
+ * serialised into every browser, including two the schema defines but no source populates.
+ * Anything added here must have a call site in RankingTable — the projection is the
+ * contract, and a field nobody reads is payload nobody asked for.
+ */
+export type RankingRow = Pick<
+  Row,
+  | "id"
+  | "rank"
+  | "display_name"
+  | "provider_name"
+  | "is_open_weights"
+  | "release_date"
+  | "country"
+  | "composite"
+  | "composite_error"
+  | "tied_with"
+  | "coverage"
+  | "evidence"
+  | "category_scores"
+  | "provisional"
+  | "awaiting_human_votes"
+  | "trend"
+>;
