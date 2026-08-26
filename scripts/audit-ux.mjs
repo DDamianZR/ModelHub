@@ -204,8 +204,15 @@ if (!existsSync(htmlPath)) {
   check("sr-only text chars", srChars, srChars < 4000, "< 4 000 (was 30 235)");
   check("sr-only unique strings", new Set(srTexts).size, new Set(srTexts).size < 26, "< 26 (was 26)");
 
+  // Compared against data/models.json rather than a fixed literal: the daily ingest
+  // (R8) changes the model count on its own schedule, unrelated to any UI change, so a
+  // hardcoded expectation here would go stale on the next ingest regardless of whether
+  // this harness still holds - the same reason the Python golden test rebuilds from the
+  // versioned cache instead of asserting a fixed row count.
   const modelLinks = new Set([...html.matchAll(/\/model\/([a-z0-9.\-]+)"/g)].map((m) => m[1]));
-  check("model rows rendered", modelLinks.size, modelLinks.size === 65, "65");
+  const { models: allModels } = JSON.parse(read(join(root, "data", "models.json")));
+  check("model rows rendered", modelLinks.size, modelLinks.size === allModels.length,
+    `${allModels.length} (data/models.json)`);
 
   const headings = (html.match(/<h[12]\b/g) || []).length;
   check("home headings (h1+h2)", headings, headings >= 4, ">= 4 (was 1)");

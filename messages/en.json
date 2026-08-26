@@ -9,7 +9,6 @@
     "blurb": "Closed and open-weights models on the same field. Numbers come from third-party evaluations and human voting; what the vendor claims never counts toward the score."
   },
   "panel": {
-    "statusHeading": "Data status",
     "updated": "Updated",
     "models": "Models tracked",
     "sources": "Sources",
@@ -30,7 +29,6 @@
     "origin": "Origin",
     "showing": "{count, plural, one {# model} other {# models}} of {total}",
     "clear": "Clear",
-    "mobileColumnsHidden": "Categories are hidden on small screens. Open a model's page to see them.",
     "provider": "Provider"
   },
   "table": {

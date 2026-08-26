@@ -321,7 +321,7 @@ export default async function MethodologyPage({
 
         <Section id="contamination" title={t("contamination.title")}>
           <p>{t("contamination.body")}</p>
-          <p className="num text-[12px]">
+          <p className="num text-xs">
             {meta.contamination_reviewed_at
               ? stats.contaminatedBenchmarks > 0
                 ? t("contamination.count", {
