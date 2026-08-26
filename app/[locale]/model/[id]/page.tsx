@@ -268,6 +268,23 @@ export default async function ModelPage({
                             })}
                           </span>
                         )}
+                        {score.contamination_flag &&
+                          score.contamination_evidence?.map((entry) => (
+                            <span key={entry.evidence_url} className="block text-2xs text-accent">
+                              {t("contaminationFlag", {
+                                date: entry.noted_at,
+                                note: entry.note,
+                              })}{" "}
+                              <a
+                                href={entry.evidence_url}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                className="underline underline-offset-2"
+                              >
+                                {t("contaminationLink")}
+                              </a>
+                            </span>
+                          ))}
                       </th>
                       <td className="num py-2 pr-3 text-right text-sm">
                         {score.value.toFixed(score.unit === "percent" ? 1 : 0)}
@@ -278,45 +295,6 @@ export default async function ModelPage({
                             zero: LiveBench ships none, and a blank says so honestly. */}
                         <span className="block text-2xs text-tertiary">
                           {score.half_width_95 !== null && score.half_width_95 !== undefined
-                            ? `± ${score.half_width_95.toFixed(2)}`
-                            : t("errorNotPublished")}
-                        </span>
-                      )}
-                      {score.contamination_flag &&
-                        score.contamination_evidence?.map((entry) => (
-                          <span
-                            key={entry.evidence_url}
-                            className="block text-[10px]"
-                            style={{ color: "var(--accent)" }}
-                          >
-                            {t("contaminationFlag", {
-                              date: entry.noted_at,
-                              note: entry.note,
-                            })}{" "}
-                            <a
-                              href={entry.evidence_url}
-                              rel="noopener noreferrer"
-                              target="_blank"
-                              className="underline underline-offset-2"
-                            >
-                              {t("contaminationLink")}
-                            </a>
-                          </span>
-                        ))}
-                      </th>
-                      <td className="num py-2 pr-3 text-right text-[13px]">
-                        {score.value.toFixed(score.unit === "percent" ? 1 : 0)}
-                        <span className="text-[10px]" style={{ color: "var(--text-tertiary)" }}>
-                          {score.unit === "percent" ? "%" : ""}
-                        </span>
-                        {/* Empty where the source publishes no error, never rendered as
-                            zero: LiveBench ships none, and a blank says so honestly. */}
-                        <span
-                          className="block text-[10px]"
-                          style={{ color: "var(--text-tertiary)" }}
-                        >
-                          {score.half_width_95 !== null &&
-                          score.half_width_95 !== undefined
                             ? `± ${score.half_width_95.toFixed(2)}`
                             : t("errorNotPublished")}
                         </span>

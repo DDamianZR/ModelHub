@@ -459,7 +459,6 @@ export function RankingTable({
               <th scope="col" className="w-20 border-b border-subtle py-2 pr-4 align-bottom">
                 <span className="eyebrow block text-right">{t("coverage")}</span>
               </th>
-              </th>
               {CATEGORIES.map((category) => {
                 const aged = categoryAges[category];
                 return (

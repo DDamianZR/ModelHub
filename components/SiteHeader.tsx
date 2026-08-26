@@ -1,4 +1,5 @@
-import { getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import clsx from "clsx";
 import { Link } from "@/i18n/navigation";
 import { LogoMark } from "@/components/LogoMark";
@@ -13,6 +14,11 @@ export async function SiteHeader({
 }) {
   const t = await getTranslations("masthead");
   const tn = await getTranslations("nav");
+  // LocaleSwitch is a client component (it reads the current pathname to preserve it
+  // across the switch), and the root provider deliberately ships no messages - see
+  // app/[locale]/layout.tsx. Scoped here, on the one header every page renders, rather
+  // than once per page.
+  const messages = await getMessages();
 
   const links = [
     { key: "ranking", href: "/" },
@@ -40,7 +46,9 @@ export async function SiteHeader({
           </div>
         </div>
 
-        <LocaleSwitch locale={locale} />
+        <NextIntlClientProvider messages={{ locale: messages.locale }}>
+          <LocaleSwitch locale={locale} />
+        </NextIntlClientProvider>
       </div>
 
       <nav
