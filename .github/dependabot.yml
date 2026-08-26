@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # The frontend has real npm dependencies (Next.js, React, next-intl, Tailwind).
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # No "pip" entry on purpose: the ingest (scripts/ingest, scripts/enrich) is stdlib-only
+  # by design, so there is nothing for Dependabot to update there.
