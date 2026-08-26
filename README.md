@@ -2,6 +2,9 @@
 
 # ModelHub
 
+[![CI](https://github.com/DDamianZR/ModelHub/actions/workflows/ci.yml/badge.svg)](https://github.com/DDamianZR/ModelHub/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/github/license/DDamianZR/ModelHub)](LICENSE)
+
 *[Léeme en español](README.es.md)*
 
 **The independent frontier model scoreboard.** *El baremo independiente de modelos frontera.*
