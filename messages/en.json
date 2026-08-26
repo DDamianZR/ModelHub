@@ -15,9 +15,10 @@
     "openWeights": "Open weights",
     "snapshots": "Data snapshots",
     "degraded": "Source not refreshed",
-    "degradedSource": "{source} did not respond on the last run; showing its data from {date}",
+    "degradedSource": "{source} has not responded since {since}; showing its {snapshot} snapshot",
     "aging": "Data ageing",
-    "agingSource": "{source} has not published a new snapshot in {days, plural, one {# day} other {# days}} (last: {date})"
+    "agingSource": "{source} has not published a new snapshot in {days, plural, one {# day} other {# days}} (last: {date})",
+    "agingSourceNormal": "{source}: {days, plural, one {# day} other {# days}} since its last snapshot, within its normal rhythm (median {median} days)"
   },
   "filters": {
     "label": "Filters",

@@ -15,9 +15,10 @@
     "openWeights": "Open weights",
     "snapshots": "Cortes de datos",
     "degraded": "Fuente sin actualizar",
-    "degradedSource": "{source} no respondió en la última corrida; se muestran sus datos del {date}",
+    "degradedSource": "{source} no responde desde el {since}; se muestra su corte del {snapshot}",
     "aging": "Dato envejecido",
-    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar corte nuevo (último: {date})"
+    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar corte nuevo (último: {date})",
+    "agingSourceNormal": "{source}: {days, plural, one {# día} other {# días}} desde su último corte, dentro de su ritmo habitual (mediana {median} días)"
   },
   "filters": {
     "label": "Filtros",
