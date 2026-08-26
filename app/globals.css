@@ -135,7 +135,18 @@ body {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-tertiary);
+}
+/* In Tailwind's own "components" layer, so a text-* utility on the same element (used
+   throughout to recolour an eyebrow label - e.g. className="eyebrow text-accent") wins
+   regardless of specificity or source order: cascade layers settle it before specificity
+   is even considered, and this file's un-layered rules were unconditionally beating every
+   Tailwind utility - including generated ones like .text-accent, which live in the
+   "utilities" layer - no matter how the selectors compared. Verified against the aging
+   and degraded banners, both eyebrow+text-accent, both silently rendering as tertiary. */
+@layer components {
+  .eyebrow {
+    color: var(--text-tertiary);
+  }
 }
 
 /* ── Neo-Tactile control layer (D2) ──────────────────────────────────────────
