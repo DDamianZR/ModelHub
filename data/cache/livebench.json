@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26",
+  "fetched_at": "2026-08-27",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -773,6 +773,44 @@
           "source_url": "https://livebench.ai/",
           "value": 69.3,
           "variant": "glm-5.3"
+        }
+      ],
+      "glm-5.3-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 77.64,
+          "variant": "glm-5.3-flash"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.64,
+          "variant": "glm-5.3-flash"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 81.24,
+          "variant": "glm-5.3-flash"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 52.82,
+          "variant": "glm-5.3-flash"
         }
       ],
       "gpt-5.2": [
@@ -1761,6 +1799,44 @@
           "source_url": "https://livebench.ai/",
           "value": 72.66,
           "variant": "qwen3.8-27b"
+        }
+      ],
+      "qwen3.8-flash-next": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.38,
+          "variant": "qwen3.8-flash-next"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.99,
+          "variant": "qwen3.8-flash-next"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.82,
+          "variant": "qwen3.8-flash-next"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 77.11,
+          "variant": "qwen3.8-flash-next"
         }
       ],
       "smaug-agentic": [
