@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-27",
+  "fetched_at": "2026-08-28",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -706,6 +706,14 @@
         "organization": "Google DeepMind",
         "release_date": "2026-04-02"
       },
+      "gemma-4-26b-a4b-it-minimal": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Gemma 4 26B A4B",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-04-02"
+      },
       "gemma-4-31b": {
         "accessibility": "Open weights (restricted use)",
         "country": "United States of America",
@@ -786,6 +794,14 @@
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-08-14"
       },
+      "glm-5.3-flash": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-5.3-Flash (max)",
+        "eci": 0.0,
+        "organization": "Z.ai (Zhipu AI)",
+        "release_date": "2026-08-20"
+      },
       "gpt-5": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -853,7 +869,7 @@
       "gpt-5.1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.1 (no thinking)",
+        "display_name": "GPT-5.1 (medium)",
         "eci": 149.63,
         "organization": "OpenAI",
         "release_date": "2025-11-13"
@@ -877,7 +893,7 @@
       "gpt-5.2": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.2 (high)",
+        "display_name": "GPT-5.2 (medium)",
         "eci": 153.31,
         "organization": "OpenAI",
         "release_date": "2025-12-11"
@@ -925,7 +941,7 @@
       "gpt-5.4-mini": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.4 mini (xhigh)",
+        "display_name": "GPT-5.4 mini (none)",
         "eci": 149.33,
         "organization": "OpenAI",
         "release_date": "2026-03-17"
@@ -981,7 +997,7 @@
       "gpt-5.6-luna": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Luna (max)",
+        "display_name": "GPT-5.6 Luna (medium)",
         "eci": 156.21,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -989,7 +1005,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (medium)",
+        "display_name": "GPT-5.6 Sol (low)",
         "eci": 161.06,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1005,7 +1021,7 @@
       "gpt-5.6-terra": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Terra (max)",
+        "display_name": "GPT-5.6 Terra (medium)",
         "eci": 158.86,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -3114,6 +3130,18 @@
           "variant": "gemini-3.7-flash_high"
         }
       ],
+      "gemma-4-26b-a4b-it-minimal": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 3.154,
+          "value": 73.23,
+          "variant": "gemma-4-26b-a4b-it_minimal"
+        }
+      ],
       "gemma-4-31b": [
         {
           "benchmark_id": "simpleqa_verified",
@@ -3248,6 +3276,16 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.325,
+          "value": 87.88,
+          "variant": "glm-5.2_low"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
           "measured_at": "2026-06-24",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
@@ -3296,6 +3334,28 @@
           "stderr": 1.551,
           "value": 40.2,
           "variant": "glm-5.3_max"
+        }
+      ],
+      "glm-5.3-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-26",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.718,
+          "value": 90.15,
+          "variant": "glm-5.3-flash_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-26",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.476,
+          "value": 32.0,
+          "variant": "glm-5.3-flash_max"
         }
       ],
       "gpt-5": [
@@ -4320,6 +4380,26 @@
         {
           "benchmark_id": "gpqa_diamond",
           "category": "reasoning",
+          "measured_at": "2026-08-27",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.486,
+          "value": 60.8,
+          "variant": "gpt-oss-20b_medium"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-27",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.503,
+          "value": 53.16,
+          "variant": "gpt-oss-20b_low"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
           "measured_at": "2026-08-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
@@ -4671,6 +4751,16 @@
           "measured_at": "2026-08-10",
           "source_type": "third_party_benchmark",
           "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.777,
+          "value": 81.31,
+          "variant": "MiniMax-M3_none"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
           "stderr": 2.048,
           "value": 90.91,
           "variant": "MiniMax-M3"
@@ -4718,6 +4808,18 @@
           "stderr": 2.9,
           "value": 39.0,
           "variant": "muse-spark"
+        }
+      ],
+      "nemotron-3-ultra": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.519,
+          "value": 85.35,
+          "variant": "nemotron-3-ultra"
         }
       ],
       "openai/gpt-oss-120b": [
@@ -4828,6 +4930,28 @@
           "stderr": 2.445,
           "value": 86.36,
           "variant": "qwen3.5-397b-a17b_none"
+        }
+      ],
+      "qwen3.5-9b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-27",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.389,
+          "value": 78.91,
+          "variant": "qwen3.5-9B_none"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-27",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.366,
+          "value": 78.98,
+          "variant": "qwen3.5-9B"
         }
       ],
       "qwen3.5-flash": [

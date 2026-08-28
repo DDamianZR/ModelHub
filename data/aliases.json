@@ -618,6 +618,7 @@
     ],
     "matched": {
       "epoch": [
+        "glm-5.2_low",
         "glm-5.2_max",
         "glm-5.2_none"
       ],
@@ -647,6 +648,26 @@
       ],
       "lmarena": [
         "glm-5.3-max"
+      ]
+    }
+  },
+  "z-ai-zhipu-ai-glm-5.3-flash": {
+    "canonical_key": "glm-5.3-flash",
+    "display_name": "GLM-5.3-Flash (max)",
+    "variant": "plain",
+    "scored_arena_name": "glm-5.3-flash",
+    "names": [
+      "glm-5.3-flash"
+    ],
+    "matched": {
+      "epoch": [
+        "glm-5.3-flash_max"
+      ],
+      "livebench": [
+        "glm-5.3-flash"
+      ],
+      "lmarena": [
+        "glm-5.3-flash"
       ]
     }
   },
@@ -715,7 +736,7 @@
   },
   "openai-gpt-5.1": {
     "canonical_key": "gpt-5.1",
-    "display_name": "GPT-5.1 (no thinking)",
+    "display_name": "GPT-5.1 (medium)",
     "variant": "high",
     "scored_arena_name": "gpt-5.1-high",
     "names": [
@@ -738,7 +759,7 @@
   },
   "openai-gpt-5.2": {
     "canonical_key": "gpt-5.2",
-    "display_name": "GPT-5.2 (high)",
+    "display_name": "GPT-5.2 (medium)",
     "variant": "high",
     "scored_arena_name": "gpt-5.2-high",
     "names": [
@@ -792,7 +813,7 @@
   },
   "openai-gpt-5.4-mini": {
     "canonical_key": "gpt-5.4-mini",
-    "display_name": "GPT-5.4 mini (xhigh)",
+    "display_name": "GPT-5.4 mini (none)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.4-mini-high",
     "names": [
@@ -880,7 +901,7 @@
   },
   "openai-gpt-5.6-luna": {
     "canonical_key": "gpt-5.6-luna",
-    "display_name": "GPT-5.6 Luna (max)",
+    "display_name": "GPT-5.6 Luna (medium)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-luna-xhigh",
     "names": [
@@ -903,7 +924,7 @@
   },
   "openai-gpt-5.6-sol": {
     "canonical_key": "gpt-5.6-sol",
-    "display_name": "GPT-5.6 Sol (medium)",
+    "display_name": "GPT-5.6 Sol (low)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-sol-xhigh",
     "names": [
@@ -926,7 +947,7 @@
   },
   "openai-gpt-5.6-terra": {
     "canonical_key": "gpt-5.6-terra",
-    "display_name": "GPT-5.6 Terra (max)",
+    "display_name": "GPT-5.6 Terra (medium)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-terra-xhigh",
     "names": [
@@ -950,14 +971,16 @@
   "openai-gpt-oss-20b": {
     "canonical_key": "gpt-oss-20b",
     "display_name": "gpt-oss-20b",
-    "variant": "high",
+    "variant": "medium",
     "scored_arena_name": "gpt-oss-20b",
     "names": [
       "gpt-oss-20b"
     ],
     "matched": {
       "epoch": [
-        "gpt-oss-20b_high"
+        "gpt-oss-20b_high",
+        "gpt-oss-20b_low",
+        "gpt-oss-20b_medium"
       ],
       "livebench": [],
       "lmarena": [
@@ -1192,7 +1215,8 @@
     ],
     "matched": {
       "epoch": [
-        "MiniMax-M3"
+        "MiniMax-M3",
+        "MiniMax-M3_none"
       ],
       "livebench": [
         "minimax-m3"
