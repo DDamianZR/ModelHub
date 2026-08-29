@@ -29,7 +29,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={clsx("tactile eyebrow", small && "tactile-sm", active && "tactile-on")}
+      className={clsx("control eyebrow", small && "control-sm", active && "control-on")}
     >
       {children}
     </button>
@@ -403,7 +403,7 @@ export function RankingTable({
               setProvider("all");
               setSort("rank");
             }}
-            className="tactile tactile-sm eyebrow shrink-0"
+            className="control control-sm eyebrow shrink-0"
           >
             {tf("clear")}
           </button>
@@ -531,8 +531,8 @@ export function RankingTable({
                 onClick={() => setMobileMetric(key)}
                 aria-pressed={mobileMetric === key}
                 className={clsx(
-                  "tactile tactile-sm eyebrow shrink-0",
-                  mobileMetric === key && "tactile-on",
+                  "control control-sm eyebrow shrink-0",
+                  mobileMetric === key && "control-on",
                 )}
               >
                 {label}
