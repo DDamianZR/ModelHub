@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Surface } from "@/components/Surface";
 import {
   getAgedSources,
   getCadence,
@@ -34,14 +35,12 @@ function Section({
 }) {
   return (
     <section id={id} className="mt-10 scroll-mt-6">
-      <h2
-        className="font-display border-b pb-2 text-lg leading-tight border-subtle"
-      >
+      <h2 className="border-b border-subtle pb-2 text-lg leading-tight font-semibold">
         {title}
       </h2>
-      <div className="mt-3 flex flex-col gap-3 text-base leading-[1.65] text-tertiary">
+      <Surface className="mt-3 flex flex-col gap-3 p-4 text-base leading-[1.65] text-tertiary">
         {children}
-      </div>
+      </Surface>
     </section>
   );
 }
@@ -68,7 +67,7 @@ export default async function MethodologyPage({
       <SiteHeader locale={locale} active="methodology" />
 
       <div className="mt-8 max-w-[46rem]">
-        <h2 className="font-display text-2xl leading-tight">
+        <h2 className="text-2xl leading-tight font-semibold tracking-tight">
           {t("title")}
         </h2>
         <p className="mt-3 text-md leading-[1.65] text-tertiary">
@@ -120,9 +119,7 @@ export default async function MethodologyPage({
             </tbody>
           </table>
 
-          <p
-            className="num mt-1 border-l-2 py-2 pl-3 text-xs leading-[1.6] border-accent"
-          >
+          <p className="num mt-1 border-l-[3px] border-accent py-2 pl-3 text-xs leading-[1.6]">
             {t("formula.equation")}
           </p>
 
@@ -138,9 +135,7 @@ export default async function MethodologyPage({
 
         <Section id="uncertainty" title={t("uncertainty.title")}>
           <p>{t("uncertainty.body")}</p>
-          <p
-            className="border-l-2 py-2 pl-3 text-md border-accent"
-          >
+          <p className="border-l-[3px] border-accent py-2 pl-3 text-md">
             {t("uncertainty.why", {
               medianGap: stats.medianGap,
               stderrLow: stats.stderrLow,
@@ -169,9 +164,7 @@ export default async function MethodologyPage({
 
         <Section id="cohort" title={t("cohort.title")}>
           <p>{t("cohort.body")}</p>
-          <p
-            className="border-l-2 py-2 pl-3 text-md border-accent"
-          >
+          <p className="border-l-[3px] border-accent py-2 pl-3 text-md">
             {t("cohort.measured", { medianGap: stats.medianGap })}
           </p>
           <p>{t("cohort.disclosure")}</p>
@@ -204,9 +197,7 @@ export default async function MethodologyPage({
         </Section>
 
         <Section id="variants" title={t("variants.title")}>
-          <p
-            className="border-l-2 py-2 pl-3 text-md border-accent"
-          >
+          <p className="border-l-[3px] border-accent py-2 pl-3 text-md">
             {t("variants.tradeoff")}
           </p>
           <p>{t("variants.body")}</p>

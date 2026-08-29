@@ -30,8 +30,8 @@ export function CoverageMeter({
           key={i}
           aria-hidden="true"
           className={clsx(
-            "block h-[13px] w-[3px]",
-            i < covered ? "bg-accent" : "border border-line",
+            "block h-[13px] w-[3px] rounded-[2px]",
+            i < covered ? "bg-accent" : "bg-sunk",
             i < covered && partial && "opacity-65",
           )}
         />
