@@ -51,7 +51,7 @@ export function Sparkline({
         d={path}
         fill="none"
         stroke={stroke}
-        strokeWidth="1.25"
+        strokeWidth="1.5"
         strokeLinejoin="round"
         strokeLinecap="round"
       />

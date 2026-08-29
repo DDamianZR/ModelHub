@@ -26,7 +26,7 @@ export default async function ComparePage({
       <SiteHeader locale={locale} active="compare" />
 
       <section className="mt-8">
-        <h2 className="font-display text-xl leading-tight">
+        <h2 className="text-xl leading-tight font-semibold">
           {t("title")}
         </h2>
         <p

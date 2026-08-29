@@ -32,7 +32,7 @@ export function CategoryBars({
               </span>
             </div>
             <div
-              className="mt-[3px] h-[6px] w-full bg-sunk"
+              className="mt-[3px] h-2 w-full rounded-inner bg-sunk"
               role="img"
               aria-label={`${row.label}: ${
                 row.value === undefined ? emptyLabel : row.value.toFixed(1)
@@ -40,7 +40,7 @@ export function CategoryBars({
             >
               {row.value !== undefined && (
                 <div
-                  className="h-full rounded-r-[3px] bg-mark"
+                  className="h-full rounded-inner bg-mark"
                   style={{ width: `${Math.max(0, Math.min(100, row.value))}%` }}
                 />
               )}

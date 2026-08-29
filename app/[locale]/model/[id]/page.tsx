@@ -4,6 +4,7 @@ import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
+import { Surface } from "@/components/Surface";
 import { getAcquisition, getAdjacentModels, getModelDetail, getModelIds } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
@@ -84,12 +85,18 @@ export default async function ModelPage({
       <div className="mt-4 lg:grid lg:grid-cols-[1fr_18rem] lg:items-start lg:gap-12">
         <article>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 className="font-display text-2xl leading-tight">{model.display_name}</h2>
-            <span className={`eyebrow ${model.is_open_weights ? "text-accent" : ""}`}>
-              {model.is_open_weights ? tt("openWeights") : tt("apiOnly")}
-            </span>
+            <h2 className="text-2xl leading-tight font-semibold tracking-tight">
+              {model.display_name}
+            </h2>
+            {model.is_open_weights ? (
+              <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
+                {tt("openWeights")}
+              </span>
+            ) : (
+              <span className="eyebrow text-tertiary">{tt("apiOnly")}</span>
+            )}
             {model.provisional && (
-              <span className="eyebrow text-accent">{tt("provisionalTitle")}</span>
+              <span className="eyebrow text-attention">{tt("provisionalTitle")}</span>
             )}
           </div>
 
@@ -124,46 +131,49 @@ export default async function ModelPage({
               than showing invented prose that would read as real. */}
           <section id="description" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("description")}</h3>
-            {text ? (
-              <>
-                <p className="text-md leading-[1.65]">{text}</p>
-                {description?.manual ? (
-                  <p className="num mt-2 text-2xs text-tertiary">
-                    {t("descriptionManual")}
-                  </p>
-                ) : description?.generated_at ? (
-                  <p className="num mt-2 text-2xs text-tertiary">
-                    {t("descriptionGenerated", {
-                      date: description.generated_at,
-                      model: description.generated_by ?? "?",
-                    })}
-                  </p>
-                ) : null}
-              </>
-
-            ) : (
-              <p className="note text-sm">{t("descriptionPending")}</p>
-            )}
+            <Surface className="p-4">
+              {text ? (
+                <>
+                  <p className="text-md leading-[1.65]">{text}</p>
+                  {description?.manual ? (
+                    <p className="num mt-2 text-2xs text-tertiary">
+                      {t("descriptionManual")}
+                    </p>
+                  ) : description?.generated_at ? (
+                    <p className="num mt-2 text-2xs text-tertiary">
+                      {t("descriptionGenerated", {
+                        date: description.generated_at,
+                        model: description.generated_by ?? "?",
+                      })}
+                    </p>
+                  ) : null}
+                </>
+              ) : (
+                <p className="text-sm text-tertiary">{t("descriptionPending")}</p>
+              )}
+            </Surface>
           </section>
 
           <section id="categories" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-3">{t("categories")}</h3>
-            <CategoryBars
-              emptyLabel={tt("noData")}
-              rows={CATEGORIES.map((category) => ({
-                label: tt(category),
-                value: model.category_scores[category],
-              }))}
-            />
-            {partial && (
-              <p className="mt-3 text-xs text-tertiary">
-                {t("partialNote", {
-                  missing: model.coverage.missing
-                    .map((key) => tt(key as (typeof CATEGORIES)[number]))
-                    .join(", "),
-                })}
-              </p>
-            )}
+            <Surface className="p-4">
+              <CategoryBars
+                emptyLabel={tt("noData")}
+                rows={CATEGORIES.map((category) => ({
+                  label: tt(category),
+                  value: model.category_scores[category],
+                }))}
+              />
+              {partial && (
+                <p className="mt-3 text-xs text-tertiary">
+                  {t("partialNote", {
+                    missing: model.coverage.missing
+                      .map((key) => tt(key as (typeof CATEGORIES)[number]))
+                      .join(", "),
+                  })}
+                </p>
+              )}
+            </Surface>
           </section>
 
           {/* What the interval is and what it is not. It is a floor: sources that publish
@@ -194,37 +204,39 @@ export default async function ModelPage({
 
           <section id="history" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("history")}</h3>
-            {normalised.length >= 2 ? (
-              <>
-                <div className="flex items-center gap-3">
-                  <Sparkline
-                    points={normalised}
-                    label={`${model.display_name} — ${tt("trend")}`}
-                    directionLabel={{ up: tt("trendUp"), down: tt("trendDown") }}
-                  />
-                  <span className="num text-xs text-tertiary">
-                    {trendMin.toFixed(0)} → {trendMax.toFixed(0)}
-                  </span>
-                </div>
-                <p className="num mt-2 text-2xs text-tertiary">
-                  {t("historyRange", {
-                    from: history[0].date,
-                    to: history[history.length - 1].date,
-                    points: history.length,
-                  })}
-                </p>
-              </>
-            ) : (
-              <p className="text-sm text-tertiary">{tt("noHistory")}</p>
-            )}
-            <p className="mt-3 text-xs text-tertiary">{t("historyScope")}</p>
-            <p className="mt-2 text-xs text-tertiary">{t("historyBreaks")}</p>
+            <Surface className="p-4">
+              {normalised.length >= 2 ? (
+                <>
+                  <div className="flex items-center gap-3">
+                    <Sparkline
+                      points={normalised}
+                      label={`${model.display_name} — ${tt("trend")}`}
+                      directionLabel={{ up: tt("trendUp"), down: tt("trendDown") }}
+                    />
+                    <span className="num text-xs text-tertiary">
+                      {trendMin.toFixed(0)} → {trendMax.toFixed(0)}
+                    </span>
+                  </div>
+                  <p className="num mt-2 text-2xs text-tertiary">
+                    {t("historyRange", {
+                      from: history[0].date,
+                      to: history[history.length - 1].date,
+                      points: history.length,
+                    })}
+                  </p>
+                </>
+              ) : (
+                <p className="text-sm text-tertiary">{tt("noHistory")}</p>
+              )}
+              <p className="mt-3 text-xs text-tertiary">{t("historyScope")}</p>
+              <p className="mt-2 text-xs text-tertiary">{t("historyBreaks")}</p>
+            </Surface>
           </section>
 
           <section id="sources" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("sources")}</h3>
-            <div
-              className="overflow-x-auto"
+            <Surface
+              className="overflow-x-auto p-2"
               role="region"
               aria-label={t("sources")}
               tabIndex={0}
@@ -260,7 +272,7 @@ export default async function ModelPage({
                           </span>
                         )}
                         {score.variant_mismatch && (
-                          <span className="block text-2xs text-accent">
+                          <span className="block text-2xs text-attention">
                             {t("scoreVariantMismatch", {
                               measured: score.variant_mismatch,
                               name: score.measured_name ?? "",
@@ -270,7 +282,7 @@ export default async function ModelPage({
                         )}
                         {score.contamination_flag &&
                           score.contamination_evidence?.map((entry) => (
-                            <span key={entry.evidence_url} className="block text-2xs text-accent">
+                            <span key={entry.evidence_url} className="block text-2xs text-attention">
                               {t("contaminationFlag", {
                                 date: entry.noted_at,
                                 note: entry.note,
@@ -319,103 +331,107 @@ export default async function ModelPage({
                   ))}
                 </tbody>
               </table>
-            </div>
+            </Surface>
           </section>
 
           <section id="acquisition" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("acquisition")}</h3>
-            {links.length > 0 ? (
-              <>
-                <ul className="flex flex-col gap-1">
-                  {links.map((link) => (
-                    <li key={link.field} className="text-sm">
-                      <span className="eyebrow mr-2">{t(`link_${link.field}`)}</span>
-                      <a
-                        href={link.url}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="inline-block py-[5px] text-accent underline underline-offset-2"
-                      >
-                        {link.url.replace(/^https?:\/\//, "")}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                <p className="num mt-2 text-2xs text-tertiary">
-                  {t("acquisitionChecked", { date: checkedAt ?? "—" })}
-                  {withheld > 0 ? ` · ${t("acquisitionWithheld", { count: withheld })}` : ""}
-                </p>
-              </>
-            ) : (
-              <p className="note text-sm">{t("acquisitionPending")}</p>
-            )}
+            <Surface className="p-4">
+              {links.length > 0 ? (
+                <>
+                  <ul className="flex flex-col gap-1">
+                    {links.map((link) => (
+                      <li key={link.field} className="text-sm">
+                        <span className="eyebrow mr-2">{t(`link_${link.field}`)}</span>
+                        <a
+                          href={link.url}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          className="inline-block py-[5px] text-accent underline underline-offset-2"
+                        >
+                          {link.url.replace(/^https?:\/\//, "")}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="num mt-2 text-2xs text-tertiary">
+                    {t("acquisitionChecked", { date: checkedAt ?? "—" })}
+                    {withheld > 0 ? ` · ${t("acquisitionWithheld", { count: withheld })}` : ""}
+                  </p>
+                </>
+              ) : (
+                <p className="text-sm text-tertiary">{t("acquisitionPending")}</p>
+              )}
+            </Surface>
           </section>
         </article>
 
         <aside className="mt-8 lg:sticky lg:top-8 lg:mt-2">
-          <dl className="flex flex-col gap-4 border-t border-subtle pt-4">
-            <div>
-              <dt className="eyebrow">{tt("composite")}</dt>
-              <dd className="num text-xl">
-                {model.composite.toFixed(1)}
-                <span className="ml-1 text-sm text-tertiary">
-                  {model.composite_error === null
-                    ? "±?"
-                    : `±${model.composite_error.toFixed(2)}`}
-                </span>
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow">{tt("rank")}</dt>
-              <dd className="num text-xl">
-                {model.rank ?? "—"}
-                {model.tied_with > 0 && (
-                  <span className="ml-1 text-sm text-tertiary">
-                    {t("tiedShort", { count: model.tied_with })}
-                  </span>
-                )}
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow">{tt("coverage")}</dt>
-              <dd className="mt-1 flex items-center gap-2">
-                <CoverageMeter
-                  covered={model.coverage.covered}
-                  total={model.coverage.total}
-                  label={
-                    partial
-                      ? tt("partial", {
-                          covered: model.coverage.covered,
-                          total: model.coverage.total,
-                        })
-                      : tt("complete", { total: model.coverage.total })
-                  }
-                />
-                <span className="num text-sm">
-                  {model.coverage.covered}/{model.coverage.total}
-                </span>
-              </dd>
-            </div>
-            {model.vision && (
+          <Surface className="flex flex-col gap-4 p-4">
+            <dl className="flex flex-col gap-4">
               <div>
-                <dt className="eyebrow">{tt("vision")}</dt>
-                <dd className="num text-xl">{model.vision.rating.toFixed(0)}</dd>
+                <dt className="eyebrow">{tt("composite")}</dt>
+                <dd className="num text-xl">
+                  {model.composite.toFixed(1)}
+                  <span className="ml-1 text-sm text-tertiary">
+                    {model.composite_error === null
+                      ? "±?"
+                      : `±${model.composite_error.toFixed(2)}`}
+                  </span>
+                </dd>
               </div>
-            )}
-          </dl>
+              <div>
+                <dt className="eyebrow">{tt("rank")}</dt>
+                <dd className="num text-xl">
+                  {model.rank ?? "—"}
+                  {model.tied_with > 0 && (
+                    <span className="ml-1 text-sm text-tertiary">
+                      {t("tiedShort", { count: model.tied_with })}
+                    </span>
+                  )}
+                </dd>
+              </div>
+              <div>
+                <dt className="eyebrow">{tt("coverage")}</dt>
+                <dd className="mt-1 flex items-center gap-2">
+                  <CoverageMeter
+                    covered={model.coverage.covered}
+                    total={model.coverage.total}
+                    label={
+                      partial
+                        ? tt("partial", {
+                            covered: model.coverage.covered,
+                            total: model.coverage.total,
+                          })
+                        : tt("complete", { total: model.coverage.total })
+                    }
+                  />
+                  <span className="num text-sm">
+                    {model.coverage.covered}/{model.coverage.total}
+                  </span>
+                </dd>
+              </div>
+              {model.vision && (
+                <div>
+                  <dt className="eyebrow">{tt("vision")}</dt>
+                  <dd className="num text-xl">{model.vision.rating.toFixed(0)}</dd>
+                </div>
+              )}
+            </dl>
 
-          <nav className="mt-6 hidden lg:block" aria-label={tui("pageSections")}>
-            <p className="eyebrow mb-2">{tui("sections")}</p>
-            <ul className="flex flex-col gap-1.5">
-              {SECTIONS.map((anchor) => (
-                <li key={anchor}>
-                  <a href={`#${anchor}`} className="eyebrow row-shift hover:text-primary">
-                    {t(anchor)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className="hidden border-t border-subtle pt-4 lg:block" aria-label={tui("pageSections")}>
+              <p className="eyebrow mb-2">{tui("sections")}</p>
+              <ul className="flex flex-col gap-1.5">
+                {SECTIONS.map((anchor) => (
+                  <li key={anchor}>
+                    <a href={`#${anchor}`} className="eyebrow row-shift hover:text-primary">
+                      {t(anchor)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </Surface>
         </aside>
       </div>
     </main>

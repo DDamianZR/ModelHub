@@ -49,9 +49,7 @@ export default async function AliasesPage({
       <SiteHeader locale={locale} active="aliases" />
 
       <div id="main-content" className="mt-8 max-w-[46rem]">
-        <h2
-          className="text-2xl leading-tight font-display"
-        >
+        <h2 className="text-2xl leading-tight font-semibold tracking-tight">
           {t("title")}
         </h2>
         <p className="mt-3 text-md leading-[1.65] text-tertiary">
@@ -167,9 +165,7 @@ export default async function AliasesPage({
 
       {integrity && (
         <section className="mt-12 max-w-[46rem]">
-          <h3
-            className="border-b border-subtle pb-2 text-lg leading-tight font-display"
-          >
+          <h3 className="border-b border-subtle pb-2 text-lg leading-tight font-semibold">
             {t("integrityTitle")}
           </h3>
           <p className="mt-3 text-base leading-[1.65] text-tertiary">

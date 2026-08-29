@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { CoverageMeter } from "./CoverageMeter";
 import { CategoryBars } from "./CategoryBars";
+import { Surface } from "./Surface";
 import type { Row } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
@@ -107,7 +108,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t("search")}
             aria-label={t("search")}
-            className="num min-w-[14rem] rounded-(--radius-control) border border-line bg-transparent px-2 py-1 text-xs outline-none"
+            className="num min-h-11 min-w-[14rem] rounded-control bg-sunk px-2 py-1 text-xs outline-none sm:min-h-8"
           />
           <span className="num text-2xs text-tertiary" role="status">
             {full ? t("full") : t("selected", { count: selected.length, max: MAX_SELECTION })}
@@ -144,7 +145,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
               const partial = row.coverage.covered < row.coverage.total;
               const d = index === 0 ? null : delta(row, baseline);
               return (
-                <div key={row.id} className="border-t border-subtle pt-2">
+                <Surface key={row.id} className="p-4">
                   <div className="text-base">{row.display_name}</div>
                   <div className="num text-2xs text-tertiary">
                     {row.provider_name}
@@ -201,13 +202,19 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
                       {row.coverage.covered}/{row.coverage.total}
                     </span>
                   </div>
-                  <div className="eyebrow mt-2">
-                    {row.is_open_weights ? tt("openWeights") : tt("apiOnly")}
+                  <div className="mt-2">
+                    {row.is_open_weights ? (
+                      <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
+                        {tt("openWeights")}
+                      </span>
+                    ) : (
+                      <span className="eyebrow text-tertiary">{tt("apiOnly")}</span>
+                    )}
                   </div>
                   {row.provisional && (
-                    <div className="eyebrow mt-1 text-accent">{tt("provisionalTitle")}</div>
+                    <div className="eyebrow mt-1 text-attention">{tt("provisionalTitle")}</div>
                   )}
-                </div>
+                </Surface>
               );
             })}
           </div>
@@ -244,8 +251,8 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
 
           <div className="mt-10">
             <h3 className="eyebrow mb-2">{t("tableView")}</h3>
-            <div
-              className="overflow-x-auto"
+            <Surface
+              className="overflow-x-auto p-2"
               role="region"
               aria-label={t("tableView")}
               tabIndex={0}
@@ -324,7 +331,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
                   })}
                 </tbody>
               </table>
-            </div>
+            </Surface>
             <p className="mt-3 max-w-[46rem] text-xs leading-[1.6] text-tertiary">
               {t("deltaNote")}
             </p>
