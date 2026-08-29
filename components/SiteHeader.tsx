@@ -52,7 +52,7 @@ export async function SiteHeader({
       </div>
 
       <nav
-        className="mt-3 flex gap-1 border-b border-subtle pb-2 sm:mt-5"
+        className="mt-3 flex flex-wrap gap-x-1 gap-y-1 border-b border-subtle pb-2 sm:mt-5"
         aria-label={tn("label")}
       >
         {links.map((link) => (
