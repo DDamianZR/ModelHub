@@ -109,6 +109,24 @@ class OneDefectPerFamilyTests(unittest.TestCase):
         found = problems(broken_es, _EN, _model())
         self.assertTrue(any("disagree about availability" in p for p in found))
 
+    def test_es_paraphrase_without_exact_keyword_is_not_a_disagreement(self):
+        # A real regeneration for moonshot-kimi-k2.5 (2026-08-29) wrote this exact Spanish
+        # paraphrase for an open-weights model: open in meaning, but matching neither
+        # _OPEN_CLAIM nor _CLOSED_CLAIM verbatim, paired with an English sentence that does
+        # use "open-weights". The two do not contradict each other - the old check compared
+        # exact-phrase presence rather than an actual open-vs-closed conflict, and rejected
+        # this correct pair on four separate generation attempts.
+        es_paraphrase = _ES.replace(
+            "Solo por API: sus pesos no se publican, no se ejecuta localmente.",
+            "Se descarga y corre localmente, sin API.",
+        )
+        en_open = _EN.replace(
+            "API-only: its weights are not published, so it cannot be run locally.",
+            "It is open-weights: downloadable and runnable locally.",
+        )
+        found = problems(es_paraphrase, en_open, _model(is_open_weights=True))
+        self.assertFalse(any("disagree about availability" in p for p in found))
+
     def test_claims_api_only_for_an_open_weights_model(self):
         found = problems(_ES, _EN, _model(is_open_weights=True))
         self.assertTrue(any("API-only for an open-weights model" in p for p in found))
