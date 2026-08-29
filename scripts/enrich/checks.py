@@ -384,7 +384,14 @@ def problems(es: str, en: str, model: dict) -> list[str]:
     es_closed = any(p in es_l for p in _CLOSED_CLAIM)
     en_closed = any(p in en_l for p in _CLOSED_CLAIM)
 
-    if es_open != en_open or es_closed != en_closed:
+    # A genuine contradiction is one side unambiguously claiming open and the other
+    # unambiguously claiming closed - not one side simply not using a phrase from either
+    # list. "Se descarga y corre localmente, sin API" reads as open (matches neither list
+    # verbatim) paired with an English "open-weights" is a looser paraphrase, not a
+    # disagreement; the old `es_open != en_open` treated "used no recognised phrase" the
+    # same as "actively said the opposite", rejecting correct pairs. Verified against
+    # moonshot-kimi-k2.5's 2026-08-29 regeneration, which failed this exact way four times.
+    if (es_open and en_closed) or (es_closed and en_open):
         found.append("es/en disagree about availability")
 
     is_open = bool(model.get("is_open_weights"))

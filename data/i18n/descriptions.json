@@ -246,10 +246,10 @@
     "generated_by": "qwen3:8b"
   },
   "moonshot-kimi-k2.5": {
-    "en": "Kimi K2.5 is a language model developed by Moonshot in China on January 27, 2026. It is open-weights: downloadable and runnable locally. Measured in Coding and Human preference; no data in Math, Reasoning or Instructions.",
-    "es": "Kimi K2.5 es un modelo de lenguaje desarrollado por Moonshot en China el 27 de enero de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Código y Preferencia humana; sin datos en Matemáticas, Razonamiento ni Instrucciones.",
-    "generated_at": "2026-07-31",
-    "generated_by": "qwen3:8b"
+    "en": "Kimi K2.5 is a language model built by Moonshot in January 2026. It is open-weights: downloadable and runnable locally. Measured in Reasoning, Coding, and Human preference; no data in Instructions, Math.",
+    "es": "Kimi K2.5 es un modelo de lenguaje desarrollado por Moonshot en enero de 2026. Se descarga y corre localmente, sin API. Medido en Razonamiento, Código y Preferencia humana; sin datos en Instrucciones, Matemáticas.",
+    "generated_at": "2026-08-29",
+    "generated_by": "qwen3-coder:30b"
   },
   "moonshot-kimi-k2.6": {
     "en": "Kimi K2.6 is a language model built by Moonshot in April 2026. It is open-weights: downloadable and runnable locally. It performs relatively stronger in Human preference and Reasoning. It is somewhat lower in Math and Instructions.",
