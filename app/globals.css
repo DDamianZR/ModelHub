@@ -43,8 +43,10 @@
   --radius-inner:    4px;   /* segmented-control thumb, badges inside a control */
   --inset-nested:    4px;   /* the step that relates one level to the next */
 
-  /* Motion */
+  /* Motion. --dur-fast covers data (filter/sort) and simple state colour changes;
+     --dur-base is for controls whose geometry moves (the segmented-control thumb). */
   --dur-fast: 90ms;
+  --dur-base: 200ms;
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);   /* iOS spring approximation */
 
   /* Z-index */
@@ -167,69 +169,83 @@ body {
   }
 }
 
-/* ── Neo-Tactile control layer (D2) ──────────────────────────────────────────
-   A 1px displacement plus a border that carries contrast. Deliberately not
-   classic neomorphism: there, the control's boundary IS its shadow, and a soft
-   shadow cannot reach the 3:1 that SC 1.4.11 requires of a control boundary
-   while remaining soft. So the tactility is a real border plus a 1px shift the
-   eye reads as physical. Scope: chips, toggles, sort headers, locale switch.
-   Never on table rows, data cells, the instrument panel or the masthead.     */
-.tactile {
+/* ── Control layer ────────────────────────────────────────────────────────────
+   Fill-based, no border, no displacement. Scope: chips, toggles, sort headers,
+   locale switch. Never on table rows, data cells, the instrument panel or the
+   masthead. Selected state is a fill (--accent + --text-on-accent) plus a
+   font-weight bump, so it survives greyscale without relying on hue alone —
+   the same guarantee the old bordered variant made, by different means.     */
+.control {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 32px;
   padding: 0 0.6rem;
-  border: 1px solid var(--line-default);
   border-radius: var(--radius-control);
-  background: var(--surface-default);
+  background: var(--surface-sunk);
   color: var(--text-tertiary);
   transition:
     background-color var(--dur-fast) var(--ease-out),
-    border-color     var(--dur-fast) var(--ease-out),
-    color            var(--dur-fast) var(--ease-out),
-    transform        var(--dur-fast) var(--ease-out);
+    color            var(--dur-fast) var(--ease-out);
 }
 
-.tactile:hover:not(:disabled) {
+.control:hover:not(:disabled) {
   background: var(--surface-raised);
-  border-color: var(--line-strong);
   color: var(--text-primary);
-  transform: translateY(-1px);
 }
 
-.tactile:active:not(:disabled) {
-  background: var(--surface-sunk);
-  border-color: var(--line-strong);
-  box-shadow: inset 0 1px 0 0 var(--line-strong);
-  transform: translateY(0);
-}
-
-/* Selected. Fill plus border, so the state survives greyscale.
+/* Selected. Fill plus weight, so the state survives greyscale.
    Driven by a class rather than by an [aria-pressed="true"] selector so the paint
    does not depend on an accessibility attribute staying in sync with the styling
    contract. The component sets both from the same boolean. */
-.tactile-on {
+.control-on {
   background: var(--accent);
-  border-color: var(--accent);
   color: var(--text-on-accent);
-  transform: translateY(0);
+  font-weight: 600;
 }
-.tactile-on:hover:not(:disabled) {
+.control-on:hover:not(:disabled) {
   background: var(--accent);
-  border-color: var(--accent);
   color: var(--text-on-accent);
 }
 
-.tactile:disabled {
+.control:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
 /* Compact variant for dense filter rows. Still clears 32px via the parent gap. */
-.tactile-sm {
+.control-sm {
   min-height: 28px;
   padding: 0 0.45rem;
+}
+
+/* ── Segmented control ────────────────────────────────────────────────────────
+   The thumb is a plain, non-focusable sibling absolutely positioned under the
+   row of role="radio" buttons; it owns the one moving-geometry transition in
+   this component. Rendered first in the DOM so the (position: relative)
+   buttons paint over it regardless of z-index defaults. */
+.segmented-thumb {
+  background: var(--surface-default);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.segmented-option {
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+/* ── Surface: the grouped card ─────────────────────────────────────────────────
+   Light gets a hairline border for definition against a canvas close to it in
+   luminance; dark relies on the canvas/card contrast (1.23:1, see
+   scripts/check-contrast.mjs) and skips the border, matching Apple's own
+   grouped-card treatment on an OLED-black canvas. */
+.surface {
+  background: var(--surface-default);
+  border-radius: var(--radius-surface);
+  border: 1px solid var(--line-subtle);
+}
+@media (prefers-color-scheme: dark) {
+  .surface {
+    border: none;
+  }
 }
 
 /* ── Table row hover: two channels, surface AND a leading accent edge ── */
@@ -270,7 +286,9 @@ body {
   background: var(--surface-canvas);
 }
 
-/* Skip link — hidden until focused. */
+/* Skip link — hidden until focused. Borders on --line-strong rather than the
+   standard --line-default: it's a floating overlay revealed only on keyboard
+   focus, so it earns a more emphatic boundary than an inline control. */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -279,7 +297,7 @@ body {
   padding: 0.4rem 1rem;
   background: var(--surface-overlay);
   color: var(--text-primary);
-  border: 1px solid var(--line-default);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-control);
   font-size: 14px;
 }
@@ -302,5 +320,4 @@ select:focus-visible,
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .tactile:hover:not(:disabled) { transform: none; }
 }

@@ -38,7 +38,7 @@ export async function SiteHeader({
           <LogoMark className="h-8 w-8 shrink-0 sm:h-[52px] sm:w-[52px]" />
           <div>
             <Link href="/">
-              <h1 className="font-display text-lg leading-[1.05] tracking-[-0.01em] sm:text-3xl">
+              <h1 className="text-lg leading-[1.05] font-semibold tracking-snug sm:text-3xl sm:tracking-tight">
                 {t("wordmark")}
               </h1>
             </Link>
@@ -52,20 +52,20 @@ export async function SiteHeader({
       </div>
 
       <nav
-        className="mt-3 flex gap-4 border-b border-subtle pb-2 sm:mt-5"
+        className="mt-3 flex flex-wrap gap-x-1 gap-y-1 border-b border-subtle pb-2 sm:mt-5"
         aria-label={tn("label")}
       >
         {links.map((link) => (
           <Link
             key={link.key}
             href={link.href}
-            /* Targets raised from 22px to 32px. The active item carries both a hue and
-               an underline, so the state is not colour-alone. */
+            /* The active item carries both a fill and a hue, so the state is not
+               colour-alone — same signature as .control-on. */
             className={clsx(
-              "eyebrow row-shift -mb-[9px] flex min-h-[32px] items-center border-b-2 pb-1.5",
+              "eyebrow row-shift flex min-h-8 items-center rounded-control px-3",
               active === link.key
-                ? "border-accent text-accent"
-                : "border-transparent hover:text-primary",
+                ? "bg-sunk font-semibold text-accent"
+                : "text-tertiary hover:text-primary",
             )}
             aria-current={active === link.key ? "page" : undefined}
           >

@@ -126,7 +126,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
                 disabled={disabled}
                 aria-pressed={active}
                 title={disabled ? t("full") : undefined}
-                className={clsx("tactile tactile-sm text-2xs", active && "tactile-on")}
+                className={clsx("control control-sm text-2xs", active && "control-on")}
               >
                 {row.display_name}
               </button>
