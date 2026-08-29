@@ -186,12 +186,18 @@ body {
   color: var(--text-tertiary);
   transition:
     background-color var(--dur-fast) var(--ease-out),
-    color            var(--dur-fast) var(--ease-out);
+    color            var(--dur-fast) var(--ease-out),
+    opacity          var(--dur-fast) var(--ease-out);
 }
 
 .control:hover:not(:disabled) {
   background: var(--surface-raised);
   color: var(--text-primary);
+}
+
+/* The HIG's tactile press gesture: a control dims on touch-down. */
+.control:active:not(:disabled) {
+  opacity: 0.7;
 }
 
 /* Selected. Fill plus weight, so the state survives greyscale.
@@ -231,7 +237,12 @@ body {
     width var(--dur-base) var(--ease-out);
 }
 .segmented-option {
-  transition: color var(--dur-fast) var(--ease-out);
+  transition:
+    color   var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+.segmented-option:active {
+  opacity: 0.7;
 }
 
 /* ── Surface: the grouped card ─────────────────────────────────────────────────
@@ -282,14 +293,25 @@ body {
 .note-attention { border-left-color: var(--attention); }
 
 /* Sticky table header. border-collapse: separate is required for sticky cells
-   to paint their own background instead of showing rows through. Background is
-   the card, not the canvas: every table now lives inside a Surface. */
+   to paint their own background instead of showing rows through.
+   Material: the one translucent layer in the whole redesign, deliberately not
+   used anywhere else - backdrop-filter over a scrolling container is fragile
+   in paint order and expensive on mobile (see the plan's rejection of
+   translucency everywhere). The opaque fallback is required, not decorative:
+   contrast is only guaranteed against the solid colour. */
 .table-sticky { border-collapse: separate; border-spacing: 0; }
 .table-sticky thead th {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  background: var(--surface-default);
+  background: color-mix(in srgb, var(--surface-default) 78%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .table-sticky thead th {
+    background: var(--surface-default);
+  }
 }
 
 /* Skip link — hidden until focused. Borders on --line-strong rather than the
