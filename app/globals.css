@@ -95,6 +95,7 @@
   --color-tertiary:    var(--text-tertiary);
 
   --color-accent:      var(--accent);
+  --color-attention:   var(--attention);
 
   --color-subtle:      var(--line-subtle);
   --color-line:        var(--line-default);
@@ -226,7 +227,9 @@ body {
    buttons paint over it regardless of z-index defaults. */
 .segmented-thumb {
   background: var(--surface-default);
-  transition: transform var(--dur-base) var(--ease-out);
+  transition:
+    left  var(--dur-base) var(--ease-out),
+    width var(--dur-base) var(--ease-out);
 }
 .segmented-option {
   transition: color var(--dur-fast) var(--ease-out);
@@ -247,16 +250,19 @@ body {
     border: none;
   }
 }
+/* Attention-flagged surface: degraded-source and out-of-rhythm banners. 3px has
+   no non-arbitrary Tailwind border-width step, so it's a plain rule like the
+   card itself rather than an arbitrary-value utility. */
+.surface-attention {
+  border-left: 3px solid var(--attention);
+}
 
-/* ── Table row hover: two channels, surface AND a leading accent edge ── */
+/* ── Table row hover ── */
 .row-hover {
-  transition:
-    background-color var(--dur-fast) var(--ease-out),
-    box-shadow       var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out);
 }
 .row-hover:hover {
   background: var(--surface-raised);
-  box-shadow: inset 2px 0 0 0 var(--accent);
 }
 
 /* Filtering and sorting must feel instant. */
@@ -277,13 +283,14 @@ body {
 .note-attention { border-left-color: var(--attention); }
 
 /* Sticky table header. border-collapse: separate is required for sticky cells
-   to paint their own background instead of showing rows through. */
+   to paint their own background instead of showing rows through. Background is
+   the card, not the canvas: every table now lives inside a Surface. */
 .table-sticky { border-collapse: separate; border-spacing: 0; }
 .table-sticky thead th {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  background: var(--surface-canvas);
+  background: var(--surface-default);
 }
 
 /* Skip link — hidden until focused. Borders on --line-strong rather than the

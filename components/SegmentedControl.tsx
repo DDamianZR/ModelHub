@@ -1,13 +1,19 @@
 "use client";
 
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
 /**
  * Apple's segmented control: a `role="radiogroup"` of mutually-exclusive options with a
- * single thumb that slides to the selected one. Roving tabindex, so Tab reaches the group
- * once and the arrow keys move both selection and focus together — the standard behavior
- * for a native-feeling radio group, not a tab list.
+ * single thumb that slides to the selected one. Segments are natural width rather than an
+ * equal split of the container — a fixed fraction reads badly the moment one label is
+ * longer than the rest, and it can't represent a control with more options than fit their
+ * container (the mobile metric strip needs to scroll). The thumb's position and width are
+ * measured off the active button's own box rather than computed, so both cases work through
+ * the same code path.
+ *
+ * Roving tabindex: Tab reaches the group once, and the arrow keys move selection and focus
+ * together — the standard behavior for a native-feeling radio group, not a tab list.
  */
 export function SegmentedControl<T extends string>({
   options,
@@ -26,6 +32,15 @@ export function SegmentedControl<T extends string>({
     options.findIndex((option) => option.value === value),
   );
   const count = options.length;
+  const [thumb, setThumb] = useState<{ left: number; width: number } | null>(null);
+
+  useLayoutEffect(() => {
+    const el = buttonRefs.current[index];
+    if (el) setThumb({ left: el.offsetLeft, width: el.offsetWidth });
+    // Re-measure when the option set's own text changes (e.g. a locale switch), not just
+    // when the selected index does - a relabeled option can change every button's width.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, options.map((o) => o.label).join("\u0000")]);
 
   function move(from: number, delta: number) {
     const next = (from + delta + count) % count;
@@ -37,19 +52,20 @@ export function SegmentedControl<T extends string>({
     <div
       role="radiogroup"
       aria-label={label}
-      className="relative inline-flex min-h-11 gap-0.5 rounded-control bg-sunk p-nested sm:min-h-8"
+      className="relative inline-flex min-h-11 w-max gap-0.5 rounded-control bg-sunk p-nested sm:min-h-8"
     >
-      <span
-        aria-hidden="true"
-        className="segmented-thumb pointer-events-none absolute rounded-inner"
-        style={{
-          top: "var(--inset-nested)",
-          bottom: "var(--inset-nested)",
-          left: "var(--inset-nested)",
-          width: `calc((100% - 2 * var(--inset-nested)) / ${count})`,
-          transform: `translateX(${index * 100}%)`,
-        }}
-      />
+      {thumb && (
+        <span
+          aria-hidden="true"
+          className="segmented-thumb pointer-events-none absolute rounded-inner"
+          style={{
+            top: "var(--inset-nested)",
+            bottom: "var(--inset-nested)",
+            left: `${thumb.left}px`,
+            width: `${thumb.width}px`,
+          }}
+        />
+      )}
       {options.map((option, i) => {
         const active = option.value === value;
         return (
@@ -73,7 +89,7 @@ export function SegmentedControl<T extends string>({
               }
             }}
             className={clsx(
-              "segmented-option relative z-10 flex-1 rounded-inner px-2 text-center text-sm",
+              "segmented-option eyebrow relative z-10 rounded-inner px-3 whitespace-nowrap",
               active ? "font-semibold text-primary" : "text-tertiary",
             )}
           >
