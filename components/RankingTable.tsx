@@ -5,7 +5,9 @@ import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { CoverageMeter } from "./CoverageMeter";
+import { SegmentedControl } from "./SegmentedControl";
 import { Sparkline } from "./Sparkline";
+import { Surface } from "./Surface";
 import type { RankingRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
@@ -202,9 +204,15 @@ export function RankingTable({
             >
               {row.display_name}
             </Link>
-            <span className={clsx("eyebrow", row.is_open_weights && "text-accent")}>
-              {row.is_open_weights ? t("openWeights") : t("apiOnly")}
-            </span>
+            {row.is_open_weights ? (
+              // A neutral fact, not a virtue: a filled badge marks it as metadata
+              // rather than reusing the accent, which would read as an endorsement.
+              <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
+                {t("openWeights")}
+              </span>
+            ) : (
+              <span className="eyebrow text-tertiary">{t("apiOnly")}</span>
+            )}
             {row.awaiting_human_votes && !row.provisional && (
               <span className="eyebrow border border-subtle px-1" title={t("awaitingVotesTitle")}>
                 {t("awaitingVotes")}
@@ -280,7 +288,7 @@ export function RankingTable({
       <li key={row.id}>
         <Link
           href={`/model/${row.id}`}
-          className="row-hover flex items-center gap-3 border-b border-subtle py-3"
+          className="row-hover flex min-h-11 items-center gap-3 border-b border-subtle px-3 py-3"
         >
           <span className="num w-7 shrink-0 text-right text-xs text-tertiary">
             {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
@@ -303,6 +311,9 @@ export function RankingTable({
               }
             />
           </div>
+          <span aria-hidden="true" className="shrink-0 text-tertiary">
+            ›
+          </span>
         </Link>
       </li>
     );
@@ -336,38 +347,59 @@ export function RankingTable({
             onChange={(e) => setQuery(e.target.value)}
             placeholder={tf("search")}
             aria-label={tf("search")}
-            className="num w-[9rem] rounded-(--radius-control) border border-line bg-transparent px-2 py-1 text-xs outline-none sm:w-auto sm:min-w-[13rem]"
+            className="num min-h-11 w-[9rem] rounded-control bg-sunk px-2 py-1 text-xs outline-none sm:min-h-8 sm:w-auto sm:min-w-[13rem]"
           />
         </div>
 
-        <div
-          role="group"
-          aria-label={tf("access")}
-          className="flex shrink-0 items-center gap-1.5"
-        >
+        <div className="flex shrink-0 items-center gap-2">
           <span className="eyebrow hidden sm:inline">{tf("access")}</span>
-          {(["all", "open", "api"] as const).map((value) => (
-            <Chip key={value} active={access === value} onClick={() => setAccess(value)}>
-              {tf(value)}
-            </Chip>
-          ))}
+          <SegmentedControl
+            label={tf("access")}
+            value={access}
+            onChange={setAccess}
+            options={(["all", "open", "api"] as const).map((value) => ({
+              value,
+              label: tf(value),
+            }))}
+          />
         </div>
 
         {origins.length > 1 && (
-          <div
-            role="group"
-            aria-label={tf("origin")}
-            className="flex shrink-0 items-center gap-1.5"
-          >
+          <div className="flex shrink-0 items-center gap-2">
             <span className="eyebrow hidden sm:inline">{tf("origin")}</span>
-            <Chip active={origin === "all"} onClick={() => setOrigin("all")}>
-              {tf("all")}
-            </Chip>
-            {origins.map((country) => (
-              <Chip key={country} active={origin === country} onClick={() => setOrigin(country)}>
-                {country === "United States of America" ? "USA" : country}
-              </Chip>
-            ))}
+            {origins.length <= 4 ? (
+              <SegmentedControl
+                label={tf("origin")}
+                value={origin}
+                onChange={setOrigin}
+                options={[
+                  { value: "all", label: tf("all") },
+                  ...origins.map((country) => ({
+                    value: country,
+                    label: country === "United States of America" ? "USA" : country,
+                  })),
+                ]}
+              />
+            ) : (
+              <div
+                role="group"
+                aria-label={tf("origin")}
+                className="flex shrink-0 items-center gap-1.5"
+              >
+                <Chip active={origin === "all"} onClick={() => setOrigin("all")}>
+                  {tf("all")}
+                </Chip>
+                {origins.map((country) => (
+                  <Chip
+                    key={country}
+                    active={origin === country}
+                    onClick={() => setOrigin(country)}
+                  >
+                    {country === "United States of America" ? "USA" : country}
+                  </Chip>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -380,7 +412,7 @@ export function RankingTable({
             value={provider}
             onChange={(e) => setProvider(e.target.value)}
             aria-label={tf("provider")}
-            className="eyebrow min-h-[28px] rounded-(--radius-control) border border-line bg-transparent px-1"
+            className="eyebrow min-h-7 rounded-control border border-line bg-transparent px-1"
           >
             {/* "All", not "Provider": the visible label already says Provider at sm+,
                 and the select's aria-label carries it where that label is hidden. */}
@@ -415,146 +447,138 @@ export function RankingTable({
       </div>
 
       {/* Desktop: the real table, unchanged in semantics. */}
-      <div
-        className="hidden overflow-x-auto md:block"
-        role="region"
-        aria-label={t("composite")}
-        tabIndex={0}
-      >
-        <table className="table-sticky w-full min-w-[62rem] text-left">
-          <caption className="sr-only">{t("composite")}</caption>
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                className="w-10 border-b border-subtle py-2 pr-2 align-bottom"
-                aria-sort={sort === "rank" ? "descending" : "none"}
-              >
-                <SortBtn
-                  sortKey="rank"
-                  currentSort={sort}
-                  onSort={setSort}
-                  label={t("rank")}
-                  sortByLabel={t("sortBy", { column: t("rank") })}
-                  align="left"
-                />
-              </th>
-              {/* A label, not a control. The header that sorts by rank is "#". */}
-              <th scope="col" className="border-b border-subtle py-2 pr-4 align-bottom">
-                <span className="eyebrow">{t("model")}</span>
-              </th>
-              <th
-                scope="col"
-                className="w-24 border-b border-subtle py-2 pr-3 align-bottom"
-                aria-sort={sort === "composite" ? "descending" : "none"}
-              >
-                <SortBtn
-                  sortKey="composite"
-                  currentSort={sort}
-                  onSort={setSort}
-                  label={t("composite")}
-                  sortByLabel={t("sortBy", { column: t("composite") })}
-                />
-              </th>
-              <th scope="col" className="w-20 border-b border-subtle py-2 pr-4 align-bottom">
-                <span className="eyebrow block text-right">{t("coverage")}</span>
-              </th>
-              {CATEGORIES.map((category) => {
-                const aged = categoryAges[category];
-                return (
-                  <th
-                    key={category}
-                    scope="col"
-                    className="w-20 border-b border-subtle py-2 pr-3 align-bottom"
-                    aria-sort={sort === category ? "descending" : "none"}
-                  >
-                    {aged?.age_days != null && (
-                      <span
-                        className={clsx(
-                          "eyebrow block text-right",
-                          aged.freshness === "degraded" && "text-accent",
-                        )}
-                        title={t("agedCategoryTitle", { days: aged.age_days })}
-                      >
-                        {t("agedCategory", { days: aged.age_days })}
-                      </span>
-                    )}
-                    <SortBtn
-                      sortKey={category}
-                      currentSort={sort}
-                      onSort={setSort}
-                      label={t(category)}
-                      sortByLabel={t("sortBy", { column: t(category) })}
-                    />
-                  </th>
-                );
-              })}
-              <th scope="col" className="w-20 border-b border-subtle py-2 align-bottom">
-                <span className="eyebrow block text-right">{t("trend")}</span>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody>{ranked.map(renderRow)}</tbody>
-
-          {provisional.length > 0 && (
-            <tbody>
+      <Surface className="mt-3 hidden md:block">
+        <div
+          className="overflow-x-auto p-2"
+          role="region"
+          aria-label={t("composite")}
+          tabIndex={0}
+        >
+          <table className="table-sticky w-full min-w-[62rem] text-left">
+            <caption className="sr-only">{t("composite")}</caption>
+            <thead>
               <tr>
-                <th colSpan={columnCount} scope="colgroup" className="pt-8">
-                  <div className="border-t border-subtle pt-3 text-left">
-                    <span className="eyebrow text-accent">{t("provisionalTitle")}</span>
-                    <p className="mt-1 max-w-[46rem] text-xs font-normal leading-[1.55] text-tertiary">
-                      {t("provisionalNote", { min: minCoverage, total: CATEGORIES.length })}
-                    </p>
-                  </div>
+                <th
+                  scope="col"
+                  className="w-10 border-b border-subtle py-2 pr-2 align-bottom"
+                  aria-sort={sort === "rank" ? "descending" : "none"}
+                >
+                  <SortBtn
+                    sortKey="rank"
+                    currentSort={sort}
+                    onSort={setSort}
+                    label={t("rank")}
+                    sortByLabel={t("sortBy", { column: t("rank") })}
+                    align="left"
+                  />
+                </th>
+                {/* A label, not a control. The header that sorts by rank is "#". */}
+                <th scope="col" className="border-b border-subtle py-2 pr-4 align-bottom">
+                  <span className="eyebrow">{t("model")}</span>
+                </th>
+                <th
+                  scope="col"
+                  className="w-24 border-b border-subtle py-2 pr-3 align-bottom"
+                  aria-sort={sort === "composite" ? "descending" : "none"}
+                >
+                  <SortBtn
+                    sortKey="composite"
+                    currentSort={sort}
+                    onSort={setSort}
+                    label={t("composite")}
+                    sortByLabel={t("sortBy", { column: t("composite") })}
+                  />
+                </th>
+                <th scope="col" className="w-20 border-b border-subtle py-2 pr-4 align-bottom">
+                  <span className="eyebrow block text-right">{t("coverage")}</span>
+                </th>
+                {CATEGORIES.map((category) => {
+                  const aged = categoryAges[category];
+                  return (
+                    <th
+                      key={category}
+                      scope="col"
+                      className="w-20 border-b border-subtle py-2 pr-3 align-bottom"
+                      aria-sort={sort === category ? "descending" : "none"}
+                    >
+                      {aged?.age_days != null && (
+                        <span
+                          className={clsx(
+                            "eyebrow block text-right",
+                            aged.freshness === "degraded" && "text-attention",
+                          )}
+                          title={t("agedCategoryTitle", { days: aged.age_days })}
+                        >
+                          {t("agedCategory", { days: aged.age_days })}
+                        </span>
+                      )}
+                      <SortBtn
+                        sortKey={category}
+                        currentSort={sort}
+                        onSort={setSort}
+                        label={t(category)}
+                        sortByLabel={t("sortBy", { column: t(category) })}
+                      />
+                    </th>
+                  );
+                })}
+                <th scope="col" className="w-20 border-b border-subtle py-2 align-bottom">
+                  <span className="eyebrow block text-right">{t("trend")}</span>
                 </th>
               </tr>
-              {provisional.map(renderRow)}
-            </tbody>
-          )}
-        </table>
+            </thead>
 
-        {visible.length === 0 && (
-          <p className="py-10 text-center text-sm text-tertiary">{t("empty")}</p>
-        )}
-      </div>
+            <tbody>{ranked.map(renderRow)}</tbody>
+
+            {provisional.length > 0 && (
+              <tbody>
+                <tr>
+                  <th colSpan={columnCount} scope="colgroup" className="pt-8">
+                    <div className="border-t border-subtle pt-3 text-left">
+                      <span className="eyebrow text-attention">{t("provisionalTitle")}</span>
+                      <p className="mt-1 max-w-[46rem] text-xs font-normal leading-[1.55] text-tertiary">
+                        {t("provisionalNote", { min: minCoverage, total: CATEGORIES.length })}
+                      </p>
+                    </div>
+                  </th>
+                </tr>
+                {provisional.map(renderRow)}
+              </tbody>
+            )}
+          </table>
+
+          {visible.length === 0 && (
+            <p className="py-10 text-center text-sm text-tertiary">{t("empty")}</p>
+          )}
+        </div>
+      </Surface>
 
       {/* Mobile: one metric at a time. At 335px there is room for rank, name and one
           number; a table showing 3 of 10 columns is a worse list than a list. */}
       <div className="md:hidden">
-        <div className="no-scrollbar overflow-x-auto border-b border-subtle">
-          <div className="flex gap-1 py-2" role="group" aria-label={t("composite")}>
-            {mobileMetrics.map(({ key, label }) => (
-              <button
-                key={key}
-                type="button"
-                onClick={() => setMobileMetric(key)}
-                aria-pressed={mobileMetric === key}
-                className={clsx(
-                  "control control-sm eyebrow shrink-0",
-                  mobileMetric === key && "control-on",
-                )}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+        <div className="no-scrollbar overflow-x-auto border-b border-subtle py-2">
+          <SegmentedControl
+            label={t("composite")}
+            value={mobileMetric}
+            onChange={setMobileMetric}
+            options={mobileMetrics.map(({ key, label }) => ({ value: key, label }))}
+          />
         </div>
 
         {visible.length === 0 ? (
           <p className="py-10 text-center text-sm text-tertiary">{t("empty")}</p>
         ) : (
-          <ol aria-label={t("composite")}>
+          <Surface as="ol" inset={false} className="mt-3 px-1" aria-label={t("composite")}>
             {ranked.map(renderMobileRow)}
             {provisional.length > 0 && (
               <>
-                <li className="pb-2 pt-6">
-                  <span className="eyebrow text-accent">{t("provisionalTitle")}</span>
+                <li className="px-3 pb-2 pt-6">
+                  <span className="eyebrow text-attention">{t("provisionalTitle")}</span>
                 </li>
                 {provisional.map(renderMobileRow)}
               </>
             )}
-          </ol>
+          </Surface>
         )}
       </div>
     </div>

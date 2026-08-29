@@ -1,7 +1,9 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import clsx from "clsx";
 import { RankingTable } from "@/components/RankingTable";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Surface } from "@/components/Surface";
 import { IconGitHub, IconGlobe, IconInstagram } from "@/components/icons";
 import {
   getAgedSources,
@@ -61,14 +63,17 @@ export default async function HomePage({
           {t("blurb")}
         </p>
 
-        <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2 border-y border-subtle py-2 sm:mt-7 sm:gap-x-10 sm:gap-y-3 sm:py-3">
+        <Surface
+          as="dl"
+          className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 p-4 sm:mt-7 sm:grid-cols-4 sm:gap-x-8 sm:p-5"
+        >
           {readings.map(([label, value], i) => (
             <div key={label} className={i > 1 ? "hidden sm:block" : undefined}>
               <dt className="eyebrow">{label}</dt>
               <dd className="num text-sm sm:text-md">{value}</dd>
             </div>
           ))}
-          <div className="ml-auto hidden sm:block">
+          <div className="col-span-2 hidden border-t border-subtle pt-3 sm:col-span-4 sm:block">
             <dt className="eyebrow">{tp("snapshots")}</dt>
             <dd className="num text-2xs text-tertiary">
               {Object.entries(meta.snapshots)
@@ -77,11 +82,11 @@ export default async function HomePage({
                 .join("  ·  ")}
             </dd>
           </div>
-        </dl>
+        </Surface>
 
         {degraded.length > 0 && (
-          <p className="note note-accent mt-4 text-xs leading-[1.6]">
-            <span className="eyebrow text-accent">{tp("degraded")}</span>{" "}
+          <Surface className="surface-attention mt-4 p-3 text-xs leading-[1.6]">
+            <span className="eyebrow text-attention">{tp("degraded")}</span>{" "}
             {degraded
               .map((entry) =>
                 tp("degradedSource", {
@@ -91,14 +96,14 @@ export default async function HomePage({
                 }),
               )
               .join(" · ")}
-          </p>
+          </Surface>
         )}
 
         {aged.length > 0 && (() => {
           // Within-rhythm gaps read as a neutral fact, not an alarm: this source's own
           // observed cadence (median_gap_days) already explains the gap, so nothing here
           // is actually surprising. Only a gap that exceeds twice that median gets the
-          // amber treatment - see lib/data.ts's getAgedSources for why state "ok" is
+          // attention treatment - see lib/data.ts's getAgedSources for why state "ok" is
           // required to appear here at all.
           const withinRhythm = (entry: (typeof aged)[number]) => {
             const median = entry.observed?.median_gap_days;
@@ -106,14 +111,19 @@ export default async function HomePage({
           };
           const anyExceeding = aged.some((entry) => !withinRhythm(entry));
           return (
-            <p className="mt-4 text-xs leading-[1.6]">
-              <span className={`eyebrow ${anyExceeding ? "text-accent" : "text-tertiary"}`}>
+            <Surface
+              className={clsx(
+                "mt-4 p-3 text-xs leading-[1.6]",
+                anyExceeding && "surface-attention",
+              )}
+            >
+              <span className={clsx("eyebrow", anyExceeding ? "text-attention" : "text-tertiary")}>
                 {tp("aging")}
               </span>{" "}
               {aged.map((entry, i) => {
                 const normal = withinRhythm(entry);
                 return (
-                  <span key={entry.name} className={normal ? "text-tertiary" : "text-accent"}>
+                  <span key={entry.name} className={normal ? "text-tertiary" : "text-attention"}>
                     {i > 0 && " · "}
                     {normal
                       ? tp("agingSourceNormal", {
@@ -129,7 +139,7 @@ export default async function HomePage({
                   </span>
                 );
               })}
-            </p>
+            </Surface>
           );
         })()}
       </section>
