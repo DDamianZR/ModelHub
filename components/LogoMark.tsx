@@ -7,7 +7,7 @@
  * the core keeps a fixed brand colour.
  */
 
-const BRAND = "#8157fd";
+const BRAND = "#514ecb";
 
 // Node centres and the hexagon vertices share the same six angles, so the spokes stay radial.
 const SPOKES = [
