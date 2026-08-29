@@ -111,7 +111,6 @@
 
 /* Type scale. Nine sizes, down from sixteen ad-hoc arbitrary values. */
 @theme {
-  --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-body:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    var(--font-jetbrains-mono), ui-monospace, monospace;
 
