@@ -44,6 +44,11 @@ jobs:
       - name: Verify token contrast
         run: npm run check:contrast
 
+      # The radius scale is a strict arithmetic progression (outer - inset = inner);
+      # this catches a hand-tuned value that breaks it before it ships.
+      - name: Verify concentric radius progression
+        run: npm run check:geometry
+
       - run: npm run build
 
       # Reads the prerendered output, so it has to follow the build. Guards payload
