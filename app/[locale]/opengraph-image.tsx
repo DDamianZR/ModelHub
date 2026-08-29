@@ -13,11 +13,11 @@ export function generateStaticParams() {
 // Light-palette values from app/globals.css, copied rather than referenced: Satori (the
 // renderer behind ImageResponse) doesn't resolve CSS custom properties, and an OG card is
 // read as a static preview in someone else's UI theme anyway, not this site's.
-const PAPER = "#faf9f6";
-const INK = "#1a1a1a";
-const MUTED = "#6e6862";
-const RULE = "#e2ded4";
-const AMBER = "#6d28d9";
+const PAPER = "#f2f2f7";
+const INK = "#1c1c1e";
+const MUTED = "#5d5d63";
+const RULE = "#d8d8de";
+const ACCENT = "#514ecb";
 
 export default async function OpengraphImage({
   params,
@@ -74,7 +74,7 @@ export default async function OpengraphImage({
           }}
         >
           <div style={{ display: "flex" }}>modelhub</div>
-          <div style={{ display: "flex", color: AMBER }}>
+          <div style={{ display: "flex", color: ACCENT }}>
             {tp("updated")} {meta.generated_at}
           </div>
         </div>

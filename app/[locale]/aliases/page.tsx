@@ -90,7 +90,7 @@ export default async function AliasesPage({
           >
             <caption className="sr-only">{t("title")}</caption>
             <thead>
-              <tr className="border-b rule">
+              <tr className="border-b border-subtle">
                 <th scope="col" className="py-2 pr-3">
                   <span className="eyebrow">{t("model")}</span>
                 </th>
@@ -106,7 +106,7 @@ export default async function AliasesPage({
             </thead>
             <tbody>
               {entries.map((entry) => (
-                <tr key={entry.id} className="border-b rule align-top">
+                <tr key={entry.id} className="border-b border-subtle align-top">
                   <th scope="row" className="py-2 pr-3 text-sm font-normal">
                     <a
                       href={`/${locale}/model/${entry.id}`}
@@ -168,7 +168,7 @@ export default async function AliasesPage({
       {integrity && (
         <section className="mt-12 max-w-[46rem]">
           <h3
-            className="border-b rule pb-2 text-lg leading-tight font-display"
+            className="border-b border-subtle pb-2 text-lg leading-tight font-display"
           >
             {t("integrityTitle")}
           </h3>
