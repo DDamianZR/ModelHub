@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "check:contrast": "node scripts/check-contrast.mjs",
+    "check:geometry": "node scripts/check-geometry.mjs",
     "check:ux": "node scripts/audit-ux.mjs",
     "ingest": "python -m scripts.ingest.run",
     "enrich": "python -m scripts.enrich.run",

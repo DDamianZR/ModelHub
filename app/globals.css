@@ -5,39 +5,47 @@
    THIS file. Do not hand-tune a value without re-running it: the boundary
    tokens are load-bearing for WCAG 1.4.11 and the margins are thin.          */
 :root {
-  /* Surfaces: plane 0 (canvas) → plane 3 (overlay) */
-  --surface-canvas:  #faf9f6;
-  --surface-default: #f5f3ee;
-  --surface-sunk:    #f2f0ea;
-  --surface-raised:  #e3e0d9;  /* hover plane — 1.25:1 vs canvas */
-  --surface-overlay: #fdfcfa;
+  /* Surfaces: plane 0 (canvas) → plane 3 (overlay). iOS grouped-background family:
+     the row lives on the card (--surface-default), not the canvas — see the hover
+     and elevation criteria in scripts/check-contrast.mjs. */
+  --surface-canvas:  #f2f2f7;   /* systemGroupedBackground */
+  --surface-default: #ffffff;   /* the card */
+  --surface-sunk:    #ebebf0;
+  --surface-raised:  #e5e5ea;   /* systemGray5 — hover plane, sits on the card */
+  --surface-overlay: #ffffff;
 
   /* Text */
-  --text-primary:   #1a1a1a;
-  --text-tertiary:  #68625c;   /* 4.56:1 on raised, the worst surface it sits on */
+  --text-primary:   #1c1c1e;
+  --text-tertiary:  #5d5d63;
   --text-on-accent: #ffffff;
 
   /* Lines. line-subtle is decorative and may sit below 3:1; it is NEVER the
      boundary of an interactive control. line-default and above carry contrast. */
-  --line-subtle:  #e2ded4;
-  --line-default: #837f77;     /* 3.02:1 on raised, 3.79:1 on canvas */
-  --line-strong:  #524e49;
+  --line-subtle:  #d8d8de;
+  --line-default: #767680;      /* base of the iOS hairline separator */
+  --line-strong:  #48484a;
 
-  /* Accent */
-  --accent:       #6d28d9;
-  --focus-ring:   #6d28d9;
+  /* Accent, and the one non-neutral status color. Both carry the 4.5:1 text
+     floor: --accent paints an 11px eyebrow, --attention paints banner labels. */
+  --accent:       #514ecb;
+  --attention:    #9a4b00;
+  --focus-ring:   #514ecb;
 
   /* Chart / data marks */
-  --mark: #8157fd;
+  --mark: #514ecb;
 
-  /* Radius */
-  --radius-control: 3px;
-  --radius-surface: 4px;
-  --radius-overlay: 6px;
+  /* Radius: concentric progression, step 4 — overlay - inset = surface,
+     surface - inset = control, control - inset = inner. Checked in CI by
+     scripts/check-geometry.mjs. */
+  --radius-overlay: 16px;   /* sheets, popovers */
+  --radius-surface: 12px;   /* cards, panels */
+  --radius-control:  8px;   /* buttons, chips, fields, segmented-control track */
+  --radius-inner:    4px;   /* segmented-control thumb, badges inside a control */
+  --inset-nested:    4px;   /* the step that relates one level to the next */
 
   /* Motion */
-  --dur-fast:     90ms;
-  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --dur-fast: 90ms;
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);   /* iOS spring approximation */
 
   /* Z-index */
   --z-sticky:  10;
@@ -48,24 +56,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --surface-canvas:  #0e0e0e;
-    --surface-default: #131210;
-    --surface-sunk:    #161513;
-    --surface-raised:  #282521;  /* 1.27:1 vs canvas */
-    --surface-overlay: #1e1c19;
+    --surface-canvas:  #000000;   /* true black: OLED-off, and the card gets a real
+                                      plane boundary without drawing one */
+    --surface-default: #1c1c1e;
+    --surface-sunk:    #0d0d0e;
+    --surface-raised:  #323236;
+    --surface-overlay: #1c1c1e;
 
-    --text-primary:   #eae7e0;
-    --text-tertiary:  #928b82;   /* 4.53:1 on raised */
-    --text-on-accent: #0e0e0e;
+    --text-primary:   #f2f2f7;
+    --text-tertiary:  #9e9ea6;
+    --text-on-accent: #1c1c1e;
 
-    --line-subtle:  #2b2926;
-    --line-default: #716e6b;     /* 3.01:1 on raised, 3.81:1 on canvas */
-    --line-strong:  #a29a90;
+    --line-subtle:  #2c2c2e;
+    --line-default: #8e8e93;
+    --line-strong:  #a0a0a8;
 
-    --accent:       #b794ff;
-    --focus-ring:   #b794ff;
+    --accent:       #a29cff;
+    --attention:    #ff9f0a;
+    --focus-ring:   #a29cff;
 
-    --mark: #a78bfa;
+    --mark: #a29cff;
 
     color-scheme: dark;
   }
@@ -91,6 +101,9 @@
   --radius-control: var(--radius-control);
   --radius-surface: var(--radius-surface);
   --radius-overlay: var(--radius-overlay);
+  --radius-inner:   var(--radius-inner);
+
+  --spacing-nested: var(--inset-nested);
 }
 
 /* Type scale. Nine sizes, down from sixteen ad-hoc arbitrary values. */
@@ -102,12 +115,17 @@
   --text-2xs:  11px;
   --text-xs:   12px;
   --text-sm:   13px;
-  --text-base: 14px;
-  --text-md:   15px;
-  --text-lg:   22px;
-  --text-xl:   26px;
-  --text-2xl:  32px;
-  --text-3xl:  42px;
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   20px;
+  --text-xl:   22px;
+  --text-2xl:  28px;
+  --text-3xl:  34px;
+
+  /* Negative tracking above 20px, matching SF Display. */
+  --tracking-tight:  -0.021em;   /* >= 28px */
+  --tracking-snug:   -0.014em;   /* 20-26px */
+  --tracking-normal:  0em;
 }
 
 /* ── Base ── */
@@ -118,7 +136,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -240,6 +258,7 @@ body {
   color: var(--text-tertiary);
 }
 .note-accent { border-left-color: var(--accent); }
+.note-attention { border-left-color: var(--attention); }
 
 /* Sticky table header. border-collapse: separate is required for sticky cells
    to paint their own background instead of showing rows through. */

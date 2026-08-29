@@ -11,6 +11,22 @@
  * the stylesheet stays the single source of truth — no second copy of the palette here.
  *
  * Node stdlib only, mirroring the Python-stdlib-only discipline on the ingest side.
+ *
+ * Hardened for the card-based palette (2026-08-29):
+ *  - `--accent` floor raised 3.0 -> 4.5. It renders as 11px eyebrow text
+ *    (`.eyebrow.text-accent`), not just a border, and the old 3.0 floor let an
+ *    illegible accent pass CI — a real gap in the previous guard. Shipped:
+ *    5.07:1 light, 5.31:1 dark.
+ *  - `--attention` added to the text rules at 4.5, same reasoning as --accent
+ *    (it paints banner labels). Shipped: 4.95:1 light, 6.21:1 dark.
+ *  - `--mark` added to the border rules at 3.0. It paints CategoryBars and was
+ *    previously unchecked entirely.
+ *  - Hover-plane criterion changed. Before: `ratio(raised, canvas) >= 1.25`.
+ *    In a card layout the row sits on the card, not the canvas — and with
+ *    canvas/card themselves at 1.12:1 (light), no third plane can be 1.25:1
+ *    from both at once, so the old comparison isn't just stricter, it is
+ *    unsatisfiable here. After: `ratio(raised, default) >= 1.25` AND
+ *    `ratio(default, canvas) >= 1.08`. Shipped: 1.26/1.12 light, 1.33/1.23 dark.
  */
 
 import { readFileSync } from "node:fs";
@@ -63,17 +79,22 @@ const SURFACES = [
 const RULES = [
   { token: "--line-default", min: 3, why: "interactive control boundary (SC 1.4.11)" },
   { token: "--line-strong", min: 3, why: "emphasised boundary" },
-  { token: "--accent", min: 3, why: "selected-control boundary and focus ring" },
+  { token: "--accent", min: 4.5, why: "selected-control boundary, focus ring, and 11px eyebrow text" },
+  { token: "--mark", min: 3, why: "chart/data mark identity" },
 ];
 
 /** Text tokens: 4.5:1 for body, 3:1 for large. Tertiary is used at 11-12px, so 4.5. */
 const TEXT_RULES = [
   { token: "--text-primary", min: 4.5 },
   { token: "--text-tertiary", min: 4.5 },
+  { token: "--attention", min: 4.5 },
 ];
 
-/** Hover plane must be perceptible against canvas without becoming a block of colour. */
+/** Hover plane must be perceptible against the card it sits on, and the card itself
+ *  must read as its own plane against the canvas. Two relations, not one: see the
+ *  header comment for why a single raised-vs-canvas check stopped being satisfiable. */
 const HOVER_MIN = 1.25;
+const ELEVATION_MIN = 1.08;
 
 let failures = 0;
 const report = [];
@@ -98,11 +119,18 @@ for (const [theme, tokens] of Object.entries(extractTokens(css))) {
     }
   }
 
-  const raised = ratio(tokens["--surface-raised"], tokens["--surface-canvas"]);
-  const okHover = raised >= HOVER_MIN;
+  const hover = ratio(tokens["--surface-raised"], tokens["--surface-default"]);
+  const okHover = hover >= HOVER_MIN;
   if (!okHover) failures += 1;
   report.push(
-    `  ${okHover ? "ok  " : "FAIL"}  ${theme.padEnd(5)}  --surface-raised   on --surface-canvas   ${raised.toFixed(2)}:1  (min ${HOVER_MIN}) ${okHover ? "" : "<- hover must be perceptible"}`,
+    `  ${okHover ? "ok  " : "FAIL"}  ${theme.padEnd(5)}  --surface-raised   on --surface-default  ${hover.toFixed(2)}:1  (min ${HOVER_MIN}) ${okHover ? "" : "<- hover must be perceptible on the card"}`,
+  );
+
+  const elevation = ratio(tokens["--surface-default"], tokens["--surface-canvas"]);
+  const okElevation = elevation >= ELEVATION_MIN;
+  if (!okElevation) failures += 1;
+  report.push(
+    `  ${okElevation ? "ok  " : "FAIL"}  ${theme.padEnd(5)}  --surface-default  on --surface-canvas   ${elevation.toFixed(2)}:1  (min ${ELEVATION_MIN}) ${okElevation ? "" : "<- card must read as its own plane"}`,
   );
 }
 
