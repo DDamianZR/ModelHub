@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-30",
+  "fetched_at": "2026-08-31",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -4642,6 +4642,18 @@
           "stderr": 3.536,
           "value": 56.06,
           "variant": "magistral-small-2506"
+        }
+      ],
+      "magistral-small-2509": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.599,
+          "value": 47.6,
+          "variant": "magistral-small-2509"
         }
       ],
       "minimax-m3": [
