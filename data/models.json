@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-08-31",
-    "model_count": 72,
+    "generated_at": "2026-09-01",
+    "model_count": 74,
     "ranked_count": 53,
-    "provisional_count": 19,
+    "provisional_count": 21,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-08-31",
+      "epoch": "2026-09-01",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-27",
       "lmarena_vision": "2026-08-27"
@@ -484,7 +484,7 @@
     },
     {
       "id": "meta-ai-muse-spark-1.1",
-      "display_name": "Muse Spark 1.1 (high)",
+      "display_name": "Muse Spark 1.1",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -531,9 +531,9 @@
         "missing": []
       },
       "evidence": {
-        "sources": 2,
+        "sources": 3,
         "max_sources": 3,
-        "benchmarks": 5
+        "benchmarks": 6
       },
       "provisional": false,
       "awaiting_human_votes": false,
@@ -600,7 +600,7 @@
       "evidence": {
         "sources": 3,
         "max_sources": 3,
-        "benchmarks": 6
+        "benchmarks": 7
       },
       "provisional": false,
       "awaiting_human_votes": false,
@@ -3928,6 +3928,65 @@
       "cohort_recalibration": null
     },
     {
+      "id": "alibaba-qwen3.5-35b-a3b",
+      "display_name": "Qwen3.5-35B-A3B",
+      "provider_id": "alibaba",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-02-24",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 83.46,
+        "human_preference": 49.89
+      },
+      "category_errors": {
+        "reasoning": 4.271,
+        "human_preference": 1.977
+      },
+      "composite": 70.87,
+      "composite_error": 2.77,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
       "id": "z-ai-zhipu-ai-glm-4.7",
       "display_name": "GLM-4.7",
       "provider_id": "z-ai-zhipu-ai",
@@ -4241,6 +4300,65 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "unknown-qwen3-30b-a3b-instruct-2507",
+      "display_name": "qwen3-30b-a3b-instruct-2507",
+      "provider_id": "unknown",
+      "is_open_weights": false,
+      "license": null,
+      "api_only": true,
+      "release_date": "2025-07-29",
+      "country": "",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 55.62,
+        "human_preference": 44.27
+      },
+      "category_errors": {
+        "reasoning": 5.653,
+        "human_preference": 2.251
+      },
+      "composite": 51.36,
+      "composite_error": 3.63,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null

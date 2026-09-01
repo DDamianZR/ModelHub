@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-31",
+  "fetched_at": "2026-09-01",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -1571,6 +1571,44 @@
           "source_url": "https://livebench.ai/",
           "value": 74.33,
           "variant": "muse-spark-1.2-xhigh"
+        }
+      ],
+      "nemotron-3-ultra-550b-a55b": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.7,
+          "variant": "nemotron-3-ultra-550b-a55b"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 38.07,
+          "variant": "nemotron-3-ultra-550b-a55b"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.66,
+          "variant": "nemotron-3-ultra-550b-a55b"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 73.45,
+          "variant": "nemotron-3-ultra-550b-a55b"
         }
       ],
       "ox-alpha": [

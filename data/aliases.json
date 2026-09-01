@@ -1247,14 +1247,16 @@
   },
   "meta-ai-muse-spark-1.1": {
     "canonical_key": "muse-spark-1.1",
-    "display_name": "Muse Spark 1.1 (high)",
+    "display_name": "Muse Spark 1.1",
     "variant": "xhigh",
     "scored_arena_name": "muse-spark-1.1",
     "names": [
       "muse-spark-1.1"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "muse-spark-1.1"
+      ],
       "livebench": [
         "muse-spark-1.1-xhigh"
       ],
@@ -1317,6 +1319,43 @@
       "livebench": [],
       "lmarena": [
         "qwen3-235b-a22b-thinking-2507"
+      ]
+    }
+  },
+  "unknown-qwen3-30b-a3b-instruct-2507": {
+    "canonical_key": "qwen3-30b-a3b-instruct-2507",
+    "display_name": "qwen3-30b-a3b-instruct-2507",
+    "variant": "plain",
+    "scored_arena_name": "qwen3-30b-a3b-instruct-2507",
+    "names": [
+      "qwen3-30b-a3b-instruct-2507"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3-30b-a3b-instruct-2507"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3-30b-a3b-instruct-2507"
+      ]
+    }
+  },
+  "alibaba-qwen3.5-35b-a3b": {
+    "canonical_key": "qwen3.5-35b-a3b",
+    "display_name": "Qwen3.5-35B-A3B",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.5-35b-a3b",
+    "names": [
+      "qwen3.5-35b-a3b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.5-35b-a3b",
+        "qwen3.5-35b-a3b_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3.5-35b-a3b"
       ]
     }
   },

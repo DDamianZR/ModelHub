@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-31",
+  "fetched_at": "2026-09-01",
   "payload": {
     "registry": {
       "chutes/glm-4.5-fp8": {
@@ -786,6 +786,14 @@
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-06-16"
       },
+      "glm-5.2-minimal": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-5.2",
+        "eci": 152.02,
+        "organization": "Z.ai (Zhipu AI)",
+        "release_date": "2026-06-16"
+      },
       "glm-5.3": {
         "accessibility": "API access",
         "country": "China",
@@ -1042,6 +1050,30 @@
         "organization": "OpenAI",
         "release_date": "2025-08-05"
       },
+      "granite-4.0-1b": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "granite-4.0-1b",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-10-28"
+      },
+      "granite-4.0-350m": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "granite-4.0-350m",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-10-28"
+      },
+      "granite-4.0-micro": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "granite-4.0-micro",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-10-02"
+      },
       "granite-4.1-30b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
@@ -1097,14 +1129,6 @@
         "eci": 152.09,
         "organization": "xAI",
         "release_date": "2026-02-17"
-      },
-      "grok-4-3": {
-        "accessibility": "Hosted access (no API)",
-        "country": "United States of America",
-        "display_name": "Grok 4.3 Beta",
-        "eci": 149.16,
-        "organization": "xAI",
-        "release_date": "2026-04-17"
       },
       "grok-4-fast": {
         "accessibility": "API access",
@@ -1394,6 +1418,14 @@
         "organization": "Mistral AI",
         "release_date": "2026-03-16"
       },
+      "mistral-small-3.2-2506": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "France",
+        "display_name": "Mistral Small 3.2",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2025-06-20"
+      },
       "moonshotai/kimi-k2": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
@@ -1421,7 +1453,7 @@
       "muse-spark-1.1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Muse Spark 1.1 (high)",
+        "display_name": "Muse Spark 1.1",
         "eci": 154.33,
         "organization": "Meta AI",
         "release_date": "2026-07-09"
@@ -1522,6 +1554,30 @@
         "organization": "Alibaba",
         "release_date": "2025-07-25"
       },
+      "qwen3-30b-a3b-instruct-2507": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "qwen3-30b-a3b-instruct-2507",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-07-29"
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "qwen3-30b-a3b-thinking-2507",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-07-30"
+      },
+      "qwen3-4b-instruct-2507": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "qwen3-4b-instruct-2507",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-08-06"
+      },
       "qwen3-coder-480b-a35b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
@@ -1546,10 +1602,34 @@
         "organization": "Unknown",
         "release_date": "2025-09-23"
       },
+      "qwen3.5-122b-a10b": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "Qwen3.5-122B-A10B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-24"
+      },
       "qwen3.5-27b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
         "display_name": "Qwen3.5 27B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-24"
+      },
+      "qwen3.5-2b": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "Qwen3.5-2B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-24"
+      },
+      "qwen3.5-35b-a3b": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Qwen3.5-35B-A3B",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1561,6 +1641,14 @@
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-13"
+      },
+      "qwen3.5-4b": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "Qwen3.5-4B",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-24"
       },
       "qwen3.5-9b": {
         "accessibility": "Open weights (restricted use)",
@@ -1673,6 +1761,14 @@
         "eci": 0.0,
         "organization": "Ant Group",
         "release_date": "2026-05-14"
+      },
+      "seed-oss-36b": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "seed-oss-36b-instruct",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2025-08-20"
       },
       "solar-pro-3": {
         "accessibility": "API access",
@@ -3274,6 +3370,16 @@
           "stderr": 1.585,
           "value": 90.91,
           "variant": "glm-5.3_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.556,
+          "value": 41.0,
+          "variant": "glm-5.3_max"
         }
       ],
       "glm-5.3-flash": [
@@ -4318,6 +4424,42 @@
           "variant": "gpt-oss-20b_high"
         }
       ],
+      "granite-4.0-1b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.619,
+          "value": 23.99,
+          "variant": "granite-4.0-1b"
+        }
+      ],
+      "granite-4.0-350m": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 0.908,
+          "value": 11.24,
+          "variant": "granite-4.0-350m"
+        }
+      ],
+      "granite-4.0-micro": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.824,
+          "value": 28.28,
+          "variant": "granite-4.0-micro"
+        }
+      ],
       "grok-4-0709": [
         {
           "benchmark_id": "gpqa_diamond",
@@ -4678,6 +4820,18 @@
           "variant": "MiniMax-M3"
         }
       ],
+      "mistral-small-3.2-2506": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.772,
+          "value": 49.05,
+          "variant": "mistral-small-3.2-2506"
+        }
+      ],
       "moonshotai/kimi-k2": [
         {
           "benchmark_id": "frontiermath",
@@ -4710,6 +4864,18 @@
           "stderr": 2.9,
           "value": 39.0,
           "variant": "muse-spark"
+        }
+      ],
+      "muse-spark-1.1": [
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-31",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.567,
+          "value": 57.79,
+          "variant": "muse-spark-1.1"
         }
       ],
       "muse-spark-1.2": [
@@ -4812,6 +4978,64 @@
           "stderr": 1.554,
           "value": 40.44,
           "variant": "Qwen3-235B-A22B-Thinking-2507"
+        }
+      ],
+      "qwen3-30b-a3b-instruct-2507": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.884,
+          "value": 55.62,
+          "variant": "qwen3-30b-a3b-instruct-2507"
+        }
+      ],
+      "qwen3-30b-a3b-thinking-2507": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.833,
+          "value": 70.08,
+          "variant": "qwen3-30b-a3b-thinking-2507"
+        }
+      ],
+      "qwen3-4b-instruct-2507": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.85,
+          "value": 45.83,
+          "variant": "qwen3-4b-instruct-2507"
+        }
+      ],
+      "qwen3.5-35b-a3b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.32,
+          "value": 81.19,
+          "variant": "qwen3.5-35b-a3b_none"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.179,
+          "value": 83.46,
+          "variant": "qwen3.5-35b-a3b"
         }
       ],
       "qwen3.5-397b-a17b": [
@@ -5178,6 +5402,18 @@
           "stderr": 1.576,
           "value": 45.8,
           "variant": "qwen3.8-max_xhigh"
+        }
+      ],
+      "seed-oss-36b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.741,
+          "value": 71.53,
+          "variant": "seed-oss-36b-instruct"
         }
       ],
       "zai-org/glm-4.6": [
