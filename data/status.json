@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-09-01T11:36:28+00:00",
+  "generated_at": "2026-09-02T11:14:49+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-01",
+      "last_success": "2026-09-02",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-01",
+      "last_success": "2026-09-02",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "cached",
       "last_success": "2026-08-28",
-      "age_days": 4,
-      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=4100&length=100: HTTP Error 429: Too Many Requests",
-      "consecutive_failures": 4
+      "age_days": 5,
+      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=5400&length=100: HTTP Error 429: Too Many Requests",
+      "consecutive_failures": 5
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-01",
+      "date": "2026-09-02",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 68,
+      "age_days": 69,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,7 +49,7 @@
     },
     "lmarena": {
       "date": "2026-08-27",
-      "age_days": 5,
+      "age_days": 6,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -65,23 +65,23 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "161fca7624044994f7c12e2e60ca60741c0ad68780fb9020d07c05acc5c69a3a",
+      "normalised_sha256": "8896b743bcef0f242abfcf366950fa2322ae516065263e09309cce70f7ad89a3",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "afc58ec75310bfa68e7519b8bcaae2ff363a28ada4209aa431a4fea46f9659bd",
-          "bytes": 482826
+          "sha256": "918ae015c671e4769943c3d5d65b175688c37a3fe6a4b9e89ae35f7d6230ee84",
+          "bytes": 514613
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "b3fc86f049ad28e61618bab9ed1db89607205d2dae4aece094d2c3f239bccf57",
+      "normalised_sha256": "e1bfc83131fb54c54ca78c7dbbb167445dcf8f657b94d91edfc10f0315afddb6",
       "requests": 4,
       "upstream": [
         {
           "url": "https://livebench.ai/",
-          "sha256": "7831f6d5f6af9cedac30566ecf7ca1483d9ae1cde0261377a591ed4d99e9cf13",
+          "sha256": "7db012ab90240bead0be14003ee50b353907b7e477ec6e3905008e169a1434f9",
           "bytes": 1066
         },
         {
@@ -90,20 +90,20 @@
           "bytes": 725
         },
         {
-          "url": "https://livebench.ai/static/js/main.3413f898.js",
-          "sha256": "18606810a6139d96dbdc1a116fed957889c76ab2969fb2c2963dd1b3ccf3dce5",
-          "bytes": 315427
+          "url": "https://livebench.ai/static/js/main.9fff95a4.js",
+          "sha256": "59e214d74b43150701ac6af8e1755bbd5d7da527770e0af51d6c83a0b14a8374",
+          "bytes": 315592
         },
         {
           "url": "https://livebench.ai/table_2026_06_25.csv",
-          "sha256": "77fa99c1b6eaba4efbbd345fb3d5483e162332331ebf96921b7233827563cf23",
-          "bytes": 8444
+          "sha256": "4ad36095ff5b527aaaf0005b957cc14027ea40bd7298b76bf2caf986d809f2f7",
+          "bytes": 8616
         }
       ]
     },
     "lmarena": {
       "normalised_sha256": "8e713963b706bfa17b6016ceef54711bb73828102cba37570be9107db03eac85",
-      "requests": 41,
+      "requests": 54,
       "upstream": []
     }
   }

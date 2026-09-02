@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -51,6 +51,44 @@
           "source_url": "https://livebench.ai/",
           "value": 75.77,
           "variant": "claude-fable-5-max-effort"
+        }
+      ],
+      "claude-fable-5-1": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.69,
+          "variant": "claude-fable-5-1-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.19,
+          "variant": "claude-fable-5-1-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 97.01,
+          "variant": "claude-fable-5-1-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.99,
+          "variant": "claude-fable-5-1-max-effort"
         }
       ],
       "claude-opus-4-5": [

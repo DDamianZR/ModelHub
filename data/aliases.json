@@ -22,6 +22,24 @@
       ]
     }
   },
+  "anthropic-claude-fable-5-1": {
+    "canonical_key": "claude-fable-5-1",
+    "display_name": "Claude Fable 5.1 (max)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "claude-fable-5-1"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-fable-5-1_max"
+      ],
+      "livebench": [
+        "claude-fable-5-1-max-effort"
+      ],
+      "lmarena": []
+    }
+  },
   "anthropic-claude-haiku-4-5": {
     "canonical_key": "claude-haiku-4-5",
     "display_name": "Claude Haiku 4.5",
