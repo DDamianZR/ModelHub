@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-02",
+    "generated_at": "2026-09-03",
     "model_count": 75,
     "ranked_count": 54,
     "provisional_count": 21,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-02",
+      "epoch": "2026-09-03",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-27",
       "lmarena_vision": "2026-08-27"
@@ -1189,9 +1189,9 @@
       "cohort_recalibration": null
     },
     {
-      "id": "google-gemini-3.5-flash",
+      "id": "google-deepmind-gemini-3.5-flash",
       "display_name": "Gemini 3.5 Flash",
-      "provider_id": "google",
+      "provider_id": "google-deepmind",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
@@ -4366,14 +4366,14 @@
       "cohort_recalibration": null
     },
     {
-      "id": "unknown-qwen3-30b-a3b-instruct-2507",
-      "display_name": "qwen3-30b-a3b-instruct-2507",
-      "provider_id": "unknown",
-      "is_open_weights": false,
-      "license": null,
-      "api_only": true,
+      "id": "alibaba-qwen3-30b-a3b-instruct-2507",
+      "display_name": "Qwen3-30B-A3B (Jul 2025)",
+      "provider_id": "alibaba",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
       "release_date": "2025-07-29",
-      "country": "",
+      "country": "China",
       "context_window": null,
       "modalities": [
         "text"

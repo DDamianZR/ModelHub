@@ -465,7 +465,7 @@
       ]
     }
   },
-  "google-gemini-3.5-flash": {
+  "google-deepmind-gemini-3.5-flash": {
     "canonical_key": "gemini-3.5-flash",
     "display_name": "Gemini 3.5 Flash",
     "variant": "high",
@@ -1340,9 +1340,9 @@
       ]
     }
   },
-  "unknown-qwen3-30b-a3b-instruct-2507": {
+  "alibaba-qwen3-30b-a3b-instruct-2507": {
     "canonical_key": "qwen3-30b-a3b-instruct-2507",
-    "display_name": "qwen3-30b-a3b-instruct-2507",
+    "display_name": "Qwen3-30B-A3B (Jul 2025)",
     "variant": "plain",
     "scored_arena_name": "qwen3-30b-a3b-instruct-2507",
     "names": [
