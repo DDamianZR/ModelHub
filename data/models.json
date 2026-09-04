@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-03",
+    "generated_at": "2026-09-04",
     "model_count": 75,
     "ranked_count": 54,
     "provisional_count": 21,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-03",
+      "epoch": "2026-09-04",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-08-27",
       "lmarena_vision": "2026-08-27"
@@ -22,7 +22,7 @@
   "models": [
     {
       "id": "anthropic-claude-fable-5",
-      "display_name": "Claude Fable 5 (high)",
+      "display_name": "Claude Fable 5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -477,7 +477,7 @@
     },
     {
       "id": "openai-gpt-5.6-sol",
-      "display_name": "GPT-5.6 Sol (low)",
+      "display_name": "GPT-5.6 Sol (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
