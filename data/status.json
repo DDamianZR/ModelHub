@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T10:32:19+00:00",
+  "generated_at": "2026-09-05T16:05:21+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -7,7 +7,7 @@
       "last_success": "2026-09-04",
       "age_days": 1,
       "error": "epoch: capabilities index missing from archive",
-      "consecutive_failures": 1
+      "consecutive_failures": 2
     },
     "livebench": {
       "state": "ok",
@@ -16,11 +16,11 @@
       "consecutive_failures": 0
     },
     "lmarena": {
-      "state": "stale",
-      "last_success": "2026-08-28",
-      "age_days": 8,
-      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=25667&length=100: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=5400&length=100: HTTP Error 429: Too Many Requests",
-      "consecutive_failures": 8
+      "state": "ok",
+      "last_success": "2026-09-05",
+      "error": null,
+      "served_by": "rows-latest",
+      "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
@@ -49,9 +49,9 @@
       }
     },
     "lmarena": {
-      "date": "2026-08-27",
-      "age_days": 9,
-      "freshness": "aging",
+      "date": "2026-09-01",
+      "age_days": 4,
+      "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
@@ -71,7 +71,7 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "f49d489571129ee7280e0e207ea8390aa7e8a2b6958cb3571fd704f03f6fe07c",
+          "sha256": "9c8d839ed6de35ba02ab4a44e1873cc2571757a21ffec9e7f6f5057c1678424f",
           "bytes": 2302172
         }
       ]
@@ -103,8 +103,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "8e713963b706bfa17b6016ceef54711bb73828102cba37570be9107db03eac85",
-      "requests": 55,
+      "normalised_sha256": "05a19eb42b1a6e9ed1afd75f834f40164a85f7363f68752a66ddc191bab61e06",
+      "requests": 7,
       "upstream": []
     }
   }
