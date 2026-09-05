@@ -71,6 +71,14 @@ def _page(total, n):
     return {"num_rows_total": total, "rows": [{"row": {"i": i}} for i in range(n)]}
 
 
+def _cat_page(total, categories):
+    """A /rows page whose rows carry the given categories, in order."""
+    return {
+        "num_rows_total": total,
+        "rows": [{"row": {"category": c}} for c in categories],
+    }
+
+
 class RowsAllTests(unittest.TestCase):
     def test_paginates_across_multiple_pages(self):
         # ROWS_PAGE is 100: a 150-row total needs a 100-row page and a 50-row page.
@@ -93,6 +101,73 @@ class RowsAllTests(unittest.TestCase):
             rows = lmarena._rows_all("text", "latest")
         self.assertEqual(len(rows), 10)
         sleep_mock.assert_not_called()
+
+    def test_stops_at_category_boundary_once_target_seen(self):
+        """Mirrors the real 2026-08-29 shape: 'overall' fills three clean pages, then a
+        fourth page mixes the tail of 'overall' with the start of 'chinese'. That page is
+        where the boundary lives, so the fetch must stop there - 4 requests, not ~105."""
+        pages = [
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 95 + ["chinese"] * 5),
+        ]
+        with mock.patch.object(
+            lmarena, "fetch_json", side_effect=pages
+        ) as fetch_mock, mock.patch.object(lmarena.time, "sleep"):
+            rows = lmarena._rows_all("text", "latest", stop_after_category="overall")
+        self.assertEqual(fetch_mock.call_count, 4)
+        self.assertEqual(len(rows), 400)
+        self.assertEqual(sum(1 for r in rows if r["category"] == "overall"), 395)
+
+    def test_exact_page_boundary_loses_no_rows(self):
+        """The boundary can land exactly on a page edge instead of mid-page - the block
+        before it (400 rows) must still come back whole."""
+        pages = [
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["overall"] * 100),
+            _cat_page(10424, ["chinese"] * 100),
+        ]
+        with mock.patch.object(
+            lmarena, "fetch_json", side_effect=pages
+        ) as fetch_mock, mock.patch.object(lmarena.time, "sleep"):
+            rows = lmarena._rows_all("text", "latest", stop_after_category="overall")
+        self.assertEqual(fetch_mock.call_count, 5)
+        self.assertEqual(sum(1 for r in rows if r["category"] == "overall"), 400)
+
+    def test_reordered_dataset_does_not_stop_before_target_seen(self):
+        """If the target category isn't first, a page whose category differs from it must
+        NOT trigger a stop before the target has ever been seen - otherwise this would
+        stop on page 1 of a dataset that simply starts with something else."""
+        pages = [
+            _cat_page(300, ["chinese"] * 100),
+            _cat_page(300, ["overall"] * 100),
+            _cat_page(300, ["coding"] * 100),
+        ]
+        with mock.patch.object(
+            lmarena, "fetch_json", side_effect=pages
+        ) as fetch_mock, mock.patch.object(lmarena.time, "sleep"):
+            rows = lmarena._rows_all("text", "latest", stop_after_category="overall")
+        self.assertEqual(fetch_mock.call_count, 3)
+        self.assertEqual(len(rows), 300)
+
+    def test_exhausts_without_boundary_returns_full_traversal(self):
+        """If 'overall' never gives way to another category before the split ends, there
+        is no boundary to find. This must behave exactly like a full pass - same request
+        count, same rows - never a silent truncation."""
+        pages = [
+            _cat_page(250, ["overall"] * 100),
+            _cat_page(250, ["overall"] * 100),
+            _cat_page(250, ["overall"] * 50),
+        ]
+        with mock.patch.object(
+            lmarena, "fetch_json", side_effect=pages
+        ) as fetch_mock, mock.patch.object(lmarena.time, "sleep"):
+            rows = lmarena._rows_all("text", "latest", stop_after_category="overall")
+        self.assertEqual(fetch_mock.call_count, 3)
+        self.assertEqual(len(rows), 250)
 
 
 class FetchRowsPageTests(unittest.TestCase):
@@ -155,6 +230,16 @@ class CleanSnapshotViaLatestTests(unittest.TestCase):
 
     def test_no_overall_rows_raises(self):
         rows = [_row("model-a", vote_count=100, variance=5.0, category="hard_prompt")]
+        with mock.patch.object(lmarena, "_rows_all", return_value=rows):
+            with self.assertRaises(lmarena.SourceError):
+                lmarena._clean_snapshot_via_latest("text")
+
+    def test_no_category_boundary_found_raises(self):
+        """Every fetched row is 'overall' - _rows_all's early-stop contract never lies
+        about this (see test_exhausts_without_boundary_returns_full_traversal), but this
+        caller must independently refuse to trust the result rather than assume a short
+        fetch was a valid early stop when it never actually saw the boundary."""
+        rows = [_row(f"model-{i}", vote_count=100, variance=5.0) for i in range(5)]
         with mock.patch.object(lmarena, "_rows_all", return_value=rows):
             with self.assertRaises(lmarena.SourceError):
                 lmarena._clean_snapshot_via_latest("text")

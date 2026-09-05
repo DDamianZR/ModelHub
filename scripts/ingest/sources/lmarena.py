@@ -105,17 +105,38 @@ def _fetch_rows_page(url: str) -> dict:
     raise AssertionError("unreachable")  # loop always returns or raises above
 
 
-def _rows_all(config: str, split: str, cap: int = ROWS_CAP) -> list[dict]:
+def _rows_all(
+    config: str,
+    split: str,
+    cap: int = ROWS_CAP,
+    stop_after_category: str | None = None,
+) -> list[dict]:
     """Every row of one config/split via /rows. No `where` clause exists on this
     endpoint, so the caller filters in Python.
 
-    A full `text/latest` fetch is ~104 requests. Paced with a small delay between pages -
+    A full `text/latest` fetch is ~104 requests, paced with a small delay between pages -
     an unpaced run tripped this same unauthenticated endpoint's rate limit at request 97
-    during testing (verified 2026-08-23) - and each page retries a 429 with backoff.
+    during testing (verified 2026-08-23), and the 2026-08-28 production failure hit a 429
+    at request 47. Four retries with backoff cannot ride out a limit reached mid-run.
+
+    `stop_after_category` cuts that down for a caller that only wants one contiguous
+    category block. Verified 2026-08-29: in `latest`, rows are ordered by category and
+    'overall' is the first block - offsets 0-394 of 10424. Once a row of that category has
+    been seen, pagination stops at the first later page that also contains a row of a
+    different category, since the boundary must fall inside it. That is 4 requests instead
+    of ~104.
+
+    This never stops on a guess: if the target category never appears, or the split (or
+    `cap`) runs out before any other category follows it, pagination falls through to a
+    full traversal exactly like `stop_after_category=None` - the same request count as
+    today, not a truncation. It is the caller's job to check the boundary was actually
+    reached before trusting a short result; this function returns what it fetched either
+    way and never raises for that reason.
     """
     rows: list[dict] = []
     offset = 0
     total: int | None = None
+    seen_target = False
     while offset < cap:
         params = urllib.parse.urlencode({
             "dataset": DATASET, "config": config, "split": split,
@@ -128,6 +149,11 @@ def _rows_all(config: str, split: str, cap: int = ROWS_CAP) -> list[dict]:
         if not batch:
             break
         rows.extend(batch)
+        if stop_after_category is not None:
+            if any(row["category"] == stop_after_category for row in batch):
+                seen_target = True
+            if seen_target and any(row["category"] != stop_after_category for row in batch):
+                break
         offset += ROWS_PAGE
         if offset >= total:
             break
@@ -234,13 +260,20 @@ def _clean_snapshot_via_latest(config: str) -> tuple[list[dict], str, list[dict]
     snapshot to walk back to if this one fails the guard - only the guard itself, kept as
     a backstop rather than a search.
     """
-    rows = _rows_all(config, "latest")
+    rows = _rows_all(config, "latest", stop_after_category="overall")
     if not rows:
         raise SourceError(f"lmarena/{config}: latest split returned no rows")
 
     overall = [row for row in rows if row["category"] == "overall"]
     if not overall:
         raise SourceError(f"lmarena/{config}: latest split has no 'overall' rows")
+
+    if not any(row["category"] != "overall" for row in rows):
+        raise SourceError(
+            f"lmarena/{config}: fetched {len(rows)} rows and all were 'overall' - never "
+            f"saw the category boundary the early-stop fetch depends on, so this result "
+            f"cannot be trusted as complete"
+        )
 
     snapshot = overall[0]["leaderboard_publish_date"]
     raw_ratio = len(overall) / len({row["model_name"] for row in overall})
