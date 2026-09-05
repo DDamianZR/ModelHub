@@ -4,6 +4,10 @@ Supplies the canonical model registry and first-hand benchmark results. Files wi
 "_external" suffix are evaluations Epoch runs itself and publishes inspect logs for; the
 "_external" ones are aggregated from elsewhere and are not used here, so that every score
 credited to Epoch is one Epoch actually measured.
+
+Archive layout changed ~2026-09-05: the single epoch_capabilities_index.csv was replaced by
+model_metadata.csv (per-version metadata with model_group as the join key) and
+epoch_capabilities_index/eci_scores.csv (per-group ECI scores). _read_index() handles both.
 """
 from __future__ import annotations
 
@@ -43,6 +47,50 @@ BENCHMARKS = {
 }
 
 
+def _read_index(archive: zipfile.ZipFile,
+                 read) -> list[dict]:
+    """Model registry rows, normalised to the column names the rest of collect() expects.
+
+    Epoch restructured the archive ~2026-09-05: the single-file
+    epoch_capabilities_index.csv was replaced by model_metadata.csv (per-version metadata)
+    + epoch_capabilities_index/eci_scores.csv (per-group ECI scores). This function tries
+    the new layout first and falls back to the legacy single file.
+    """
+    try:
+        raw = read("model_metadata.csv")
+    except KeyError:
+        try:
+            return read("epoch_capabilities_index.csv")
+        except KeyError as exc:
+            raise SourceError(
+                "epoch: neither model_metadata.csv nor epoch_capabilities_index.csv "
+                "found in archive"
+            ) from exc
+
+    eci_by_group: dict[str, float] = {}
+    try:
+        for row in read("epoch_capabilities_index/eci_scores.csv"):
+            try:
+                eci_by_group[row["Model"]] = float(row["eci"] or 0)
+            except (ValueError, KeyError):
+                continue
+    except KeyError:
+        pass
+
+    return [
+        {
+            "Model version": r["model_version"],
+            "Release date": r.get("date") or "",
+            "ECI Score": str(eci_by_group.get(r.get("model_group", ""), 0)),
+            "Display name": r.get("display_name") or "",
+            "Organization": r.get("organization") or "",
+            "Country": r.get("country") or "",
+            "Model accessibility": r.get("accessibility") or "",
+        }
+        for r in raw if r.get("model_version")
+    ]
+
+
 def collect() -> dict:
     """Return {"registry": {...}, "scores": {key: [...]}}."""
     archive = zipfile.ZipFile(io.BytesIO(fetch(URL, timeout=180)))
@@ -51,10 +99,7 @@ def collect() -> dict:
         with archive.open(name) as handle:
             return list(csv.DictReader(io.TextIOWrapper(handle, encoding="utf-8")))
 
-    try:
-        index = read("epoch_capabilities_index.csv")
-    except KeyError as exc:
-        raise SourceError("epoch: capabilities index missing from archive") from exc
+    index = _read_index(archive, read)
 
     cutoff = min_release_date()
     registry: dict[str, dict] = {}
