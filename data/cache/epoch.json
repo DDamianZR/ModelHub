@@ -1,7 +1,39 @@
 {
-  "fetched_at": "2026-09-04",
+  "fetched_at": "2026-09-05",
   "payload": {
     "registry": {
+      "accounts/fireworks/models/glm-4p6": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-4.6 (Fireworks)",
+        "eci": 140.85,
+        "organization": "Z.ai (Zhipu AI),Tsinghua University",
+        "release_date": "2025-09-30"
+      },
+      "accounts/fireworks/models/kimi-k2": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "Kimi K2 Thinking (Fireworks)",
+        "eci": 145.79,
+        "organization": "Moonshot",
+        "release_date": "2025-11-06"
+      },
+      "accounts/fireworks/models/qwen3-235b-a22b-thinking-2507": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Qwen3-235B-A22B-Thinking-2507",
+        "eci": 143.88,
+        "organization": "Alibaba",
+        "release_date": "2025-07-25"
+      },
+      "alpine-alpha": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "alpine-alpha_high",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2025-08-07"
+      },
       "chutes/glm-4.5-fp8": {
         "accessibility": "",
         "country": "",
@@ -13,7 +45,7 @@
       "chutes/gpt-oss-120b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "gpt-oss-120b",
+        "display_name": "chutes/gpt-oss-120b",
         "eci": 140.13,
         "organization": "OpenAI",
         "release_date": "2025-08-05"
@@ -21,7 +53,7 @@
       "chutes/qwen3-235b-a22b-thinking-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-235B-A22B (Jul 2025)",
+        "display_name": "chutes/Qwen3-235B-A22B-Thinking-2507",
         "eci": 143.88,
         "organization": "Alibaba",
         "release_date": "2025-07-25"
@@ -37,7 +69,7 @@
       "claude-fable-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Fable 5 (max)",
+        "display_name": "Claude Fable 5",
         "eci": 162.9,
         "organization": "Anthropic",
         "release_date": "2026-06-09"
@@ -45,7 +77,7 @@
       "claude-fable-5-1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Fable 5.1 (max)",
+        "display_name": "Claude Fable 5.1 (high)",
         "eci": 162.88,
         "organization": "Anthropic",
         "release_date": "2026-09-01"
@@ -53,7 +85,7 @@
       "claude-haiku-4-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Haiku 4.5",
+        "display_name": "claude-haiku-4-5-20251001",
         "eci": 142.41,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
@@ -61,7 +93,7 @@
       "claude-haiku-4-5-16k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Haiku 4.5",
+        "display_name": "claude-haiku-4-5-20251001_16K",
         "eci": 142.41,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
@@ -69,7 +101,7 @@
       "claude-haiku-4-5-1k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Haiku 4.5",
+        "display_name": "claude-haiku-4-5-20251001_1K",
         "eci": 142.41,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
@@ -77,7 +109,7 @@
       "claude-haiku-4-5-8k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Haiku 4.5",
+        "display_name": "claude-haiku-4-5-20251001_8K",
         "eci": 142.41,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
@@ -93,7 +125,7 @@
       "claude-opus-4-1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.1",
+        "display_name": "claude-opus-4-1-20250805",
         "eci": 144.14,
         "organization": "Anthropic",
         "release_date": "2025-08-05"
@@ -101,7 +133,7 @@
       "claude-opus-4-1-16k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.1",
+        "display_name": "claude-opus-4-1-20250805_16K",
         "eci": 144.14,
         "organization": "Anthropic",
         "release_date": "2025-08-05"
@@ -109,7 +141,7 @@
       "claude-opus-4-1-24k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.1",
+        "display_name": "claude-opus-4-1-20250805_24K",
         "eci": 144.14,
         "organization": "Anthropic",
         "release_date": "2025-08-05"
@@ -117,7 +149,7 @@
       "claude-opus-4-1-27k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.1",
+        "display_name": "claude-opus-4-1-20250805_27K",
         "eci": 144.14,
         "organization": "Anthropic",
         "release_date": "2025-08-05"
@@ -125,7 +157,7 @@
       "claude-opus-4-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.5 (32k thinking)",
+        "display_name": "Claude Opus 4.5 (no thinking)",
         "eci": 150.08,
         "organization": "Anthropic",
         "release_date": "2025-11-24"
@@ -146,6 +178,14 @@
         "organization": "Anthropic",
         "release_date": "2025-11-24"
       },
+      "claude-opus-4-5-59k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Opus 4.5 (59k thinking)",
+        "eci": 150.08,
+        "organization": "Anthropic",
+        "release_date": "2025-11-24"
+      },
       "claude-opus-4-5-8k": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -157,7 +197,7 @@
       "claude-opus-4-6": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.6 (max)",
+        "display_name": "Claude Opus 4.6 (no thinking)",
         "eci": 155.25,
         "organization": "Anthropic",
         "release_date": "2026-02-05"
@@ -173,7 +213,7 @@
       "claude-opus-4-7": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 4.7 (xhigh)",
+        "display_name": "Claude Opus 4.7 (no thinking)",
         "eci": 156.11,
         "organization": "Anthropic",
         "release_date": "2026-04-16"
@@ -197,7 +237,7 @@
       "claude-opus-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 5 (max)",
+        "display_name": "Claude Opus 5",
         "eci": 162.33,
         "organization": "Anthropic",
         "release_date": "2026-07-24"
@@ -230,6 +270,14 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Sonnet 4.5 (1k thinking)",
+        "eci": 146.84,
+        "organization": "Anthropic",
+        "release_date": "2025-09-29"
+      },
+      "claude-sonnet-4-5-27k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Sonnet 4.5 (27k thinking)",
         "eci": 146.84,
         "organization": "Anthropic",
         "release_date": "2025-09-29"
@@ -269,7 +317,7 @@
       "claude-sonnet-4-6": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 4.6 (max)",
+        "display_name": "Claude Sonnet 4.6 (no thinking)",
         "eci": 152.2,
         "organization": "Anthropic",
         "release_date": "2026-02-17"
@@ -282,10 +330,18 @@
         "organization": "Anthropic",
         "release_date": "2026-02-17"
       },
+      "claude-sonnet-4-6-60k": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Sonnet 4.6 (60k thinking)",
+        "eci": 152.2,
+        "organization": "Anthropic",
+        "release_date": "2026-02-17"
+      },
       "claude-sonnet-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Sonnet 5 (xhigh)",
+        "display_name": "Claude Sonnet 5 (no thinking)",
         "eci": 156.16,
         "organization": "Anthropic",
         "release_date": "2026-06-30"
@@ -301,7 +357,7 @@
       "codestral-2508": {
         "accessibility": "Open weights (non-commercial)",
         "country": "France",
-        "display_name": "Codestral",
+        "display_name": "codestral-2508",
         "eci": 0.0,
         "organization": "Mistral AI",
         "release_date": "2025-07-30"
@@ -322,6 +378,14 @@
         "organization": "Cohere,Cohere Labs (formerly Cohere for AI)",
         "release_date": "2026-05-20"
       },
+      "composer-2": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Composer 2",
+        "eci": 0.0,
+        "organization": "Cursor",
+        "release_date": "2026-03-19"
+      },
       "composer-2.5": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -341,7 +405,7 @@
       "deepseek": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek-V3.2",
+        "display_name": "deepseek-chat",
         "eci": 146.21,
         "organization": "DeepSeek",
         "release_date": "2025-12-01"
@@ -381,7 +445,7 @@
       "deepseek-v3.2-speciale": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek-V3.2",
+        "display_name": "DeepSeek-V3.2-Speciale",
         "eci": 0.0,
         "organization": "DeepSeek",
         "release_date": "2025-12-01"
@@ -397,7 +461,7 @@
       "deepseek-v4-flash": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek v4 Flash (max)",
+        "display_name": "DeepSeek v4 Flash (high)",
         "eci": 146.26,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
@@ -405,7 +469,7 @@
       "deepseek-v4-flash-0731": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek V4 Flash 0731 (max)",
+        "display_name": "DeepSeek V4 Flash 0731 (high)",
         "eci": 154.46,
         "organization": "DeepSeek",
         "release_date": "2026-07-31"
@@ -413,7 +477,7 @@
       "deepseek-v4-pro": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek v4 Pro (max)",
+        "display_name": "DeepSeek v4 Pro (high)",
         "eci": 149.2,
         "organization": "DeepSeek",
         "release_date": "2026-04-24"
@@ -421,7 +485,7 @@
       "deepseek-v4-pro-0813": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "DeepSeek V4 Pro 0813 (max)",
+        "display_name": "DeepSeek V4 Pro 0813 (high)",
         "eci": 155.42,
         "organization": "DeepSeek",
         "release_date": "2026-08-13"
@@ -450,6 +514,14 @@
         "organization": "DeepSeek",
         "release_date": "2025-12-01"
       },
+      "fireworks/glm-4p7": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-4.7 (Fireworks)",
+        "eci": 143.48,
+        "organization": "Z.ai (Zhipu AI)",
+        "release_date": "2025-12-22"
+      },
       "fireworks/kimi-k2-instruct-0905": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
@@ -466,6 +538,22 @@
         "organization": "Moonshot",
         "release_date": "2026-01-27"
       },
+      "galapagos-alpha": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "galapagos-alpha",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2025-12-11"
+      },
+      "galapagos-pro-alpha": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "galapagos-pro-alpha_xhigh",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2025-12-11"
+      },
       "gdm-ai-co-mathematician": {
         "accessibility": "Unreleased",
         "country": "United States of America",
@@ -477,7 +565,7 @@
       "gemini-2.5-deep-think-webapp": {
         "accessibility": "Hosted access (no API)",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Deep Think",
+        "display_name": "gemini-2.5-deep-think-2025-08-01-webapp",
         "eci": 0.0,
         "organization": "Google,Google DeepMind",
         "release_date": "2025-08-01"
@@ -485,7 +573,7 @@
       "gemini-2.5-flash": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Flash",
+        "display_name": "gemini-2.5-flash",
         "eci": 140.58,
         "organization": "Google DeepMind",
         "release_date": "2025-06-17"
@@ -501,7 +589,7 @@
       "gemini-2.5-flash-lite-preview-06-17-16k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Flash-Lite",
+        "display_name": "gemini-2.5-flash-lite-preview-06-17_16K",
         "eci": 133.92,
         "organization": "Google DeepMind",
         "release_date": "2025-06-17"
@@ -509,7 +597,7 @@
       "gemini-2.5-flash-lite-preview-09-2025": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Flash-Lite",
+        "display_name": "gemini-2.5-flash-lite-preview-09-2025",
         "eci": 0.0,
         "organization": "Google DeepMind",
         "release_date": "2025-09-25"
@@ -517,7 +605,7 @@
       "gemini-2.5-flash-preview-09-2025": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Flash",
+        "display_name": "gemini-2.5-flash-preview-09-2025",
         "eci": 143.02,
         "organization": "Google DeepMind",
         "release_date": "2025-09-25"
@@ -525,7 +613,7 @@
       "gemini-2.5-flash-preview-09-2025-16k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Flash",
+        "display_name": "gemini-2.5-flash-preview-09-2025_16k",
         "eci": 143.02,
         "organization": "Google DeepMind",
         "release_date": "2025-09-25"
@@ -533,26 +621,26 @@
       "gemini-2.5-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Pro (Jun 2025)",
+        "display_name": "gemini-2.5-pro",
         "eci": 145.29,
         "organization": "Google DeepMind",
-        "release_date": "2025-06-17"
+        "release_date": "2025-06-05"
       },
       "gemini-2.5-pro-16k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Pro (Jun 2025)",
+        "display_name": "gemini-2.5-pro_16K",
         "eci": 145.29,
         "organization": "Google DeepMind",
-        "release_date": "2025-06-17"
+        "release_date": "2025-06-05"
       },
       "gemini-2.5-pro-8k": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 2.5 Pro (Jun 2025)",
+        "display_name": "gemini-2.5-pro_8K",
         "eci": 145.29,
         "organization": "Google DeepMind",
-        "release_date": "2025-06-17"
+        "release_date": "2025-06-05"
       },
       "gemini-2.5-pro-preview-06-05": {
         "accessibility": "API access",
@@ -693,7 +781,7 @@
       "gemini-3.8-flash": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Gemini 3.8 Flash (unknown)",
+        "display_name": "Gemini 3.8 Flash (high)",
         "eci": 0.0,
         "organization": "Google DeepMind",
         "release_date": "2026-09-02"
@@ -730,6 +818,14 @@
         "organization": "Google DeepMind",
         "release_date": "2026-04-02"
       },
+      "gemma-4-26b-a4b-minimal": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Gemma 4 26B A4B",
+        "eci": 141.87,
+        "organization": "Google DeepMind",
+        "release_date": "2026-04-02"
+      },
       "gemma-4-31b": {
         "accessibility": "Open weights (restricted use)",
         "country": "United States of America",
@@ -749,7 +845,7 @@
       "glm-4.5": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "GLM-4.5",
+        "display_name": "glm-4.5",
         "eci": 0.0,
         "organization": "Z.ai (Zhipu AI),Tsinghua University",
         "release_date": "2025-08-03"
@@ -805,7 +901,7 @@
       "glm-5.2-minimal": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "GLM-5.2",
+        "display_name": "glm-5.2_minimal",
         "eci": 151.98,
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-06-16"
@@ -813,7 +909,7 @@
       "glm-5.3": {
         "accessibility": "API access",
         "country": "China",
-        "display_name": "GLM-5.3 (max)",
+        "display_name": "GLM-5.3 (high)",
         "eci": 155.3,
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-08-14"
@@ -821,7 +917,7 @@
       "glm-5.3-flash": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "GLM-5.3-Flash (max)",
+        "display_name": "GLM-5.3-Flash (high)",
         "eci": 151.64,
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2026-08-20"
@@ -837,7 +933,7 @@
       "gpt-5-codex": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5-codex (high)",
+        "display_name": "GPT-5-codex",
         "eci": 0.0,
         "organization": "OpenAI",
         "release_date": "2025-09-15"
@@ -901,10 +997,10 @@
       "gpt-5.1-codex": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.1-Codex-Max",
+        "display_name": "GPT-5.1 Codex",
         "eci": 0.0,
         "organization": "OpenAI",
-        "release_date": "2025-11-19"
+        "release_date": "2025-11-12"
       },
       "gpt-5.1-codex-mini": {
         "accessibility": "API access",
@@ -917,7 +1013,7 @@
       "gpt-5.2": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.2 (medium)",
+        "display_name": "GPT-5.2 (high)",
         "eci": 153.43,
         "organization": "OpenAI",
         "release_date": "2025-12-11"
@@ -949,7 +1045,7 @@
       "gpt-5.3-codex": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.3 Codex (high)",
+        "display_name": "GPT-5.3 Codex",
         "eci": 156.4,
         "organization": "OpenAI",
         "release_date": "2026-02-05"
@@ -965,7 +1061,7 @@
       "gpt-5.4-mini": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.4 mini (none)",
+        "display_name": "GPT-5.4 mini (high)",
         "eci": 149.05,
         "organization": "OpenAI",
         "release_date": "2026-03-17"
@@ -973,7 +1069,7 @@
       "gpt-5.4-nano": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.4 nano (no thinking)",
+        "display_name": "GPT-5.4 nano (high)",
         "eci": 145.93,
         "organization": "OpenAI",
         "release_date": "2026-03-17"
@@ -981,7 +1077,7 @@
       "gpt-5.4-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.4 Pro (xhigh)",
+        "display_name": "GPT-5.4 Pro (no thinking)",
         "eci": 158.89,
         "organization": "OpenAI",
         "release_date": "2026-03-05"
@@ -1013,7 +1109,7 @@
       "gpt-5.5-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.5 Pro (xhigh)",
+        "display_name": "GPT-5.5 Pro (high)",
         "eci": 162.03,
         "organization": "OpenAI",
         "release_date": "2026-04-23"
@@ -1021,7 +1117,7 @@
       "gpt-5.6-luna": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Luna (none)",
+        "display_name": "GPT-5.6 Luna (high)",
         "eci": 156.33,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1029,7 +1125,7 @@
       "gpt-5.6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Sol (max)",
+        "display_name": "GPT-5.6 Sol (high)",
         "eci": 162.03,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1045,7 +1141,7 @@
       "gpt-5.6-terra": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "GPT-5.6 Terra (medium)",
+        "display_name": "GPT-5.6 Terra (high)",
         "eci": 159.18,
         "organization": "OpenAI",
         "release_date": "2026-07-09"
@@ -1117,7 +1213,7 @@
       "grok-4-0709": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4",
+        "display_name": "grok-4-0709",
         "eci": 146.46,
         "organization": "xAI",
         "release_date": "2025-07-09"
@@ -1125,7 +1221,7 @@
       "grok-4-1": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.1",
+        "display_name": "grok-4-1",
         "eci": 0.0,
         "organization": "xAI",
         "release_date": "2025-11-17"
@@ -1133,7 +1229,7 @@
       "grok-4-1-fast": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.1 Fast",
+        "display_name": "grok-4-1-fast-reasoning",
         "eci": 0.0,
         "organization": "xAI",
         "release_date": "2025-11-19"
@@ -1141,7 +1237,7 @@
       "grok-4-1-fast-non": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.1 Fast",
+        "display_name": "grok-4-1-fast-non-reasoning",
         "eci": 0.0,
         "organization": "xAI",
         "release_date": "2025-11-19"
@@ -1149,7 +1245,7 @@
       "grok-4-20": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.20",
+        "display_name": "grok-4-20",
         "eci": 152.01,
         "organization": "xAI",
         "release_date": "2026-02-17"
@@ -1157,7 +1253,7 @@
       "grok-4-fast": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4 Fast",
+        "display_name": "grok-4-fast",
         "eci": 144.23,
         "organization": "xAI",
         "release_date": "2025-09-19"
@@ -1173,7 +1269,7 @@
       "grok-4.20-0309": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Grok 4.20",
+        "display_name": "grok-4.20-0309-reasoning",
         "eci": 152.01,
         "organization": "xAI",
         "release_date": "2026-02-17"
@@ -1181,7 +1277,7 @@
       "grok-4.3": {
         "accessibility": "Hosted access (no API)",
         "country": "United States of America",
-        "display_name": "Grok 4.3 Beta",
+        "display_name": "grok-4.3_high",
         "eci": 149.21,
         "organization": "xAI",
         "release_date": "2026-04-17"
@@ -1221,7 +1317,7 @@
       "inkling": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "Inkling (xhigh)",
+        "display_name": "Inkling",
         "eci": 148.65,
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
@@ -1229,7 +1325,7 @@
       "inkling-small": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "Inkling Small (xhigh)",
+        "display_name": "Inkling Small",
         "eci": 150.16,
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
@@ -1242,6 +1338,14 @@
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
       },
+      "kimi-dev-72b": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Kimi-Dev-72B",
+        "eci": 0.0,
+        "organization": "Moonshot",
+        "release_date": "2025-06-16"
+      },
       "kimi-k2": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
@@ -1253,7 +1357,7 @@
       "kimi-k2-0711": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Kimi K2",
+        "display_name": "kimi-k2-0711-preview",
         "eci": 140.13,
         "organization": "Moonshot",
         "release_date": "2025-07-12"
@@ -1261,7 +1365,7 @@
       "kimi-k2-instruct-0905": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Kimi K2",
+        "display_name": "Kimi-K2-Instruct-0905",
         "eci": 0.0,
         "organization": "Moonshot",
         "release_date": "2025-09-05"
@@ -1273,6 +1377,14 @@
         "eci": 145.79,
         "organization": "Moonshot",
         "release_date": "2025-11-06"
+      },
+      "kimi-k2-turbo": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "Kimi K2 Latest Turbo",
+        "eci": 0.0,
+        "organization": "Moonshot",
+        "release_date": "2025-09-05"
       },
       "kimi-k2.5": {
         "accessibility": "Open weights (unrestricted)",
@@ -1301,7 +1413,7 @@
       "kimi-k3": {
         "accessibility": "Open weights (non-commercial)",
         "country": "China",
-        "display_name": "Kimi K3 (low)",
+        "display_name": "Kimi K3 (high)",
         "eci": 157.62,
         "organization": "Moonshot",
         "release_date": "2026-07-16"
@@ -1325,7 +1437,7 @@
       "magistral-medium-2506": {
         "accessibility": "API access",
         "country": "France",
-        "display_name": "Magistral Medium 1.1",
+        "display_name": "magistral-medium-2506",
         "eci": 0.0,
         "organization": "Mistral AI",
         "release_date": "2025-06-10"
@@ -1341,7 +1453,7 @@
       "magistral-small-2506": {
         "accessibility": "Open weights (unrestricted)",
         "country": "France",
-        "display_name": "Magistral Small 1.0",
+        "display_name": "magistral-small-2506",
         "eci": 133.21,
         "organization": "Mistral AI",
         "release_date": "2025-06-10"
@@ -1353,6 +1465,46 @@
         "eci": 131.42,
         "organization": "Mistral AI",
         "release_date": "2025-09-18"
+      },
+      "mercury-2": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Mercury 2",
+        "eci": 0.0,
+        "organization": "Inception Labs",
+        "release_date": "2026-02-20"
+      },
+      "mimo-v2-flash": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "mimo-v2-flash",
+        "eci": 0.0,
+        "organization": "Xiaomi Corp",
+        "release_date": "2025-12-16"
+      },
+      "mimo-v2-pro": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "mimo-v2-pro",
+        "eci": 0.0,
+        "organization": "Xiaomi Corp",
+        "release_date": "2026-03-18"
+      },
+      "mimo-v2.5": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "mimo-v2.5",
+        "eci": 0.0,
+        "organization": "Xiaomi Corp",
+        "release_date": "2026-04-23"
+      },
+      "mimo-v2.5-pro": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "mimo-v2.5-pro",
+        "eci": 149.27,
+        "organization": "Xiaomi Corp",
+        "release_date": "2026-04-23"
       },
       "minimax-m1-80k": {
         "accessibility": "Open weights (unrestricted)",
@@ -1413,7 +1565,7 @@
       "mistral-medium-2508": {
         "accessibility": "API access",
         "country": "France",
-        "display_name": "Mistral Medium 3.1",
+        "display_name": "mistral-medium-2508",
         "eci": 135.67,
         "organization": "Mistral AI",
         "release_date": "2025-08-12"
@@ -1445,7 +1597,7 @@
       "mistral-small-3.2-2506": {
         "accessibility": "Open weights (unrestricted)",
         "country": "France",
-        "display_name": "Mistral Small 3.2",
+        "display_name": "mistral-small-3.2-2506",
         "eci": 131.75,
         "organization": "Mistral AI",
         "release_date": "2025-06-20"
@@ -1485,7 +1637,7 @@
       "muse-spark-1.2": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Muse Spark 1.2 (xhigh)",
+        "display_name": "Muse Spark 1.2",
         "eci": 155.51,
         "organization": "Meta AI",
         "release_date": "2026-08-05"
@@ -1501,7 +1653,7 @@
       "nemotron-3-ultra": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "Nemotron 3 Ultra",
+        "display_name": "nemotron-3-ultra",
         "eci": 146.3,
         "organization": "NVIDIA",
         "release_date": "2026-06-04"
@@ -1509,7 +1661,7 @@
       "nova-2.0-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Nova 2.0 Pro Preview (unknown)",
+        "display_name": "Nova 2.0 Pro Preview (low)",
         "eci": 0.0,
         "organization": "Amazon",
         "release_date": "2025-12-02"
@@ -1522,10 +1674,18 @@
         "organization": "Unknown",
         "release_date": "2025-08-18"
       },
+      "o3": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "o3 Pro (unknown thinking)",
+        "eci": 147.46,
+        "organization": "OpenAI",
+        "release_date": "2025-06-10"
+      },
       "o3-pro": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "o3-pro",
+        "display_name": "o3-pro-2025-06-10_high",
         "eci": 147.46,
         "organization": "OpenAI",
         "release_date": "2025-06-10"
@@ -1533,7 +1693,7 @@
       "openai/gpt-oss-120b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
-        "display_name": "gpt-oss-120b",
+        "display_name": "openai/gpt-oss-120b_high",
         "eci": 140.13,
         "organization": "OpenAI",
         "release_date": "2025-08-05"
@@ -1541,10 +1701,10 @@
       "parasail-qwen3-235b-a22b-instruct-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-235B-A22B (Jul 2025)",
+        "display_name": "parasail-qwen3-235b-a22b-instruct-2507",
         "eci": 138.95,
         "organization": "Alibaba",
-        "release_date": "2025-09-01"
+        "release_date": "2025-07-25"
       },
       "qwen/qwen3-235b-a22b-thinking-2507": {
         "accessibility": "Open weights (unrestricted)",
@@ -1565,7 +1725,7 @@
       "qwen3-235b-a22b-instruct-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-235B-A22B (Jul 2025)",
+        "display_name": "Qwen3-235B-A22B-Instruct-2507",
         "eci": 138.95,
         "organization": "Alibaba",
         "release_date": "2025-07-25"
@@ -1573,7 +1733,7 @@
       "qwen3-235b-a22b-thinking-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-235B-A22B (Jul 2025)",
+        "display_name": "Qwen3-235B-A22B-Thinking-2507",
         "eci": 143.88,
         "organization": "Alibaba",
         "release_date": "2025-07-25"
@@ -1581,7 +1741,7 @@
       "qwen3-30b-a3b-instruct-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-30B-A3B (Jul 2025)",
+        "display_name": "qwen3-30b-a3b-instruct-2507",
         "eci": 137.44,
         "organization": "Alibaba",
         "release_date": "2025-07-29"
@@ -1589,7 +1749,7 @@
       "qwen3-30b-a3b-thinking-2507": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-30B-A3B (Jul 2025)",
+        "display_name": "qwen3-30b-a3b-thinking-2507",
         "eci": 139.66,
         "organization": "Alibaba",
         "release_date": "2025-07-30"
@@ -1605,7 +1765,7 @@
       "qwen3-coder-480b-a35b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3-Coder-480B-A35B",
+        "display_name": "Qwen3-Coder-480B-A35B-Instruct",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2025-07-31"
@@ -1629,7 +1789,7 @@
       "qwen3.5-122b-a10b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Qwen3.5-122B-A10B",
+        "display_name": "qwen3.5-122b-a10b_none",
         "eci": 146.26,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1645,7 +1805,7 @@
       "qwen3.5-2b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Qwen3.5-2B",
+        "display_name": "qwen3.5-2b_none",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1653,7 +1813,7 @@
       "qwen3.5-35b-a3b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3.5-35B-A3B",
+        "display_name": "qwen3.5-35b-a3b",
         "eci": 142.54,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1669,7 +1829,7 @@
       "qwen3.5-4b": {
         "accessibility": "Open weights (restricted use)",
         "country": "China",
-        "display_name": "Qwen3.5-4B",
+        "display_name": "qwen3.5-4b_none",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-02-24"
@@ -1765,7 +1925,7 @@
       "qwen3.8": {
         "accessibility": "API access",
         "country": "China",
-        "display_name": "Qwen3.8 Max (xhigh)",
+        "display_name": "Qwen3.8 Max (unknown)",
         "eci": 156.61,
         "organization": "Alibaba",
         "release_date": "2026-08-02"
@@ -1773,7 +1933,7 @@
       "qwen3.8-27b": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
-        "display_name": "Qwen3.8 27B (xhigh)",
+        "display_name": "Qwen3.8 27B",
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-08-14"
@@ -1785,6 +1945,22 @@
         "eci": 0.0,
         "organization": "Ant Group",
         "release_date": "2026-05-14"
+      },
+      "robin-alpha-next": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "robin-alpha-next-2025-11-24_high",
+        "eci": 153.43,
+        "organization": "OpenAI",
+        "release_date": "2025-12-11"
+      },
+      "robin-alpha-pro": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "robin-alpha-pro-2025-11-24",
+        "eci": 155.3,
+        "organization": "OpenAI",
+        "release_date": "2025-12-11"
       },
       "seed-oss-36b": {
         "accessibility": "",
@@ -1801,6 +1977,14 @@
         "eci": 0.0,
         "organization": "Upstage",
         "release_date": "2026-01-27"
+      },
+      "step-3.5-flash": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "Step 3.5 Flash",
+        "eci": 0.0,
+        "organization": "StepFun",
+        "release_date": "2026-02-02"
       },
       "step-3.7-flash": {
         "accessibility": "Open weights (unrestricted)",
@@ -1845,10 +2029,26 @@
       "video-salmonn-2plus": {
         "accessibility": "",
         "country": "China",
-        "display_name": "video-SALMONN 2+",
+        "display_name": "video-SALMONN-2plus",
         "eci": 0.0,
         "organization": "ByteDance",
         "release_date": "2025-06-18"
+      },
+      "xiaoyi-deepresearch": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "xiaoyi-deepresearch",
+        "eci": 0.0,
+        "organization": "Unknown",
+        "release_date": "2026-03-06"
+      },
+      "z-ai/glm-4.6": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-4.6 (OpenRouter)",
+        "eci": 140.85,
+        "organization": "Z.ai (Zhipu AI),Tsinghua University",
+        "release_date": "2025-09-30"
       },
       "zai-org/glm-4.6": {
         "accessibility": "Open weights (unrestricted)",
@@ -1865,6 +2065,14 @@
         "eci": 143.48,
         "organization": "Z.ai (Zhipu AI)",
         "release_date": "2025-12-22"
+      },
+      "zai-org/glm-5": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "GLM-5 (Novita)",
+        "eci": 145.89,
+        "organization": "Z.ai (Zhipu AI)",
+        "release_date": "2026-02-11"
       }
     },
     "scores": {
@@ -4958,6 +5166,98 @@
           "stderr": 2.519,
           "value": 85.35,
           "variant": "nemotron-3-ultra"
+        }
+      ],
+      "o3": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-08-07",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.806,
+          "value": 80.81,
+          "variant": "o3-2025-04-16_medium"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-07-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.861,
+          "value": 79.8,
+          "variant": "o3-2025-04-16_low"
+        },
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2025-04-16",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.127,
+          "value": 81.82,
+          "variant": "o3-2025-04-16_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-08-27",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.582,
+          "value": 49.4,
+          "variant": "o3-2025-04-16_high"
+        },
+        {
+          "benchmark_id": "math_level_5",
+          "category": "math",
+          "measured_at": "2025-04-16",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 0.332,
+          "value": 97.77,
+          "variant": "o3-2025-04-16_high"
+        },
+        {
+          "benchmark_id": "frontiermath",
+          "category": "math",
+          "measured_at": "2025-11-17",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.749,
+          "value": 9.72,
+          "variant": "o3-2025-04-16_low"
+        },
+        {
+          "benchmark_id": "frontiermath",
+          "category": "math",
+          "measured_at": "2025-11-16",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.297,
+          "value": 18.69,
+          "variant": "o3-2025-04-16_high"
+        },
+        {
+          "benchmark_id": "frontiermath",
+          "category": "math",
+          "measured_at": "2025-11-16",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.204,
+          "value": 16.9,
+          "variant": "o3-2025-04-16_medium"
+        },
+        {
+          "benchmark_id": "swe_bench_verified",
+          "category": "coding",
+          "measured_at": "2026-02-12",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.207,
+          "value": 62.32,
+          "variant": "o3-2025-04-16_medium"
         }
       ],
       "openai/gpt-oss-120b": [

@@ -1,13 +1,12 @@
 {
-  "generated_at": "2026-09-05T16:05:21+00:00",
+  "generated_at": "2026-09-05T17:08:15+00:00",
   "ok": true,
   "sources": {
     "epoch": {
-      "state": "cached",
-      "last_success": "2026-09-04",
-      "age_days": 1,
-      "error": "epoch: capabilities index missing from archive",
-      "consecutive_failures": 2
+      "state": "ok",
+      "last_success": "2026-09-05",
+      "error": null,
+      "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
@@ -25,8 +24,8 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-04",
-      "age_days": 1,
+      "date": "2026-09-05",
+      "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
       "warn_days": 2,
@@ -66,13 +65,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "03843eb08780a37ff03d5a95e3b8b65fa0778d1b7e3f72326ce75239b4f35143",
+      "normalised_sha256": "e2fd9b7f63316471bc2044ee6cecbe6cfccadcac6b4fedf1a6b11368a38169d6",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "9c8d839ed6de35ba02ab4a44e1873cc2571757a21ffec9e7f6f5057c1678424f",
-          "bytes": 2302172
+          "sha256": "9bc3c9b63aba41b1fd86ba0ac38e9b54b081d6d049228447b753c13fa6fc874f",
+          "bytes": 2302183
         }
       ]
     },
@@ -104,7 +103,7 @@
     },
     "lmarena": {
       "normalised_sha256": "05a19eb42b1a6e9ed1afd75f834f40164a85f7363f68752a66ddc191bab61e06",
-      "requests": 7,
+      "requests": 6,
       "upstream": []
     }
   }
