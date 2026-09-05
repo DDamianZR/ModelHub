@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04",
+  "fetched_at": "2026-09-05",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -1229,6 +1229,44 @@
           "source_url": "https://livebench.ai/",
           "value": 64.62,
           "variant": "gpt-5.6-terra-max"
+        }
+      ],
+      "gpt-6-astra": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.65,
+          "variant": "gpt-6-astra-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.54,
+          "variant": "gpt-6-astra-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.81,
+          "variant": "gpt-6-astra-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 75.58,
+          "variant": "gpt-6-astra-max"
         }
       ],
       "grok-4.3": [
