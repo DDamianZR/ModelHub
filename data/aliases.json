@@ -553,6 +553,25 @@
       ]
     }
   },
+  "google-deepmind-gemini-3.8-flash": {
+    "canonical_key": "gemini-3.8-flash",
+    "display_name": "Gemini 3.8 Flash (high)",
+    "variant": "high",
+    "scored_arena_name": "gemini-3.8-flash-high",
+    "names": [
+      "gemini-3.8-flash",
+      "gemini-3.8-flash-high"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "gemini-3.8-flash-high"
+      ],
+      "lmarena": [
+        "gemini-3.8-flash-high"
+      ]
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4-31b",
     "display_name": "Gemma 4 31B IT",
@@ -1087,10 +1106,9 @@
     "canonical_key": "grok-4.6",
     "display_name": "Grok 4.6 (high)",
     "variant": "plain",
-    "scored_arena_name": "grok-4.6-high",
+    "scored_arena_name": null,
     "names": [
-      "grok-4.6",
-      "grok-4.6-high"
+      "grok-4.6"
     ],
     "matched": {
       "epoch": [
@@ -1100,9 +1118,7 @@
       "livebench": [
         "grok-4.6"
       ],
-      "lmarena": [
-        "grok-4.6-high"
-      ]
+      "lmarena": []
     }
   },
   "thinking-machines-inkling": {
