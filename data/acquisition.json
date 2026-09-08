@@ -791,7 +791,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": true
+      "provider_page": false
     }
   },
   "openai-gpt-5-nano": {
@@ -806,7 +806,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.1": {
@@ -836,7 +836,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.4": {
@@ -851,7 +851,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": true
+      "provider_page": false
     }
   },
   "openai-gpt-5.4-mini": {
