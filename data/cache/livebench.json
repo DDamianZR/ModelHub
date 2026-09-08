@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07",
+  "fetched_at": "2026-09-08",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -2065,6 +2065,44 @@
           "source_url": "https://livebench.ai/",
           "value": 70.99,
           "variant": "smaug-agentic"
+        }
+      ],
+      "smaug-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.23,
+          "variant": "smaug-flash"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 67.48,
+          "variant": "smaug-flash"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.06,
+          "variant": "smaug-flash"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.26,
+          "variant": "smaug-flash"
         }
       ],
       "smaug-mini": [
