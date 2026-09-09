@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-08",
+    "generated_at": "2026-09-09",
     "model_count": 78,
     "ranked_count": 56,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-08",
+      "epoch": "2026-09-09",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-02",
       "lmarena_vision": "2026-08-27"
@@ -3665,7 +3665,7 @@
       "display_name": "Qwen3.7 Plus",
       "provider_id": "alibaba",
       "is_open_weights": false,
-      "license": null,
+      "license": "API access",
       "api_only": true,
       "release_date": "2026-06-02",
       "country": "China",
