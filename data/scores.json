@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-09",
+    "generated_at": "2026-09-10",
     "model_count": 78,
     "ranked_count": 56,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-09",
+      "epoch": "2026-09-10",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-02",
       "lmarena_vision": "2026-08-27"
@@ -2180,6 +2180,36 @@
       "variant": "high",
       "variant_mismatch": null,
       "measured_name": "gemini-3.7-flash-high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.8-flash",
+      "benchmark_id": "gpqa_diamond",
+      "value": 95.39,
+      "unit": "percent",
+      "stderr": 1.401,
+      "half_width_95": 2.746,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-09-02",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": null,
+      "variant": "high"
+    },
+    {
+      "model_id": "google-deepmind-gemini-3.8-flash",
+      "benchmark_id": "simpleqa_verified",
+      "value": 69.7,
+      "unit": "percent",
+      "stderr": 1.454,
+      "half_width_95": 2.85,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-09-02",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": null,
+      "variant": "high"
     },
     {
       "model_id": "google-deepmind-gemini-3.8-flash",

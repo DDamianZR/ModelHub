@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-09T11:20:43+00:00",
+  "generated_at": "2026-09-10T11:15:44+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-09",
+      "last_success": "2026-09-10",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-09",
+      "last_success": "2026-09-10",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-09-09",
+      "last_success": "2026-09-10",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-09",
+      "date": "2026-09-10",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 76,
+      "age_days": 77,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,8 +49,8 @@
     },
     "lmarena": {
       "date": "2026-09-02",
-      "age_days": 7,
-      "freshness": "fresh",
+      "age_days": 8,
+      "freshness": "aging",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
@@ -65,13 +65,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "ab2ea57540639bc1335db3d50da3aa953fce02721de8d4b2f6b63b42f2172cb2",
+      "normalised_sha256": "3f56a67b90b53de06aef7a41d6b81b0c9df66086ca8605bb4b6366eb2ea2ce6a",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "6c5417dc22943af0ad556f8f849e82b717df7e08a2ed94acc2e3c60e6d9fbd41",
-          "bytes": 2282172
+          "sha256": "7487004105360f685466388ee501a0a711311fdc8b24b8b625c699f7da9d6920",
+          "bytes": 2282956
         }
       ]
     },

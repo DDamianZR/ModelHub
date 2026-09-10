@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-09",
+    "generated_at": "2026-09-10",
     "model_count": 78,
     "ranked_count": 56,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-09",
+      "epoch": "2026-09-10",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-02",
       "lmarena_vision": "2026-08-27"
@@ -89,67 +89,6 @@
       "cohort_recalibration": null
     },
     {
-      "id": "google-deepmind-gemini-3.8-flash",
-      "display_name": "Gemini 3.8 Flash (high)",
-      "provider_id": "google-deepmind",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-02",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 89.29,
-        "coding": 61.54,
-        "math": 91.56,
-        "instruction_following": 81.41,
-        "human_preference": 95.59
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 3.91
-      },
-      "composite": 82.57,
-      "composite_error": 0.59,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "high",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 2,
-      "tied_with": 3,
-      "cohort_recalibration": null
-    },
-    {
       "id": "google-deepmind-gemini-3.7-flash",
       "display_name": "Gemini 3.7 Flash (high)",
       "provider_id": "google-deepmind",
@@ -207,7 +146,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 2,
-      "tied_with": 3,
+      "tied_with": 5,
       "cohort_recalibration": null
     },
     {
@@ -275,7 +214,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 2,
-      "tied_with": 3,
+      "tied_with": 5,
       "cohort_recalibration": null
     },
     {
@@ -343,7 +282,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 2,
-      "tied_with": 3,
+      "tied_with": 5,
       "cohort_recalibration": null
     },
     {
@@ -403,8 +342,69 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 3,
-      "tied_with": 1,
+      "rank": 2,
+      "tied_with": 5,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "google-deepmind-gemini-3.8-flash",
+      "display_name": "Gemini 3.8 Flash (high)",
+      "provider_id": "google-deepmind",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-02",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 84.79,
+        "coding": 61.54,
+        "math": 91.56,
+        "instruction_following": 81.41,
+        "human_preference": 95.59
+      },
+      "category_errors": {
+        "reasoning": 1.319,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.91
+      },
+      "composite": 81.44,
+      "composite_error": 0.67,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 2,
+      "tied_with": 5,
       "cohort_recalibration": null
     },
     {
@@ -464,8 +464,8 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 3,
-      "tied_with": 1,
+      "rank": 2,
+      "tied_with": 5,
       "cohort_recalibration": null
     },
     {
@@ -525,7 +525,7 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
-      "rank": 7,
+      "rank": 6,
       "tied_with": 0,
       "cohort_recalibration": null
     },

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-09",
+  "fetched_at": "2026-09-10",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -113,6 +113,14 @@
         "eci": 142.39,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
+      },
+      "claude-mythos": {
+        "accessibility": "Unreleased",
+        "country": "United States of America",
+        "display_name": "Claude Mythos Preview (April)",
+        "eci": 0.0,
+        "organization": "Anthropic",
+        "release_date": "2026-04-07"
       },
       "claude-mythos-preview-early": {
         "accessibility": "Unreleased",
@@ -1058,6 +1066,14 @@
         "organization": "OpenAI",
         "release_date": "2026-03-05"
       },
+      "gpt-5.4-cyber": {
+        "accessibility": "Unreleased",
+        "country": "United States of America",
+        "display_name": "GPT-5.4-Cyber",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2026-04-14"
+      },
       "gpt-5.4-mini": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -1097,6 +1113,14 @@
         "eci": 162.26,
         "organization": "OpenAI",
         "release_date": "2026-04-23"
+      },
+      "gpt-5.5-cyber": {
+        "accessibility": "Unreleased",
+        "country": "United States of America",
+        "display_name": "GPT-5.5 Cyber",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2026-05-07"
       },
       "gpt-5.5-instant": {
         "accessibility": "API access",
@@ -1937,6 +1961,14 @@
         "eci": 0.0,
         "organization": "Alibaba",
         "release_date": "2026-08-14"
+      },
+      "qwen3.8-max-0902": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Qwen3.8 Max (0902) (xhigh)",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-09-01"
       },
       "ring-2.6-1t": {
         "accessibility": "Open weights (unrestricted)",
@@ -3418,6 +3450,28 @@
           "stderr": 1.461,
           "value": 69.2,
           "variant": "gemini-3.7-flash_high"
+        }
+      ],
+      "gemini-3.8-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.401,
+          "value": 95.39,
+          "variant": "gemini-3.8-flash_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.454,
+          "value": 69.7,
+          "variant": "gemini-3.8-flash_high"
         }
       ],
       "gemma-4-26b-a4b-it-minimal": [
@@ -5760,6 +5814,28 @@
           "stderr": 1.576,
           "value": 45.8,
           "variant": "qwen3.8-max_xhigh"
+        }
+      ],
+      "qwen3.8-max-0902": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.725,
+          "value": 92.3,
+          "variant": "qwen3.8-max-0902_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.58,
+          "value": 47.3,
+          "variant": "qwen3.8-max-0902_xhigh"
         }
       ],
       "seed-oss-36b": [
