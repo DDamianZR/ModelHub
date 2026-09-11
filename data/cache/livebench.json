@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10",
+  "fetched_at": "2026-09-11",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -545,6 +545,44 @@
           "source_url": "https://livebench.ai/",
           "value": 67.7,
           "variant": "deepseek-v4-pro-0813"
+        }
+      ],
+      "deepseek-v4.1-flash": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.69,
+          "variant": "deepseek-v4.1-flash-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.38,
+          "variant": "deepseek-v4.1-flash-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 93.29,
+          "variant": "deepseek-v4.1-flash-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.03,
+          "variant": "deepseek-v4.1-flash-max"
         }
       ],
       "gemini-3.1-pro": [
