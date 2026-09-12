@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-11T11:17:15+00:00",
+  "generated_at": "2026-09-12T10:44:58+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-11",
+      "last_success": "2026-09-12",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-11",
+      "last_success": "2026-09-12",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-09-11",
+      "last_success": "2026-09-12",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-11",
+      "date": "2026-09-12",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 78,
+      "age_days": 79,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -48,9 +48,9 @@
       }
     },
     "lmarena": {
-      "date": "2026-09-02",
-      "age_days": 9,
-      "freshness": "aging",
+      "date": "2026-09-11",
+      "age_days": 1,
+      "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
@@ -70,8 +70,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "ec2e74e86c0c513aebb6fc8d833fb98622637f760bb2dc95178552462ad203be",
-          "bytes": 2283220
+          "sha256": "1ffb2befc2055e24e976b46fc015b0a4686ce571b2ea1b1fc17883f7c4aead96",
+          "bytes": 2283233
         }
       ]
     },
@@ -102,8 +102,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "0d7e5c8c07506fabca56776e23dda5fe50ea8eeb4e81386f9b3e1d00845a7f96",
-      "requests": 7,
+      "normalised_sha256": "6428fc3d6519ed99de1f73d9682e1b2a10bf6046b808645894bc1c0c4b35f3c2",
+      "requests": 10,
       "upstream": []
     }
   }

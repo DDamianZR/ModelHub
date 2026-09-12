@@ -1012,9 +1012,10 @@
     "canonical_key": "gpt-6-astra",
     "display_name": "GPT-6 Astra (high)",
     "variant": "max",
-    "scored_arena_name": null,
+    "scored_arena_name": "gpt-6-astra-max",
     "names": [
-      "gpt-6-astra"
+      "gpt-6-astra",
+      "gpt-6-astra-max"
     ],
     "matched": {
       "epoch": [
@@ -1023,7 +1024,9 @@
       "livebench": [
         "gpt-6-astra-max"
       ],
-      "lmarena": []
+      "lmarena": [
+        "gpt-6-astra-max"
+      ]
     }
   },
   "openai-gpt-oss-20b": {
@@ -1108,9 +1111,10 @@
     "canonical_key": "grok-4.6",
     "display_name": "Grok 4.6 (high)",
     "variant": "plain",
-    "scored_arena_name": null,
+    "scored_arena_name": "grok-4.6-high",
     "names": [
-      "grok-4.6"
+      "grok-4.6",
+      "grok-4.6-high"
     ],
     "matched": {
       "epoch": [
@@ -1120,7 +1124,9 @@
       "livebench": [
         "grok-4.6"
       ],
-      "lmarena": []
+      "lmarena": [
+        "grok-4.6-high"
+      ]
     }
   },
   "thinking-machines-inkling": {

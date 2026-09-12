@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-11",
+    "generated_at": "2026-09-12",
     "model_count": 78,
     "ranked_count": 56,
     "provisional_count": 22,
@@ -8,15 +8,15 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-11",
+      "epoch": "2026-09-12",
       "livebench": "2026-06-25",
-      "lmarena_text": "2026-09-02",
+      "lmarena_text": "2026-09-11",
       "lmarena_vision": "2026-08-27"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
-      "min": 1287.17,
-      "max": 1504.83
+      "min": 1287.3,
+      "max": 1504.06
     }
   },
   "models": [
@@ -47,17 +47,17 @@
         "coding": 71.7,
         "math": 95.99,
         "instruction_following": 75.77,
-        "human_preference": 95.09
+        "human_preference": 94.64
       },
       "category_errors": {
         "reasoning": 2.433,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.28
+        "human_preference": 2.21
       },
-      "composite": 84.69,
-      "composite_error": 0.7,
+      "composite": 84.62,
+      "composite_error": 0.69,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 6,
@@ -114,16 +114,16 @@
         "coding": 66.53,
         "math": 93.47,
         "instruction_following": 79.93,
-        "human_preference": 93.85
+        "human_preference": 93.97
       },
       "category_errors": {
         "reasoning": 1.298,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 3.747
+        "human_preference": 3.772
       },
-      "composite": 82.38,
+      "composite": 82.4,
       "composite_error": 0.65,
       "uncertainty": {
         "measured_inputs": 3,
@@ -146,7 +146,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 2,
-      "tied_with": 5,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -183,10 +183,10 @@
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.653
+        "human_preference": 2.536
       },
       "composite": 82.05,
-      "composite_error": 0.53,
+      "composite_error": 0.52,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -214,7 +214,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 2,
-      "tied_with": 5,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -244,17 +244,17 @@
         "coding": 67.94,
         "math": 91.31,
         "instruction_following": 74.08,
-        "human_preference": 88.54
+        "human_preference": 89.32
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.84
+        "human_preference": 2.679
       },
-      "composite": 81.69,
-      "composite_error": 0.43,
+      "composite": 81.81,
+      "composite_error": 0.4,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -282,68 +282,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 2,
-      "tied_with": 5,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-6-astra",
-      "display_name": "GPT-6 Astra (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-03",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 88.01,
-        "coding": 66.54,
-        "math": 96.81,
-        "instruction_following": 75.58
-      },
-      "category_errors": {
-        "reasoning": 1.261,
-        "coding": null,
-        "math": null,
-        "instruction_following": null
-      },
-      "composite": 81.57,
-      "composite_error": 0.37,
-      "uncertainty": {
-        "measured_inputs": 2,
-        "total_inputs": 6,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 6
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 2,
-      "tied_with": 5,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -372,17 +311,17 @@
         "coding": 61.54,
         "math": 91.56,
         "instruction_following": 81.41,
-        "human_preference": 95.59
+        "human_preference": 95.53
       },
       "category_errors": {
         "reasoning": 1.319,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 3.91
+        "human_preference": 3.935
       },
       "composite": 81.44,
-      "composite_error": 0.67,
+      "composite_error": 0.68,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -404,7 +343,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 2,
-      "tied_with": 5,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -465,7 +404,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 2,
-      "tied_with": 5,
+      "tied_with": 4,
       "cohort_recalibration": null
     },
     {
@@ -494,17 +433,17 @@
         "coding": 69.88,
         "math": 84.44,
         "instruction_following": 71.36,
-        "human_preference": 86.74
+        "human_preference": 85.18
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.5
+        "human_preference": 2.409
       },
-      "composite": 80.74,
-      "composite_error": 0.38,
+      "composite": 80.51,
+      "composite_error": 0.36,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -526,17 +465,17 @@
       "human_preference_variant": "max",
       "vision": null,
       "rank": 6,
-      "tied_with": 0,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
-      "id": "xai-grok-4.6",
-      "display_name": "Grok 4.6 (high)",
-      "provider_id": "xai",
+      "id": "openai-gpt-6-astra",
+      "display_name": "GPT-6 Astra (high)",
+      "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2026-08-12",
+      "release_date": "2026-09-03",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
@@ -551,49 +490,49 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 90.51,
-        "coding": 64.92,
-        "math": 92.57,
-        "instruction_following": 71.87
+        "reasoning": 88.01,
+        "coding": 66.54,
+        "math": 96.81,
+        "instruction_following": 75.58,
+        "human_preference": 71.29
       },
       "category_errors": {
-        "reasoning": null,
+        "reasoning": 1.261,
         "coding": null,
         "math": null,
-        "instruction_following": null
+        "instruction_following": null,
+        "human_preference": 6.111
       },
-      "composite": 80.18,
-      "composite_error": null,
+      "composite": 80.03,
+      "composite_error": 0.97,
       "uncertainty": {
-        "measured_inputs": 0,
-        "total_inputs": 4,
+        "measured_inputs": 3,
+        "total_inputs": 7,
         "is_lower_bound": true
       },
       "coverage": {
-        "covered": 4,
+        "covered": 5,
         "total": 5,
-        "missing": [
-          "human_preference"
-        ]
+        "missing": []
       },
       "evidence": {
-        "sources": 2,
+        "sources": 3,
         "max_sources": 3,
-        "benchmarks": 6
+        "benchmarks": 7
       },
       "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "plain",
+      "awaiting_human_votes": false,
+      "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 9,
-      "tied_with": 0,
+      "rank": 6,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
-      "id": "openai-gpt-5.6-sol",
-      "display_name": "GPT-5.6 Sol (high)",
-      "provider_id": "openai",
+      "id": "meta-ai-muse-spark-1.1",
+      "display_name": "Muse Spark 1.1",
+      "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
@@ -613,24 +552,24 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 84.95,
-        "coding": 67.3,
-        "math": 96.2,
-        "instruction_following": 71.85,
-        "human_preference": 77.05
+        "reasoning": 87.73,
+        "coding": 65.98,
+        "math": 87.14,
+        "instruction_following": 69.64,
+        "human_preference": 89.43
       },
       "category_errors": {
-        "reasoning": 1.398,
+        "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.343
+        "human_preference": 2.24
       },
-      "composite": 79.64,
-      "composite_error": 0.5,
+      "composite": 79.72,
+      "composite_error": 0.34,
       "uncertainty": {
-        "measured_inputs": 3,
-        "total_inputs": 7,
+        "measured_inputs": 1,
+        "total_inputs": 5,
         "is_lower_bound": true
       },
       "coverage": {
@@ -641,20 +580,20 @@
       "evidence": {
         "sources": 3,
         "max_sources": 3,
-        "benchmarks": 7
+        "benchmarks": 6
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "max",
-      "human_preference_variant": "xhigh",
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
       "vision": {
-        "rating": 1276.9,
-        "rank": 30,
-        "variant": "gpt-5.6-sol-xhigh",
+        "rating": 1292.7,
+        "rank": 21,
+        "variant": "muse-spark-1.1",
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10,
+      "rank": 8,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -685,16 +624,16 @@
         "coding": 60.67,
         "math": 89.32,
         "instruction_following": 63.31,
-        "human_preference": 99.22
+        "human_preference": 99.48
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.606
+        "human_preference": 1.612
       },
-      "composite": 79.58,
+      "composite": 79.62,
       "composite_error": 0.24,
       "uncertainty": {
         "measured_inputs": 1,
@@ -722,75 +661,7 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 10,
-      "tied_with": 3,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "meta-ai-muse-spark-1.1",
-      "display_name": "Muse Spark 1.1",
-      "provider_id": "meta-ai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-07-09",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 87.73,
-        "coding": 65.98,
-        "math": 87.14,
-        "instruction_following": 69.64,
-        "human_preference": 88.32
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 2.303
-      },
-      "composite": 79.55,
-      "composite_error": 0.35,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 3,
-        "max_sources": 3,
-        "benchmarks": 6
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "xhigh",
-      "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1292.7,
-        "rank": 21,
-        "variant": "muse-spark-1.1",
-        "measured_at": "2026-08-27",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 10,
+      "rank": 8,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -820,17 +691,17 @@
         "coding": 68.13,
         "math": 87.9,
         "instruction_following": 69.3,
-        "human_preference": 85.63
+        "human_preference": 87.73
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 3.34
+        "human_preference": 2.991
       },
-      "composite": 79.3,
-      "composite_error": 0.5,
+      "composite": 79.62,
+      "composite_error": 0.45,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -851,7 +722,75 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
-      "rank": 10,
+      "rank": 8,
+      "tied_with": 3,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5.6-sol",
+      "display_name": "GPT-5.6 Sol (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-09",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 84.95,
+        "coding": 67.3,
+        "math": 96.2,
+        "instruction_following": 71.85,
+        "human_preference": 76.82
+      },
+      "category_errors": {
+        "reasoning": 1.398,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.266
+      },
+      "composite": 79.6,
+      "composite_error": 0.49,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": "xhigh",
+      "vision": {
+        "rating": 1276.9,
+        "rank": 30,
+        "variant": "gpt-5.6-sol-xhigh",
+        "measured_at": "2026-08-27",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 8,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -882,16 +821,16 @@
         "coding": 57.07,
         "math": 91.05,
         "instruction_following": 79.1,
-        "human_preference": 88.62
+        "human_preference": 89.04
       },
       "category_errors": {
         "reasoning": 1.403,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.469
+        "human_preference": 1.456
       },
-      "composite": 78.63,
+      "composite": 78.69,
       "composite_error": 0.41,
       "uncertainty": {
         "measured_inputs": 3,
@@ -919,7 +858,7 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 13,
+      "rank": 12,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -980,8 +919,69 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 14,
-      "tied_with": 0,
+      "rank": 13,
+      "tied_with": 1,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "xai-grok-4.6",
+      "display_name": "Grok 4.6 (high)",
+      "provider_id": "xai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-08-12",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 90.51,
+        "coding": 64.92,
+        "math": 92.57,
+        "instruction_following": 71.87,
+        "human_preference": 65.92
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 2.724
+      },
+      "composite": 78.04,
+      "composite_error": 0.41,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": "high",
+      "vision": null,
+      "rank": 13,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1011,17 +1011,17 @@
         "coding": 61.31,
         "math": 90.82,
         "instruction_following": 71.53,
-        "human_preference": 76.14
+        "human_preference": 75.5
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.252
+        "human_preference": 2.18
       },
-      "composite": 77.43,
-      "composite_error": 0.34,
+      "composite": 77.34,
+      "composite_error": 0.33,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -1048,8 +1048,8 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 16,
-      "tied_with": 2,
+      "rank": 15,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1078,16 +1078,16 @@
         "coding": 66.56,
         "math": 85.25,
         "instruction_following": 74.04,
-        "human_preference": 85.94
+        "human_preference": 86.21
       },
       "category_errors": {
         "reasoning": 1.688,
         "coding": 1.869,
         "math": null,
         "instruction_following": null,
-        "human_preference": 4.567
+        "human_preference": 4.589
       },
-      "composite": 76.85,
+      "composite": 76.89,
       "composite_error": 0.93,
       "uncertainty": {
         "measured_inputs": 4,
@@ -1109,8 +1109,8 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 16,
-      "tied_with": 2,
+      "rank": 15,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1140,16 +1140,16 @@
         "math": 73.78,
         "coding": 72.91,
         "instruction_following": 70.73,
-        "human_preference": 82.46
+        "human_preference": 82.24
       },
       "category_errors": {
         "reasoning": 1.421,
         "math": 2.842,
         "coding": 1.764,
         "instruction_following": null,
-        "human_preference": 1.743
+        "human_preference": 1.736
       },
-      "composite": 76.52,
+      "composite": 76.48,
       "composite_error": 0.84,
       "uncertainty": {
         "measured_inputs": 5,
@@ -1178,7 +1178,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 16,
-      "tied_with": 2,
+      "tied_with": 0,
       "cohort_recalibration": null
     },
     {
@@ -1208,17 +1208,17 @@
         "coding": 57.21,
         "math": 86.4,
         "instruction_following": 75.37,
-        "human_preference": 86.89
+        "human_preference": 86.78
       },
       "category_errors": {
         "reasoning": 1.34,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.332
+        "human_preference": 2.24
       },
-      "composite": 76.38,
-      "composite_error": 0.48,
+      "composite": 76.36,
+      "composite_error": 0.47,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -1337,16 +1337,16 @@
         "math": 63.6,
         "coding": 70.0,
         "instruction_following": 75.6,
-        "human_preference": 90.32
+        "human_preference": 90.09
       },
       "category_errors": {
         "reasoning": 1.45,
         "math": 2.812,
         "coding": 1.805,
         "instruction_following": null,
-        "human_preference": 1.98
+        "human_preference": 1.932
       },
-      "composite": 75.19,
+      "composite": 75.16,
       "composite_error": 0.86,
       "uncertainty": {
         "measured_inputs": 5,
@@ -1405,17 +1405,17 @@
         "coding": 67.09,
         "math": 86.21,
         "instruction_following": 72.66,
-        "human_preference": 69.26
+        "human_preference": 70.41
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 3.452
+        "human_preference": 3.002
       },
-      "composite": 75.31,
-      "composite_error": 0.52,
+      "composite": 75.48,
+      "composite_error": 0.45,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -1442,7 +1442,7 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 19,
+      "rank": 18,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1472,16 +1472,16 @@
         "coding": 62.92,
         "math": 89.78,
         "instruction_following": 62.29,
-        "human_preference": 82.48
+        "human_preference": 82.93
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.152
+        "human_preference": 2.119
       },
-      "composite": 75.06,
+      "composite": 75.12,
       "composite_error": 0.32,
       "uncertainty": {
         "measured_inputs": 1,
@@ -1534,17 +1534,17 @@
         "coding": 64.27,
         "math": 94.91,
         "instruction_following": 64.62,
-        "human_preference": 73.33
+        "human_preference": 73.23
       },
       "category_errors": {
         "reasoning": 1.434,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.309
+        "human_preference": 2.233
       },
-      "composite": 74.67,
-      "composite_error": 0.5,
+      "composite": 74.65,
+      "composite_error": 0.49,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -1601,15 +1601,15 @@
         "reasoning": 92.61,
         "math": 37.6,
         "coding": 72.93,
-        "human_preference": 88.35
+        "human_preference": 88.66
       },
       "category_errors": {
         "reasoning": 3.24,
         "math": 5.566,
         "coding": 3.963,
-        "human_preference": 1.759
+        "human_preference": 1.766
       },
-      "composite": 73.13,
+      "composite": 73.18,
       "composite_error": 2.02,
       "uncertainty": {
         "measured_inputs": 4,
@@ -1731,16 +1731,16 @@
         "coding": 57.28,
         "math": 86.99,
         "instruction_following": 63.22,
-        "human_preference": 78.49
+        "human_preference": 78.86
       },
       "category_errors": {
         "reasoning": 2.602,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.651
+        "human_preference": 1.656
       },
-      "composite": 73.99,
+      "composite": 74.04,
       "composite_error": 0.7,
       "uncertainty": {
         "measured_inputs": 2,
@@ -1799,17 +1799,17 @@
         "coding": 67.91,
         "math": 92.94,
         "instruction_following": 63.86,
-        "human_preference": 71.66
+        "human_preference": 71.44
       },
       "category_errors": {
         "reasoning": 1.518,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.172
+        "human_preference": 2.115
       },
-      "composite": 73.57,
-      "composite_error": 0.5,
+      "composite": 73.54,
+      "composite_error": 0.49,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -1866,17 +1866,17 @@
         "coding": 53.57,
         "math": 90.68,
         "instruction_following": 62.35,
-        "human_preference": 75.3
+        "human_preference": 75.41
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.832
+        "human_preference": 1.838
       },
-      "composite": 72.85,
-      "composite_error": 0.27,
+      "composite": 72.86,
+      "composite_error": 0.28,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -1928,17 +1928,17 @@
         "coding": 65.64,
         "math": 81.24,
         "instruction_following": 52.82,
-        "human_preference": 84.38
+        "human_preference": 85.04
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 4.08
+        "human_preference": 3.068
       },
-      "composite": 72.65,
-      "composite_error": 0.61,
+      "composite": 72.75,
+      "composite_error": 0.46,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -1995,16 +1995,16 @@
         "coding": 55.68,
         "math": 90.39,
         "instruction_following": 62.55,
-        "human_preference": 73.5
+        "human_preference": 73.73
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.793
+        "human_preference": 1.8
       },
-      "composite": 72.43,
+      "composite": 72.46,
       "composite_error": 0.27,
       "uncertainty": {
         "measured_inputs": 1,
@@ -2057,16 +2057,16 @@
         "math": 68.32,
         "coding": 63.23,
         "instruction_following": 66.74,
-        "human_preference": 90.12
+        "human_preference": 90.4
       },
       "category_errors": {
         "reasoning": 1.588,
         "math": 2.86,
         "coding": null,
         "instruction_following": null,
-        "human_preference": 1.775
+        "human_preference": 1.781
       },
-      "composite": 72.09,
+      "composite": 72.13,
       "composite_error": 0.75,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2125,16 +2125,16 @@
         "math": 70.78,
         "coding": 63.03,
         "instruction_following": 72.03,
-        "human_preference": 75.72
+        "human_preference": 75.97
       },
       "category_errors": {
         "reasoning": 1.622,
         "math": 2.878,
         "coding": null,
         "instruction_following": null,
-        "human_preference": 1.963
+        "human_preference": 1.918
       },
-      "composite": 71.51,
+      "composite": 71.55,
       "composite_error": 0.76,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2193,16 +2193,16 @@
         "math": 70.88,
         "coding": 63.32,
         "instruction_following": 70.22,
-        "human_preference": 75.99
+        "human_preference": 76.26
       },
       "category_errors": {
         "reasoning": 1.562,
         "math": 2.842,
         "coding": null,
         "instruction_following": null,
-        "human_preference": 1.733
+        "human_preference": 1.74
       },
-      "composite": 70.81,
+      "composite": 70.86,
       "composite_error": 0.74,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2260,15 +2260,15 @@
         "reasoning": 83.21,
         "math": 35.64,
         "coding": 75.41,
-        "human_preference": 82.5
+        "human_preference": 82.74
       },
       "category_errors": {
         "reasoning": 3.732,
         "math": 5.531,
         "coding": 3.84,
-        "human_preference": 2.018
+        "human_preference": 2.026
       },
-      "composite": 69.6,
+      "composite": 69.64,
       "composite_error": 2.07,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2328,17 +2328,17 @@
         "coding": 58.04,
         "math": 88.36,
         "instruction_following": 70.1,
-        "human_preference": 69.52
+        "human_preference": 69.85
       },
       "category_errors": {
         "reasoning": 1.621,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.352
+        "human_preference": 2.277
       },
-      "composite": 70.37,
-      "composite_error": 0.54,
+      "composite": 70.42,
+      "composite_error": 0.53,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 7,
@@ -2390,16 +2390,16 @@
         "coding": 62.23,
         "math": 87.2,
         "instruction_following": 60.12,
-        "human_preference": 65.77
+        "human_preference": 66.16
       },
       "category_errors": {
         "reasoning": 1.519,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.291
+        "human_preference": 2.223
       },
-      "composite": 70.07,
+      "composite": 70.13,
       "composite_error": 0.51,
       "uncertainty": {
         "measured_inputs": 3,
@@ -2458,16 +2458,16 @@
         "coding": 56.4,
         "math": 90.98,
         "instruction_following": 67.2,
-        "human_preference": 39.41
+        "human_preference": 39.51
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.771
+        "human_preference": 1.777
       },
-      "composite": 68.56,
+      "composite": 68.58,
       "composite_error": 0.27,
       "uncertainty": {
         "measured_inputs": 1,
@@ -2526,16 +2526,16 @@
         "coding": 51.67,
         "math": 76.95,
         "instruction_following": 57.51,
-        "human_preference": 68.01
+        "human_preference": 67.72
       },
       "category_errors": {
         "reasoning": 2.007,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.989
+        "human_preference": 1.938
       },
-      "composite": 67.81,
+      "composite": 67.76,
       "composite_error": 0.58,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2594,16 +2594,16 @@
         "math": 61.62,
         "coding": 68.12,
         "instruction_following": 64.36,
-        "human_preference": 77.17
+        "human_preference": 77.34
       },
       "category_errors": {
         "reasoning": 1.493,
         "math": 2.812,
         "coding": 1.887,
         "instruction_following": null,
-        "human_preference": 2.076
+        "human_preference": 2.085
       },
-      "composite": 67.67,
+      "composite": 67.7,
       "composite_error": 0.88,
       "uncertainty": {
         "measured_inputs": 5,
@@ -2662,16 +2662,16 @@
         "coding": 57.58,
         "math": 73.74,
         "instruction_following": 67.24,
-        "human_preference": 68.57
+        "human_preference": 68.79
       },
       "category_errors": {
         "reasoning": 2.602,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 2.383
+        "human_preference": 2.296
       },
-      "composite": 67.45,
+      "composite": 67.49,
       "composite_error": 0.74,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2729,15 +2729,15 @@
         "reasoning": 68.14,
         "math": 65.27,
         "coding": 73.55,
-        "human_preference": 54.57
+        "human_preference": 54.79
       },
       "category_errors": {
         "reasoning": 2.56,
         "math": 2.716,
         "coding": 3.934,
-        "human_preference": 2.041
+        "human_preference": 2.05
       },
-      "composite": 66.66,
+      "composite": 66.7,
       "composite_error": 1.56,
       "uncertainty": {
         "measured_inputs": 6,
@@ -2859,16 +2859,16 @@
         "coding": 53.65,
         "math": 78.46,
         "instruction_following": 59.8,
-        "human_preference": 57.43
+        "human_preference": 57.58
       },
       "category_errors": {
         "reasoning": 2.358,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.755
+        "human_preference": 1.761
       },
-      "composite": 66.46,
+      "composite": 66.48,
       "composite_error": 0.65,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2987,17 +2987,17 @@
         "coding": 50.27,
         "math": 79.65,
         "instruction_following": 63.14,
-        "human_preference": 66.5
+        "human_preference": 66.64
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
         "math": null,
         "instruction_following": null,
-        "human_preference": 1.899
+        "human_preference": 1.905
       },
-      "composite": 65.59,
-      "composite_error": 0.28,
+      "composite": 65.61,
+      "composite_error": 0.29,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 5,
@@ -3049,16 +3049,16 @@
         "math": 66.75,
         "coding": 67.17,
         "instruction_following": 61.77,
-        "human_preference": 59.52
+        "human_preference": 59.58
       },
       "category_errors": {
         "reasoning": 1.589,
         "math": 2.829,
         "coding": 1.962,
         "instruction_following": null,
-        "human_preference": 1.65
+        "human_preference": 1.656
       },
-      "composite": 65.48,
+      "composite": 65.49,
       "composite_error": 0.88,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3115,15 +3115,15 @@
         "reasoning": 87.82,
         "math": 16.43,
         "coding": 72.08,
-        "human_preference": 73.14
+        "human_preference": 73.3
       },
       "category_errors": {
         "reasoning": 4.579,
         "math": 4.302,
         "coding": 4.094,
-        "human_preference": 1.985
+        "human_preference": 1.994
       },
-      "composite": 63.8,
+      "composite": 63.83,
       "composite_error": 2.1,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3176,15 +3176,15 @@
         "reasoning": 61.95,
         "math": 33.45,
         "coding": 74.17,
-        "human_preference": 80.66
+        "human_preference": 80.72
       },
       "category_errors": {
         "reasoning": 2.566,
         "math": 5.439,
         "coding": 3.9,
-        "human_preference": 1.818
+        "human_preference": 1.784
       },
-      "composite": 62.14,
+      "composite": 62.15,
       "composite_error": 1.9,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3209,7 +3209,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 48,
-      "tied_with": 2,
+      "tied_with": 3,
       "cohort_recalibration": null
     },
     {
@@ -3238,16 +3238,16 @@
         "math": 54.97,
         "coding": 56.97,
         "instruction_following": 58.34,
-        "human_preference": 68.92
+        "human_preference": 69.04
       },
       "category_errors": {
         "reasoning": 1.811,
         "math": 2.535,
         "coding": 2.202,
         "instruction_following": null,
-        "human_preference": 1.937
+        "human_preference": 1.944
       },
-      "composite": 61.69,
+      "composite": 61.71,
       "composite_error": 0.92,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3270,7 +3270,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 48,
-      "tied_with": 2,
+      "tied_with": 3,
       "cohort_recalibration": null
     },
     {
@@ -3298,15 +3298,15 @@
         "reasoning": 69.69,
         "math": 23.1,
         "coding": 76.65,
-        "human_preference": 73.16
+        "human_preference": 73.3
       },
       "category_errors": {
         "reasoning": 2.789,
         "math": 4.859,
         "coding": 3.773,
-        "human_preference": 3.827
+        "human_preference": 3.844
       },
-      "composite": 61.39,
+      "composite": 61.41,
       "composite_error": 1.92,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3331,75 +3331,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 48,
-      "tied_with": 2,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "xai-grok-4.3",
-      "display_name": "grok-4.3_high",
-      "provider_id": "xai",
-      "is_open_weights": false,
-      "license": "Hosted access (no API)",
-      "api_only": true,
-      "release_date": "2026-04-17",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 70.82,
-        "coding": 39.09,
-        "math": 84.34,
-        "instruction_following": 62.75,
-        "human_preference": 51.08
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 1.722
-      },
-      "composite": 61.42,
-      "composite_error": 0.26,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 3,
-        "max_sources": 3,
-        "benchmarks": 7
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": {
-        "rating": 1227.8,
-        "rank": 65,
-        "variant": "grok-4.3",
-        "measured_at": "2026-08-27",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 49,
-      "tied_with": 2,
+      "tied_with": 3,
       "cohort_recalibration": null
     },
     {
@@ -3428,15 +3360,15 @@
         "reasoning": 67.81,
         "math": 31.03,
         "coding": 67.98,
-        "human_preference": 71.04
+        "human_preference": 71.27
       },
       "category_errors": {
         "reasoning": 2.404,
         "math": 5.333,
         "coding": 4.161,
-        "human_preference": 1.719
+        "human_preference": 1.726
       },
-      "composite": 59.78,
+      "composite": 59.82,
       "composite_error": 1.91,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3466,8 +3398,76 @@
         "measured_at": "2026-08-27",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": 48,
+      "tied_with": 3,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "xai-grok-4.3",
+      "display_name": "grok-4.3_high",
+      "provider_id": "xai",
+      "is_open_weights": false,
+      "license": "Hosted access (no API)",
+      "api_only": true,
+      "release_date": "2026-04-17",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 70.82,
+        "coding": 39.09,
+        "math": 84.34,
+        "instruction_following": 62.75,
+        "human_preference": 50.91
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 1.714
+      },
+      "composite": 61.39,
+      "composite_error": 0.26,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1227.8,
+        "rank": 65,
+        "variant": "grok-4.3",
+        "measured_at": "2026-08-27",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": 49,
-      "tied_with": 2,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -3496,15 +3496,15 @@
         "reasoning": 85.29,
         "math": 14.14,
         "coding": 57.56,
-        "human_preference": 78.37
+        "human_preference": 78.64
       },
       "category_errors": {
         "reasoning": 4.149,
         "math": 4.016,
         "coding": 4.412,
-        "human_preference": 1.134
+        "human_preference": 1.138
       },
-      "composite": 59.17,
+      "composite": 59.22,
       "composite_error": 2.03,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3535,7 +3535,7 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 49,
-      "tied_with": 2,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -3563,15 +3563,15 @@
         "reasoning": 73.23,
         "math": 5.86,
         "coding": 73.35,
-        "human_preference": 60.12
+        "human_preference": 60.33
       },
       "category_errors": {
         "reasoning": 6.182,
         "math": 2.709,
         "coding": 3.944,
-        "human_preference": 1.382
+        "human_preference": 1.387
       },
-      "composite": 55.1,
+      "composite": 55.14,
       "composite_error": 2.26,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3624,15 +3624,15 @@
         "reasoning": 48.72,
         "math": 9.31,
         "coding": 71.28,
-        "human_preference": 69.42
+        "human_preference": 69.63
       },
       "category_errors": {
         "reasoning": 3.343,
         "math": 3.35,
         "coding": 4.036,
-        "human_preference": 1.334
+        "human_preference": 1.339
       },
-      "composite": 49.74,
+      "composite": 49.77,
       "composite_error": 1.75,
       "uncertainty": {
         "measured_inputs": 5,
@@ -3684,13 +3684,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 87.88,
-        "human_preference": 76.58
+        "human_preference": 76.98
       },
       "category_errors": {
         "reasoning": 4.557,
-        "human_preference": 2.06
+        "human_preference": 2.049
       },
-      "composite": 83.64,
+      "composite": 83.79,
       "composite_error": 2.95,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3750,14 +3750,14 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 85.86,
-        "human_preference": 69.11
+        "human_preference": 69.76
       },
       "category_errors": {
         "reasoning": 4.867,
-        "human_preference": 1.539
+        "human_preference": 1.522
       },
-      "composite": 79.58,
-      "composite_error": 3.1,
+      "composite": 79.82,
+      "composite_error": 3.09,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 2,
@@ -3816,14 +3816,14 @@
       "category_scores": {
         "reasoning": 60.67,
         "math": 97.13,
-        "human_preference": 69.76
+        "human_preference": 70.04
       },
       "category_errors": {
         "reasoning": 3.097,
         "math": 0.823,
-        "human_preference": 2.079
+        "human_preference": 2.088
       },
-      "composite": 75.1,
+      "composite": 75.17,
       "composite_error": 1.42,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3875,13 +3875,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 84.22,
-        "human_preference": 58.44
+        "human_preference": 58.67
       },
       "category_errors": {
         "reasoning": 4.092,
-        "human_preference": 1.438
+        "human_preference": 1.444
       },
-      "composite": 74.55,
+      "composite": 74.64,
       "composite_error": 2.61,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3935,13 +3935,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 82.51,
-        "human_preference": 60.94
+        "human_preference": 61.1
       },
       "category_errors": {
         "reasoning": 4.416,
-        "human_preference": 2.314
+        "human_preference": 2.322
       },
-      "composite": 74.42,
+      "composite": 74.48,
       "composite_error": 2.89,
       "uncertainty": {
         "measured_inputs": 2,
@@ -4001,13 +4001,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 81.82,
-        "human_preference": 58.89
+        "human_preference": 59.06
       },
       "category_errors": {
         "reasoning": 5.386,
-        "human_preference": 1.707
+        "human_preference": 1.714
       },
-      "composite": 73.22,
+      "composite": 73.28,
       "composite_error": 3.43,
       "uncertainty": {
         "measured_inputs": 2,
@@ -4068,14 +4068,14 @@
       "category_scores": {
         "reasoning": 89.8,
         "math": 39.0,
-        "human_preference": 85.57
+        "human_preference": 85.89
       },
       "category_errors": {
         "reasoning": 4.312,
         "math": 5.684,
-        "human_preference": 2.673
+        "human_preference": 2.686
       },
-      "composite": 71.81,
+      "composite": 71.89,
       "composite_error": 2.7,
       "uncertainty": {
         "measured_inputs": 3,
@@ -4133,13 +4133,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 83.46,
-        "human_preference": 49.81
+        "human_preference": 49.94
       },
       "category_errors": {
         "reasoning": 4.271,
-        "human_preference": 1.975
+        "human_preference": 1.983
       },
-      "composite": 70.84,
+      "composite": 70.89,
       "composite_error": 2.77,
       "uncertainty": {
         "measured_inputs": 2,
@@ -4192,13 +4192,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.77,
-        "human_preference": 68.33
+        "human_preference": 68.53
       },
       "category_errors": {
         "reasoning": 2.741,
-        "human_preference": 2.798
+        "human_preference": 2.81
       },
-      "composite": 61.73,
+      "composite": 61.8,
       "composite_error": 2.01,
       "uncertainty": {
         "measured_inputs": 3,
@@ -4253,14 +4253,14 @@
       "category_scores": {
         "reasoning": 65.61,
         "math": 58.23,
-        "human_preference": 56.32
+        "human_preference": 56.53
       },
       "category_errors": {
         "reasoning": 2.598,
         "math": 2.274,
-        "human_preference": 1.663
+        "human_preference": 1.67
       },
-      "composite": 60.83,
+      "composite": 60.88,
       "composite_error": 1.39,
       "uncertainty": {
         "measured_inputs": 5,
@@ -4318,13 +4318,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 60.24,
-        "human_preference": 58.62
+        "human_preference": 58.91
       },
       "category_errors": {
         "reasoning": 2.968,
-        "human_preference": 3.007
+        "human_preference": 3.019
       },
-      "composite": 59.63,
+      "composite": 59.74,
       "composite_error": 2.17,
       "uncertainty": {
         "measured_inputs": 3,
@@ -4379,14 +4379,14 @@
       "category_scores": {
         "reasoning": 34.3,
         "coding": 73.76,
-        "human_preference": 72.87
+        "human_preference": 73.01
       },
       "category_errors": {
         "reasoning": 2.944,
         "coding": 3.924,
-        "human_preference": 1.535
+        "human_preference": 1.539
       },
-      "composite": 58.38,
+      "composite": 58.41,
       "composite_error": 1.92,
       "uncertainty": {
         "measured_inputs": 3,
@@ -4446,14 +4446,14 @@
       "category_scores": {
         "reasoning": 87.0,
         "math": 19.66,
-        "human_preference": 57.08
+        "human_preference": 57.26
       },
       "category_errors": {
         "reasoning": 3.92,
         "math": 4.582,
-        "human_preference": 1.81
+        "human_preference": 1.817
       },
-      "composite": 57.07,
+      "composite": 57.12,
       "composite_error": 2.28,
       "uncertainty": {
         "measured_inputs": 3,
@@ -4512,14 +4512,14 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 53.81,
-        "human_preference": 58.21
+        "human_preference": 57.51
       },
       "category_errors": {
         "reasoning": 2.234,
-        "human_preference": 2.66
+        "human_preference": 2.525
       },
-      "composite": 55.46,
-      "composite_error": 1.72,
+      "composite": 55.2,
+      "composite_error": 1.69,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 3,
@@ -4577,13 +4577,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 55.62,
-        "human_preference": 44.26
+        "human_preference": 44.45
       },
       "category_errors": {
         "reasoning": 5.653,
-        "human_preference": 2.249
+        "human_preference": 2.258
       },
-      "composite": 51.36,
+      "composite": 51.43,
       "composite_error": 3.63,
       "uncertainty": {
         "measured_inputs": 2,
@@ -4638,14 +4638,14 @@
       "category_scores": {
         "reasoning": 48.3,
         "math": 62.54,
-        "human_preference": 39.4
+        "human_preference": 39.53
       },
       "category_errors": {
         "reasoning": 2.571,
         "math": 2.588,
-        "human_preference": 2.102
+        "human_preference": 2.111
       },
-      "composite": 50.82,
+      "composite": 50.85,
       "composite_error": 1.47,
       "uncertainty": {
         "measured_inputs": 5,
@@ -4704,14 +4704,14 @@
       "category_scores": {
         "reasoning": 36.84,
         "math": 45.52,
-        "human_preference": 49.58
+        "human_preference": 50.25
       },
       "category_errors": {
         "reasoning": 2.951,
         "math": 1.377,
-        "human_preference": 1.167
+        "human_preference": 1.161
       },
-      "composite": 42.92,
+      "composite": 43.09,
       "composite_error": 1.34,
       "uncertainty": {
         "measured_inputs": 5,
@@ -4767,7 +4767,7 @@
       },
       "category_errors": {
         "reasoning": 4.873,
-        "human_preference": 2.939
+        "human_preference": 2.951
       },
       "composite": 38.0,
       "composite_error": 3.24,
@@ -4824,14 +4824,14 @@
       "category_scores": {
         "reasoning": 40.57,
         "math": 51.59,
-        "human_preference": 14.9
+        "human_preference": 14.96
       },
       "category_errors": {
         "reasoning": 2.882,
         "math": 1.658,
-        "human_preference": 3.145
+        "human_preference": 3.159
       },
-      "composite": 37.83,
+      "composite": 37.84,
       "composite_error": 1.54,
       "uncertainty": {
         "measured_inputs": 5,
@@ -4890,14 +4890,14 @@
       "category_scores": {
         "reasoning": 51.32,
         "math": 6.21,
-        "human_preference": 50.81
+        "human_preference": 50.94
       },
       "category_errors": {
         "reasoning": 2.942,
         "math": 2.781,
-        "human_preference": 1.722
+        "human_preference": 1.727
       },
-      "composite": 36.16,
+      "composite": 36.19,
       "composite_error": 1.6,
       "uncertainty": {
         "measured_inputs": 4,
@@ -4950,13 +4950,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 10.4,
-        "human_preference": 71.05
+        "human_preference": 71.21
       },
       "category_errors": {
         "reasoning": 1.893,
-        "human_preference": 3.465
+        "human_preference": 3.481
       },
-      "composite": 33.14,
+      "composite": 33.2,
       "composite_error": 1.76,
       "uncertainty": {
         "measured_inputs": 2,
@@ -5016,13 +5016,13 @@
       "status": "verified",
       "category_scores": {
         "math": 4.84,
-        "human_preference": 59.76
+        "human_preference": 59.98
       },
       "category_errors": {
         "math": 2.479,
-        "human_preference": 1.119
+        "human_preference": 1.123
       },
-      "composite": 28.38,
+      "composite": 28.47,
       "composite_error": 1.5,
       "uncertainty": {
         "measured_inputs": 2,
