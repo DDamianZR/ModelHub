@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-12T10:44:58+00:00",
+  "generated_at": "2026-09-13T11:49:39+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-12",
+      "last_success": "2026-09-13",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-12",
+      "last_success": "2026-09-13",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-09-12",
+      "last_success": "2026-09-13",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-12",
+      "date": "2026-09-13",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 79,
+      "age_days": 80,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,7 +49,7 @@
     },
     "lmarena": {
       "date": "2026-09-11",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -70,8 +70,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "1ffb2befc2055e24e976b46fc015b0a4686ce571b2ea1b1fc17883f7c4aead96",
-          "bytes": 2283233
+          "sha256": "f1bffa800cbe2a748831efd2c401e2744f50c132c6d4d7fcbb735289b6ef73ef",
+          "bytes": 2283222
         }
       ]
     },
@@ -103,7 +103,7 @@
     },
     "lmarena": {
       "normalised_sha256": "6428fc3d6519ed99de1f73d9682e1b2a10bf6046b808645894bc1c0c4b35f3c2",
-      "requests": 10,
+      "requests": 9,
       "upstream": []
     }
   }
