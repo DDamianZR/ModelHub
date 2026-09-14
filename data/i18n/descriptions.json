@@ -426,9 +426,9 @@
     "generated_by": "qwen3-coder:30b"
   },
   "xai-grok-4.6": {
-    "en": "Grok 4.6 is a language model built by xAI in the United States in August 2026. API-only: its weights are not published, so it cannot be run locally. Performs relatively stronger in Math and Reasoning. Somewhat lower in Coding and Instructions. No data for any unmeasured category.",
-    "es": "Grok 4.6 es un modelo de lenguaje desarrollado por xAI en Estados Unidos en agosto de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Razonamiento. Deja algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
-    "generated_at": "2026-08-14",
+    "en": "Grok 4.6 is a language model built by xAI in the United States in August 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Human preference.",
+    "es": "Grok 4.6 es un modelo de lenguaje desarrollado por xAI en Estados Unidos en agosto de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código y Preferencia humana.",
+    "generated_at": "2026-09-13",
     "generated_by": "qwen3-coder:30b"
   },
   "z-ai-zhipu-ai-glm-4.7": {
@@ -456,9 +456,9 @@
     "generated_by": "qwen3-coder:30b"
   },
   "z-ai-zhipu-ai-glm-5.3": {
-    "en": "GLM-5.3 is a language model built by Z.ai in China, released on August 14, 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions.",
-    "es": "GLM-5.3 es un modelo de lenguaje desarrollado por Z.ai en China, lanzado el 14 de agosto de 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones.",
-    "generated_at": "2026-09-07",
+    "en": "GLM-5.3 is a language model built by Z.ai in August 2026. It is obtained API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is relatively lower in Coding and Instructions. No data for any unmeasured category.",
+    "es": "GLM-5.3 es un modelo de lenguaje desarrollado por Z.ai en agosto de 2026. Se obtiene únicamente mediante API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Deja algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
+    "generated_at": "2026-09-13",
     "generated_by": "qwen3-coder:30b"
   },
   "z-ai-zhipu-ai-glm-5.3-flash": {
