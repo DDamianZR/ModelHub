@@ -1343,6 +1343,25 @@
       "lmarena": []
     }
   },
+  "meta-ai-muse-spark-1.3": {
+    "canonical_key": "muse-spark-1.3",
+    "display_name": "Muse Spark 1.3 (xhigh)",
+    "variant": "xhigh",
+    "scored_arena_name": "muse-spark-1.3-max",
+    "names": [
+      "muse-spark-1.3",
+      "muse-spark-1.3-max"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "muse-spark-1.3-xhigh"
+      ],
+      "lmarena": [
+        "muse-spark-1.3-max"
+      ]
+    }
+  },
   "openai-o3": {
     "canonical_key": "o3",
     "display_name": "o3 Pro (unknown thinking)",
