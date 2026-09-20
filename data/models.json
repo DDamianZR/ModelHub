@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-19",
+    "generated_at": "2026-09-20",
     "model_count": 79,
     "ranked_count": 57,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-19",
+      "epoch": "2026-09-20",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-13",
       "lmarena_vision": "2026-09-13"
@@ -22,7 +22,7 @@
   "models": [
     {
       "id": "meta-ai-muse-spark-1.3",
-      "display_name": "Muse Spark 1.3 (xhigh)",
+      "display_name": "Muse Spark 1.3 (max)",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
