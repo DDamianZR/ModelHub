@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-25",
+  "fetched_at": "2026-09-26",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -251,7 +251,7 @@
         "release_date": "2026-07-24"
       },
       "claude-opus-5-5": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Opus 5.5 (max)",
         "eci": 0.0,
@@ -825,6 +825,14 @@
         "eci": 0.0,
         "organization": "Google",
         "release_date": "2026-04-14"
+      },
+      "gemma-3-270m": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "United States of America",
+        "display_name": "gemma-3-270m-it",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2025-08-14"
       },
       "gemma-4-26b-a4b": {
         "accessibility": "Open weights (unrestricted)",
@@ -1881,6 +1889,14 @@
         "eci": 0.0,
         "organization": "Unknown",
         "release_date": "2025-09-23"
+      },
+      "qwen3.5-0.8b": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "China",
+        "display_name": "qwen3.5-0.8b",
+        "eci": 0.0,
+        "organization": "Alibaba",
+        "release_date": "2026-02-24"
       },
       "qwen3.5-122b-a10b": {
         "accessibility": "Open weights (restricted use)",

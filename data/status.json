@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-25T11:48:02+00:00",
+  "generated_at": "2026-09-26T11:20:14+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-25",
+      "last_success": "2026-09-26",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-25",
+      "last_success": "2026-09-26",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-09-25",
+      "last_success": "2026-09-26",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-25",
+      "date": "2026-09-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 92,
+      "age_days": 93,
       "freshness": "aging",
       "cadence_days": 30,
       "warn_days": 60,
@@ -48,9 +48,9 @@
       }
     },
     "lmarena": {
-      "date": "2026-09-13",
-      "age_days": 12,
-      "freshness": "aging",
+      "date": "2026-09-25",
+      "age_days": 1,
+      "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
@@ -65,13 +65,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "90d074a3aac58dd9a22d2b0372c15fa7a5666a3628e44efede51f5a0b311ab51",
+      "normalised_sha256": "fad9b83dc52ded04bb9a726cd6ccd6d8c51fbdbc2ca5178c137ef2fcd8d290e5",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "a6679f2573711262f62f18fcc819d4bb6f88766ce1acfa0a8bd306ccf0408b85",
-          "bytes": 2317354
+          "sha256": "365070cfcef6f99624c814370e0e3266c0396e038d673ae841197e13e2967ba9",
+          "bytes": 2317456
         }
       ]
     },
@@ -102,8 +102,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "744304f7cc0d3af602c4f089b268a16ef3b616d2d4712c8a721e90599b3b98bb",
-      "requests": 12,
+      "normalised_sha256": "b3c42678cd7aa69526a7cae40d45bb9d970b39196eeb72526609f2e5a2f71da0",
+      "requests": 7,
       "upstream": []
     }
   }
