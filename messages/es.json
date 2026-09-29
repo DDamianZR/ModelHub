@@ -17,8 +17,8 @@
     "degraded": "Fuente sin actualizar",
     "degradedSource": "{source} no responde desde el {since}; se muestra su corte del {snapshot}",
     "aging": "Dato envejecido",
-    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar corte nuevo (último: {date})",
-    "agingSourceNormal": "{source}: {days, plural, one {# día} other {# días}} desde su último corte, dentro de su ritmo habitual (mediana {median} días)"
+    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar datos nuevos (último: {date})",
+    "agingSourceNormal": "{source}: {days, plural, one {# día} other {# días}} desde sus últimos datos publicados, dentro de su ritmo habitual (mediana {median} días)"
   },
   "filters": {
     "label": "Filtros",
@@ -53,7 +53,7 @@
     "apiOnly": "Solo API",
     "noHistory": "Sin historial suficiente",
     "agedCategory": "{days, plural, one {#d} other {#d}}",
-    "agedCategoryTitle": "La fuente de esta categoría no publica corte nuevo desde hace {days, plural, one {# día} other {# días}}",
+    "agedCategoryTitle": "La fuente de esta categoría no publica datos nuevos desde hace {days, plural, one {# día} other {# días}}",
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotes": "Sin voto humano aún",
@@ -256,10 +256,10 @@
       "source": "Fuente",
       "ratio": "Ratio",
       "reason": "Motivo",
-      "cadence": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. LiveBench declara {declared} días; su mediana observada sobre {snapshots} snapshots publicados es de {median}, así que la declaración se sostiene. Su hueco más largo fue de {longest} días, y durante ese hueco el estado degradado sí se activó, a los {degraded}. Fuentes envejecidas ahora mismo:",
+      "cadence": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. LiveBench declara {declared} días; su mediana observada sobre {snapshots} snapshots publicados es de {median}, así que la declaración se sostiene. Su hueco más largo fue de {longest} días, y durante ese hueco el estado degradado sí se activó, a los {degraded}. LiveBench, además, agrega modelos a su corte vigente sin cambiarle la fecha, así que su edad cuenta desde el último modelo que publicó, y cada uno de sus números lleva la fecha de la primera ingesta diaria que lo vio, nunca una anterior a su corte. Fuentes envejecidas ahora mismo:",
       "agedItem": "{days, plural, one {# día} other {# días}} de antigüedad, estado {state}",
       "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
-      "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. Fuentes envejecidas ahora mismo:"
+      "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. LiveBench, además, agrega modelos a su corte vigente sin cambiarle la fecha, así que su edad cuenta desde el último modelo que publicó, y cada uno de sus números lleva la fecha de la primera ingesta diaria que lo vio, nunca una anterior a su corte. Fuentes envejecidas ahora mismo:"
     }
   },
   "ui": {

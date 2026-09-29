@@ -17,8 +17,8 @@
     "degraded": "Source not refreshed",
     "degradedSource": "{source} has not responded since {since}; showing its {snapshot} snapshot",
     "aging": "Data ageing",
-    "agingSource": "{source} has not published a new snapshot in {days, plural, one {# day} other {# days}} (last: {date})",
-    "agingSourceNormal": "{source}: {days, plural, one {# day} other {# days}} since its last snapshot, within its normal rhythm (median {median} days)"
+    "agingSource": "{source} has not published new numbers in {days, plural, one {# day} other {# days}} (last: {date})",
+    "agingSourceNormal": "{source}: {days, plural, one {# day} other {# days}} since it last published numbers, within its normal rhythm (median {median} days)"
   },
   "filters": {
     "label": "Filters",
@@ -53,7 +53,7 @@
     "apiOnly": "API only",
     "noHistory": "Not enough history",
     "agedCategory": "{days, plural, one {#d} other {#d}}",
-    "agedCategoryTitle": "The source behind this category has not published a new snapshot in {days, plural, one {# day} other {# days}}",
+    "agedCategoryTitle": "The source behind this category has not published new numbers in {days, plural, one {# day} other {# days}}",
     "provisionalTitle": "Provisional · not ranked",
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotes": "No human votes yet",
@@ -256,10 +256,10 @@
       "source": "Source",
       "ratio": "Ratio",
       "reason": "Reason",
-      "cadence": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. LiveBench declares {declared} days; its observed median across {snapshots} published snapshots is {median}, so the declaration holds. Its longest gap was {longest} days, and during that gap the degraded state did fire, at {degraded}. Sources ageing right now:",
+      "cadence": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. LiveBench declares {declared} days; its observed median across {snapshots} published snapshots is {median}, so the declaration holds. Its longest gap was {longest} days, and during that gap the degraded state did fire, at {degraded}. LiveBench also adds models to its current snapshot without changing its date, so its age counts from the last model it published, and each of its numbers carries the date of the first daily ingest that saw it, never one earlier than its snapshot. Sources ageing right now:",
       "agedItem": "{days, plural, one {# day} other {# days}} old, state {state}",
       "agedNone": "None. All three sources are within their declared rhythm.",
-      "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. Sources ageing right now:"
+      "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. LiveBench also adds models to its current snapshot without changing its date, so its age counts from the last model it published, and each of its numbers carries the date of the first daily ingest that saw it, never one earlier than its snapshot. Sources ageing right now:"
     }
   },
   "ui": {
