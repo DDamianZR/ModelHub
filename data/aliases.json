@@ -201,6 +201,25 @@
       ]
     }
   },
+  "anthropic-claude-opus-5-5": {
+    "canonical_key": "claude-opus-5-5",
+    "display_name": "Claude Opus 5.5 (max)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "claude-opus-5-5"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-opus-5-5_max"
+      ],
+      "livebench": [
+        "claude-opus-5-5-max-effort",
+        "claude-opus-5-5-xhigh-effort"
+      ],
+      "lmarena": []
+    }
+  },
   "anthropic-claude-sonnet-4-5": {
     "canonical_key": "claude-sonnet-4-5",
     "display_name": "Claude Sonnet 4.5 (no thinking)",

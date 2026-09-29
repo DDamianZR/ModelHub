@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28",
+  "fetched_at": "2026-09-29",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -369,6 +369,14 @@
         "eci": 156.34,
         "organization": "Anthropic",
         "release_date": "2026-06-30"
+      },
+      "claude-sonnet-5-5": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Sonnet 5.5 (high)",
+        "eci": 0.0,
+        "organization": "Anthropic",
+        "release_date": "2026-09-28"
       },
       "codestral-2508": {
         "accessibility": "Open weights (non-commercial)",
@@ -2752,6 +2760,28 @@
           "stderr": 1.551,
           "value": 59.9,
           "variant": "claude-opus-5_max"
+        }
+      ],
+      "claude-opus-5-5": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-09-22",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.943,
+          "value": 90.59,
+          "variant": "claude-opus-5-5_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-09-22",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.417,
+          "value": 72.2,
+          "variant": "claude-opus-5-5_max"
         }
       ],
       "claude-sonnet-4-5": [
