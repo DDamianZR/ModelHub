@@ -7,7 +7,7 @@
 
 *[Read this in English](README.md)*
 
-**El baremo independiente de modelos frontera.** *The independent frontier model scoreboard.*
+**Medimos modelos. No marketing.** *We measure models. Not marketing.*
 
 Un ranking abierto de modelos de IA frontera — cerrados y open-weights en la misma cancha —
 hecho para que se vea quién va realmente adelante sin leerlo a través del marketing de las

@@ -7,7 +7,7 @@
 
 *[Léeme en español](README.es.md)*
 
-**The independent frontier model scoreboard.** *El baremo independiente de modelos frontera.*
+**We measure models. Not marketing.** *Medimos modelos. No marketing.*
 
 An open ranking of frontier AI models — closed and open-weights on the same field — built so
 you can see who is actually ahead without reading it through the marketing of the companies
