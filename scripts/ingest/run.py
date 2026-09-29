@@ -28,6 +28,7 @@ from .common import (
     write_cache,
     write_json,
 )
+from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .sources import epoch, livebench, lmarena
 
@@ -433,6 +434,9 @@ def main() -> int:
     seen = set(DIGESTS)
     livebench_payload, livebench_status = gather("livebench", livebench.collect)
     integrity["livebench"] = integrity_for(seen, livebench_payload)
+    # LiveBench adds models to its current table without changing the snapshot date, so
+    # each row is dated by the first ingest that saw it rather than by the question set.
+    livebench_rows = row_dates.apply(livebench_payload, date.today().isoformat())
 
     seen = set(DIGESTS)
     arena_payload, arena_status = gather("lmarena", lmarena.collect)
@@ -591,11 +595,16 @@ def main() -> int:
         # Epoch publishes no snapshot date of its own, so its age is days since we last
         # fetched it successfully - which is the right staleness signal for a daily source.
         "epoch": snapshot_age(epoch_status.get("last_success"), cadences.get("epoch_ai")),
+        # LiveBench ages from the last number it published, not from its question set: a
+        # table that gained a model last week is not serving months-old numbers.
         "livebench": snapshot_age(
-            livebench_payload.get("snapshot"), cadences.get("livebench")
+            row_dates.latest(livebench_rows) if livebench_rows
+            else livebench_payload.get("snapshot"),
+            cadences.get("livebench"),
         ),
         "lmarena": snapshot_age(arena_payload.get("snapshot"), cadences.get("lmarena")),
     }
+    snapshot_ages["livebench"]["snapshot"] = livebench_payload.get("snapshot")
     # The composite category each source feeds, so the table can flag the affected column
     # rather than only showing a page-level banner.
     snapshot_ages["lmarena"]["category"] = "human_preference"
