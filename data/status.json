@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T16:36:38+00:00",
+  "generated_at": "2026-09-29T17:39:37+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -66,13 +66,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "94155e69ab8863899efd890c4c4328168877c783713e9cee34210dd63d35fd7f",
+      "normalised_sha256": "2342ec85799f1ec81c38726f8453341eeedac888be910082a6b47cb2fdf4a267",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "6392bd99edfdcb4c009adfbcd037425eb736b683941b468422667cbf8ddf4aab",
-          "bytes": 2321952
+          "sha256": "2cb648367dc7068c5fcdd8ffc8d50b8d2aaf72ee1fc96da0d6a7e4de026cdb52",
+          "bytes": 2321960
         }
       ]
     },
@@ -104,7 +104,7 @@
     },
     "lmarena": {
       "normalised_sha256": "b84df94113ae1e8a2adcc7a5f3dc5601fc37a30fd6f0e6129658642b2aaf2cd0",
-      "requests": 9,
+      "requests": 7,
       "upstream": []
     }
   }

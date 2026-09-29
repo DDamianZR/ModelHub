@@ -43,7 +43,7 @@
   },
   "anthropic-claude-haiku-4-5": {
     "canonical_key": "claude-haiku-4-5",
-    "display_name": "claude-haiku-4-5-20251001",
+    "display_name": "Claude Haiku 4.5",
     "variant": "20251001",
     "scored_arena_name": "claude-haiku-4-5-20251001",
     "names": [
@@ -63,7 +63,7 @@
   },
   "anthropic-claude-opus-4-1": {
     "canonical_key": "claude-opus-4-1",
-    "display_name": "claude-opus-4-1-20250805",
+    "display_name": "Claude Opus 4.1",
     "variant": "20250805",
     "scored_arena_name": "claude-opus-4-1-20250805",
     "names": [
@@ -391,7 +391,7 @@
   },
   "google-deepmind-gemini-2.5-flash": {
     "canonical_key": "gemini-2.5-flash",
-    "display_name": "gemini-2.5-flash",
+    "display_name": "Gemini 2.5 Flash (Jun 2025)",
     "variant": "plain",
     "scored_arena_name": "gemini-2.5-flash",
     "names": [
@@ -409,7 +409,7 @@
   },
   "google-deepmind-gemini-2.5-pro": {
     "canonical_key": "gemini-2.5-pro",
-    "display_name": "gemini-2.5-pro",
+    "display_name": "Gemini 2.5 Pro (Jun 2025)",
     "variant": "plain",
     "scored_arena_name": "gemini-2.5-pro",
     "names": [
@@ -1128,7 +1128,7 @@
   },
   "xai-grok-4-0709": {
     "canonical_key": "grok-4-0709",
-    "display_name": "grok-4-0709",
+    "display_name": "Grok 4",
     "variant": "plain",
     "scored_arena_name": "grok-4-0709",
     "names": [
@@ -1146,7 +1146,7 @@
   },
   "xai-grok-4.3": {
     "canonical_key": "grok-4.3",
-    "display_name": "grok-4.3_high",
+    "display_name": "Grok 4.3 Beta",
     "variant": "plain",
     "scored_arena_name": "grok-4.3",
     "names": [
@@ -1502,7 +1502,7 @@
   },
   "alibaba-qwen3-235b-a22b-thinking-2507": {
     "canonical_key": "qwen3-235b-a22b-thinking-2507",
-    "display_name": "Qwen3-235B-A22B-Thinking-2507",
+    "display_name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
     "variant": "plain",
     "scored_arena_name": "qwen3-235b-a22b-thinking-2507",
     "names": [
@@ -1520,7 +1520,7 @@
   },
   "alibaba-qwen3-30b-a3b-instruct-2507": {
     "canonical_key": "qwen3-30b-a3b-instruct-2507",
-    "display_name": "qwen3-30b-a3b-instruct-2507",
+    "display_name": "Qwen3-30B-A3B-Instruct (Jul 2025)",
     "variant": "plain",
     "scored_arena_name": "qwen3-30b-a3b-instruct-2507",
     "names": [
@@ -1538,7 +1538,7 @@
   },
   "alibaba-qwen3.5-35b-a3b": {
     "canonical_key": "qwen3.5-35b-a3b",
-    "display_name": "qwen3.5-35b-a3b",
+    "display_name": "Qwen3.5-35B-A3B",
     "variant": "plain",
     "scored_arena_name": "qwen3.5-35b-a3b",
     "names": [
