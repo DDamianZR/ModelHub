@@ -104,12 +104,21 @@ Rebuilding the data needs only Python 3:
 npm run ingest
 ```
 
-The enrichment layer needs [Ollama](https://ollama.com) running locally with
-`qwen3-coder:30b` pulled. It is never run in CI and never commits by itself:
+The enrichment layer runs a local model through
+[llama.cpp](https://github.com/ggml-org/llama.cpp)'s `llama-server`. It is never run in CI and
+never commits by itself. Put `qwen3-coder-30b.gguf` (Qwen3-Coder-30B-A3B-Instruct, Q4_K_M) and
+`qwen3-8b.gguf` (Qwen3-8B, Q4_K_M, used by `--fast`) in one folder — the server names each
+model after its file, and those are the names the scripts ask for — then start the server and
+enrich from a second terminal:
 
 ```bash
+llama-server --models-dir <folder> --models-max 1 -c 8192 -np 1 --cache-ram 0 --host 127.0.0.1 --port 8080 --cors-origins localhost --no-ui
 npm run enrich
 ```
+
+The scripts only talk to a loopback address and never through a proxy; `MODELHUB_LLAMA_URL`
+points them at another local port. Pages served from localhost can still reach the server, so
+stop it when you are done.
 
 ## Commits
 
