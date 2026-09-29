@@ -16,11 +16,17 @@ Corollary: when a real ingest run's previous build was non-empty and cohort reno
 genuinely moved a model, the committed file carries a real cohort_recalibration record that
 this harness's null rebuild cannot reproduce. The field is compared by shape instead of by
 value for that reason - see test_models_match_field_for_field.
+
+LiveBench rows are dated from data/cache/livebench_rows.json before the composite is built,
+as the ingest does. The cached payload still carries the snapshot date on every row, so
+without that step every re-dated row would read as a diff. The state and the payload are
+written by the same run and hold the same rows, so the dating is a lookup, not a guess.
 """
 import json
 import unittest
 from pathlib import Path
 
+from scripts.ingest import row_dates
 from scripts.ingest.composite import build_models, load_weights
 from scripts.ingest.run import flag_recalibration
 from scripts.ingest.sources import lmarena
@@ -29,9 +35,23 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 
+def _cache_file(name: str) -> dict:
+    return json.loads((DATA / "cache" / f"{name}.json").read_text(encoding="utf-8"))
+
+
 def _cached(name: str) -> dict:
-    payload = json.loads((DATA / "cache" / f"{name}.json").read_text(encoding="utf-8"))
-    return payload["payload"]
+    return _cache_file(name)["payload"]
+
+
+def _dated_livebench() -> dict:
+    cached = _cache_file("livebench")
+    payload = cached["payload"]
+    if (DATA / "cache" / f"{row_dates.STATE}.json").exists():
+        row_dates.stamp(
+            payload["scores"], payload["snapshot"], _cache_file(row_dates.STATE),
+            cached["fetched_at"],
+        )
+    return payload
 
 
 @unittest.skipUnless((DATA / "cache" / "epoch.json").exists(), "no cache to rebuild from")
@@ -39,7 +59,7 @@ class GoldenCompositeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         epoch_payload = _cached("epoch")
-        livebench_payload = _cached("livebench")
+        livebench_payload = _dated_livebench()
         arena_payload = lmarena.upgrade_payload(_cached("lmarena"))
 
         weights, _min_coverage, _policy = load_weights()
