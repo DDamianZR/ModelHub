@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T12:49:49+00:00",
+  "generated_at": "2026-09-29T16:36:38+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -32,12 +32,13 @@
       "degraded_days": 4
     },
     "livebench": {
-      "date": "2026-06-25",
-      "age_days": 96,
-      "freshness": "aging",
+      "date": "2026-09-29",
+      "age_days": 0,
+      "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
       "degraded_days": 120,
+      "snapshot": "2026-06-25",
       "category": "instruction_following",
       "observed": {
         "snapshots": 11,
@@ -70,8 +71,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "8748d8b3eb6eb375ceff338666bf83d8e1b67a410031f6bfc70687e633318d3b",
-          "bytes": 2321949
+          "sha256": "6392bd99edfdcb4c009adfbcd037425eb736b683941b468422667cbf8ddf4aab",
+          "bytes": 2321952
         }
       ]
     },
@@ -103,7 +104,7 @@
     },
     "lmarena": {
       "normalised_sha256": "b84df94113ae1e8a2adcc7a5f3dc5601fc37a30fd6f0e6129658642b2aaf2cd0",
-      "requests": 7,
+      "requests": 9,
       "upstream": []
     }
   }
