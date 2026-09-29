@@ -12,7 +12,7 @@ from .checks import (
     problems,
     profile,
 )
-from .ollama import generate_json
+from .llama_server import generate_json
 
 SCHEMA = {
     "type": "object",
@@ -142,7 +142,7 @@ def build_prompt(model: dict) -> str:
     )
 
 
-def describe(model: dict, ollama_model: str) -> tuple[dict, float]:
+def describe(model: dict, model_name: str) -> tuple[dict, float]:
     """Generate and validate one model's descriptions. Raises ValueError if unusable."""
     prompt = build_prompt(model)
 
@@ -151,7 +151,7 @@ def describe(model: dict, ollama_model: str) -> tuple[dict, float]:
     total = 0.0
     last: list[str] = []
     for attempt in (1, 2):
-        parsed, elapsed = generate_json(ollama_model, prompt, SCHEMA)
+        parsed, elapsed = generate_json(model_name, prompt, SCHEMA)
         total += elapsed
 
         es = (parsed.get("es") or "").strip()

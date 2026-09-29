@@ -1,11 +1,11 @@
-"""Layer B: local enrichment (Ollama). Run on demand, never on a schedule.
+"""Layer B: local enrichment (llama.cpp). Run on demand, never on a schedule.
 
 Writes editorial ES/EN descriptions and acquisition links into /data, then stops. A human
 reviews the diff and commits. Nothing here runs in CI and nothing here touches a number.
 
 Usage:
     python -m scripts.enrich.run                 # fill in what is missing
-    python -m scripts.enrich.run --fast          # qwen3:8b instead of qwen3-coder:30b
+    python -m scripts.enrich.run --fast          # qwen3-8b instead of qwen3-coder-30b
     python -m scripts.enrich.run --limit 5       # stop after five models
     python -m scripts.enrich.run --only <id>     # a single model
     python -m scripts.enrich.run --force         # regenerate, still skipping manual edits
@@ -24,7 +24,7 @@ from pathlib import Path
 from . import acquisition
 from .checks import contradicts_data
 from .describe import describe
-from .ollama import OllamaError, pick_model
+from .llama_server import LlamaServerError, pick_model
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -60,7 +60,7 @@ def is_locked(entry: dict | None) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="ModelHub Layer B enrichment")
-    parser.add_argument("--fast", action="store_true", help="use qwen3:8b")
+    parser.add_argument("--fast", action="store_true", help="use qwen3-8b")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--only", type=str, default="")
     parser.add_argument("--force", action="store_true",
@@ -90,14 +90,14 @@ def main() -> int:
     descriptions = load_json(DESCRIPTIONS, {})
     links = load_json(ACQUISITION, {})
 
-    ollama_model = ""
+    model_name = ""
     if not args.links_only:
         try:
-            ollama_model = pick_model(fast=args.fast)
-        except OllamaError as exc:
+            model_name = pick_model(fast=args.fast)
+        except LlamaServerError as exc:
             print(f"FATAL: {exc}")
             return 1
-        print(f"Using {ollama_model}")
+        print(f"Using {model_name}")
 
     written = skipped = failed = locked = 0
     durations: list[float] = []
@@ -142,20 +142,20 @@ def main() -> int:
 
         print(f"  {model_id}")
         try:
-            text, elapsed = describe(model, ollama_model)
+            text, elapsed = describe(model, model_name)
         except ValueError as exc:
             # Rejected output is a gap, never a partial write.
             print(f"    SKIPPED: {exc}")
             failed += 1
             continue
-        except OllamaError as exc:
+        except LlamaServerError as exc:
             print(f"FATAL: {exc}")
             break
 
         durations.append(elapsed)
         descriptions[model_id] = {
             **text,
-            "generated_by": ollama_model,
+            "generated_by": model_name,
             "generated_at": date.today().isoformat(),
         }
         written += 1
