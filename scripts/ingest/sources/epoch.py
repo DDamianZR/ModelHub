@@ -83,12 +83,28 @@ def _read_index(archive: zipfile.ZipFile,
             "Release date": r.get("date") or "",
             "ECI Score": str(eci_by_group.get(r.get("model_group", ""), 0)),
             "Display name": r.get("display_name") or "",
+            # display_name is empty on about one row in five (122 of 569 since the release
+            # cutoff), which used to fall straight through to the raw version id. model_group
+            # is Epoch's own name for the model, so it fills the legacy Model name slot.
+            "Model name": r.get("model_group") or "",
             "Organization": r.get("organization") or "",
             "Country": r.get("country") or "",
             "Model accessibility": r.get("accessibility") or "",
         }
         for r in raw if r.get("model_version")
     ]
+
+
+def _display_name(row: dict) -> str:
+    """The most readable name a registry row offers, falling back to the raw version id.
+
+    A blank or whitespace-only cell counts as missing, so it cannot shadow a real name.
+    """
+    for column in ("Display name", "Model name", "Model version"):
+        name = (row.get(column) or "").strip()
+        if name:
+            return name
+    return ""
 
 
 def collect() -> dict:
@@ -114,9 +130,7 @@ def collect() -> dict:
             continue
         registry[key] = {
             "eci": eci,
-            "display_name": (
-                row.get("Display name") or row.get("Model name") or row["Model version"]
-            ).strip(),
+            "display_name": _display_name(row),
             "organization": (row.get("Organization") or "Unknown").strip(),
             "country": (row.get("Country") or "").strip(),
             "release_date": row.get("Release date") or None,
