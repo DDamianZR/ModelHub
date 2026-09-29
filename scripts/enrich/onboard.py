@@ -21,7 +21,7 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
-from .ollama import OllamaError, generate_json, pick_model
+from .llama_server import LlamaServerError, generate_json, pick_model
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -253,7 +253,7 @@ def main() -> int:
 
     try:
         model_name = pick_model(fast=args.fast)
-    except OllamaError as exc:
+    except LlamaServerError as exc:
         print(f"FATAL: {exc}")
         return 1
     print(f"Using {model_name} for ambiguous names only")
@@ -273,7 +273,7 @@ def main() -> int:
             )
             try:
                 parsed, _ = generate_json(model_name, prompt, MATCH_SCHEMA)
-            except (ValueError, OllamaError) as exc:
+            except (ValueError, LlamaServerError) as exc:
                 print(f"  {candidate['name']}: reconciliation failed ({exc}); "
                       f"drafting as new for manual review")
             else:
