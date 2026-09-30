@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-29",
+  "fetched_at": "2026-09-30",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -1529,6 +1529,80 @@
           "source_url": "https://livebench.ai/",
           "value": 68.57,
           "variant": "gpt-6-sol-max"
+        }
+      ],
+      "gpt-6.1-sol": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.63,
+          "variant": "gpt-6.1-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.87,
+          "variant": "gpt-6.1-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.83,
+          "variant": "gpt-6.1-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.15,
+          "variant": "gpt-6.1-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.63,
+          "variant": "gpt-6.1-sol-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.36,
+          "variant": "gpt-6.1-sol-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.48,
+          "variant": "gpt-6.1-sol-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.33,
+          "variant": "gpt-6.1-sol-xhigh"
         }
       ],
       "grok-4.3": [

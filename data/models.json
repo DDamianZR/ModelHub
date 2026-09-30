@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-09-29",
-    "model_count": 84,
-    "ranked_count": 62,
+    "generated_at": "2026-09-30",
+    "model_count": 85,
+    "ranked_count": 63,
     "provisional_count": 22,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-09-29",
+      "epoch": "2026-09-30",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-25",
       "lmarena_vision": "2026-09-28"
@@ -1468,6 +1468,67 @@
       "cohort_recalibration": null
     },
     {
+      "id": "anthropic-claude-sonnet-5-5",
+      "display_name": "Claude Sonnet 5.5 (high)",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-28",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 77.9,
+        "coding": 70.33,
+        "math": 96.13,
+        "instruction_following": 56.79
+      },
+      "category_errors": {
+        "reasoning": 1.366,
+        "coding": null,
+        "math": null,
+        "instruction_following": null
+      },
+      "composite": 76.24,
+      "composite_error": 0.4,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 20,
+      "tied_with": 1,
+      "cohort_recalibration": null
+    },
+    {
       "id": "meta-ai-muse-spark-1.2",
       "display_name": "Muse Spark 1.2",
       "provider_id": "meta-ai",
@@ -1525,6 +1586,67 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 20,
+      "tied_with": 1,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-6-sol",
+      "display_name": "GPT-6 Sol (max)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-22",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 88.65,
+        "coding": 64.43,
+        "math": 96.36,
+        "instruction_following": 68.57,
+        "human_preference": 49.62
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 4.049
+      },
+      "composite": 75.27,
+      "composite_error": 0.61,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 22,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1592,69 +1714,8 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22,
-      "tied_with": 2,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-6-sol",
-      "display_name": "GPT-6 Sol (max)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-22",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 88.65,
-        "coding": 64.43,
-        "math": 96.36,
-        "instruction_following": 68.57,
-        "human_preference": 49.62
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 4.049
-      },
-      "composite": 75.27,
-      "composite_error": 0.61,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 22,
-      "tied_with": 2,
+      "rank": 23,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1721,8 +1782,8 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 22,
-      "tied_with": 2,
+      "rank": 23,
+      "tied_with": 1,
       "cohort_recalibration": null
     },
     {
@@ -1782,7 +1843,7 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
-      "rank": 23,
+      "rank": 24,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -1843,7 +1904,7 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 24,
+      "rank": 25,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -1911,7 +1972,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 24,
+      "rank": 25,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -1979,7 +2040,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 25,
+      "rank": 26,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2040,7 +2101,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 27,
+      "rank": 28,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2108,7 +2169,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
+      "rank": 28,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2176,7 +2237,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 30,
+      "rank": 31,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2237,7 +2298,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 32,
+      "rank": 33,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2305,7 +2366,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 33,
+      "rank": 34,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2366,7 +2427,7 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 33,
+      "rank": 34,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2434,7 +2495,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 33,
+      "rank": 34,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2502,7 +2563,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 34,
+      "rank": 35,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2570,7 +2631,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 36,
+      "rank": 37,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2638,7 +2699,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 36,
+      "rank": 37,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -2699,7 +2760,7 @@
       "variant": "xhigh",
       "human_preference_variant": "plain",
       "vision": null,
-      "rank": 37,
+      "rank": 38,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2767,7 +2828,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39,
+      "rank": 40,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2828,7 +2889,7 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 40,
+      "rank": 41,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2896,7 +2957,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 43,
+      "rank": 44,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2964,7 +3025,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 43,
+      "rank": 44,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -3032,7 +3093,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 43,
+      "rank": 44,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -3100,7 +3161,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 44,
+      "rank": 45,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3168,7 +3229,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 44,
+      "rank": 45,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3229,7 +3290,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 45,
+      "rank": 46,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -3297,7 +3358,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 46,
+      "rank": 47,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -3358,7 +3419,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 48,
+      "rank": 49,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3419,7 +3480,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 48,
+      "rank": 49,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3487,7 +3548,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 48,
+      "rank": 49,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3548,7 +3609,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 48,
+      "rank": 49,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3609,7 +3670,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 54,
+      "rank": 55,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3670,7 +3731,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 54,
+      "rank": 55,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3731,7 +3792,7 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 54,
+      "rank": 55,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3799,7 +3860,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 54,
+      "rank": 55,
       "tied_with": 3,
       "cohort_recalibration": null
     },
@@ -3867,7 +3928,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 55,
+      "rank": 56,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3935,7 +3996,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 55,
+      "rank": 56,
       "tied_with": 1,
       "cohort_recalibration": null
     },
@@ -3996,7 +4057,7 @@
       "variant": "20250805",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 60,
+      "rank": 61,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -4057,7 +4118,7 @@
       "variant": "20250929",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 62,
+      "rank": 63,
       "tied_with": 0,
       "cohort_recalibration": null
     },

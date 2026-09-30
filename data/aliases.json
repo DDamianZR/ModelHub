@@ -288,6 +288,25 @@
       ]
     }
   },
+  "anthropic-claude-sonnet-5-5": {
+    "canonical_key": "claude-sonnet-5-5",
+    "display_name": "Claude Sonnet 5.5 (high)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "claude-sonnet-5-5"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-sonnet-5-5_max"
+      ],
+      "livebench": [
+        "claude-sonnet-5-5-max-effort",
+        "claude-sonnet-5-5-xhigh-effort"
+      ],
+      "lmarena": []
+    }
+  },
   "deepseek-deepseek-v4-flash": {
     "canonical_key": "deepseek-v4-flash",
     "display_name": "DeepSeek v4 Flash (high)",
