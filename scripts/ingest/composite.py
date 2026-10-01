@@ -1008,9 +1008,11 @@ def build_models(
         vision = None
         vision_rows = arena_vision.get(key) or []
         if vision_rows:
-            # Vision sits outside the composite, so no configuration has been settled for
-            # it. The strongest published variant stands, labelled with which one it is.
-            best_vision = max(vision_rows, key=lambda row: row["rating"])
+            # Vision sits outside the composite but follows the same rule as text: the
+            # variant matching the scored configuration, else the best-determined row.
+            # Taking the highest rating was the "best" policy config/weights.json rejects,
+            # applied only here.
+            best_vision, _ = pick_arena_variant(vision_rows, key, chosen_label)
             vision = {
                 "rating": round(best_vision["rating"], 1),
                 "rank": int(best_vision["rank"]),
