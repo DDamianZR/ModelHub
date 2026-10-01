@@ -228,13 +228,13 @@ def gather(name: str, collector) -> tuple[dict, dict]:
 
 
 # A model can lose composite points without its rating having moved, because the Arena
-# ratings are min-max normalised against the cohort present in each build. When a model
-# with an extreme rating joins, everyone else's normalised value shifts.
+# ratings are turned into a win rate against the cohort present in each build. When a
+# model joins or leaves, everyone else's expected win rate shifts slightly.
 #
-# Measured on the 2026-08-03 cohort: a new model 60 rating points above the current best
-# moves every normalised value by 16.03 points on average and 24.29 in the worst case,
-# which is 2.40 and 3.64 composite points against a median gap between neighbours of 0.39.
-# So this is not a rounding artefact - it is enough to reorder the table on its own.
+# Under the min-max normaliser this replaced, that effect was large: on the 2026-08-03
+# cohort a new model 60 rating points above the best moved composites by 2.40 points on
+# average. As a win rate, removing any single model on the 2026-10-01 cohort moves other
+# composites by at most 0.26 points. The flag below still reports it when it happens.
 #
 # "The rating barely moved" is 0.5 Arena rating points, and that number comes from the
 # series itself rather than from taste: across 2147 consecutive transitions in
@@ -347,6 +347,34 @@ def flag_recalibration(
         }
         flagged += 1
     return flagged
+
+
+def effective_weights(models: list[dict], weights: dict[str, float]) -> dict | None:
+    """Share of composite variance per category, over ranked models with all categories.
+
+    Covariance-aware (w_c * cov(c, composite) / var(composite)), so the shares sum to 1
+    and correlated categories split what they move together.
+    """
+    full = [
+        m for m in models
+        if not m["provisional"] and all(c in m["category_scores"] for c in weights)
+    ]
+    if len(full) < 3:
+        return None
+    composite = [sum(weights[c] * m["category_scores"][c] for c in weights) for m in full]
+    mean_composite = sum(composite) / len(composite)
+    variance = sum((x - mean_composite) ** 2 for x in composite) / len(composite)
+    if not variance:
+        return None
+    shares = {}
+    for category, weight in weights.items():
+        values = [m["category_scores"][category] for m in full]
+        mean_value = sum(values) / len(values)
+        covariance = sum(
+            (v - mean_value) * (c - mean_composite) for v, c in zip(values, composite)
+        ) / len(values)
+        shares[category] = round(weight * covariance / variance, 3)
+    return {"models": len(full), "shares": shares}
 
 
 def load_history() -> list[dict]:
@@ -588,13 +616,21 @@ def main() -> int:
             "lmarena_vision": arena_payload.get("vision_snapshot"),
         },
         "arena_normalization": {
-            "method": "min-max across the cohort in this build",
+            "method": "expected win rate against the cohort in this build",
+            "cohort_size": scales["arena"]["cohort_size"],
             "min": round(arena_low, 2),
             "max": round(arena_high, 2),
         },
+        # How much of the composite's spread each category actually carries in this build,
+        # next to its nominal weight. Dispersion decides effective weight, so a category
+        # whose models sit close together counts for less than its label says.
+        "effective_weights": effective_weights(models, weights),
         # The scale each benchmark was put on before averaging inside its category, so
         # every scaled score on the site can be recomputed by hand from the raw one.
         "equating": scales["equating"],
+        # What a model missing a category is renormalised against, and how much that
+        # widens its interval - published so a partial score can be checked by hand.
+        "renormalisation": scales["renormalisation"],
     }
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})

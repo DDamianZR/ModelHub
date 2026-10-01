@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 
 from .common import CONFIG, canonical_organization, is_hosted, slugify, split_name
@@ -587,11 +588,119 @@ def fit_equating(
     return params
 
 
+# LMArena's Bradley-Terry ratings use the Elo convention: base 10, 400 points.
+ARENA_BASE = 10.0
+ARENA_SCALE = 400.0
+
+
+def arena_win_rate(rating: float, cohort: list[float]) -> tuple[float, float]:
+    """(expected % of head-to-heads won against the rest of the cohort, d% / d rating).
+
+    Replaces min-max, measured on the 2026-10-01 cohort (45 models with all five
+    categories). Min-max stretched whatever range the cohort spans to 0-100: human
+    preference carried 31.3% of the composite's variance against its nominal 15%, and
+    removing a single model from the Arena cohort - whichever set the minimum or maximum -
+    moved other composites by up to 7.10 points. As a win rate it carries 9.0% and the
+    worst single removal moves anyone 0.26 points. It undershoots the nominal weight
+    because the frontier is genuinely close in head-to-head terms; that is disclosed, not
+    corrected, since inflating it back would be min-max's distortion under another name.
+
+    `cohort` includes this model's own rating once; its self-match (0.5) is removed.
+    """
+    others = len(cohort) - 1
+    if others < 1:
+        return 50.0, 0.0
+    probabilities = [
+        1.0 / (1.0 + ARENA_BASE ** ((other - rating) / ARENA_SCALE)) for other in cohort
+    ]
+    share = (sum(probabilities) - 0.5) / others
+    # d p / d rating = p (1 - p) ln(base) / scale; the self term (0.25) is removed.
+    slope = sum(p * (1 - p) for p in probabilities) - 0.25
+    slope *= math.log(ARENA_BASE) / ARENA_SCALE / others
+    return share * 100.0, slope * 100.0
+
+
 def minmax(values: list[float]) -> tuple[float, float]:
     if not values:
         return 0.0, 1.0
     low, high = min(values), max(values)
     return (low, high) if high > low else (low, low + 1.0)
+
+
+def apply_composites(models: list[dict], weights: dict[str, float]) -> dict:
+    """Set each model's composite and add the missing-category term to its interval.
+
+    A model missing a category used to be scored on the weighted mean of the categories it
+    has. That silently assumed the missing category sat at the model's own average, and
+    categories sit at different levels: on 2026-09-29 a model missing Coding (the lowest
+    category) gained 3.85 points on average just for not having it. With human preference
+    expressed as a win rate (level ~50 against ~80 elsewhere) the same rule would have put
+    every model still awaiting Arena votes at the top of the table.
+
+    So deviations are renormalised, not levels:
+
+        composite = sum_all w_c * mean_c + sum_avail w_c (s_c - mean_c) / sum_avail w_c
+
+    where mean_c is the cohort mean of category c. With every category present this is
+    exactly the weighted mean. With one missing, the model is assumed to be as far above
+    or below the cohort there as it is elsewhere - no level bias in either direction.
+
+    That assumption is still a guess about an unmeasured number, so it widens the
+    interval instead of hiding: for each category, the RMS gap between the full composite
+    and the composite recomputed without that category, over every model that has all of
+    them, is how wrong the guess typically is. 1.96 times that joins the half-width.
+    """
+    present = [m for m in models if m["category_scores"]]
+    full = [m for m in present if all(c in m["category_scores"] for c in weights)]
+    # Means over the models measured on everything, so "average" means the same population
+    # in every category. Over all models it drifted with whoever happened to be partial:
+    # a residual bias of up to 1.06 points on 2026-10-01, against 0.0 this way.
+    reference = full or present
+    means = {}
+    for category in weights:
+        values = [
+            m["category_scores"][category] for m in reference if category in m["category_scores"]
+        ]
+        if values:
+            means[category] = sum(values) / len(values)
+    level = sum(weights[c] * means[c] for c in weights if c in means)
+
+    def composite_of(scores: dict[str, float], skip: str | None = None) -> float | None:
+        available = {
+            c: w for c, w in weights.items() if c in scores and c in means and c != skip
+        }
+        if not available:
+            return None
+        deviation = sum(w * (scores[c] - means[c]) for c, w in available.items())
+        return level + deviation / sum(available.values())
+
+    sigma: dict[str, float] = {}
+    for category in weights:
+        gaps = [
+            composite_of(m["category_scores"], skip=category) - composite_of(m["category_scores"])
+            for m in full
+        ]
+        if gaps:
+            sigma[category] = (sum(g * g for g in gaps) / len(gaps)) ** 0.5
+
+    for model in present:
+        value = composite_of(model["category_scores"])
+        if value is None:
+            continue
+        model["composite"] = round(value, 2)
+        missing = [c for c in weights if c not in model["category_scores"]]
+        missing_hw = CONFIDENCE_Z * sum(sigma.get(c, 0.0) ** 2 for c in missing) ** 0.5
+        model["uncertainty"]["missing_categories_hw"] = round(missing_hw, 2)
+        measured = model["composite_error"]
+        if measured is not None:
+            model["composite_error"] = round((measured ** 2 + missing_hw ** 2) ** 0.5, 2)
+
+    return {
+        "method": "deviations from the cohort mean renormalised over available weight",
+        "category_means": {c: round(v, 2) for c, v in means.items()},
+        "missing_category_sigma": {c: round(v, 3) for c, v in sigma.items()},
+        "models_with_all_categories": len(full),
+    }
 
 
 def assign_significance_ranks(models: list[dict]) -> None:
@@ -714,9 +823,11 @@ def build_models(
         if mismatch:
             arena_notes[key] = mismatch
 
-    # Arena ratings are Bradley-Terry, not a percentage, so they are min-max normalised
-    # across the cohort actually present in this build. Documented in /methodology.
-    arena_low, arena_high = minmax([row["rating"] for row in arena_by_key.values()])
+    # Arena ratings are Bradley-Terry, not a percentage. They become one through the model
+    # that produced them: the expected share of head-to-head votes won against the rest
+    # of the cohort. Min-max is kept only to publish the cohort's bounds.
+    cohort_ratings = [row["rating"] for row in arena_by_key.values()]
+    arena_low, arena_high = minmax(cohort_ratings)
 
     # Second pass: one value per benchmark per model, under the chosen configuration.
     # Settled for every model before anything is scaled, because the equating below is
@@ -818,15 +929,15 @@ def build_models(
 
         if key in arena_by_key:
             row = arena_by_key[key]
-            span = arena_high - arena_low
-            scaled = (row["rating"] - arena_low) / span * 100.0
+            scaled, slope = arena_win_rate(row["rating"], cohort_ratings)
             by_category.setdefault("human_preference", []).append(round(scaled, 2))
 
-            # Arena publishes the interval itself, so it only needs the same rescaling the
-            # rating gets. No z multiplier: it is already a 95% interval.
+            # Arena publishes the interval itself, so it only needs the same transform the
+            # rating gets - to first order, the slope of the win rate at this rating. No z
+            # multiplier: it is already a 95% interval.
             lower, upper = row.get("rating_lower"), row.get("rating_upper")
             arena_hw = (
-                round((upper - lower) / 2.0 / span * 100.0, 3)
+                round((upper - lower) / 2.0 * slope, 3)
                 if lower is not None and upper is not None else None
             )
             error_by_category.setdefault("human_preference", []).append(arena_hw)
@@ -968,6 +1079,8 @@ def build_models(
             "matched": {source: sorted(names) for source, names in matched.items()},
         }
 
+    renormalisation = apply_composites(models, weights)
+
     models.sort(key=lambda m: m["composite"], reverse=True)
     assign_significance_ranks(models)
 
@@ -981,7 +1094,8 @@ def build_models(
     )
 
     scales = {
-        "arena": {"low": arena_low, "high": arena_high},
+        "arena": {"low": arena_low, "high": arena_high, "cohort_size": len(cohort_ratings)},
         "equating": equating,
+        "renormalisation": renormalisation,
     }
     return models, score_rows, providers, aliases, scales

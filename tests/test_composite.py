@@ -4,6 +4,8 @@ Each test fixes a rule the project notes document as having been wrong once alre
 import unittest
 
 from scripts.ingest.composite import (
+    apply_composites,
+    arena_win_rate,
     assign_significance_ranks,
     combine_mean,
     combine_weighted,
@@ -293,3 +295,45 @@ class CorrelationGateTests(unittest.TestCase):
         self.assertTrue(correlation_is_significant(0.75, 6))
         self.assertTrue(correlation_is_significant(0.3, 50))
         self.assertFalse(correlation_is_significant(-0.9, 50))
+
+
+class ArenaWinRateTests(unittest.TestCase):
+    def test_equal_ratings_win_half(self):
+        share, slope = arena_win_rate(1400, [1400, 1400, 1400])
+        self.assertAlmostEqual(share, 50.0)
+        self.assertGreater(slope, 0)
+
+    def test_one_cohort_extreme_barely_moves_anyone_else(self):
+        """Regression: under min-max, whichever model set the cohort's minimum decided
+        everyone's 0 point - removing one moved other composites by up to 7.10."""
+        cohort = [1400, 1420, 1440, 1460, 1480]
+        with_floor, _ = arena_win_rate(1440, cohort + [1200])
+        without, _ = arena_win_rate(1440, cohort)
+        self.assertLess(abs(with_floor - without), 10)
+
+
+class ApplyCompositesTests(unittest.TestCase):
+    WEIGHTS = {"a": 0.5, "b": 0.5}
+
+    def _model(self, **scores):
+        return {
+            "category_scores": scores, "composite": 0.0, "composite_error": 1.0,
+            "uncertainty": {},
+        }
+
+    def test_full_coverage_is_the_plain_weighted_mean(self):
+        models = [self._model(a=80, b=60), self._model(a=70, b=50), self._model(a=90, b=40)]
+        apply_composites(models, self.WEIGHTS)
+        self.assertAlmostEqual(models[0]["composite"], 70.0)
+
+    def test_a_missing_low_category_is_not_a_free_gain(self):
+        """Regression: renormalising levels let a model skip the lowest-scoring category
+        and rise; with Arena as a win rate (~50) every model awaiting votes went to #1."""
+        models = [self._model(a=80, b=50), self._model(a=70, b=46), self._model(a=80)]
+        apply_composites(models, self.WEIGHTS)
+        # Means over full models: a=75, b=48, so the cohort level is 61.5. The partial
+        # model is 5 above average in "a" and is placed 5 above the level - not at 80,
+        # which is what renormalising levels gave it.
+        self.assertAlmostEqual(models[2]["composite"], 66.5)
+        self.assertGreater(models[2]["uncertainty"]["missing_categories_hw"], 0)
+        self.assertGreater(models[2]["composite_error"], 1.0)

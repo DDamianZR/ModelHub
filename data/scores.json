@@ -14,9 +14,20 @@
       "lmarena_vision": "2026-09-28"
     },
     "arena_normalization": {
-      "method": "min-max across the cohort in this build",
+      "method": "expected win rate against the cohort in this build",
+      "cohort_size": 81,
       "min": 1287.63,
       "max": 1506.51
+    },
+    "effective_weights": {
+      "models": 45,
+      "shares": {
+        "reasoning": 0.336,
+        "coding": 0.183,
+        "math": 0.219,
+        "human_preference": 0.09,
+        "instruction_following": 0.171
+      }
     },
     "equating": {
       "livebench_reasoning": {
@@ -162,6 +173,24 @@
         "residual_sd": 0.0,
         "equating_se": 0.0
       }
+    },
+    "renormalisation": {
+      "method": "deviations from the cohort mean renormalised over available weight",
+      "category_means": {
+        "reasoning": 83.84,
+        "coding": 77.47,
+        "math": 89.27,
+        "human_preference": 52.22,
+        "instruction_following": 68.17
+      },
+      "missing_category_sigma": {
+        "reasoning": 0.928,
+        "coding": 0.933,
+        "math": 0.839,
+        "human_preference": 0.721,
+        "instruction_following": 0.851
+      },
+      "models_with_all_categories": 45
     }
   },
   "scores": [
