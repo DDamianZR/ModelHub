@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T12:56:49+00:00",
+  "generated_at": "2026-10-01T14:06:20+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -18,7 +18,7 @@
       "state": "ok",
       "last_success": "2026-10-01",
       "error": null,
-      "served_by": "filter",
+      "served_by": "rows-latest",
       "consecutive_failures": 0
     }
   },
@@ -71,8 +71,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "9600940823ae009a04bcc8dbf281aa1c1e32c5be5b6cbe71aba7a58c39612291",
-          "bytes": 2352986
+          "sha256": "9040123dcbc94cbd1775b0bff61fc8abf23d291484a41c712f347491cd651880",
+          "bytes": 2352978
         }
       ]
     },
@@ -103,8 +103,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "d4544e07ebe6b6301f30907eeedf8814fe116a56e17a87ec64d482325811e328",
-      "requests": 17,
+      "normalised_sha256": "a48aba3e58f9a08fb7ee29871ca2da148421be3f50e9dfa3fe0ae52f3e83a255",
+      "requests": 11,
       "upstream": []
     }
   }
