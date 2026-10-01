@@ -110,6 +110,20 @@ def _coverage_facts(model: dict) -> str:
             f"- Relatively stronger, English names: {s_en}",
             f"- Relatively weaker, English names: {w_en}",
         ]
+        # A measured category that is neither among the strongest nor the weakest was
+        # left unnamed, and the model filled the silence with "no data for Math" for
+        # Claude Opus 5, Opus 4.6 and DeepSeek v4 Flash on 2026-10-01, three attempts
+        # each. Naming it as measured-but-middle closes that gap.
+        named = {*s_en.split(", "), *w_en.split(", ")}
+        middle_en = [c for c in m_en.split(", ") if c and c not in named]
+        if middle_en:
+            to_es = {labels_en[k]: labels_es[k] for k in labels_en if k in labels_es}
+            lines += [
+                "- Measured, in between (neither stronger nor weaker; never call these "
+                f"unmeasured), Spanish names: {', '.join(to_es.get(c, c) for c in middle_en)}",
+                "- Measured, in between (neither stronger nor weaker; never call these "
+                f"unmeasured), English names: {', '.join(middle_en)}",
+            ]
     else:
         lines.append(
             "- This model is measured in too few categories for a strong/weak comparison. "
