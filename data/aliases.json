@@ -1089,7 +1089,7 @@
   },
   "openai-gpt-6-luna": {
     "canonical_key": "gpt-6-luna",
-    "display_name": "GPT-6 Luna (max)",
+    "display_name": "GPT-6 Luna (high)",
     "variant": "max",
     "scored_arena_name": "gpt-6-luna-max",
     "names": [
@@ -1097,7 +1097,9 @@
       "gpt-6-luna-max"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "gpt-6-luna_max"
+      ],
       "livebench": [
         "gpt-6-luna-max"
       ],
@@ -1108,7 +1110,7 @@
   },
   "openai-gpt-6-sol": {
     "canonical_key": "gpt-6-sol",
-    "display_name": "GPT-6 Sol (max)",
+    "display_name": "GPT-6 Sol (high)",
     "variant": "max",
     "scored_arena_name": "gpt-6-sol-max",
     "names": [
@@ -1116,13 +1118,34 @@
       "gpt-6-sol-max"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "gpt-6-sol_max"
+      ],
       "livebench": [
         "gpt-6-sol-max"
       ],
       "lmarena": [
         "gpt-6-sol-max"
       ]
+    }
+  },
+  "openai-gpt-6.1-sol": {
+    "canonical_key": "gpt-6.1-sol",
+    "display_name": "GPT-6.1 Sol (high)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "gpt-6.1-sol"
+    ],
+    "matched": {
+      "epoch": [
+        "gpt-6.1-sol_max"
+      ],
+      "livebench": [
+        "gpt-6.1-sol-max",
+        "gpt-6.1-sol-xhigh"
+      ],
+      "lmarena": []
     }
   },
   "openai-gpt-oss-20b": {
