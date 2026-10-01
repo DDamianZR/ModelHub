@@ -176,7 +176,14 @@ if (!existsSync(htmlPath)) {
   console.log("Payload checks skipped: run `npm run build` first.\n");
 } else {
   const html = read(htmlPath);
-  check("prerendered document chars", html.length, html.length < 380000, "< 380 000 (was 441 013)");
+  // Per model, not per page. The 380 000 cap was set on 2026-08-15 against 70 models; the
+  // daily ingest grows the catalogue on its own (92 on 2026-10-01), so a whole-page cap
+  // starts failing with no UI change at all. The same budget, 380 000 / 70, is held per
+  // rendered model instead - payload efficiency is what this criterion exists to guard.
+  const { models: catalogue } = JSON.parse(read(join(root, "data", "models.json")));
+  const perModel = Math.round(html.length / Math.max(catalogue.length, 1));
+  check("prerendered document chars per model", perModel, perModel < 5430,
+    "< 5 430 (380 000 over 70 models; whole page was 441 013)");
 
   const rsc = [...html.matchAll(/__next_f\.push\(\[1,(.*?)\]\)/gs)].reduce((n, m) => n + m[1].length, 0);
   check("inline RSC payload chars", rsc, rsc < 110000, "< 110 000 (was 176 319)");
