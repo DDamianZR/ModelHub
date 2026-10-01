@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-30T12:30:50+00:00",
+  "generated_at": "2026-10-01T07:02:15+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-09-30",
+      "last_success": "2026-10-01",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-09-30",
+      "last_success": "2026-10-01",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-09-30",
+      "last_success": "2026-10-01",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-09-30",
+      "date": "2026-10-01",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-09-30",
-      "age_days": 0,
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,8 +49,8 @@
       }
     },
     "lmarena": {
-      "date": "2026-09-25",
-      "age_days": 5,
+      "date": "2026-09-30",
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -66,13 +66,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "9fca9cfa49379d2279a7343be75628f7db7b3755eb487e2601c30335c398bd62",
+      "normalised_sha256": "2974ffd13210b1ec4df7bb41342bf0fa298f6d8fe746e7eb59fde3ea4b56d9b5",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "76e7554def20796380e4ad3ca682e5c659e874c6e140a14ae1e023c0ac5599f0",
-          "bytes": 2321614
+          "sha256": "9600940823ae009a04bcc8dbf281aa1c1e32c5be5b6cbe71aba7a58c39612291",
+          "bytes": 2352986
         }
       ]
     },
@@ -103,8 +103,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "b84df94113ae1e8a2adcc7a5f3dc5601fc37a30fd6f0e6129658642b2aaf2cd0",
-      "requests": 7,
+      "normalised_sha256": "0de11ece3796e65b9a0f53c262679c084d93cb3134b8f1cf2a584baa97b4d110",
+      "requests": 9,
       "upstream": []
     }
   }
