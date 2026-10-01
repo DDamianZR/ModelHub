@@ -108,6 +108,23 @@
       "url": "https://livebench.ai/"
     },
     {
+      "id": "lmarena_code",
+      "name": "LMArena Code Arena",
+      "category": "coding",
+      "source": "LMArena",
+      "source_type": "human_eval",
+      "url": "https://lmarena.ai/leaderboard",
+      "notes": "Blind human votes on coding tasks (webdev config). Agent-harness rows are dropped. Scored as a win rate against the Code Arena cohort, then equated onto Coding."
+    },
+    {
+      "id": "mirrorcode",
+      "name": "MirrorCode",
+      "category": "coding",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
       "id": "livebench_instruction_following",
       "name": "LiveBench IF",
       "category": "instruction_following",

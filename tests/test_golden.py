@@ -73,6 +73,8 @@ class GoldenCompositeTests(unittest.TestCase):
             arena_snapshot=arena_payload.get("snapshot"),
             vision_snapshot=arena_payload.get("vision_snapshot"),
             benchmark_order=[entry[0] for entry in BENCHMARK_CATALOGUE],
+            arena_code=arena_payload.get("code") or {},
+            code_snapshot=arena_payload.get("code_snapshot"),
         )
         flag_recalibration(models, score_rows, weights, {}, {})
         for model in models:

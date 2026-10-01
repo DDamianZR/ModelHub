@@ -58,6 +58,7 @@ BENCHMARKS = {
     "frontiermath_tiers_1_3_v2.csv": ("frontiermath_v2", "math"),
     "otis_mock_aime_2024_2025.csv": ("otis_mock_aime", "math"),
     "swe_bench_verified.csv": ("swe_bench_verified", "coding"),
+    "mirrorcode.csv": ("mirrorcode", "coding"),
 }
 
 

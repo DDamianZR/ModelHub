@@ -5294,6 +5294,16 @@
           "stderr": 0.278,
           "value": 99.72,
           "variant": "claude-fable-5_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 10.404,
+          "value": 63.89,
+          "variant": "claude-fable-5_high"
         }
       ],
       "claude-fable-5-1": [
@@ -5346,6 +5356,16 @@
           "stderr": 0.0,
           "value": 100.0,
           "variant": "claude-fable-5-1_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-09-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 9.17,
+          "value": 73.3,
+          "variant": "claude-fable-5-1_high"
         }
       ],
       "claude-haiku-4-5": [
@@ -6076,6 +6096,16 @@
           "stderr": 1.69,
           "value": 83.47,
           "variant": "claude-opus-4-7_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-12",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 9.036,
+          "value": 31.11,
+          "variant": "claude-opus-4-7_high"
         }
       ],
       "claude-opus-4-8": [
@@ -6401,6 +6431,16 @@
           "source_url": "https://epoch.ai/benchmarks",
           "stderr": 0.0,
           "value": 100.0,
+          "variant": "claude-opus-5-5_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-09-22",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 8.31,
+          "value": 77.4,
           "variant": "claude-opus-5-5_max"
         }
       ],
@@ -7808,6 +7848,16 @@
           "stderr": 3.1,
           "value": 95.6,
           "variant": "gemini-3.1-pro-preview"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 4.562,
+          "value": 8.89,
+          "variant": "gemini-3.1-pro-preview_high"
         }
       ],
       "gemini-3.1-pro-preview-customtools": [
@@ -10376,6 +10426,16 @@
           "stderr": 1.919,
           "value": 76.86,
           "variant": "gpt-5.4-2026-03-05_high"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 7.709,
+          "value": 15.56,
+          "variant": "gpt-5.4-2026-03-05_high"
         }
       ],
       "gpt-5.4-mini": [
@@ -10954,6 +11014,16 @@
           "stderr": 1.8,
           "value": 80.58,
           "variant": "gpt-5.5-pre-release_xhigh"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 6.042,
+          "value": 10.0,
+          "variant": "gpt-5.5_high"
         }
       ],
       "gpt-5.5-instant": [
@@ -11372,6 +11442,16 @@
           "stderr": 0.0,
           "value": 100.0,
           "variant": "gpt-5.6-sol_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-10",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 9.23,
+          "value": 20.0,
+          "variant": "gpt-5.6-sol_high"
         }
       ],
       "gpt-5.6-sol-pro": [
@@ -11598,6 +11678,16 @@
           "stderr": 0.0,
           "value": 100.0,
           "variant": "gpt-6-astra_max"
+        },
+        {
+          "benchmark_id": "mirrorcode",
+          "category": "coding",
+          "measured_at": "2026-08-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 11.86,
+          "value": 46.7,
+          "variant": "gpt-6-astra_high"
         }
       ],
       "gpt-6-luna": [

@@ -158,6 +158,12 @@ BENCHMARK_CATALOGUE = [
      "third_party_benchmark", "https://livebench.ai/", None),
     ("livebench_math", "LiveBench Mathematics", "math", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
+    ("lmarena_code", "LMArena Code Arena", "coding", "LMArena", "human_eval",
+     "https://lmarena.ai/leaderboard",
+     "Blind human votes on coding tasks (webdev config). Agent-harness rows are dropped. "
+     "Scored as a win rate against the Code Arena cohort, then equated onto Coding."),
+    ("mirrorcode", "MirrorCode", "coding", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks", None),
     ("livebench_instruction_following", "LiveBench IF", "instruction_following",
      "LiveBench", "third_party_benchmark", "https://livebench.ai/", None),
     ("lmarena_text_overall", "LMArena (text, overall)", "human_preference", "LMArena",
@@ -535,6 +541,8 @@ def main() -> int:
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
         benchmark_order=[entry[0] for entry in BENCHMARK_CATALOGUE],
+        arena_code=arena_payload.get("code") or {},
+        code_snapshot=arena_payload.get("code_snapshot"),
     )
     arena_low, arena_high = scales["arena"]["low"], scales["arena"]["high"]
 
@@ -614,6 +622,7 @@ def main() -> int:
             "livebench": livebench_payload.get("snapshot"),
             "lmarena_text": arena_payload.get("snapshot"),
             "lmarena_vision": arena_payload.get("vision_snapshot"),
+            "lmarena_code": arena_payload.get("code_snapshot"),
         },
         "arena_normalization": {
             "method": "expected win rate against the cohort in this build",

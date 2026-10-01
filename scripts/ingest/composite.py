@@ -21,6 +21,9 @@ DEFAULT_MIN_COVERAGE = 4
 # concerned, so it needs an id to be counted with them.
 ARENA_BENCHMARK = "lmarena_text_overall"
 
+# Code Arena (LMArena's webdev config): human votes on coding tasks, scored inside Coding.
+CODE_ARENA_BENCHMARK = "lmarena_code"
+
 # What to do when one canonical model was published under several variants (effort levels,
 # thinking modes) and a benchmark therefore arrives more than once.
 #
@@ -766,6 +769,8 @@ def build_models(
     arena_snapshot: str | None,
     vision_snapshot: str | None,
     benchmark_order: list[str] | None = None,
+    arena_code: dict | None = None,
+    code_snapshot: str | None = None,
 ) -> tuple[list[dict], list[dict], dict, dict, dict]:
     """Return (models, score rows, providers, aliases, scales used).
 
@@ -776,14 +781,17 @@ def build_models(
     equating_config = load_equating_config()
     contamination = load_contamination_registry()
 
+    arena_code = arena_code or {}
+
     # A model needs corroboration from at least two independent sources to appear at all.
+    # Code Arena is LMArena again, so it shares LMArena's slot rather than adding one.
     keys = sorted(
         key
         for key in registry
         if sum([
             bool(epoch_scores.get(key)),
             bool(livebench_scores.get(key)),
-            key in arena_text,
+            key in arena_text or key in arena_code,
         ]) >= 2
     )
 
@@ -797,6 +805,7 @@ def build_models(
     chosen_by_key: dict[str, str | None] = {}
     arena_by_key: dict[str, dict] = {}
     arena_notes: dict[str, str] = {}
+    code_by_key: dict[str, tuple[dict, str | None]] = {}
 
     for key in keys:
         # Several vendor variants (effort levels, thinking modes) collapse onto one
@@ -834,6 +843,10 @@ def build_models(
         if mismatch:
             arena_notes[key] = mismatch
 
+        code_row, code_mismatch = pick_arena_variant(arena_code.get(key) or [], key, chosen)
+        if code_row is not None:
+            code_by_key[key] = (code_row, code_mismatch)
+
     # Arena ratings are Bradley-Terry, not a percentage. They become one through the model
     # that produced them: the expected share of head-to-head votes won against the rest
     # of the cohort. Min-max is kept only to publish the cohort's bounds.
@@ -847,6 +860,38 @@ def build_models(
         key: select_benchmarks(merged_by_key[key], key, chosen_by_key[key], variant_policy)
         for key in keys
     }
+
+    # Code Arena enters Coding as one more benchmark: its Bradley-Terry rating becomes a
+    # win rate against the Code Arena cohort, exactly like the text arena, and is then
+    # equated onto the Coding scale like any other input - including the correlation gate.
+    code_cohort = [row["rating"] for row, _ in code_by_key.values()]
+    for key, (row, mismatch) in code_by_key.items():
+        share, slope = arena_win_rate(row["rating"], code_cohort)
+        lower, upper = row.get("rating_lower"), row.get("rating_upper")
+        half_width = (
+            round((upper - lower) / 2.0 * slope, 3)
+            if lower is not None and upper is not None else None
+        )
+        note = (
+            f"{row['model_name']}: rating {row['rating']:.1f}, "
+            f"{int(row.get('vote_count') or 0)} votes"
+        )
+        if mismatch:
+            note += f"; configuration measured: {mismatch}"
+        selected_by_key[key][CODE_ARENA_BENCHMARK] = {
+            "value": round(share, 2),
+            "stderr": None,
+            "half_width": half_width,
+            "entry": {"variant": row["model_name"], "measured_at": code_snapshot},
+            "note": note,
+            "slot": {
+                "category": "coding",
+                "source_type": "human_eval",
+                "source_url": "https://lmarena.ai/leaderboard",
+                "measured_at": code_snapshot,
+            },
+            "category": "coding",
+        }
     equating = fit_equating(selected_by_key, benchmark_order or [], equating_config)
 
     models: list[dict] = []
@@ -934,7 +979,7 @@ def build_models(
 
         # Every variant Arena published is an alias of this model, whether or not it is
         # the one being scored, so the alias table shows the full set that matched.
-        for published in arena_text.get(key) or []:
+        for published in (arena_text.get(key) or []) + (arena_code.get(key) or []):
             seen_alias.add(published["model_name"])
             matched["lmarena"].add(published["model_name"])
 

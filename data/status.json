@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T07:21:49+00:00",
+  "generated_at": "2026-10-01T12:54:45+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -18,7 +18,7 @@
       "state": "ok",
       "last_success": "2026-10-01",
       "error": null,
-      "served_by": "rows-latest",
+      "served_by": "filter",
       "consecutive_failures": 0
     }
   },
@@ -66,7 +66,7 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "8e77e2477180863f57e5c4cda1ba4c55460496d4edd31e140c4dfde518c695bb",
+      "normalised_sha256": "60c7b05b68e4a5a3571c1210ec7adfbd16764ac3287bb74e713942a87092aaf6",
       "requests": 1,
       "upstream": [
         {
@@ -103,8 +103,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "222e7efafc41fdd26270ae26f411cfb5406c854b42f42fc5d54984289805b39b",
-      "requests": 9,
+      "normalised_sha256": "d4544e07ebe6b6301f30907eeedf8814fe116a56e17a87ec64d482325811e328",
+      "requests": 17,
       "upstream": []
     }
   }
