@@ -5,6 +5,7 @@ import {
   getAgedSources,
   getCadence,
   getCategorySources,
+  getEquatingTable,
   getMethodologyStats,
   getRanking,
   getRejectedSnapshots,
@@ -61,6 +62,8 @@ export default async function MethodologyPage({
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
   const categorySources = getCategorySources();
+  const equating = getEquatingTable();
+  const effective = meta.effective_weights;
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -88,6 +91,9 @@ export default async function MethodologyPage({
                 <th scope="col" className="py-2 text-right">
                   <span className="eyebrow">{t("formula.weight")}</span>
                 </th>
+                <th scope="col" className="py-2 pl-3 text-right">
+                  <span className="eyebrow">{t("formula.effective")}</span>
+                </th>
                 <th scope="col" className="py-2 pl-4">
                   <span className="eyebrow">{t("formula.inputs")}</span>
                 </th>
@@ -102,8 +108,26 @@ export default async function MethodologyPage({
                       {tt(category)}
                     </th>
                     <td className="num py-2 text-right text-sm">{WEIGHTS[category]}%</td>
+                    <td className="num py-2 pl-3 text-right text-sm text-tertiary">
+                      {effective?.shares[category] !== undefined
+                        ? `${(effective.shares[category]! * 100).toFixed(1)}%`
+                        : "—"}
+                    </td>
                     <td className="num py-2 pl-4 text-2xs text-tertiary">
-                      {t(`formula.inputs_${category}`)}
+                      {/* From the catalogue and this build's equating, not typed copy: the
+                          hand-written list kept naming a benchmark Epoch had superseded. */}
+                      {equating
+                        .filter((row) => row.category === category)
+                        .map((row) => {
+                          const tag =
+                            row.params?.anchor === row.id
+                              ? ` (${t("formula.anchor")})`
+                              : row.params && !row.params.scored
+                                ? ` (${t("formula.unscored")})`
+                                : "";
+                          return `${row.name}${tag}`;
+                        })
+                        .join(" · ")}
                       {singleSource && (
                         <span
                           className="ml-2 inline-block text-accent"
@@ -123,14 +147,90 @@ export default async function MethodologyPage({
             {t("formula.equation")}
           </p>
 
+          <p>{t("formula.partial")}</p>
+
+          {effective && (
+            <p>{t("formula.effectiveNote", { models: effective.models })}</p>
+          )}
+
           <p>
             {t("formula.normalisation", {
+              cohort: meta.arena_normalization.cohort_size ?? 0,
               min: meta.arena_normalization.min,
               max: meta.arena_normalization.max,
             })}
           </p>
 
           <p>{t("formula.multimodal")}</p>
+        </Section>
+
+        <Section id="equating" title={t("equating.title")}>
+          <p>{t("equating.body")}</p>
+          <p>{t("equating.method")}</p>
+          <p className="border-l-[3px] border-accent py-2 pl-3 text-md">
+            {t("equating.validation")}
+          </p>
+          <p>{t("equating.gate")}</p>
+          <div
+            className="overflow-x-auto"
+            role="region"
+            aria-label={t("equating.title")}
+            tabIndex={0}
+          >
+            <table className="w-full min-w-[34rem] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-subtle">
+                  <th scope="col" className="py-2 pr-3">
+                    <span className="eyebrow">{t("equating.benchmark")}</span>
+                  </th>
+                  <th scope="col" className="py-2 pr-3">
+                    <span className="eyebrow">{t("equating.anchorCol")}</span>
+                  </th>
+                  <th scope="col" className="py-2 pr-3 text-right">
+                    <span className="eyebrow">{t("equating.shared")}</span>
+                  </th>
+                  <th scope="col" className="py-2 pr-3 text-right">
+                    <span className="eyebrow">r</span>
+                  </th>
+                  <th scope="col" className="py-2">
+                    <span className="eyebrow">{t("equating.status")}</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {equating
+                  .filter((row) => row.category !== "human_preference")
+                  .map((row) => {
+                    const params = row.params;
+                    const status = !params
+                      ? "status_absent"
+                      : params.anchor === row.id
+                        ? "status_anchor"
+                        : params.scored
+                          ? "status_scored"
+                          : `status_${params.reason ?? "overlap"}`;
+                    return (
+                      <tr key={row.id} className="border-b border-subtle">
+                        <th scope="row" className="py-2 pr-3 text-xs font-normal">
+                          {row.name}
+                          <span className="block text-2xs text-tertiary">{tt(row.category)}</span>
+                        </th>
+                        <td className="num py-2 pr-3 text-2xs text-tertiary">
+                          {params?.anchor ?? "—"}
+                        </td>
+                        <td className="num py-2 pr-3 text-right text-xs">
+                          {params ? params.overlap : "—"}
+                        </td>
+                        <td className="num py-2 pr-3 text-right text-xs">
+                          {params?.r !== undefined ? params.r.toFixed(2) : "—"}
+                        </td>
+                        <td className="py-2 text-xs">{t(`equating.${status}`)}</td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
         </Section>
 
         <Section id="uncertainty" title={t("uncertainty.title")}>
@@ -179,7 +279,7 @@ export default async function MethodologyPage({
               })}
             </p>
           )}
-          <p>{t("cohort.notchanged")}</p>
+          <p>{t("cohort.changed")}</p>
         </Section>
 
         <Section id="coverage" title={t("coverage.title")}>
@@ -216,6 +316,12 @@ export default async function MethodologyPage({
           <p>{t("variants.arena")}</p>
           <p>{t("variants.mismatch")}</p>
           <p>{t("variants.mismatchBest")}</p>
+        </Section>
+
+        <Section id="identity" title={t("identity.title")}>
+          <p>{t("identity.body")}</p>
+          <p>{t("identity.fixed")}</p>
+          <p>{t("identity.hosted")}</p>
         </Section>
 
         <Section id="rejections" title={t("rejections.title")}>
@@ -337,6 +443,7 @@ export default async function MethodologyPage({
         <Section id="exclusions" title={t("exclusions.title")}>
           <p>{t("exclusions.swebench")}</p>
           <p>{t("exclusions.others")}</p>
+          <p>{t("exclusions.checked")}</p>
         </Section>
 
         <Section id="reproduce" title={t("reproduce.title")}>
@@ -346,6 +453,8 @@ export default async function MethodologyPage({
             <li className="list-disc num text-xs">data/scores.json</li>
             <li className="list-disc num text-xs">data/history.jsonl</li>
             <li className="list-disc num text-xs">config/weights.json</li>
+            <li className="list-disc num text-xs">config/naming.json</li>
+            <li className="list-disc num text-xs">config/contamination.json</li>
             <li className="list-disc num text-xs">data/status.json</li>
           </ul>
           <p>{t("reproduce.git")}</p>

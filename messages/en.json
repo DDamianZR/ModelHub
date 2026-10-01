@@ -144,27 +144,30 @@
     "recalibration": "Cohort recalibration, not a change in measurement. Its normalised human preference value moved {normalized} points while its Arena rating changed only {raw}: a model with an extreme rating joined or left and the scale shifted underneath. The effect on the composite is {composite} points — above {threshold}, this run's median gap between neighbours — and nobody voted differently to cause it.",
     "scoreVariantMismatch": "Measures the {measured} variant ({name}), not {variant}",
     "contaminationFlag": "Contamination reported ({date}): {note}",
-    "contaminationLink": "see evidence"
+    "contaminationLink": "see evidence",
+    "scaledValue": "{value} on the category's common scale",
+    "notScored": "Shown, not scored",
+    "scaleNote": "Every benchmark is put on its category's common scale before it is averaged, so the figure that enters the composite can differ from the one the source published; where they differ, both are shown. Benchmarks that cannot be placed on that scale appear unscored. Details are on the Methodology page."
   },
   "methodology": {
     "title": "Methodology",
     "intro": "Everything here can be reproduced by hand from the public JSON in the repository. If a number on this site disagrees with this page, the site is wrong.",
     "formula": {
       "title": "The composite, exactly",
-      "body": "Each benchmark is placed on a 0–100 scale. Within a category the available benchmarks are averaged, and those categories are weighted like this:",
+      "body": "Within each category, every benchmark is first put on one common scale — its anchor's — and then averaged. The categories are weighted like this:",
       "category": "Category",
       "weight": "Weight",
       "inputs": "Inputs",
-      "inputs_reasoning": "GPQA Diamond, SimpleQA Verified (Epoch) · LiveBench Reasoning",
-      "inputs_coding": "SWE-bench Verified (Epoch) · LiveBench Coding and Agentic Coding",
-      "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
-      "inputs_human_preference": "LMArena, text arena, overall category",
-      "inputs_instruction_following": "LiveBench IF",
       "singleSource": "single source",
       "singleSourceNote": "\"Single source\" marks categories that depend on one data provider: if that source goes down, the whole category gets no new snapshot, not just one benchmark inside it.",
-      "equation": "composite = Σ(category score × weight) ÷ Σ(weight of categories with data)",
-      "normalisation": "Benchmarks already reported as percentages are used as-is. LMArena's Bradley-Terry ratings are not percentages, so they are min-max normalised against the cohort present in each build: in the current build, {min} and {max} are the 0 and the 100. This means a model's normalised Arena value can move even when its rating doesn't, if a model enters or leaves either extreme.",
-      "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality."
+      "equation": "composite = Σ all(weight × cohort mean) + Σ available(weight × (score − cohort mean)) ÷ Σ available(weight)",
+      "normalisation": "LMArena's Bradley-Terry ratings are not percentages. They are converted with the model that produced them: the expected share of head-to-head votes won against the rest of this build's cohort ({cohort} models, ratings from {min} to {max}). Code Arena, the coding arena, is converted the same way and enters Coding as one more benchmark.",
+      "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality.",
+      "effective": "Effective weight",
+      "anchor": "anchor",
+      "unscored": "not scored",
+      "effectiveNote": "The effective weight is the share of the composite's variance each category actually carries in this build, measured over the {models} models that have all five. It depends on how spread out the models are inside each category: a category where nearly everyone scores alike counts for less than its label says. It is published rather than corrected, because inflating it back would invent a spread the measurement does not have.",
+      "partial": "With all five categories the formula is exactly the weighted mean. When one is missing, its weight is spread over the distances from the cohort mean rather than over the other categories' levels: the model is placed as far above or below average as it is on what was measured. Spreading levels assumed the missing category was worth the model's own average, and because categories sit at different levels, missing a low one was a free gain. Measured on 2026-10-01 by rebuilding every full-coverage model without each category, the bias for a missing Human preference was +4.24 points and is now 0.00; it is 0.00 for all five categories. That reconstruction is still an assumption, so it widens the model's interval instead of hiding."
     },
     "coverage": {
       "title": "The coverage gate",
@@ -181,7 +184,7 @@
       "tradeoff": "We choose a single configuration per model and use it across all of its benchmarks; when a benchmark did not measure that configuration, we leave the gap — and the coverage drops — rather than substituting a different configuration.",
       "principle": "This is the same principle applied to SWE-bench scaffolds: reveal the configuration, don't hide it. The mechanisms differ — a scaffold is another system, by another author, contributing much of the result; an effort level is the same weights with a different knob — but the principle is identical, and in both cases it exists for the same reason: to stop a published number from describing a configuration nobody ran.",
       "disclosure": "That is why the configuration is never hidden: on each model page, the sources table states exactly which variant produced each number and how many were published.",
-      "option_model": "choose ONE configuration for the whole model and use it across every benchmark: the effort label with the widest coverage wins, ties going to the variant published without a qualifier. If a benchmark never measured that configuration, the cell is left empty and coverage reflects it. This is the current value.",
+      "option_model": "picks ONE configuration for the whole model and uses it on every benchmark: the label covering the most categories wins, then the most benchmarks, with ties going to the variant published without a qualifier. Counting benchmarks alone let a source with six benchmarks across two categories outvote one with four categories, and the model lost its only Instruction-following result. If a benchmark never measured that configuration, the cell stays empty and coverage reflects it. This is the current setting.",
       "option_default": "use, benchmark by benchmark, the variant published without an effort qualifier; if none exists, fall back to the best. Rejected as the default because it chooses separately per benchmark: a model could take max-effort in Math and xhigh in Coding, a configuration nobody runs.",
       "option_best": "use the highest score across variants. It reflects the model's ceiling, but rewards publishing more variants: the maximum of five draws beats the maximum of one.",
       "option_average": "average the variants. Rejected as the default: nobody runs 'the mean effort level', so it invents a configuration that does not exist, understating the peak and overstating the cheap variant.",
@@ -222,7 +225,8 @@
     "exclusions": {
       "title": "What was left out, and why",
       "swebench": "The swebench.com leaderboard is excluded on licensing grounds: its data is CC-BY-NC (non-commercial) and this repository is MIT, which does permit commercial use. Shipping that data here would hand anyone who forks the project a licence promising more rights than they actually have. The SWE-bench Verified figures that are used come from Epoch AI's own CC-BY licensed runs. Beyond the licence there is a technical reason: swebench.com rows describe agent scaffolds rather than bare models, and the scaffold often matters more than the model.",
-      "others": "Also excluded: HuggingFace's Open LLM Leaderboard, whose Space still reports as running while its results dataset hasn't moved since March 2025, and aider's Polyglot leaderboard, frozen since October 2025 even though the project itself is alive. Mixing 2025 figures with 2026 figures in a ranking whose whole premise is currency would be worse than omitting them."
+      "others": "Also excluded: HuggingFace's Open LLM Leaderboard, whose Space still reports as running while its results dataset hasn't moved since March 2025, and aider's Polyglot leaderboard, frozen since October 2025 even though the project itself is alive. Mixing 2025 figures with 2026 figures in a ranking whose whole premise is currency would be worse than omitting them.",
+      "checked": "Checked on 2026-10-01 and not added: ARC Prize, Vals.ai and OpenCompass, whose terms forbid redistributing the data; SimpleBench, which publishes no licence; LiveCodeBench, HELM and aider, frozen in 2025; MathArena, licensed CC-BY-SA and with models running inside vendor tools since August. Epoch's external files keep their original source's licence, so they do not inherit Epoch's CC-BY."
     },
     "reproduce": {
       "title": "How to check it yourself",
@@ -234,19 +238,19 @@
       "title": "Uncertainty and statistical ties",
       "body": "Epoch publishes a standard error on every row and LMArena publishes a confidence interval on every rating. That data was in the sources from day one and was dropped on the way to the page. It is now propagated to the composite and shown.",
       "why": "It is needed because the table is far tighter than its own precision. Right now the median gap between neighbouring models is {medianGap} composite points, while Epoch's median per-benchmark standard error runs from {stderrLow} to {stderrHigh} points. Publishing a strict order over differences that small promises a precision the measurement does not have: today {identicalPairs, plural, =0 {no pair sits less than a hundredth apart, but that is this run, not a rule} one {one pair sits less than a hundredth apart} other {# pairs sit less than a hundredth apart}}.",
-      "formula": "Everything is carried as the half-width of a 95% interval. Epoch's standard error is multiplied by 1.96; LMArena's interval is already at 95% and is only rescaled along with the rating. A category mean propagates as √(Σ e²)/n and the composite as √(Σ (wᵢ/W)² eᵢ²).",
+      "formula": "Everything is carried as the half-width of a 95% interval. Epoch's standard error is multiplied by 1.96; LMArena's interval is already at 95% and is transformed with the slope of the win rate. An equated benchmark carries its rescaled error plus the error of fitting the scale. A category mean propagates as √(Σ e²)/n and the composite as √(Σ (wᵢ/W)² eᵢ²), plus, when a category is missing, the typical error of reconstructing it.",
       "floor": "The published figure is a floor, not an estimate. Two reasons, both pointing the same way: LiveBench publishes no per-row error, so its inputs contribute zero — on this run {measuredInputs} of {totalInputs} inputs carry a published error — and the formula assumes the categories are independent when they are not entirely. The real interval can only be wider.",
-      "sound": "That asymmetry is what keeps it usable. An interval that can only widen still supports \"these two overlap\" but never \"these two differ\". So ties are declared and differences are not: two models without a tie mark may well be tied anyway.",
+      "sound": "Because the interval is a floor, a separation between two models is asserted on the measured uncertainty, not the total: two models separated here could tie if LiveBench published its error. And the rank never puts a model ahead of one with a higher composite: it takes the worse of its own rank and the one above, which reads as a tie rather than a win. Before, a wider interval earned a better number: 22 pairs were inverted that way on the 2026-10-01 cohort; there are 0 now.",
       "rank": "The rank is a significance rank, not a position in a sorted list: a model sits at one plus the number of models measurably ahead of it. Strictly-better models are counted rather than neighbours grouped, because overlap is not transitive — A can overlap B and B overlap C while A and C are cleanly separated. On this run, {ranked} ranked models leave {distinctRanks} distinct ranks, and {overlappingPairs} of {adjacentPairs} adjacent pairs overlap.",
       "unknown": "{withoutInterval, plural, =0 {Right now every ranked model carries an interval.} one {Today one model carries no interval because none of its sources publish an error.} other {Today # models carry no interval because none of their sources publish an error.}} They are compared as point values, the one place this calculation zero-fills, which is why their model page says so outright. The alternative — refusing to separate them from anyone — was worse: it lifted a model well behind the leader into a tie for first, in exchange for knowing less about it."
     },
     "cohort": {
       "title": "Cohort coupling in LMArena",
-      "body": "Arena ratings are Bradley-Terry, not percentages, so they are min-max normalised against the cohort present in each build. That has a consequence which is not obvious: when a model with an extreme rating joins, everyone else's normalised value moves even though their raw ratings did not change.",
-      "measured": "Measured on 2026-08-03 against that day's cohort: a new model 60 points above the best of the time moved the normalised value by 16.03 points on average and 24.29 in the worst case — 2.40 and 3.64 composite points. Against today's median gap between neighbours ({medianGap} points), a shift like that is enough to reorder the table on its own.",
+      "body": "Human preference is computed against the cohort present in each build: a model's win rate depends on who it is up against. Its value can therefore move without its rating changing, when models join or leave.",
+      "measured": "Under the min-max normalisation used until 2026-10-01 the effect was large: a single model at the edge of the cohort moved other composites by up to 7.10 points, and human preference carried 31.3% of the composite's variance against its nominal 15%. As a win rate, removing any one model from the cohort moves the others by at most 0.26 points, and it carries 9.0%. Against today's median gap between neighbours ({medianGap} points), the first was enough to reorder the table; the second almost never is.",
       "disclosure": "So every run records the raw delta and the normalised delta separately. When the normalised one moves and the raw one does not, the model page says so: cohort recalibration, not a change in measurement. A model can lose places without anyone voting differently, and that distinction belongs to the reader, not to us.",
-      "notchanged": "The normaliser was not changed. Replacing min-max with a z-score was tried on 2026-08-03 and rejected with the measurement in hand: against that day's cohort it moved 16 of 44 models with 2.27 points of mean drift and could not show the new position was more correct than the old one, so it introduced movement without introducing truth. It also does not fix the problem — the mean and standard deviation depend on the cohort exactly as much as the min and max do — and the sigmoid proposed on top compresses precisely the head of the table, which is where readers look. Genuinely decoupling would need a fixed anchor across builds, and that is a separate study nobody has done yet.",
-      "threshold": "The notice does not use a fixed threshold. It appears when the effect on the composite reaches the median gap between neighbouring models in that same run ({medianGap} points today), which is exactly the size at which a shift can change places. The threshold therefore retunes itself as the table tightens or spreads, instead of freezing one day's judgement. The other half of the notice — \"the rating barely moved\" — is {stillPoints} rating points, checked against the series itself: across {transitions} consecutive transitions in the history, the median movement is {moveMedian} and the 75th percentile is {moveP75}."
+      "threshold": "The notice does not use a fixed threshold. It appears when the effect on the composite reaches the median gap between neighbouring models in that same run ({medianGap} points today), which is exactly the size at which a shift can change places. The threshold therefore retunes itself as the table tightens or spreads, instead of freezing one day's judgement. The other half of the notice — \"the rating barely moved\" — is {stillPoints} rating points, checked against the series itself: across {transitions} consecutive transitions in the history, the median movement is {moveMedian} and the 75th percentile is {moveP75}.",
+      "changed": "The normaliser did change, and that is why the criterion changed. On 2026-08-03 replacing min-max with a z-score was rejected because it moved models without showing the new position was more correct. A win rate is not a rescale picked by taste: it is the probability the Bradley-Terry model itself assigns, and what justifies it is measured above — 27 times more stable against the cohort. It sits below its nominal weight because frontier models genuinely are close head to head; that is published as effective weight rather than corrected."
     },
     "rejections": {
       "title": "Guards that fired",
@@ -260,6 +264,30 @@
       "agedItem": "{days, plural, one {# day} other {# days}} old, state {state}",
       "agedNone": "None. All three sources are within their declared rhythm.",
       "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. LiveBench also adds models to its current snapshot without changing its date, so its age counts from the last model it published, and each of its numbers carries the date of the first daily ingest that saw it, never one earlier than its snapshot. Sources ageing right now:"
+    },
+    "equating": {
+      "title": "One common scale per category",
+      "body": "Benchmarks inside one category sit at very different levels. On 2026-09-29 FrontierMath averaged 31.9 and LiveBench Math 89.5, and both counted as «Math». Averaging them as-is scored each model on which benchmark it happened to be given, not on how good it is: Gemini 3 Pro's only maths result was FrontierMath, and it read as weak at maths for that reason.",
+      "method": "Each benchmark is put on its category anchor's scale by linear (mean-sigma) equating, fitted on the models measured on both: B' = anchor mean + (anchor sd ÷ B's sd) × (B − B's mean). Anchors are fixed in config/weights.json: LiveBench for Reasoning, Coding, Math and Instruction-following, the contamination-resistant scale those categories already used. Choosing them by coverage each build would have made GPQA, near its ceiling, the Reasoning scale on the day Epoch out-covered LiveBench.",
+      "validation": "It was chosen by measurement, not argument. The metric is substitution drift: how far a model's category would move if it had been given only that benchmark, with the scale fitted without that model. On the 2026-10-01 sources it falls from 31.52 to 3.55 points for SimpleQA Verified, from 46.85 to 5.12 for Chess Puzzles, from 19.17 to 2.37 for FrontierMath v2 and from 25.63 to 3.77 for LiveBench Agentic Coding. A shift-only fit wins narrowly on GPQA and OTIS and loses badly elsewhere; one rule for every benchmark beats a rule per case.",
+      "gate": "Equating assumes both benchmarks measure the same thing, so there are two gates. A benchmark is shown but not scored if it shares fewer than 5 models with the anchor, or if its correlation with it is not significantly positive (one-sided test at 5%). The test scales with the sample: 6 shared models need r > 0.73; 50 need r > 0.24. Today SWE-bench Verified fails it — 6 models shared with LiveBench Coding, r = 0.14 — and Epoch has not run it since June. Code Arena passes (43 models, r = 0.45) and is what gives Coding to models without LiveBench.",
+      "benchmark": "Benchmark",
+      "anchorCol": "Anchor",
+      "shared": "Shared models",
+      "status": "Status",
+      "status_anchor": "anchor",
+      "status_scored": "scored",
+      "status_overlap": "not scored: too few shared models",
+      "status_weak_correlation": "not scored: correlation not significant",
+      "status_display_only": "not scored: superseded by its new version",
+      "status_no_spread": "not scored: no spread",
+      "status_absent": "no data in this build"
+    },
+    "identity": {
+      "title": "Which model each row is",
+      "body": "Every source spells names its own way, so all of them go through a normaliser before they are joined. A mistake there credits one model with another's numbers, and it is the one failure the pipeline cannot detect on its own. The rules the normaliser cannot infer live by hand in config/naming.json, each with the raw names that motivated it.",
+      "fixed": "Fixed on 2026-10-01: the «-pro-unknown» suffix was stripped as a qualifier, so GPT-5, GPT-5.4 and GPT-5.5 were published under their Pro names and o3 entered the catalogue on o3 Pro's release date. «Max» in Qwen3.8 Max is the product name, not an effort level. And 37 names carried an effort parenthetical that was not the scored one: the name now comes from the version actually measured.",
+      "hosted": "Runs served by third parties (chutes/, fireworks/, zai-org/) join their model only through a reviewed list, not by stripping the prefix: Epoch's moonshotai/kimi-k2 id is actually Kimi K2 Thinking, and stripping it would have merged it with Kimi K2 Instruct. When the vendor's own run exists, it wins over a third party's."
     }
   },
   "ui": {

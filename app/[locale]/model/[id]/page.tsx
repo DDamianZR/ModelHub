@@ -285,7 +285,7 @@ export default async function ModelPage({
                             <span key={entry.evidence_url} className="block text-2xs text-attention">
                               {t("contaminationFlag", {
                                 date: entry.noted_at,
-                                note: entry.note,
+                                note: locale === "es" && entry.note_es ? entry.note_es : entry.note,
                               })}{" "}
                               <a
                                 href={entry.evidence_url}
@@ -310,6 +310,22 @@ export default async function ModelPage({
                             ? `± ${score.half_width_95.toFixed(2)}`
                             : t("errorNotPublished")}
                         </span>
+                        {/* The number the category actually averaged: every benchmark is put
+                            on its category's common scale first, so the raw value above and
+                            the one used can differ. Unscored rows say why instead. */}
+                        {score.unit === "percent" && score.scored === false && (
+                          <span className="block text-2xs text-attention">
+                            {t("notScored")}
+                          </span>
+                        )}
+                        {score.unit === "percent" &&
+                          score.scored !== false &&
+                          score.scaled_value != null &&
+                          Math.abs(score.scaled_value - score.value) >= 0.05 && (
+                            <span className="block text-2xs text-tertiary">
+                              {t("scaledValue", { value: score.scaled_value.toFixed(1) })}
+                            </span>
+                          )}
                       </td>
                       <td className="num py-2 pr-3 text-2xs text-tertiary">
                         {score.source_type}
@@ -332,6 +348,7 @@ export default async function ModelPage({
                 </tbody>
               </table>
             </Surface>
+            <p className="mt-2 text-xs leading-[1.6] text-tertiary">{t("scaleNote")}</p>
           </section>
 
           <section id="acquisition" className="mt-8 scroll-mt-6">
