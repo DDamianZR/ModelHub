@@ -739,6 +739,17 @@ def assign_significance_ranks(models: list[dict]) -> None:
             if other is not model
             and other["composite"] - (other["composite_error"] or 0.0) > floor
         )
+
+    # Monotone in the score. Counting strictly-better models rewards a wide interval: on
+    # 2026-09-29 Gemini 3 Pro (73.06 +- 2.02) sat at 24 above GPT-5.6 Terra (74.57 +- 0.47)
+    # at 25, and 13 pairs were inverted like that - the less precisely measured model
+    # printed ahead of the better-scoring one. A model is now never placed ahead of one
+    # with a higher composite: it takes the worse of its own rank and the rank above it,
+    # which reads as a tie with that model rather than a win over it.
+    worst_so_far = 0
+    for model in sorted(ranked, key=lambda m: -m["composite"]):
+        model["rank"] = max(model["rank"], worst_so_far)
+        worst_so_far = model["rank"]
     shared: dict[int, int] = {}
     for model in ranked:
         shared[model["rank"]] = shared.get(model["rank"], 0) + 1

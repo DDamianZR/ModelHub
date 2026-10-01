@@ -337,3 +337,17 @@ class ApplyCompositesTests(unittest.TestCase):
         self.assertAlmostEqual(models[2]["composite"], 66.5)
         self.assertGreater(models[2]["uncertainty"]["missing_categories_hw"], 0)
         self.assertGreater(models[2]["composite_error"], 1.0)
+
+
+class MonotoneRankTests(unittest.TestCase):
+    def test_a_wide_interval_never_outranks_a_higher_score(self):
+        """Regression: 13 pairs where the lower composite printed the better rank."""
+        models = [
+            {"composite": 90.0, "composite_error": 0.3, "provisional": False},
+            {"composite": 80.0, "composite_error": 0.3, "provisional": False},
+            {"composite": 79.0, "composite_error": 5.0, "provisional": False},
+        ]
+        assign_significance_ranks(models)
+        ranks = [m["rank"] for m in models]
+        self.assertEqual(ranks, sorted(ranks))
+        self.assertEqual(models[2]["rank"], models[1]["rank"])
