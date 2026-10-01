@@ -6,7 +6,7 @@
     "provisional_count": 16,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
-    "contamination_reviewed_at": "2026-08-24",
+    "contamination_reviewed_at": "2026-10-01",
     "snapshots": {
       "epoch": "2026-10-01",
       "livebench": "2026-06-25",
@@ -232,8 +232,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (claude-fable-5_max)",
       "variant": "max"
     },
@@ -606,8 +613,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant 32k (claude-haiku-4-5-20251001_32K)",
       "variant": "32k"
     },
@@ -657,8 +671,21 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2310.10631",
+          "noted_at": "2026-10-01",
+          "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+          "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/html/2404.18824v1",
+          "noted_at": "2026-10-01",
+          "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+          "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+        }
+      ],
       "notes": "variant 32k (claude-haiku-4-5-20251001_32K)",
       "variant": "32k"
     },
@@ -742,8 +769,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-08-05",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant plain (claude-opus-4-1-20250805)",
       "variant": "plain"
     },
@@ -810,8 +844,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-11",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -1099,8 +1152,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-04-17",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant xhigh (claude-opus-4-7_xhigh)",
       "variant": "xhigh"
     },
@@ -1303,8 +1363,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-06-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (claude-opus-4-8_max)",
       "variant": "max"
     },
@@ -1541,8 +1608,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-24",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (claude-opus-5_max)",
       "variant": "max"
     },
@@ -1762,8 +1836,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -1949,8 +2030,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-09-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant plain (claude-sonnet-4-5-20250929)",
       "variant": "plain"
     },
@@ -2034,8 +2122,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-05",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -2085,8 +2192,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-13",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant medium (claude-sonnet-4-6_medium)",
       "variant": "medium"
     },
@@ -2255,8 +2369,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-01",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant xhigh (claude-sonnet-5_xhigh)",
       "variant": "xhigh"
     },
@@ -2442,8 +2563,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -3173,8 +3301,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-16",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -3258,8 +3393,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-13",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -3309,8 +3463,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-17",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant preview (gemini-3-flash-preview)",
       "variant": "preview"
     },
@@ -3394,8 +3555,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-18",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "preview"
     },
@@ -3445,8 +3625,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-19",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "preview"
     },
@@ -3513,8 +3700,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-13",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "preview"
     },
@@ -3564,8 +3770,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gemini-3.1-flash-lite_high)",
       "variant": "high"
     },
@@ -3666,8 +3879,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gemini-3.1-pro-preview_high)",
       "variant": "high"
     },
@@ -3887,8 +4107,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gemini-3.5-flash_high)",
       "variant": "high"
     },
@@ -4006,8 +4233,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-06-01",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "high"
     },
@@ -4142,8 +4388,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gemini-3.5-flash-lite_high)",
       "variant": "high"
     },
@@ -4329,8 +4582,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-02",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gemini-3.6-flash_high)",
       "variant": "high"
     },
@@ -4550,8 +4810,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-14",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "high"
     },
@@ -4771,8 +5038,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-02",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "high"
     },
@@ -4992,8 +5266,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "minimal"
     },
@@ -5077,8 +5358,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "minimal"
     },
@@ -5213,8 +5501,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-01-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -5332,8 +5627,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-12",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -5400,8 +5702,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-15",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -5451,8 +5772,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-10",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -5553,8 +5881,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-15",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -5961,8 +6308,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gpt-5-2025-08-07_high)",
       "variant": "high"
     },
@@ -6029,8 +6383,21 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2310.10631",
+          "noted_at": "2026-10-01",
+          "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+          "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/html/2404.18824v1",
+          "noted_at": "2026-10-01",
+          "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+          "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+        }
+      ],
       "notes": "variant high (gpt-5-2025-08-07_high)",
       "variant": "high"
     },
@@ -6097,8 +6464,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": "variant high (gpt-5-2025-08-07_high)",
       "variant": "high"
     },
@@ -6148,8 +6534,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant medium (gpt-5-mini-2025-08-07_medium)",
       "variant": "medium"
     },
@@ -6182,8 +6575,21 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-08-20",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2310.10631",
+          "noted_at": "2026-10-01",
+          "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+          "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/html/2404.18824v1",
+          "noted_at": "2026-10-01",
+          "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+          "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+        }
+      ],
       "notes": "variant medium (gpt-5-mini-2025-08-07_medium)",
       "variant": "medium"
     },
@@ -6233,8 +6639,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-01",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "medium"
     },
@@ -6267,8 +6692,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-30",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
       "variant": "high"
     },
@@ -6335,8 +6767,21 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-08-20",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2310.10631",
+          "noted_at": "2026-10-01",
+          "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+          "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/html/2404.18824v1",
+          "noted_at": "2026-10-01",
+          "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+          "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+        }
+      ],
       "notes": "variant high (gpt-5-nano-2025-08-07_high)",
       "variant": "high"
     },
@@ -6420,8 +6865,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-13",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gpt-5.1-2025-11-13_high)",
       "variant": "high"
     },
@@ -6505,8 +6957,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-18",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": "variant high (gpt-5.1-2025-11-13_high); mean of 2 runs of the same configuration",
       "variant": "high"
     },
@@ -6556,8 +7027,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-11",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant high (gpt-5.2-2025-12-11_high)",
       "variant": "high"
     },
@@ -6658,8 +7136,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-12",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "high"
     },
@@ -6896,8 +7393,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-03-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant xhigh (gpt-5.4-2026-03-05_xhigh)",
       "variant": "xhigh"
     },
@@ -7134,8 +7638,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant xhigh (gpt-5.4-mini-2026-03-17_xhigh)",
       "variant": "xhigh"
     },
@@ -7423,8 +7934,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-04-24",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant xhigh (gpt-5.5-pre-release_xhigh)",
       "variant": "xhigh"
     },
@@ -7542,8 +8060,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-04-24",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "xhigh"
     },
@@ -7661,8 +8198,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-02",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -7746,8 +8290,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-09",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (gpt-5.6-luna_max)",
       "variant": "max"
     },
@@ -7950,8 +8501,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-09",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (gpt-5.6-sol_max)",
       "variant": "max"
     },
@@ -8154,8 +8712,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-07-09",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant max (gpt-5.6-terra_max)",
       "variant": "max"
     },
@@ -8358,8 +8923,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-30",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -8579,8 +9151,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -8766,8 +9345,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-22",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -8970,8 +9556,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-29",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "max"
     },
@@ -9174,8 +9767,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-11",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "high"
     },
@@ -9259,8 +9859,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-27",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant medium (gpt-oss-20b_medium)",
       "variant": "medium"
     },
@@ -9327,8 +9934,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": null,
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -9888,8 +10502,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-05",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "xhigh"
     },
@@ -10092,8 +10713,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-14",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "xhigh"
     },
@@ -10228,8 +10856,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-11-11",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -10313,8 +10948,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-02",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -10398,8 +11040,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-02-17",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -10449,8 +11110,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-01",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -10568,8 +11236,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-08",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -10704,8 +11391,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11010,8 +11704,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-10",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant plain (MiniMax-M3)",
       "variant": "plain"
     },
@@ -11197,8 +11898,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-28",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11265,8 +11973,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-04-08",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11741,8 +12456,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-12-11",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11860,8 +12582,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-30",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11928,8 +12657,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-06",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -11996,8 +12732,21 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2025-10-09",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2310.10631",
+          "noted_at": "2026-10-01",
+          "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+          "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/html/2404.18824v1",
+          "noted_at": "2026-10-01",
+          "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+          "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -12115,8 +12864,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-28",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant plain (qwen3.5-35b-a3b)",
       "variant": "plain"
     },
@@ -12200,8 +12956,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant none (qwen3.5-397b-a17b_none)",
       "variant": "none"
     },
@@ -12319,8 +13082,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -12472,8 +13242,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant plain (qwen3.6-27b)",
       "variant": "plain"
     },
@@ -12625,8 +13402,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "preview"
     },
@@ -12710,8 +13494,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-28",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "preview"
     },
@@ -12761,8 +13564,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -12863,8 +13673,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-05-14",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -12999,8 +13828,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -13101,8 +13937,27 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-06-18",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+          "noted_at": "2026-10-01",
+          "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+          "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2506.12286",
+          "noted_at": "2026-10-01",
+          "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+          "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+        },
+        {
+          "evidence_url": "https://arxiv.org/abs/2512.10218",
+          "noted_at": "2026-10-01",
+          "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+          "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+        }
+      ],
       "notes": null,
       "variant": "plain"
     },
@@ -13237,8 +14092,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-08-07",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": "variant none (qwen3.7-plus_none)",
       "variant": "none"
     },
@@ -13577,8 +14439,15 @@
       "source_type": "third_party_benchmark",
       "source_url": "https://epoch.ai/benchmarks",
       "measured_at": "2026-09-02",
-      "contamination_flag": false,
-      "contamination_evidence": [],
+      "contamination_flag": true,
+      "contamination_evidence": [
+        {
+          "evidence_url": "https://arxiv.org/pdf/2607.09424",
+          "noted_at": "2026-10-01",
+          "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+          "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+        }
+      ],
       "notes": null,
       "variant": "xhigh"
     },

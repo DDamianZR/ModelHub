@@ -1,6 +1,64 @@
 {
   "schema_version": 1,
   "note": "Registry of benchmarks with public evidence of training-set contamination. A flagged benchmark's score is never attenuated for it - attenuating a score by estimated risk is fabricating a number, which this project does not do. The flag and its evidence are shown next to the score instead, and the reader judges. Add an entry only with a URL that has actually been opened and actually says what the note claims; verified, not remembered. Update reviewed_at whenever the registry is checked, whether or not anything changes - it is what makes an empty registry a dated claim about what has been logged rather than a promise with nothing behind it.",
-  "reviewed_at": "2026-08-24",
-  "benchmarks": {}
+  "reviewed_at": "2026-10-01",
+  "benchmarks": {
+    "swe_bench_verified": [
+      {
+        "evidence_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+        "noted_at": "2026-10-01",
+        "note": "OpenAI, which published SWE-bench Verified, reports frontier models reproducing gold patches or verbatim task text, and stopped reporting it (2026-02-23).",
+        "note_es": "OpenAI, que publicó SWE-bench Verified, reporta modelos frontera que reproducen los parches de referencia o el texto literal de las tareas, y dejó de reportarlo (2026-02-23)."
+      },
+      {
+        "evidence_url": "https://arxiv.org/abs/2506.12286",
+        "noted_at": "2026-10-01",
+        "note": "Models located the buggy file from the issue text alone 76% of the time on Verified against 53% on repositories outside SWE-bench (2025).",
+        "note_es": "Los modelos ubicaron el archivo con el error solo con el texto del issue el 76 % de las veces en Verified, contra 53 % en repositorios fuera de SWE-bench (2025)."
+      },
+      {
+        "evidence_url": "https://arxiv.org/abs/2512.10218",
+        "noted_at": "2026-10-01",
+        "note": "Claude models localised relevant files about 3x better on Verified than on BeetleBox and SWE-rebench, read by the authors as tasks seen in training (2025).",
+        "note_es": "Modelos Claude ubicaron los archivos relevantes unas 3 veces mejor en Verified que en BeetleBox y SWE-rebench; los autores lo leen como tareas vistas en entrenamiento (2025)."
+      }
+    ],
+    "math_level_5": [
+      {
+        "evidence_url": "https://arxiv.org/pdf/2310.10631",
+        "noted_at": "2026-10-01",
+        "note": "About 7% of MATH test problem statements have 30-gram overlaps with the public Proof-Pile-2 training corpus (2023).",
+        "note_es": "Cerca del 7 % de los enunciados de prueba de MATH coinciden en 30-gramas con el corpus público de entrenamiento Proof-Pile-2 (2023)."
+      },
+      {
+        "evidence_url": "https://arxiv.org/html/2404.18824v1",
+        "noted_at": "2026-10-01",
+        "note": "Across 31 LLMs, n-gram prediction finds test-set misuse on math benchmarks; one model predicted every 5-gram of 25 MATH test items (2024).",
+        "note_es": "Sobre 31 LLMs, la predicción de n-gramas encuentra uso indebido del conjunto de prueba en benchmarks de matemáticas; un modelo predijo todos los 5-gramas de 25 ítems de MATH (2024)."
+      }
+    ],
+    "gpqa_diamond": [
+      {
+        "evidence_url": "https://arxiv.org/pdf/2607.09424",
+        "noted_at": "2026-10-01",
+        "note": "A model developer found paraphrased GPQA-Diamond items in its training data - GPQA's only published split is labelled 'train' - and withdrew its GPQA scores (2026).",
+        "note_es": "Un desarrollador encontró ítems parafraseados de GPQA-Diamond en sus datos de entrenamiento —la única partición publicada de GPQA se llama 'train'— y retiró sus resultados de GPQA (2026)."
+      }
+    ]
+  },
+  "checked_without_evidence": [
+    "frontiermath",
+    "frontiermath_v2",
+    "otis_mock_aime",
+    "simpleqa_verified",
+    "chess_puzzles",
+    "mystery_game_puzzles",
+    "livebench_reasoning",
+    "livebench_agentic_coding",
+    "livebench_instruction_following",
+    "mirrorcode",
+    "lmarena_code",
+    "lmarena_text_overall"
+  ],
+  "not_logged_note": "LiveBench's own statements of contamination (changelog 2025-04-02; paper v2, 2025-04-18) concern coding and AMC question sets it has since replaced. They are not logged against the current snapshot, which they do not describe."
 }
