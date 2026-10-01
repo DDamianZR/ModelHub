@@ -127,7 +127,13 @@ def profile(model: dict, locale: str) -> tuple[str, str, str]:
     if not scores:
         return "", "", measured
 
-    ordered = sorted(scores.items(), key=lambda item: item[1], reverse=True)
+    # Ordered by standing against the cohort when the ingest published it, not by raw
+    # score: categories sit at different levels, and raw ordering named the category with
+    # the lowest level (Instruction-following, then human preference as a win rate) as
+    # nearly every model's weakness.
+    standing = model.get("category_standing") or {}
+    ranking = {k: standing.get(k, v) for k, v in scores.items()} if standing else scores
+    ordered = sorted(ranking.items(), key=lambda item: item[1], reverse=True)
     # Strengths and weaknesses must not overlap. A naive top-2 / bottom-2 split returns the
     # same category twice when there are three or fewer, and the model then writes that it
     # is both good and bad at it. That happened 24 times in one pass.

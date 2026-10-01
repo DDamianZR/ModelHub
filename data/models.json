@@ -202,6 +202,13 @@
         "human_preference": 52.22,
         "instruction_following": 68.17
       },
+      "category_spreads": {
+        "reasoning": 6.021,
+        "coding": 3.752,
+        "math": 5.592,
+        "human_preference": 4.486,
+        "instruction_following": 6.696
+      },
       "missing_category_sigma": {
         "reasoning": 0.911,
         "coding": 0.882,
@@ -271,6 +278,12 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 1.715,
+        "math": 1.295,
+        "coding": 1.084,
+        "instruction_following": 0.893
+      },
       "rank": 1,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -333,6 +346,12 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 1.17,
+        "math": 1.236,
+        "coding": 2.198,
+        "instruction_following": 0.719
+      },
       "rank": 1,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -402,6 +421,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 1.969,
+        "math": 1.293,
+        "coding": 1.287,
+        "instruction_following": 1.106,
+        "human_preference": -0.362
+      },
       "rank": 1,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -464,6 +490,12 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 1.099,
+        "math": 1.261,
+        "coding": 2.971,
+        "instruction_following": -0.363
+      },
       "rank": 1,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -532,6 +564,13 @@
         "variant": "gemini-3.8-flash-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 1.311,
+        "math": 0.413,
+        "coding": -0.187,
+        "instruction_following": 1.977,
+        "human_preference": 1.381
       },
       "rank": 2,
       "tied_with": 1,
@@ -602,6 +641,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.918,
+        "math": 0.499,
+        "coding": 0.605,
+        "instruction_following": 1.756,
+        "human_preference": 1.111
+      },
       "rank": 2,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -670,6 +716,13 @@
         "variant": "gpt-5.6-sol-xhigh",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 1.242,
+        "math": 1.166,
+        "coding": 1.194,
+        "instruction_following": 0.549,
+        "human_preference": 0.117
       },
       "rank": 4,
       "tied_with": 3,
@@ -740,6 +793,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.13,
+        "math": 1.096,
+        "coding": 1.532,
+        "instruction_following": 1.135,
+        "human_preference": 1.263
+      },
       "rank": 4,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -808,6 +868,13 @@
         "variant": "muse-spark-1.3-max",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 0.129,
+        "math": 0.81,
+        "coding": 1.284,
+        "instruction_following": 1.468,
+        "human_preference": 1.198
       },
       "rank": 4,
       "tied_with": 3,
@@ -878,6 +945,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.946,
+        "math": 1.007,
+        "coding": 1.49,
+        "instruction_following": -0.657,
+        "human_preference": 1.704
+      },
       "rank": 4,
       "tied_with": 3,
       "cohort_recalibration": null
@@ -947,6 +1021,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 1.107,
+        "math": 1.067,
+        "coding": 0.802,
+        "instruction_following": 0.382,
+        "human_preference": 0.456
+      },
       "rank": 5,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1009,6 +1090,12 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 1.11,
+        "math": 1.153,
+        "coding": 2.19,
+        "instruction_following": -1.7
+      },
       "rank": 5,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1071,6 +1158,12 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.903,
+        "coding": 0.434,
+        "math": 0.345,
+        "instruction_following": 0.92
+      },
       "rank": 5,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1140,6 +1233,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.725,
+        "coding": 0.634,
+        "math": 0.365,
+        "instruction_following": 0.882,
+        "human_preference": 0.909
+      },
       "rank": 12,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1202,6 +1302,13 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.473,
+        "coding": 1.679,
+        "math": 0.719,
+        "instruction_following": 0.277,
+        "human_preference": 0.264
+      },
       "rank": 12,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1271,6 +1378,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.821,
+        "math": 0.281,
+        "coding": -0.824,
+        "instruction_following": 1.632,
+        "human_preference": 0.882
+      },
       "rank": 12,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1333,6 +1447,13 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
+      "category_standing": {
+        "reasoning": 1.134,
+        "coding": 1.239,
+        "math": -0.864,
+        "instruction_following": 0.476,
+        "human_preference": 0.737
+      },
       "rank": 14,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -1402,6 +1523,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 1.107,
+        "coding": 0.458,
+        "math": 0.59,
+        "instruction_following": 0.552,
+        "human_preference": -0.819
+      },
       "rank": 14,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -1464,6 +1592,13 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.986,
+        "math": 1.189,
+        "coding": 0.938,
+        "instruction_following": 0.059,
+        "human_preference": -1.869
+      },
       "rank": 14,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -1532,6 +1667,13 @@
         "variant": "claude-opus-4-8",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 0.301,
+        "math": 0.78,
+        "coding": 0.373,
+        "instruction_following": 0.576,
+        "human_preference": 0.05
       },
       "rank": 14,
       "tied_with": 4,
@@ -1602,6 +1744,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.559,
+        "math": -0.079,
+        "coding": -0.24,
+        "instruction_following": 1.109,
+        "human_preference": 0.922
+      },
       "rank": 14,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -1664,6 +1813,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.331,
+        "coding": 0.202,
+        "math": 1.041,
+        "instruction_following": -0.07
+      },
       "rank": 19,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1732,6 +1887,13 @@
         "variant": "gpt-5.6-terra-xhigh",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 0.717,
+        "math": 1.01,
+        "coding": 0.346,
+        "instruction_following": -0.53,
+        "human_preference": -0.208
       },
       "rank": 19,
       "tied_with": 2,
@@ -1802,6 +1964,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.582,
+        "math": -0.344,
+        "coding": -0.381,
+        "instruction_following": 1.075,
+        "human_preference": 0.862
+      },
       "rank": 19,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1871,6 +2040,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.645,
+        "coding": 0.274,
+        "math": -0.381,
+        "instruction_following": 0.219,
+        "human_preference": 0.864
+      },
       "rank": 21,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -1933,6 +2109,13 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.325,
+        "coding": 0.837,
+        "math": -0.245,
+        "instruction_following": 0.168,
+        "human_preference": 0.63
+      },
       "rank": 21,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -2001,6 +2184,13 @@
         "variant": "claude-opus-4-7",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 0.027,
+        "math": 0.626,
+        "coding": 0.407,
+        "instruction_following": -0.214,
+        "human_preference": 0.989
       },
       "rank": 21,
       "tied_with": 2,
@@ -2071,6 +2261,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.801,
+        "coding": -0.059,
+        "math": 0.009,
+        "instruction_following": -0.726,
+        "human_preference": 1.622
+      },
       "rank": 22,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -2133,6 +2330,13 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.198,
+        "coding": 0.407,
+        "math": 1.146,
+        "instruction_following": 1.061,
+        "human_preference": -1.684
+      },
       "rank": 23,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2201,6 +2405,13 @@
         "variant": "gpt-5.4-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": 0.507,
+        "math": 0.576,
+        "coding": -0.475,
+        "instruction_following": 0.306,
+        "human_preference": -0.005
       },
       "rank": 23,
       "tied_with": 1,
@@ -2271,6 +2482,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.552,
+        "coding": -0.544,
+        "math": 0.277,
+        "instruction_following": 0.501,
+        "human_preference": -0.141
+      },
       "rank": 27,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -2333,6 +2551,13 @@
       "variant": "plain",
       "human_preference_variant": "preview",
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.144,
+        "math": -0.222,
+        "coding": -0.779,
+        "instruction_following": 0.876,
+        "human_preference": 0.73
+      },
       "rank": 30,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2401,6 +2626,13 @@
         "variant": "claude-sonnet-5-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -0.034,
+        "math": 0.382,
+        "coding": 0.618,
+        "instruction_following": -0.644,
+        "human_preference": -0.308
       },
       "rank": 30,
       "tied_with": 1,
@@ -2471,6 +2703,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.076,
+        "math": 0.397,
+        "coding": 0.517,
+        "instruction_following": -1.202,
+        "human_preference": -0.674
+      },
       "rank": 32,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -2540,6 +2779,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.634,
+        "coding": 0.455,
+        "math": -0.547,
+        "instruction_following": 0.67,
+        "human_preference": -0.355
+      },
       "rank": 33,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -2602,6 +2848,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.463,
+        "coding": -0.653,
+        "math": -0.444,
+        "instruction_following": -0.396
+      },
       "rank": 35,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2671,6 +2923,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": 0.099,
+        "math": -0.437,
+        "coding": -1.274,
+        "human_preference": 0.857
+      },
       "rank": 35,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2733,6 +2991,13 @@
       "variant": "plain",
       "human_preference_variant": "max",
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.868,
+        "coding": 0.415,
+        "math": 0.091,
+        "instruction_following": -0.878,
+        "human_preference": 0.561
+      },
       "rank": 37,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2802,6 +3067,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.504,
+        "math": -0.399,
+        "coding": -0.264,
+        "instruction_following": -0.569,
+        "human_preference": 0.097
+      },
       "rank": 37,
       "tied_with": 1,
       "cohort_recalibration": null
@@ -2864,6 +3136,13 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.624,
+        "coding": -0.56,
+        "math": 0.2,
+        "instruction_following": -0.84,
+        "human_preference": -0.139
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -2933,6 +3212,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.305,
+        "math": 0.517,
+        "coding": -0.693,
+        "instruction_following": -0.956,
+        "human_preference": -1.162
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -2995,6 +3281,13 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.192,
+        "coding": -1.466,
+        "math": 0.252,
+        "instruction_following": -0.869,
+        "human_preference": -0.048
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -3057,6 +3350,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.019,
+        "coding": -0.339,
+        "math": -0.09,
+        "instruction_following": -0.257
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -3119,6 +3418,13 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.24,
+        "math": 0.479,
+        "coding": 0.245,
+        "instruction_following": -1.828,
+        "human_preference": -1.907
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -3181,6 +3487,12 @@
       "variant": "preview",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.738,
+        "math": -0.483,
+        "coding": -0.776,
+        "human_preference": -0.19
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -3243,6 +3555,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.796,
+        "math": -0.993,
+        "coding": -0.464,
+        "human_preference": 0.285
+      },
       "rank": 38,
       "tied_with": 6,
       "cohort_recalibration": null
@@ -3312,6 +3630,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.456,
+        "coding": -1.205,
+        "math": 0.306,
+        "instruction_following": -0.145,
+        "human_preference": -2.56
+      },
       "rank": 42,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -3374,6 +3699,13 @@
       "variant": "xhigh",
       "human_preference_variant": "plain",
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.845,
+        "math": -1.029,
+        "coding": -1.194,
+        "instruction_following": 0.288,
+        "human_preference": -0.331
+      },
       "rank": 42,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -3442,6 +3774,12 @@
         "variant": "gemini-3-flash",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -1.286,
+        "math": -0.603,
+        "coding": -1.277,
+        "human_preference": 0.418
       },
       "rank": 42,
       "tied_with": 4,
@@ -3512,6 +3850,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.25,
+        "math": -0.304,
+        "coding": -1.309,
+        "human_preference": -0.23
+      },
       "rank": 42,
       "tied_with": 4,
       "cohort_recalibration": null
@@ -3580,6 +3924,12 @@
         "variant": "gpt-5-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -0.378,
+        "math": -0.59,
+        "coding": -1.525,
+        "human_preference": -1.485
       },
       "rank": 42,
       "tied_with": 4,
@@ -3650,6 +4000,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.031,
+        "coding": 0.621,
+        "math": -1.436,
+        "instruction_following": -2.293,
+        "human_preference": 0.574
+      },
       "rank": 47,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -3718,6 +4075,13 @@
         "variant": "claude-sonnet-4-6",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -1.595,
+        "math": -1.172,
+        "coding": -0.349,
+        "instruction_following": -0.739,
+        "human_preference": 0.166
       },
       "rank": 47,
       "tied_with": 5,
@@ -3788,6 +4152,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.461,
+        "math": -0.891,
+        "coding": -2.351,
+        "human_preference": -0.311
+      },
       "rank": 47,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -3850,6 +4220,13 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.966,
+        "math": -0.964,
+        "coding": -0.741,
+        "instruction_following": -1.468,
+        "human_preference": -0.507
+      },
       "rank": 47,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -3912,6 +4289,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -0.745,
+        "math": -0.771,
+        "coding": -0.872,
+        "instruction_following": -1.774
+      },
       "rank": 47,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -3980,6 +4363,12 @@
         "variant": "Inkling Small",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -1.137,
+        "math": -0.978,
+        "coding": -1.623,
+        "human_preference": -1.251
       },
       "rank": 47,
       "tied_with": 5,
@@ -4050,6 +4439,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.262,
+        "math": -2.069,
+        "coding": -1.719,
+        "human_preference": -0.471
+      },
       "rank": 48,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -4119,6 +4514,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.494,
+        "math": -1.259,
+        "coding": -1.551,
+        "instruction_following": -1.25,
+        "human_preference": -1.316
+      },
       "rank": 52,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -4181,6 +4583,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.594,
+        "math": -2.3,
+        "coding": -1.33,
+        "human_preference": -0.199
+      },
       "rank": 52,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -4243,6 +4651,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.954,
+        "math": -1.755,
+        "coding": -1.325,
+        "human_preference": -0.542
+      },
       "rank": 52,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -4305,6 +4719,13 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -2.203,
+        "coding": -1.826,
+        "math": -1.721,
+        "instruction_following": -0.751,
+        "human_preference": -0.658
+      },
       "rank": 57,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -4373,6 +4794,13 @@
         "variant": "minimax-m3",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -1.014,
+        "math": -2.978,
+        "coding": -1.575,
+        "instruction_following": -1.592,
+        "human_preference": -0.661
       },
       "rank": 57,
       "tied_with": 2,
@@ -4443,6 +4871,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -2.582,
+        "math": -3.017,
+        "coding": -0.829,
+        "instruction_following": -0.139,
+        "human_preference": -0.6
+      },
       "rank": 57,
       "tied_with": 2,
       "cohort_recalibration": null
@@ -4512,6 +4947,13 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -2.163,
+        "coding": -2.913,
+        "math": -0.882,
+        "instruction_following": -0.81,
+        "human_preference": -1.78
+      },
       "rank": 60,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -4574,6 +5016,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.723,
+        "math": -1.377,
+        "coding": -1.597,
+        "instruction_following": -2.231
+      },
       "rank": 60,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -4643,6 +5091,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.64,
+        "math": -2.111,
+        "coding": -3.398,
+        "human_preference": 0.169
+      },
       "rank": 60,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -4705,6 +5159,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.831,
+        "math": -1.799,
+        "coding": -2.551,
+        "human_preference": -1.22
+      },
       "rank": 60,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -4767,6 +5227,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.477,
+        "math": -2.543,
+        "coding": -3.265,
+        "human_preference": -1.773
+      },
       "rank": 60,
       "tied_with": 5,
       "cohort_recalibration": null
@@ -4835,6 +5301,12 @@
         "variant": "gemini-3.1-flash-lite-preview",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -2.256,
+        "math": -2.357,
+        "coding": -3.159,
+        "human_preference": -1.18
       },
       "rank": 60,
       "tied_with": 5,
@@ -4905,6 +5377,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -4.341,
+        "math": -1.937,
+        "coding": -2.17,
+        "human_preference": -0.594
+      },
       "rank": 61,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -4974,6 +5452,12 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -3.932,
+        "math": -3.391,
+        "coding": -2.103,
+        "human_preference": -0.295
+      },
       "rank": 64,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5036,6 +5520,12 @@
       "variant": "32k",
       "human_preference_variant": "plain",
       "vision": null,
+      "category_standing": {
+        "reasoning": -3.692,
+        "math": -4.478,
+        "coding": -2.471,
+        "human_preference": -1.808
+      },
       "rank": 69,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5098,6 +5588,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -2.728,
+        "math": -6.48,
+        "coding": -3.18,
+        "human_preference": -1.851
+      },
       "rank": 71,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5160,6 +5656,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -3.296,
+        "math": -9.566,
+        "coding": -1.893,
+        "human_preference": -0.447
+      },
       "rank": 72,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5222,6 +5724,12 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -4.301,
+        "math": -8.84,
+        "coding": -1.831,
+        "human_preference": -1.086
+      },
       "rank": 73,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5283,6 +5791,11 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": 0.293,
+        "math": 0.42,
+        "coding": 1.284
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5351,6 +5864,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.36,
+        "math": -0.844,
+        "human_preference": 0.69
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5416,6 +5934,9 @@
         "variant": "gemini-2.5-flash",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "human_preference": -1.135
       },
       "rank": null,
       "tied_with": 0,
@@ -5485,6 +6006,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -0.356,
+        "coding": -2.154,
+        "human_preference": -1.133
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5545,6 +6071,10 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "coding": -2.367,
+        "human_preference": -0.402
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5613,6 +6143,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.016,
+        "math": -1.646,
+        "human_preference": -1.311
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5674,6 +6209,11 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -1.687,
+        "math": -1.209,
+        "human_preference": -1.196
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5742,6 +6282,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -1.918,
+        "math": -2.155,
+        "human_preference": 0.071
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5803,6 +6348,11 @@
       "variant": "high",
       "human_preference_variant": "plain",
       "vision": null,
+      "category_standing": {
+        "reasoning": -2.55,
+        "math": -0.846,
+        "human_preference": -2.758
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5864,6 +6414,11 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -2.431,
+        "math": -3.166,
+        "human_preference": -1.282
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5931,6 +6486,11 @@
         "variant": "gpt-5.5-instant",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -2.456,
+        "math": -3.375,
+        "human_preference": -1.057
       },
       "rank": null,
       "tied_with": 0,
@@ -6000,6 +6560,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -2.728,
+        "math": -2.499,
+        "human_preference": -4.115
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -6068,6 +6633,11 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "category_standing": {
+        "reasoning": -3.818,
+        "math": -2.572,
+        "human_preference": -2.52
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -6129,6 +6699,11 @@
       "variant": "medium",
       "human_preference_variant": "plain",
       "vision": null,
+      "category_standing": {
+        "reasoning": -6.625,
+        "math": -4.707,
+        "human_preference": -5.018
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -6190,6 +6765,11 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "category_standing": {
+        "reasoning": -7.625,
+        "math": -5.206,
+        "human_preference": -2.178
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -6257,6 +6837,11 @@
         "variant": "mistral-small-2506",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "category_standing": {
+        "reasoning": -8.829,
+        "math": -10.43,
+        "human_preference": -3.583
       },
       "rank": null,
       "tied_with": 0,

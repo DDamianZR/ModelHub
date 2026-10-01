@@ -27,6 +27,11 @@ export type Model = {
   modalities: string[];
   status: string;
   category_scores: Partial<Record<Category, number>>;
+  /**
+   * Standing against the cohort per category, in standard deviations. What "relatively
+   * stronger in X" is read from, since categories sit at different raw levels.
+   */
+  category_standing?: Partial<Record<Category, number>>;
   /** Half-width of a 95% interval per category. null where nothing was published. */
   category_errors: Partial<Record<Category, number | null>>;
   composite: number;
@@ -40,6 +45,12 @@ export type Model = {
     measured_inputs: number;
     total_inputs: number;
     is_lower_bound: boolean;
+    /**
+     * What the missing categories add to composite_error, as a 95% half-width. Their
+     * value is reconstructed from the model's standing elsewhere, and this is how wrong
+     * that reconstruction typically is. 0 when nothing is missing.
+     */
+    missing_categories_hw?: number;
   };
   /** How many other ranked models share this rank because nothing separates them. */
   tied_with: number;
@@ -85,7 +96,31 @@ export type Meta = {
   min_release_date: string;
   contamination_reviewed_at: string | null;
   snapshots: Record<string, string | null>;
-  arena_normalization: { method: string; min: number; max: number };
+  arena_normalization: { method: string; min: number; max: number; cohort_size?: number };
+  /** Per benchmark: the anchor scale it was equated onto, or why it is not scored. */
+  equating?: Record<string, EquatingParams>;
+  renormalisation?: {
+    method: string;
+    category_means: Partial<Record<Category, number>>;
+    missing_category_sigma: Partial<Record<Category, number>>;
+    models_with_all_categories: number;
+  };
+  /** Share of the composite's variance each category actually carries in this build. */
+  effective_weights?: { models: number; shares: Partial<Record<Category, number>> } | null;
+};
+
+export type EquatingParams = {
+  category: Category;
+  anchor: string;
+  overlap: number;
+  scored: boolean;
+  /** Why an unscored benchmark is shown but not averaged. */
+  reason?: "overlap" | "weak_correlation" | "display_only" | "no_spread";
+  slope?: number;
+  intercept?: number;
+  r?: number;
+  residual_sd?: number;
+  equating_se?: number;
 };
 
 export type Provider = { id: string; display_name: string; country: string };

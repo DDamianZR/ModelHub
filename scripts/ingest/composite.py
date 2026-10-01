@@ -667,6 +667,14 @@ def apply_composites(models: list[dict], weights: dict[str, float]) -> dict:
         if values:
             means[category] = sum(values) / len(values)
     level = sum(weights[c] * means[c] for c in weights if c in means)
+    spreads = {}
+    for category in means:
+        values = [
+            m["category_scores"][category] for m in reference if category in m["category_scores"]
+        ]
+        spread = (sum((v - means[category]) ** 2 for v in values) / len(values)) ** 0.5
+        if spread:
+            spreads[category] = spread
 
     def composite_of(scores: dict[str, float], skip: str | None = None) -> float | None:
         available = {
@@ -691,6 +699,15 @@ def apply_composites(models: list[dict], weights: dict[str, float]) -> dict:
         if value is None:
             continue
         model["composite"] = round(value, 2)
+        # Where the model stands in each category against the same cohort, in standard
+        # deviations. Categories sit at different levels (Instruction-following near 68,
+        # Math near 89, human preference near 50 as a win rate), so "relatively stronger
+        # in X" read off the raw scores named the low-level category as everyone's
+        # weakness. Descriptions compare these instead.
+        model["category_standing"] = {
+            c: round((v - means[c]) / spreads[c], 3)
+            for c, v in model["category_scores"].items() if c in spreads
+        }
         missing = [c for c in weights if c not in model["category_scores"]]
         missing_hw = CONFIDENCE_Z * sum(sigma.get(c, 0.0) ** 2 for c in missing) ** 0.5
         model["uncertainty"]["missing_categories_hw"] = round(missing_hw, 2)
@@ -701,6 +718,7 @@ def apply_composites(models: list[dict], weights: dict[str, float]) -> dict:
     return {
         "method": "deviations from the cohort mean renormalised over available weight",
         "category_means": {c: round(v, 2) for c, v in means.items()},
+        "category_spreads": {c: round(v, 3) for c, v in spreads.items()},
         "missing_category_sigma": {c: round(v, 3) for c, v in sigma.items()},
         "models_with_all_categories": len(full),
     }
