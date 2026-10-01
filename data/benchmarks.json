@@ -17,6 +17,22 @@
       "url": "https://epoch.ai/benchmarks"
     },
     {
+      "id": "chess_puzzles",
+      "name": "Chess Puzzles",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "mystery_game_puzzles",
+      "name": "Mystery Game Puzzles",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
       "id": "math_level_5",
       "name": "MATH Level 5",
       "category": "math",
@@ -26,7 +42,25 @@
     },
     {
       "id": "frontiermath",
-      "name": "FrontierMath",
+      "name": "FrontierMath (2025-02-28 set)",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Superseded by FrontierMath Tiers 1-3 (v2); shown, not scored."
+    },
+    {
+      "id": "frontiermath_v2",
+      "name": "FrontierMath Tiers 1-3 (v2)",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Supersedes the 2025-02-28 FrontierMath set, per Epoch's benchmark metadata."
+    },
+    {
+      "id": "otis_mock_aime",
+      "name": "OTIS Mock AIME 2024-2025",
       "category": "math",
       "source": "Epoch AI",
       "source_type": "third_party_benchmark",
@@ -58,12 +92,37 @@
       "url": "https://livebench.ai/"
     },
     {
+      "id": "livebench_agentic_coding",
+      "name": "LiveBench Agentic Coding",
+      "category": "coding",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
       "id": "livebench_math",
       "name": "LiveBench Mathematics",
       "category": "math",
       "source": "LiveBench",
       "source_type": "third_party_benchmark",
       "url": "https://livebench.ai/"
+    },
+    {
+      "id": "lmarena_code",
+      "name": "LMArena Code Arena",
+      "category": "coding",
+      "source": "LMArena",
+      "source_type": "human_eval",
+      "url": "https://lmarena.ai/leaderboard",
+      "notes": "Blind human votes on coding tasks (webdev config). Agent-harness rows are dropped. Scored as a win rate against the Code Arena cohort, then equated onto Coding."
+    },
+    {
+      "id": "mirrorcode",
+      "name": "MirrorCode",
+      "category": "coding",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
     },
     {
       "id": "livebench_instruction_following",

@@ -25,6 +25,7 @@ from .common import (
     SourceError,
     digest_bytes,
     read_cache,
+    renamed_model_ids,
     write_cache,
     write_json,
 )
@@ -132,10 +133,20 @@ BENCHMARK_CATALOGUE = [
      "https://epoch.ai/benchmarks", None),
     ("simpleqa_verified", "SimpleQA Verified", "reasoning", "Epoch AI",
      "third_party_benchmark", "https://epoch.ai/benchmarks", None),
+    ("chess_puzzles", "Chess Puzzles", "reasoning", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks", None),
+    ("mystery_game_puzzles", "Mystery Game Puzzles", "reasoning", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
     ("math_level_5", "MATH Level 5", "math", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
-    ("frontiermath", "FrontierMath", "math", "Epoch AI", "third_party_benchmark",
-     "https://epoch.ai/benchmarks", None),
+    ("frontiermath", "FrontierMath (2025-02-28 set)", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Superseded by FrontierMath Tiers 1-3 (v2); shown, not scored."),
+    ("frontiermath_v2", "FrontierMath Tiers 1-3 (v2)", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Supersedes the 2025-02-28 FrontierMath set, per Epoch's benchmark metadata."),
+    ("otis_mock_aime", "OTIS Mock AIME 2024-2025", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
     ("swe_bench_verified", "SWE-bench Verified", "coding", "Epoch AI",
      "third_party_benchmark", "https://epoch.ai/benchmarks",
      "Epoch's own run. swebench.com's leaderboard is CC-BY-NC and is not ingested."),
@@ -143,8 +154,16 @@ BENCHMARK_CATALOGUE = [
      "third_party_benchmark", "https://livebench.ai/", None),
     ("livebench_coding", "LiveBench Coding", "coding", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
+    ("livebench_agentic_coding", "LiveBench Agentic Coding", "coding", "LiveBench",
+     "third_party_benchmark", "https://livebench.ai/", None),
     ("livebench_math", "LiveBench Mathematics", "math", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
+    ("lmarena_code", "LMArena Code Arena", "coding", "LMArena", "human_eval",
+     "https://lmarena.ai/leaderboard",
+     "Blind human votes on coding tasks (webdev config). Agent-harness rows are dropped. "
+     "Scored as a win rate against the Code Arena cohort, then equated onto Coding."),
+    ("mirrorcode", "MirrorCode", "coding", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks", None),
     ("livebench_instruction_following", "LiveBench IF", "instruction_following",
      "LiveBench", "third_party_benchmark", "https://livebench.ai/", None),
     ("lmarena_text_overall", "LMArena (text, overall)", "human_preference", "LMArena",
@@ -215,13 +234,13 @@ def gather(name: str, collector) -> tuple[dict, dict]:
 
 
 # A model can lose composite points without its rating having moved, because the Arena
-# ratings are min-max normalised against the cohort present in each build. When a model
-# with an extreme rating joins, everyone else's normalised value shifts.
+# ratings are turned into a win rate against the cohort present in each build. When a
+# model joins or leaves, everyone else's expected win rate shifts slightly.
 #
-# Measured on the 2026-08-03 cohort: a new model 60 rating points above the current best
-# moves every normalised value by 16.03 points on average and 24.29 in the worst case,
-# which is 2.40 and 3.64 composite points against a median gap between neighbours of 0.39.
-# So this is not a rounding artefact - it is enough to reorder the table on its own.
+# Under the min-max normaliser this replaced, that effect was large: on the 2026-08-03
+# cohort a new model 60 rating points above the best moved composites by 2.40 points on
+# average. As a win rate, removing any single model on the 2026-10-01 cohort moves other
+# composites by at most 0.26 points. The flag below still reports it when it happens.
 #
 # "The rating barely moved" is 0.5 Arena rating points, and that number comes from the
 # series itself rather than from taste: across 2147 consecutive transitions in
@@ -336,6 +355,34 @@ def flag_recalibration(
     return flagged
 
 
+def effective_weights(models: list[dict], weights: dict[str, float]) -> dict | None:
+    """Share of composite variance per category, over ranked models with all categories.
+
+    Covariance-aware (w_c * cov(c, composite) / var(composite)), so the shares sum to 1
+    and correlated categories split what they move together.
+    """
+    full = [
+        m for m in models
+        if not m["provisional"] and all(c in m["category_scores"] for c in weights)
+    ]
+    if len(full) < 3:
+        return None
+    composite = [sum(weights[c] * m["category_scores"][c] for c in weights) for m in full]
+    mean_composite = sum(composite) / len(composite)
+    variance = sum((x - mean_composite) ** 2 for x in composite) / len(composite)
+    if not variance:
+        return None
+    shares = {}
+    for category, weight in weights.items():
+        values = [m["category_scores"][category] for m in full]
+        mean_value = sum(values) / len(values)
+        covariance = sum(
+            (v - mean_value) * (c - mean_composite) for v, c in zip(values, composite)
+        ) / len(values)
+        shares[category] = round(weight * covariance / variance, 3)
+    return {"models": len(full), "shares": shares}
+
+
 def load_history() -> list[dict]:
     path = DATA / "history.jsonl"
     if not path.exists():
@@ -391,6 +438,15 @@ def merge_history(
     bad = duplicated | rejected_dates
     if bad:
         print(f"  history: excluding {len(bad)} suspect snapshot(s): {sorted(bad)}")
+
+    # A corrected identity rule can change a model's id. The points still describe the
+    # same model, so they follow it to the new id instead of being purged as orphans.
+    renames = renamed_model_ids()
+    if renames:
+        existing = [
+            {**row, "model_id": renames.get(row["model_id"], row["model_id"])}
+            for row in existing
+        ]
 
     current_variant = {
         (row["model_id"], row["benchmark_id"]): row.get("variant") for row in incoming
@@ -476,7 +532,7 @@ def main() -> int:
     # keeping them is to tell a rating that moved from a scale that moved.
     previous_models, previous_ratings = previous_build()
 
-    models, score_rows, providers, aliases, (arena_low, arena_high) = build_models(
+    models, score_rows, providers, aliases, scales = build_models(
         registry=registry,
         epoch_scores=epoch_payload.get("scores") or {},
         livebench_scores=livebench_payload.get("scores") or {},
@@ -484,7 +540,11 @@ def main() -> int:
         arena_vision=arena_payload.get("vision") or {},
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
+        benchmark_order=[entry[0] for entry in BENCHMARK_CATALOGUE],
+        arena_code=arena_payload.get("code") or {},
+        code_snapshot=arena_payload.get("code_snapshot"),
     )
+    arena_low, arena_high = scales["arena"]["low"], scales["arena"]["high"]
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
@@ -562,12 +622,24 @@ def main() -> int:
             "livebench": livebench_payload.get("snapshot"),
             "lmarena_text": arena_payload.get("snapshot"),
             "lmarena_vision": arena_payload.get("vision_snapshot"),
+            "lmarena_code": arena_payload.get("code_snapshot"),
         },
         "arena_normalization": {
-            "method": "min-max across the cohort in this build",
+            "method": "expected win rate against the cohort in this build",
+            "cohort_size": scales["arena"]["cohort_size"],
             "min": round(arena_low, 2),
             "max": round(arena_high, 2),
         },
+        # How much of the composite's spread each category actually carries in this build,
+        # next to its nominal weight. Dispersion decides effective weight, so a category
+        # whose models sit close together counts for less than its label says.
+        "effective_weights": effective_weights(models, weights),
+        # The scale each benchmark was put on before averaging inside its category, so
+        # every scaled score on the site can be recomputed by hand from the raw one.
+        "equating": scales["equating"],
+        # What a model missing a category is renormalised against, and how much that
+        # widens its interval - published so a partial score can be checked by hand.
+        "renormalisation": scales["renormalisation"],
     }
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})

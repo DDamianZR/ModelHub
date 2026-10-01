@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T13:09:18+00:00",
+  "generated_at": "2026-10-01T14:06:20+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -66,18 +66,18 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "2974ffd13210b1ec4df7bb41342bf0fa298f6d8fe746e7eb59fde3ea4b56d9b5",
+      "normalised_sha256": "60c7b05b68e4a5a3571c1210ec7adfbd16764ac3287bb74e713942a87092aaf6",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "6b54b24aa073133f730f52dce6e7071996165625180403faa5e7724f540f61fc",
+          "sha256": "9040123dcbc94cbd1775b0bff61fc8abf23d291484a41c712f347491cd651880",
           "bytes": 2352978
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "dc408b7d6c8cbfb0382a0e051b543f579280b957de35480d0d4f7a0bd2437d4f",
+      "normalised_sha256": "aee2ab5f865b82d45abdd8af2994ff304888d6e28447c3dd158ca122ddc68839",
       "requests": 4,
       "upstream": [
         {
@@ -103,8 +103,8 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "0de11ece3796e65b9a0f53c262679c084d93cb3134b8f1cf2a584baa97b4d110",
-      "requests": 7,
+      "normalised_sha256": "a48aba3e58f9a08fb7ee29871ca2da148421be3f50e9dfa3fe0ae52f3e83a255",
+      "requests": 11,
       "upstream": []
     }
   }

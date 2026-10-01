@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type {
   AgedSource,
+  EquatingParams,
   Meta,
   Model,
   Provider,
@@ -129,6 +130,13 @@ export type ScoreRow = {
   benchmark_id: string;
   value: number;
   unit: string;
+  /**
+   * The same result on its category's common scale - what the composite averaged. null
+   * when the benchmark is shown but not scored.
+   */
+  scaled_value?: number | null;
+  /** false: displayed for transparency, not averaged into the category. */
+  scored?: boolean;
   /** As the source published it. null where the source publishes none. */
   stderr?: number | null;
   /** The same figure as a 95% half-width, in the score's own units. */
@@ -143,7 +151,13 @@ export type ScoreRow = {
   contamination_flag: boolean;
   /** Public evidence backing the flag, from config/contamination.json. Empty when the
    * flag is false - never used to attenuate the value above, only to disclose it. */
-  contamination_evidence?: { evidence_url: string; noted_at: string; note: string }[];
+  contamination_evidence?: {
+    evidence_url: string;
+    noted_at: string;
+    note: string;
+    /** Spanish note; the page falls back to `note` when a locale has none. */
+    note_es?: string;
+  }[];
   notes: string | null;
 };
 
@@ -407,6 +421,31 @@ export function getCategorySources(): Record<string, string[]> {
       Array.from(sources).sort(),
     ]),
   );
+}
+
+/**
+ * Every catalogued benchmark with the scale this build put it on, grouped by category in
+ * catalogue order. Read from benchmarks.json and meta.equating rather than typed into the
+ * copy: the list of inputs per category used to be hand-written and kept naming a
+ * benchmark Epoch had already superseded.
+ */
+export function getEquatingTable(): {
+  id: string;
+  name: string;
+  source: string;
+  category: string;
+  params: EquatingParams | null;
+}[] {
+  const { benchmarks } = readJson<{ benchmarks: Benchmark[] }>("benchmarks.json");
+  const { meta } = getRanking();
+  const equating = meta.equating ?? {};
+  return benchmarks.map((benchmark) => ({
+    id: benchmark.id,
+    name: benchmark.name,
+    source: benchmark.source,
+    category: benchmark.category,
+    params: equating[benchmark.id] ?? null,
+  }));
 }
 
 export function getModelIds(): string[] {

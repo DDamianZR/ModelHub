@@ -16,7 +16,7 @@ import io
 import json
 import zipfile
 
-from ..common import CONFIG, SourceError, fetch, norm
+from ..common import CONFIG, SourceError, canonical_organization, fetch, norm
 
 URL = "https://epoch.ai/data/benchmark_data.zip"
 ATTRIBUTION = "https://epoch.ai/benchmarks"
@@ -38,12 +38,27 @@ def min_release_date() -> str:
     return payload.get("min_release_date") or _FALLBACK_MIN_RELEASE_DATE
 
 
+# Epoch's own runs only. frontiermath.csv is still read but is display-only (see
+# config/weights.json equating.display_only): Epoch's benchmark_metadata.csv marks it
+# superseded_by FrontierMath-Tiers-1-3-v2, which covers twice as many models in this cohort
+# (62 against 31 on 2026-10-01). Scoring both would count one benchmark family twice.
+#
+# Chess Puzzles and Mystery Game Puzzles join Reasoning and OTIS Mock AIME joins Math.
+# Each correlates with LiveBench in its category (r = 0.67, 0.80 and 0.78 over 30, 24 and
+# 34 shared models), which is the evidence that they measure the same thing; EBR-bench and
+# Furniture Assembly correlate too but are not added until what they test is documented
+# here.
 BENCHMARKS = {
     "gpqa_diamond.csv": ("gpqa_diamond", "reasoning"),
     "simpleqa_verified.csv": ("simpleqa_verified", "reasoning"),
+    "chess_puzzles.csv": ("chess_puzzles", "reasoning"),
+    "mystery_game_puzzles.csv": ("mystery_game_puzzles", "reasoning"),
     "math_level_5.csv": ("math_level_5", "math"),
     "frontiermath.csv": ("frontiermath", "math"),
+    "frontiermath_tiers_1_3_v2.csv": ("frontiermath_v2", "math"),
+    "otis_mock_aime_2024_2025.csv": ("otis_mock_aime", "math"),
     "swe_bench_verified.csv": ("swe_bench_verified", "coding"),
+    "mirrorcode.csv": ("mirrorcode", "coding"),
 }
 
 
@@ -120,22 +135,42 @@ def collect() -> dict:
     cutoff = min_release_date()
     registry: dict[str, dict] = {}
     for row in index:
-        if (row.get("Release date") or "") < cutoff:
+        release = row.get("Release date") or ""
+        if release < cutoff:
             continue
         key = norm(row["Model version"])
         if not key:
             continue
         eci = float(row["ECI Score"] or 0)
-        if key in registry and eci <= registry[key]["eci"]:
-            continue
-        registry[key] = {
-            "eci": eci,
+        # Every version is kept, not just one per key. The key-level name used to come
+        # from whichever version won an ECI comparison - and ECI is per model group, so
+        # every version tied and the first CSV row won. That printed "Claude Opus 4.7
+        # (no thinking)" over scores measured at xhigh. The composite picks the name of
+        # the version it actually scores from this list.
+        version = {
+            "version": (row.get("Model version") or "").strip(),
             "display_name": _display_name(row),
-            "organization": (row.get("Organization") or "Unknown").strip(),
-            "country": (row.get("Country") or "").strip(),
-            "release_date": row.get("Release date") or None,
-            "accessibility": (row.get("Model accessibility") or "").strip(),
+            "release_date": release or None,
         }
+        entry = registry.get(key)
+        if entry is None or eci > entry["eci"]:
+            versions = entry["versions"] if entry else []
+            earliest = entry["release_date"] if entry else None
+            entry = registry[key] = {
+                "eci": eci,
+                "display_name": _display_name(row),
+                "organization": canonical_organization(row.get("Organization") or "Unknown"),
+                "country": (row.get("Country") or "").strip(),
+                "release_date": earliest,
+                "accessibility": (row.get("Model accessibility") or "").strip(),
+                "versions": versions,
+            }
+        entry["versions"].append(version)
+        # A model is released when its first version is, not when its latest effort
+        # setting appeared - GPT-5 was dated by GPT-5 Pro's release while the two shared
+        # a key.
+        if release and (not entry["release_date"] or release < entry["release_date"]):
+            entry["release_date"] = release
 
     scores: dict[str, list[dict]] = {}
     for filename, (benchmark_id, category) in BENCHMARKS.items():

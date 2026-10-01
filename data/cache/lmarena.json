@@ -1,6 +1,1507 @@
 {
   "fetched_at": "2026-10-01",
   "payload": {
+    "code": {
+      "claude-fable-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-fable-5-high",
+          "rank": 17,
+          "rating": 1625.6133348674134,
+          "rating_lower": 1619.1755528192584,
+          "rating_upper": 1632.0511169155684,
+          "variance": 10.7888798589437,
+          "vote_count": 13952
+        }
+      ],
+      "claude-fable-5.1": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-fable-5.1-max",
+          "rank": 4,
+          "rating": 1750.6666954444622,
+          "rating_lower": 1740.9922352182148,
+          "rating_upper": 1760.3411556707097,
+          "variance": 24.36448886684417,
+          "vote_count": 6137
+        }
+      ],
+      "claude-haiku-4-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-haiku-4-5-20251001",
+          "rank": 113,
+          "rating": 1329.357048895988,
+          "rating_lower": 1324.4677456478282,
+          "rating_upper": 1334.2463521441477,
+          "variance": 6.222970847347622,
+          "vote_count": 29175
+        }
+      ],
+      "claude-opus-4-1": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-1-20250805",
+          "rank": 91,
+          "rating": 1389.6940820868604,
+          "rating_lower": 1378.9993597190125,
+          "rating_upper": 1400.388804454708,
+          "variance": 29.774388289466486,
+          "vote_count": 6929
+        }
+      ],
+      "claude-opus-4-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-5-20251101-high-32k",
+          "rank": 54,
+          "rating": 1493.3995933494057,
+          "rating_lower": 1485.1492447554547,
+          "rating_upper": 1501.6499419433562,
+          "variance": 17.719375658803603,
+          "vote_count": 11030
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-5-20251101",
+          "rank": 61,
+          "rating": 1468.3929553989058,
+          "rating_lower": 1461.220667672621,
+          "rating_upper": 1475.5652431251906,
+          "variance": 13.391191635713392,
+          "vote_count": 13427
+        }
+      ],
+      "claude-opus-4-6": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-6-high",
+          "rank": 37,
+          "rating": 1546.1174055325969,
+          "rating_lower": 1540.666482772553,
+          "rating_upper": 1551.5683282926411,
+          "variance": 7.734707131546763,
+          "vote_count": 19503
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-6",
+          "rank": 40,
+          "rating": 1537.059836642591,
+          "rating_lower": 1531.7203997459478,
+          "rating_upper": 1542.3992735392344,
+          "variance": 7.4215519946884445,
+          "vote_count": 20755
+        }
+      ],
+      "claude-opus-4-7": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-7-high",
+          "rank": 33,
+          "rating": 1557.217315996882,
+          "rating_lower": 1551.4181385054721,
+          "rating_upper": 1563.0164934882919,
+          "variance": 8.754606295843699,
+          "vote_count": 17754
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-7",
+          "rank": 34,
+          "rating": 1556.0299114381073,
+          "rating_lower": 1550.2785634675938,
+          "rating_upper": 1561.7812594086204,
+          "variance": 8.61079215524412,
+          "vote_count": 17486
+        }
+      ],
+      "claude-opus-4-8": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-8-high",
+          "rank": 35,
+          "rating": 1556.0210478544263,
+          "rating_lower": 1550.2778898160736,
+          "rating_upper": 1561.764205892779,
+          "variance": 8.586286042117651,
+          "vote_count": 18685
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-8",
+          "rank": 42,
+          "rating": 1534.1129659508788,
+          "rating_lower": 1528.4597669662667,
+          "rating_upper": 1539.766164935491,
+          "variance": 8.319406832492033,
+          "vote_count": 17646
+        }
+      ],
+      "claude-opus-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-5-max",
+          "rank": 6,
+          "rating": 1693.678694932812,
+          "rating_lower": 1687.2029339428236,
+          "rating_upper": 1700.154455922801,
+          "variance": 10.91655080969543,
+          "vote_count": 16747
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-5-high",
+          "rank": 11,
+          "rating": 1659.9669958874742,
+          "rating_lower": 1654.3160837196851,
+          "rating_upper": 1665.6179080552638,
+          "variance": 8.312677505755236,
+          "vote_count": 21088
+        }
+      ],
+      "claude-opus-5.5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-5.5-max",
+          "rank": 1,
+          "rating": 1817.8444420683181,
+          "rating_lower": 1801.3394629436198,
+          "rating_upper": 1834.349421193016,
+          "variance": 70.91429288248901,
+          "vote_count": 1976
+        }
+      ],
+      "claude-sonnet-4-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-sonnet-4-5-20250929-high-32k",
+          "rank": 90,
+          "rating": 1393.0929970579668,
+          "rating_lower": 1385.4161302046764,
+          "rating_upper": 1400.7698639112573,
+          "variance": 15.341641661149003,
+          "vote_count": 13251
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-sonnet-4-5-20250929",
+          "rank": 94,
+          "rating": 1384.065807723056,
+          "rating_lower": 1376.8321475718058,
+          "rating_upper": 1391.2994678743062,
+          "variance": 13.621345854835624,
+          "vote_count": 15719
+        }
+      ],
+      "claude-sonnet-4-6": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-sonnet-4-6",
+          "rank": 44,
+          "rating": 1521.5841399571705,
+          "rating_lower": 1516.4463298581495,
+          "rating_upper": 1526.7219500561919,
+          "variance": 6.871632326605038,
+          "vote_count": 22931
+        }
+      ],
+      "claude-sonnet-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-sonnet-5-high",
+          "rank": 39,
+          "rating": 1539.5183408122966,
+          "rating_lower": 1533.3024190507044,
+          "rating_upper": 1545.7342625738888,
+          "variance": 10.058075629522452,
+          "vote_count": 13915
+        }
+      ],
+      "claude-sonnet-5.5": [
+        {
+          "license": "Proprietary",
+          "model_name": "claude-sonnet-5.5-high",
+          "rank": 5,
+          "rating": 1708.6633845070737,
+          "rating_lower": 1693.1066198420926,
+          "rating_upper": 1724.2201491720548,
+          "variance": 63.00026582033633,
+          "vote_count": 1810
+        }
+      ],
+      "deepseek-v3.2": [
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v3.2-thinking",
+          "rank": 100,
+          "rating": 1361.5637530140846,
+          "rating_lower": 1352.494990884426,
+          "rating_upper": 1370.6325151437431,
+          "variance": 21.409170422779074,
+          "vote_count": 6921
+        },
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v3.2",
+          "rank": 114,
+          "rating": 1324.9396443637825,
+          "rating_lower": 1316.9992988471658,
+          "rating_upper": 1332.8799898803995,
+          "variance": 16.41279781097954,
+          "vote_count": 9390
+        },
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v3.2-exp",
+          "rank": 120,
+          "rating": 1271.8896044628034,
+          "rating_lower": 1258.4277466774126,
+          "rating_upper": 1285.351462248194,
+          "variance": 47.17520699631994,
+          "vote_count": 3972
+        }
+      ],
+      "deepseek-v4-flash": [
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4-flash-high",
+          "rank": 31,
+          "rating": 1580.9961984983802,
+          "rating_lower": 1571.7550437642053,
+          "rating_upper": 1590.237353232555,
+          "variance": 22.23086197381938,
+          "vote_count": 5040
+        },
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4-flash-high-preview",
+          "rank": 77,
+          "rating": 1430.270050604899,
+          "rating_lower": 1423.3313198270766,
+          "rating_upper": 1437.2087813827213,
+          "variance": 12.533255477771887,
+          "vote_count": 10152
+        }
+      ],
+      "deepseek-v4-pro": [
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4-pro-high-20260813",
+          "rank": 29,
+          "rating": 1582.3034429841264,
+          "rating_lower": 1572.9690235071785,
+          "rating_upper": 1591.6378624610747,
+          "variance": 22.681848495224482,
+          "vote_count": 4884
+        },
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4-pro-high-preview",
+          "rank": 63,
+          "rating": 1463.4472425933864,
+          "rating_lower": 1457.1431868213544,
+          "rating_upper": 1469.7512983654183,
+          "variance": 10.345319586091358,
+          "vote_count": 13223
+        },
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4-pro",
+          "rank": 67,
+          "rating": 1446.2181765174203,
+          "rating_lower": 1439.9055027077043,
+          "rating_upper": 1452.5308503271362,
+          "variance": 10.373624315117608,
+          "vote_count": 14032
+        }
+      ],
+      "deepseek-v4.1-flash": [
+        {
+          "license": "MIT",
+          "model_name": "deepseek-v4.1-flash-max",
+          "rank": 21,
+          "rating": 1620.0078178383633,
+          "rating_lower": 1609.563122486908,
+          "rating_upper": 1630.4525131898185,
+          "variance": 28.398498090628365,
+          "vote_count": 3958
+        }
+      ],
+      "devstral-2": [
+        {
+          "license": "Modified MIT",
+          "model_name": "devstral-2",
+          "rank": 132,
+          "rating": 1196.1066797553804,
+          "rating_lower": 1175.4200466530492,
+          "rating_upper": 1216.7933128577113,
+          "variance": 111.39955133845116,
+          "vote_count": 1182
+        }
+      ],
+      "devstral-medium-2507": [
+        {
+          "license": "Proprietary",
+          "model_name": "devstral-medium-2507",
+          "rank": 137,
+          "rating": 1075.856148580429,
+          "rating_lower": 1045.2515603903362,
+          "rating_upper": 1106.4607367705216,
+          "variance": 243.82425063089053,
+          "vote_count": 842
+        }
+      ],
+      "gemini-2.5-pro": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-2.5-pro",
+          "rank": 130,
+          "rating": 1226.8267616693274,
+          "rating_lower": 1211.008641327859,
+          "rating_upper": 1242.6448820107955,
+          "variance": 65.13487266588959,
+          "vote_count": 2728
+        }
+      ],
+      "gemini-3-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3-flash",
+          "rank": 71,
+          "rating": 1438.7042563767343,
+          "rating_lower": 1430.1165573423546,
+          "rating_upper": 1447.291955411114,
+          "variance": 19.198064627895377,
+          "vote_count": 10896
+        }
+      ],
+      "gemini-3-flash-(thinking-minimal)": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3-flash (thinking-minimal)",
+          "rank": 93,
+          "rating": 1384.136842382662,
+          "rating_lower": 1378.9514429173819,
+          "rating_upper": 1389.3222418479427,
+          "variance": 6.999519940102183,
+          "vote_count": 22189
+        }
+      ],
+      "gemini-3-pro": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3-pro",
+          "rank": 70,
+          "rating": 1438.9374394207114,
+          "rating_lower": 1430.5295072894933,
+          "rating_upper": 1447.3453715519295,
+          "variance": 18.402728240203874,
+          "vote_count": 14096
+        }
+      ],
+      "gemini-3.1-flash-lite": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.1-flash-lite-preview",
+          "rank": 122,
+          "rating": 1255.8814749173457,
+          "rating_lower": 1249.0696229245364,
+          "rating_upper": 1262.6933269101553,
+          "variance": 12.07909019406301,
+          "vote_count": 14405
+        }
+      ],
+      "gemini-3.1-pro": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.1-pro-preview",
+          "rank": 66,
+          "rating": 1446.2401469008362,
+          "rating_lower": 1441.1968730309661,
+          "rating_upper": 1451.2834207707062,
+          "variance": 6.621081342717115,
+          "vote_count": 24319
+        }
+      ],
+      "gemini-3.5-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.5-flash-high",
+          "rank": 53,
+          "rating": 1499.0867816597097,
+          "rating_lower": 1491.8452591502255,
+          "rating_upper": 1506.3283041691939,
+          "variance": 13.650972378740944,
+          "vote_count": 9495
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.5-flash-medium",
+          "rank": 55,
+          "rating": 1489.913824049212,
+          "rating_lower": 1483.2718223572099,
+          "rating_upper": 1496.5558257412144,
+          "variance": 11.484227356260035,
+          "vote_count": 12259
+        }
+      ],
+      "gemini-3.5-flash-lite": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.5-flash-lite",
+          "rank": 69,
+          "rating": 1439.7124786115075,
+          "rating_lower": 1399.159636082346,
+          "rating_upper": 1480.2653211406691,
+          "variance": 428.1011756095845,
+          "vote_count": 242
+        }
+      ],
+      "gemini-3.6-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.6-flash-high",
+          "rank": 41,
+          "rating": 1536.3195906406213,
+          "rating_lower": 1528.8609619319413,
+          "rating_upper": 1543.7782193493013,
+          "variance": 14.481774974199496,
+          "vote_count": 8826
+        }
+      ],
+      "gemini-3.7-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.7-flash-high",
+          "rank": 26,
+          "rating": 1592.2272063095438,
+          "rating_lower": 1584.8031556181818,
+          "rating_upper": 1599.6512570009058,
+          "variance": 14.347811922646448,
+          "vote_count": 9386
+        }
+      ],
+      "gemini-3.8-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-3.8-flash-high",
+          "rank": 28,
+          "rating": 1582.6568991052472,
+          "rating_lower": 1574.7326897872526,
+          "rating_upper": 1590.5811084232423,
+          "variance": 16.346158125431135,
+          "vote_count": 8357
+        }
+      ],
+      "gemini-4-argon": [
+        {
+          "license": "Proprietary",
+          "model_name": "gemini-4-argon-high",
+          "rank": 8,
+          "rating": 1679.035722562529,
+          "rating_lower": 1665.2338892706193,
+          "rating_upper": 1692.837555854439,
+          "variance": 49.58808908518984,
+          "vote_count": 2184
+        }
+      ],
+      "gemma-4-26b-a4b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "gemma-4-26b-a4b",
+          "rank": 102,
+          "rating": 1358.5188259998886,
+          "rating_lower": 1341.6042208229487,
+          "rating_upper": 1375.4334311768287,
+          "variance": 74.47792144757821,
+          "vote_count": 1502
+        }
+      ],
+      "gemma-4-31b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "gemma-4-31b",
+          "rank": 99,
+          "rating": 1364.7279870114735,
+          "rating_lower": 1358.3264001806788,
+          "rating_upper": 1371.1295738422677,
+          "variance": 10.667904008612137,
+          "vote_count": 13170
+        }
+      ],
+      "glm-4.6": [
+        {
+          "license": "MIT",
+          "model_name": "glm-4.6",
+          "rank": 109,
+          "rating": 1339.4623505458826,
+          "rating_lower": 1328.7093809188386,
+          "rating_upper": 1350.2153201729266,
+          "variance": 30.099595283240777,
+          "vote_count": 6781
+        }
+      ],
+      "glm-4.7": [
+        {
+          "license": "MIT",
+          "model_name": "glm-4.7",
+          "rank": 74,
+          "rating": 1434.5233823651124,
+          "rating_lower": 1422.4917801530069,
+          "rating_upper": 1446.5549845772175,
+          "variance": 37.68345791200764,
+          "vote_count": 4007
+        }
+      ],
+      "glm-5": [
+        {
+          "license": "MIT",
+          "model_name": "glm-5",
+          "rank": 75,
+          "rating": 1434.004063616398,
+          "rating_lower": 1425.8776948606253,
+          "rating_upper": 1442.1304323721706,
+          "variance": 17.190830941373086,
+          "vote_count": 7505
+        }
+      ],
+      "glm-5.1": [
+        {
+          "license": "MIT",
+          "model_name": "glm-5.1",
+          "rank": 51,
+          "rating": 1508.458962430821,
+          "rating_lower": 1501.7075422864186,
+          "rating_upper": 1515.2103825752233,
+          "variance": 11.86571979392038,
+          "vote_count": 10799
+        }
+      ],
+      "glm-5.2": [
+        {
+          "license": "MIT",
+          "model_name": "glm-5.2-max",
+          "rank": 25,
+          "rating": 1604.6080847709095,
+          "rating_lower": 1598.2323500834236,
+          "rating_upper": 1610.9838194583954,
+          "variance": 10.581915543706149,
+          "vote_count": 14543
+        }
+      ],
+      "glm-5.3": [
+        {
+          "license": "MIT",
+          "model_name": "glm-5.3-max",
+          "rank": 19,
+          "rating": 1622.0411323854364,
+          "rating_lower": 1613.8026740218693,
+          "rating_upper": 1630.2795907490035,
+          "variance": 17.668338872356873,
+          "vote_count": 7457
+        }
+      ],
+      "glm-5.3-flash": [
+        {
+          "license": "MIT",
+          "model_name": "glm-5.3-flash",
+          "rank": 24,
+          "rating": 1614.7991616587792,
+          "rating_lower": 1607.090981091384,
+          "rating_upper": 1622.507342226174,
+          "variance": 15.467053125621883,
+          "vote_count": 9648
+        }
+      ],
+      "glm-5v-turbo": [
+        {
+          "license": "Proprietary",
+          "model_name": "glm-5v-turbo",
+          "rank": 84,
+          "rating": 1399.7843182906686,
+          "rating_lower": 1386.5912792149875,
+          "rating_upper": 1412.9773573663497,
+          "variance": 45.309942960939786,
+          "vote_count": 2416
+        }
+      ],
+      "gpt-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5-medium",
+          "rank": 78,
+          "rating": 1417.082365226413,
+          "rating_lower": 1401.5681393557586,
+          "rating_upper": 1432.5965910970676,
+          "variance": 62.65619797069513,
+          "vote_count": 3091
+        }
+      ],
+      "gpt-5.1": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.1-medium",
+          "rank": 89,
+          "rating": 1394.7002306476743,
+          "rating_lower": 1383.231385052368,
+          "rating_upper": 1406.1690762429803,
+          "variance": 34.24074692155797,
+          "vote_count": 4915
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.1",
+          "rank": 108,
+          "rating": 1341.0077415850762,
+          "rating_lower": 1332.5582971708614,
+          "rating_upper": 1349.4571859992911,
+          "variance": 18.58489554132602,
+          "vote_count": 10716
+        }
+      ],
+      "gpt-5.1-codex": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.1-codex",
+          "rank": 111,
+          "rating": 1336.677226257974,
+          "rating_lower": 1325.1510612827587,
+          "rating_upper": 1348.2033912331894,
+          "variance": 34.5838612977449,
+          "vote_count": 5011
+        }
+      ],
+      "gpt-5.1-codex-mini": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.1-codex-mini",
+          "rank": 125,
+          "rating": 1243.5958114618895,
+          "rating_lower": 1221.6058241066967,
+          "rating_upper": 1265.5857988170821,
+          "variance": 125.8791429122127,
+          "vote_count": 1155
+        }
+      ],
+      "gpt-5.2": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.2",
+          "rank": 79,
+          "rating": 1415.5000063279044,
+          "rating_lower": 1393.035742045553,
+          "rating_upper": 1437.9642706102557,
+          "variance": 131.3675854154135,
+          "vote_count": 1082
+        }
+      ],
+      "gpt-5.2-codex": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.2-codex",
+          "rank": 110,
+          "rating": 1339.0933632392084,
+          "rating_lower": 1330.2045557110196,
+          "rating_upper": 1347.9821707673975,
+          "variance": 20.567941233042614,
+          "vote_count": 6720
+        }
+      ],
+      "gpt-5.4": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.4",
+          "rank": 88,
+          "rating": 1394.8732243562258,
+          "rating_lower": 1384.1528350593103,
+          "rating_upper": 1405.5936136531416,
+          "variance": 29.917474595408557,
+          "vote_count": 3743
+        }
+      ],
+      "gpt-5.4-mini": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.4-mini-high",
+          "rank": 87,
+          "rating": 1396.893212525923,
+          "rating_lower": 1390.3806330518837,
+          "rating_upper": 1403.4057919999623,
+          "variance": 11.041037633201405,
+          "vote_count": 11992
+        }
+      ],
+      "gpt-6-astra": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-6-astra-max",
+          "rank": 2,
+          "rating": 1789.1055739079766,
+          "rating_lower": 1778.6621650208558,
+          "rating_upper": 1799.5489827950973,
+          "variance": 28.39150288324222,
+          "vote_count": 5918
+        }
+      ],
+      "gpt-6-luna": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-6-luna-max",
+          "rank": 30,
+          "rating": 1581.9456769777462,
+          "rating_lower": 1572.9350997836673,
+          "rating_upper": 1590.956254171825,
+          "variance": 21.13533039403639,
+          "vote_count": 5577
+        }
+      ],
+      "gpt-6-sol": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-6-sol-max",
+          "rank": 7,
+          "rating": 1689.331621450443,
+          "rating_lower": 1677.526678235246,
+          "rating_upper": 1701.1365646656395,
+          "variance": 36.27702152195415,
+          "vote_count": 3197
+        }
+      ],
+      "gpt-6.1-sol": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-6.1-sol-max",
+          "rank": 3,
+          "rating": 1758.724697016325,
+          "rating_lower": 1739.6304407862358,
+          "rating_upper": 1777.8189532464148,
+          "variance": 94.90941800970077,
+          "vote_count": 1264
+        }
+      ],
+      "granite-4.1-8b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "granite-4.1-8b",
+          "rank": 133,
+          "rating": 1190.849060037631,
+          "rating_lower": 1172.36613780792,
+          "rating_upper": 1209.331982267342,
+          "variance": 88.92934431816263,
+          "vote_count": 1773
+        }
+      ],
+      "grok-4-1-fast": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4-1-fast-reasoning",
+          "rank": 127,
+          "rating": 1241.4401669458923,
+          "rating_lower": 1230.3735519370618,
+          "rating_upper": 1252.506781954723,
+          "variance": 31.881109096867178,
+          "vote_count": 5492
+        }
+      ],
+      "grok-4-fast": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4-fast-reasoning",
+          "rank": 136,
+          "rating": 1159.4869567182454,
+          "rating_lower": 1132.154141534968,
+          "rating_upper": 1186.8197719015234,
+          "variance": 194.47892603160267,
+          "vote_count": 743
+        }
+      ],
+      "grok-4.1": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.1-thinking",
+          "rank": 131,
+          "rating": 1213.8382877926792,
+          "rating_lower": 1188.9817474225356,
+          "rating_upper": 1238.6948281628224,
+          "variance": 160.8367102216995,
+          "vote_count": 961
+        }
+      ],
+      "grok-4.20-beta-0309": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.20-beta-0309-reasoning",
+          "rank": 96,
+          "rating": 1374.1035133521623,
+          "rating_lower": 1368.0477399886875,
+          "rating_upper": 1380.1592867156369,
+          "variance": 9.546475113103785,
+          "vote_count": 15489
+        }
+      ],
+      "grok-4.3": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.3",
+          "rank": 104,
+          "rating": 1356.5718882600868,
+          "rating_lower": 1350.347062298736,
+          "rating_upper": 1362.796714221438,
+          "variance": 10.086912305390122,
+          "vote_count": 15048
+        }
+      ],
+      "grok-4.5": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.5",
+          "rank": 36,
+          "rating": 1551.9557323096842,
+          "rating_lower": 1545.3256933657444,
+          "rating_upper": 1558.5857712536244,
+          "variance": 11.442896683250092,
+          "vote_count": 11397
+        }
+      ],
+      "grok-4.6": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.6-high",
+          "rank": 20,
+          "rating": 1620.0702861826376,
+          "rating_lower": 1612.175082719003,
+          "rating_upper": 1627.9654896462725,
+          "variance": 16.226709862511242,
+          "vote_count": 8120
+        }
+      ],
+      "grok-4.7": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4.7-xhigh",
+          "rank": 15,
+          "rating": 1636.2737652493324,
+          "rating_lower": 1624.2551517725487,
+          "rating_upper": 1648.292378726116,
+          "variance": 37.60213935554329,
+          "vote_count": 3062
+        }
+      ],
+      "grok-code-fast-1": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-code-fast-1",
+          "rank": 135,
+          "rating": 1167.0157068630297,
+          "rating_lower": 1138.9261458392912,
+          "rating_upper": 1195.1052678867677,
+          "variance": 205.39682327344352,
+          "vote_count": 789
+        }
+      ],
+      "hunyuan-hy3": [
+        {
+          "license": "tencent-hunyuan-community",
+          "model_name": "hunyuan-hy3-preview",
+          "rank": 105,
+          "rating": 1355.7833573702337,
+          "rating_lower": 1338.46198528065,
+          "rating_upper": 1373.1047294598175,
+          "variance": 78.10312307645522,
+          "vote_count": 1450
+        }
+      ],
+      "hy3": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "hy3",
+          "rank": 52,
+          "rating": 1508.107946282852,
+          "rating_lower": 1499.388800517434,
+          "rating_upper": 1516.82709204827,
+          "variance": 19.790268860638662,
+          "vote_count": 5713
+        }
+      ],
+      "hy4": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "hy4-preview",
+          "rank": 16,
+          "rating": 1633.1704260699548,
+          "rating_lower": 1623.7228358617658,
+          "rating_upper": 1642.6180162781443,
+          "variance": 23.235173122524195,
+          "vote_count": 5088
+        }
+      ],
+      "inkling": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "inkling",
+          "rank": 80,
+          "rating": 1411.9713399189854,
+          "rating_lower": 1405.5512399604193,
+          "rating_upper": 1418.3914398775514,
+          "variance": 10.729695514615377,
+          "vote_count": 13499
+        }
+      ],
+      "inkling-small": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "Inkling Small",
+          "rank": 81,
+          "rating": 1408.2923972599388,
+          "rating_lower": 1399.2453450136018,
+          "rating_upper": 1417.3394495062757,
+          "variance": 21.306789469412738,
+          "vote_count": 5420
+        }
+      ],
+      "kat-coder-pro-v1": [
+        {
+          "license": "Proprietary",
+          "model_name": "KAT-Coder-Pro-V1",
+          "rank": 123,
+          "rating": 1255.278437509141,
+          "rating_lower": 1235.8565209325484,
+          "rating_upper": 1274.7003540857331,
+          "variance": 98.19468621557571,
+          "vote_count": 1504
+        }
+      ],
+      "kimi-k2-thinking-turbo": [
+        {
+          "license": "Modified MIT",
+          "model_name": "kimi-k2-thinking-turbo",
+          "rank": 115,
+          "rating": 1321.3711858266433,
+          "rating_lower": 1313.9631986386328,
+          "rating_upper": 1328.7791730146541,
+          "variance": 14.285790044682516,
+          "vote_count": 13096
+        }
+      ],
+      "kimi-k2.5": [
+        {
+          "license": "Modified MIT",
+          "model_name": "kimi-k2.5-thinking",
+          "rank": 73,
+          "rating": 1435.8220231666578,
+          "rating_lower": 1430.6340396862176,
+          "rating_upper": 1441.0100066470982,
+          "variance": 7.006497752449396,
+          "vote_count": 20139
+        }
+      ],
+      "kimi-k2.5-instant": [
+        {
+          "license": "Modified MIT",
+          "model_name": "kimi-k2.5-instant",
+          "rank": 83,
+          "rating": 1403.648568655793,
+          "rating_lower": 1391.6338710650425,
+          "rating_upper": 1415.6632662465436,
+          "variance": 37.57764040565815,
+          "vote_count": 3266
+        }
+      ],
+      "kimi-k2.6": [
+        {
+          "license": "Modified MIT",
+          "model_name": "kimi-k2.6",
+          "rank": 50,
+          "rating": 1508.7417130562972,
+          "rating_lower": 1501.524320261959,
+          "rating_upper": 1515.9591058506353,
+          "variance": 13.560150239577496,
+          "vote_count": 10202
+        }
+      ],
+      "kimi-k2.7-code": [
+        {
+          "license": "Modified MIT",
+          "model_name": "kimi-k2.7-code",
+          "rank": 60,
+          "rating": 1472.8739094118287,
+          "rating_lower": 1463.4965290789837,
+          "rating_upper": 1482.2512897446736,
+          "variance": 22.891111427022352,
+          "vote_count": 4992
+        }
+      ],
+      "kimi-k3": [
+        {
+          "license": "Kimi K3 license",
+          "model_name": "kimi-k3-max",
+          "rank": 12,
+          "rating": 1657.8428028964095,
+          "rating_lower": 1651.4340890898088,
+          "rating_upper": 1664.2515167030106,
+          "variance": 10.691670683455348,
+          "vote_count": 16246
+        }
+      ],
+      "laguna-m.1": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "laguna-m.1",
+          "rank": 107,
+          "rating": 1347.947485452743,
+          "rating_lower": 1338.6856591175963,
+          "rating_upper": 1357.2093117878896,
+          "variance": 22.33042993987273,
+          "vote_count": 5418
+        }
+      ],
+      "laguna-xs.2": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "laguna-xs.2",
+          "rank": 116,
+          "rating": 1301.760877987187,
+          "rating_lower": 1291.097062104714,
+          "rating_upper": 1312.4246938696604,
+          "variance": 29.602548011887507,
+          "vote_count": 4254
+        }
+      ],
+      "mercury-2": [
+        {
+          "license": "Proprietary",
+          "model_name": "mercury-2",
+          "rank": 134,
+          "rating": 1170.034616073849,
+          "rating_lower": 1145.5693135051229,
+          "rating_upper": 1194.499918642575,
+          "variance": 155.81347027719988,
+          "vote_count": 955
+        }
+      ],
+      "mimo-v2-flash-(non-thinking)": [
+        {
+          "license": "MIT",
+          "model_name": "mimo-v2-flash (non-thinking)",
+          "rank": 112,
+          "rating": 1329.606274901506,
+          "rating_lower": 1319.8876825880366,
+          "rating_upper": 1339.3248672149755,
+          "variance": 24.587283363969355,
+          "vote_count": 5688
+        }
+      ],
+      "mimo-v2-flash-(thinking)": [
+        {
+          "license": "MIT",
+          "model_name": "mimo-v2-flash (thinking)",
+          "rank": 118,
+          "rating": 1292.027214405797,
+          "rating_lower": 1275.5931906125697,
+          "rating_upper": 1308.4612381990241,
+          "variance": 70.3058787410249,
+          "vote_count": 1687
+        }
+      ],
+      "mimo-v2-pro": [
+        {
+          "license": "Proprietary",
+          "model_name": "mimo-v2-pro",
+          "rank": 76,
+          "rating": 1432.860570506262,
+          "rating_lower": 1424.7301879357115,
+          "rating_upper": 1440.9909530768127,
+          "variance": 17.20781708954271,
+          "vote_count": 7247
+        }
+      ],
+      "mimo-v2.5": [
+        {
+          "license": "MIT",
+          "model_name": "mimo-v2.5",
+          "rank": 72,
+          "rating": 1437.6525376702152,
+          "rating_lower": 1431.6536211428465,
+          "rating_upper": 1443.6514541975837,
+          "variance": 9.36805551799021,
+          "vote_count": 15017
+        }
+      ],
+      "mimo-v2.5-pro": [
+        {
+          "license": "MIT",
+          "model_name": "mimo-v2.5-pro",
+          "rank": 59,
+          "rating": 1476.9175289340246,
+          "rating_lower": 1471.5136427596212,
+          "rating_upper": 1482.3214151084285,
+          "variance": 7.601795866871813,
+          "vote_count": 20096
+        }
+      ],
+      "mimo-v2.6-pro": [
+        {
+          "license": "MIT",
+          "model_name": "mimo-v2.6-pro",
+          "rank": 23,
+          "rating": 1618.5497526758245,
+          "rating_lower": 1606.3066973597447,
+          "rating_upper": 1630.7928079919043,
+          "variance": 39.01965645580095,
+          "vote_count": 2736
+        }
+      ],
+      "minimax-m2": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "minimax-m2",
+          "rank": 117,
+          "rating": 1296.6812350024907,
+          "rating_lower": 1285.7742889284498,
+          "rating_upper": 1307.5881810765313,
+          "variance": 30.967785472847023,
+          "vote_count": 6717
+        }
+      ],
+      "minimax-m2.1": [
+        {
+          "license": "MIT",
+          "model_name": "minimax-m2.1-preview",
+          "rank": 95,
+          "rating": 1384.0038995027912,
+          "rating_lower": 1374.4844676398968,
+          "rating_upper": 1393.5233313656859,
+          "variance": 23.58988791032179,
+          "vote_count": 7645
+        }
+      ],
+      "minimax-m2.5": [
+        {
+          "license": "Modified MIT",
+          "model_name": "minimax-m2.5",
+          "rank": 92,
+          "rating": 1386.2682419835223,
+          "rating_lower": 1377.9808171460768,
+          "rating_upper": 1394.555666820968,
+          "variance": 17.87899171698054,
+          "vote_count": 7628
+        }
+      ],
+      "minimax-m2.7": [
+        {
+          "license": "Modified MIT",
+          "model_name": "minimax-m2.7",
+          "rank": 86,
+          "rating": 1397.0863812400469,
+          "rating_lower": 1391.3179812783742,
+          "rating_upper": 1402.8547812017196,
+          "variance": 8.661927582973071,
+          "vote_count": 16079
+        }
+      ],
+      "minimax-m3": [
+        {
+          "license": "MiniMax Community License",
+          "model_name": "minimax-m3",
+          "rank": 57,
+          "rating": 1482.3817058766267,
+          "rating_lower": 1476.6833221531838,
+          "rating_upper": 1488.0800896000696,
+          "variance": 8.452928581369369,
+          "vote_count": 17427
+        }
+      ],
+      "mistral-large-3": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "mistral-large-3",
+          "rank": 129,
+          "rating": 1229.843067627106,
+          "rating_lower": 1204.3811495964028,
+          "rating_upper": 1255.304985657809,
+          "variance": 168.7664244400525,
+          "vote_count": 840
+        }
+      ],
+      "mistral-medium-3.5": [
+        {
+          "license": "Modified MIT",
+          "model_name": "mistral-medium-3.5",
+          "rank": 121,
+          "rating": 1263.107483617966,
+          "rating_lower": 1248.3450851011044,
+          "rating_upper": 1277.8698821348275,
+          "variance": 56.73063805777233,
+          "vote_count": 2318
+        }
+      ],
+      "muse-glimmer": [
+        {
+          "license": "Apache-2.0",
+          "model_name": "muse-glimmer",
+          "rank": 106,
+          "rating": 1354.8242350708633,
+          "rating_lower": 1339.2592339911885,
+          "rating_upper": 1370.3892361505386,
+          "variance": 63.066993535157366,
+          "vote_count": 1663
+        }
+      ],
+      "muse-spark-1.1": [
+        {
+          "license": "Proprietary",
+          "model_name": "muse-spark-1.1",
+          "rank": 38,
+          "rating": 1541.8652855007022,
+          "rating_lower": 1534.2757599776091,
+          "rating_upper": 1549.4548110237956,
+          "variance": 14.994537324046155,
+          "vote_count": 8074
+        }
+      ],
+      "muse-spark-1.2-(xhigh)": [
+        {
+          "license": "Proprietary",
+          "model_name": "muse-spark-1.2 (xHigh)",
+          "rank": 43,
+          "rating": 1531.803564232102,
+          "rating_lower": 1518.211526026671,
+          "rating_upper": 1545.3956024375325,
+          "variance": 48.09201691364427,
+          "vote_count": 2183
+        }
+      ],
+      "muse-spark-1.3": [
+        {
+          "license": "Proprietary",
+          "model_name": "muse-spark-1.3-max",
+          "rank": 13,
+          "rating": 1655.4226502573888,
+          "rating_lower": 1646.767982338809,
+          "rating_upper": 1664.0773181759691,
+          "variance": 19.498654099164373,
+          "vote_count": 7004
+        }
+      ],
+      "muse-spark-1.3-(xhigh)": [
+        {
+          "license": "Proprietary",
+          "model_name": "muse-spark-1.3 (xHigh)",
+          "rank": 18,
+          "rating": 1623.3061076847457,
+          "rating_lower": 1614.5331483694117,
+          "rating_upper": 1632.0790670000797,
+          "variance": 20.035309173143872,
+          "vote_count": 6078
+        }
+      ],
+      "qwen3-coder-480b-a35b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3-coder-480b-a35b-instruct",
+          "rank": 119,
+          "rating": 1274.3402565900901,
+          "rating_lower": 1266.6009606303178,
+          "rating_upper": 1282.0795525498625,
+          "variance": 15.59217598019788,
+          "vote_count": 12718
+        }
+      ],
+      "qwen3.5-122b-a10b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3.5-122b-a10b",
+          "rank": 101,
+          "rating": 1359.7961761380825,
+          "rating_lower": 1352.1601492372824,
+          "rating_upper": 1367.4322030388826,
+          "variance": 15.178844691925395,
+          "vote_count": 8242
+        }
+      ],
+      "qwen3.5-27b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3.5-27b",
+          "rank": 103,
+          "rating": 1357.4350505816346,
+          "rating_lower": 1349.4162195818212,
+          "rating_upper": 1365.453881581448,
+          "variance": 16.738862397059524,
+          "vote_count": 7779
+        }
+      ],
+      "qwen3.5-35b-a3b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3.5-35b-a3b",
+          "rank": 124,
+          "rating": 1253.4511667461595,
+          "rating_lower": 1236.047517481629,
+          "rating_upper": 1270.8548160106902,
+          "variance": 78.84687090516934,
+          "vote_count": 1617
+        }
+      ],
+      "qwen3.5-397b-a17b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3.5-397b-a17b",
+          "rank": 85,
+          "rating": 1399.6009463287705,
+          "rating_lower": 1394.494040065435,
+          "rating_upper": 1404.7078525921063,
+          "variance": 6.789215451692676,
+          "vote_count": 21270
+        }
+      ],
+      "qwen3.5-flash": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.5-flash",
+          "rank": 126,
+          "rating": 1243.1609342134286,
+          "rating_lower": 1223.548084717349,
+          "rating_upper": 1262.7737837095083,
+          "variance": 100.13484025487149,
+          "vote_count": 1329
+        }
+      ],
+      "qwen3.6-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.6-max-preview",
+          "rank": 58,
+          "rating": 1481.814310693423,
+          "rating_lower": 1469.2969279359859,
+          "rating_upper": 1494.3316934508598,
+          "variance": 40.787856491422886,
+          "vote_count": 2708
+        }
+      ],
+      "qwen3.6-plus": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.6-plus",
+          "rank": 64,
+          "rating": 1460.5754178532447,
+          "rating_lower": 1455.0103664981198,
+          "rating_upper": 1466.1404692083697,
+          "variance": 8.061988434794879,
+          "vote_count": 18685
+        }
+      ],
+      "qwen3.7-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.7-max-20260517",
+          "rank": 48,
+          "rating": 1514.8868189395325,
+          "rating_lower": 1507.5292850081482,
+          "rating_upper": 1522.2443528709173,
+          "variance": 14.091861471963762,
+          "vote_count": 8917
+        }
+      ],
+      "qwen3.8-27b": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "qwen3.8-27b",
+          "rank": 27,
+          "rating": 1590.4479629777084,
+          "rating_lower": 1583.4008660605723,
+          "rating_upper": 1597.495059894844,
+          "variance": 12.927790528945556,
+          "vote_count": 12030
+        }
+      ],
+      "qwen3.8-flash-next": [
+        {
+          "license": "qwen-community-1.0",
+          "model_name": "qwen3.8-flash-next",
+          "rank": 14,
+          "rating": 1637.8002818037521,
+          "rating_lower": 1628.8484678314057,
+          "rating_upper": 1646.752095776098,
+          "variance": 20.860557703703765,
+          "vote_count": 5980
+        }
+      ],
+      "qwen3.8-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.8-max",
+          "rank": 9,
+          "rating": 1671.2286513300737,
+          "rating_lower": 1659.1804925617103,
+          "rating_upper": 1683.2768100984376,
+          "variance": 37.78724085905219,
+          "vote_count": 3453
+        }
+      ],
+      "qwen3.8-max-0902": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.8-max-0902",
+          "rank": 10,
+          "rating": 1669.7153651706149,
+          "rating_lower": 1661.6993279456542,
+          "rating_upper": 1677.7314023955755,
+          "variance": 16.727200730566235,
+          "vote_count": 8912
+        }
+      ],
+      "seed-2.1-pro": [
+        {
+          "license": "Proprietary",
+          "model_name": "seed-2.1-pro-preview",
+          "rank": 47,
+          "rating": 1516.9807848640153,
+          "rating_lower": 1510.7700222770277,
+          "rating_upper": 1523.1915474510029,
+          "variance": 10.041386283806084,
+          "vote_count": 13139
+        }
+      ],
+      "solar-pro4": [
+        {
+          "license": "Proprietary",
+          "model_name": "solar-pro4",
+          "rank": 98,
+          "rating": 1370.346068290782,
+          "rating_lower": 1360.2356826059454,
+          "rating_upper": 1380.4564539756186,
+          "variance": 26.609656244519982,
+          "vote_count": 4941
+        }
+      ],
+      "step-5": [
+        {
+          "license": "Proprietary",
+          "model_name": "step-5-preview-high",
+          "rank": 32,
+          "rating": 1569.6312750677412,
+          "rating_lower": 1556.4671295400085,
+          "rating_upper": 1582.7954205954734,
+          "variance": 45.111697291082955,
+          "vote_count": 2326
+        }
+      ],
+      "trinity-large": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "trinity-large-thinking",
+          "rank": 128,
+          "rating": 1237.641063602956,
+          "rating_lower": 1217.6245241628278,
+          "rating_upper": 1257.6576030430842,
+          "variance": 104.29940026945594,
+          "vote_count": 1362
+        }
+      ]
+    },
+    "code_snapshot": "2026-09-30",
     "history_points": {
       "Inkling Small": {
         "date": "2026-09-30",
@@ -1779,7 +3280,7 @@
           "vote_count": 19621.0
         }
       ],
-      "athene-v2": [
+      "athene-v2-chat": [
         {
           "license": "NexusFlow",
           "model_name": "athene-v2-chat",
@@ -1994,6 +3495,16 @@
       "claude-opus-4": [
         {
           "license": "Proprietary",
+          "model_name": "claude-opus-4-20250514-thinking-16k",
+          "rank": 171.0,
+          "rating": 1376.9495686408727,
+          "rating_lower": 1372.5030305962796,
+          "rating_upper": 1381.3961066854658,
+          "variance": 5.146925036786033,
+          "vote_count": 35693.0
+        },
+        {
+          "license": "Proprietary",
           "model_name": "claude-opus-4-20250514",
           "rank": 185.0,
           "rating": 1365.688097074727,
@@ -2006,18 +3517,6 @@
       "claude-opus-4-1": [
         {
           "license": "Proprietary",
-          "model_name": "claude-opus-4-1-20250805",
-          "rank": 117.0,
-          "rating": 1418.56766844378,
-          "rating_lower": 1415.5839585837325,
-          "rating_upper": 1421.5513783038273,
-          "variance": 2.3174853472295536,
-          "vote_count": 76927.0
-        }
-      ],
-      "claude-opus-4-1-thinking-16k": [
-        {
-          "license": "Proprietary",
           "model_name": "claude-opus-4-1-20250805-thinking-16k",
           "rank": 116.0,
           "rating": 1419.1751802113822,
@@ -2025,6 +3524,16 @@
           "rating_upper": 1422.6406923075242,
           "variance": 3.126357628463833,
           "vote_count": 49334.0
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "claude-opus-4-1-20250805",
+          "rank": 117.0,
+          "rating": 1418.56766844378,
+          "rating_lower": 1415.5839585837325,
+          "rating_upper": 1421.5513783038273,
+          "variance": 2.3174853472295536,
+          "vote_count": 76927.0
         }
       ],
       "claude-opus-4-5": [
@@ -2113,18 +3622,6 @@
           "rating_upper": 1457.9126271461764,
           "variance": 3.858307416623251,
           "vote_count": 64711.0
-        }
-      ],
-      "claude-opus-4-thinking-16k": [
-        {
-          "license": "Proprietary",
-          "model_name": "claude-opus-4-20250514-thinking-16k",
-          "rank": 171.0,
-          "rating": 1376.9495686408727,
-          "rating_lower": 1372.5030305962796,
-          "rating_upper": 1381.3961066854658,
-          "variance": 5.146925036786033,
-          "vote_count": 35693.0
         }
       ],
       "claude-opus-5": [
@@ -2337,7 +3834,7 @@
           "vote_count": 15147.0
         }
       ],
-      "deepseek-llm-67b": [
+      "deepseek-llm-67b-chat": [
         {
           "license": "DeepSeek License",
           "model_name": "deepseek-llm-67b-chat",
@@ -2657,7 +4154,7 @@
           "vote_count": 39421.0
         }
       ],
-      "falcon-180b": [
+      "falcon-180b-chat": [
         {
           "license": "Falcon-180B TII License",
           "model_name": "falcon-180b-chat",
@@ -3539,7 +5036,9 @@
           "rating_upper": 1410.5083401962215,
           "variance": 5.120141098093753,
           "vote_count": 31487.0
-        },
+        }
+      ],
+      "gpt-5-chat": [
         {
           "license": "Proprietary",
           "model_name": "gpt-5-chat",
@@ -3600,16 +5099,6 @@
       "gpt-5.2": [
         {
           "license": "Proprietary",
-          "model_name": "gpt-5.2-chat-latest-20260210",
-          "rank": 75.0,
-          "rating": 1438.6073173860186,
-          "rating_lower": 1434.6049968124998,
-          "rating_upper": 1442.6096379595378,
-          "variance": 4.169918440078286,
-          "vote_count": 35943.0
-        },
-        {
-          "license": "Proprietary",
           "model_name": "gpt-5.2-high",
           "rank": 124.0,
           "rating": 1416.2324610304609,
@@ -3629,7 +5118,19 @@
           "vote_count": 83682.0
         }
       ],
-      "gpt-5.3": [
+      "gpt-5.2-chat": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.2-chat-latest-20260210",
+          "rank": 75.0,
+          "rating": 1438.6073173860186,
+          "rating_lower": 1434.6049968124998,
+          "rating_upper": 1442.6096379595378,
+          "variance": 4.169918440078286,
+          "vote_count": 35943.0
+        }
+      ],
+      "gpt-5.3-chat": [
         {
           "license": "Proprietary",
           "model_name": "gpt-5.3-chat-latest",
@@ -4012,16 +5513,6 @@
       "grok-4-fast": [
         {
           "license": "Proprietary",
-          "model_name": "grok-4-fast-chat",
-          "rank": 138.0,
-          "rating": 1407.3006509158,
-          "rating_lower": 1399.5424078050878,
-          "rating_upper": 1415.058894026512,
-          "variance": 15.668614183930394,
-          "vote_count": 6323.0
-        },
-        {
-          "license": "Proprietary",
           "model_name": "grok-4-fast-reasoning",
           "rank": 149.0,
           "rating": 1399.2249765487882,
@@ -4029,6 +5520,18 @@
           "rating_upper": 1404.2814237552338,
           "variance": 6.655715847802004,
           "vote_count": 18148.0
+        }
+      ],
+      "grok-4-fast-chat": [
+        {
+          "license": "Proprietary",
+          "model_name": "grok-4-fast-chat",
+          "rank": 138.0,
+          "rating": 1407.3006509158,
+          "rating_lower": 1399.5424078050878,
+          "rating_upper": 1415.058894026512,
+          "variance": 15.668614183930394,
+          "vote_count": 6323.0
         }
       ],
       "grok-4.1": [
@@ -4195,9 +5698,7 @@
           "rating_upper": 1283.6193269262908,
           "variance": 24.218041809465284,
           "vote_count": 3904.0
-        }
-      ],
-      "hunyuan-standard-256k": [
+        },
         {
           "license": "Proprietary",
           "model_name": "hunyuan-standard-256k",
@@ -4327,7 +5828,7 @@
           "vote_count": 5421.0
         }
       ],
-      "internlm2-5-20b": [
+      "internlm2-5-20b-chat": [
         {
           "license": "Other",
           "model_name": "internlm2_5-20b-chat",
@@ -4483,7 +5984,7 @@
           "vote_count": 2391.0
         }
       ],
-      "llama-2-13b": [
+      "llama-2-13b-chat": [
         {
           "license": "Llama 2 Community",
           "model_name": "llama-2-13b-chat",
@@ -4495,7 +5996,7 @@
           "vote_count": 19174.0
         }
       ],
-      "llama-2-70b": [
+      "llama-2-70b-chat": [
         {
           "license": "Llama 2 Community",
           "model_name": "llama-2-70b-chat",
@@ -4507,7 +6008,7 @@
           "vote_count": 38492.0
         }
       ],
-      "llama-2-7b": [
+      "llama-2-7b-chat": [
         {
           "license": "Llama 2 Community",
           "model_name": "llama-2-7b-chat",
@@ -4723,7 +6224,7 @@
           "vote_count": 29668.0
         }
       ],
-      "llama2-70b-steerlm": [
+      "llama2-70b-steerlm-chat": [
         {
           "license": "Llama 2 Community",
           "model_name": "llama2-70b-steerlm-chat",
@@ -4735,7 +6236,7 @@
           "vote_count": 3585.0
         }
       ],
-      "longcat-flash": [
+      "longcat-flash-chat": [
         {
           "license": "MIT",
           "model_name": "longcat-flash-chat",
@@ -5107,18 +6608,6 @@
           "vote_count": 14681.0
         }
       ],
-      "mistral-small-2506": [
-        {
-          "license": "Apache 2.0",
-          "model_name": "mistral-small-2506",
-          "rank": 211.0,
-          "rating": 1338.2565451389562,
-          "rating_lower": 1333.055681088498,
-          "rating_upper": 1343.4574091894144,
-          "variance": 7.041331987117599,
-          "vote_count": 17353.0
-        }
-      ],
       "mistral-small-3.1-24b-instruct-2503": [
         {
           "license": "Apache 2.0",
@@ -5129,6 +6618,18 @@
           "rating_upper": 1282.0089413238543,
           "variance": 5.352510247397454,
           "vote_count": 32556.0
+        }
+      ],
+      "mistral-small-3.2": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "mistral-small-2506",
+          "rank": 211.0,
+          "rating": 1338.2565451389562,
+          "rating_lower": 1333.055681088498,
+          "rating_upper": 1343.4574091894144,
+          "variance": 7.041331987117599,
+          "vote_count": 17353.0
         }
       ],
       "mixtral-8x22b-instruct-v0.1": [
@@ -5167,7 +6668,7 @@
           "vote_count": 818.0
         }
       ],
-      "mpt-30b": [
+      "mpt-30b-chat": [
         {
           "license": "CC-BY-NC-SA-4.0",
           "model_name": "mpt-30b-chat",
@@ -5179,7 +6680,7 @@
           "vote_count": 2572.0
         }
       ],
-      "mpt-7b": [
+      "mpt-7b-chat": [
         {
           "license": "CC-BY-NC-SA-4.0",
           "model_name": "mpt-7b-chat",
@@ -5547,7 +7048,7 @@
           "vote_count": 8554.0
         }
       ],
-      "phi-3-medium-4k": [
+      "phi-3": [
         {
           "license": "MIT",
           "model_name": "phi-3-medium-4k-instruct",
@@ -5562,18 +7063,6 @@
       "phi-3-mini": [
         {
           "license": "MIT",
-          "model_name": "phi-3-mini-128k-instruct",
-          "rank": 388.0,
-          "rating": 1050.358455535391,
-          "rating_lower": 1043.1382471620318,
-          "rating_upper": 1057.57866390875,
-          "variance": 13.570732210870116,
-          "vote_count": 20685.0
-        }
-      ],
-      "phi-3-mini-4k": [
-        {
-          "license": "MIT",
           "model_name": "phi-3-mini-4k-instruct",
           "rank": 375.0,
           "rating": 1073.2761674723943,
@@ -5581,6 +7070,16 @@
           "rating_upper": 1079.5745621243414,
           "variance": 10.32674747884044,
           "vote_count": 20118.0
+        },
+        {
+          "license": "MIT",
+          "model_name": "phi-3-mini-128k-instruct",
+          "rank": 388.0,
+          "rating": 1050.358455535391,
+          "rating_lower": 1043.1382471620318,
+          "rating_upper": 1057.57866390875,
+          "variance": 13.570732210870116,
+          "vote_count": 20685.0
         }
       ],
       "phi-3-mini-4k-instruct-june-2024": [
@@ -5595,7 +7094,7 @@
           "vote_count": 12297.0
         }
       ],
-      "phi-3-small-8k": [
+      "phi-3-small": [
         {
           "license": "MIT",
           "model_name": "phi-3-small-8k-instruct",
@@ -5619,7 +7118,7 @@
           "vote_count": 24126.0
         }
       ],
-      "qwen-14b": [
+      "qwen-14b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen-14b-chat",
@@ -5655,7 +7154,7 @@
           "vote_count": 5819.0
         }
       ],
-      "qwen1.5-110b": [
+      "qwen1.5-110b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-110b-chat",
@@ -5667,7 +7166,7 @@
           "vote_count": 26195.0
         }
       ],
-      "qwen1.5-14b": [
+      "qwen1.5-14b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-14b-chat",
@@ -5679,7 +7178,7 @@
           "vote_count": 17839.0
         }
       ],
-      "qwen1.5-32b": [
+      "qwen1.5-32b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-32b-chat",
@@ -5691,7 +7190,7 @@
           "vote_count": 21741.0
         }
       ],
-      "qwen1.5-4b": [
+      "qwen1.5-4b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-4b-chat",
@@ -5703,7 +7202,7 @@
           "vote_count": 7597.0
         }
       ],
-      "qwen1.5-72b": [
+      "qwen1.5-72b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-72b-chat",
@@ -5715,7 +7214,7 @@
           "vote_count": 39302.0
         }
       ],
-      "qwen1.5-7b": [
+      "qwen1.5-7b-chat": [
         {
           "license": "Qianwen LICENSE",
           "model_name": "qwen1.5-7b-chat",
@@ -5737,18 +7236,6 @@
           "rating_upper": 1208.1480048416195,
           "variance": 6.258740913859595,
           "vote_count": 37325.0
-        }
-      ],
-      "qwen2.5": [
-        {
-          "license": "Proprietary",
-          "model_name": "qwen2.5-max",
-          "rank": 182.0,
-          "rating": 1366.6217958006046,
-          "rating_lower": 1362.527433117465,
-          "rating_upper": 1370.7161584837443,
-          "variance": 4.363916564920276,
-          "vote_count": 32411.0
         }
       ],
       "qwen2.5-72b": [
@@ -5775,6 +7262,18 @@
           "vote_count": 5432.0
         }
       ],
+      "qwen2.5-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen2.5-max",
+          "rank": 182.0,
+          "rating": 1366.6217958006046,
+          "rating_lower": 1362.527433117465,
+          "rating_upper": 1370.7161584837443,
+          "variance": 4.363916564920276,
+          "vote_count": 32411.0
+        }
+      ],
       "qwen2.5-plus-1127": [
         {
           "license": "Proprietary",
@@ -5785,28 +7284,6 @@
           "rating_upper": 1305.44435419715,
           "variance": 10.423314609087218,
           "vote_count": 10187.0
-        }
-      ],
-      "qwen3": [
-        {
-          "license": "Proprietary",
-          "model_name": "qwen3-max-preview",
-          "rank": 74.0,
-          "rating": 1439.0052938826466,
-          "rating_lower": 1434.4870875963256,
-          "rating_upper": 1443.523500168967,
-          "variance": 5.314175941643795,
-          "vote_count": 27239.0
-        },
-        {
-          "license": "Proprietary",
-          "model_name": "qwen3-max-2025-09-23",
-          "rank": 130.0,
-          "rating": 1412.4154905488372,
-          "rating_lower": 1405.944014512454,
-          "rating_upper": 1418.8869665852199,
-          "variance": 10.9021088196672,
-          "vote_count": 8969.0
         }
       ],
       "qwen3-235b-a22b": [
@@ -5905,6 +7382,28 @@
           "vote_count": 25011.0
         }
       ],
+      "qwen3-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3-max-preview",
+          "rank": 74.0,
+          "rating": 1439.0052938826466,
+          "rating_lower": 1434.4870875963256,
+          "rating_upper": 1443.523500168967,
+          "variance": 5.314175941643795,
+          "vote_count": 27239.0
+        },
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3-max-2025-09-23",
+          "rank": 130.0,
+          "rating": 1412.4154905488372,
+          "rating_lower": 1405.944014512454,
+          "rating_upper": 1418.8869665852199,
+          "variance": 10.9021088196672,
+          "vote_count": 8969.0
+        }
+      ],
       "qwen3-next-80b-a3b": [
         {
           "license": "Apache 2.0",
@@ -5947,18 +7446,6 @@
           "rating_upper": 1407.2686395767714,
           "variance": 12.204288750258401,
           "vote_count": 7809.0
-        }
-      ],
-      "qwen3.5": [
-        {
-          "license": "Proprietary",
-          "model_name": "qwen3.5-max-preview",
-          "rank": 28.0,
-          "rating": 1470.6022339952883,
-          "rating_lower": 1465.7403047249395,
-          "rating_upper": 1475.4641632656376,
-          "variance": 6.153484218687011,
-          "vote_count": 22566.0
         }
       ],
       "qwen3.5-122b-a10b": [
@@ -6021,7 +7508,19 @@
           "vote_count": 61687.0
         }
       ],
-      "qwen3.6": [
+      "qwen3.5-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.5-max-preview",
+          "rank": 28.0,
+          "rating": 1470.6022339952883,
+          "rating_lower": 1465.7403047249395,
+          "rating_upper": 1475.4641632656376,
+          "variance": 6.153484218687011,
+          "vote_count": 22566.0
+        }
+      ],
+      "qwen3.6-max": [
         {
           "license": "Proprietary",
           "model_name": "qwen3.6-max-preview",
@@ -6045,7 +7544,7 @@
           "vote_count": 48092.0
         }
       ],
-      "qwen3.7": [
+      "qwen3.7-max": [
         {
           "license": "Proprietary",
           "model_name": "qwen3.7-max-preview",
@@ -6069,18 +7568,6 @@
           "vote_count": 42001.0
         }
       ],
-      "qwen3.8": [
-        {
-          "license": "Proprietary",
-          "model_name": "qwen3.8-max",
-          "rank": 17.0,
-          "rating": 1481.0508610604434,
-          "rating_lower": 1475.8260193009337,
-          "rating_upper": 1486.275702819953,
-          "variance": 7.106407405659549,
-          "vote_count": 22809.0
-        }
-      ],
       "qwen3.8-27b": [
         {
           "license": "Apache 2.0",
@@ -6091,6 +7578,18 @@
           "rating_upper": 1446.839319826432,
           "variance": 7.6160891315899955,
           "vote_count": 17777.0
+        }
+      ],
+      "qwen3.8-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.8-max",
+          "rank": 17.0,
+          "rating": 1481.0508610604434,
+          "rating_lower": 1475.8260193009337,
+          "rating_upper": 1486.275702819953,
+          "variance": 7.106407405659549,
+          "vote_count": 22809.0
         }
       ],
       "qwq-32b": [
@@ -6425,7 +7924,7 @@
           "vote_count": 8214.0
         }
       ],
-      "yi-1.5-34b": [
+      "yi-1.5-34b-chat": [
         {
           "license": "Apache-2.0",
           "model_name": "yi-1.5-34b-chat",
@@ -6437,7 +7936,7 @@
           "vote_count": 24146.0
         }
       ],
-      "yi-34b": [
+      "yi-34b-chat": [
         {
           "license": "Yi License",
           "model_name": "yi-34b-chat",
@@ -6666,6 +8165,16 @@
       "claude-opus-4": [
         {
           "license": "Proprietary",
+          "model_name": "claude-opus-4-20250514-thinking-16k",
+          "rank": 88,
+          "rating": 1191.5021209019114,
+          "rating_lower": 1175.5281321711798,
+          "rating_upper": 1207.4761096326429,
+          "variance": 66.42484740300526,
+          "vote_count": 1290
+        },
+        {
+          "license": "Proprietary",
           "model_name": "claude-opus-4-20250514",
           "rank": 96,
           "rating": 1175.191633404387,
@@ -6739,18 +8248,6 @@
           "rating_upper": 1294.4902758707583,
           "variance": 11.191561583402867,
           "vote_count": 18583
-        }
-      ],
-      "claude-opus-4-thinking-16k": [
-        {
-          "license": "Proprietary",
-          "model_name": "claude-opus-4-20250514-thinking-16k",
-          "rank": 88,
-          "rating": 1191.5021209019114,
-          "rating_lower": 1175.5281321711798,
-          "rating_upper": 1207.4761096326429,
-          "variance": 66.42484740300526,
-          "vote_count": 1290
         }
       ],
       "claude-opus-5": [
@@ -7302,16 +8799,6 @@
       "gpt-5": [
         {
           "license": "Proprietary",
-          "model_name": "gpt-5-chat",
-          "rank": 70,
-          "rating": 1231.8114934981418,
-          "rating_lower": 1224.7774153762962,
-          "rating_upper": 1238.8455716199876,
-          "variance": 12.880069091900014,
-          "vote_count": 39918
-        },
-        {
-          "license": "Proprietary",
           "model_name": "gpt-5-high",
           "rank": 80,
           "rating": 1208.1244179593527,
@@ -7319,6 +8806,18 @@
           "rating_upper": 1214.9322737496518,
           "variance": 12.06492184995842,
           "vote_count": 34464
+        }
+      ],
+      "gpt-5-chat": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5-chat",
+          "rank": 70,
+          "rating": 1231.8114934981418,
+          "rating_lower": 1224.7774153762962,
+          "rating_upper": 1238.8455716199876,
+          "variance": 12.880069091900014,
+          "vote_count": 39918
         }
       ],
       "gpt-5-mini": [
@@ -7370,16 +8869,6 @@
       "gpt-5.2": [
         {
           "license": "Proprietary",
-          "model_name": "gpt-5.2-chat-latest-20260210",
-          "rank": 40,
-          "rating": 1267.9351650789883,
-          "rating_lower": 1261.412163535059,
-          "rating_upper": 1274.4581666229176,
-          "variance": 11.076403816405978,
-          "vote_count": 16492
-        },
-        {
-          "license": "Proprietary",
           "model_name": "gpt-5.2-high",
           "rank": 60,
           "rating": 1245.6275679222422,
@@ -7397,6 +8886,18 @@
           "rating_upper": 1234.888900131379,
           "variance": 9.436221641698442,
           "vote_count": 20149
+        }
+      ],
+      "gpt-5.2-chat": [
+        {
+          "license": "Proprietary",
+          "model_name": "gpt-5.2-chat-latest-20260210",
+          "rank": 40,
+          "rating": 1267.9351650789883,
+          "rating_lower": 1261.412163535059,
+          "rating_upper": 1274.4581666229176,
+          "variance": 11.076403816405978,
+          "vote_count": 16492
         }
       ],
       "gpt-5.4": [
@@ -7911,18 +9412,6 @@
           "vote_count": 5391
         }
       ],
-      "mistral-small-2506": [
-        {
-          "license": "Apache 2.0",
-          "model_name": "mistral-small-2506",
-          "rank": 110,
-          "rating": 1141.5461503086347,
-          "rating_lower": 1132.4765717202758,
-          "rating_upper": 1150.6157288969937,
-          "variance": 21.413025522307887,
-          "vote_count": 10848
-        }
-      ],
       "mistral-small-3.1-24b-instruct-2503": [
         {
           "license": "Apache 2.0",
@@ -7933,6 +9422,18 @@
           "rating_upper": 1144.6403750677332,
           "variance": 18.64199008607662,
           "vote_count": 28507
+        }
+      ],
+      "mistral-small-3.2": [
+        {
+          "license": "Apache 2.0",
+          "model_name": "mistral-small-2506",
+          "rank": 110,
+          "rating": 1141.5461503086347,
+          "rating_lower": 1132.4765717202758,
+          "rating_upper": 1150.6157288969937,
+          "variance": 21.413025522307887,
+          "vote_count": 10848
         }
       ],
       "molmo-2-8b": [
@@ -8257,18 +9758,6 @@
           "vote_count": 12799
         }
       ],
-      "qwen3.8": [
-        {
-          "license": "Proprietary",
-          "model_name": "qwen3.8-max",
-          "rank": 6,
-          "rating": 1313.9453493679448,
-          "rating_lower": 1306.4794994371478,
-          "rating_upper": 1321.4111992987418,
-          "variance": 14.509830194954562,
-          "vote_count": 10086
-        }
-      ],
       "qwen3.8-27b": [
         {
           "license": "Apache 2.0",
@@ -8279,6 +9768,18 @@
           "rating_upper": 1278.4042530175118,
           "variance": 20.06825239449059,
           "vote_count": 6147
+        }
+      ],
+      "qwen3.8-max": [
+        {
+          "license": "Proprietary",
+          "model_name": "qwen3.8-max",
+          "rank": 6,
+          "rating": 1313.9453493679448,
+          "rating_lower": 1306.4794994371478,
+          "rating_upper": 1321.4111992987418,
+          "variance": 14.509830194954562,
+          "vote_count": 10086
         }
       ],
       "step-1o-turbo-202506": [

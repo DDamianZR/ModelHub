@@ -202,3 +202,18 @@ class ProfileTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StandingProfileTests(unittest.TestCase):
+    def test_standing_not_raw_level_decides_the_weakness(self):
+        """Regression: raw ordering named the lowest-level category (human preference as
+        a win rate near 50) as every model's weakness."""
+        model = _model(
+            category_scores={"reasoning": 80.0, "math": 85.0, "human_preference": 55.0,
+                             "coding": 70.0},
+            category_standing={"reasoning": -1.0, "math": -0.5, "human_preference": 1.5,
+                               "coding": 0.2},
+        )
+        strengths, weaknesses, _ = profile(model, "en")
+        self.assertIn("Human preference", strengths)
+        self.assertIn("Reasoning", weaknesses)

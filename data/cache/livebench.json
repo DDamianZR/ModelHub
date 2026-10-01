@@ -31,7 +31,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 71.7,
+          "value": 85.99,
+          "variant": "claude-fable-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.17,
           "variant": "claude-fable-5-max-effort"
         },
         {
@@ -69,7 +78,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 74.19,
+          "value": 86.38,
+          "variant": "claude-fable-5-1-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.06,
           "variant": "claude-fable-5-1-max-effort"
         },
         {
@@ -107,7 +125,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 55.68,
+          "value": 79.65,
+          "variant": "claude-opus-4-5-20251101-thinking-64k-high-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 39.7,
           "variant": "claude-opus-4-5-20251101-thinking-64k-high-effort"
         },
         {
@@ -145,7 +172,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 60.67,
+          "value": 78.18,
+          "variant": "claude-opus-4-6-thinking-auto-high-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 48.99,
           "variant": "claude-opus-4-6-thinking-auto-high-effort"
         },
         {
@@ -183,7 +219,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.23,
+          "value": 82.09,
+          "variant": "claude-opus-4-7-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 50.66,
           "variant": "claude-opus-4-7-xhigh-effort"
         },
         {
@@ -221,7 +266,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.03,
+          "value": 81.83,
+          "variant": "claude-opus-4-8-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 50.5,
           "variant": "claude-opus-4-8-max-effort"
         },
         {
@@ -259,7 +313,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 71.7,
+          "value": 81.45,
+          "variant": "claude-opus-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.2,
           "variant": "claude-opus-5-max-effort"
         },
         {
@@ -297,7 +360,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 78.73,
+          "value": 89.25,
+          "variant": "claude-opus-5-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 71.72,
           "variant": "claude-opus-5-5-max-effort"
         },
         {
@@ -333,7 +405,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 74.91,
+          "value": 89.25,
+          "variant": "claude-opus-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.35,
           "variant": "claude-opus-5-5-xhigh-effort"
         },
         {
@@ -371,7 +452,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 57.28,
+          "value": 79.27,
+          "variant": "claude-sonnet-4-6-thinking-auto-medium-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 42.63,
           "variant": "claude-sonnet-4-6-thinking-auto-medium-effort"
         },
         {
@@ -409,7 +499,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 67.91,
+          "value": 80.68,
+          "variant": "claude-sonnet-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 59.39,
           "variant": "claude-sonnet-5-xhigh-effort"
         },
         {
@@ -447,7 +546,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 70.33,
+          "value": 91.37,
+          "variant": "claude-sonnet-5-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.31,
           "variant": "claude-sonnet-5-5-max-effort"
         },
         {
@@ -483,7 +591,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 59.15,
+          "value": 88.87,
+          "variant": "claude-sonnet-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 39.34,
           "variant": "claude-sonnet-5-5-xhigh-effort"
         },
         {
@@ -521,7 +638,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 50.27,
+          "value": 69.23,
+          "variant": "deepseek-v4-flash"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 37.63,
           "variant": "deepseek-v4-flash"
         },
         {
@@ -559,7 +685,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 58.05,
+          "value": 74.98,
+          "variant": "deepseek-v4-flash-0731"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 46.77,
           "variant": "deepseek-v4-flash-0731"
         },
         {
@@ -597,7 +732,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 66.34,
+          "value": 68.2,
+          "variant": "deepseek-v4-flash-vision-exp"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.1,
           "variant": "deepseek-v4-flash-vision-exp"
         },
         {
@@ -635,7 +779,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 53.57,
+          "value": 69.99,
+          "variant": "deepseek-v4-pro"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 42.63,
           "variant": "deepseek-v4-pro"
         },
         {
@@ -673,7 +826,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.83,
+          "value": 77.16,
+          "variant": "deepseek-v4-pro-0813"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 54.95,
           "variant": "deepseek-v4-pro-0813"
         },
         {
@@ -711,7 +873,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 78.38,
+          "value": 80.04,
+          "variant": "deepseek-v4.1-flash-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 77.27,
           "variant": "deepseek-v4.1-flash-max"
         },
         {
@@ -749,7 +920,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 57.07,
+          "value": 76.45,
+          "variant": "gemini-3.1-pro-preview-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 44.14,
           "variant": "gemini-3.1-pro-preview-high"
         },
         {
@@ -787,7 +967,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 60.67,
+          "value": 78.18,
+          "variant": "gemini-3.5-flash-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 48.99,
           "variant": "gemini-3.5-flash-high"
         },
         {
@@ -825,7 +1014,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 57.58,
+          "value": 76.07,
+          "variant": "gemini-3.5-flash-lite-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 45.25,
           "variant": "gemini-3.5-flash-lite-high"
         },
         {
@@ -863,7 +1061,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 57.21,
+          "value": 77.86,
+          "variant": "gemini-3.6-flash-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 43.43,
           "variant": "gemini-3.6-flash-high"
         },
         {
@@ -901,7 +1108,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 66.53,
+          "value": 78.89,
+          "variant": "gemini-3.7-flash-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 58.28,
           "variant": "gemini-3.7-flash-high"
         },
         {
@@ -939,7 +1155,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 61.54,
+          "value": 72.49,
+          "variant": "gemini-3.8-flash-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 54.24,
           "variant": "gemini-3.8-flash-high"
         },
         {
@@ -977,7 +1202,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 62.92,
+          "value": 79.65,
+          "variant": "glm-5.2"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 51.77,
           "variant": "glm-5.2"
         },
         {
@@ -1015,7 +1249,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 68.13,
+          "value": 78.95,
+          "variant": "glm-5.3"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.91,
           "variant": "glm-5.3"
         },
         {
@@ -1053,7 +1296,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 65.64,
+          "value": 78.95,
+          "variant": "glm-5.3-flash"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.77,
           "variant": "glm-5.3-flash"
         },
         {
@@ -1091,7 +1343,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 60.58,
+          "value": 76.07,
+          "variant": "gpt-5.2-2025-12-11-high"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 50.25,
           "variant": "gpt-5.2-2025-12-11-high"
         },
         {
@@ -1129,7 +1390,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.08,
+          "value": 83.62,
+          "variant": "gpt-5.2-codex"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 49.39,
           "variant": "gpt-5.2-codex"
         },
         {
@@ -1167,7 +1437,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.32,
+          "value": 77.54,
+          "variant": "gpt-5.4-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.84,
           "variant": "gpt-5.4-xhigh"
         },
         {
@@ -1205,7 +1484,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 53.65,
+          "value": 71.62,
+          "variant": "gpt-5.4-mini-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 41.67,
           "variant": "gpt-5.4-mini-xhigh"
         },
         {
@@ -1243,7 +1531,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 56.4,
+          "value": 70.84,
+          "variant": "gpt-5.4-nano-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 46.77,
           "variant": "gpt-5.4-nano-xhigh"
         },
         {
@@ -1281,7 +1578,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 65.25,
+          "value": 82.15,
+          "variant": "gpt-5.5-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.99,
           "variant": "gpt-5.5-xhigh"
         },
         {
@@ -1319,7 +1625,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 62.23,
+          "value": 82.91,
+          "variant": "gpt-5.6-luna-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 48.43,
           "variant": "gpt-5.6-luna-max"
         },
         {
@@ -1357,7 +1672,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 67.3,
+          "value": 83.94,
+          "variant": "gpt-5.6-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.21,
           "variant": "gpt-5.6-sol-max"
         },
         {
@@ -1395,7 +1719,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 64.27,
+          "value": 78.25,
+          "variant": "gpt-5.6-terra-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 54.95,
           "variant": "gpt-5.6-terra-max"
         },
         {
@@ -1433,7 +1766,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 66.54,
+          "value": 80.36,
+          "variant": "gpt-6-astra-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.32,
           "variant": "gpt-6-astra-max"
         },
         {
@@ -1471,7 +1813,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 62.31,
+          "value": 78.95,
+          "variant": "gpt-6-luna-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 51.21,
           "variant": "gpt-6-luna-max"
         },
         {
@@ -1509,7 +1860,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 64.43,
+          "value": 81.77,
+          "variant": "gpt-6-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 52.88,
           "variant": "gpt-6-sol-max"
         },
         {
@@ -1547,7 +1907,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 64.87,
+          "value": 80.36,
+          "variant": "gpt-6.1-sol-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 54.55,
           "variant": "gpt-6.1-sol-max"
         },
         {
@@ -1583,7 +1952,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 66.36,
+          "value": 80.74,
+          "variant": "gpt-6.1-sol-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.77,
           "variant": "gpt-6.1-sol-xhigh"
         },
         {
@@ -1621,7 +1999,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 39.09,
+          "value": 69.93,
+          "variant": "grok-4.3"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 18.54,
           "variant": "grok-4.3"
         },
         {
@@ -1659,7 +2046,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 61.31,
+          "value": 68.59,
+          "variant": "grok-4.5"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 56.46,
           "variant": "grok-4.5"
         },
         {
@@ -1697,7 +2093,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 64.92,
+          "value": 76.78,
+          "variant": "grok-4.6"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.02,
           "variant": "grok-4.6"
         },
         {
@@ -1735,7 +2140,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 63.26,
+          "value": 77.16,
+          "variant": "grok-4.7-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 53.99,
           "variant": "grok-4.7-xhigh"
         },
         {
@@ -1773,7 +2187,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 53.64,
+          "value": 65.39,
+          "variant": "grok-build-0.1"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 45.81,
           "variant": "grok-build-0.1"
         },
         {
@@ -1811,7 +2234,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 58.04,
+          "value": 71.02,
+          "variant": "inkling-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 49.39,
           "variant": "inkling-xhigh"
         },
         {
@@ -1849,7 +2281,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 59.58,
+          "value": 78.57,
+          "variant": "kimi-k2.6-thinking"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 46.92,
           "variant": "kimi-k2.6-thinking"
         },
         {
@@ -1887,7 +2328,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 56.98,
+          "value": 73.96,
+          "variant": "kimi-k2.7-code"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 45.66,
           "variant": "kimi-k2.7-code"
         },
         {
@@ -1925,7 +2375,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 69.88,
+          "value": 81.45,
+          "variant": "kimi-k3"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 62.17,
           "variant": "kimi-k3"
         },
         {
@@ -1963,7 +2422,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 51.67,
+          "value": 68.2,
+          "variant": "minimax-m3"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 40.66,
           "variant": "minimax-m3"
         },
         {
@@ -2001,7 +2469,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 65.98,
+          "value": 77.16,
+          "variant": "muse-spark-1.1-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 58.54,
           "variant": "muse-spark-1.1-xhigh"
         },
         {
@@ -2039,7 +2516,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 65.56,
+          "value": 77.54,
+          "variant": "muse-spark-1.2-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 57.58,
           "variant": "muse-spark-1.2-xhigh"
         },
         {
@@ -2077,7 +2563,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 70.88,
+          "value": 81.06,
+          "variant": "muse-spark-1.3-xhigh"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.09,
           "variant": "muse-spark-1.3-xhigh"
         },
         {
@@ -2115,7 +2610,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 51.52,
+          "value": 70.7,
+          "variant": "nemotron-3-ultra-550b-a55b"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 38.74,
           "variant": "nemotron-3-ultra-550b-a55b"
         },
         {
@@ -2153,7 +2657,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 61.88,
+          "value": 75.75,
+          "variant": "ox-alpha-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 52.63,
           "variant": "ox-alpha-max"
         },
         {
@@ -2191,7 +2704,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 52.29,
+          "value": 71.78,
+          "variant": "qwen3.6-27b"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 39.29,
           "variant": "qwen3.6-27b"
         },
         {
@@ -2229,7 +2751,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 56.09,
+          "value": 78.18,
+          "variant": "qwen3.6-plus"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 41.36,
           "variant": "qwen3.6-plus"
         },
         {
@@ -2251,7 +2782,7 @@
           "variant": "qwen3.6-plus"
         }
       ],
-      "qwen3.7": [
+      "qwen3.7-max": [
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
@@ -2267,7 +2798,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 55.84,
+          "value": 74.22,
+          "variant": "qwen3.7-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 43.59,
           "variant": "qwen3.7-max"
         },
         {
@@ -2289,44 +2829,6 @@
           "variant": "qwen3.7-max"
         }
       ],
-      "qwen3.8": [
-        {
-          "benchmark_id": "livebench_reasoning",
-          "category": "reasoning",
-          "measured_at": "2026-06-25",
-          "source_type": "third_party_benchmark",
-          "source_url": "https://livebench.ai/",
-          "value": 88.21,
-          "variant": "qwen3.8-max"
-        },
-        {
-          "benchmark_id": "livebench_coding",
-          "category": "coding",
-          "measured_at": "2026-06-25",
-          "source_type": "third_party_benchmark",
-          "source_url": "https://livebench.ai/",
-          "value": 67.94,
-          "variant": "qwen3.8-max"
-        },
-        {
-          "benchmark_id": "livebench_math",
-          "category": "math",
-          "measured_at": "2026-06-25",
-          "source_type": "third_party_benchmark",
-          "source_url": "https://livebench.ai/",
-          "value": 91.31,
-          "variant": "qwen3.8-max"
-        },
-        {
-          "benchmark_id": "livebench_instruction_following",
-          "category": "instruction_following",
-          "measured_at": "2026-06-25",
-          "source_type": "third_party_benchmark",
-          "source_url": "https://livebench.ai/",
-          "value": 74.08,
-          "variant": "qwen3.8-max"
-        }
-      ],
       "qwen3.8-27b": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -2343,7 +2845,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 67.09,
+          "value": 75.69,
+          "variant": "qwen3.8-27b"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 61.36,
           "variant": "qwen3.8-27b"
         },
         {
@@ -2381,7 +2892,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 65.99,
+          "value": 72.55,
+          "variant": "qwen3.8-flash-next"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 61.62,
           "variant": "qwen3.8-flash-next"
         },
         {
@@ -2403,6 +2923,53 @@
           "variant": "qwen3.8-flash-next"
         }
       ],
+      "qwen3.8-max": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.21,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 72.87,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.65,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.31,
+          "variant": "qwen3.8-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.08,
+          "variant": "qwen3.8-max"
+        }
+      ],
       "smaug-agentic": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -2419,7 +2986,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 71.78,
+          "value": 82.47,
+          "variant": "smaug-agentic"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.65,
           "variant": "smaug-agentic"
         },
         {
@@ -2457,7 +3033,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 67.48,
+          "value": 77.1,
+          "variant": "smaug-flash"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 61.06,
           "variant": "smaug-flash"
         },
         {
@@ -2495,7 +3080,16 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 66.66,
+          "value": 75.43,
+          "variant": "smaug-mini"
+        },
+        {
+          "benchmark_id": "livebench_agentic_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.81,
           "variant": "smaug-mini"
         },
         {

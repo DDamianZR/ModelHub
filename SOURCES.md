@@ -213,6 +213,45 @@ and offers a clean download.
 
 ---
 
+## Review of 2026-10-01
+
+Every endpoint below was fetched on 2026-10-01; licences were read on the publisher's own
+page, not inferred.
+
+**Added.**
+
+- **LMArena Code Arena** (`config=webdev` of `lmarena-ai/leaderboard-dataset`, CC-BY-4.0,
+  same dataset already ingested). Blind human votes on coding tasks, with rating intervals
+  and vote counts; 28 of 32 frontier models in the cohort. Rows tagged `(codex-harness)`
+  are dropped: they rate a vendor agent harness around the model. Converted to a win rate
+  and equated onto Coding; passes the correlation gate (r = 0.454 over 43 shared models).
+- **Epoch's own runs not used before**: FrontierMath Tiers 1-3 v2 (replaces the 2025-02-28
+  set, which Epoch's `benchmark_metadata.csv` marks `superseded_by`), OTIS Mock AIME
+  2024-2025, Chess Puzzles, Mystery Game Puzzles and MirrorCode. All CC-BY-4.0, all with a
+  standard error per row.
+
+**Going stale inside Epoch.** `swe_bench_verified.csv` was last run 2026-06-25 and covers
+none of the newest frontier models; `math_level_5.csv` was last run 2025-10-30. Both stay
+visible; SWE-bench Verified is not scored (it fails the equating correlation gate).
+
+**Epoch's `*_external` files are not CC-BY.** epoch.ai/benchmarks states that external data
+retains its original licensing, so each would need its upstream licence checked on its own.
+None is ingested; this is also why no vendor-reported figure (`vendor_claim`) is ingested
+yet - no licence-compatible source of them was found.
+
+| Source | Verdict | Reason |
+|---|---|---|
+| MathArena (ArXivMath) | Defer | CC-BY-SA; HTML-in-JSON only; models run inside vendor coding harnesses since August |
+| SWE-rebench (Nebius) | Defer | Results carry no licence; data embedded in a 7.8 MB page |
+| Conceptual Reasoning Index | Defer | No licence on the site; author independence unconfirmed |
+| SimpleBench | Exclude | No licence published (ask the author) |
+| ARC Prize | Exclude | Terms forbid scraping and republishing |
+| Vals.ai, OpenCompass | Exclude | All rights reserved |
+| Terminal-Bench | Exclude | Agent harness plus model; no licence |
+| LiveCodeBench, HELM, Aider | Exclude | Frozen (2025-04, 2025-11, 2025-10) |
+
+No second independent Instruction-following source passed: it remains single-source.
+
 ## Spanish-language evaluation — checked 2026-08-03, both excluded
 
 The strongest argument for a Spanish-quality track is that no mainstream leaderboard measures

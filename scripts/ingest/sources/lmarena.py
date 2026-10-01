@@ -346,7 +346,7 @@ def upgrade_payload(payload: dict) -> dict:
     mismatch would be hardest to notice, so an old single-row entry is widened into a
     one-element list rather than left to fail an index further down.
     """
-    for config in ("text", "vision"):
+    for config in ("text", "vision", "code"):
         section = payload.get(config)
         if not isinstance(section, dict):
             continue
@@ -355,6 +355,11 @@ def upgrade_payload(payload: dict) -> dict:
             for key, value in section.items()
         }
     return payload
+
+
+def is_harness_row(model_name: str) -> bool:
+    """An Arena entry that names an agent harness around the model."""
+    return "harness" in model_name.lower()
 
 
 def collect() -> dict:
@@ -366,13 +371,26 @@ def collect() -> dict:
     except SourceError:
         vision_rows, vision_snapshot, vision_rejected = [], None, []
 
+    # Code Arena (config "webdev"): blind human votes on coding tasks, CC-BY-4.0 like the
+    # rest of the dataset. Optional - it feeds Coding through the equating, never Human
+    # preference. Rows tagged "(codex-harness)" are a vendor agent harness around the
+    # model, not the bare model, and are dropped for the same reason SWE-bench scaffolds
+    # never score: the harness can contribute more than the model.
+    try:
+        code_rows, code_snapshot, code_rejected, _ = _clean_snapshot("webdev")
+        code_rows = [row for row in code_rows if not is_harness_row(row["model_name"])]
+    except SourceError:
+        code_rows, code_snapshot, code_rejected = [], None, []
+
     return {
         "snapshot": text_snapshot,
         "vision_snapshot": vision_snapshot,
-        "rejected_snapshots": text_rejected + vision_rejected,
+        "code_snapshot": code_snapshot,
+        "rejected_snapshots": text_rejected + vision_rejected + code_rejected,
         "served_by": served_by,
         "text": variants_by_key(text_rows),
         "vision": variants_by_key(vision_rows),
+        "code": variants_by_key(code_rows),
         # One point per model from this same fetch, so run.py can add today's rating to
         # the history series when served_by is "rows-latest" and history_for (which needs
         # /filter) is not available. This cannot backfill - only history_for can - so a

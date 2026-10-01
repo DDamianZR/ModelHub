@@ -4,12 +4,18 @@ Each test fixes a rule the project notes document as having been wrong once alre
 import unittest
 
 from scripts.ingest.composite import (
+    apply_composites,
+    arena_win_rate,
     assign_significance_ranks,
     combine_mean,
     combine_weighted,
     effort_label,
     choose_model_variant,
+    correlation_is_significant,
+    display_name_for,
+    fit_equating,
     pick_arena_variant,
+    resolve_same_configuration,
 )
 
 
@@ -26,6 +32,65 @@ class EffortLabelTests(unittest.TestCase):
 
     def test_effort_suffix_survives_thinking_prefix_stripping(self):
         self.assertEqual(effort_label("model-thinking-high", "model"), "high")
+
+    def test_label_does_not_depend_on_the_key_spelling(self):
+        """An aliased or protected name does not start with its key; subtracting the key
+        used to return the whole name as a configuration."""
+        self.assertEqual(effort_label("qwen3.8-max_xhigh", "qwen3.8-max"), "xhigh")
+        self.assertEqual(effort_label("qwen3.8-max", "qwen3.8-max"), "plain")
+        self.assertEqual(effort_label("mistral-small-2506", "mistral-small-3.2"), "plain")
+
+    def test_dates_are_not_configurations(self):
+        self.assertEqual(effort_label("claude-haiku-4-5-20251001"), "plain")
+        self.assertEqual(effort_label("claude-haiku-4-5-20251001_32K"), "32k")
+
+    def test_non_reasoning_is_effort_none(self):
+        self.assertEqual(effort_label("grok-4-1-fast-non-reasoning"), "none")
+
+
+class DisplayNameTests(unittest.TestCase):
+    META = {
+        "display_name": "Muse Spark 1.3 (high)",
+        "versions": [
+            {"version": "muse-spark-1.3_high", "display_name": "Muse Spark 1.3 (high)"},
+            {"version": "muse-spark-1.3_minimal", "display_name": "Muse Spark 1.3 (minimal)"},
+        ],
+    }
+
+    def test_the_scored_versions_own_name_is_used(self):
+        self.assertEqual(display_name_for(self.META, "minimal"), "Muse Spark 1.3 (minimal)")
+
+    def test_a_label_no_version_carries_is_appended_to_the_bare_name(self):
+        """Regression: the page said "(high)" over scores LiveBench measured at xhigh."""
+        self.assertEqual(display_name_for(self.META, "xhigh"), "Muse Spark 1.3 (xhigh)")
+
+    def test_non_effort_labels_are_not_shown_as_effort(self):
+        self.assertEqual(display_name_for(self.META, "plain"), "Muse Spark 1.3")
+
+
+class SameConfigurationTests(unittest.TestCase):
+    def test_reruns_are_averaged_not_first_row_wins(self):
+        """Regression: GPT-5.1 has two SWE-bench runs at high; CSV order picked one."""
+        row, note = resolve_same_configuration([
+            {"variant": "gpt-5.1_high", "value": 67.98, "stderr": 2.0, "measured_at": "2026-02-18"},
+            {"variant": "gpt-5.1_high", "value": 65.91, "stderr": 2.0, "measured_at": "2026-02-17"},
+        ])
+        self.assertAlmostEqual(row["value"], 66.94, places=2)
+        self.assertIn("mean of 2", note)
+
+    def test_vendor_run_beats_a_hosted_run(self):
+        row, _ = resolve_same_configuration([
+            {"variant": "chutes/gpt-oss-120b", "value": 60.0, "measured_at": "2026-05-01"},
+            {"variant": "gpt-oss-120b", "value": 55.0, "measured_at": "2026-01-01"},
+        ])
+        self.assertEqual(row["value"], 55.0)
+
+    def test_release_beats_pre_release(self):
+        row, _ = resolve_same_configuration([
+            {"variant": "gpt-5.5-pre-release_xhigh", "value": 90.0, "measured_at": "2026-04-01"},
+            {"variant": "gpt-5.5_xhigh", "value": 88.0, "measured_at": "2026-04-20"},
+        ])
+        self.assertEqual(row["value"], 88.0)
 
 
 def _slot(category, entries):
@@ -177,3 +242,112 @@ class AssignSignificanceRanksTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _sel(**benchmarks):
+    return {b: {"value": v, "category": "math"} for b, v in benchmarks.items()}
+
+
+class EquatingTests(unittest.TestCase):
+    CONFIG = {"anchors": {"math": "anchor"}, "min_overlap": 5, "display_only": {}}
+
+    def test_a_harder_benchmark_lands_on_the_anchor_scale(self):
+        """Regression: FrontierMath (~32) and LiveBench Math (~89) were averaged as-is,
+        so a model scored on FrontierMath alone looked 57 points worse at Math."""
+        selected = {
+            f"m{i}": _sel(anchor=80 + i, hard=20 + 2 * i) for i in range(8)
+        }
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertTrue(params["scored"])
+        equated = params["intercept"] + params["slope"] * 26  # model m3's hard score
+        self.assertAlmostEqual(equated, 83, places=6)
+
+    def test_too_few_shared_models_is_shown_not_scored(self):
+        selected = {f"m{i}": _sel(anchor=80 + i, hard=20 + i) for i in range(4)}
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertFalse(params["scored"])
+        self.assertEqual(params["reason"], "overlap")
+
+    def test_uncorrelated_benchmark_is_not_equated(self):
+        """SWE-bench Verified shared 6 models with LiveBench Coding at r = 0.14 on
+        2026-10-01; equating it would have manufactured a coding score."""
+        values = [(80, 50), (81, 70), (82, 40), (83, 65), (84, 45), (85, 55)]
+        selected = {f"m{i}": _sel(anchor=a, hard=h) for i, (a, h) in enumerate(values)}
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertFalse(params["scored"])
+        self.assertEqual(params["reason"], "weak_correlation")
+
+    def test_display_only_benchmarks_are_never_scored(self):
+        config = {**self.CONFIG, "display_only": {"hard": "superseded"}}
+        selected = {f"m{i}": _sel(anchor=80 + i, hard=20 + i) for i in range(8)}
+        self.assertFalse(fit_equating(selected, [], config)["hard"]["scored"])
+
+    def test_the_configured_anchor_wins_over_coverage(self):
+        selected = {f"m{i}": _sel(anchor=80 + i, wide=50 + i) for i in range(6)}
+        selected.update({f"x{i}": _sel(wide=40 + i) for i in range(6)})
+        params = fit_equating(selected, [], self.CONFIG)
+        self.assertEqual(params["wide"]["anchor"], "anchor")
+
+
+class CorrelationGateTests(unittest.TestCase):
+    def test_threshold_scales_with_the_overlap(self):
+        self.assertFalse(correlation_is_significant(0.6, 6))
+        self.assertTrue(correlation_is_significant(0.75, 6))
+        self.assertTrue(correlation_is_significant(0.3, 50))
+        self.assertFalse(correlation_is_significant(-0.9, 50))
+
+
+class ArenaWinRateTests(unittest.TestCase):
+    def test_equal_ratings_win_half(self):
+        share, slope = arena_win_rate(1400, [1400, 1400, 1400])
+        self.assertAlmostEqual(share, 50.0)
+        self.assertGreater(slope, 0)
+
+    def test_one_cohort_extreme_barely_moves_anyone_else(self):
+        """Regression: under min-max, whichever model set the cohort's minimum decided
+        everyone's 0 point - removing one moved other composites by up to 7.10."""
+        cohort = [1400, 1420, 1440, 1460, 1480]
+        with_floor, _ = arena_win_rate(1440, cohort + [1200])
+        without, _ = arena_win_rate(1440, cohort)
+        self.assertLess(abs(with_floor - without), 10)
+
+
+class ApplyCompositesTests(unittest.TestCase):
+    WEIGHTS = {"a": 0.5, "b": 0.5}
+
+    def _model(self, **scores):
+        return {
+            "category_scores": scores, "composite": 0.0, "composite_error": 1.0,
+            "uncertainty": {},
+        }
+
+    def test_full_coverage_is_the_plain_weighted_mean(self):
+        models = [self._model(a=80, b=60), self._model(a=70, b=50), self._model(a=90, b=40)]
+        apply_composites(models, self.WEIGHTS)
+        self.assertAlmostEqual(models[0]["composite"], 70.0)
+
+    def test_a_missing_low_category_is_not_a_free_gain(self):
+        """Regression: renormalising levels let a model skip the lowest-scoring category
+        and rise; with Arena as a win rate (~50) every model awaiting votes went to #1."""
+        models = [self._model(a=80, b=50), self._model(a=70, b=46), self._model(a=80)]
+        apply_composites(models, self.WEIGHTS)
+        # Means over full models: a=75, b=48, so the cohort level is 61.5. The partial
+        # model is 5 above average in "a" and is placed 5 above the level - not at 80,
+        # which is what renormalising levels gave it.
+        self.assertAlmostEqual(models[2]["composite"], 66.5)
+        self.assertGreater(models[2]["uncertainty"]["missing_categories_hw"], 0)
+        self.assertGreater(models[2]["composite_error"], 1.0)
+
+
+class MonotoneRankTests(unittest.TestCase):
+    def test_a_wide_interval_never_outranks_a_higher_score(self):
+        """Regression: 13 pairs where the lower composite printed the better rank."""
+        models = [
+            {"composite": 90.0, "composite_error": 0.3, "provisional": False},
+            {"composite": 80.0, "composite_error": 0.3, "provisional": False},
+            {"composite": 79.0, "composite_error": 5.0, "provisional": False},
+        ]
+        assign_significance_ranks(models)
+        ranks = [m["rank"] for m in models]
+        self.assertEqual(ranks, sorted(ranks))
+        self.assertEqual(models[2]["rank"], models[1]["rank"])

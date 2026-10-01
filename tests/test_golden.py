@@ -28,7 +28,7 @@ from pathlib import Path
 
 from scripts.ingest import row_dates
 from scripts.ingest.composite import build_models, load_weights
-from scripts.ingest.run import flag_recalibration
+from scripts.ingest.run import BENCHMARK_CATALOGUE, flag_recalibration
 from scripts.ingest.sources import lmarena
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,6 +72,9 @@ class GoldenCompositeTests(unittest.TestCase):
             arena_vision=arena_payload.get("vision") or {},
             arena_snapshot=arena_payload.get("snapshot"),
             vision_snapshot=arena_payload.get("vision_snapshot"),
+            benchmark_order=[entry[0] for entry in BENCHMARK_CATALOGUE],
+            arena_code=arena_payload.get("code") or {},
+            code_snapshot=arena_payload.get("code_snapshot"),
         )
         flag_recalibration(models, score_rows, weights, {}, {})
         for model in models:

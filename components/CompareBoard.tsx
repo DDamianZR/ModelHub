@@ -16,11 +16,12 @@ const MAX_SELECTION = 4;
  * Δ against the baseline, suppressed when the gap falls inside the two models'
  * combined 95% interval.
  *
- * This is the ranking's own rule applied to the compare page: an interval that can only
- * widen supports "these two overlap" but never "these two differ". Printing a bare
- * subtraction here would let a difference smaller than the error read as a win, which is
- * exactly the bias the composite is built to avoid. A model with no published error is
- * treated as unknown, not zero, so no separation is claimed against it either.
+ * This is the ranking's own rule applied to the compare page. The interval is a floor -
+ * LiveBench publishes no error - so a gap wider than it is a separation on the measured
+ * uncertainty, not a proof that the two differ; /methodology says so in those words.
+ * Printing a bare subtraction would let a difference smaller than even that floor read as
+ * a win. A model with no published error is treated as unknown, not zero, so no
+ * separation is claimed against it.
  */
 function delta(
   model: Row,
