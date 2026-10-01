@@ -15,13 +15,16 @@ from ..common import SourceError, fetch, norm
 SITE = "https://livebench.ai"
 ATTRIBUTION = "https://livebench.ai/"
 
-# "Agentic Coding" folds into coding; Data Analysis and Language have no weighted slot.
+# LiveBench group -> (benchmark id suffix, composite category). Agentic Coding is its own
+# benchmark inside Coding rather than folded into LiveBench Coding: averaging the tasks of
+# both groups gave Agentic Coding 3 of 5 votes in the category purely because it ships
+# more tasks. Data Analysis and Language have no weighted slot.
 CATEGORY_MAP = {
-    "Reasoning": "reasoning",
-    "Coding": "coding",
-    "Agentic Coding": "coding",
-    "Mathematics": "math",
-    "IF": "instruction_following",
+    "Reasoning": ("reasoning", "reasoning"),
+    "Coding": ("coding", "coding"),
+    "Agentic Coding": ("agentic_coding", "coding"),
+    "Mathematics": ("math", "math"),
+    "IF": ("instruction_following", "instruction_following"),
 }
 
 
@@ -59,7 +62,7 @@ def collect() -> dict:
     table = fetch(f"{SITE}/table_{slug}.csv").decode("utf-8", "replace")
     categories = json.loads(fetch(f"{SITE}/categories_{slug}.json").decode())
 
-    task_category = {
+    task_benchmark = {
         task: CATEGORY_MAP[group]
         for group, tasks in categories.items()
         if group in CATEGORY_MAP
@@ -72,18 +75,18 @@ def collect() -> dict:
         key = norm(raw_name)
         if not key:
             continue
-        buckets: dict[str, list[float]] = {}
-        for task, category in task_category.items():
+        buckets: dict[tuple[str, str], list[float]] = {}
+        for task, benchmark in task_benchmark.items():
             raw = row.get(task)
             if not raw:
                 continue
             try:
-                buckets.setdefault(category, []).append(float(raw))
+                buckets.setdefault(benchmark, []).append(float(raw))
             except ValueError:
                 continue
-        for category, values in buckets.items():
+        for (suffix, category), values in buckets.items():
             scores.setdefault(key, []).append({
-                "benchmark_id": f"livebench_{category}",
+                "benchmark_id": f"livebench_{suffix}",
                 "category": category,
                 "variant": raw_name,
                 "value": round(sum(values) / len(values), 2),

@@ -193,9 +193,14 @@ def choose_model_variant(
         effort_label(row["model_name"], key) for row in arena_variants or []
     }
 
-    def score(label: str) -> tuple[int, int, int, float]:
+    def score(label: str) -> tuple[int, int, int, int, float]:
         values = totals[label]
         return (
+            # Categories first: coverage is what the ranking gate counts. Counting
+            # benchmarks alone let a source that runs six benchmarks in two categories
+            # outvote one that runs five across four, and the model lost its only
+            # Instruction-following result for it.
+            len({merged[b]["category"] for b in coverage[label]}),
             len(coverage[label]),
             1 if label in measured_by_arena else 0,
             1 if label == "plain" else 0,
@@ -293,6 +298,51 @@ def resolve_same_configuration(entries: list[dict]) -> tuple[dict, str | None]:
     return latest, f"most recent of {len(pool)} runs"
 
 
+def select_benchmarks(
+    merged: dict[str, dict], key: str, chosen_label: str | None, policy: str
+) -> dict[str, dict]:
+    """One value per benchmark for one model, under its chosen configuration.
+
+    Returns {benchmark_id: {value, stderr, half_width, entry, note, slot, category}}. A
+    benchmark that never measured the chosen configuration is absent: substituting
+    another configuration would rebuild the Frankenstein the model-wide policy exists to
+    avoid, so the cell stays missing and coverage reflects that.
+    """
+    out: dict[str, dict] = {}
+    for benchmark_id, slot in merged.items():
+        if policy == "model":
+            matching = [
+                entry for entry in slot["entries"]
+                if effort_label(entry.get("variant") or "", key) == chosen_label
+            ]
+            if not matching:
+                continue
+            chosen_entry, duplicate_note = resolve_same_configuration(matching)
+            value = chosen_entry["value"]
+            note = (
+                f"variant {chosen_label} ({chosen_entry.get('variant')})"
+                if len(slot["entries"]) > 1 else None
+            )
+            if duplicate_note:
+                note = f"{note}; {duplicate_note}" if note else duplicate_note
+        else:
+            value, note = pick_variant(slot["entries"], key, policy)
+            chosen_entry = next(
+                (e for e in slot["entries"] if e["value"] == value), slot["entries"][0]
+            )
+        stderr = chosen_entry.get("stderr")
+        out[benchmark_id] = {
+            "value": value,
+            "stderr": stderr,
+            "half_width": round(stderr * CONFIDENCE_Z, 3) if stderr is not None else None,
+            "entry": chosen_entry,
+            "note": note,
+            "slot": slot,
+            "category": slot["category"],
+        }
+    return out
+
+
 def pick_variant(entries: list[dict], key: str, policy: str) -> tuple[float, str]:
     """Collapse one benchmark's variants into a single value. Returns (value, note)."""
     if len(entries) == 1:
@@ -377,6 +427,166 @@ def combine_weighted(parts: list[tuple[float, float | None]]) -> float | None:
     return (sum((weight / total) ** 2 * hw * hw for weight, hw in known) ** 0.5)
 
 
+# Below this many models measured on both a benchmark and its category anchor, the scale
+# relation between them is not estimated and the benchmark is shown but not scored.
+DEFAULT_MIN_EQUATING_OVERLAP = 5
+
+# One-sided 5% critical values of Student's t, df 1..30. Stdlib has no t distribution and
+# the ingest takes no dependencies; past 30 the Cornish-Fisher correction below is within
+# 0.002 of the exact value.
+_T95 = (
+    6.314, 2.920, 2.353, 2.132, 2.015, 1.943, 1.895, 1.860, 1.833, 1.812,
+    1.796, 1.782, 1.771, 1.761, 1.753, 1.746, 1.740, 1.734, 1.729, 1.725,
+    1.721, 1.717, 1.714, 1.711, 1.708, 1.706, 1.703, 1.701, 1.699, 1.697,
+)
+
+
+def t_critical_95(df: int) -> float:
+    if df < 1:
+        return float("inf")
+    if df <= len(_T95):
+        return _T95[df - 1]
+    z = 1.6449
+    return z + (z ** 3 + z) / (4 * df)
+
+
+def correlation_is_significant(r: float, n: int) -> bool:
+    """One-sided test that a paired correlation is above zero at 5%."""
+    if n < 3 or r <= 0:
+        return False
+    if r >= 1:
+        return True
+    t = r * ((n - 2) / (1 - r * r)) ** 0.5
+    return t > t_critical_95(n - 2)
+
+
+def load_equating_config() -> dict:
+    """Anchors, overlap floor and display-only benchmarks from config/weights.json."""
+    path = CONFIG / "weights.json"
+    payload = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    equating = payload.get("equating") or {}
+    return {
+        "anchors": dict(equating.get("anchors") or {}),
+        "min_overlap": int(equating.get("min_overlap", DEFAULT_MIN_EQUATING_OVERLAP)),
+        "display_only": dict(equating.get("display_only") or {}),
+    }
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values)
+
+
+def _pstdev(values: list[float]) -> float:
+    mu = _mean(values)
+    return (sum((v - mu) ** 2 for v in values) / len(values)) ** 0.5
+
+
+def fit_equating(
+    selected: dict[str, dict[str, dict]],
+    order: list[str],
+    config: dict,
+) -> dict[str, dict]:
+    """Put every benchmark of a category on the scale of that category's anchor.
+
+    The problem this solves was measured on the 2026-09-29 cohort: a category was the plain
+    mean of whichever benchmarks a model happened to be run on, and those benchmarks sit
+    at very different levels - FrontierMath averaged 31.9 against LiveBench Math's 89.5,
+    both "Math". A model's category score depended more on which benchmark it was given
+    than on how good it was: Gemini 3 Pro's Math was 37.6 because FrontierMath was its only
+    maths result, and 41 of 62 ranked models moved 5+ places under a per-benchmark rescale.
+
+    Linear (mean-sigma) equating, the standard test-equating method: for benchmark B and
+    anchor A, over the models measured on both, B' = mean_A + sd_A / sd_B * (B - mean_B).
+    Fitted on paired models, so the two benchmarks are compared on the same population
+    instead of on two different sets of models.
+
+    Chosen against two alternatives by leave-one-model-out substitution drift - the mean
+    gap between a model's anchor score and its equated score on B, fitted without it,
+    which is exactly "how much does the category move if this model had only been given
+    B". On 2026-10-01: SimpleQA 31.52 raw / 10.94 shift-only / 3.55 mean-sigma,
+    FrontierMath v2 19.17 / 12.14 / 2.37, Chess Puzzles 46.85 / 9.96 / 5.12, SWE-bench
+    Verified 14.57 / 5.68 / 5.90. A shift-only rule wins narrowly on GPQA, OTIS and SWE-bench
+    and loses badly everywhere else; one rule for every benchmark beats a rule per case.
+
+    The anchor per category is fixed in config/weights.json. Picking it by count each build
+    let GPQA, near its ceiling, take over Reasoning the day Epoch out-covered LiveBench.
+    A category without a configured anchor falls back to its best-covered benchmark.
+
+    Two gates, each leaving the benchmark visible but unscored: fewer than `min_overlap`
+    shared models, or a paired correlation that is not significantly positive - equating
+    two benchmarks that do not move together would manufacture a score.
+
+    Returns {benchmark_id: parameters}; unscored ones carry the reason.
+    """
+    min_overlap = config["min_overlap"]
+    display_only = config["display_only"]
+    by_category: dict[str, list[str]] = {}
+    category_of: dict[str, str] = {}
+    for slots in selected.values():
+        for benchmark_id, pick in slots.items():
+            category_of[benchmark_id] = pick["category"]
+    for benchmark_id in sorted(category_of, key=lambda b: order.index(b) if b in order else len(order)):
+        by_category.setdefault(category_of[benchmark_id], []).append(benchmark_id)
+
+    params: dict[str, dict] = {}
+    for category, benchmarks in by_category.items():
+        counts = {
+            b: sum(1 for slots in selected.values() if b in slots) for b in benchmarks
+        }
+        configured = config["anchors"].get(category)
+        if configured in benchmarks:
+            anchor = configured
+        else:
+            scorable = [b for b in benchmarks if b not in display_only] or benchmarks
+            anchor = max(scorable, key=lambda b: (counts[b], -benchmarks.index(b)))
+        params[anchor] = {
+            "category": category, "anchor": anchor, "scored": True,
+            "slope": 1.0, "intercept": 0.0, "overlap": counts[anchor],
+            "r": 1.0, "residual_sd": 0.0, "equating_se": 0.0,
+        }
+        for benchmark in benchmarks:
+            if benchmark == anchor:
+                continue
+            pairs = [
+                (slots[anchor]["value"], slots[benchmark]["value"])
+                for slots in selected.values()
+                if anchor in slots and benchmark in slots
+            ]
+            entry = {"category": category, "anchor": anchor, "overlap": len(pairs)}
+            if benchmark in display_only:
+                params[benchmark] = {**entry, "scored": False, "reason": "display_only"}
+                continue
+            if len(pairs) < min_overlap:
+                params[benchmark] = {**entry, "scored": False, "reason": "overlap"}
+                continue
+            a = [p[0] for p in pairs]
+            b = [p[1] for p in pairs]
+            sd_a, sd_b = _pstdev(a), _pstdev(b)
+            if sd_b == 0 or sd_a == 0:
+                params[benchmark] = {**entry, "scored": False, "reason": "no_spread"}
+                continue
+            slope = sd_a / sd_b
+            intercept = _mean(a) - slope * _mean(b)
+            residuals = [x - (intercept + slope * y) for x, y in zip(a, b)]
+            residual_sd = _pstdev(residuals)
+            mu_a, mu_b = _mean(a), _mean(b)
+            r = sum((x - mu_a) * (y - mu_b) for x, y in pairs) / (len(pairs) * sd_a * sd_b)
+            if not correlation_is_significant(r, len(pairs)):
+                params[benchmark] = {
+                    **entry, "scored": False, "reason": "weak_correlation", "r": round(r, 3),
+                }
+                continue
+            params[benchmark] = {
+                **entry, "scored": True,
+                "slope": round(slope, 4), "intercept": round(intercept, 3),
+                "r": round(r, 3), "residual_sd": round(residual_sd, 3),
+                # Standard error of the fitted offset at the centre of the data: what the
+                # finite overlap adds to every equated score's interval.
+                "equating_se": round(residual_sd / len(pairs) ** 0.5, 3),
+            }
+    return params
+
+
 def minmax(values: list[float]) -> tuple[float, float]:
     if not values:
         return 0.0, 1.0
@@ -435,9 +645,15 @@ def build_models(
     arena_vision: dict,
     arena_snapshot: str | None,
     vision_snapshot: str | None,
-) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
-    """Return (models, score rows, providers, aliases, arena min-max used)."""
+    benchmark_order: list[str] | None = None,
+) -> tuple[list[dict], list[dict], dict, dict, dict]:
+    """Return (models, score rows, providers, aliases, scales used).
+
+    `scales` carries what this build normalised against - the Arena bounds and the
+    per-benchmark equating - so /methodology can publish the numbers it actually used.
+    """
     weights, min_coverage, variant_policy = load_weights()
+    equating_config = load_equating_config()
     contamination = load_contamination_registry()
 
     # A model needs corroboration from at least two independent sources to appear at all.
@@ -502,6 +718,15 @@ def build_models(
     # across the cohort actually present in this build. Documented in /methodology.
     arena_low, arena_high = minmax([row["rating"] for row in arena_by_key.values()])
 
+    # Second pass: one value per benchmark per model, under the chosen configuration.
+    # Settled for every model before anything is scaled, because the equating below is
+    # fitted on the whole cohort's paired results.
+    selected_by_key = {
+        key: select_benchmarks(merged_by_key[key], key, chosen_by_key[key], variant_policy)
+        for key in keys
+    }
+    equating = fit_equating(selected_by_key, benchmark_order or [], equating_config)
+
     models: list[dict] = []
     score_rows: list[dict] = []
     providers: dict[str, dict] = {}
@@ -529,42 +754,32 @@ def build_models(
         error_by_category: dict[str, list[float | None]] = {}
         measured_errors = 0
         total_inputs = 0
+        scored_benchmarks = 0
         merged = merged_by_key[key]
         chosen_label = chosen_by_key[key]
 
-        for benchmark_id, slot in merged.items():
-            if variant_policy == "model":
-                matching = [
-                    entry for entry in slot["entries"]
-                    if effort_label(entry.get("variant") or "", key) == chosen_label
-                ]
-                if not matching:
-                    # This benchmark never measured the chosen configuration. Substituting
-                    # another one would rebuild the Frankenstein this policy exists to
-                    # avoid, so the cell is left missing and coverage reflects that.
-                    continue
-                chosen_entry, duplicate_note = resolve_same_configuration(matching)
-                value = chosen_entry["value"]
-                note = (
-                    f"variant {chosen_label} ({chosen_entry.get('variant')})"
-                    if len(slot["entries"]) > 1 else None
-                )
-                if duplicate_note:
-                    note = f"{note}; {duplicate_note}" if note else duplicate_note
-            else:
-                value, note = pick_variant(slot["entries"], key, variant_policy)
-                chosen_entry = next(
-                    (e for e in slot["entries"] if e["value"] == value), slot["entries"][0]
-                )
+        for benchmark_id, pick in selected_by_key[key].items():
+            slot, chosen_entry = pick["slot"], pick["entry"]
+            value, stderr, half_width = pick["value"], pick["stderr"], pick["half_width"]
+            scale = equating.get(benchmark_id) or {"scored": False, "reason": "overlap"}
 
-            stderr = chosen_entry.get("stderr")
-            half_width = round(stderr * CONFIDENCE_Z, 3) if stderr is not None else None
-
-            by_category.setdefault(slot["category"], []).append(value)
-            error_by_category.setdefault(slot["category"], []).append(half_width)
-            total_inputs += 1
-            if half_width is not None:
-                measured_errors += 1
+            scaled = None
+            if scale["scored"]:
+                scaled = scale["intercept"] + scale["slope"] * value
+                scaled_hw = None
+                if half_width is not None:
+                    # The benchmark's own error rescaled, plus what fitting the scale on a
+                    # finite overlap adds. Both are 95% half-widths in category points.
+                    scaled_hw = (
+                        (scale["slope"] * half_width) ** 2
+                        + (CONFIDENCE_Z * scale["equating_se"]) ** 2
+                    ) ** 0.5
+                by_category.setdefault(slot["category"], []).append(scaled)
+                error_by_category.setdefault(slot["category"], []).append(scaled_hw)
+                total_inputs += 1
+                if scaled_hw is not None:
+                    measured_errors += 1
+                scored_benchmarks += 1
 
             evidence = contamination.get(benchmark_id) or []
             score_rows.append({
@@ -574,13 +789,17 @@ def build_models(
                 "unit": "percent",
                 "stderr": stderr,
                 "half_width_95": half_width,
+                # The same result on its category's common scale - what the composite
+                # actually averaged. None when the benchmark is shown but not scored.
+                "scaled_value": round(scaled, 2) if scaled is not None else None,
+                "scored": scale["scored"],
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
                 # The run actually scored, not the newest run of any configuration.
                 "measured_at": chosen_entry.get("measured_at") or slot["measured_at"],
                 "contamination_flag": bool(evidence),
                 "contamination_evidence": evidence,
-                "notes": note or None,
+                "notes": pick["note"] or None,
                 "variant": chosen_label if variant_policy == "model" else None,
             })
 
@@ -724,7 +943,7 @@ def build_models(
             "evidence": {
                 "sources": sum(1 for names in matched.values() if names),
                 "max_sources": len(matched),
-                "benchmarks": len(merged) + (1 if key in arena_by_key else 0),
+                "benchmarks": scored_benchmarks + (1 if key in arena_by_key else 0),
             },
             "provisional": len(available) < min_coverage,
             "awaiting_human_votes": "human_preference" not in available,
@@ -761,4 +980,8 @@ def build_models(
         key=lambda m: (m["provisional"], m["rank"] if m["rank"] else 0, -m["composite"])
     )
 
-    return models, score_rows, providers, aliases, (arena_low, arena_high)
+    scales = {
+        "arena": {"low": arena_low, "high": arena_high},
+        "equating": equating,
+    }
+    return models, score_rows, providers, aliases, scales

@@ -133,16 +133,28 @@ BENCHMARK_CATALOGUE = [
      "https://epoch.ai/benchmarks", None),
     ("simpleqa_verified", "SimpleQA Verified", "reasoning", "Epoch AI",
      "third_party_benchmark", "https://epoch.ai/benchmarks", None),
+    ("chess_puzzles", "Chess Puzzles", "reasoning", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks", None),
+    ("mystery_game_puzzles", "Mystery Game Puzzles", "reasoning", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
     ("math_level_5", "MATH Level 5", "math", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
-    ("frontiermath", "FrontierMath", "math", "Epoch AI", "third_party_benchmark",
-     "https://epoch.ai/benchmarks", None),
+    ("frontiermath", "FrontierMath (2025-02-28 set)", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Superseded by FrontierMath Tiers 1-3 (v2); shown, not scored."),
+    ("frontiermath_v2", "FrontierMath Tiers 1-3 (v2)", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Supersedes the 2025-02-28 FrontierMath set, per Epoch's benchmark metadata."),
+    ("otis_mock_aime", "OTIS Mock AIME 2024-2025", "math", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
     ("swe_bench_verified", "SWE-bench Verified", "coding", "Epoch AI",
      "third_party_benchmark", "https://epoch.ai/benchmarks",
      "Epoch's own run. swebench.com's leaderboard is CC-BY-NC and is not ingested."),
     ("livebench_reasoning", "LiveBench Reasoning", "reasoning", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
     ("livebench_coding", "LiveBench Coding", "coding", "LiveBench",
+     "third_party_benchmark", "https://livebench.ai/", None),
+    ("livebench_agentic_coding", "LiveBench Agentic Coding", "coding", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
     ("livebench_math", "LiveBench Mathematics", "math", "LiveBench",
      "third_party_benchmark", "https://livebench.ai/", None),
@@ -486,7 +498,7 @@ def main() -> int:
     # keeping them is to tell a rating that moved from a scale that moved.
     previous_models, previous_ratings = previous_build()
 
-    models, score_rows, providers, aliases, (arena_low, arena_high) = build_models(
+    models, score_rows, providers, aliases, scales = build_models(
         registry=registry,
         epoch_scores=epoch_payload.get("scores") or {},
         livebench_scores=livebench_payload.get("scores") or {},
@@ -494,7 +506,9 @@ def main() -> int:
         arena_vision=arena_payload.get("vision") or {},
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
+        benchmark_order=[entry[0] for entry in BENCHMARK_CATALOGUE],
     )
+    arena_low, arena_high = scales["arena"]["low"], scales["arena"]["high"]
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
@@ -578,6 +592,9 @@ def main() -> int:
             "min": round(arena_low, 2),
             "max": round(arena_high, 2),
         },
+        # The scale each benchmark was put on before averaging inside its category, so
+        # every scaled score on the site can be recomputed by hand from the raw one.
+        "equating": scales["equating"],
     }
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})

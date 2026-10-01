@@ -9,7 +9,9 @@ from scripts.ingest.composite import (
     combine_weighted,
     effort_label,
     choose_model_variant,
+    correlation_is_significant,
     display_name_for,
+    fit_equating,
     pick_arena_variant,
     resolve_same_configuration,
 )
@@ -238,3 +240,56 @@ class AssignSignificanceRanksTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _sel(**benchmarks):
+    return {b: {"value": v, "category": "math"} for b, v in benchmarks.items()}
+
+
+class EquatingTests(unittest.TestCase):
+    CONFIG = {"anchors": {"math": "anchor"}, "min_overlap": 5, "display_only": {}}
+
+    def test_a_harder_benchmark_lands_on_the_anchor_scale(self):
+        """Regression: FrontierMath (~32) and LiveBench Math (~89) were averaged as-is,
+        so a model scored on FrontierMath alone looked 57 points worse at Math."""
+        selected = {
+            f"m{i}": _sel(anchor=80 + i, hard=20 + 2 * i) for i in range(8)
+        }
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertTrue(params["scored"])
+        equated = params["intercept"] + params["slope"] * 26  # model m3's hard score
+        self.assertAlmostEqual(equated, 83, places=6)
+
+    def test_too_few_shared_models_is_shown_not_scored(self):
+        selected = {f"m{i}": _sel(anchor=80 + i, hard=20 + i) for i in range(4)}
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertFalse(params["scored"])
+        self.assertEqual(params["reason"], "overlap")
+
+    def test_uncorrelated_benchmark_is_not_equated(self):
+        """SWE-bench Verified shared 6 models with LiveBench Coding at r = 0.14 on
+        2026-10-01; equating it would have manufactured a coding score."""
+        values = [(80, 50), (81, 70), (82, 40), (83, 65), (84, 45), (85, 55)]
+        selected = {f"m{i}": _sel(anchor=a, hard=h) for i, (a, h) in enumerate(values)}
+        params = fit_equating(selected, [], self.CONFIG)["hard"]
+        self.assertFalse(params["scored"])
+        self.assertEqual(params["reason"], "weak_correlation")
+
+    def test_display_only_benchmarks_are_never_scored(self):
+        config = {**self.CONFIG, "display_only": {"hard": "superseded"}}
+        selected = {f"m{i}": _sel(anchor=80 + i, hard=20 + i) for i in range(8)}
+        self.assertFalse(fit_equating(selected, [], config)["hard"]["scored"])
+
+    def test_the_configured_anchor_wins_over_coverage(self):
+        selected = {f"m{i}": _sel(anchor=80 + i, wide=50 + i) for i in range(6)}
+        selected.update({f"x{i}": _sel(wide=40 + i) for i in range(6)})
+        params = fit_equating(selected, [], self.CONFIG)
+        self.assertEqual(params["wide"]["anchor"], "anchor")
+
+
+class CorrelationGateTests(unittest.TestCase):
+    def test_threshold_scales_with_the_overlap(self):
+        self.assertFalse(correlation_is_significant(0.6, 6))
+        self.assertTrue(correlation_is_significant(0.75, 6))
+        self.assertTrue(correlation_is_significant(0.3, 50))
+        self.assertFalse(correlation_is_significant(-0.9, 50))

@@ -24,5 +24,22 @@
     "Models below min_coverage_for_ranking are provisional, never ranked.",
     "SWE-bench scaffold results never count as a bare-model score."
   ],
-  "variant_policy": "model"
+  "variant_policy": "model",
+  "equating": {
+    "method": "mean-sigma linear equating onto the category anchor",
+    "anchors": {
+      "reasoning": "livebench_reasoning",
+      "coding": "livebench_coding",
+      "math": "livebench_math",
+      "instruction_following": "livebench_instruction_following"
+    },
+    "anchors_rationale": "The anchor sets each category's level and spread, so it is fixed here rather than chosen by count each build: by count, GPQA (near its ceiling) and OTIS overtook LiveBench on 2026-10-01 and would have compressed Reasoning and moved every score with no model changing. LiveBench is the contamination-resistant, mid-range scale the categories already used.",
+    "min_overlap": 5,
+    "min_correlation_test": "one-sided t-test of the paired correlation at 5%",
+    "gate_rationale": "Equating assumes both benchmarks measure the same thing. A benchmark whose correlation with the anchor is not significantly positive on the shared models is shown but not scored; the test scales with the overlap, so 6 shared models need r > 0.73 while 50 need r > 0.24. On 2026-10-01 this leaves SWE-bench Verified unscored (r = 0.14 over 6 shared models).",
+    "display_only": {
+      "frontiermath": "Superseded by FrontierMath Tiers 1-3 v2 in Epoch's benchmark metadata. Shown, and still counts as a source, but scoring both would count one benchmark family twice."
+    },
+    "rationale": "Benchmarks inside one category sit at very different levels (FrontierMath averaged 31.9 against LiveBench Math's 89.5 on 2026-09-29), so a plain mean scored models on which benchmark they were given. Equating on models measured on both cut the leave-one-out substitution drift from 31.52 to 3.55 points for SimpleQA and from 19.17 to 2.37 for FrontierMath v2."
+  }
 }

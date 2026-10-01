@@ -17,6 +17,22 @@
       "url": "https://epoch.ai/benchmarks"
     },
     {
+      "id": "chess_puzzles",
+      "name": "Chess Puzzles",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
+      "id": "mystery_game_puzzles",
+      "name": "Mystery Game Puzzles",
+      "category": "reasoning",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks"
+    },
+    {
       "id": "math_level_5",
       "name": "MATH Level 5",
       "category": "math",
@@ -26,7 +42,25 @@
     },
     {
       "id": "frontiermath",
-      "name": "FrontierMath",
+      "name": "FrontierMath (2025-02-28 set)",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Superseded by FrontierMath Tiers 1-3 (v2); shown, not scored."
+    },
+    {
+      "id": "frontiermath_v2",
+      "name": "FrontierMath Tiers 1-3 (v2)",
+      "category": "math",
+      "source": "Epoch AI",
+      "source_type": "third_party_benchmark",
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Supersedes the 2025-02-28 FrontierMath set, per Epoch's benchmark metadata."
+    },
+    {
+      "id": "otis_mock_aime",
+      "name": "OTIS Mock AIME 2024-2025",
       "category": "math",
       "source": "Epoch AI",
       "source_type": "third_party_benchmark",
@@ -52,6 +86,14 @@
     {
       "id": "livebench_coding",
       "name": "LiveBench Coding",
+      "category": "coding",
+      "source": "LiveBench",
+      "source_type": "third_party_benchmark",
+      "url": "https://livebench.ai/"
+    },
+    {
+      "id": "livebench_agentic_coding",
+      "name": "LiveBench Agentic Coding",
       "category": "coding",
       "source": "LiveBench",
       "source_type": "third_party_benchmark",

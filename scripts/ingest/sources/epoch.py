@@ -38,11 +38,25 @@ def min_release_date() -> str:
     return payload.get("min_release_date") or _FALLBACK_MIN_RELEASE_DATE
 
 
+# Epoch's own runs only. frontiermath.csv is still read but is display-only (see
+# config/weights.json equating.display_only): Epoch's benchmark_metadata.csv marks it
+# superseded_by FrontierMath-Tiers-1-3-v2, which covers twice as many models in this cohort
+# (62 against 31 on 2026-10-01). Scoring both would count one benchmark family twice.
+#
+# Chess Puzzles and Mystery Game Puzzles join Reasoning and OTIS Mock AIME joins Math.
+# Each correlates with LiveBench in its category (r = 0.67, 0.80 and 0.78 over 30, 24 and
+# 34 shared models), which is the evidence that they measure the same thing; EBR-bench and
+# Furniture Assembly correlate too but are not added until what they test is documented
+# here.
 BENCHMARKS = {
     "gpqa_diamond.csv": ("gpqa_diamond", "reasoning"),
     "simpleqa_verified.csv": ("simpleqa_verified", "reasoning"),
+    "chess_puzzles.csv": ("chess_puzzles", "reasoning"),
+    "mystery_game_puzzles.csv": ("mystery_game_puzzles", "reasoning"),
     "math_level_5.csv": ("math_level_5", "math"),
     "frontiermath.csv": ("frontiermath", "math"),
+    "frontiermath_tiers_1_3_v2.csv": ("frontiermath_v2", "math"),
+    "otis_mock_aime_2024_2025.csv": ("otis_mock_aime", "math"),
     "swe_bench_verified.csv": ("swe_bench_verified", "coding"),
 }
 

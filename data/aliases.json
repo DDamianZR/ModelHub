@@ -44,7 +44,7 @@
   "anthropic-claude-haiku-4-5": {
     "canonical_key": "claude-haiku-4-5",
     "display_name": "Claude Haiku 4.5",
-    "variant": "plain",
+    "variant": "32k",
     "scored_arena_name": "claude-haiku-4-5-20251001",
     "names": [
       "claude-haiku-4-5",
@@ -75,7 +75,9 @@
       "epoch": [
         "claude-opus-4-1-20250805",
         "claude-opus-4-1-20250805_16K",
-        "claude-opus-4-1-20250805_27K"
+        "claude-opus-4-1-20250805_24K",
+        "claude-opus-4-1-20250805_27K",
+        "claude-opus-4-1-20250805_32K"
       ],
       "livebench": [],
       "lmarena": [
@@ -98,7 +100,8 @@
       "epoch": [
         "claude-opus-4-5-20251101",
         "claude-opus-4-5-20251101_16K",
-        "claude-opus-4-5-20251101_32K"
+        "claude-opus-4-5-20251101_32K",
+        "claude-opus-4-5-20251101_48K"
       ],
       "livebench": [
         "claude-opus-4-5-20251101-thinking-64k-high-effort"
@@ -121,8 +124,10 @@
     "matched": {
       "epoch": [
         "claude-opus-4-6",
+        "claude-opus-4-6_120K",
         "claude-opus-4-6_32K",
         "claude-opus-4-6_64K",
+        "claude-opus-4-6_low",
         "claude-opus-4-6_max"
       ],
       "livebench": [
@@ -145,6 +150,8 @@
     ],
     "matched": {
       "epoch": [
+        "claude-opus-4-7",
+        "claude-opus-4-7_low",
         "claude-opus-4-7_max",
         "claude-opus-4-7_xhigh"
       ],
@@ -170,7 +177,8 @@
       "epoch": [
         "claude-opus-4-8_low",
         "claude-opus-4-8_max",
-        "claude-opus-4-8_none"
+        "claude-opus-4-8_none",
+        "claude-opus-4-8_xhigh"
       ],
       "livebench": [
         "claude-opus-4-8-max-effort"
@@ -240,6 +248,7 @@
         "claude-sonnet-4-5-20250929",
         "claude-sonnet-4-5-20250929_16K",
         "claude-sonnet-4-5-20250929_32K",
+        "claude-sonnet-4-5-20250929_48K",
         "claude-sonnet-4-5-20250929_59K"
       ],
       "livebench": [],
@@ -263,6 +272,7 @@
         "claude-sonnet-4-6_16K",
         "claude-sonnet-4-6_32K",
         "claude-sonnet-4-6_high",
+        "claude-sonnet-4-6_low",
         "claude-sonnet-4-6_max",
         "claude-sonnet-4-6_medium"
       ],
@@ -285,6 +295,7 @@
     ],
     "matched": {
       "epoch": [
+        "claude-sonnet-5",
         "claude-sonnet-5_max",
         "claude-sonnet-5_xhigh"
       ],
@@ -463,7 +474,9 @@
     "matched": {
       "epoch": [
         "gemini-3-flash-preview",
-        "gemini-3-flash-preview_high"
+        "gemini-3-flash-preview_high",
+        "gemini-3-flash-preview_low",
+        "gemini-3-flash-preview_minimal"
       ],
       "livebench": [],
       "lmarena": [
@@ -522,7 +535,9 @@
     "matched": {
       "epoch": [
         "gemini-3.1-pro-preview",
-        "gemini-3.1-pro-preview_high"
+        "gemini-3.1-pro-preview_high",
+        "gemini-3.1-pro-preview_low",
+        "gemini-3.1-pro-preview_medium"
       ],
       "livebench": [
         "gemini-3.1-pro-preview-high"
@@ -746,7 +761,8 @@
     ],
     "matched": {
       "epoch": [
-        "glm-5.1"
+        "glm-5.1",
+        "glm-5.1_none"
       ],
       "livebench": [],
       "lmarena": [
@@ -767,6 +783,8 @@
       "epoch": [
         "glm-5.2_low",
         "glm-5.2_max",
+        "glm-5.2_medium",
+        "glm-5.2_minimal",
         "glm-5.2_none"
       ],
       "livebench": [
@@ -830,6 +848,7 @@
     "matched": {
       "epoch": [
         "gpt-5-2025-08-07_high",
+        "gpt-5-2025-08-07_low",
         "gpt-5-2025-08-07_medium",
         "gpt-5-2025-08-07_minimal"
       ],
@@ -841,8 +860,8 @@
   },
   "openai-gpt-5-mini": {
     "canonical_key": "gpt-5-mini",
-    "display_name": "GPT-5 mini (high)",
-    "variant": "high",
+    "display_name": "GPT-5 mini (medium)",
+    "variant": "medium",
     "scored_arena_name": "gpt-5-mini-high",
     "names": [
       "gpt-5-mini",
@@ -851,6 +870,7 @@
     "matched": {
       "epoch": [
         "gpt-5-mini-2025-08-07_high",
+        "gpt-5-mini-2025-08-07_low",
         "gpt-5-mini-2025-08-07_medium",
         "gpt-5-mini-2025-08-07_minimal"
       ],
@@ -969,6 +989,8 @@
     "matched": {
       "epoch": [
         "gpt-5.4-mini-2026-03-17_high",
+        "gpt-5.4-mini-2026-03-17_low",
+        "gpt-5.4-mini-2026-03-17_medium",
         "gpt-5.4-mini-2026-03-17_none",
         "gpt-5.4-mini-2026-03-17_xhigh"
       ],
@@ -993,6 +1015,7 @@
       "epoch": [
         "gpt-5.4-nano-2026-03-17_high",
         "gpt-5.4-nano-2026-03-17_low",
+        "gpt-5.4-nano-2026-03-17_medium",
         "gpt-5.4-nano-2026-03-17_none"
       ],
       "livebench": [
@@ -1015,6 +1038,7 @@
     "matched": {
       "epoch": [
         "gpt-5.5-pre-release_xhigh",
+        "gpt-5.5_high",
         "gpt-5.5_low",
         "gpt-5.5_none",
         "gpt-5.5_xhigh"
@@ -1059,6 +1083,7 @@
       "epoch": [
         "gpt-5.6-luna_low",
         "gpt-5.6-luna_max",
+        "gpt-5.6-luna_medium",
         "gpt-5.6-luna_none"
       ],
       "livebench": [
@@ -1105,6 +1130,7 @@
       "epoch": [
         "gpt-5.6-terra_low",
         "gpt-5.6-terra_max",
+        "gpt-5.6-terra_medium",
         "gpt-5.6-terra_none"
       ],
       "livebench": [
@@ -1207,6 +1233,8 @@
     ],
     "matched": {
       "epoch": [
+        "gpt-oss-120b_high",
+        "gpt-oss-120b_medium",
         "openai/gpt-oss-120b_high"
       ],
       "livebench": [],
@@ -1421,7 +1449,8 @@
     ],
     "matched": {
       "epoch": [
-        "kimi-k2.6"
+        "kimi-k2.6",
+        "kimi-k2.6_none"
       ],
       "livebench": [
         "kimi-k2.6-thinking"
@@ -1578,7 +1607,10 @@
       "muse-spark-1.3-max"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "muse-spark-1.3_max",
+        "muse-spark-1.3_xhigh"
+      ],
       "livebench": [
         "muse-spark-1.3-xhigh"
       ],
@@ -1645,6 +1677,24 @@
       ]
     }
   },
+  "alibaba-qwen3.5-122b-a10b": {
+    "canonical_key": "qwen3.5-122b-a10b",
+    "display_name": "Qwen3.5-122B-A10B",
+    "variant": "none",
+    "scored_arena_name": "qwen3.5-122b-a10b",
+    "names": [
+      "qwen3.5-122b-a10b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.5-122b-a10b_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3.5-122b-a10b"
+      ]
+    }
+  },
   "alibaba-qwen3.5-35b-a3b": {
     "canonical_key": "qwen3.5-35b-a3b",
     "display_name": "Qwen3.5-35B-A3B",
@@ -1667,7 +1717,7 @@
   "alibaba-qwen3.5-397b-a17b": {
     "canonical_key": "qwen3.5-397b-a17b",
     "display_name": "Qwen3.5 397B-A17B",
-    "variant": "plain",
+    "variant": "none",
     "scored_arena_name": "qwen3.5-397b-a17b",
     "names": [
       "qwen3.5-397b-a17b"
@@ -1693,7 +1743,8 @@
     ],
     "matched": {
       "epoch": [
-        "qwen3.5-flash"
+        "qwen3.5-flash",
+        "qwen3.5-flash_none"
       ],
       "livebench": [],
       "lmarena": [
@@ -1731,7 +1782,8 @@
     ],
     "matched": {
       "epoch": [
-        "qwen3.6-max-preview"
+        "qwen3.6-max-preview",
+        "qwen3.6-max-preview_none"
       ],
       "livebench": [],
       "lmarena": [
@@ -1749,7 +1801,8 @@
     ],
     "matched": {
       "epoch": [
-        "qwen3.6-plus"
+        "qwen3.6-plus",
+        "qwen3.6-plus_none"
       ],
       "livebench": [
         "qwen3.6-plus"
@@ -1770,7 +1823,8 @@
     ],
     "matched": {
       "epoch": [
-        "qwen3.7-max"
+        "qwen3.7-max",
+        "qwen3.7-max_none"
       ],
       "livebench": [
         "qwen3.7-max"
@@ -1783,7 +1837,7 @@
   "alibaba-qwen3.7-plus": {
     "canonical_key": "qwen3.7-plus",
     "display_name": "Qwen3.7 Plus",
-    "variant": "plain",
+    "variant": "none",
     "scored_arena_name": "qwen3.7-plus",
     "names": [
       "qwen3.7-plus"
