@@ -1,10 +1,4 @@
 {
-  "alibaba-qwen3": {
-    "en": "Qwen3-Max-Instruct is a language model built by Alibaba in September 2025. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding, Instructions.",
-    "es": "Qwen3-Max-Instruct es un modelo de lenguaje desarrollado por Alibaba en septiembre de 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código, Instrucciones.",
-    "generated_at": "2026-07-28",
-    "generated_by": "qwen3-coder:30b"
-  },
   "alibaba-qwen3-235b-a22b-thinking-2507": {
     "en": "Qwen3-235B-A22B-Thinking-2507 is a language model built by Alibaba in July 2025. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
     "es": "Qwen3-235B-A22B-Thinking-2507 es un modelo de lenguaje desarrollado por Alibaba en julio de 2025. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
@@ -15,6 +9,12 @@
     "en": "Qwen3-30B-A3B is a language model built by Alibaba in July 2025. It is open-weights: downloadable and runnable locally. Measured in Reasoning and Human preference; no data in Coding, Instructions, or Math.",
     "es": "Qwen3-30B-A3B es un modelo de lenguaje desarrollado por Alibaba en julio de 2025. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
     "generated_at": "2026-09-03",
+    "generated_by": "qwen3-coder:30b"
+  },
+  "alibaba-qwen3-max": {
+    "en": "Qwen3-Max-Instruct is a language model built by Alibaba in September 2025. API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding, Instructions.",
+    "es": "Qwen3-Max-Instruct es un modelo de lenguaje desarrollado por Alibaba en septiembre de 2025. Solo por API: sus pesos no se publican, no se ejecuta localmente. Medido en Razonamiento, Matemáticas y Preferencia humana; sin datos en Código, Instrucciones.",
+    "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
   "alibaba-qwen3.5-35b-a3b": {
@@ -35,17 +35,17 @@
     "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
-  "alibaba-qwen3.6": {
-    "en": "Qwen 3.6 Max (Preview) is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Coding and Human preference. Somewhat lower in Math and Reasoning. Instructions was not measured.",
-    "es": "Qwen 3.6 Max (Preview) es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Código y Preferencia humana. Algo por debajo en Matemáticas y Razonamiento. No se midió Instrucciones.",
-    "generated_at": "2026-08-26",
-    "manual": true
-  },
   "alibaba-qwen3.6-27b": {
     "en": "Qwen3.6 27B is a language model built by Alibaba in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions. No data for Human preference.",
     "es": "Qwen3.6 27B es un modelo de lenguaje desarrollado por Alibaba en 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones. Sin datos en Preferencia humana.",
     "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
+  },
+  "alibaba-qwen3.6-max": {
+    "en": "Qwen 3.6 Max (Preview) is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Coding and Human preference. Somewhat lower in Math and Reasoning. Instructions was not measured.",
+    "es": "Qwen 3.6 Max (Preview) es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Código y Preferencia humana. Algo por debajo en Matemáticas y Razonamiento. No se midió Instrucciones.",
+    "generated_at": "2026-08-26",
+    "manual": true
   },
   "alibaba-qwen3.6-plus": {
     "en": "Qwen 3.6 Plus is a language model built by Alibaba in China. It was released on March 31, 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Reasoning and Human preference. Relatively weaker in Math and Coding.",
@@ -53,7 +53,7 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
-  "alibaba-qwen3.7": {
+  "alibaba-qwen3.7-max": {
     "en": "Qwen3.7-Max is a language model built by Alibaba in China in 2026. It is API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is somewhat lower in Coding and Instructions. No data for any unmeasured category.",
     "es": "Qwen3.7-Max es un modelo de lenguaje desarrollado por Alibaba en China en 2026. Se obtiene solo por API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Es algo por debajo en Código e Instrucciones. No hay datos en ninguna categoría no medida.",
     "generated_at": "2026-07-28",
@@ -65,17 +65,17 @@
     "generated_at": "2026-08-09",
     "generated_by": "qwen3-coder:30b"
   },
-  "alibaba-qwen3.8": {
-    "en": "Qwen3.8 Max is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions. No data for any unmeasured category.",
-    "es": "Qwen3.8 Max es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones. Sin datos en ninguna categoría no medida.",
-    "generated_at": "2026-09-29",
-    "generated_by": "qwen3-coder-30b"
-  },
   "alibaba-qwen3.8-27b": {
     "en": "Qwen3.8 27B is a language model built by Alibaba in August 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Somewhat below in Coding and Human preference. No data for other categories.",
     "es": "Qwen3.8 27B es un modelo de lenguaje desarrollado por Alibaba en agosto de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Código y Preferencia humana. No se midieron otras categorías.",
     "generated_at": "2026-08-26",
     "generated_by": "qwen3-coder:30b"
+  },
+  "alibaba-qwen3.8-max": {
+    "en": "Qwen3.8 Max is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions. No data for any unmeasured category.",
+    "es": "Qwen3.8 Max es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código e Instrucciones. Sin datos en ninguna categoría no medida.",
+    "generated_at": "2026-09-29",
+    "generated_by": "qwen3-coder-30b"
   },
   "anthropic-claude-fable-5": {
     "en": "Claude Fable 5 is a language model built by Anthropic in June 2026. It is API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is relatively lower in Coding and Instructions. No data for unmeasured categories.",
@@ -209,6 +209,12 @@
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
   },
+  "google-deepmind-gemini-3.1-flash-lite": {
+    "en": "Gemini 3.1 Flash-Lite is a language model developed by Google in 2026. Measured in Reasoning and Human preference; no data in Coding, Instructions or Math. API-only: its weights are not published, so it cannot be run locally. Categories are not compared due to limited measurements.",
+    "es": "Gemini 3.1 Flash-Lite es un modelo de lenguaje desarrollado por Google en 2026. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas. Solo por API: sus pesos no se publican, no se ejecuta localmente. No se comparan categorías debido a la escasez de mediciones.",
+    "generated_at": "2026-08-10",
+    "generated_by": "qwen3:8b"
+  },
   "google-deepmind-gemini-3.1-pro": {
     "en": "Gemini 3.1 Pro Preview is a language model built by Google DeepMind in February 2026. It is obtained API-only: its weights are not published, so it cannot be run locally. It performs relatively stronger in Math and Human preference. It is somewhat lower in Coding and Instructions. No data for unmeasured categories.",
     "es": "Gemini 3.1 Pro Preview es un modelo de lenguaje desarrollado por Google DeepMind en febrero de 2026. Se obtiene únicamente mediante API: sus pesos no se publican, no se ejecuta localmente. Destaca relativamente en Matemáticas y Preferencia humana. Se encuentra algo por debajo en Código e Instrucciones. No hay datos en categorías no medias.",
@@ -250,12 +256,6 @@
     "es": "Gemma 4 31B IT es un modelo de lenguaje desarrollado por Google DeepMind en abril de 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas.",
     "generated_at": "2026-07-28",
     "generated_by": "qwen3-coder:30b"
-  },
-  "google-gemini-3.1-flash-lite": {
-    "en": "Gemini 3.1 Flash-Lite is a language model developed by Google in 2026. Measured in Reasoning and Human preference; no data in Coding, Instructions or Math. API-only: its weights are not published, so it cannot be run locally. Categories are not compared due to limited measurements.",
-    "es": "Gemini 3.1 Flash-Lite es un modelo de lenguaje desarrollado por Google en 2026. Medido en Razonamiento y Preferencia humana; sin datos en Código, Instrucciones ni Matemáticas. Solo por API: sus pesos no se publican, no se ejecuta localmente. No se comparan categorías debido a la escasez de mediciones.",
-    "generated_at": "2026-08-10",
-    "generated_by": "qwen3:8b"
   },
   "meta-ai-muse-spark": {
     "en": "Muse Spark is a language model built by Meta AI in April 2026. It is available API-only: its weights are not published, so it cannot be run locally. Measured in Reasoning, Math, and Human preference; no data in Coding or Instructions.",

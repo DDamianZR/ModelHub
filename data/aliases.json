@@ -1,7 +1,7 @@
 {
   "anthropic-claude-fable-5": {
     "canonical_key": "claude-fable-5",
-    "display_name": "Claude Fable 5",
+    "display_name": "Claude Fable 5 (max)",
     "variant": "max",
     "scored_arena_name": "claude-fable-5-high",
     "names": [
@@ -25,7 +25,7 @@
   },
   "anthropic-claude-fable-5-1": {
     "canonical_key": "claude-fable-5-1",
-    "display_name": "Claude Fable 5.1 (high)",
+    "display_name": "Claude Fable 5.1 (max)",
     "variant": "max",
     "scored_arena_name": null,
     "names": [
@@ -44,7 +44,7 @@
   "anthropic-claude-haiku-4-5": {
     "canonical_key": "claude-haiku-4-5",
     "display_name": "Claude Haiku 4.5",
-    "variant": "20251001",
+    "variant": "plain",
     "scored_arena_name": "claude-haiku-4-5-20251001",
     "names": [
       "claude-haiku-4-5",
@@ -64,25 +64,29 @@
   "anthropic-claude-opus-4-1": {
     "canonical_key": "claude-opus-4-1",
     "display_name": "Claude Opus 4.1",
-    "variant": "20250805",
+    "variant": "plain",
     "scored_arena_name": "claude-opus-4-1-20250805",
     "names": [
       "claude-opus-4-1",
-      "claude-opus-4-1-20250805"
+      "claude-opus-4-1-20250805",
+      "claude-opus-4-1-20250805-thinking-16k"
     ],
     "matched": {
       "epoch": [
-        "claude-opus-4-1-20250805"
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-1-20250805_16K",
+        "claude-opus-4-1-20250805_27K"
       ],
       "livebench": [],
       "lmarena": [
-        "claude-opus-4-1-20250805"
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-1-20250805-thinking-16k"
       ]
     }
   },
   "anthropic-claude-opus-4-5": {
     "canonical_key": "claude-opus-4-5",
-    "display_name": "Claude Opus 4.5 (no thinking)",
+    "display_name": "Claude Opus 4.5 (high)",
     "variant": "high",
     "scored_arena_name": "claude-opus-4-5-20251101-high-32k",
     "names": [
@@ -93,6 +97,7 @@
     "matched": {
       "epoch": [
         "claude-opus-4-5-20251101",
+        "claude-opus-4-5-20251101_16K",
         "claude-opus-4-5-20251101_32K"
       ],
       "livebench": [
@@ -106,7 +111,7 @@
   },
   "anthropic-claude-opus-4-6": {
     "canonical_key": "claude-opus-4-6",
-    "display_name": "Claude Opus 4.6 (no thinking)",
+    "display_name": "Claude Opus 4.6 (high)",
     "variant": "high",
     "scored_arena_name": "claude-opus-4-6-high",
     "names": [
@@ -131,7 +136,7 @@
   },
   "anthropic-claude-opus-4-7": {
     "canonical_key": "claude-opus-4-7",
-    "display_name": "Claude Opus 4.7 (no thinking)",
+    "display_name": "Claude Opus 4.7 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "claude-opus-4-7",
     "names": [
@@ -178,7 +183,7 @@
   },
   "anthropic-claude-opus-5": {
     "canonical_key": "claude-opus-5",
-    "display_name": "Claude Opus 5",
+    "display_name": "Claude Opus 5 (max)",
     "variant": "max",
     "scored_arena_name": "claude-opus-5-max",
     "names": [
@@ -223,7 +228,7 @@
   "anthropic-claude-sonnet-4-5": {
     "canonical_key": "claude-sonnet-4-5",
     "display_name": "Claude Sonnet 4.5 (no thinking)",
-    "variant": "20250929",
+    "variant": "plain",
     "scored_arena_name": "claude-sonnet-4-5-20250929",
     "names": [
       "claude-sonnet-4-5",
@@ -233,7 +238,9 @@
     "matched": {
       "epoch": [
         "claude-sonnet-4-5-20250929",
-        "claude-sonnet-4-5-20250929_32K"
+        "claude-sonnet-4-5-20250929_16K",
+        "claude-sonnet-4-5-20250929_32K",
+        "claude-sonnet-4-5-20250929_59K"
       ],
       "livebench": [],
       "lmarena": [
@@ -244,7 +251,7 @@
   },
   "anthropic-claude-sonnet-4-6": {
     "canonical_key": "claude-sonnet-4-6",
-    "display_name": "Claude Sonnet 4.6 (no thinking)",
+    "display_name": "Claude Sonnet 4.6 (medium)",
     "variant": "medium",
     "scored_arena_name": "claude-sonnet-4-6",
     "names": [
@@ -253,6 +260,7 @@
     "matched": {
       "epoch": [
         "claude-sonnet-4-6",
+        "claude-sonnet-4-6_16K",
         "claude-sonnet-4-6_32K",
         "claude-sonnet-4-6_high",
         "claude-sonnet-4-6_max",
@@ -268,7 +276,7 @@
   },
   "anthropic-claude-sonnet-5": {
     "canonical_key": "claude-sonnet-5",
-    "display_name": "Claude Sonnet 5 (no thinking)",
+    "display_name": "Claude Sonnet 5 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "claude-sonnet-5-high",
     "names": [
@@ -290,7 +298,7 @@
   },
   "anthropic-claude-sonnet-5-5": {
     "canonical_key": "claude-sonnet-5-5",
-    "display_name": "Claude Sonnet 5.5 (high)",
+    "display_name": "Claude Sonnet 5.5 (max)",
     "variant": "max",
     "scored_arena_name": null,
     "names": [
@@ -309,7 +317,7 @@
   },
   "deepseek-deepseek-v4-flash": {
     "canonical_key": "deepseek-v4-flash",
-    "display_name": "DeepSeek v4 Flash (high)",
+    "display_name": "DeepSeek v4 Flash",
     "variant": "plain",
     "scored_arena_name": "deepseek-v4-flash",
     "names": [
@@ -329,7 +337,7 @@
   },
   "deepseek-deepseek-v4-flash-0731": {
     "canonical_key": "deepseek-v4-flash-0731",
-    "display_name": "DeepSeek V4 Flash 0731 (high)",
+    "display_name": "DeepSeek V4 Flash 0731",
     "variant": "plain",
     "scored_arena_name": null,
     "names": [
@@ -347,7 +355,7 @@
   },
   "deepseek-deepseek-v4-pro": {
     "canonical_key": "deepseek-v4-pro",
-    "display_name": "DeepSeek v4 Pro (high)",
+    "display_name": "DeepSeek v4 Pro",
     "variant": "plain",
     "scored_arena_name": "deepseek-v4-pro",
     "names": [
@@ -373,7 +381,7 @@
   },
   "deepseek-deepseek-v4-pro-0813": {
     "canonical_key": "deepseek-v4-pro-0813",
-    "display_name": "DeepSeek V4 Pro 0813 (high)",
+    "display_name": "DeepSeek V4 Pro 0813",
     "variant": "plain",
     "scored_arena_name": null,
     "names": [
@@ -391,7 +399,7 @@
   },
   "deepseek-deepseek-v4.1-flash": {
     "canonical_key": "deepseek-v4.1-flash",
-    "display_name": "DeepSeek V4.1 Flash (high)",
+    "display_name": "DeepSeek V4.1 Flash (max)",
     "variant": "max",
     "scored_arena_name": "deepseek-v4.1-flash-max",
     "names": [
@@ -481,7 +489,7 @@
       ]
     }
   },
-  "google-gemini-3.1-flash-lite": {
+  "google-deepmind-gemini-3.1-flash-lite": {
     "canonical_key": "gemini-3.1-flash-lite",
     "display_name": "Gemini 3.1 Flash-Lite",
     "variant": "high",
@@ -493,7 +501,8 @@
     "matched": {
       "epoch": [
         "gemini-3.1-flash-lite_high",
-        "gemini-3.1-flash-lite_low"
+        "gemini-3.1-flash-lite_low",
+        "gemini-3.1-flash-lite_minimal"
       ],
       "livebench": [],
       "lmarena": [
@@ -536,7 +545,8 @@
     "matched": {
       "epoch": [
         "gemini-3.5-flash_high",
-        "gemini-3.5-flash_low"
+        "gemini-3.5-flash_low",
+        "gemini-3.5-flash_minimal"
       ],
       "livebench": [
         "gemini-3.5-flash-high"
@@ -558,7 +568,8 @@
     "matched": {
       "epoch": [
         "gemini-3.5-flash-lite_high",
-        "gemini-3.5-flash-lite_low"
+        "gemini-3.5-flash-lite_low",
+        "gemini-3.5-flash-lite_minimal"
       ],
       "livebench": [
         "gemini-3.5-flash-lite-high"
@@ -580,7 +591,8 @@
     "matched": {
       "epoch": [
         "gemini-3.6-flash_high",
-        "gemini-3.6-flash_low"
+        "gemini-3.6-flash_low",
+        "gemini-3.6-flash_minimal"
       ],
       "livebench": [
         "gemini-3.6-flash-high"
@@ -632,21 +644,58 @@
       ]
     }
   },
+  "google-deepmind-gemma-4-26b-a4b": {
+    "canonical_key": "gemma-4-26b-a4b",
+    "display_name": "Gemma 4 26B A4B",
+    "variant": "minimal",
+    "scored_arena_name": "gemma-4-26b-a4b",
+    "names": [
+      "gemma-4-26b-a4b"
+    ],
+    "matched": {
+      "epoch": [
+        "gemma-4-26b-a4b-it_minimal"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "gemma-4-26b-a4b"
+      ]
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4-31b",
     "display_name": "Gemma 4 31B IT",
-    "variant": "it",
+    "variant": "minimal",
     "scored_arena_name": "gemma-4-31b",
     "names": [
       "gemma-4-31b"
     ],
     "matched": {
       "epoch": [
-        "gemma-4-31b-it"
+        "gemma-4-31b-it",
+        "gemma-4-31b-it_minimal"
       ],
       "livebench": [],
       "lmarena": [
         "gemma-4-31b"
+      ]
+    }
+  },
+  "z-ai-zhipu-ai-glm-4.6": {
+    "canonical_key": "glm-4.6",
+    "display_name": "GLM-4.6",
+    "variant": "plain",
+    "scored_arena_name": "glm-4.6",
+    "names": [
+      "glm-4.6"
+    ],
+    "matched": {
+      "epoch": [
+        "zai-org/GLM-4.6"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "glm-4.6"
       ]
     }
   },
@@ -660,7 +709,8 @@
     ],
     "matched": {
       "epoch": [
-        "glm-4.7"
+        "glm-4.7",
+        "zai-org/GLM-4.7"
       ],
       "livebench": [],
       "lmarena": [
@@ -729,7 +779,7 @@
   },
   "z-ai-zhipu-ai-glm-5.3": {
     "canonical_key": "glm-5.3",
-    "display_name": "GLM-5.3 (high)",
+    "display_name": "GLM-5.3",
     "variant": "plain",
     "scored_arena_name": "glm-5.3-max",
     "names": [
@@ -750,7 +800,7 @@
   },
   "z-ai-zhipu-ai-glm-5.3-flash": {
     "canonical_key": "glm-5.3-flash",
-    "display_name": "GLM-5.3-Flash (high)",
+    "display_name": "GLM-5.3-Flash",
     "variant": "plain",
     "scored_arena_name": "glm-5.3-flash",
     "names": [
@@ -770,22 +820,21 @@
   },
   "openai-gpt-5": {
     "canonical_key": "gpt-5",
-    "display_name": "GPT-5 Pro",
+    "display_name": "GPT-5 (high)",
     "variant": "high",
     "scored_arena_name": "gpt-5-high",
     "names": [
       "gpt-5",
-      "gpt-5-chat",
       "gpt-5-high"
     ],
     "matched": {
       "epoch": [
         "gpt-5-2025-08-07_high",
-        "gpt-5-2025-08-07_medium"
+        "gpt-5-2025-08-07_medium",
+        "gpt-5-2025-08-07_minimal"
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5-chat",
         "gpt-5-high"
       ]
     }
@@ -802,7 +851,8 @@
     "matched": {
       "epoch": [
         "gpt-5-mini-2025-08-07_high",
-        "gpt-5-mini-2025-08-07_medium"
+        "gpt-5-mini-2025-08-07_medium",
+        "gpt-5-mini-2025-08-07_minimal"
       ],
       "livebench": [],
       "lmarena": [
@@ -823,7 +873,8 @@
       "epoch": [
         "gpt-5-nano-2025-08-07_high",
         "gpt-5-nano-2025-08-07_low",
-        "gpt-5-nano-2025-08-07_medium"
+        "gpt-5-nano-2025-08-07_medium",
+        "gpt-5-nano-2025-08-07_minimal"
       ],
       "livebench": [],
       "lmarena": [
@@ -861,7 +912,6 @@
     "scored_arena_name": "gpt-5.2-high",
     "names": [
       "gpt-5.2",
-      "gpt-5.2-chat-latest-20260210",
       "gpt-5.2-high"
     ],
     "matched": {
@@ -877,14 +927,13 @@
       ],
       "lmarena": [
         "gpt-5.2",
-        "gpt-5.2-chat-latest-20260210",
         "gpt-5.2-high"
       ]
     }
   },
   "openai-gpt-5.4": {
     "canonical_key": "gpt-5.4",
-    "display_name": "GPT-5.4 Pro",
+    "display_name": "GPT-5.4 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.4",
     "names": [
@@ -910,7 +959,7 @@
   },
   "openai-gpt-5.4-mini": {
     "canonical_key": "gpt-5.4-mini",
-    "display_name": "GPT-5.4 mini (high)",
+    "display_name": "GPT-5.4 mini (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.4-mini-high",
     "names": [
@@ -933,7 +982,7 @@
   },
   "openai-gpt-5.4-nano": {
     "canonical_key": "gpt-5.4-nano",
-    "display_name": "GPT-5.4 nano (high)",
+    "display_name": "GPT-5.4 nano (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.4-nano-high",
     "names": [
@@ -956,7 +1005,7 @@
   },
   "openai-gpt-5.5": {
     "canonical_key": "gpt-5.5",
-    "display_name": "GPT-5.5 Pro (unknown thinking)",
+    "display_name": "GPT-5.5 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "gpt-5.5",
     "names": [
@@ -999,7 +1048,7 @@
   },
   "openai-gpt-5.6-luna": {
     "canonical_key": "gpt-5.6-luna",
-    "display_name": "GPT-5.6 Luna (high)",
+    "display_name": "GPT-5.6 Luna (max)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-luna-xhigh",
     "names": [
@@ -1022,7 +1071,7 @@
   },
   "openai-gpt-5.6-sol": {
     "canonical_key": "gpt-5.6-sol",
-    "display_name": "GPT-5.6 Sol (high)",
+    "display_name": "GPT-5.6 Sol (max)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-sol-xhigh",
     "names": [
@@ -1045,7 +1094,7 @@
   },
   "openai-gpt-5.6-terra": {
     "canonical_key": "gpt-5.6-terra",
-    "display_name": "GPT-5.6 Terra (high)",
+    "display_name": "GPT-5.6 Terra (max)",
     "variant": "max",
     "scored_arena_name": "gpt-5.6-terra-xhigh",
     "names": [
@@ -1068,7 +1117,7 @@
   },
   "openai-gpt-6-astra": {
     "canonical_key": "gpt-6-astra",
-    "display_name": "GPT-6 Astra (high)",
+    "display_name": "GPT-6 Astra (max)",
     "variant": "max",
     "scored_arena_name": "gpt-6-astra-max",
     "names": [
@@ -1089,7 +1138,7 @@
   },
   "openai-gpt-6-luna": {
     "canonical_key": "gpt-6-luna",
-    "display_name": "GPT-6 Luna (high)",
+    "display_name": "GPT-6 Luna (max)",
     "variant": "max",
     "scored_arena_name": "gpt-6-luna-max",
     "names": [
@@ -1110,7 +1159,7 @@
   },
   "openai-gpt-6-sol": {
     "canonical_key": "gpt-6-sol",
-    "display_name": "GPT-6 Sol (high)",
+    "display_name": "GPT-6 Sol (max)",
     "variant": "max",
     "scored_arena_name": "gpt-6-sol-max",
     "names": [
@@ -1131,7 +1180,7 @@
   },
   "openai-gpt-6.1-sol": {
     "canonical_key": "gpt-6.1-sol",
-    "display_name": "GPT-6.1 Sol (high)",
+    "display_name": "GPT-6.1 Sol (max)",
     "variant": "max",
     "scored_arena_name": null,
     "names": [
@@ -1146,6 +1195,24 @@
         "gpt-6.1-sol-xhigh"
       ],
       "lmarena": []
+    }
+  },
+  "openai-gpt-oss-120b": {
+    "canonical_key": "gpt-oss-120b",
+    "display_name": "gpt-oss-120b",
+    "variant": "high",
+    "scored_arena_name": "gpt-oss-120b",
+    "names": [
+      "gpt-oss-120b"
+    ],
+    "matched": {
+      "epoch": [
+        "openai/gpt-oss-120b_high"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "gpt-oss-120b"
+      ]
     }
   },
   "openai-gpt-oss-20b": {
@@ -1208,7 +1275,7 @@
   },
   "xai-grok-4.5": {
     "canonical_key": "grok-4.5",
-    "display_name": "Grok 4.5 (high)",
+    "display_name": "Grok 4.5",
     "variant": "plain",
     "scored_arena_name": "grok-4.5",
     "names": [
@@ -1228,7 +1295,7 @@
   },
   "xai-grok-4.6": {
     "canonical_key": "grok-4.6",
-    "display_name": "Grok 4.6 (high)",
+    "display_name": "Grok 4.6",
     "variant": "plain",
     "scored_arena_name": "grok-4.6-high",
     "names": [
@@ -1250,7 +1317,7 @@
   },
   "xai-grok-4.7": {
     "canonical_key": "grok-4.7",
-    "display_name": "Grok 4.7 (high)",
+    "display_name": "Grok 4.7 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "grok-4.7-xhigh",
     "names": [
@@ -1269,7 +1336,7 @@
   },
   "thinking-machines-inkling": {
     "canonical_key": "inkling",
-    "display_name": "Inkling",
+    "display_name": "Inkling (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "inkling",
     "names": [
@@ -1289,7 +1356,7 @@
   },
   "thinking-machines-inkling-small": {
     "canonical_key": "inkling-small",
-    "display_name": "Inkling Small",
+    "display_name": "Inkling Small (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "Inkling Small",
     "names": [
@@ -1335,6 +1402,7 @@
     ],
     "matched": {
       "epoch": [
+        "fireworks/kimi-k2p5",
         "kimi-k2.5"
       ],
       "livebench": [],
@@ -1383,7 +1451,7 @@
   },
   "moonshot-kimi-k3": {
     "canonical_key": "kimi-k3",
-    "display_name": "Kimi K3 (high)",
+    "display_name": "Kimi K3",
     "variant": "plain",
     "scored_arena_name": "kimi-k3-max",
     "names": [
@@ -1425,6 +1493,25 @@
       ]
     }
   },
+  "mistral-ai-mistral-small-3.2": {
+    "canonical_key": "mistral-small-3.2",
+    "display_name": "Mistral Small 3.2",
+    "variant": "plain",
+    "scored_arena_name": "mistral-small-2506",
+    "names": [
+      "mistral-small-2506",
+      "mistral-small-3.2"
+    ],
+    "matched": {
+      "epoch": [
+        "mistral-small-3.2-2506"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "mistral-small-2506"
+      ]
+    }
+  },
   "meta-ai-muse-spark": {
     "canonical_key": "muse-spark",
     "display_name": "Muse Spark",
@@ -1445,7 +1532,7 @@
   },
   "meta-ai-muse-spark-1.1": {
     "canonical_key": "muse-spark-1.1",
-    "display_name": "Muse Spark 1.1",
+    "display_name": "Muse Spark 1.1 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "muse-spark-1.1",
     "names": [
@@ -1465,7 +1552,7 @@
   },
   "meta-ai-muse-spark-1.2": {
     "canonical_key": "muse-spark-1.2",
-    "display_name": "Muse Spark 1.2",
+    "display_name": "Muse Spark 1.2 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": null,
     "names": [
@@ -1483,7 +1570,7 @@
   },
   "meta-ai-muse-spark-1.3": {
     "canonical_key": "muse-spark-1.3",
-    "display_name": "Muse Spark 1.3 (high)",
+    "display_name": "Muse Spark 1.3 (xhigh)",
     "variant": "xhigh",
     "scored_arena_name": "muse-spark-1.3-max",
     "names": [
@@ -1500,48 +1587,6 @@
       ]
     }
   },
-  "openai-o3": {
-    "canonical_key": "o3",
-    "display_name": "o3 Pro (unknown thinking)",
-    "variant": "high",
-    "scored_arena_name": "o3-2025-04-16",
-    "names": [
-      "o3",
-      "o3-2025-04-16"
-    ],
-    "matched": {
-      "epoch": [
-        "o3-2025-04-16_high",
-        "o3-2025-04-16_low",
-        "o3-2025-04-16_medium"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "o3-2025-04-16"
-      ]
-    }
-  },
-  "alibaba-qwen3": {
-    "canonical_key": "qwen3",
-    "display_name": "Qwen3-Max-Instruct",
-    "variant": "max",
-    "scored_arena_name": "qwen3-max-preview",
-    "names": [
-      "qwen3",
-      "qwen3-max-2025-09-23",
-      "qwen3-max-preview"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3-max-2025-09-23"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "qwen3-max-2025-09-23",
-        "qwen3-max-preview"
-      ]
-    }
-  },
   "alibaba-qwen3-235b-a22b-thinking-2507": {
     "canonical_key": "qwen3-235b-a22b-thinking-2507",
     "display_name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
@@ -1552,6 +1597,7 @@
     ],
     "matched": {
       "epoch": [
+        "Qwen/Qwen3-235B-A22B-Thinking-2507",
         "Qwen3-235B-A22B-Thinking-2507"
       ],
       "livebench": [],
@@ -1575,6 +1621,27 @@
       "livebench": [],
       "lmarena": [
         "qwen3-30b-a3b-instruct-2507"
+      ]
+    }
+  },
+  "alibaba-qwen3-max": {
+    "canonical_key": "qwen3-max",
+    "display_name": "Qwen3-Max-Instruct",
+    "variant": "plain",
+    "scored_arena_name": "qwen3-max-2025-09-23",
+    "names": [
+      "qwen3-max",
+      "qwen3-max-2025-09-23",
+      "qwen3-max-preview"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3-max-2025-09-23"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3-max-2025-09-23",
+        "qwen3-max-preview"
       ]
     }
   },
@@ -1634,25 +1701,6 @@
       ]
     }
   },
-  "alibaba-qwen3.6": {
-    "canonical_key": "qwen3.6",
-    "display_name": "Qwen 3.6 Max (Preview)",
-    "variant": "max",
-    "scored_arena_name": "qwen3.6-max-preview",
-    "names": [
-      "qwen3.6",
-      "qwen3.6-max-preview"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3.6-max-preview"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "qwen3.6-max-preview"
-      ]
-    }
-  },
   "alibaba-qwen3.6-27b": {
     "canonical_key": "qwen3.6-27b",
     "display_name": "Qwen3.6 27B",
@@ -1670,6 +1718,25 @@
         "qwen3.6-27b"
       ],
       "lmarena": []
+    }
+  },
+  "alibaba-qwen3.6-max": {
+    "canonical_key": "qwen3.6-max",
+    "display_name": "Qwen 3.6 Max (Preview)",
+    "variant": "preview",
+    "scored_arena_name": "qwen3.6-max-preview",
+    "names": [
+      "qwen3.6-max",
+      "qwen3.6-max-preview"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.6-max-preview"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "qwen3.6-max-preview"
+      ]
     }
   },
   "alibaba-qwen3.6-plus": {
@@ -1692,13 +1759,13 @@
       ]
     }
   },
-  "alibaba-qwen3.7": {
-    "canonical_key": "qwen3.7",
+  "alibaba-qwen3.7-max": {
+    "canonical_key": "qwen3.7-max",
     "display_name": "Qwen3.7 Max",
-    "variant": "max",
+    "variant": "plain",
     "scored_arena_name": "qwen3.7-max-preview",
     "names": [
-      "qwen3.7",
+      "qwen3.7-max",
       "qwen3.7-max-preview"
     ],
     "matched": {
@@ -1732,27 +1799,6 @@
       ]
     }
   },
-  "alibaba-qwen3.8": {
-    "canonical_key": "qwen3.8",
-    "display_name": "Qwen3.8 Max (unknown)",
-    "variant": "max",
-    "scored_arena_name": "qwen3.8-max",
-    "names": [
-      "qwen3.8",
-      "qwen3.8-max"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3.8-max_xhigh"
-      ],
-      "livebench": [
-        "qwen3.8-max"
-      ],
-      "lmarena": [
-        "qwen3.8-max"
-      ]
-    }
-  },
   "alibaba-qwen3.8-27b": {
     "canonical_key": "qwen3.8-27b",
     "display_name": "Qwen3.8 27B",
@@ -1768,6 +1814,26 @@
       ],
       "lmarena": [
         "qwen3.8-27b"
+      ]
+    }
+  },
+  "alibaba-qwen3.8-max": {
+    "canonical_key": "qwen3.8-max",
+    "display_name": "Qwen3.8 Max",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.8-max",
+    "names": [
+      "qwen3.8-max"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.8-max_xhigh"
+      ],
+      "livebench": [
+        "qwen3.8-max"
+      ],
+      "lmarena": [
+        "qwen3.8-max"
       ]
     }
   }

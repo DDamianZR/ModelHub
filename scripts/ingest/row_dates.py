@@ -38,11 +38,15 @@ def stamp(
     known = previous.get("rows", {}) if previous.get("snapshot") == snapshot else {}
     rows = {}
     for key, entries in scores.items():
-        since = known.get(key) or (today if known else snapshot)
-        since = max(since, snapshot)
         for entry in entries:
+            # Keyed by the name LiveBench published, not by our canonical key: correcting
+            # the normaliser renames keys (qwen3.8 -> qwen3.8-max), and a renamed key
+            # would otherwise read as a row first seen today.
+            name = entry.get("variant") or key
+            since = known.get(name) or known.get(key) or (today if known else snapshot)
+            since = max(since, snapshot)
             entry["measured_at"] = since
-        rows[key] = since
+            rows[name] = since
     return {"snapshot": snapshot, "rows": rows}
 
 

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-01",
+  "note": "Hand-curated identity rules the name normaliser cannot infer. Every entry fixes a measured misattribution: a wrong match credits one model with another's scores, which is the one failure the pipeline cannot detect on its own. Add an entry only with the raw names that motivate it.",
+  "protected_names": [
+    {
+      "pattern": "^qwen[0-9.]+-max",
+      "reason": "Max is Qwen's product tier (Qwen3.8-Max), not a reasoning effort. Stripping it as an effort label merged the tier into the base family and dropped Epoch's xhigh runs of Qwen3.8-Max as a different configuration."
+    },
+    {
+      "pattern": "^gpt-[0-9.]+-codex-max",
+      "reason": "GPT-5.1-Codex-Max is a product name; the trailing max is not an effort level."
+    }
+  ],
+  "aliases_note": "Keys are names after qualifier stripping, host prefix included. A host-prefixed run (chutes/, fireworks/, zai-org/) is only merged when listed here: Epoch's version ids do not always say what the host served - moonshotai/kimi-k2 is labelled Kimi K2 Thinking - so a generic prefix strip would credit one model with another's scores.",
+  "aliases": {
+    "mistral-small-2506": "mistral-small-3.2",
+    "mistral-small-3.2-2506": "mistral-small-3.2",
+    "openai/gpt-oss-120b": "gpt-oss-120b",
+    "chutes/gpt-oss-120b": "gpt-oss-120b",
+    "zai-org/glm-4.6": "glm-4.6",
+    "z-ai/glm-4.6": "glm-4.6",
+    "accounts/fireworks/models/glm-4p6": "glm-4.6",
+    "zai-org/glm-4.7": "glm-4.7",
+    "fireworks/glm-4p7": "glm-4.7",
+    "zai-org/glm-5": "glm-5",
+    "qwen/qwen3-235b-a22b-thinking-2507": "qwen3-235b-a22b-thinking-2507",
+    "chutes/qwen3-235b-a22b-thinking-2507": "qwen3-235b-a22b-thinking-2507",
+    "accounts/fireworks/models/qwen3-235b-a22b-thinking-2507": "qwen3-235b-a22b-thinking-2507",
+    "fireworks/kimi-k2p5": "kimi-k2.5"
+  },
+  "renamed_model_ids_note": "Model ids that changed when an identity rule above was corrected. History is carried over to the new id and the site redirects the old URL, so a shared link and a sparkline both survive the fix.",
+  "renamed_model_ids": {
+    "alibaba-qwen3": "alibaba-qwen3-max",
+    "alibaba-qwen3.6": "alibaba-qwen3.6-max",
+    "alibaba-qwen3.7": "alibaba-qwen3.7-max",
+    "alibaba-qwen3.8": "alibaba-qwen3.8-max",
+    "google-gemini-3.1-flash-lite": "google-deepmind-gemini-3.1-flash-lite"
+  },
+  "organizations": {
+    "Google": "Google DeepMind",
+    "Google,Google DeepMind": "Google DeepMind",
+    "Z.ai (Zhipu AI),Tsinghua University": "Z.ai (Zhipu AI)",
+    "Cohere,Cohere Labs (formerly Cohere for AI)": "Cohere"
+  }
+}

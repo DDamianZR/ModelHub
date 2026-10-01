@@ -1,19 +1,4 @@
 {
-  "alibaba-qwen3": {
-    "acquisition": {
-      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
-      "hf_repo": null,
-      "ollama_tag": null,
-      "provider_page": "https://qwen.ai/"
-    },
-    "checked_at": "2026-09-29",
-    "verified": {
-      "api_docs": true,
-      "hf_repo": false,
-      "ollama_tag": false,
-      "provider_page": true
-    }
-  },
   "alibaba-qwen3-235b-a22b-thinking-2507": {
     "acquisition": {
       "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
@@ -40,6 +25,21 @@
     "verified": {
       "api_docs": true,
       "hf_repo": true,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "alibaba-qwen3-max": {
+    "acquisition": {
+      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://qwen.ai/"
+    },
+    "checked_at": "2026-09-29",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
       "ollama_tag": false,
       "provider_page": true
     }
@@ -89,21 +89,6 @@
       "provider_page": true
     }
   },
-  "alibaba-qwen3.6": {
-    "acquisition": {
-      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
-      "hf_repo": null,
-      "ollama_tag": null,
-      "provider_page": "https://qwen.ai/"
-    },
-    "checked_at": "2026-08-26",
-    "verified": {
-      "api_docs": true,
-      "hf_repo": false,
-      "ollama_tag": false,
-      "provider_page": true
-    }
-  },
   "alibaba-qwen3.6-27b": {
     "acquisition": {
       "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
@@ -115,6 +100,21 @@
     "verified": {
       "api_docs": true,
       "hf_repo": true,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "alibaba-qwen3.6-max": {
+    "acquisition": {
+      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://qwen.ai/"
+    },
+    "checked_at": "2026-08-26",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
       "ollama_tag": false,
       "provider_page": true
     }
@@ -134,7 +134,7 @@
       "provider_page": true
     }
   },
-  "alibaba-qwen3.7": {
+  "alibaba-qwen3.7-max": {
     "acquisition": {
       "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
       "hf_repo": null,
@@ -164,21 +164,6 @@
       "provider_page": true
     }
   },
-  "alibaba-qwen3.8": {
-    "acquisition": {
-      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
-      "hf_repo": null,
-      "ollama_tag": null,
-      "provider_page": "https://qwen.ai/"
-    },
-    "checked_at": "2026-09-29",
-    "verified": {
-      "api_docs": true,
-      "hf_repo": false,
-      "ollama_tag": false,
-      "provider_page": true
-    }
-  },
   "alibaba-qwen3.8-27b": {
     "acquisition": {
       "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
@@ -190,6 +175,21 @@
     "verified": {
       "api_docs": true,
       "hf_repo": true,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
+  "alibaba-qwen3.8-max": {
+    "acquisition": {
+      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://qwen.ai/"
+    },
+    "checked_at": "2026-09-29",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
       "ollama_tag": false,
       "provider_page": true
     }
@@ -524,6 +524,21 @@
       "provider_page": true
     }
   },
+  "google-deepmind-gemini-3.1-flash-lite": {
+    "acquisition": {
+      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://deepmind.google/models/gemini/"
+    },
+    "checked_at": "2026-09-29",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
   "google-deepmind-gemini-3.1-pro": {
     "acquisition": {
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
@@ -625,21 +640,6 @@
     "verified": {
       "api_docs": true,
       "hf_repo": true,
-      "ollama_tag": false,
-      "provider_page": true
-    }
-  },
-  "google-gemini-3.1-flash-lite": {
-    "acquisition": {
-      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "hf_repo": null,
-      "ollama_tag": null,
-      "provider_page": "https://deepmind.google/models/gemini/"
-    },
-    "checked_at": "2026-09-29",
-    "verified": {
-      "api_docs": true,
-      "hf_repo": false,
       "ollama_tag": false,
       "provider_page": true
     }

@@ -25,6 +25,7 @@ from .common import (
     SourceError,
     digest_bytes,
     read_cache,
+    renamed_model_ids,
     write_cache,
     write_json,
 )
@@ -391,6 +392,15 @@ def merge_history(
     bad = duplicated | rejected_dates
     if bad:
         print(f"  history: excluding {len(bad)} suspect snapshot(s): {sorted(bad)}")
+
+    # A corrected identity rule can change a model's id. The points still describe the
+    # same model, so they follow it to the new id instead of being purged as orphans.
+    renames = renamed_model_ids()
+    if renames:
+        existing = [
+            {**row, "model_id": renames.get(row["model_id"], row["model_id"])}
+            for row in existing
+        ]
 
     current_variant = {
         (row["model_id"], row["benchmark_id"]): row.get("variant") for row in incoming

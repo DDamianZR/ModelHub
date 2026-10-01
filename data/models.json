@@ -1,9 +1,9 @@
 {
   "meta": {
     "generated_at": "2026-10-01",
-    "model_count": 86,
-    "ranked_count": 64,
-    "provisional_count": 22,
+    "model_count": 89,
+    "ranked_count": 65,
+    "provisional_count": 24,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
@@ -22,7 +22,7 @@
   "models": [
     {
       "id": "meta-ai-muse-spark-1.3",
-      "display_name": "Muse Spark 1.3 (high)",
+      "display_name": "Muse Spark 1.3 (xhigh)",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -90,7 +90,7 @@
     },
     {
       "id": "anthropic-claude-fable-5",
-      "display_name": "Claude Fable 5",
+      "display_name": "Claude Fable 5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -219,7 +219,7 @@
     },
     {
       "id": "deepseek-deepseek-v4.1-flash",
-      "display_name": "DeepSeek V4.1 Flash (high)",
+      "display_name": "DeepSeek V4.1 Flash (max)",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -280,7 +280,7 @@
     },
     {
       "id": "anthropic-claude-opus-5",
-      "display_name": "Claude Opus 5",
+      "display_name": "Claude Opus 5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -415,8 +415,8 @@
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3.8",
-      "display_name": "Qwen3.8 Max (unknown)",
+      "id": "alibaba-qwen3.8-max",
+      "display_name": "Qwen3.8 Max",
       "provider_id": "alibaba",
       "is_open_weights": false,
       "license": "API access",
@@ -469,7 +469,7 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "max",
+      "variant": "plain",
       "human_preference_variant": null,
       "vision": {
         "rating": 1313.9,
@@ -484,7 +484,7 @@
     },
     {
       "id": "anthropic-claude-fable-5-1",
-      "display_name": "Claude Fable 5.1 (high)",
+      "display_name": "Claude Fable 5.1 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -613,7 +613,7 @@
     },
     {
       "id": "openai-gpt-6.1-sol",
-      "display_name": "GPT-6.1 Sol (high)",
+      "display_name": "GPT-6.1 Sol (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -674,7 +674,7 @@
     },
     {
       "id": "moonshot-kimi-k3",
-      "display_name": "Kimi K3 (high)",
+      "display_name": "Kimi K3",
       "provider_id": "moonshot",
       "is_open_weights": true,
       "license": "Open weights (non-commercial)",
@@ -735,7 +735,7 @@
     },
     {
       "id": "openai-gpt-6-astra",
-      "display_name": "GPT-6 Astra (high)",
+      "display_name": "GPT-6 Astra (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -803,7 +803,7 @@
     },
     {
       "id": "openai-gpt-5.6-sol",
-      "display_name": "GPT-5.6 Sol (high)",
+      "display_name": "GPT-5.6 Sol (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -871,7 +871,7 @@
     },
     {
       "id": "anthropic-claude-opus-4-6",
-      "display_name": "Claude Opus 4.6 (no thinking)",
+      "display_name": "Claude Opus 4.6 (high)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -939,7 +939,7 @@
     },
     {
       "id": "meta-ai-muse-spark-1.1",
-      "display_name": "Muse Spark 1.1",
+      "display_name": "Muse Spark 1.1 (xhigh)",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -1007,7 +1007,7 @@
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.3",
-      "display_name": "GLM-5.3 (high)",
+      "display_name": "GLM-5.3",
       "provider_id": "z-ai-zhipu-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -1136,7 +1136,7 @@
     },
     {
       "id": "deepseek-deepseek-v4-pro-0813",
-      "display_name": "DeepSeek V4 Pro 0813 (high)",
+      "display_name": "DeepSeek V4 Pro 0813",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -1197,7 +1197,7 @@
     },
     {
       "id": "xai-grok-4.6",
-      "display_name": "Grok 4.6 (high)",
+      "display_name": "Grok 4.6",
       "provider_id": "xai",
       "is_open_weights": false,
       "license": "API access",
@@ -1264,7 +1264,7 @@
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3.7",
+      "id": "alibaba-qwen3.7-max",
       "display_name": "Qwen3.7 Max",
       "provider_id": "alibaba",
       "is_open_weights": false,
@@ -1317,8 +1317,8 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "max",
-      "human_preference_variant": null,
+      "variant": "plain",
+      "human_preference_variant": "preview",
       "vision": null,
       "rank": 19,
       "tied_with": 1,
@@ -1326,7 +1326,7 @@
     },
     {
       "id": "xai-grok-4.5",
-      "display_name": "Grok 4.5 (high)",
+      "display_name": "Grok 4.5",
       "provider_id": "xai",
       "is_open_weights": false,
       "license": "API access",
@@ -1462,7 +1462,7 @@
     },
     {
       "id": "openai-gpt-5.5",
-      "display_name": "GPT-5.5 Pro (unknown thinking)",
+      "display_name": "GPT-5.5 (xhigh)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -1530,7 +1530,7 @@
     },
     {
       "id": "anthropic-claude-sonnet-5-5",
-      "display_name": "Claude Sonnet 5.5 (high)",
+      "display_name": "Claude Sonnet 5.5 (max)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -1591,7 +1591,7 @@
     },
     {
       "id": "meta-ai-muse-spark-1.2",
-      "display_name": "Muse Spark 1.2",
+      "display_name": "Muse Spark 1.2 (xhigh)",
       "provider_id": "meta-ai",
       "is_open_weights": false,
       "license": "API access",
@@ -1849,7 +1849,7 @@
     },
     {
       "id": "xai-grok-4.7",
-      "display_name": "Grok 4.7 (high)",
+      "display_name": "Grok 4.7 (xhigh)",
       "provider_id": "xai",
       "is_open_weights": false,
       "license": "API access",
@@ -1910,7 +1910,7 @@
     },
     {
       "id": "openai-gpt-5.6-terra",
-      "display_name": "GPT-5.6 Terra (high)",
+      "display_name": "GPT-5.6 Terra (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -2046,7 +2046,7 @@
     },
     {
       "id": "deepseek-deepseek-v4-flash-0731",
-      "display_name": "DeepSeek V4 Flash 0731 (high)",
+      "display_name": "DeepSeek V4 Flash 0731",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -2107,7 +2107,7 @@
     },
     {
       "id": "anthropic-claude-sonnet-4-6",
-      "display_name": "Claude Sonnet 4.6 (no thinking)",
+      "display_name": "Claude Sonnet 4.6 (medium)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -2156,7 +2156,7 @@
       "evidence": {
         "sources": 3,
         "max_sources": 3,
-        "benchmarks": 8
+        "benchmarks": 9
       },
       "provisional": false,
       "awaiting_human_votes": false,
@@ -2175,7 +2175,7 @@
     },
     {
       "id": "anthropic-claude-sonnet-5",
-      "display_name": "Claude Sonnet 5 (no thinking)",
+      "display_name": "Claude Sonnet 5 (xhigh)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -2243,7 +2243,7 @@
     },
     {
       "id": "openai-gpt-6-sol",
-      "display_name": "GPT-6 Sol (high)",
+      "display_name": "GPT-6 Sol (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -2304,7 +2304,7 @@
     },
     {
       "id": "deepseek-deepseek-v4-pro",
-      "display_name": "DeepSeek v4 Pro (high)",
+      "display_name": "DeepSeek v4 Pro",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -2365,7 +2365,7 @@
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.3-flash",
-      "display_name": "GLM-5.3-Flash (high)",
+      "display_name": "GLM-5.3-Flash",
       "provider_id": "z-ai-zhipu-ai",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -2433,7 +2433,7 @@
     },
     {
       "id": "anthropic-claude-opus-4-5",
-      "display_name": "Claude Opus 4.5 (no thinking)",
+      "display_name": "Claude Opus 4.5 (high)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -2494,7 +2494,7 @@
     },
     {
       "id": "anthropic-claude-opus-4-7",
-      "display_name": "Claude Opus 4.7 (no thinking)",
+      "display_name": "Claude Opus 4.7 (xhigh)",
       "provider_id": "anthropic",
       "is_open_weights": false,
       "license": "API access",
@@ -2630,7 +2630,7 @@
     },
     {
       "id": "openai-gpt-5.4",
-      "display_name": "GPT-5.4 Pro",
+      "display_name": "GPT-5.4 (xhigh)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -2766,7 +2766,7 @@
     },
     {
       "id": "thinking-machines-inkling",
-      "display_name": "Inkling",
+      "display_name": "Inkling (xhigh)",
       "provider_id": "thinking-machines",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -2827,7 +2827,7 @@
     },
     {
       "id": "openai-gpt-5.6-luna",
-      "display_name": "GPT-5.6 Luna (high)",
+      "display_name": "GPT-5.6 Luna (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -2895,7 +2895,7 @@
     },
     {
       "id": "openai-gpt-5.4-nano",
-      "display_name": "GPT-5.4 nano (high)",
+      "display_name": "GPT-5.4 nano (xhigh)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -3167,7 +3167,7 @@
     },
     {
       "id": "openai-gpt-6-luna",
-      "display_name": "GPT-6 Luna (high)",
+      "display_name": "GPT-6 Luna (max)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -3228,12 +3228,12 @@
     },
     {
       "id": "openai-gpt-5",
-      "display_name": "GPT-5 Pro",
+      "display_name": "GPT-5 (high)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2025-10-07",
+      "release_date": "2025-08-07",
       "country": "United States of America",
       "context_window": null,
       "modalities": [
@@ -3284,9 +3284,9 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1231.8,
-        "rank": 70,
-        "variant": "gpt-5-chat",
+        "rating": 1208.1,
+        "rank": 80,
+        "variant": "gpt-5-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
@@ -3357,7 +3357,7 @@
     },
     {
       "id": "openai-gpt-5.4-mini",
-      "display_name": "GPT-5.4 mini (high)",
+      "display_name": "GPT-5.4 mini (xhigh)",
       "provider_id": "openai",
       "is_open_weights": false,
       "license": "API access",
@@ -3542,9 +3542,9 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1267.9,
-        "rank": 40,
-        "variant": "gpt-5.2-chat-latest-20260210",
+        "rating": 1245.6,
+        "rank": 60,
+        "variant": "gpt-5.2-high",
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
@@ -3554,7 +3554,7 @@
     },
     {
       "id": "deepseek-deepseek-v4-flash",
-      "display_name": "DeepSeek v4 Flash (high)",
+      "display_name": "DeepSeek v4 Flash",
       "provider_id": "deepseek",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -3732,7 +3732,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 56,
-      "tied_with": 3,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -3793,11 +3793,11 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 56,
-      "tied_with": 3,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3.6",
+      "id": "alibaba-qwen3.6-max",
       "display_name": "Qwen 3.6 Max (Preview)",
       "provider_id": "alibaba",
       "is_open_weights": false,
@@ -3850,79 +3850,11 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "max",
+      "variant": "preview",
       "human_preference_variant": null,
       "vision": null,
       "rank": 56,
-      "tied_with": 3,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-5.1",
-      "display_name": "GPT-5.1 (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-11-13",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 67.81,
-        "math": 31.03,
-        "coding": 67.98,
-        "human_preference": 70.89
-      },
-      "category_errors": {
-        "reasoning": 2.404,
-        "math": 5.333,
-        "coding": 4.161,
-        "human_preference": 1.681
-      },
-      "composite": 59.75,
-      "composite_error": 1.91,
-      "uncertainty": {
-        "measured_inputs": 5,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "instruction_following"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "high",
-      "human_preference_variant": null,
-      "vision": {
-        "rating": 1249.7,
-        "rank": 57,
-        "variant": "gpt-5.1-high",
-        "measured_at": "2026-09-28",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": 56,
-      "tied_with": 3,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -3990,7 +3922,75 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 57,
-      "tied_with": 1,
+      "tied_with": 2,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-5.1",
+      "display_name": "GPT-5.1 (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-11-13",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 67.81,
+        "math": 31.03,
+        "coding": 66.94,
+        "human_preference": 70.89
+      },
+      "category_errors": {
+        "reasoning": 2.404,
+        "math": 5.333,
+        "coding": 2.965,
+        "human_preference": 1.681
+      },
+      "composite": 59.44,
+      "composite_error": 1.71,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "high",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1249.7,
+        "rank": 57,
+        "variant": "gpt-5.1-high",
+        "measured_at": "2026-09-28",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 57,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -4058,7 +4058,75 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 57,
-      "tied_with": 1,
+      "tied_with": 2,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "moonshot-kimi-k2.5",
+      "display_name": "Kimi K2.5",
+      "provider_id": "moonshot",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-01-27",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 60.95,
+        "math": 27.9,
+        "coding": 73.76,
+        "human_preference": 72.03
+      },
+      "category_errors": {
+        "reasoning": 2.374,
+        "math": 5.096,
+        "coding": 3.924,
+        "human_preference": 1.492
+      },
+      "composite": 58.9,
+      "composite_error": 1.82,
+      "uncertainty": {
+        "measured_inputs": 5,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1268.9,
+        "rank": 39,
+        "variant": "kimi-k2.5-thinking",
+        "measured_at": "2026-09-28",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": 58,
+      "tied_with": 0,
       "cohort_recalibration": null
     },
     {
@@ -4115,7 +4183,7 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "20250805",
+      "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
       "rank": 62,
@@ -4176,10 +4244,10 @@
       },
       "provisional": false,
       "awaiting_human_votes": false,
-      "variant": "20250929",
+      "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 64,
+      "rank": 65,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -4316,66 +4384,6 @@
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3",
-      "display_name": "Qwen3-Max-Instruct",
-      "provider_id": "alibaba",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-09-24",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 60.67,
-        "math": 97.13,
-        "human_preference": 69.16
-      },
-      "category_errors": {
-        "reasoning": 3.097,
-        "math": 0.823,
-        "human_preference": 2.064
-      },
-      "composite": 74.95,
-      "composite_error": 1.42,
-      "uncertainty": {
-        "measured_inputs": 4,
-        "total_inputs": 4,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "coding",
-          "instruction_following"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 4
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
       "id": "moonshot-kimi-k2-thinking-turbo",
       "display_name": "Kimi K2 Thinking Turbo",
       "provider_id": "moonshot",
@@ -4501,9 +4509,75 @@
       "cohort_recalibration": null
     },
     {
-      "id": "google-gemini-3.1-flash-lite",
+      "id": "google-deepmind-gemma-4-31b",
+      "display_name": "Gemma 4 31B IT",
+      "provider_id": "google-deepmind",
+      "is_open_weights": true,
+      "license": "Open weights (restricted use)",
+      "api_only": false,
+      "release_date": "2026-04-02",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 75.76,
+        "human_preference": 71.12
+      },
+      "category_errors": {
+        "reasoning": 5.984,
+        "human_preference": 3.382
+      },
+      "composite": 74.02,
+      "composite_error": 3.95,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "minimal",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1277.7,
+        "rank": 34,
+        "variant": "gemma-4-31b",
+        "measured_at": "2026-09-28",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "google-deepmind-gemini-3.1-flash-lite",
       "display_name": "Gemini 3.1 Flash-Lite",
-      "provider_id": "google",
+      "provider_id": "google-deepmind",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
@@ -4562,6 +4636,66 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "alibaba-qwen3-max",
+      "display_name": "Qwen3-Max-Instruct",
+      "provider_id": "alibaba",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2025-09-24",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 60.67,
+        "math": 97.13,
+        "human_preference": 57.01
+      },
+      "category_errors": {
+        "reasoning": 3.097,
+        "math": 0.823,
+        "human_preference": 2.957
+      },
+      "composite": 71.91,
+      "composite_error": 1.51,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -4634,6 +4768,72 @@
       "cohort_recalibration": null
     },
     {
+      "id": "google-deepmind-gemma-4-26b-a4b",
+      "display_name": "Gemma 4 26B A4B",
+      "provider_id": "google-deepmind",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-04-02",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 73.23,
+        "human_preference": 66.86
+      },
+      "category_errors": {
+        "reasoning": 6.182,
+        "human_preference": 3.39
+      },
+      "composite": 70.84,
+      "composite_error": 4.07,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "minimal",
+      "human_preference_variant": "plain",
+      "vision": {
+        "rating": 1259.8,
+        "rank": 50,
+        "variant": "gemma-4-26b-a4b",
+        "measured_at": "2026-09-28",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
       "id": "alibaba-qwen3.5-35b-a3b",
       "display_name": "Qwen3.5-35B-A3B",
       "provider_id": "alibaba",
@@ -4693,14 +4893,14 @@
       "cohort_recalibration": null
     },
     {
-      "id": "z-ai-zhipu-ai-glm-4.7",
-      "display_name": "GLM-4.7",
-      "provider_id": "z-ai-zhipu-ai",
+      "id": "openai-gpt-oss-120b",
+      "display_name": "gpt-oss-120b",
+      "provider_id": "openai",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
       "api_only": false,
-      "release_date": "2025-12-22",
-      "country": "China",
+      "release_date": "2025-08-05",
+      "country": "United States of America",
       "context_window": null,
       "modalities": [
         "text"
@@ -4714,18 +4914,18 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 57.77,
-        "human_preference": 67.58
+        "reasoning": 75.76,
+        "human_preference": 35.58
       },
       "category_errors": {
-        "reasoning": 2.741,
-        "human_preference": 2.753
+        "reasoning": 5.378,
+        "human_preference": 1.991
       },
-      "composite": 61.45,
-      "composite_error": 2.0,
+      "composite": 60.69,
+      "composite_error": 3.44,
       "uncertainty": {
-        "measured_inputs": 3,
-        "total_inputs": 3,
+        "measured_inputs": 2,
+        "total_inputs": 2,
         "is_lower_bound": true
       },
       "coverage": {
@@ -4740,206 +4940,13 @@
       "evidence": {
         "sources": 2,
         "max_sources": 3,
-        "benchmarks": 3
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-o3",
-      "display_name": "o3 Pro (unknown thinking)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2025-06-10",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 65.61,
-        "math": 58.23,
-        "human_preference": 55.87
-      },
-      "category_errors": {
-        "reasoning": 2.598,
-        "math": 2.274,
-        "human_preference": 1.652
-      },
-      "composite": 60.72,
-      "composite_error": 1.38,
-      "uncertainty": {
-        "measured_inputs": 5,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "coding",
-          "instruction_following"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 6
+        "benchmarks": 2
       },
       "provisional": true,
       "awaiting_human_votes": false,
       "variant": "high",
-      "human_preference_variant": "2025-04-16",
-      "vision": {
-        "rating": 1214.1,
-        "rank": 76,
-        "variant": "o3-2025-04-16",
-        "measured_at": "2026-09-28",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "alibaba-qwen3-235b-a22b-thinking-2507",
-      "display_name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
-      "provider_id": "alibaba",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2025-07-25",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 60.24,
-        "human_preference": 58.28
-      },
-      "category_errors": {
-        "reasoning": 2.968,
-        "human_preference": 2.99
-      },
-      "composite": 59.5,
-      "composite_error": 2.17,
-      "uncertainty": {
-        "measured_inputs": 3,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 2,
-        "total": 5,
-        "missing": [
-          "coding",
-          "instruction_following",
-          "math"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 3
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
+      "human_preference_variant": "plain",
       "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "moonshot-kimi-k2.5",
-      "display_name": "Kimi K2.5",
-      "provider_id": "moonshot",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-01-27",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 34.3,
-        "coding": 73.76,
-        "human_preference": 72.03
-      },
-      "category_errors": {
-        "reasoning": 2.944,
-        "coding": 3.924,
-        "human_preference": 1.492
-      },
-      "composite": 58.18,
-      "composite_error": 1.92,
-      "uncertainty": {
-        "measured_inputs": 3,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "instruction_following",
-          "math"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 3
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": {
-        "rating": 1268.9,
-        "rank": 39,
-        "variant": "kimi-k2.5-thinking",
-        "measured_at": "2026-09-28",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5013,7 +5020,7 @@
     },
     {
       "id": "thinking-machines-inkling-small",
-      "display_name": "Inkling Small",
+      "display_name": "Inkling Small (xhigh)",
       "provider_id": "thinking-machines",
       "is_open_weights": true,
       "license": "Open weights (unrestricted)",
@@ -5065,7 +5072,7 @@
       "provisional": true,
       "awaiting_human_votes": false,
       "variant": "xhigh",
-      "human_preference_variant": "inkling small",
+      "human_preference_variant": "plain",
       "vision": {
         "rating": 1234.8,
         "rank": 69,
@@ -5256,9 +5263,195 @@
       },
       "provisional": true,
       "awaiting_human_votes": false,
-      "variant": "20251001",
+      "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "alibaba-qwen3-235b-a22b-thinking-2507",
+      "display_name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
+      "provider_id": "alibaba",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2025-07-25",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 60.24,
+        "math": 8.48,
+        "human_preference": 58.28
+      },
+      "category_errors": {
+        "reasoning": 2.968,
+        "math": 3.252,
+        "human_preference": 2.99
+      },
+      "composite": 42.5,
+      "composite_error": 1.81,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "z-ai-zhipu-ai-glm-4.7",
+      "display_name": "GLM-4.7",
+      "provider_id": "z-ai-zhipu-ai",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2025-12-22",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 57.77,
+        "math": 2.44,
+        "human_preference": 67.58
+      },
+      "category_errors": {
+        "reasoning": 2.741,
+        "math": 1.788,
+        "human_preference": 2.753
+      },
+      "composite": 41.78,
+      "composite_error": 1.46,
+      "uncertainty": {
+        "measured_inputs": 4,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "mistral-ai-mistral-small-3.2",
+      "display_name": "Mistral Small 3.2",
+      "provider_id": "mistral-ai",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2025-06-20",
+      "country": "France",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 49.05,
+        "human_preference": 23.13
+      },
+      "category_errors": {
+        "reasoning": 5.433,
+        "human_preference": 2.376
+      },
+      "composite": 39.33,
+      "composite_error": 3.51,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "coding",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 2
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1141.5,
+        "rank": 110,
+        "variant": "mistral-small-2506",
+        "measured_at": "2026-09-28",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null
@@ -5450,18 +5643,17 @@
       "cohort_recalibration": null
     },
     {
-      "id": "google-deepmind-gemma-4-31b",
-      "display_name": "Gemma 4 31B IT",
-      "provider_id": "google-deepmind",
+      "id": "z-ai-zhipu-ai-glm-4.6",
+      "display_name": "GLM-4.6",
+      "provider_id": "z-ai-zhipu-ai",
       "is_open_weights": true,
-      "license": "Open weights (restricted use)",
+      "license": "Open weights (unrestricted)",
       "api_only": false,
-      "release_date": "2026-04-02",
-      "country": "United States of America",
+      "release_date": "2025-09-30",
+      "country": "China",
       "context_window": null,
       "modalities": [
-        "text",
-        "vision"
+        "text"
       ],
       "pricing": null,
       "acquisition": {
@@ -5472,15 +5664,15 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 10.4,
-        "human_preference": 71.12
+        "math": 3.82,
+        "human_preference": 69.58
       },
       "category_errors": {
-        "reasoning": 1.893,
-        "human_preference": 3.382
+        "math": 2.217,
+        "human_preference": 1.779
       },
-      "composite": 33.17,
-      "composite_error": 1.73,
+      "composite": 32.0,
+      "composite_error": 1.48,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 2,
@@ -5492,7 +5684,7 @@
         "missing": [
           "coding",
           "instruction_following",
-          "math"
+          "reasoning"
         ]
       },
       "evidence": {
@@ -5502,15 +5694,9 @@
       },
       "provisional": true,
       "awaiting_human_votes": false,
-      "variant": "it",
-      "human_preference_variant": "plain",
-      "vision": {
-        "rating": 1277.7,
-        "rank": 34,
-        "variant": "gemma-4-31b",
-        "measured_at": "2026-09-28",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null

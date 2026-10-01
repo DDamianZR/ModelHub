@@ -2,8 +2,9 @@
 from __future__ import annotations
 
 import json
+import re
 
-from .common import CONFIG, slugify
+from .common import CONFIG, canonical_organization, is_hosted, slugify, split_name
 
 DEFAULT_WEIGHTS = {
     "reasoning": 0.25,
@@ -39,27 +40,73 @@ _EFFORT_TOKENS = (
 )
 
 
-def effort_label(variant: str, key: str) -> str:
+def effort_label(variant: str, key: str | None = None) -> str:
     """Reduce a published variant name to the configuration it represents.
 
     Sources spell the same configuration differently - Epoch writes "claude-opus-5_max",
     LiveBench "claude-opus-5-max-effort" - so comparing raw strings would treat one
     configuration as several. This maps both onto "max".
+
+    The label is read from the qualifiers the normaliser actually cut, not from what is
+    left after subtracting the key. Subtraction broke whenever a name reached its key
+    through an alias or a protected product tier: "mistral-small-2506" does not start
+    with "mistral-small-3.2", so the whole name came back as a configuration. `key` is
+    kept for callers that pass it and no longer changes the result.
     """
-    text = (variant or "").strip().lower().replace("_", "-")
-    if not text:
+    if not (variant or "").strip():
         return "unlabelled"
 
-    remainder = text[len(key):] if text.startswith(key) else text
-    remainder = remainder.strip("-")
-    remainder = remainder.replace("-effort", "").replace("thinking-", "")
-
-    if not remainder or remainder == "thinking":
-        return "plain"
+    _, qualifiers = split_name(variant)
+    words = {
+        word
+        for qualifier in qualifiers
+        for word in qualifier.replace("-effort", "").split("-")
+    }
+    if "non" in words and "reasoning" in words:
+        return "none"
     for token in _EFFORT_TOKENS:
-        if token in remainder.split("-"):
+        if token in words:
             return token
-    return remainder
+    rest = [q for q in qualifiers if q not in ("thinking", "reasoning", "thinking-auto")]
+    if not rest:
+        return "plain"
+    # Qualifiers outermost first; reversed so "it-32k" reads in the published order.
+    return "-".join(reversed(rest))
+
+
+# Trailing parentheticals that name a configuration or a host rather than the model:
+# "(high)", "(no thinking)", "(16k thinking)", "(Fireworks)".
+_CONFIG_PAREN = re.compile(
+    r"\s*\((?:no thinking|unknown thinking|unknown|none|minimal|low|medium|high|xhigh|max"
+    r"|\d+k thinking|thinking|together|fireworks|novita|openrouter|chutes)\)\s*$",
+    re.IGNORECASE,
+)
+
+# Labels that read as an effort setting when appended to a name.
+_SHOWN_EFFORTS = ("none", "minimal", "low", "medium", "high", "xhigh", "max")
+
+
+def display_name_for(meta: dict, label: str | None) -> str:
+    """The name of the configuration actually scored.
+
+    Epoch's own display names agree with their versions (one exception in 300+ rows
+    checked 2026-10-01), so the name of a version that matches the scored label is used
+    as published. When no version matches - the label came from LiveBench or Arena - the
+    configuration parenthetical is stripped from a vendor-run version's name and the
+    scored label appended, so "Muse Spark 1.3 (high)" can no longer front xhigh scores.
+    """
+    versions = [v for v in meta.get("versions") or [] if not is_hosted(v["version"])]
+    if label is not None:
+        for version in versions:
+            if effort_label(version["version"]) == label and version["display_name"]:
+                return version["display_name"]
+
+    # The model-level name, not the shortest version name: Epoch files deepseek-v4-flash's
+    # unknown-effort run as "DeepSeek v4 (unknown)", which would drop "Flash".
+    base = _CONFIG_PAREN.sub("", meta["display_name"]).strip()
+    if label in _SHOWN_EFFORTS:
+        return f"{base} ({label})"
+    return base
 
 
 def load_weights() -> tuple[dict[str, float], int, str]:
@@ -195,6 +242,55 @@ def pick_arena_variant(
 
     winner = max(rows, key=lambda row: row.get("vote_count") or 0)
     return winner, effort_label(winner["model_name"], key)
+
+
+def resolve_same_configuration(entries: list[dict]) -> tuple[dict, str | None]:
+    """One row from several that describe the same configuration of one benchmark.
+
+    Returns (row, note). This used to be `entries[0]`, so CSV order decided: GPT-5.1 has two
+    SWE-bench Verified runs at `high` (67.98 and 65.91) and whichever Epoch listed first
+    was published. The rule, in order:
+
+    1. The vendor's own endpoint beats a third-party host (chutes/, fireworks/), whose
+       serving stack - quantisation, context limits - is not the vendor's.
+    2. A released model beats its pre-release checkpoint.
+    3. Repeated runs of the identical configuration are averaged: they are repeated
+       measurements of one thing, which is exactly when averaging is honest. The interval
+       is combined as for any mean.
+    4. Otherwise the most recent run.
+    """
+    if len(entries) == 1:
+        return entries[0], None
+
+    def rank(entry: dict) -> tuple[int, int]:
+        name = entry.get("variant") or ""
+        return (int(is_hosted(name)), int("pre-release" in split_name(name)[1]))
+
+    best = min(rank(entry) for entry in entries)
+    pool = [entry for entry in entries if rank(entry) == best]
+    note = None
+    if len(pool) < len(entries):
+        note = f"{len(entries) - len(pool)} hosted or pre-release run(s) set aside"
+    if len(pool) == 1:
+        return pool[0], note
+
+    names = {entry.get("variant") for entry in pool}
+    if len(names) == 1:
+        values = [entry["value"] for entry in pool]
+        errors = [entry.get("stderr") for entry in pool]
+        merged = dict(pool[0])
+        merged["value"] = round(sum(values) / len(values), 2)
+        merged["stderr"] = (
+            round((sum(e * e for e in errors) ** 0.5) / len(errors), 3)
+            if all(e is not None for e in errors) else None
+        )
+        merged["measured_at"] = max(
+            (entry.get("measured_at") or "" for entry in pool), default=""
+        ) or None
+        return merged, f"mean of {len(pool)} runs of the same configuration"
+
+    latest = max(pool, key=lambda entry: entry.get("measured_at") or "")
+    return latest, f"most recent of {len(pool)} runs"
 
 
 def pick_variant(entries: list[dict], key: str, policy: str) -> tuple[float, str]:
@@ -413,7 +509,8 @@ def build_models(
 
     for key in keys:
         meta = registry[key]
-        organization = meta["organization"]
+        organization = canonical_organization(meta["organization"])
+        display_name = display_name_for(meta, chosen_by_key[key])
         provider_id = slugify(organization)
         model_id = f"{provider_id}-{key}"
         providers.setdefault(organization, {
@@ -446,12 +543,14 @@ def build_models(
                     # another one would rebuild the Frankenstein this policy exists to
                     # avoid, so the cell is left missing and coverage reflects that.
                     continue
-                chosen_entry = matching[0]
+                chosen_entry, duplicate_note = resolve_same_configuration(matching)
                 value = chosen_entry["value"]
                 note = (
                     f"variant {chosen_label} ({chosen_entry.get('variant')})"
                     if len(slot["entries"]) > 1 else None
                 )
+                if duplicate_note:
+                    note = f"{note}; {duplicate_note}" if note else duplicate_note
             else:
                 value, note = pick_variant(slot["entries"], key, variant_policy)
                 chosen_entry = next(
@@ -477,7 +576,8 @@ def build_models(
                 "half_width_95": half_width,
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
-                "measured_at": slot["measured_at"],
+                # The run actually scored, not the newest run of any configuration.
+                "measured_at": chosen_entry.get("measured_at") or slot["measured_at"],
                 "contamination_flag": bool(evidence),
                 "contamination_evidence": evidence,
                 "notes": note or None,
@@ -580,7 +680,7 @@ def build_models(
 
         models.append({
             "id": model_id,
-            "display_name": meta["display_name"],
+            "display_name": display_name,
             "provider_id": provider_id,
             "is_open_weights": is_open,
             "license": meta["accessibility"] or None,
@@ -640,7 +740,7 @@ def build_models(
         })
         aliases[model_id] = {
             "canonical_key": key,
-            "display_name": meta["display_name"],
+            "display_name": display_name,
             "variant": chosen_label,
             "scored_arena_name": (
                 arena_by_key[key]["model_name"] if key in arena_by_key else None

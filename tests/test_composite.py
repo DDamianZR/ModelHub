@@ -9,7 +9,9 @@ from scripts.ingest.composite import (
     combine_weighted,
     effort_label,
     choose_model_variant,
+    display_name_for,
     pick_arena_variant,
+    resolve_same_configuration,
 )
 
 
@@ -26,6 +28,65 @@ class EffortLabelTests(unittest.TestCase):
 
     def test_effort_suffix_survives_thinking_prefix_stripping(self):
         self.assertEqual(effort_label("model-thinking-high", "model"), "high")
+
+    def test_label_does_not_depend_on_the_key_spelling(self):
+        """An aliased or protected name does not start with its key; subtracting the key
+        used to return the whole name as a configuration."""
+        self.assertEqual(effort_label("qwen3.8-max_xhigh", "qwen3.8-max"), "xhigh")
+        self.assertEqual(effort_label("qwen3.8-max", "qwen3.8-max"), "plain")
+        self.assertEqual(effort_label("mistral-small-2506", "mistral-small-3.2"), "plain")
+
+    def test_dates_are_not_configurations(self):
+        self.assertEqual(effort_label("claude-haiku-4-5-20251001"), "plain")
+        self.assertEqual(effort_label("claude-haiku-4-5-20251001_32K"), "32k")
+
+    def test_non_reasoning_is_effort_none(self):
+        self.assertEqual(effort_label("grok-4-1-fast-non-reasoning"), "none")
+
+
+class DisplayNameTests(unittest.TestCase):
+    META = {
+        "display_name": "Muse Spark 1.3 (high)",
+        "versions": [
+            {"version": "muse-spark-1.3_high", "display_name": "Muse Spark 1.3 (high)"},
+            {"version": "muse-spark-1.3_minimal", "display_name": "Muse Spark 1.3 (minimal)"},
+        ],
+    }
+
+    def test_the_scored_versions_own_name_is_used(self):
+        self.assertEqual(display_name_for(self.META, "minimal"), "Muse Spark 1.3 (minimal)")
+
+    def test_a_label_no_version_carries_is_appended_to_the_bare_name(self):
+        """Regression: the page said "(high)" over scores LiveBench measured at xhigh."""
+        self.assertEqual(display_name_for(self.META, "xhigh"), "Muse Spark 1.3 (xhigh)")
+
+    def test_non_effort_labels_are_not_shown_as_effort(self):
+        self.assertEqual(display_name_for(self.META, "plain"), "Muse Spark 1.3")
+
+
+class SameConfigurationTests(unittest.TestCase):
+    def test_reruns_are_averaged_not_first_row_wins(self):
+        """Regression: GPT-5.1 has two SWE-bench runs at high; CSV order picked one."""
+        row, note = resolve_same_configuration([
+            {"variant": "gpt-5.1_high", "value": 67.98, "stderr": 2.0, "measured_at": "2026-02-18"},
+            {"variant": "gpt-5.1_high", "value": 65.91, "stderr": 2.0, "measured_at": "2026-02-17"},
+        ])
+        self.assertAlmostEqual(row["value"], 66.94, places=2)
+        self.assertIn("mean of 2", note)
+
+    def test_vendor_run_beats_a_hosted_run(self):
+        row, _ = resolve_same_configuration([
+            {"variant": "chutes/gpt-oss-120b", "value": 60.0, "measured_at": "2026-05-01"},
+            {"variant": "gpt-oss-120b", "value": 55.0, "measured_at": "2026-01-01"},
+        ])
+        self.assertEqual(row["value"], 55.0)
+
+    def test_release_beats_pre_release(self):
+        row, _ = resolve_same_configuration([
+            {"variant": "gpt-5.5-pre-release_xhigh", "value": 90.0, "measured_at": "2026-04-01"},
+            {"variant": "gpt-5.5_xhigh", "value": 88.0, "measured_at": "2026-04-20"},
+        ])
+        self.assertEqual(row["value"], 88.0)
 
 
 def _slot(category, entries):

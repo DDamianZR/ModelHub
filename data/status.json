@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T07:02:15+00:00",
+  "generated_at": "2026-10-01T07:12:46+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -66,7 +66,7 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "2974ffd13210b1ec4df7bb41342bf0fa298f6d8fe746e7eb59fde3ea4b56d9b5",
+      "normalised_sha256": "62ad8087d985f70ab26a1efc944604f8b515234b2fcc22e20d3f168b592e34a3",
       "requests": 1,
       "upstream": [
         {
@@ -77,7 +77,7 @@
       ]
     },
     "livebench": {
-      "normalised_sha256": "dc408b7d6c8cbfb0382a0e051b543f579280b957de35480d0d4f7a0bd2437d4f",
+      "normalised_sha256": "6530d61ed24e45caf6eebf1dffa5b840e8f960c58c8cb5da5466105faf84c7e2",
       "requests": 4,
       "upstream": [
         {
@@ -103,7 +103,7 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "0de11ece3796e65b9a0f53c262679c084d93cb3134b8f1cf2a584baa97b4d110",
+      "normalised_sha256": "222e7efafc41fdd26270ae26f411cfb5406c854b42f42fc5d54984289805b39b",
       "requests": 9,
       "upstream": []
     }
