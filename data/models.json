@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-01",
+    "generated_at": "2026-10-02",
     "model_count": 86,
     "ranked_count": 64,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-01",
+      "epoch": "2026-10-02",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-30",
       "lmarena_vision": "2026-09-28"
@@ -1844,68 +1844,7 @@
       "human_preference_variant": "max",
       "vision": null,
       "rank": 26,
-      "tied_with": 1,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "xai-grok-4.7",
-      "display_name": "Grok 4.7 (high)",
-      "provider_id": "xai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-21",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 82.65,
-        "coding": 63.26,
-        "math": 95.68,
-        "instruction_following": 75.28,
-        "human_preference": 51.27
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "math": null,
-        "instruction_following": null,
-        "human_preference": 3.734
-      },
-      "composite": 74.6,
-      "composite_error": 0.56,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "xhigh",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 26,
-      "tied_with": 1,
+      "tied_with": 0,
       "cohort_recalibration": null
     },
     {
@@ -2237,8 +2176,8 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 32,
-      "tied_with": 1,
+      "rank": 31,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -2298,8 +2237,69 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 32,
-      "tied_with": 1,
+      "rank": 31,
+      "tied_with": 2,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "xai-grok-4.7",
+      "display_name": "Grok 4.7 (high)",
+      "provider_id": "xai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-21",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 77.13,
+        "coding": 63.26,
+        "math": 95.68,
+        "instruction_following": 75.28,
+        "human_preference": 51.27
+      },
+      "category_errors": {
+        "reasoning": 1.442,
+        "coding": null,
+        "math": null,
+        "instruction_following": null,
+        "human_preference": 3.734
+      },
+      "composite": 73.22,
+      "composite_error": 0.67,
+      "uncertainty": {
+        "measured_inputs": 3,
+        "total_inputs": 7,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 7
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 31,
+      "tied_with": 2,
       "cohort_recalibration": null
     },
     {
@@ -2359,7 +2359,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 33,
+      "rank": 32,
       "tied_with": 0,
       "cohort_recalibration": null
     },
@@ -2427,7 +2427,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 34,
+      "rank": 33,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2488,7 +2488,7 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 34,
+      "rank": 33,
       "tied_with": 2,
       "cohort_recalibration": null
     },
@@ -2556,7 +2556,7 @@
         "measured_at": "2026-09-28",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 34,
+      "rank": 33,
       "tied_with": 2,
       "cohort_recalibration": null
     },

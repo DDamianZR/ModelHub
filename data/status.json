@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-01T13:09:18+00:00",
+  "generated_at": "2026-10-02T12:30:09+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-10-01",
+      "last_success": "2026-10-02",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-10-01",
+      "last_success": "2026-10-02",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-10-01",
+      "last_success": "2026-10-02",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-10-01",
+      "date": "2026-10-02",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-09-30",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -50,7 +50,7 @@
     },
     "lmarena": {
       "date": "2026-09-30",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -66,13 +66,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "2974ffd13210b1ec4df7bb41342bf0fa298f6d8fe746e7eb59fde3ea4b56d9b5",
+      "normalised_sha256": "9089542545afe65a31e7e019a5afd058ed4cc5d4e22ba01d0bdbb66e8f88b794",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "6b54b24aa073133f730f52dce6e7071996165625180403faa5e7724f540f61fc",
-          "bytes": 2352978
+          "sha256": "71872175c30c47602525a8c684ce022a3f1fa61a1910d649a1bb06c0c37f586f",
+          "bytes": 2353322
         }
       ]
     },

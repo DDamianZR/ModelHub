@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-01",
+    "generated_at": "2026-10-02",
     "model_count": 86,
     "ranked_count": 64,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-01",
+      "epoch": "2026-10-02",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-09-30",
       "lmarena_vision": "2026-09-28"
@@ -4955,6 +4955,36 @@
       "variant": "plain",
       "variant_mismatch": "high",
       "measured_name": "grok-4.6-high"
+    },
+    {
+      "model_id": "xai-grok-4.7",
+      "benchmark_id": "gpqa_diamond",
+      "value": 92.74,
+      "unit": "percent",
+      "stderr": 1.551,
+      "half_width_95": 3.04,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-09-22",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": null,
+      "variant": "xhigh"
+    },
+    {
+      "model_id": "xai-grok-4.7",
+      "benchmark_id": "simpleqa_verified",
+      "value": 56.0,
+      "unit": "percent",
+      "stderr": 1.57,
+      "half_width_95": 3.077,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://epoch.ai/benchmarks",
+      "measured_at": "2026-09-22",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": null,
+      "variant": "xhigh"
     },
     {
       "model_id": "xai-grok-4.7",

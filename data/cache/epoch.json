@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-01",
+  "fetched_at": "2026-10-02",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -5146,6 +5146,28 @@
           "stderr": 1.582,
           "value": 48.9,
           "variant": "grok-4.6_xhigh"
+        }
+      ],
+      "grok-4.7": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-09-22",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.551,
+          "value": 92.74,
+          "variant": "grok-4.7_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-09-22",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.57,
+          "value": 56.0,
+          "variant": "grok-4.7_xhigh"
         }
       ],
       "inkling": [
