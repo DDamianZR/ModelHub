@@ -1133,9 +1133,10 @@
     "canonical_key": "gpt-6.1-sol",
     "display_name": "GPT-6.1 Sol (high)",
     "variant": "max",
-    "scored_arena_name": null,
+    "scored_arena_name": "gpt-6.1-sol-max",
     "names": [
-      "gpt-6.1-sol"
+      "gpt-6.1-sol",
+      "gpt-6.1-sol-max"
     ],
     "matched": {
       "epoch": [
@@ -1145,7 +1146,9 @@
         "gpt-6.1-sol-max",
         "gpt-6.1-sol-xhigh"
       ],
-      "lmarena": []
+      "lmarena": [
+        "gpt-6.1-sol-max"
+      ]
     }
   },
   "openai-gpt-oss-20b": {

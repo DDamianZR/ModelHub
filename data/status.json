@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-02T12:30:09+00:00",
+  "generated_at": "2026-10-03T11:37:23+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-10-02",
+      "last_success": "2026-10-03",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-10-02",
+      "last_success": "2026-10-03",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-10-02",
+      "last_success": "2026-10-03",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-10-02",
+      "date": "2026-10-03",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-09-30",
-      "age_days": 2,
+      "age_days": 3,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -49,8 +49,8 @@
       }
     },
     "lmarena": {
-      "date": "2026-09-30",
-      "age_days": 2,
+      "date": "2026-10-02",
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -71,8 +71,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "71872175c30c47602525a8c684ce022a3f1fa61a1910d649a1bb06c0c37f586f",
-          "bytes": 2353322
+          "sha256": "5e7acc5bafee17f8ecd8536a53a66206f2fccca769c938a9f59db2daf683b8c5",
+          "bytes": 2353424
         }
       ]
     },
@@ -103,7 +103,7 @@
       ]
     },
     "lmarena": {
-      "normalised_sha256": "0de11ece3796e65b9a0f53c262679c084d93cb3134b8f1cf2a584baa97b4d110",
+      "normalised_sha256": "cc1c26ddda6208417bd22ff06320c2f1c7a36b51414ade9b7b11415c2637dca6",
       "requests": 7,
       "upstream": []
     }
