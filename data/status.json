@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-04T12:18:20+00:00",
+  "generated_at": "2026-10-05T14:31:41+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-10-04",
+      "last_success": "2026-10-05",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-10-04",
+      "last_success": "2026-10-05",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-10-04",
+      "last_success": "2026-10-05",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-10-04",
+      "date": "2026-10-05",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +33,7 @@
     },
     "livebench": {
       "date": "2026-09-30",
-      "age_days": 4,
+      "age_days": 5,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -50,7 +50,7 @@
     },
     "lmarena": {
       "date": "2026-10-02",
-      "age_days": 2,
+      "age_days": 3,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -66,13 +66,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "9089542545afe65a31e7e019a5afd058ed4cc5d4e22ba01d0bdbb66e8f88b794",
+      "normalised_sha256": "90aca0a583429c9b7e362d1abb5db8e553c06ffcc3a451fb8780ecad1df221af",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "43820f9d624eafa7b9932ab11a8fef90959997bbe6b5866d31795d08f470aef4",
-          "bytes": 2353424
+          "sha256": "91cbe8bf15e6dd1bb70b7c51f192305d1064978373f414b45caf874cc96ad50a",
+          "bytes": 2359412
         }
       ]
     },
@@ -104,7 +104,7 @@
     },
     "lmarena": {
       "normalised_sha256": "cc1c26ddda6208417bd22ff06320c2f1c7a36b51414ade9b7b11415c2637dca6",
-      "requests": 11,
+      "requests": 7,
       "upstream": []
     }
   }

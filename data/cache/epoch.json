@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-04",
+  "fetched_at": "2026-10-05",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -253,7 +253,7 @@
       "claude-opus-5-5": {
         "accessibility": "API access",
         "country": "United States of America",
-        "display_name": "Claude Opus 5.5 (max)",
+        "display_name": "Claude Opus 5.5 (high)",
         "eci": 167.35,
         "organization": "Anthropic",
         "release_date": "2026-09-22"
@@ -817,6 +817,14 @@
         "eci": 156.93,
         "organization": "Google DeepMind",
         "release_date": "2026-09-02"
+      },
+      "gemini-4-argon": {
+        "accessibility": "Limited access",
+        "country": "United States of America",
+        "display_name": "Gemini 4 Argon (high)",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-09-30"
       },
       "gemini-robotics-er-1.5": {
         "accessibility": "",
@@ -1610,6 +1618,22 @@
         "organization": "Xiaomi Corp",
         "release_date": "2026-04-23"
       },
+      "mimo-v2.6-flash": {
+        "accessibility": "",
+        "country": "China",
+        "display_name": "MiMo-V2.6 Flash",
+        "eci": 0.0,
+        "organization": "Xiaomi Corp",
+        "release_date": "2026-09-21"
+      },
+      "mimo-v2.6-pro": {
+        "accessibility": "",
+        "country": "China",
+        "display_name": "MiMo-V2.6 Pro",
+        "eci": 0.0,
+        "organization": "Xiaomi Corp",
+        "release_date": "2026-09-21"
+      },
       "minimax-m1-80k": {
         "accessibility": "Open weights (unrestricted)",
         "country": "China",
@@ -1721,6 +1745,14 @@
         "eci": 0.0,
         "organization": "Moonshot",
         "release_date": "2025-09-05"
+      },
+      "muse-glimmer": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Muse Glimmer (high)",
+        "eci": 0.0,
+        "organization": "Meta AI",
+        "release_date": "2026-08-10"
       },
       "muse-spark": {
         "accessibility": "API access",
@@ -2141,7 +2173,7 @@
       "step-5": {
         "accessibility": "API access",
         "country": "China",
-        "display_name": "Step 5 Preview (unknown)",
+        "display_name": "Step 5 Preview (high)",
         "eci": 0.0,
         "organization": "StepFun",
         "release_date": "2026-09-18"
