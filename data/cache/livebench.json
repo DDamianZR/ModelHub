@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06",
+  "fetched_at": "2026-10-07",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -1983,6 +1983,44 @@
           "source_url": "https://livebench.ai/",
           "value": 57.51,
           "variant": "minimax-m3"
+        }
+      ],
+      "mistral-large-4": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 80.94,
+          "variant": "mistral-large-4-high"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.45,
+          "variant": "mistral-large-4-high"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 93.58,
+          "variant": "mistral-large-4-high"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.82,
+          "variant": "mistral-large-4-high"
         }
       ],
       "muse-spark-1.1": [
