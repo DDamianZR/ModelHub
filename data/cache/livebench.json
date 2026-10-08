@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07",
+  "fetched_at": "2026-10-08",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -89,6 +89,80 @@
           "source_url": "https://livebench.ai/",
           "value": 72.99,
           "variant": "claude-fable-5-1-max-effort"
+        }
+      ],
+      "claude-haiku-5-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 81.23,
+          "variant": "claude-haiku-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 61.38,
+          "variant": "claude-haiku-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.75,
+          "variant": "claude-haiku-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 66.47,
+          "variant": "claude-haiku-5-5-xhigh-effort"
+        },
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 84.63,
+          "variant": "claude-haiku-5-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.45,
+          "variant": "claude-haiku-5-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.44,
+          "variant": "claude-haiku-5-5-max-effort"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 54.66,
+          "variant": "claude-haiku-5-5-max-effort"
         }
       ],
       "claude-opus-4-5": [
@@ -1992,7 +2066,7 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 80.94,
+          "value": 83.94,
           "variant": "mistral-large-4-high"
         },
         {
@@ -2001,7 +2075,7 @@
           "measured_at": "2026-06-25",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 64.45,
+          "value": 65.17,
           "variant": "mistral-large-4-high"
         },
         {

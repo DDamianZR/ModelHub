@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07",
+  "fetched_at": "2026-10-08",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -113,6 +113,14 @@
         "eci": 142.41,
         "organization": "Anthropic",
         "release_date": "2025-10-15"
+      },
+      "claude-haiku-5-5": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Claude Haiku 5.5 (high)",
+        "eci": 0.0,
+        "organization": "Anthropic",
+        "release_date": "2026-10-07"
       },
       "claude-mythos": {
         "accessibility": "Limited access",
