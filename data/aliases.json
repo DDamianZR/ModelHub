@@ -61,6 +61,25 @@
       ]
     }
   },
+  "anthropic-claude-haiku-5-5": {
+    "canonical_key": "claude-haiku-5-5",
+    "display_name": "Claude Haiku 5.5 (high)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "claude-haiku-5-5"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-haiku-5-5_max"
+      ],
+      "livebench": [
+        "claude-haiku-5-5-max-effort",
+        "claude-haiku-5-5-xhigh-effort"
+      ],
+      "lmarena": []
+    }
+  },
   "anthropic-claude-opus-4-1": {
     "canonical_key": "claude-opus-4-1",
     "display_name": "Claude Opus 4.1",
@@ -399,7 +418,9 @@
       "deepseek-v4.1-flash-max"
     ],
     "matched": {
-      "epoch": [],
+      "epoch": [
+        "deepseek-v4.1-flash_max"
+      ],
       "livebench": [
         "deepseek-v4.1-flash-max"
       ],

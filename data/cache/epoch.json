@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09",
+  "fetched_at": "2026-10-10",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -1698,6 +1698,14 @@
         "organization": "Mistral AI",
         "release_date": "2025-12-02"
       },
+      "mistral-large-4-0": {
+        "accessibility": "",
+        "country": "France",
+        "display_name": "Mistral Large 4 (high)",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2026-10-06"
+      },
       "mistral-medium-2508": {
         "accessibility": "API access",
         "country": "France",
@@ -2410,6 +2418,28 @@
           "stderr": 1.172,
           "value": 4.14,
           "variant": "claude-haiku-4-5-20251001"
+        }
+      ],
+      "claude-haiku-5-5": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-09",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.977,
+          "value": 89.65,
+          "variant": "claude-haiku-5-5_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-09",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.347,
+          "value": 23.8,
+          "variant": "claude-haiku-5-5_max"
         }
       ],
       "claude-opus-4-1": [
@@ -3214,6 +3244,18 @@
           "stderr": 1.581,
           "value": 52.91,
           "variant": "deepseek-v4-pro-0813_max"
+        }
+      ],
+      "deepseek-v4.1-flash": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-09",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.729,
+          "value": 89.84,
+          "variant": "deepseek-v4.1-flash_max"
         }
       ],
       "fireworks/deepseek-v3p2": [
@@ -5438,6 +5480,18 @@
           "stderr": 2.048,
           "value": 90.91,
           "variant": "MiniMax-M3"
+        }
+      ],
+      "mistral-large-4-0": [
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-09",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.266,
+          "value": 20.0,
+          "variant": "mistral-large-4-0_high"
         }
       ],
       "mistral-small-3.2-2506": [
