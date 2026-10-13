@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12",
+  "fetched_at": "2026-10-13",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -1809,6 +1809,22 @@
         "eci": 156.75,
         "organization": "Meta AI",
         "release_date": "2026-09-02"
+      },
+      "muse-wonder-1.0": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Muse Wonder (high)",
+        "eci": 0.0,
+        "organization": "Meta AI",
+        "release_date": "2026-10-12"
+      },
+      "muse-wonder-1.0-minimal": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Muse Wonder (minimal)",
+        "eci": 0.0,
+        "organization": "Meta AI",
+        "release_date": "2026-10-12"
       },
       "nemotron-3-super": {
         "accessibility": "Open weights (unrestricted)",

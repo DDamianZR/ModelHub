@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12",
+  "fetched_at": "2026-10-13",
   "payload": {
     "published_snapshots": [
       "2024-06-24",
@@ -2209,6 +2209,44 @@
           "source_url": "https://livebench.ai/",
           "value": 78.0,
           "variant": "muse-spark-1.3-xhigh"
+        }
+      ],
+      "muse-wonder-1.0": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.63,
+          "variant": "muse-wonder-1.0-max"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 69.91,
+          "variant": "muse-wonder-1.0-max"
+        },
+        {
+          "benchmark_id": "livebench_math",
+          "category": "math",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.47,
+          "variant": "muse-wonder-1.0-max"
+        },
+        {
+          "benchmark_id": "livebench_instruction_following",
+          "category": "instruction_following",
+          "measured_at": "2026-06-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 73.03,
+          "variant": "muse-wonder-1.0-max"
         }
       ],
       "nemotron-3-ultra-550b-a55b": [
