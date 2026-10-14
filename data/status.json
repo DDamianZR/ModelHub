@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-13T14:08:57+00:00",
+  "generated_at": "2026-10-14T11:47:16+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-10-13",
+      "last_success": "2026-10-14",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-10-13",
+      "last_success": "2026-10-14",
       "error": null,
       "consecutive_failures": 0
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-10-13",
+      "last_success": "2026-10-14",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +24,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -32,25 +32,18 @@
       "degraded_days": 4
     },
     "livebench": {
-      "date": "2026-10-13",
-      "age_days": 0,
+      "date": "2026-09-02",
+      "age_days": 42,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
       "degraded_days": 120,
-      "snapshot": "2026-06-25",
-      "category": "instruction_following",
-      "observed": {
-        "snapshots": 11,
-        "median_gap_days": 35.5,
-        "longest_gap_days": 179,
-        "first": "2024-06-24",
-        "last": "2026-06-25"
-      }
+      "snapshot": "2026-09-02",
+      "category": "instruction_following"
     },
     "lmarena": {
-      "date": "2026-10-08",
-      "age_days": 5,
+      "date": "2026-10-13",
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -66,45 +59,45 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "072a04b2192092d7971d50d035ce10671d40a14edc52d12f9fd09e17eac6800a",
+      "normalised_sha256": "6869e673d055ff3f1e47fb1bfcc4138be8acbd75542c35102109665cc4a81ed0",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "d668e81c47b080bbefb2a0c359634f4a537be1e05305e863df5c9d9189680c88",
-          "bytes": 2379518
+          "sha256": "8e5d35782ae6b42382ef4bb2d7f5276108c31f72f7537c75c1ac1ef517e0dbd7",
+          "bytes": 2382353
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "dc7fe7d26b97e3abefb4e076cdd3b002fbf013ae03d9bfa73d29b6c7d048c734",
+      "normalised_sha256": "5b2df882dac2249e71726d04276000d4e0f4c87fbed03cbf183adca4a8c65c82",
       "requests": 4,
       "upstream": [
         {
           "url": "https://livebench.ai/",
-          "sha256": "d02795bd4ae7e74cea8f47569d3a46f751e9ec6565c09ed303ea74f5c5449487",
-          "bytes": 1066
+          "sha256": "7b1859185eacdbaaae8243c43c2d271fee865d0097a4d0f297dc2fa7cf37b56c",
+          "bytes": 889
         },
         {
-          "url": "https://livebench.ai/categories_2026_06_25.json",
-          "sha256": "dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
-          "bytes": 725
+          "url": "https://livebench.ai/categories_2026_09_02.json",
+          "sha256": "6af780738e495c0339618208ded779325e59d951c38ead7a566fe54e68bb07b1",
+          "bytes": 272
         },
         {
-          "url": "https://livebench.ai/static/js/main.ce1e731f.js",
-          "sha256": "2a2b1023aebc9e0ae24aae3976d30ced4ced039f2d7843c6c59c560e436bd7b0",
-          "bytes": 321314
+          "url": "https://livebench.ai/static/js/main.29c01f51.js",
+          "sha256": "246a064ed4df513be01aacf559399c64b768157f83d2b161bb96dd7f6c13a634",
+          "bytes": 356575
         },
         {
-          "url": "https://livebench.ai/table_2026_06_25.csv",
-          "sha256": "bf9ce6130134893d61157c214865de13d265a5e30790ff6cd4e3142a25113799",
-          "bytes": 11736
+          "url": "https://livebench.ai/table_2026_09_02.csv",
+          "sha256": "6d952b3dce8667f3b523e0982253c4a6942f7f368b00fa98acddaf56c1cdc558",
+          "bytes": 1844
         }
       ]
     },
     "lmarena": {
-      "normalised_sha256": "158586bd3ce59adef9dab0463df24b6d5158699deee5a3d8b3011e9096122343",
-      "requests": 7,
+      "normalised_sha256": "dc5465e061e40228ce4934596dac42078e967f0ec8f09d872612f41eb6709bbf",
+      "requests": 12,
       "upstream": []
     }
   }

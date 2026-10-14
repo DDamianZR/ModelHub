@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13",
+  "fetched_at": "2026-10-14",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -830,6 +830,14 @@
         "accessibility": "Limited access",
         "country": "United States of America",
         "display_name": "Gemini 4 Argon (high)",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-09-30"
+      },
+      "gemini-4-argon-minimal": {
+        "accessibility": "Limited access",
+        "country": "United States of America",
+        "display_name": "Gemini 4 Argon (minimal)",
         "eci": 0.0,
         "organization": "Google DeepMind",
         "release_date": "2026-09-30"
@@ -3272,6 +3280,16 @@
           "stderr": 1.729,
           "value": 89.84,
           "variant": "deepseek-v4.1-flash_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.566,
+          "value": 42.9,
+          "variant": "deepseek-v4.1-flash_max"
         }
       ],
       "fireworks/deepseek-v3p2": [
@@ -3742,6 +3760,28 @@
           "stderr": 1.454,
           "value": 69.7,
           "variant": "gemini-3.8-flash_high"
+        }
+      ],
+      "gemini-4-argon": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.192,
+          "value": 96.4,
+          "variant": "gemini-4-argon_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-13",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.351,
+          "value": 76.0,
+          "variant": "gemini-4-argon_high"
         }
       ],
       "gemma-4-26b-a4b-it-minimal": [
@@ -5499,6 +5539,16 @@
         }
       ],
       "mistral-large-4-0": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-12",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.933,
+          "value": 88.07,
+          "variant": "mistral-large-4-0_high"
+        },
         {
           "benchmark_id": "simpleqa_verified",
           "category": "reasoning",
