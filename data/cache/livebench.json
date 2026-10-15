@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14",
+  "fetched_at": "2026-10-15",
   "payload": {
     "published_snapshots": [
       "2026-09-02"
@@ -325,6 +325,26 @@
           "variant": "gemini-4-argon"
         }
       ],
+      "gemma-4-31b": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 68.3,
+          "variant": "gemma-4-31b"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 49.0,
+          "variant": "gemma-4-31b"
+        }
+      ],
       "glm-5.3": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -585,6 +605,26 @@
           "variant": "grok-4.7"
         }
       ],
+      "inkling": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.3,
+          "variant": "inkling"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 64.0,
+          "variant": "inkling"
+        }
+      ],
       "kimi-k3": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -603,6 +643,66 @@
           "source_url": "https://livebench.ai/",
           "value": 59.3,
           "variant": "kimi-k3"
+        }
+      ],
+      "mimo-v2.6-pro": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 79.6,
+          "variant": "mimo-v2.6-pro"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 81.5,
+          "variant": "mimo-v2.6-pro"
+        }
+      ],
+      "minimax-m3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.5,
+          "variant": "minimax-m3"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 70.9,
+          "variant": "minimax-m3"
+        }
+      ],
+      "mistral-large-4": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.9,
+          "variant": "mistral-large-4"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 60.0,
+          "variant": "mistral-large-4"
         }
       ],
       "muse-spark-1.2": [
@@ -665,6 +765,46 @@
           "variant": "muse-wonder-1.0"
         }
       ],
+      "nemotron-lightning-3.5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 42.9,
+          "variant": "nemotron-lightning-3.5"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 22.6,
+          "variant": "nemotron-lightning-3.5"
+        }
+      ],
+      "nemotron-ultra-3": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 74.7,
+          "variant": "nemotron-ultra-3"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 43.6,
+          "variant": "nemotron-ultra-3"
+        }
+      ],
       "qwen3.8": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -685,6 +825,26 @@
           "variant": "qwen3.8-max"
         }
       ],
+      "qwen3.8-27b": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 80.0,
+          "variant": "qwen3.8-27b"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 86.8,
+          "variant": "qwen3.8-27b"
+        }
+      ],
       "qwen3.8-flash": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -701,7 +861,7 @@
           "measured_at": "2026-09-02",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 53.5,
+          "value": 87.4,
           "variant": "qwen3.8-flash"
         }
       ],

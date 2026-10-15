@@ -528,7 +528,7 @@
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4-31b",
     "display_name": "Gemma 4 31B IT",
-    "variant": "it",
+    "variant": "plain",
     "scored_arena_name": "gemma-4-31b",
     "names": [
       "gemma-4-31b"
@@ -537,7 +537,9 @@
       "epoch": [
         "gemma-4-31b-it"
       ],
-      "livebench": [],
+      "livebench": [
+        "gemma-4-31b"
+      ],
       "lmarena": [
         "gemma-4-31b"
       ]
@@ -1155,7 +1157,7 @@
   "thinking-machines-inkling": {
     "canonical_key": "inkling",
     "display_name": "Inkling",
-    "variant": "xhigh",
+    "variant": "plain",
     "scored_arena_name": "inkling",
     "names": [
       "inkling"
@@ -1164,7 +1166,9 @@
       "epoch": [
         "Inkling_xhigh"
       ],
-      "livebench": [],
+      "livebench": [
+        "inkling"
+      ],
       "lmarena": [
         "inkling"
       ]
@@ -1267,6 +1271,24 @@
       ]
     }
   },
+  "xiaomi-corp-mimo-v2.6-pro": {
+    "canonical_key": "mimo-v2.6-pro",
+    "display_name": "MiMo-V2.6 Pro",
+    "variant": "plain",
+    "scored_arena_name": "mimo-v2.6-pro",
+    "names": [
+      "mimo-v2.6-pro"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "mimo-v2.6-pro"
+      ],
+      "lmarena": [
+        "mimo-v2.6-pro"
+      ]
+    }
+  },
   "minimax-minimax-m3": {
     "canonical_key": "minimax-m3",
     "display_name": "MiniMax-M3",
@@ -1280,7 +1302,9 @@
         "MiniMax-M3",
         "MiniMax-M3_none"
       ],
-      "livebench": [],
+      "livebench": [
+        "minimax-m3"
+      ],
       "lmarena": [
         "minimax-m3"
       ]
@@ -1586,6 +1610,24 @@
       ],
       "lmarena": [
         "qwen3.8-max"
+      ]
+    }
+  },
+  "alibaba-qwen3.8-27b": {
+    "canonical_key": "qwen3.8-27b",
+    "display_name": "Qwen3.8 27B",
+    "variant": "plain",
+    "scored_arena_name": "qwen3.8-27b",
+    "names": [
+      "qwen3.8-27b"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "qwen3.8-27b"
+      ],
+      "lmarena": [
+        "qwen3.8-27b"
       ]
     }
   }
