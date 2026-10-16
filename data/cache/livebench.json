@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15",
+  "fetched_at": "2026-10-16",
   "payload": {
     "published_snapshots": [
       "2026-09-02"
@@ -745,6 +745,26 @@
           "variant": "muse-spark-1.3"
         }
       ],
+      "muse-spark-open": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 73.7,
+          "variant": "muse-spark-open"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 73.6,
+          "variant": "muse-spark-open"
+        }
+      ],
       "muse-wonder-1.0": [
         {
           "benchmark_id": "livebench_reasoning",
@@ -783,6 +803,26 @@
           "source_url": "https://livebench.ai/",
           "value": 22.6,
           "variant": "nemotron-lightning-3.5"
+        }
+      ],
+      "nemotron-super-vl-3.5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.8,
+          "variant": "nemotron-super-vl-3.5"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 65.5,
+          "variant": "nemotron-super-vl-3.5"
         }
       ],
       "nemotron-ultra-3": [
@@ -883,6 +923,26 @@
           "source_url": "https://livebench.ai/",
           "value": 60.1,
           "variant": "smaug-flash"
+        }
+      ],
+      "step-5": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.8,
+          "variant": "step-5-preview"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 85.6,
+          "variant": "step-5-preview"
         }
       ]
     },

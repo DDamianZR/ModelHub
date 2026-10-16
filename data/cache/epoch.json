@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15",
+  "fetched_at": "2026-10-16",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -979,7 +979,7 @@
         "release_date": "2026-06-16"
       },
       "glm-5.3": {
-        "accessibility": "API access",
+        "accessibility": "Open weights (restricted use)",
         "country": "China",
         "display_name": "GLM-5.3 (high)",
         "eci": 155.91,
@@ -1825,6 +1825,14 @@
         "eci": 156.76,
         "organization": "Meta AI",
         "release_date": "2026-09-02"
+      },
+      "muse-spark-open-816b-a42b": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "United States of America",
+        "display_name": "Muse Spark Open (high)",
+        "eci": 0.0,
+        "organization": "Meta AI",
+        "release_date": "2026-10-15"
       },
       "muse-wonder-1.0": {
         "accessibility": "API access",
@@ -5636,6 +5644,28 @@
           "stderr": 1.552,
           "value": 60.3,
           "variant": "muse-spark-1.2_xhigh"
+        }
+      ],
+      "muse-spark-open-816b-a42b": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.871,
+          "value": 88.57,
+          "variant": "Muse-Spark-Open-816B-A42B_xhigh"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-15",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.568,
+          "value": 56.6,
+          "variant": "Muse-Spark-Open-816B-A42B_xhigh"
         }
       ],
       "nemotron-3-ultra": [
