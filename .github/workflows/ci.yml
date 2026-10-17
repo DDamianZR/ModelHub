@@ -11,7 +11,12 @@ jobs:
     timeout-minutes: 15
 
     steps:
+      # Two commits deep so the audit can compare against the parent: on a pull request
+      # that is the base branch tip (first parent of the merge ref), on a push the
+      # previous commit.
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
 
       - uses: actions/setup-node@v7
         with:
@@ -28,9 +33,11 @@ jobs:
         run: python -m unittest discover -s tests
 
       # The description generator and this audit share checks.py. Running it here is what
-      # stops the two standards drifting apart again.
+      # stops the two standards drifting apart again. Entries this change adds or rewrites
+      # are held to the full standard; entries it leaves untouched are reported but do not
+      # fail, since the daily ingest makes some committed prose stale on its own.
       - name: Audit generated descriptions
-        run: python -m scripts.enrich.audit
+        run: python -m scripts.enrich.audit --baseline HEAD^1
 
       - run: npm ci
 
