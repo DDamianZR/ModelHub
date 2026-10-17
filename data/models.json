@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-16",
+    "generated_at": "2026-10-17",
     "model_count": 78,
     "ranked_count": 16,
     "provisional_count": 62,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-16",
+      "epoch": "2026-10-17",
       "livebench": "2026-09-02",
       "lmarena_text": "2026-10-15",
       "lmarena_vision": "2026-10-09"
@@ -86,12 +86,7 @@
       },
       "rank": 1,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 15.26,
-        "composite_effect": 2.69,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3-pro",
@@ -159,12 +154,7 @@
       },
       "rank": 1,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 16.36,
-        "composite_effect": 2.89,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.5-flash",
@@ -232,12 +222,7 @@
       },
       "rank": 1,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 16.64,
-        "composite_effect": 2.94,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3-flash",
@@ -305,12 +290,7 @@
       },
       "rank": 2,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 15.15,
-        "composite_effect": 2.67,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5",
@@ -378,12 +358,7 @@
       },
       "rank": 4,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 10.1,
-        "composite_effect": 1.78,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-5",
@@ -444,12 +419,7 @@
       "vision": null,
       "rank": 5,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 13.91,
-        "composite_effect": 2.45,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.6",
@@ -517,12 +487,7 @@
       },
       "rank": 5,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 14.33,
-        "composite_effect": 2.53,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5",
@@ -583,12 +548,7 @@
       "vision": null,
       "rank": 5,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 13.43,
-        "composite_effect": 2.37,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.1",
@@ -649,12 +609,7 @@
       "vision": null,
       "rank": 6,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 14.83,
-        "composite_effect": 2.62,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6",
@@ -715,12 +670,7 @@
       "vision": null,
       "rank": 6,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.2,
-        "normalized_delta": 13.71,
-        "composite_effect": 2.42,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.1",
@@ -788,12 +738,7 @@
       },
       "rank": 8,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 13.23,
-        "composite_effect": 2.33,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.2",
@@ -861,12 +806,7 @@
       },
       "rank": 9,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 10.97,
-        "composite_effect": 1.94,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-pro",
@@ -934,12 +874,7 @@
       },
       "rank": 9,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 14.5,
-        "composite_effect": 2.56,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-1",
@@ -1000,12 +935,7 @@
       "vision": null,
       "rank": 13,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 11.22,
-        "composite_effect": 1.98,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6-plus",
@@ -1066,12 +996,7 @@
       "vision": null,
       "rank": 14,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 12.66,
-        "composite_effect": 2.23,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-4-5",
@@ -1132,12 +1057,7 @@
       "vision": null,
       "rank": 16,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 12.85,
-        "composite_effect": 2.27,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-fable-5",
@@ -1395,12 +1315,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 14.38,
-        "composite_effect": 3.32,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.5",
@@ -1467,12 +1382,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 13.67,
-        "composite_effect": 3.15,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-terra",
@@ -1605,12 +1515,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 14.22,
-        "composite_effect": 5.33,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.8-flash",
@@ -1742,12 +1647,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 16.27,
-        "composite_effect": 6.1,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark-1.2",
@@ -1873,12 +1773,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.4,
-        "normalized_delta": 17.48,
-        "composite_effect": 4.03,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.7-flash",
@@ -2011,12 +1906,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.3,
-        "normalized_delta": 13.07,
-        "composite_effect": 3.02,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "stepfun-step-5",
@@ -2149,12 +2039,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.2,
-        "normalized_delta": 13.72,
-        "composite_effect": 5.14,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-6-astra",
@@ -2354,12 +2239,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 13.04,
-        "composite_effect": 3.01,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-397b-a17b",
@@ -2425,12 +2305,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 12.71,
-        "composite_effect": 4.77,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.1-pro",
@@ -2497,12 +2372,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 16.35,
-        "composite_effect": 3.77,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.8",
@@ -2569,12 +2439,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.4,
-        "normalized_delta": 16.82,
-        "composite_effect": 3.88,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.7",
@@ -2634,12 +2499,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 15.97,
-        "composite_effect": 3.69,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.5-flash-lite",
@@ -2705,12 +2565,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 12.44,
-        "composite_effect": 4.67,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-luna",
@@ -2777,12 +2632,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 12.23,
-        "composite_effect": 2.82,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3",
@@ -2842,12 +2692,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 12.89,
-        "composite_effect": 3.22,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2-thinking-turbo",
@@ -2906,12 +2751,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 10.84,
-        "composite_effect": 4.07,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.5-instant",
@@ -2977,12 +2817,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 11.19,
-        "composite_effect": 4.2,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "minimax-minimax-m3",
@@ -3049,12 +2884,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 12.38,
-        "composite_effect": 2.86,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.2",
@@ -3114,12 +2944,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.4,
-        "normalized_delta": 15.74,
-        "composite_effect": 3.63,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5.3",
@@ -3178,12 +3003,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 15.7,
-        "composite_effect": 5.89,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k3",
@@ -3308,12 +3128,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 10.94,
-        "composite_effect": 4.1,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4-pro",
@@ -3373,12 +3188,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 13.92,
-        "composite_effect": 3.21,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4.1-flash",
@@ -3444,12 +3254,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.3,
-        "normalized_delta": 15.07,
-        "composite_effect": 5.65,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark",
@@ -3516,12 +3321,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 15.88,
-        "composite_effect": 3.97,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "thinking-machines-inkling",
@@ -3581,12 +3381,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.2,
-        "normalized_delta": 13.18,
-        "composite_effect": 3.04,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-35b-a3b",
@@ -3645,12 +3440,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.2,
-        "normalized_delta": 9.22,
-        "composite_effect": 3.46,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark-1.1",
@@ -3716,12 +3506,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 16.22,
-        "composite_effect": 6.08,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.6",
@@ -3787,12 +3572,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.4,
-        "normalized_delta": 11.76,
-        "composite_effect": 4.41,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-6-sol",
@@ -3924,12 +3704,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 14.54,
-        "composite_effect": 5.45,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.7",
@@ -3995,12 +3770,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 9.61,
-        "composite_effect": 3.6,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-8",
@@ -4067,12 +3837,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 14.22,
-        "composite_effect": 3.55,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4",
@@ -4139,12 +3904,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 14.06,
-        "composite_effect": 3.52,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-4.7",
@@ -4203,12 +3963,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 12.57,
-        "composite_effect": 4.71,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemma-4-31b",
@@ -4275,12 +4030,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 13.25,
-        "composite_effect": 3.06,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-o3",
@@ -4347,12 +4097,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 10.41,
-        "composite_effect": 2.6,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3-235b-a22b-thinking-2507",
@@ -4411,12 +4156,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 10.89,
-        "composite_effect": 4.08,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-6-luna",
@@ -4482,12 +4222,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 8.92,
-        "composite_effect": 3.35,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.5",
@@ -4554,12 +4289,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 13.42,
-        "composite_effect": 3.1,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.3",
@@ -4625,12 +4355,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 9.39,
-        "composite_effect": 3.52,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4-0709",
@@ -4697,12 +4422,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 10.53,
-        "composite_effect": 2.63,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "thinking-machines-inkling-small",
@@ -4768,12 +4488,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.4,
-        "normalized_delta": 10.86,
-        "composite_effect": 4.07,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3-30b-a3b-instruct-2507",
@@ -4832,12 +4547,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 8.26,
-        "composite_effect": 3.1,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5-mini",
@@ -4904,12 +4614,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 7.32,
-        "composite_effect": 1.83,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4-mini",
@@ -4976,12 +4681,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 10.51,
-        "composite_effect": 2.63,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-haiku-4-5",
@@ -5041,12 +4741,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.1,
-        "normalized_delta": 9.38,
-        "composite_effect": 2.35,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5-nano",
@@ -5239,12 +4934,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 7.16,
-        "composite_effect": 1.79,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-flash",
@@ -5304,12 +4994,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.2,
-        "normalized_delta": 9.26,
-        "composite_effect": 2.32,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-flash",
@@ -5375,12 +5060,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": -0.1,
-        "normalized_delta": 11.0,
-        "composite_effect": 4.71,
-        "threshold": 1.42
-      }
+      "cohort_recalibration": null
     }
   ]
 }

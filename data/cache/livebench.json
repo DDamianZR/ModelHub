@@ -1,10 +1,30 @@
 {
-  "fetched_at": "2026-10-16",
+  "fetched_at": "2026-10-17",
   "payload": {
     "published_snapshots": [
       "2026-09-02"
     ],
     "scores": {
+      "beam-1.0": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 80.2,
+          "variant": "beam-1.0"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 83.9,
+          "variant": "beam-1.0"
+        }
+      ],
       "claude-fable-5": [
         {
           "benchmark_id": "livebench_reasoning",
