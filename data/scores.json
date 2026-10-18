@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-17",
+    "generated_at": "2026-10-18",
     "model_count": 78,
     "ranked_count": 16,
     "provisional_count": 62,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-17",
+      "epoch": "2026-10-18",
       "livebench": "2026-09-02",
       "lmarena_text": "2026-10-15",
       "lmarena_vision": "2026-10-09"
@@ -3347,7 +3347,7 @@
     {
       "model_id": "meta-ai-muse-spark-1.2",
       "benchmark_id": "livebench_coding",
-      "value": 80.6,
+      "value": 78.2,
       "unit": "percent",
       "stderr": null,
       "half_width_95": null,

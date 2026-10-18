@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-17",
+    "generated_at": "2026-10-18",
     "model_count": 78,
     "ranked_count": 16,
     "provisional_count": 62,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-17",
+      "epoch": "2026-10-18",
       "livebench": "2026-09-02",
       "lmarena_text": "2026-10-15",
       "lmarena_vision": "2026-10-09"
@@ -1650,65 +1650,6 @@
       "cohort_recalibration": null
     },
     {
-      "id": "meta-ai-muse-spark-1.2",
-      "display_name": "Muse Spark 1.2",
-      "provider_id": "meta-ai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-08-05",
-      "country": "United States of America",
-      "context_window": null,
-      "modalities": [
-        "text"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 90.0,
-        "coding": 80.6
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null
-      },
-      "composite": 85.3,
-      "composite_error": null,
-      "uncertainty": {
-        "measured_inputs": 0,
-        "total_inputs": 2,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 2,
-        "total": 5,
-        "missing": [
-          "human_preference",
-          "instruction_following",
-          "math"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 3
-      },
-      "provisional": true,
-      "awaiting_human_votes": true,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
       "id": "xiaomi-corp-mimo-v2.6-pro",
       "display_name": "MiMo-V2.6 Pro",
       "provider_id": "xiaomi-corp",
@@ -1837,6 +1778,65 @@
         "measured_at": "2026-10-09",
         "source_url": "https://lmarena.ai/leaderboard"
       },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "meta-ai-muse-spark-1.2",
+      "display_name": "Muse Spark 1.2",
+      "provider_id": "meta-ai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-08-05",
+      "country": "United States of America",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 90.0,
+        "coding": 78.2
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null
+      },
+      "composite": 84.1,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "human_preference",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
+      "provisional": true,
+      "awaiting_human_votes": true,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
       "rank": null,
       "tied_with": 0,
       "cohort_recalibration": null

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-17",
+  "fetched_at": "2026-10-18",
   "payload": {
     "published_snapshots": [
       "2026-09-02"
@@ -261,8 +261,28 @@
           "measured_at": "2026-09-02",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 85.4,
+          "value": 90.2,
           "variant": "deepseek-v4.1-flash"
+        }
+      ],
+      "deepseek-v4.1-flash-1017": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 89.1,
+          "variant": "deepseek-v4.1-flash-1017"
+        },
+        {
+          "benchmark_id": "livebench_coding",
+          "category": "coding",
+          "measured_at": "2026-09-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 96.0,
+          "variant": "deepseek-v4.1-flash-1017"
         }
       ],
       "gemini-3.1-pro": [
@@ -741,7 +761,7 @@
           "measured_at": "2026-09-02",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
-          "value": 80.6,
+          "value": 78.2,
           "variant": "muse-spark-1.2"
         }
       ],
