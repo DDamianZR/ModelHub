@@ -1,22 +1,23 @@
 {
-  "generated_at": "2026-10-18T10:59:17+00:00",
+  "generated_at": "2026-10-19T13:04:34+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-10-18",
+      "last_success": "2026-10-19",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
-      "state": "ok",
+      "state": "cached",
       "last_success": "2026-10-18",
-      "error": null,
-      "consecutive_failures": 0
+      "age_days": 1,
+      "error": "https://livebench.ai/table_2026_06_25.csv: HTTP Error 404: Not Found",
+      "consecutive_failures": 1
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-10-18",
+      "last_success": "2026-10-19",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
@@ -24,7 +25,7 @@
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-10-18",
+      "date": "2026-10-19",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -33,7 +34,7 @@
     },
     "livebench": {
       "date": "2026-10-18",
-      "age_days": 0,
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -43,7 +44,7 @@
     },
     "lmarena": {
       "date": "2026-10-15",
-      "age_days": 3,
+      "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -64,34 +65,24 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "7a6498285b782252abcf00f09532d4773c299673f1524c8d7052716414d8f426",
-          "bytes": 2401412
+          "sha256": "fd1e8aa23c4b8ede0278c89b9a096fcd8c2bc7fd60090c910ff2c8959d67a72b",
+          "bytes": 2401422
         }
       ]
     },
     "livebench": {
       "normalised_sha256": "31399bad47d4ad5a2af38f74f9b9eedafc8bc69b6d6f07a54da258d764d57b3b",
-      "requests": 4,
+      "requests": 2,
       "upstream": [
         {
           "url": "https://livebench.ai/",
-          "sha256": "0df6712aba143efdabd179149251af60499d6f5c38b499f298960855549b55e7",
+          "sha256": "3061f96a1f832c9e1b5d1b6ea0cc4651895fdebad1e21d8676d6b6174d114e89",
           "bytes": 889
         },
         {
-          "url": "https://livebench.ai/categories_2026_09_02.json",
-          "sha256": "6af780738e495c0339618208ded779325e59d951c38ead7a566fe54e68bb07b1",
-          "bytes": 272
-        },
-        {
-          "url": "https://livebench.ai/static/js/main.38b3cf3c.js",
-          "sha256": "9d753925034a4107c9bff51667faa07f48322d32e6f34d534f833cb2357edbb7",
-          "bytes": 359617
-        },
-        {
-          "url": "https://livebench.ai/table_2026_09_02.csv",
-          "sha256": "dea13d4db85a4a1c898f29835f5c58635848f1904870490ff14259596d66abcc",
-          "bytes": 2492
+          "url": "https://livebench.ai/static/js/main.cc3fb0ac.js",
+          "sha256": "6dc40f7dbc54345fdd84cec2f0ca435d326b773d6dc23854691aa109b3be99df",
+          "bytes": 358918
         }
       ]
     },
