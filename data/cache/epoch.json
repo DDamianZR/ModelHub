@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-19",
+  "fetched_at": "2026-10-20",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -537,6 +537,14 @@
         "eci": 155.57,
         "organization": "DeepSeek",
         "release_date": "2026-09-09"
+      },
+      "deepseek-v4.1-flash-1017": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "China",
+        "display_name": "DeepSeek V4.1 Flash 1017 (high)",
+        "eci": 0.0,
+        "organization": "DeepSeek",
+        "release_date": "2026-10-17"
       },
       "deepseek/deepseek-v3.2": {
         "accessibility": "Open weights (unrestricted)",
