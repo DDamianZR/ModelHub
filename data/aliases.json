@@ -20,89 +20,6 @@
       "lmarena": []
     }
   },
-  "anthropic-claude-haiku-4-5": {
-    "canonical_key": "claude-haiku-4-5",
-    "display_name": "Claude Haiku 4.5",
-    "variant": "20251001",
-    "scored_arena_name": "claude-haiku-4-5-20251001",
-    "names": [
-      "claude-haiku-4-5",
-      "claude-haiku-4-5-20251001"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-haiku-4-5-20251001",
-        "claude-haiku-4-5-20251001_32K"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-haiku-4-5-20251001"
-      ]
-    }
-  },
-  "anthropic-claude-opus-4-1": {
-    "canonical_key": "claude-opus-4-1",
-    "display_name": "Claude Opus 4.1",
-    "variant": "20250805",
-    "scored_arena_name": "claude-opus-4-1-20250805",
-    "names": [
-      "claude-opus-4-1",
-      "claude-opus-4-1-20250805"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-opus-4-1-20250805"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-opus-4-1-20250805"
-      ]
-    }
-  },
-  "anthropic-claude-opus-4-5": {
-    "canonical_key": "claude-opus-4-5",
-    "display_name": "Claude Opus 4.5 (no thinking)",
-    "variant": "20251101",
-    "scored_arena_name": "claude-opus-4-5-20251101",
-    "names": [
-      "claude-opus-4-5",
-      "claude-opus-4-5-20251101",
-      "claude-opus-4-5-20251101-high-32k"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-opus-4-5-20251101",
-        "claude-opus-4-5-20251101_32K"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-opus-4-5-20251101",
-        "claude-opus-4-5-20251101-high-32k"
-      ]
-    }
-  },
-  "anthropic-claude-opus-4-8": {
-    "canonical_key": "claude-opus-4-8",
-    "display_name": "Claude Opus 4.8",
-    "variant": "max",
-    "scored_arena_name": "claude-opus-4-8",
-    "names": [
-      "claude-opus-4-8",
-      "claude-opus-4-8-high"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-opus-4-8_low",
-        "claude-opus-4-8_max",
-        "claude-opus-4-8_none"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-opus-4-8",
-        "claude-opus-4-8-high"
-      ]
-    }
-  },
   "anthropic-claude-opus-5": {
     "canonical_key": "claude-opus-5",
     "display_name": "Claude Opus 5",
@@ -123,58 +40,13 @@
       "lmarena": []
     }
   },
-  "anthropic-claude-sonnet-4-5": {
-    "canonical_key": "claude-sonnet-4-5",
-    "display_name": "Claude Sonnet 4.5 (no thinking)",
-    "variant": "20250929",
-    "scored_arena_name": "claude-sonnet-4-5-20250929",
-    "names": [
-      "claude-sonnet-4-5",
-      "claude-sonnet-4-5-20250929",
-      "claude-sonnet-4-5-20250929-high-32k"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-sonnet-4-5-20250929",
-        "claude-sonnet-4-5-20250929_32K"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-sonnet-4-5-20250929",
-        "claude-sonnet-4-5-20250929-high-32k"
-      ]
-    }
-  },
-  "anthropic-claude-sonnet-4-6": {
-    "canonical_key": "claude-sonnet-4-6",
-    "display_name": "Claude Sonnet 4.6 (no thinking)",
-    "variant": "high",
-    "scored_arena_name": "claude-sonnet-4-6",
-    "names": [
-      "claude-sonnet-4-6"
-    ],
-    "matched": {
-      "epoch": [
-        "claude-sonnet-4-6",
-        "claude-sonnet-4-6_32K",
-        "claude-sonnet-4-6_high",
-        "claude-sonnet-4-6_max",
-        "claude-sonnet-4-6_medium"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "claude-sonnet-4-6"
-      ]
-    }
-  },
   "anthropic-claude-sonnet-5": {
     "canonical_key": "claude-sonnet-5",
     "display_name": "Claude Sonnet 5 (no thinking)",
     "variant": "plain",
-    "scored_arena_name": "claude-sonnet-5-high",
+    "scored_arena_name": null,
     "names": [
-      "claude-sonnet-5",
-      "claude-sonnet-5-high"
+      "claude-sonnet-5"
     ],
     "matched": {
       "epoch": [
@@ -184,20 +56,17 @@
       "livebench": [
         "claude-sonnet-5"
       ],
-      "lmarena": [
-        "claude-sonnet-5-high"
-      ]
+      "lmarena": []
     }
   },
   "deepseek-deepseek-v4-pro": {
     "canonical_key": "deepseek-v4-pro",
     "display_name": "DeepSeek v4 Pro (high)",
     "variant": "max",
-    "scored_arena_name": "deepseek-v4-pro",
+    "scored_arena_name": "DeepSeek-V4-Pro",
     "names": [
-      "deepseek-v4-pro",
-      "deepseek-v4-pro-high-20260813",
-      "deepseek-v4-pro-high-preview"
+      "DeepSeek-V4-Pro",
+      "deepseek-v4-pro"
     ],
     "matched": {
       "epoch": [
@@ -207,20 +76,17 @@
       ],
       "livebench": [],
       "lmarena": [
-        "deepseek-v4-pro",
-        "deepseek-v4-pro-high-20260813",
-        "deepseek-v4-pro-high-preview"
+        "DeepSeek-V4-Pro"
       ]
     }
   },
   "deepseek-deepseek-v4.1-flash": {
     "canonical_key": "deepseek-v4.1-flash",
     "display_name": "DeepSeek V4.1 Flash (high)",
-    "variant": "max",
-    "scored_arena_name": "deepseek-v4.1-flash-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "deepseek-v4.1-flash",
-      "deepseek-v4.1-flash-max"
+      "deepseek-v4.1-flash"
     ],
     "matched": {
       "epoch": [
@@ -229,17 +95,16 @@
       "livebench": [
         "deepseek-v4.1-flash"
       ],
-      "lmarena": [
-        "deepseek-v4.1-flash-max"
-      ]
+      "lmarena": []
     }
   },
   "google-deepmind-gemini-2.5-flash": {
     "canonical_key": "gemini-2.5-flash",
     "display_name": "Gemini 2.5 Flash (Jun 2025)",
     "variant": "plain",
-    "scored_arena_name": "gemini-2.5-flash",
+    "scored_arena_name": "Gemini 2.5 Flash",
     "names": [
+      "Gemini 2.5 Flash",
       "gemini-2.5-flash"
     ],
     "matched": {
@@ -248,7 +113,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gemini-2.5-flash"
+        "Gemini 2.5 Flash"
       ]
     }
   },
@@ -256,8 +121,9 @@
     "canonical_key": "gemini-2.5-pro",
     "display_name": "Gemini 2.5 Pro (Jun 2025)",
     "variant": "plain",
-    "scored_arena_name": "gemini-2.5-pro",
+    "scored_arena_name": "Gemini 2.5 Pro",
     "names": [
+      "Gemini 2.5 Pro",
       "gemini-2.5-pro"
     ],
     "matched": {
@@ -266,7 +132,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gemini-2.5-pro"
+        "Gemini 2.5 Pro"
       ]
     }
   },
@@ -274,8 +140,9 @@
     "canonical_key": "gemini-3-flash",
     "display_name": "Gemini 3 Flash Preview",
     "variant": "preview",
-    "scored_arena_name": "gemini-3-flash",
+    "scored_arena_name": "Gemini 3 Flash",
     "names": [
+      "Gemini 3 Flash",
       "gemini-3-flash"
     ],
     "matched": {
@@ -285,7 +152,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gemini-3-flash"
+        "Gemini 3 Flash"
       ]
     }
   },
@@ -312,10 +179,10 @@
     "canonical_key": "gemini-3.1-flash-lite",
     "display_name": "Gemini 3.1 Flash-Lite",
     "variant": "high",
-    "scored_arena_name": "gemini-3.1-flash-lite-preview",
+    "scored_arena_name": "Gemini 3.1 Flash-Lite Preview",
     "names": [
-      "gemini-3.1-flash-lite",
-      "gemini-3.1-flash-lite-preview"
+      "Gemini 3.1 Flash-Lite Preview",
+      "gemini-3.1-flash-lite"
     ],
     "matched": {
       "epoch": [
@@ -324,7 +191,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gemini-3.1-flash-lite-preview"
+        "Gemini 3.1 Flash-Lite Preview"
       ]
     }
   },
@@ -350,34 +217,13 @@
       ]
     }
   },
-  "google-deepmind-gemini-3.5-flash": {
-    "canonical_key": "gemini-3.5-flash",
-    "display_name": "Gemini 3.5 Flash",
-    "variant": "high",
-    "scored_arena_name": "gemini-3.5-flash-high",
-    "names": [
-      "gemini-3.5-flash",
-      "gemini-3.5-flash-high",
-      "gemini-3.5-flash-medium"
-    ],
-    "matched": {
-      "epoch": [
-        "gemini-3.5-flash_high",
-        "gemini-3.5-flash_low"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gemini-3.5-flash-high",
-        "gemini-3.5-flash-medium"
-      ]
-    }
-  },
   "google-deepmind-gemini-3.5-flash-lite": {
     "canonical_key": "gemini-3.5-flash-lite",
     "display_name": "Gemini 3.5 Flash-Lite",
     "variant": "high",
-    "scored_arena_name": "gemini-3.5-flash-lite",
+    "scored_arena_name": "Gemini 3.5 Flash-Lite",
     "names": [
+      "Gemini 3.5 Flash-Lite",
       "gemini-3.5-flash-lite"
     ],
     "matched": {
@@ -387,27 +233,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gemini-3.5-flash-lite"
-      ]
-    }
-  },
-  "google-deepmind-gemini-3.6-flash": {
-    "canonical_key": "gemini-3.6-flash",
-    "display_name": "Gemini 3.6 Flash",
-    "variant": "high",
-    "scored_arena_name": "gemini-3.6-flash-high",
-    "names": [
-      "gemini-3.6-flash",
-      "gemini-3.6-flash-high"
-    ],
-    "matched": {
-      "epoch": [
-        "gemini-3.6-flash_high",
-        "gemini-3.6-flash_low"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gemini-3.6-flash-high"
+        "Gemini 3.5 Flash-Lite"
       ]
     }
   },
@@ -469,8 +295,9 @@
     "canonical_key": "gemma-4-31b",
     "display_name": "Gemma 4 31B IT",
     "variant": "plain",
-    "scored_arena_name": "gemma-4-31b",
+    "scored_arena_name": "Gemma 4 31B",
     "names": [
+      "Gemma 4 31B",
       "gemma-4-31b"
     ],
     "matched": {
@@ -481,7 +308,7 @@
         "gemma-4-31b"
       ],
       "lmarena": [
-        "gemma-4-31b"
+        "Gemma 4 31B"
       ]
     }
   },
@@ -489,8 +316,9 @@
     "canonical_key": "glm-4.7",
     "display_name": "GLM-4.7",
     "variant": "plain",
-    "scored_arena_name": "glm-4.7",
+    "scored_arena_name": "GLM-4.7",
     "names": [
+      "GLM-4.7",
       "glm-4.7"
     ],
     "matched": {
@@ -499,7 +327,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "glm-4.7"
+        "GLM-4.7"
       ]
     }
   },
@@ -507,8 +335,9 @@
     "canonical_key": "glm-5",
     "display_name": "GLM-5",
     "variant": "plain",
-    "scored_arena_name": "glm-5",
+    "scored_arena_name": "GLM-5",
     "names": [
+      "GLM-5",
       "glm-5"
     ],
     "matched": {
@@ -517,7 +346,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "glm-5"
+        "GLM-5"
       ]
     }
   },
@@ -525,8 +354,9 @@
     "canonical_key": "glm-5.1",
     "display_name": "GLM-5.1",
     "variant": "plain",
-    "scored_arena_name": "glm-5.1",
+    "scored_arena_name": "GLM-5.1",
     "names": [
+      "GLM-5.1",
       "glm-5.1"
     ],
     "matched": {
@@ -535,39 +365,17 @@
       ],
       "livebench": [],
       "lmarena": [
-        "glm-5.1"
-      ]
-    }
-  },
-  "z-ai-zhipu-ai-glm-5.2": {
-    "canonical_key": "glm-5.2",
-    "display_name": "GLM-5.2",
-    "variant": "max",
-    "scored_arena_name": "glm-5.2-max",
-    "names": [
-      "glm-5.2",
-      "glm-5.2-max"
-    ],
-    "matched": {
-      "epoch": [
-        "glm-5.2_low",
-        "glm-5.2_max",
-        "glm-5.2_none"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "glm-5.2-max"
+        "GLM-5.1"
       ]
     }
   },
   "z-ai-zhipu-ai-glm-5.3": {
     "canonical_key": "glm-5.3",
     "display_name": "GLM-5.3 (high)",
-    "variant": "max",
-    "scored_arena_name": "glm-5.3-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "glm-5.3",
-      "glm-5.3-max"
+      "glm-5.3"
     ],
     "matched": {
       "epoch": [
@@ -576,17 +384,16 @@
       "livebench": [
         "glm-5.3"
       ],
-      "lmarena": [
-        "glm-5.3-max"
-      ]
+      "lmarena": []
     }
   },
   "z-ai-zhipu-ai-glm-5.3-flash": {
     "canonical_key": "glm-5.3-flash",
     "display_name": "GLM-5.3-Flash (high)",
     "variant": "plain",
-    "scored_arena_name": "glm-5.3-flash",
+    "scored_arena_name": "GLM-5.3-Flash",
     "names": [
+      "GLM-5.3-Flash",
       "glm-5.3-flash"
     ],
     "matched": {
@@ -597,7 +404,7 @@
         "glm-5.3-flash"
       ],
       "lmarena": [
-        "glm-5.3-flash"
+        "GLM-5.3-Flash"
       ]
     }
   },
@@ -605,11 +412,10 @@
     "canonical_key": "gpt-5",
     "display_name": "GPT-5 Pro",
     "variant": "high",
-    "scored_arena_name": "gpt-5-high",
+    "scored_arena_name": "GPT-5 Chat",
     "names": [
-      "gpt-5",
-      "gpt-5-chat",
-      "gpt-5-high"
+      "GPT-5 Chat",
+      "gpt-5"
     ],
     "matched": {
       "epoch": [
@@ -618,49 +424,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5-chat",
-        "gpt-5-high"
-      ]
-    }
-  },
-  "openai-gpt-5-mini": {
-    "canonical_key": "gpt-5-mini",
-    "display_name": "GPT-5 mini (high)",
-    "variant": "high",
-    "scored_arena_name": "gpt-5-mini-high",
-    "names": [
-      "gpt-5-mini",
-      "gpt-5-mini-high"
-    ],
-    "matched": {
-      "epoch": [
-        "gpt-5-mini-2025-08-07_high",
-        "gpt-5-mini-2025-08-07_medium"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gpt-5-mini-high"
-      ]
-    }
-  },
-  "openai-gpt-5-nano": {
-    "canonical_key": "gpt-5-nano",
-    "display_name": "GPT-5 nano (high)",
-    "variant": "high",
-    "scored_arena_name": "gpt-5-nano-high",
-    "names": [
-      "gpt-5-nano",
-      "gpt-5-nano-high"
-    ],
-    "matched": {
-      "epoch": [
-        "gpt-5-nano-2025-08-07_high",
-        "gpt-5-nano-2025-08-07_low",
-        "gpt-5-nano-2025-08-07_medium"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gpt-5-nano-high"
+        "GPT-5 Chat"
       ]
     }
   },
@@ -668,10 +432,10 @@
     "canonical_key": "gpt-5.1",
     "display_name": "GPT-5.1 (high)",
     "variant": "high",
-    "scored_arena_name": "gpt-5.1-high",
+    "scored_arena_name": "GPT-5.1",
     "names": [
-      "gpt-5.1",
-      "gpt-5.1-high"
+      "GPT-5.1",
+      "gpt-5.1"
     ],
     "matched": {
       "epoch": [
@@ -682,8 +446,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5.1",
-        "gpt-5.1-high"
+        "GPT-5.1"
       ]
     }
   },
@@ -691,11 +454,10 @@
     "canonical_key": "gpt-5.2",
     "display_name": "GPT-5.2 (high)",
     "variant": "high",
-    "scored_arena_name": "gpt-5.2-high",
+    "scored_arena_name": "GPT-5.2",
     "names": [
-      "gpt-5.2",
-      "gpt-5.2-chat-latest-20260210",
-      "gpt-5.2-high"
+      "GPT-5.2",
+      "gpt-5.2"
     ],
     "matched": {
       "epoch": [
@@ -707,9 +469,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5.2",
-        "gpt-5.2-chat-latest-20260210",
-        "gpt-5.2-high"
+        "GPT-5.2"
       ]
     }
   },
@@ -717,10 +477,10 @@
     "canonical_key": "gpt-5.4",
     "display_name": "GPT-5.4 Pro",
     "variant": "xhigh",
-    "scored_arena_name": "gpt-5.4",
+    "scored_arena_name": "GPT-5.4",
     "names": [
-      "gpt-5.4",
-      "gpt-5.4-high"
+      "GPT-5.4",
+      "gpt-5.4"
     ],
     "matched": {
       "epoch": [
@@ -732,50 +492,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5.4",
-        "gpt-5.4-high"
-      ]
-    }
-  },
-  "openai-gpt-5.4-mini": {
-    "canonical_key": "gpt-5.4-mini",
-    "display_name": "GPT-5.4 mini (high)",
-    "variant": "high",
-    "scored_arena_name": "gpt-5.4-mini-high",
-    "names": [
-      "gpt-5.4-mini",
-      "gpt-5.4-mini-high"
-    ],
-    "matched": {
-      "epoch": [
-        "gpt-5.4-mini-2026-03-17_high",
-        "gpt-5.4-mini-2026-03-17_none",
-        "gpt-5.4-mini-2026-03-17_xhigh"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gpt-5.4-mini-high"
-      ]
-    }
-  },
-  "openai-gpt-5.4-nano": {
-    "canonical_key": "gpt-5.4-nano",
-    "display_name": "GPT-5.4 nano (high)",
-    "variant": "high",
-    "scored_arena_name": "gpt-5.4-nano-high",
-    "names": [
-      "gpt-5.4-nano",
-      "gpt-5.4-nano-high"
-    ],
-    "matched": {
-      "epoch": [
-        "gpt-5.4-nano-2026-03-17_high",
-        "gpt-5.4-nano-2026-03-17_low",
-        "gpt-5.4-nano-2026-03-17_none"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "gpt-5.4-nano-high"
+        "GPT-5.4"
       ]
     }
   },
@@ -783,10 +500,10 @@
     "canonical_key": "gpt-5.5",
     "display_name": "GPT-5.5 Pro (unknown thinking)",
     "variant": "xhigh",
-    "scored_arena_name": "gpt-5.5",
+    "scored_arena_name": "GPT-5.5",
     "names": [
-      "gpt-5.5",
-      "gpt-5.5-high"
+      "GPT-5.5",
+      "gpt-5.5"
     ],
     "matched": {
       "epoch": [
@@ -799,8 +516,7 @@
         "gpt-5.5"
       ],
       "lmarena": [
-        "gpt-5.5",
-        "gpt-5.5-high"
+        "GPT-5.5"
       ]
     }
   },
@@ -808,8 +524,9 @@
     "canonical_key": "gpt-5.5-instant",
     "display_name": "GPT-5.5 Instant",
     "variant": "plain",
-    "scored_arena_name": "gpt-5.5-instant",
+    "scored_arena_name": "GPT-5.5 Instant",
     "names": [
+      "GPT-5.5 Instant",
       "gpt-5.5-instant"
     ],
     "matched": {
@@ -818,7 +535,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "gpt-5.5-instant"
+        "GPT-5.5 Instant"
       ]
     }
   },
@@ -826,10 +543,9 @@
     "canonical_key": "gpt-5.6-luna",
     "display_name": "GPT-5.6 Luna (high)",
     "variant": "plain",
-    "scored_arena_name": "gpt-5.6-luna-xhigh",
+    "scored_arena_name": null,
     "names": [
-      "gpt-5.6-luna",
-      "gpt-5.6-luna-xhigh"
+      "gpt-5.6-luna"
     ],
     "matched": {
       "epoch": [
@@ -840,19 +556,16 @@
       "livebench": [
         "gpt-5.6-luna"
       ],
-      "lmarena": [
-        "gpt-5.6-luna-xhigh"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-5.6-sol": {
     "canonical_key": "gpt-5.6-sol",
     "display_name": "GPT-5.6 Sol (high)",
     "variant": "plain",
-    "scored_arena_name": "gpt-5.6-sol-xhigh",
+    "scored_arena_name": null,
     "names": [
-      "gpt-5.6-sol",
-      "gpt-5.6-sol-xhigh"
+      "gpt-5.6-sol"
     ],
     "matched": {
       "epoch": [
@@ -863,19 +576,16 @@
       "livebench": [
         "gpt-5.6-sol"
       ],
-      "lmarena": [
-        "gpt-5.6-sol-xhigh"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-5.6-terra": {
     "canonical_key": "gpt-5.6-terra",
     "display_name": "GPT-5.6 Terra (high)",
     "variant": "plain",
-    "scored_arena_name": "gpt-5.6-terra-xhigh",
+    "scored_arena_name": null,
     "names": [
-      "gpt-5.6-terra",
-      "gpt-5.6-terra-xhigh"
+      "gpt-5.6-terra"
     ],
     "matched": {
       "epoch": [
@@ -886,19 +596,16 @@
       "livebench": [
         "gpt-5.6-terra"
       ],
-      "lmarena": [
-        "gpt-5.6-terra-xhigh"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-6-astra": {
     "canonical_key": "gpt-6-astra",
     "display_name": "GPT-6 Astra (high)",
-    "variant": "max",
-    "scored_arena_name": "gpt-6-astra-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "gpt-6-astra",
-      "gpt-6-astra-max"
+      "gpt-6-astra"
     ],
     "matched": {
       "epoch": [
@@ -907,19 +614,16 @@
       "livebench": [
         "gpt-6-astra"
       ],
-      "lmarena": [
-        "gpt-6-astra-max"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-6-luna": {
     "canonical_key": "gpt-6-luna",
     "display_name": "GPT-6 Luna (high)",
-    "variant": "max",
-    "scored_arena_name": "gpt-6-luna-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "gpt-6-luna",
-      "gpt-6-luna-max"
+      "gpt-6-luna"
     ],
     "matched": {
       "epoch": [
@@ -928,19 +632,16 @@
       "livebench": [
         "gpt-6-luna"
       ],
-      "lmarena": [
-        "gpt-6-luna-max"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-6-sol": {
     "canonical_key": "gpt-6-sol",
     "display_name": "GPT-6 Sol (high)",
-    "variant": "max",
-    "scored_arena_name": "gpt-6-sol-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "gpt-6-sol",
-      "gpt-6-sol-max"
+      "gpt-6-sol"
     ],
     "matched": {
       "epoch": [
@@ -949,19 +650,16 @@
       "livebench": [
         "gpt-6-sol"
       ],
-      "lmarena": [
-        "gpt-6-sol-max"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-6.1-sol": {
     "canonical_key": "gpt-6.1-sol",
     "display_name": "GPT-6.1 Sol (high)",
-    "variant": "max",
-    "scored_arena_name": "gpt-6.1-sol-max",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "gpt-6.1-sol",
-      "gpt-6.1-sol-max"
+      "gpt-6.1-sol"
     ],
     "matched": {
       "epoch": [
@@ -970,9 +668,7 @@
       "livebench": [
         "gpt-6.1-sol"
       ],
-      "lmarena": [
-        "gpt-6.1-sol-max"
-      ]
+      "lmarena": []
     }
   },
   "openai-gpt-oss-20b": {
@@ -995,30 +691,13 @@
       ]
     }
   },
-  "xai-grok-4-0709": {
-    "canonical_key": "grok-4-0709",
-    "display_name": "Grok 4",
-    "variant": "plain",
-    "scored_arena_name": "grok-4-0709",
-    "names": [
-      "grok-4-0709"
-    ],
-    "matched": {
-      "epoch": [
-        "grok-4-0709"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "grok-4-0709"
-      ]
-    }
-  },
   "xai-grok-4.3": {
     "canonical_key": "grok-4.3",
     "display_name": "Grok 4.3 Beta",
     "variant": "high",
-    "scored_arena_name": "grok-4.3",
+    "scored_arena_name": "Grok 4.3",
     "names": [
+      "Grok 4.3",
       "grok-4.3"
     ],
     "matched": {
@@ -1027,7 +706,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "grok-4.3"
+        "Grok 4.3"
       ]
     }
   },
@@ -1035,8 +714,9 @@
     "canonical_key": "grok-4.5",
     "display_name": "Grok 4.5 (high)",
     "variant": "plain",
-    "scored_arena_name": "grok-4.5",
+    "scored_arena_name": "Grok 4.5",
     "names": [
+      "Grok 4.5",
       "grok-4.5"
     ],
     "matched": {
@@ -1047,18 +727,17 @@
         "grok-4.5"
       ],
       "lmarena": [
-        "grok-4.5"
+        "Grok 4.5"
       ]
     }
   },
   "xai-grok-4.6": {
     "canonical_key": "grok-4.6",
     "display_name": "Grok 4.6 (high)",
-    "variant": "high",
-    "scored_arena_name": "grok-4.6-high",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "grok-4.6",
-      "grok-4.6-high"
+      "grok-4.6"
     ],
     "matched": {
       "epoch": [
@@ -1068,19 +747,16 @@
       "livebench": [
         "grok-4.6"
       ],
-      "lmarena": [
-        "grok-4.6-high"
-      ]
+      "lmarena": []
     }
   },
   "xai-grok-4.7": {
     "canonical_key": "grok-4.7",
     "display_name": "Grok 4.7 (high)",
-    "variant": "xhigh",
-    "scored_arena_name": "grok-4.7-xhigh",
+    "variant": "plain",
+    "scored_arena_name": null,
     "names": [
-      "grok-4.7",
-      "grok-4.7-xhigh"
+      "grok-4.7"
     ],
     "matched": {
       "epoch": [
@@ -1089,17 +765,16 @@
       "livebench": [
         "grok-4.7"
       ],
-      "lmarena": [
-        "grok-4.7-xhigh"
-      ]
+      "lmarena": []
     }
   },
   "thinking-machines-inkling": {
     "canonical_key": "inkling",
     "display_name": "Inkling",
     "variant": "plain",
-    "scored_arena_name": "inkling",
+    "scored_arena_name": "Inkling",
     "names": [
+      "Inkling",
       "inkling"
     ],
     "matched": {
@@ -1110,7 +785,7 @@
         "inkling"
       ],
       "lmarena": [
-        "inkling"
+        "Inkling"
       ]
     }
   },
@@ -1118,9 +793,9 @@
     "canonical_key": "inkling-small",
     "display_name": "Inkling Small",
     "variant": "xhigh",
-    "scored_arena_name": "Inkling Small",
+    "scored_arena_name": "Inkling-Small",
     "names": [
-      "Inkling Small",
+      "Inkling-Small",
       "inkling-small"
     ],
     "matched": {
@@ -1129,7 +804,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "Inkling Small"
+        "Inkling-Small"
       ]
     }
   },
@@ -1137,8 +812,9 @@
     "canonical_key": "kimi-k2-thinking-turbo",
     "display_name": "Kimi K2 Thinking Turbo",
     "variant": "plain",
-    "scored_arena_name": "kimi-k2-thinking-turbo",
+    "scored_arena_name": "Kimi K2 Thinking Turbo",
     "names": [
+      "Kimi K2 Thinking Turbo",
       "kimi-k2-thinking-turbo"
     ],
     "matched": {
@@ -1147,26 +823,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "kimi-k2-thinking-turbo"
-      ]
-    }
-  },
-  "moonshot-kimi-k2.5": {
-    "canonical_key": "kimi-k2.5",
-    "display_name": "Kimi K2.5",
-    "variant": "plain",
-    "scored_arena_name": "kimi-k2.5-thinking",
-    "names": [
-      "kimi-k2.5",
-      "kimi-k2.5-thinking"
-    ],
-    "matched": {
-      "epoch": [
-        "kimi-k2.5"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "kimi-k2.5-thinking"
+        "Kimi K2 Thinking Turbo"
       ]
     }
   },
@@ -1174,8 +831,9 @@
     "canonical_key": "kimi-k2.6",
     "display_name": "Kimi K2.6",
     "variant": "plain",
-    "scored_arena_name": "kimi-k2.6",
+    "scored_arena_name": "Kimi K2.6",
     "names": [
+      "Kimi K2.6",
       "kimi-k2.6"
     ],
     "matched": {
@@ -1184,7 +842,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "kimi-k2.6"
+        "Kimi K2.6"
       ]
     }
   },
@@ -1212,8 +870,9 @@
     "canonical_key": "mimo-v2.6-pro",
     "display_name": "MiMo-V2.6 Pro",
     "variant": "plain",
-    "scored_arena_name": "mimo-v2.6-pro",
+    "scored_arena_name": "MiMo-V2.6-Pro",
     "names": [
+      "MiMo-V2.6-Pro",
       "mimo-v2.6-pro"
     ],
     "matched": {
@@ -1222,7 +881,7 @@
         "mimo-v2.6-pro"
       ],
       "lmarena": [
-        "mimo-v2.6-pro"
+        "MiMo-V2.6-Pro"
       ]
     }
   },
@@ -1230,8 +889,9 @@
     "canonical_key": "minimax-m3",
     "display_name": "MiniMax-M3",
     "variant": "plain",
-    "scored_arena_name": "minimax-m3",
+    "scored_arena_name": "MiniMax-M3",
     "names": [
+      "MiniMax-M3",
       "minimax-m3"
     ],
     "matched": {
@@ -1243,7 +903,7 @@
         "minimax-m3"
       ],
       "lmarena": [
-        "minimax-m3"
+        "MiniMax-M3"
       ]
     }
   },
@@ -1303,36 +963,14 @@
       "lmarena": []
     }
   },
-  "openai-o3": {
-    "canonical_key": "o3",
-    "display_name": "o3 Pro (unknown thinking)",
-    "variant": "high",
-    "scored_arena_name": "o3-2025-04-16",
-    "names": [
-      "o3",
-      "o3-2025-04-16"
-    ],
-    "matched": {
-      "epoch": [
-        "o3-2025-04-16_high",
-        "o3-2025-04-16_low",
-        "o3-2025-04-16_medium"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "o3-2025-04-16"
-      ]
-    }
-  },
   "alibaba-qwen3": {
     "canonical_key": "qwen3",
     "display_name": "Qwen3-Max-Instruct",
     "variant": "max",
-    "scored_arena_name": "qwen3-max-preview",
+    "scored_arena_name": "Qwen3-Max-Preview",
     "names": [
-      "qwen3",
-      "qwen3-max-2025-09-23",
-      "qwen3-max-preview"
+      "Qwen3-Max-Preview",
+      "qwen3"
     ],
     "matched": {
       "epoch": [
@@ -1340,44 +978,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3-max-2025-09-23",
-        "qwen3-max-preview"
-      ]
-    }
-  },
-  "alibaba-qwen3-235b-a22b-thinking-2507": {
-    "canonical_key": "qwen3-235b-a22b-thinking-2507",
-    "display_name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
-    "variant": "plain",
-    "scored_arena_name": "qwen3-235b-a22b-thinking-2507",
-    "names": [
-      "qwen3-235b-a22b-thinking-2507"
-    ],
-    "matched": {
-      "epoch": [
-        "Qwen3-235B-A22B-Thinking-2507"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "qwen3-235b-a22b-thinking-2507"
-      ]
-    }
-  },
-  "alibaba-qwen3-30b-a3b-instruct-2507": {
-    "canonical_key": "qwen3-30b-a3b-instruct-2507",
-    "display_name": "Qwen3-30B-A3B-Instruct (Jul 2025)",
-    "variant": "plain",
-    "scored_arena_name": "qwen3-30b-a3b-instruct-2507",
-    "names": [
-      "qwen3-30b-a3b-instruct-2507"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3-30b-a3b-instruct-2507"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "qwen3-30b-a3b-instruct-2507"
+        "Qwen3-Max-Preview"
       ]
     }
   },
@@ -1385,8 +986,9 @@
     "canonical_key": "qwen3.5-35b-a3b",
     "display_name": "Qwen3.5-35B-A3B",
     "variant": "plain",
-    "scored_arena_name": "qwen3.5-35b-a3b",
+    "scored_arena_name": "Qwen3.5-35B-A3B",
     "names": [
+      "Qwen3.5-35B-A3B",
       "qwen3.5-35b-a3b"
     ],
     "matched": {
@@ -1396,7 +998,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.5-35b-a3b"
+        "Qwen3.5-35B-A3B"
       ]
     }
   },
@@ -1404,8 +1006,9 @@
     "canonical_key": "qwen3.5-397b-a17b",
     "display_name": "Qwen3.5 397B-A17B",
     "variant": "plain",
-    "scored_arena_name": "qwen3.5-397b-a17b",
+    "scored_arena_name": "Qwen3.5-397B-A17B",
     "names": [
+      "Qwen3.5-397B-A17B",
       "qwen3.5-397b-a17b"
     ],
     "matched": {
@@ -1415,7 +1018,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.5-397b-a17b"
+        "Qwen3.5-397B-A17B"
       ]
     }
   },
@@ -1423,8 +1026,9 @@
     "canonical_key": "qwen3.5-flash",
     "display_name": "Qwen3.5 Flash",
     "variant": "plain",
-    "scored_arena_name": "qwen3.5-flash",
+    "scored_arena_name": "Qwen3.5-Flash",
     "names": [
+      "Qwen3.5-Flash",
       "qwen3.5-flash"
     ],
     "matched": {
@@ -1433,7 +1037,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.5-flash"
+        "Qwen3.5-Flash"
       ]
     }
   },
@@ -1441,10 +1045,10 @@
     "canonical_key": "qwen3.6",
     "display_name": "Qwen 3.6 Max (Preview)",
     "variant": "max",
-    "scored_arena_name": "qwen3.6-max-preview",
+    "scored_arena_name": "Qwen3.6-Max-Preview",
     "names": [
-      "qwen3.6",
-      "qwen3.6-max-preview"
+      "Qwen3.6-Max-Preview",
+      "qwen3.6"
     ],
     "matched": {
       "epoch": [
@@ -1452,7 +1056,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.6-max-preview"
+        "Qwen3.6-Max-Preview"
       ]
     }
   },
@@ -1460,8 +1064,9 @@
     "canonical_key": "qwen3.6-plus",
     "display_name": "Qwen 3.6 Plus (2026-04-02)",
     "variant": "plain",
-    "scored_arena_name": "qwen3.6-plus",
+    "scored_arena_name": "Qwen3.6-Plus",
     "names": [
+      "Qwen3.6-Plus",
       "qwen3.6-plus"
     ],
     "matched": {
@@ -1470,7 +1075,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.6-plus"
+        "Qwen3.6-Plus"
       ]
     }
   },
@@ -1478,10 +1083,10 @@
     "canonical_key": "qwen3.7",
     "display_name": "Qwen3.7 Max",
     "variant": "max",
-    "scored_arena_name": "qwen3.7-max-preview",
+    "scored_arena_name": "Qwen3.7-Max-Preview",
     "names": [
-      "qwen3.7",
-      "qwen3.7-max-preview"
+      "Qwen3.7-Max-Preview",
+      "qwen3.7"
     ],
     "matched": {
       "epoch": [
@@ -1489,7 +1094,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.7-max-preview"
+        "Qwen3.7-Max-Preview"
       ]
     }
   },
@@ -1497,8 +1102,9 @@
     "canonical_key": "qwen3.7-plus",
     "display_name": "Qwen3.7 Plus",
     "variant": "plain",
-    "scored_arena_name": "qwen3.7-plus",
+    "scored_arena_name": "Qwen3.7-Plus",
     "names": [
+      "Qwen3.7-Plus",
       "qwen3.7-plus"
     ],
     "matched": {
@@ -1508,7 +1114,7 @@
       ],
       "livebench": [],
       "lmarena": [
-        "qwen3.7-plus"
+        "Qwen3.7-Plus"
       ]
     }
   },
@@ -1516,10 +1122,10 @@
     "canonical_key": "qwen3.8",
     "display_name": "Qwen3.8 Max (unknown)",
     "variant": "max",
-    "scored_arena_name": "qwen3.8-max",
+    "scored_arena_name": "Qwen3.8-Max",
     "names": [
-      "qwen3.8",
-      "qwen3.8-max"
+      "Qwen3.8-Max",
+      "qwen3.8"
     ],
     "matched": {
       "epoch": [
@@ -1529,7 +1135,7 @@
         "qwen3.8-max"
       ],
       "lmarena": [
-        "qwen3.8-max"
+        "Qwen3.8-Max"
       ]
     }
   },
@@ -1537,8 +1143,9 @@
     "canonical_key": "qwen3.8-27b",
     "display_name": "Qwen3.8 27B",
     "variant": "plain",
-    "scored_arena_name": "qwen3.8-27b",
+    "scored_arena_name": "Qwen3.8-27B",
     "names": [
+      "Qwen3.8-27B",
       "qwen3.8-27b"
     ],
     "matched": {
@@ -1547,7 +1154,7 @@
         "qwen3.8-27b"
       ],
       "lmarena": [
-        "qwen3.8-27b"
+        "Qwen3.8-27B"
       ]
     }
   },
