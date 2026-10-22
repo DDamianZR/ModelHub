@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-10-21",
-    "model_count": 60,
+    "generated_at": "2026-10-22",
+    "model_count": 61,
     "ranked_count": 12,
-    "provisional_count": 48,
+    "provisional_count": 49,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-21",
+      "epoch": "2026-10-22",
       "livebench": "2026-09-02",
       "lmarena_text": "2026-10-20",
       "lmarena_vision": "2026-10-19"
@@ -956,6 +956,65 @@
         "coding": null
       },
       "composite": 93.2,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 2,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 2,
+        "total": 5,
+        "missing": [
+          "human_preference",
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": true,
+      "awaiting_human_votes": true,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "deepseek-deepseek-v4.1-flash-1017",
+      "display_name": "DeepSeek V4.1 Flash 1017 (high)",
+      "provider_id": "deepseek",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-10-17",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 89.1,
+        "coding": 96.0
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null
+      },
+      "composite": 92.55,
       "composite_error": null,
       "uncertainty": {
         "measured_inputs": 0,

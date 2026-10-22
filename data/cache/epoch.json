@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21",
+  "fetched_at": "2026-10-22",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -1258,6 +1258,14 @@
         "organization": "OpenAI",
         "release_date": "2026-09-22"
       },
+      "gpt-6-luna-decisions": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "GPT-6 Luna Decisions",
+        "eci": 0.0,
+        "organization": "OpenAI",
+        "release_date": "2026-09-22"
+      },
       "gpt-6-sol": {
         "accessibility": "API access",
         "country": "United States of America",
@@ -1473,6 +1481,14 @@
         "eci": 150.32,
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
+      },
+      "jev-1.14.0": {
+        "accessibility": "",
+        "country": "",
+        "display_name": "Jev 1.14",
+        "eci": 0.0,
+        "organization": "TypeSafe.ai",
+        "release_date": "2026-10-14"
       },
       "kimi-dev-72b": {
         "accessibility": "Open weights (unrestricted)",
@@ -3314,6 +3330,28 @@
           "stderr": 1.566,
           "value": 42.9,
           "variant": "deepseek-v4.1-flash_max"
+        }
+      ],
+      "deepseek-v4.1-flash-1017": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-19",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.567,
+          "value": 93.18,
+          "variant": "deepseek-v4.1-flash-1017_max"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-19",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.564,
+          "value": 42.5,
+          "variant": "deepseek-v4.1-flash-1017_max"
         }
       ],
       "fireworks/deepseek-v3p2": [
