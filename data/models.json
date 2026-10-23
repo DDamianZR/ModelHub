@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-22",
+    "generated_at": "2026-10-23",
     "model_count": 61,
     "ranked_count": 12,
     "provisional_count": 49,
@@ -8,15 +8,15 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-22",
+      "epoch": "2026-10-23",
       "livebench": "2026-09-02",
-      "lmarena_text": "2026-10-20",
+      "lmarena_text": "2026-10-22",
       "lmarena_vision": "2026-10-19"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
-      "min": 1287.56,
-      "max": 1491.08
+      "min": 1287.47,
+      "max": 1491.1
     }
   },
   "models": [
@@ -46,13 +46,13 @@
         "reasoning": 78.5,
         "math": 51.7,
         "coding": 80.58,
-        "human_preference": 88.02
+        "human_preference": 88.07
       },
       "category_errors": {
         "reasoning": 2.131,
         "math": 5.684,
         "coding": 3.528,
-        "human_preference": 1.796
+        "human_preference": 1.795
       },
       "composite": 74.49,
       "composite_error": 1.83,
@@ -120,7 +120,7 @@
         "reasoning": 3.24,
         "math": 5.566,
         "coding": 3.963,
-        "human_preference": 1.849
+        "human_preference": 1.848
       },
       "composite": 74.17,
       "composite_error": 2.02,
@@ -182,15 +182,15 @@
         "reasoning": 83.21,
         "math": 35.64,
         "coding": 75.41,
-        "human_preference": 87.52
+        "human_preference": 87.55
       },
       "category_errors": {
         "reasoning": 3.732,
         "math": 5.531,
         "coding": 3.84,
-        "human_preference": 2.12
+        "human_preference": 2.119
       },
-      "composite": 70.48,
+      "composite": 70.49,
       "composite_error": 2.08,
       "uncertainty": {
         "measured_inputs": 4,
@@ -250,7 +250,7 @@
         "reasoning": 68.14,
         "math": 65.27,
         "coding": 73.55,
-        "human_preference": 56.83
+        "human_preference": 56.84
       },
       "category_errors": {
         "reasoning": 2.56,
@@ -318,15 +318,15 @@
         "reasoning": 62.84,
         "math": 38.97,
         "coding": 76.65,
-        "human_preference": 82.5
+        "human_preference": 82.4
       },
       "category_errors": {
         "reasoning": 2.239,
         "math": 5.623,
         "coding": 3.773,
-        "human_preference": 2.166
+        "human_preference": 2.165
       },
-      "composite": 64.75,
+      "composite": 64.74,
       "composite_error": 1.89,
       "uncertainty": {
         "measured_inputs": 5,
@@ -385,13 +385,13 @@
         "reasoning": 87.82,
         "math": 16.43,
         "coding": 72.08,
-        "human_preference": 77.86
+        "human_preference": 77.88
       },
       "category_errors": {
         "reasoning": 4.579,
         "math": 4.302,
         "coding": 4.094,
-        "human_preference": 2.072
+        "human_preference": 2.071
       },
       "composite": 64.64,
       "composite_error": 2.1,
@@ -446,15 +446,15 @@
         "reasoning": 61.95,
         "math": 33.45,
         "coding": 74.17,
-        "human_preference": 86.05
+        "human_preference": 86.08
       },
       "category_errors": {
         "reasoning": 2.566,
         "math": 5.439,
         "coding": 3.9,
-        "human_preference": 1.744
+        "human_preference": 1.734
       },
-      "composite": 63.09,
+      "composite": 63.1,
       "composite_error": 1.9,
       "uncertainty": {
         "measured_inputs": 5,
@@ -507,15 +507,15 @@
         "reasoning": 69.69,
         "math": 23.1,
         "coding": 76.65,
-        "human_preference": 78.16
+        "human_preference": 78.42
       },
       "category_errors": {
         "reasoning": 2.789,
         "math": 4.859,
         "coding": 3.773,
-        "human_preference": 4.01
+        "human_preference": 4.009
       },
-      "composite": 62.27,
+      "composite": 62.32,
       "composite_error": 1.93,
       "uncertainty": {
         "measured_inputs": 5,
@@ -569,7 +569,7 @@
         "reasoning": 85.29,
         "math": 14.14,
         "coding": 57.56,
-        "human_preference": 83.62
+        "human_preference": 83.63
       },
       "category_errors": {
         "reasoning": 4.149,
@@ -637,15 +637,15 @@
         "reasoning": 61.24,
         "math": 40.34,
         "coding": 73.76,
-        "human_preference": 61.24
+        "human_preference": 61.26
       },
       "category_errors": {
         "reasoning": 2.384,
         "math": 5.657,
         "coding": 3.924,
-        "human_preference": 1.546
+        "human_preference": 1.545
       },
-      "composite": 60.0,
+      "composite": 60.01,
       "composite_error": 1.92,
       "uncertainty": {
         "measured_inputs": 5,
@@ -705,16 +705,16 @@
         "reasoning": 67.81,
         "math": 31.03,
         "coding": 67.98,
-        "human_preference": 66.13
+        "human_preference": 66.19
       },
       "category_errors": {
         "reasoning": 2.404,
         "math": 5.333,
         "coding": 4.161,
-        "human_preference": 1.747
+        "human_preference": 1.745
       },
-      "composite": 58.91,
-      "composite_error": 1.92,
+      "composite": 58.92,
+      "composite_error": 1.91,
       "uncertainty": {
         "measured_inputs": 5,
         "total_inputs": 5,
@@ -772,15 +772,15 @@
         "reasoning": 66.26,
         "math": 26.21,
         "coding": 57.85,
-        "human_preference": 73.09
+        "human_preference": 73.15
       },
       "category_errors": {
         "reasoning": 2.717,
         "math": 5.071,
         "coding": 4.404,
-        "human_preference": 2.02
+        "human_preference": 2.018
       },
-      "composite": 55.57,
+      "composite": 55.58,
       "composite_error": 1.97,
       "uncertainty": {
         "measured_inputs": 5,
@@ -1482,14 +1482,14 @@
       "category_scores": {
         "reasoning": 87.2,
         "coding": 94.3,
-        "human_preference": 78.66
+        "human_preference": 78.84
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.128
+        "human_preference": 2.126
       },
-      "composite": 87.96,
+      "composite": 88.0,
       "composite_error": 0.49,
       "uncertainty": {
         "measured_inputs": 1,
@@ -1607,13 +1607,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 87.88,
-        "human_preference": 82.03
+        "human_preference": 82.06
       },
       "category_errors": {
         "reasoning": 4.557,
-        "human_preference": 2.121
+        "human_preference": 2.119
       },
-      "composite": 85.69,
+      "composite": 85.7,
       "composite_error": 2.96,
       "uncertainty": {
         "measured_inputs": 2,
@@ -1738,7 +1738,7 @@
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 4.591
+        "human_preference": 4.59
       },
       "composite": 85.04,
       "composite_error": 1.06,
@@ -2095,15 +2095,15 @@
       "category_scores": {
         "reasoning": 83.8,
         "coding": 85.6,
-        "human_preference": 75.06
+        "human_preference": 75.88
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 3.386
+        "human_preference": 3.248
       },
-      "composite": 82.48,
-      "composite_error": 0.78,
+      "composite": 82.66,
+      "composite_error": 0.75,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -2162,15 +2162,15 @@
       "category_scores": {
         "reasoning": 77.6,
         "coding": 80.6,
-        "human_preference": 90.31
+        "human_preference": 90.81
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.34
+        "human_preference": 2.311
       },
-      "composite": 81.69,
-      "composite_error": 0.54,
+      "composite": 81.8,
+      "composite_error": 0.53,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -2229,15 +2229,15 @@
       "category_scores": {
         "reasoning": 80.0,
         "coding": 86.8,
-        "human_preference": 74.74
+        "human_preference": 74.88
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.434
+        "human_preference": 2.399
       },
-      "composite": 81.4,
-      "composite_error": 0.56,
+      "composite": 81.43,
+      "composite_error": 0.55,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -2295,13 +2295,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 85.86,
-        "human_preference": 73.67
+        "human_preference": 73.85
       },
       "category_errors": {
         "reasoning": 4.867,
-        "human_preference": 1.5
+        "human_preference": 1.494
       },
-      "composite": 81.29,
+      "composite": 81.36,
       "composite_error": 3.09,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2362,14 +2362,14 @@
       "category_scores": {
         "reasoning": 84.0,
         "coding": 66.7,
-        "human_preference": 94.59
+        "human_preference": 94.66
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 1.439
+        "human_preference": 1.434
       },
-      "composite": 79.79,
+      "composite": 79.81,
       "composite_error": 0.33,
       "uncertainty": {
         "measured_inputs": 1,
@@ -2488,14 +2488,14 @@
       "category_scores": {
         "reasoning": 88.2,
         "coding": 60.3,
-        "human_preference": 96.12
+        "human_preference": 96.32
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.392
+        "human_preference": 2.364
       },
-      "composite": 79.3,
+      "composite": 79.34,
       "composite_error": 0.55,
       "uncertainty": {
         "measured_inputs": 1,
@@ -2558,7 +2558,7 @@
       },
       "category_errors": {
         "reasoning": 5.204,
-        "human_preference": 2.19
+        "human_preference": 2.188
       },
       "composite": 79.25,
       "composite_error": 3.35,
@@ -2620,14 +2620,14 @@
       "category_scores": {
         "reasoning": 73.34,
         "coding": 77.27,
-        "human_preference": 92.06
+        "human_preference": 92.14
       },
       "category_errors": {
         "reasoning": 2.531,
         "coding": 3.738,
-        "human_preference": 4.747
+        "human_preference": 4.746
       },
-      "composite": 79.17,
+      "composite": 79.19,
       "composite_error": 2.05,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2680,12 +2680,12 @@
       "category_scores": {
         "reasoning": 60.67,
         "math": 97.13,
-        "human_preference": 74.39
+        "human_preference": 74.38
       },
       "category_errors": {
         "reasoning": 3.097,
         "math": 0.823,
-        "human_preference": 2.214
+        "human_preference": 2.213
       },
       "composite": 76.25,
       "composite_error": 1.43,
@@ -2739,13 +2739,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 84.22,
-        "human_preference": 62.29
+        "human_preference": 62.33
       },
       "category_errors": {
         "reasoning": 4.092,
-        "human_preference": 1.507
+        "human_preference": 1.506
       },
-      "composite": 76.0,
+      "composite": 76.01,
       "composite_error": 2.62,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2799,13 +2799,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 82.51,
-        "human_preference": 64.61
+        "human_preference": 64.71
       },
       "category_errors": {
         "reasoning": 4.416,
-        "human_preference": 2.421
+        "human_preference": 2.42
       },
-      "composite": 75.8,
+      "composite": 75.83,
       "composite_error": 2.91,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2866,14 +2866,14 @@
       "category_scores": {
         "reasoning": 82.7,
         "coding": 70.9,
-        "human_preference": 71.28
+        "human_preference": 70.84
       },
       "category_errors": {
         "reasoning": 2.007,
         "coding": null,
-        "human_preference": 1.851
+        "human_preference": 1.839
       },
-      "composite": 75.53,
+      "composite": 75.42,
       "composite_error": 0.88,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2991,13 +2991,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 81.82,
-        "human_preference": 63.01
+        "human_preference": 63.04
       },
       "category_errors": {
         "reasoning": 5.386,
-        "human_preference": 1.776
+        "human_preference": 1.774
       },
-      "composite": 74.77,
+      "composite": 74.78,
       "composite_error": 3.43,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3057,14 +3057,14 @@
       "category_scores": {
         "reasoning": 68.32,
         "coding": 77.64,
-        "human_preference": 80.48
+        "human_preference": 80.44
       },
       "category_errors": {
         "reasoning": 2.309,
         "coding": 3.72,
-        "human_preference": 1.907
+        "human_preference": 1.905
       },
-      "composite": 74.71,
+      "composite": 74.7,
       "composite_error": 1.74,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3118,14 +3118,14 @@
       "category_scores": {
         "reasoning": 89.8,
         "math": 39.0,
-        "human_preference": 91.65
+        "human_preference": 91.72
       },
       "category_errors": {
         "reasoning": 4.312,
         "math": 5.684,
-        "human_preference": 2.805
+        "human_preference": 2.804
       },
-      "composite": 73.33,
+      "composite": 73.35,
       "composite_error": 2.7,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3184,14 +3184,14 @@
       "category_scores": {
         "reasoning": 78.3,
         "coding": 64.0,
-        "human_preference": 75.78
+        "human_preference": 75.9
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.09
+        "human_preference": 2.071
       },
-      "composite": 72.22,
+      "composite": 72.25,
       "composite_error": 0.48,
       "uncertainty": {
         "measured_inputs": 1,
@@ -3243,13 +3243,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 83.46,
-        "human_preference": 52.6
+        "human_preference": 52.63
       },
       "category_errors": {
         "reasoning": 4.271,
-        "human_preference": 2.065
+        "human_preference": 2.064
       },
-      "composite": 71.89,
+      "composite": 71.9,
       "composite_error": 2.78,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3303,14 +3303,14 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.79,
-        "human_preference": 93.73
+        "human_preference": 93.52
       },
       "category_errors": {
         "reasoning": 3.071,
-        "human_preference": 2.041
+        "human_preference": 2.024
       },
-      "composite": 71.27,
-      "composite_error": 2.07,
+      "composite": 71.19,
+      "composite_error": 2.06,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 2,
@@ -3370,14 +3370,14 @@
       "category_scores": {
         "reasoning": 69.2,
         "math": 47.6,
-        "human_preference": 80.87
+        "human_preference": 80.94
       },
       "category_errors": {
         "reasoning": 2.343,
         "math": 5.684,
-        "human_preference": 1.798
+        "human_preference": 1.796
       },
-      "composite": 64.92,
+      "composite": 64.94,
       "composite_error": 2.18,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3435,13 +3435,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.77,
-        "human_preference": 72.61
+        "human_preference": 72.63
       },
       "category_errors": {
         "reasoning": 2.741,
-        "human_preference": 2.958
+        "human_preference": 2.956
       },
-      "composite": 63.33,
+      "composite": 63.34,
       "composite_error": 2.04,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3496,14 +3496,14 @@
       "category_scores": {
         "reasoning": 68.3,
         "coding": 49.0,
-        "human_preference": 76.24
+        "human_preference": 76.34
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 3.636
+        "human_preference": 3.633
       },
-      "composite": 62.71,
+      "composite": 62.73,
       "composite_error": 0.84,
       "uncertainty": {
         "measured_inputs": 1,
@@ -3562,13 +3562,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 61.02,
-        "human_preference": 53.69
+        "human_preference": 53.75
       },
       "category_errors": {
         "reasoning": 2.416,
-        "human_preference": 1.774
+        "human_preference": 1.772
       },
-      "composite": 58.27,
+      "composite": 58.29,
       "composite_error": 1.65,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3628,13 +3628,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 53.81,
-        "human_preference": 61.82
+        "human_preference": 61.83
       },
       "category_errors": {
         "reasoning": 2.234,
-        "human_preference": 2.253
+        "human_preference": 2.227
       },
-      "composite": 56.81,
+      "composite": 56.82,
       "composite_error": 1.63,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3697,10 +3697,10 @@
       },
       "category_errors": {
         "reasoning": 4.873,
-        "human_preference": 3.139
+        "human_preference": 3.137
       },
       "composite": 38.0,
-      "composite_error": 3.27,
+      "composite_error": 3.26,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 2,
@@ -3753,14 +3753,14 @@
       "category_scores": {
         "reasoning": 51.32,
         "math": 6.21,
-        "human_preference": 53.75
+        "human_preference": 53.81
       },
       "category_errors": {
         "reasoning": 2.942,
         "math": 2.781,
-        "human_preference": 1.792
+        "human_preference": 1.79
       },
-      "composite": 36.89,
+      "composite": 36.91,
       "composite_error": 1.6,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3813,11 +3813,11 @@
       "status": "verified",
       "category_scores": {
         "math": 4.84,
-        "human_preference": 63.56
+        "human_preference": 63.57
       },
       "category_errors": {
         "math": 2.479,
-        "human_preference": 1.181
+        "human_preference": 1.18
       },
       "composite": 30.01,
       "composite_error": 1.5,
