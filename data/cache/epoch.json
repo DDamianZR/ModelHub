@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23",
+  "fetched_at": "2026-10-24",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -1569,6 +1569,22 @@
         "eci": 157.86,
         "organization": "Moonshot",
         "release_date": "2026-07-16"
+      },
+      "kimi-k3.1": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Kimi K3.1 Pro (unknown)",
+        "eci": 0.0,
+        "organization": "Moonshot",
+        "release_date": "2026-10-23"
+      },
+      "kimi-k3.1-pro": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Kimi K3.1 Pro (high)",
+        "eci": 0.0,
+        "organization": "Moonshot",
+        "release_date": "2026-10-23"
       },
       "laguna-m.1": {
         "accessibility": "",
