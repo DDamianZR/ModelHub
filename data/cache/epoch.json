@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28",
+  "fetched_at": "2026-10-29",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -34,8 +34,16 @@
         "organization": "OpenAI",
         "release_date": "2025-08-07"
       },
+      "beam-1.0": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Beam 1.0 (high)",
+        "eci": 0.0,
+        "organization": "Reflection",
+        "release_date": "2026-10-05"
+      },
       "chutes/glm-4.5-fp8": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "chutes/GLM-4.5-FP8",
         "eci": 0.0,
@@ -59,7 +67,7 @@
         "release_date": "2025-07-25"
       },
       "chutes/qwen3-next-80b-a3b": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "chutes/Qwen3-Next-80B-A3B-Instruct",
         "eci": 0.0,
@@ -435,7 +443,7 @@
         "release_date": "2026-05-18"
       },
       "deepinfra/qwen3-next-80b-a3b": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "deepinfra/Qwen3-Next-80B-A3B-Instruct",
         "eci": 0.0,
@@ -858,8 +866,16 @@
         "organization": "Google DeepMind",
         "release_date": "2026-09-30"
       },
+      "gemini-4-carbon": {
+        "accessibility": "Unreleased",
+        "country": "United States of America",
+        "display_name": "Gemini 4 Carbon (high)",
+        "eci": 0.0,
+        "organization": "Google DeepMind",
+        "release_date": "2026-10-28"
+      },
       "gemini-robotics-er-1.5": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "gemini-robotics-er-1.5-preview",
         "eci": 0.0,
@@ -1307,7 +1323,7 @@
         "release_date": "2025-08-05"
       },
       "granite-4.0-1b": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "granite-4.0-1b",
         "eci": 0.0,
@@ -1315,7 +1331,7 @@
         "release_date": "2025-10-28"
       },
       "granite-4.0-350m": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "granite-4.0-350m",
         "eci": 0.0,
@@ -1323,7 +1339,7 @@
         "release_date": "2025-10-28"
       },
       "granite-4.0-micro": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "granite-4.0-micro",
         "eci": 0.0,
@@ -1451,7 +1467,7 @@
         "release_date": "2026-05-29"
       },
       "grok-code-fast-1": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "grok-code-fast-1",
         "eci": 0.0,
@@ -1923,7 +1939,7 @@
         "release_date": "2025-12-02"
       },
       "nvidia-nemotron-nano-9b-v2": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "nvidia-nemotron-nano-9b-v2",
         "eci": 0.0,
@@ -2011,7 +2027,7 @@
         "release_date": "2025-07-30"
       },
       "qwen3-4b-instruct-2507": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "qwen3-4b-instruct-2507",
         "eci": 0.0,
@@ -2027,7 +2043,7 @@
         "release_date": "2025-07-31"
       },
       "qwen3-coder-next": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "qwen3-coder-next",
         "eci": 0.0,
@@ -2035,7 +2051,7 @@
         "release_date": "2026-02-02"
       },
       "qwen3-coder-plus": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "qwen3-coder-plus",
         "eci": 0.0,
@@ -2243,7 +2259,7 @@
         "release_date": "2025-12-11"
       },
       "seed-oss-36b": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "seed-oss-36b-instruct",
         "eci": 0.0,
@@ -2307,7 +2323,7 @@
         "release_date": "2026-09-10"
       },
       "tiny-recursion-model": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "tiny-recursion-model",
         "eci": 0.0,
@@ -2331,7 +2347,7 @@
         "release_date": "2025-06-18"
       },
       "xiaoyi-deepresearch": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "",
         "display_name": "xiaoyi-deepresearch",
         "eci": 0.0,

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-28",
+    "generated_at": "2026-10-29",
     "model_count": 61,
     "ranked_count": 12,
     "provisional_count": 49,
@@ -8,15 +8,15 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-10-28",
+      "epoch": "2026-10-29",
       "livebench": "2026-09-02",
-      "lmarena_text": "2026-10-22",
+      "lmarena_text": "2026-10-28",
       "lmarena_vision": "2026-10-19"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
-      "min": 1287.47,
-      "max": 1491.1
+      "min": 1287.31,
+      "max": 1491.35
     }
   },
   "models": [
@@ -46,15 +46,15 @@
         "reasoning": 78.5,
         "math": 51.7,
         "coding": 80.58,
-        "human_preference": 88.07
+        "human_preference": 87.94
       },
       "category_errors": {
         "reasoning": 2.131,
         "math": 5.684,
         "coding": 3.528,
-        "human_preference": 1.795
+        "human_preference": 1.79
       },
-      "composite": 74.49,
+      "composite": 74.47,
       "composite_error": 1.83,
       "uncertainty": {
         "measured_inputs": 5,
@@ -114,15 +114,15 @@
         "reasoning": 92.61,
         "math": 37.6,
         "coding": 72.93,
-        "human_preference": 94.29
+        "human_preference": 94.14
       },
       "category_errors": {
         "reasoning": 3.24,
         "math": 5.566,
         "coding": 3.963,
-        "human_preference": 1.848
+        "human_preference": 1.844
       },
-      "composite": 74.17,
+      "composite": 74.15,
       "composite_error": 2.02,
       "uncertainty": {
         "measured_inputs": 4,
@@ -182,15 +182,15 @@
         "reasoning": 83.21,
         "math": 35.64,
         "coding": 75.41,
-        "human_preference": 87.55
+        "human_preference": 87.41
       },
       "category_errors": {
         "reasoning": 3.732,
         "math": 5.531,
         "coding": 3.84,
-        "human_preference": 2.119
+        "human_preference": 2.115
       },
-      "composite": 70.49,
+      "composite": 70.46,
       "composite_error": 2.08,
       "uncertainty": {
         "measured_inputs": 4,
@@ -250,13 +250,13 @@
         "reasoning": 68.14,
         "math": 65.27,
         "coding": 73.55,
-        "human_preference": 56.84
+        "human_preference": 56.83
       },
       "category_errors": {
         "reasoning": 2.56,
         "math": 2.716,
         "coding": 3.934,
-        "human_preference": 2.094
+        "human_preference": 2.089
       },
       "composite": 67.06,
       "composite_error": 1.57,
@@ -318,15 +318,15 @@
         "reasoning": 62.84,
         "math": 38.97,
         "coding": 76.65,
-        "human_preference": 82.4
+        "human_preference": 82.46
       },
       "category_errors": {
         "reasoning": 2.239,
         "math": 5.623,
         "coding": 3.773,
-        "human_preference": 2.165
+        "human_preference": 2.16
       },
-      "composite": 64.74,
+      "composite": 64.75,
       "composite_error": 1.89,
       "uncertainty": {
         "measured_inputs": 5,
@@ -385,15 +385,15 @@
         "reasoning": 87.82,
         "math": 16.43,
         "coding": 72.08,
-        "human_preference": 77.88
+        "human_preference": 77.71
       },
       "category_errors": {
         "reasoning": 4.579,
         "math": 4.302,
         "coding": 4.094,
-        "human_preference": 2.071
+        "human_preference": 2.067
       },
-      "composite": 64.64,
+      "composite": 64.61,
       "composite_error": 2.1,
       "uncertainty": {
         "measured_inputs": 4,
@@ -446,15 +446,15 @@
         "reasoning": 61.95,
         "math": 33.45,
         "coding": 74.17,
-        "human_preference": 86.08
+        "human_preference": 86.01
       },
       "category_errors": {
         "reasoning": 2.566,
         "math": 5.439,
         "coding": 3.9,
-        "human_preference": 1.734
+        "human_preference": 1.719
       },
-      "composite": 63.1,
+      "composite": 63.08,
       "composite_error": 1.9,
       "uncertainty": {
         "measured_inputs": 5,
@@ -507,15 +507,15 @@
         "reasoning": 69.69,
         "math": 23.1,
         "coding": 76.65,
-        "human_preference": 78.42
+        "human_preference": 78.14
       },
       "category_errors": {
         "reasoning": 2.789,
         "math": 4.859,
         "coding": 3.773,
-        "human_preference": 4.009
+        "human_preference": 4.002
       },
-      "composite": 62.32,
+      "composite": 62.27,
       "composite_error": 1.93,
       "uncertainty": {
         "measured_inputs": 5,
@@ -569,15 +569,15 @@
         "reasoning": 85.29,
         "math": 14.14,
         "coding": 57.56,
-        "human_preference": 83.63
+        "human_preference": 83.51
       },
       "category_errors": {
         "reasoning": 4.149,
         "math": 4.016,
         "coding": 4.412,
-        "human_preference": 1.196
+        "human_preference": 1.193
       },
-      "composite": 60.1,
+      "composite": 60.08,
       "composite_error": 2.03,
       "uncertainty": {
         "measured_inputs": 4,
@@ -637,13 +637,13 @@
         "reasoning": 61.24,
         "math": 40.34,
         "coding": 73.76,
-        "human_preference": 61.26
+        "human_preference": 61.25
       },
       "category_errors": {
         "reasoning": 2.384,
         "math": 5.657,
         "coding": 3.924,
-        "human_preference": 1.545
+        "human_preference": 1.542
       },
       "composite": 60.01,
       "composite_error": 1.92,
@@ -705,15 +705,15 @@
         "reasoning": 67.81,
         "math": 31.03,
         "coding": 67.98,
-        "human_preference": 66.19
+        "human_preference": 66.1
       },
       "category_errors": {
         "reasoning": 2.404,
         "math": 5.333,
         "coding": 4.161,
-        "human_preference": 1.745
+        "human_preference": 1.741
       },
-      "composite": 58.92,
+      "composite": 58.9,
       "composite_error": 1.91,
       "uncertainty": {
         "measured_inputs": 5,
@@ -772,15 +772,15 @@
         "reasoning": 66.26,
         "math": 26.21,
         "coding": 57.85,
-        "human_preference": 73.15
+        "human_preference": 73.03
       },
       "category_errors": {
         "reasoning": 2.717,
         "math": 5.071,
         "coding": 4.404,
-        "human_preference": 2.018
+        "human_preference": 2.014
       },
-      "composite": 55.58,
+      "composite": 55.56,
       "composite_error": 1.97,
       "uncertainty": {
         "measured_inputs": 5,
@@ -1482,14 +1482,14 @@
       "category_scores": {
         "reasoning": 87.2,
         "coding": 94.3,
-        "human_preference": 78.84
+        "human_preference": 78.58
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.126
+        "human_preference": 2.123
       },
-      "composite": 88.0,
+      "composite": 87.94,
       "composite_error": 0.49,
       "uncertainty": {
         "measured_inputs": 1,
@@ -1607,13 +1607,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 87.88,
-        "human_preference": 82.06
+        "human_preference": 81.97
       },
       "category_errors": {
         "reasoning": 4.557,
-        "human_preference": 2.119
+        "human_preference": 2.116
       },
-      "composite": 85.7,
+      "composite": 85.66,
       "composite_error": 2.96,
       "uncertainty": {
         "measured_inputs": 2,
@@ -1738,7 +1738,7 @@
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 4.59
+        "human_preference": 4.6
       },
       "composite": 85.04,
       "composite_error": 1.06,
@@ -2095,15 +2095,15 @@
       "category_scores": {
         "reasoning": 83.8,
         "coding": 85.6,
-        "human_preference": 75.88
+        "human_preference": 76.17
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 3.248
+        "human_preference": 3.098
       },
-      "composite": 82.66,
-      "composite_error": 0.75,
+      "composite": 82.73,
+      "composite_error": 0.71,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -2162,15 +2162,15 @@
       "category_scores": {
         "reasoning": 77.6,
         "coding": 80.6,
-        "human_preference": 90.81
+        "human_preference": 91.02
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.311
+        "human_preference": 2.275
       },
-      "composite": 81.8,
-      "composite_error": 0.53,
+      "composite": 81.85,
+      "composite_error": 0.52,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -2205,73 +2205,6 @@
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3.8-27b",
-      "display_name": "Qwen3.8 27B",
-      "provider_id": "alibaba",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-08-14",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 80.0,
-        "coding": 86.8,
-        "human_preference": 74.88
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "human_preference": 2.399
-      },
-      "composite": 81.43,
-      "composite_error": 0.55,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "instruction_following",
-          "math"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 3
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "plain",
-      "human_preference_variant": null,
-      "vision": {
-        "rating": 1269.5,
-        "rank": 44,
-        "variant": "Qwen3.8-27B",
-        "measured_at": "2026-10-19",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
       "id": "alibaba-qwen3.5-397b-a17b",
       "display_name": "Qwen3.5 397B-A17B",
       "provider_id": "alibaba",
@@ -2295,13 +2228,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 85.86,
-        "human_preference": 73.85
+        "human_preference": 73.63
       },
       "category_errors": {
         "reasoning": 4.867,
-        "human_preference": 1.494
+        "human_preference": 1.485
       },
-      "composite": 81.36,
+      "composite": 81.27,
       "composite_error": 3.09,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2338,6 +2271,73 @@
       "cohort_recalibration": null
     },
     {
+      "id": "alibaba-qwen3.8-27b",
+      "display_name": "Qwen3.8 27B",
+      "provider_id": "alibaba",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-08-14",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 80.0,
+        "coding": 86.8,
+        "human_preference": 74.07
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "human_preference": 2.368
+      },
+      "composite": 81.25,
+      "composite_error": 0.55,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 3,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 3
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "plain",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1269.5,
+        "rank": 44,
+        "variant": "Qwen3.8-27B",
+        "measured_at": "2026-10-19",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
       "id": "google-deepmind-gemini-3.1-pro",
       "display_name": "Gemini 3.1 Pro Preview",
       "provider_id": "google-deepmind",
@@ -2362,14 +2362,14 @@
       "category_scores": {
         "reasoning": 84.0,
         "coding": 66.7,
-        "human_preference": 94.66
+        "human_preference": 94.49
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 1.434
+        "human_preference": 1.426
       },
-      "composite": 79.81,
+      "composite": 79.77,
       "composite_error": 0.33,
       "uncertainty": {
         "measured_inputs": 1,
@@ -2464,73 +2464,6 @@
       "cohort_recalibration": null
     },
     {
-      "id": "alibaba-qwen3.8",
-      "display_name": "Qwen3.8 Max (unknown)",
-      "provider_id": "alibaba",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-08-02",
-      "country": "China",
-      "context_window": null,
-      "modalities": [
-        "text",
-        "vision"
-      ],
-      "pricing": null,
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 88.2,
-        "coding": 60.3,
-        "human_preference": 96.32
-      },
-      "category_errors": {
-        "reasoning": null,
-        "coding": null,
-        "human_preference": 2.364
-      },
-      "composite": 79.34,
-      "composite_error": 0.55,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "instruction_following",
-          "math"
-        ]
-      },
-      "evidence": {
-        "sources": 3,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": true,
-      "awaiting_human_votes": false,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": {
-        "rating": 1312.9,
-        "rank": 10,
-        "variant": "Qwen3.8-Max",
-        "measured_at": "2026-10-19",
-        "source_url": "https://lmarena.ai/leaderboard"
-      },
-      "rank": null,
-      "tied_with": 0,
-      "cohort_recalibration": null
-    },
-    {
       "id": "google-deepmind-gemini-3.5-flash-lite",
       "display_name": "Gemini 3.5 Flash-Lite",
       "provider_id": "google-deepmind",
@@ -2554,13 +2487,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 83.33,
-        "human_preference": 72.44
+        "human_preference": 72.62
       },
       "category_errors": {
         "reasoning": 5.204,
-        "human_preference": 2.188
+        "human_preference": 2.185
       },
-      "composite": 79.25,
+      "composite": 79.31,
       "composite_error": 3.35,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2597,6 +2530,73 @@
       "cohort_recalibration": null
     },
     {
+      "id": "alibaba-qwen3.8",
+      "display_name": "Qwen3.8 Max (unknown)",
+      "provider_id": "alibaba",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-08-02",
+      "country": "China",
+      "context_window": null,
+      "modalities": [
+        "text",
+        "vision"
+      ],
+      "pricing": null,
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 88.2,
+        "coding": 60.3,
+        "human_preference": 96.05
+      },
+      "category_errors": {
+        "reasoning": null,
+        "coding": null,
+        "human_preference": 2.337
+      },
+      "composite": 79.28,
+      "composite_error": 0.54,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 3,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 3,
+        "total": 5,
+        "missing": [
+          "instruction_following",
+          "math"
+        ]
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": true,
+      "awaiting_human_votes": false,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": {
+        "rating": 1312.9,
+        "rank": 10,
+        "variant": "Qwen3.8-Max",
+        "measured_at": "2026-10-19",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
+      "rank": null,
+      "tied_with": 0,
+      "cohort_recalibration": null
+    },
+    {
       "id": "alibaba-qwen3.7",
       "display_name": "Qwen3.7 Max",
       "provider_id": "alibaba",
@@ -2620,14 +2620,14 @@
       "category_scores": {
         "reasoning": 73.34,
         "coding": 77.27,
-        "human_preference": 92.14
+        "human_preference": 91.82
       },
       "category_errors": {
         "reasoning": 2.531,
         "coding": 3.738,
-        "human_preference": 4.746
+        "human_preference": 4.74
       },
-      "composite": 79.19,
+      "composite": 79.12,
       "composite_error": 2.05,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2680,14 +2680,14 @@
       "category_scores": {
         "reasoning": 60.67,
         "math": 97.13,
-        "human_preference": 74.38
+        "human_preference": 74.29
       },
       "category_errors": {
         "reasoning": 3.097,
         "math": 0.823,
-        "human_preference": 2.213
+        "human_preference": 2.209
       },
-      "composite": 76.25,
+      "composite": 76.23,
       "composite_error": 1.43,
       "uncertainty": {
         "measured_inputs": 4,
@@ -2739,13 +2739,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 84.22,
-        "human_preference": 62.33
+        "human_preference": 62.27
       },
       "category_errors": {
         "reasoning": 4.092,
-        "human_preference": 1.506
+        "human_preference": 1.503
       },
-      "composite": 76.01,
+      "composite": 75.99,
       "composite_error": 2.62,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2799,14 +2799,14 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 82.51,
-        "human_preference": 64.71
+        "human_preference": 64.64
       },
       "category_errors": {
         "reasoning": 4.416,
-        "human_preference": 2.42
+        "human_preference": 2.416
       },
-      "composite": 75.83,
-      "composite_error": 2.91,
+      "composite": 75.81,
+      "composite_error": 2.9,
       "uncertainty": {
         "measured_inputs": 2,
         "total_inputs": 2,
@@ -2866,14 +2866,14 @@
       "category_scores": {
         "reasoning": 82.7,
         "coding": 70.9,
-        "human_preference": 70.84
+        "human_preference": 70.55
       },
       "category_errors": {
         "reasoning": 2.007,
         "coding": null,
-        "human_preference": 1.839
+        "human_preference": 1.824
       },
-      "composite": 75.42,
+      "composite": 75.36,
       "composite_error": 0.88,
       "uncertainty": {
         "measured_inputs": 2,
@@ -2991,13 +2991,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 81.82,
-        "human_preference": 63.04
+        "human_preference": 62.97
       },
       "category_errors": {
         "reasoning": 5.386,
-        "human_preference": 1.774
+        "human_preference": 1.77
       },
-      "composite": 74.78,
+      "composite": 74.75,
       "composite_error": 3.43,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3057,14 +3057,14 @@
       "category_scores": {
         "reasoning": 68.32,
         "coding": 77.64,
-        "human_preference": 80.44
+        "human_preference": 80.29
       },
       "category_errors": {
         "reasoning": 2.309,
         "coding": 3.72,
-        "human_preference": 1.905
+        "human_preference": 1.9
       },
-      "composite": 74.7,
+      "composite": 74.67,
       "composite_error": 1.74,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3118,14 +3118,14 @@
       "category_scores": {
         "reasoning": 89.8,
         "math": 39.0,
-        "human_preference": 91.72
+        "human_preference": 91.51
       },
       "category_errors": {
         "reasoning": 4.312,
         "math": 5.684,
-        "human_preference": 2.804
+        "human_preference": 2.796
       },
-      "composite": 73.35,
+      "composite": 73.29,
       "composite_error": 2.7,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3184,15 +3184,15 @@
       "category_scores": {
         "reasoning": 78.3,
         "coding": 64.0,
-        "human_preference": 75.9
+        "human_preference": 76.14
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 2.071
+        "human_preference": 2.054
       },
-      "composite": 72.25,
-      "composite_error": 0.48,
+      "composite": 72.3,
+      "composite_error": 0.47,
       "uncertainty": {
         "measured_inputs": 1,
         "total_inputs": 3,
@@ -3243,13 +3243,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 83.46,
-        "human_preference": 52.63
+        "human_preference": 52.55
       },
       "category_errors": {
         "reasoning": 4.271,
-        "human_preference": 2.064
+        "human_preference": 2.06
       },
-      "composite": 71.9,
+      "composite": 71.87,
       "composite_error": 2.78,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3303,13 +3303,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.79,
-        "human_preference": 93.52
+        "human_preference": 93.59
       },
       "category_errors": {
         "reasoning": 3.071,
-        "human_preference": 2.024
+        "human_preference": 2.019
       },
-      "composite": 71.19,
+      "composite": 71.22,
       "composite_error": 2.06,
       "uncertainty": {
         "measured_inputs": 2,
@@ -3375,7 +3375,7 @@
       "category_errors": {
         "reasoning": 2.343,
         "math": 5.684,
-        "human_preference": 1.796
+        "human_preference": 1.791
       },
       "composite": 64.94,
       "composite_error": 2.18,
@@ -3435,13 +3435,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 57.77,
-        "human_preference": 72.63
+        "human_preference": 72.6
       },
       "category_errors": {
         "reasoning": 2.741,
-        "human_preference": 2.956
+        "human_preference": 2.951
       },
-      "composite": 63.34,
+      "composite": 63.33,
       "composite_error": 2.04,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3496,14 +3496,14 @@
       "category_scores": {
         "reasoning": 68.3,
         "coding": 49.0,
-        "human_preference": 76.34
+        "human_preference": 76.28
       },
       "category_errors": {
         "reasoning": null,
         "coding": null,
-        "human_preference": 3.633
+        "human_preference": 3.626
       },
-      "composite": 62.73,
+      "composite": 62.72,
       "composite_error": 0.84,
       "uncertainty": {
         "measured_inputs": 1,
@@ -3562,13 +3562,13 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 61.02,
-        "human_preference": 53.75
+        "human_preference": 53.7
       },
       "category_errors": {
         "reasoning": 2.416,
-        "human_preference": 1.772
+        "human_preference": 1.769
       },
-      "composite": 58.29,
+      "composite": 58.28,
       "composite_error": 1.65,
       "uncertainty": {
         "measured_inputs": 3,
@@ -3628,14 +3628,14 @@
       "status": "verified",
       "category_scores": {
         "reasoning": 53.81,
-        "human_preference": 61.83
+        "human_preference": 62.25
       },
       "category_errors": {
         "reasoning": 2.234,
-        "human_preference": 2.227
+        "human_preference": 2.205
       },
-      "composite": 56.82,
-      "composite_error": 1.63,
+      "composite": 56.97,
+      "composite_error": 1.62,
       "uncertainty": {
         "measured_inputs": 3,
         "total_inputs": 3,
@@ -3697,7 +3697,7 @@
       },
       "category_errors": {
         "reasoning": 4.873,
-        "human_preference": 3.137
+        "human_preference": 3.132
       },
       "composite": 38.0,
       "composite_error": 3.26,
@@ -3753,14 +3753,14 @@
       "category_scores": {
         "reasoning": 51.32,
         "math": 6.21,
-        "human_preference": 53.81
+        "human_preference": 53.8
       },
       "category_errors": {
         "reasoning": 2.942,
         "math": 2.781,
-        "human_preference": 1.79
+        "human_preference": 1.786
       },
-      "composite": 36.91,
+      "composite": 36.9,
       "composite_error": 1.6,
       "uncertainty": {
         "measured_inputs": 4,
@@ -3813,13 +3813,13 @@
       "status": "verified",
       "category_scores": {
         "math": 4.84,
-        "human_preference": 63.57
+        "human_preference": 63.52
       },
       "category_errors": {
         "math": 2.479,
-        "human_preference": 1.18
+        "human_preference": 1.178
       },
-      "composite": 30.01,
+      "composite": 29.99,
       "composite_error": 1.5,
       "uncertainty": {
         "measured_inputs": 2,
