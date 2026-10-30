@@ -80,11 +80,16 @@ def url_resolves(url: str) -> bool:
     return status == 200
 
 
-def find_hf_repo(display_name: str, provider: str) -> str | None:
+def find_hf_repo(display_name: str, provider: str, slug: str = "") -> str | None:
     """Search the HuggingFace Hub for the model's weights repository.
 
     Deterministic: the Hub's own search decides, not the language model. Only an exact-ish
     match on the returned id is accepted, so a fuzzy hit does not become a claim.
+
+    `slug` is the model's canonical key without its provider prefix. Display names change
+    with the source that names them ("Qwen3-30B-A3B-Instruct (Jul 2025)" since names came
+    from Epoch's model group), while the key stays the repo's own name, so it is matched
+    too. Without it two Qwen repos that still resolved stopped being found on 2026-10-03.
     """
     # Display names carry the chosen variant, e.g. "Kimi K3 (max)". The Hub does not know
     # about our effort labels, so search on the base name.
@@ -106,6 +111,7 @@ def find_hf_repo(display_name: str, provider: str) -> str | None:
         return "".join(ch for ch in text.lower() if ch.isalnum())
 
     target = normalise(base_name)
+    slug_target = normalise(slug)
     provider_key = normalise(provider)
 
     for entry in results:
@@ -113,7 +119,7 @@ def find_hf_repo(display_name: str, provider: str) -> str | None:
         owner, _, name = repo_id.partition("/")
         if not name:
             continue
-        if normalise(name) == target or (
+        if normalise(name) in (target, slug_target) or (
             target in normalise(name) and normalise(owner).startswith(provider_key[:4])
         ):
             return f"https://huggingface.co/{repo_id}"
@@ -145,7 +151,9 @@ def build(model: dict) -> dict:
     verified: dict[str, bool] = {}
 
     if model.get("is_open_weights"):
-        repo = find_hf_repo(model["display_name"], provider_id)
+        model_id = model.get("id") or ""
+        slug = model_id[len(provider_id) + 1:] if model_id.startswith(f"{provider_id}-") else ""
+        repo = find_hf_repo(model["display_name"], provider_id, slug)
         if repo:
             acquisition["hf_repo"] = repo
         tag = find_ollama_tag(model["display_name"])
