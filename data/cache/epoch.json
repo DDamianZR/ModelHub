@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-01",
+  "fetched_at": "2026-11-02",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -1781,10 +1781,18 @@
       "mistral-large-4-0": {
         "accessibility": "Open weights (restricted use)",
         "country": "France",
+        "display_name": "Mistral Large 4 Preview (high)",
+        "eci": 0.0,
+        "organization": "Mistral AI",
+        "release_date": "2026-10-06"
+      },
+      "mistral-large-4-0-oss": {
+        "accessibility": "Open weights (restricted use)",
+        "country": "France",
         "display_name": "Mistral Large 4 (high)",
         "eci": 150.59,
         "organization": "Mistral AI",
-        "release_date": "2026-10-06"
+        "release_date": "2026-10-29"
       },
       "mistral-medium-2508": {
         "accessibility": "API access",
