@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-02",
+  "fetched_at": "2026-11-03",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -5690,6 +5690,28 @@
           "stderr": 1.266,
           "value": 20.0,
           "variant": "mistral-large-4-0_high"
+        }
+      ],
+      "mistral-large-4-0-oss": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.811,
+          "value": 90.15,
+          "variant": "mistral-large-4-0-oss_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-11-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.319,
+          "value": 22.4,
+          "variant": "mistral-large-4-0-oss_high"
         }
       ],
       "mistral-small-3.2-2506": [
