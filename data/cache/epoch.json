@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-03",
+  "fetched_at": "2026-11-04",
   "payload": {
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
@@ -569,6 +569,46 @@
         "eci": 0.0,
         "organization": "Mistral AI",
         "release_date": "2025-12-09"
+      },
+      "doubao-seed-2.0-lite-260428": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao Seed 2.0 Lite 260428 (high)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2026-04-28"
+      },
+      "doubao-seed-2.0-pro-260215": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao-Seed-2.0 Pro (high)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2026-02-14"
+      },
+      "doubao-seed-2.1-pro-260628": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao Seed 2.1 Pro (high)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2026-06-23"
+      },
+      "doubao-seed-2.1-turbo-260628": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao Seed 2.1 Turbo (high)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2026-06-23"
+      },
+      "doubao-seed-evolving": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao Seed Evolving (high)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2026-11-02"
       },
       "fireworks/deepseek-v3p2": {
         "accessibility": "Open weights (unrestricted)",
@@ -2266,6 +2306,14 @@
         "organization": "OpenAI",
         "release_date": "2025-12-11"
       },
+      "seed-1.6": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Doubao-Seed-1.6 (thinking)",
+        "eci": 0.0,
+        "organization": "ByteDance",
+        "release_date": "2025-06-11"
+      },
       "seed-oss-36b": {
         "accessibility": "",
         "country": "",
@@ -3400,6 +3448,116 @@
           "stderr": 1.564,
           "value": 42.5,
           "variant": "deepseek-v4.1-flash-1017_max"
+        }
+      ],
+      "doubao-seed-2.0-lite-260428": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.944,
+          "value": 88.13,
+          "variant": "doubao-seed-2.0-lite-260428_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.47,
+          "value": 31.5,
+          "variant": "doubao-seed-2.0-lite-260428_high"
+        }
+      ],
+      "doubao-seed-2.0-pro-260215": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.943,
+          "value": 88.19,
+          "variant": "doubao-seed-2.0-pro-260215_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.546,
+          "value": 39.4,
+          "variant": "doubao-seed-2.0-pro-260215_high"
+        }
+      ],
+      "doubao-seed-2.1-pro-260628": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.842,
+          "value": 89.33,
+          "variant": "doubao-seed-2.1-pro-260628_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-28",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.573,
+          "value": 44.7,
+          "variant": "doubao-seed-2.1-pro-260628_high"
+        }
+      ],
+      "doubao-seed-2.1-turbo-260628": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.79,
+          "value": 89.58,
+          "variant": "doubao-seed-2.1-turbo-260628_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.446,
+          "value": 29.7,
+          "variant": "doubao-seed-2.1-turbo-260628_high"
+        }
+      ],
+      "doubao-seed-evolving": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.567,
+          "value": 93.12,
+          "variant": "doubao-seed-evolving_high"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-11-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.561,
+          "value": 41.9,
+          "variant": "doubao-seed-evolving_high"
         }
       ],
       "fireworks/deepseek-v3p2": [
@@ -6432,6 +6590,28 @@
           "stderr": 1.58,
           "value": 47.3,
           "variant": "qwen3.8-max-0902_xhigh"
+        }
+      ],
+      "seed-1.6": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-10-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.527,
+          "value": 77.59,
+          "variant": "seed-1.6"
+        },
+        {
+          "benchmark_id": "simpleqa_verified",
+          "category": "reasoning",
+          "measured_at": "2026-10-30",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.199,
+          "value": 17.4,
+          "variant": "seed-1.6"
         }
       ],
       "seed-oss-36b": [
