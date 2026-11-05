@@ -73,7 +73,12 @@ class Collect(unittest.TestCase):
                                  max_drift=max_drift or self.MAX_DRIFT, min_common=min_common)
 
     def _by_cat(self, payload, key="alpha-1"):
-        return {r["category"]: r for r in payload["scores"][key]}
+        rows: dict[str, dict] = {}
+        for r in payload["scores"][key]:
+            kept = rows.get(r["category"])
+            if kept is None or r["measured_at"] > kept["measured_at"]:
+                rows[r["category"]] = r
+        return rows
 
     def test_comparable_category_uses_newest_and_dates_it(self):
         payload = self._collect()
@@ -82,6 +87,11 @@ class Collect(unittest.TestCase):
         rule = payload["category_rule"]["reasoning"]
         self.assertEqual((rule["release"], rule["fallback"], rule["drift"], rule["common_models"]),
                          ("2026-10-25", True, 1.0, 1))
+
+    def test_comparable_category_emits_both_releases_dated(self):
+        rows = [(r["measured_at"], r["value"]) for r in self._collect()["scores"]["alpha-1"]
+                if r["category"] == "reasoning"]
+        self.assertEqual(sorted(rows), [("2026-06-25", 80.0), ("2026-10-25", 81.0)])
 
     def test_comparable_category_lets_an_absent_model_keep_its_older_dated_value(self):
         rows = self._by_cat(self._collect(), "beta-2")

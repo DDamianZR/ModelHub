@@ -217,5 +217,43 @@ class BoardAdmissionTests(unittest.TestCase):
         self.assertEqual({r["benchmark_id"] for r in rows}, {"lb_reasoning"})
 
 
+def _row(benchmark_id, category, value, variant, date, source="x"):
+    row = _lb(benchmark_id, category, value)
+    row.update(variant=variant, measured_at=date)
+    return row
+
+
+class FallbackRowTests(unittest.TestCase):
+    """In a fallback category a newer row only counts if it matches the chosen variant."""
+
+    REGISTRY = BoardAdmissionTests.REGISTRY
+    NEW, OLD = "2026-10-25", "2026-06-25"
+
+    def _reasoning_row(self, lb_rows):
+        from scripts.ingest.composite import build_models
+        epoch = {"m": [_row("ep_math", "math", 50.0, "m-max", "2026-05-01"),
+                       _row("ep_coding", "coding", 55.0, "m-max", "2026-05-01")]}
+        models, rows, *_ = build_models(
+            registry=self.REGISTRY, epoch_scores=epoch, livebench_scores={"m": lb_rows},
+            arena_text={}, arena_vision={}, arena_snapshot=None, vision_snapshot=None,
+            epoch_boards={},
+        )
+        return [r for r in rows if r["benchmark_id"] == "lb_reasoning"]
+
+    def test_unlabelled_newer_row_yields_to_older_row_of_the_chosen_variant(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m", self.NEW),
+                                    _row("lb_reasoning", "reasoning", 70.0, "m-max", self.OLD)])
+        self.assertEqual([(r["value"], r["measured_at"]) for r in rows], [(70.0, self.OLD)])
+
+    def test_newer_row_of_the_chosen_variant_beats_the_older_one(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m-max", self.NEW),
+                                    _row("lb_reasoning", "reasoning", 70.0, "m-max", self.OLD)])
+        self.assertEqual([(r["value"], r["measured_at"]) for r in rows], [(90.0, self.NEW)])
+
+    def test_unlabelled_newer_row_without_an_older_row_is_omitted(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m", self.NEW)])
+        self.assertEqual(rows, [])
+
+
 if __name__ == "__main__":
     unittest.main()

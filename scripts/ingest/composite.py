@@ -461,7 +461,9 @@ def build_models(
                     # another one would rebuild the Frankenstein this policy exists to
                     # avoid, so the cell is left missing and coverage reflects that.
                     continue
-                chosen_entry = matching[0]
+                # A fallback category carries the same benchmark from two releases; the
+                # newest row that matches the chosen variant is the one that counts.
+                chosen_entry = max(matching, key=lambda e: e.get("measured_at") or "")
                 value = chosen_entry["value"]
                 note = (
                     f"variant {chosen_label} ({chosen_entry.get('variant')})"
@@ -492,7 +494,7 @@ def build_models(
                 "half_width_95": half_width,
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
-                "measured_at": slot["measured_at"],
+                "measured_at": chosen_entry.get("measured_at") or slot["measured_at"],
                 "contamination_flag": bool(evidence),
                 "contamination_evidence": evidence,
                 "notes": note or None,

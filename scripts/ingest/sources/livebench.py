@@ -241,12 +241,11 @@ def collect(fetcher=fetch, max_drift: float | None = None, min_common: int | Non
 
     scores: dict[str, list[dict]] = {}
     for category, decision in decisions.items():
-        taken: set[str] = set()
+        # Every release in a fallback category emits its own row, dated. Whether the newer
+        # row is usable depends on the variant the model ends up with, which only the
+        # composite knows; it prefers the newest row that matches that variant.
         for date, values in decision["sources"]:
             for key, (name, value) in values.items():
-                if key in taken:
-                    continue
-                taken.add(key)
                 scores.setdefault(key, []).append({
                     "benchmark_id": f"livebench_{category}",
                     "category": category,
