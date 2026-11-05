@@ -339,17 +339,32 @@ def build_models(
     arena_vision: dict,
     arena_snapshot: str | None,
     vision_snapshot: str | None,
+    epoch_boards: dict[str, dict[str, dict]] | None = None,
 ) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
-    """Return (models, score rows, providers, aliases, arena min-max used)."""
+    """Return (models, score rows, providers, aliases, arena min-max used).
+
+    `epoch_boards` are third-party measurements kept outside the composite (knowledge,
+    agentic). They count as a source when deciding whether a model is corroborated enough
+    to appear, and for nothing else: never a category score, never coverage.
+    """
     weights, min_coverage, variant_policy = load_weights()
     contamination = load_contamination_registry()
 
     # A model needs corroboration from at least two independent sources to appear at all.
+    # A third-party measurement on a board outside the composite is evidence that the
+    # model exists and was measured, so it corroborates admission - but it is not read
+    # again below, so it cannot move a score or the coverage count.
+    board_keys = {
+        key
+        for boards in (epoch_boards or {}).values()
+        for info in boards.values()
+        for key in info.get("rows", {})
+    }
     keys = sorted(
         key
         for key in registry
         if sum([
-            bool(epoch_scores.get(key)),
+            bool(epoch_scores.get(key)) or key in board_keys,
             bool(livebench_scores.get(key)),
             key in arena_text,
         ]) >= 2

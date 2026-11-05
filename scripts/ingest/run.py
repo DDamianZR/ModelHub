@@ -494,6 +494,7 @@ def main() -> int:
         arena_vision=arena_payload.get("vision") or {},
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
+        epoch_boards=epoch_payload.get("boards") or {},
     )
 
     canonical_keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
