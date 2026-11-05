@@ -336,6 +336,16 @@ export default async function MethodologyPage({
           <p>{t("derived.cheapest")}</p>
         </Section>
 
+        <Section id="local" title={t("local.title")}>
+          <p>{t("local.body")}</p>
+          <p>{t("local.memory")}</p>
+          <p>{t("local.bands")}</p>
+          <p>{t("local.modes")}</p>
+          <p>{t("local.speed")}</p>
+          <p>{t("local.limits")}</p>
+          <p>{t("local.attribution")}</p>
+        </Section>
+
         <Section id="sourceTypes" title={t("sourceTypes.title")}>
           <p>{t("sourceTypes.body")}</p>
           <ul className="flex flex-col gap-2 pl-4">

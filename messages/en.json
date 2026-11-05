@@ -88,7 +88,8 @@
     "ranking": "Ranking",
     "compare": "Compare",
     "methodology": "Methodology",
-    "aliases": "Aliases"
+    "aliases": "Aliases",
+    "local": "What runs here"
   },
   "compare": {
     "title": "Compare models",
@@ -106,6 +107,100 @@
     "notSeparated": "not separated",
     "notSeparatedTitle": "The gap between these two composites ({gap}) is smaller than their combined 95% interval (±{combined}). The measurement does not separate them, so no difference is claimed.",
     "deltaNote": "Δ is measured against the first selected model. Where the gap falls inside the two models' combined interval it reads \"not separated\": the same rule the ranking uses, applied here so a difference smaller than the error never looks like a win."
+  },
+  "local": {
+    "title": "What runs on my machine?",
+    "metaTitle": "What runs on my machine? — ModelHub",
+    "metaDescription": "Enter your GPU, memory and RAM and see which measured open-weights models fit, at what quantisation and at about what speed. Estimates from model size, ordered by composite.",
+    "intro": "Enter your hardware and see which measured open-weights models fit in its memory, and at about what speed. These are estimates from model size, not measurements on your machine. The list is ordered by composite, never by how comfortably a model fits.",
+    "hardware": {
+      "title": "Your hardware",
+      "kind": "Memory layout",
+      "kind_discrete": "Dedicated GPU",
+      "kind_unified": "Unified",
+      "kind_cpu": "CPU only",
+      "preset": "Preset",
+      "presetCustom": "Custom values",
+      "presetNote": "Presets only fill in numbers. They are listed alphabetically and none is a recommendation. Laptop GPUs are not listed because their memory bus varies; use custom values.",
+      "vram": "GPU memory (GB)",
+      "pool": "Shared memory (GB)",
+      "ram": "System RAM (GB)",
+      "ramHint": "Installed RAM. About 10% is held back for the system.",
+      "bandwidth": "Memory bandwidth (GB/s)",
+      "bandwidthHint": "Optional. Without it, GPU speed is not estimated.",
+      "context": "Context (tokens)",
+      "invalid": "Enter the memory figures above to see what fits."
+    },
+    "hints": {
+      "title": "Hints from this browser",
+      "body": "Browsers hide exact hardware. These are hints only: they are not used in any figure below and nothing is filled in for you.",
+      "checking": "Checking…",
+      "gpu": "GPU reported by the browser: {name}.",
+      "noGpu": "This browser does not expose WebGPU.",
+      "memory": "Memory reported by the browser: at least {gb} GB (browsers cap this figure at 8).",
+      "noMemory": "This browser does not report memory."
+    },
+    "import": {
+      "title": "Import from llmfit",
+      "body": "Run llmfit recommend --json in a terminal and paste what it prints. It is read inside this page and never uploaded.",
+      "paste": "Pasted output",
+      "file": "Or choose a file",
+      "apply": "Use these specs",
+      "clear": "Clear",
+      "ok": "Read {models, plural, one {# model} other {# models}} and the hardware block.",
+      "applied": "Hardware filled in from the import.",
+      "error_empty": "Nothing was pasted.",
+      "error_too_large": "That is too large to be a recommend list.",
+      "error_invalid_json": "That is not valid JSON.",
+      "error_not_llmfit": "That JSON does not look like llmfit recommend output.",
+      "stored": "Specs are remembered in this browser only.",
+      "storageOff": "This browser blocks local storage, so specs will not be remembered."
+    },
+    "results": {
+      "fits": "Measured models that fit",
+      "fitsEmpty": "No ranked model fits this hardware at this context.",
+      "provisional": "Provisional models that fit",
+      "provisionalNote": "Measured in fewer than 4 of 5 categories, so they hold no rank. Listed alphabetically.",
+      "doesNot": "Do not fit",
+      "doesNotCount": "{count, plural, one {# model does not fit} other {# models do not fit}}",
+      "needs": "needs {gb} GB"
+    },
+    "row": {
+      "composite": "Composite",
+      "rank": "Rank",
+      "memory": "Memory",
+      "speed": "Speed",
+      "speedUnknown": "no estimate",
+      "speedUnit": "tok/s",
+      "quant": "Quantisation",
+      "mode": "Run mode",
+      "fit": "Fit",
+      "llmfit": "llmfit on your machine",
+      "halved": "Context cut to {tokens} tokens to fit.",
+      "coverage": "{covered} of {total} categories",
+      "source": "Source repository"
+    },
+    "verdict": {
+      "perfect": "Roomy (up to 60%)",
+      "good": "Comfortable (up to 85%)",
+      "marginal": "Tight (up to 98%)",
+      "too_tight": "Does not fit (over 98%)"
+    },
+    "mode": {
+      "gpu": "GPU",
+      "moe_offload": "GPU + RAM, experts in RAM",
+      "cpu_offload": "GPU + RAM, layers in RAM",
+      "cpu_only": "CPU"
+    },
+    "notes": {
+      "title": "How to read this",
+      "estimates": "Every figure is an estimate from parameter count, quantisation, context and memory bandwidth. Real speed depends on the runtime, the driver and what else is using memory.",
+      "moe": "Mixture-of-experts models are sized on active parameters for speed. On a GPU that holds all the experts, that is an upper bound.",
+      "layout": "{withLayout, plural, one {# of {total} models has} other {# of {total} models have}} a recorded hybrid-attention layout. The others are sized as full attention, which over-states their memory.",
+      "unsized": "{count, plural, one {# open-weights model has} other {# open-weights models have}} no size on record and is not listed here.",
+      "order": "Order is by composite (ties shown as =k), then name. Fit never reorders the list.",
+      "method": "Method, constants and attribution: see the methodology."
+    }
   },
   "model": {
     "description": "Description",
@@ -281,6 +376,16 @@
       "agedItem": "{days, plural, one {# day} other {# days}} old, state {state}",
       "agedNone": "None. All three sources are within their declared rhythm.",
       "cadenceUnknown": "Separate from rejection is ageing, which is a different failure: a source can fetch perfectly and still be serving numbers from months ago. Age is measured against each source's declared rhythm, and that rhythm is checked, on every run, against the one the source actually kept. On this run the list of published snapshots could not be read, so there is no observed rhythm to check against. LiveBench also adds models to its current snapshot without changing its date, so its age counts from the last model it published, and each of its numbers carries the date of the first daily ingest that saw it, never one earlier than its snapshot. Sources ageing right now:"
+    },
+    "local": {
+      "title": "What runs on my machine: memory fit",
+      "body": "The Local page sizes open-weights models for a machine you describe. It is arithmetic on published sizes and nothing there feeds the composite, a rank or the coverage gate. The sizing data is a catalogue maintained by llmfit, joined to scored models by exact normalised name; where several repositories share a name, the most downloaded is used and the disagreement in size is published per row in data/local_models.json.",
+      "memory": "Memory needed is weights plus KV cache plus 0.5 GB of runtime allowance. Weights are parameters × bytes per parameter by quantisation (Q8_0 1.05, Q6_K 0.80, Q5_K_M 0.68, Q4_K_M 0.58, Q3_K_M 0.48, Q2_K 0.37). The KV cache is 2 × full-attention layers × KV heads × head size × context × 2 bytes. The default context is 8,192 tokens or the model's own maximum if smaller. The best quantisation that fits within 98% of the pool is chosen; if none does, the context is halved once and the search is repeated.",
+      "bands": "The verdict is memory use against the pool the model runs in: up to 60% roomy, up to 85% comfortable, up to 98% tight, above that it does not fit. Only a model fully resident on the GPU can be roomy; models that spill into RAM or run on the CPU are capped at comfortable. A pool filled past 98% does not load in practice.",
+      "modes": "Run modes: GPU (everything in video memory); mixture-of-experts with the active experts in video memory and the rest in RAM; GPU plus RAM, where layers that do not fit are kept in RAM; CPU only. On unified memory there is one pool and nothing to spill into.",
+      "speed": "Speed is memory bandwidth ÷ gigabytes read per token × 0.55, where 0.55 stands for kernel overhead, KV-cache reads and memory-controller loss. Mixture-of-experts models read active parameters only. Spilled layers and offloaded experts are read from system RAM at 50 GB/s, then scaled by the run mode. With no GPU bandwidth entered, no GPU speed is shown rather than a guessed one.",
+      "limits": "What this does not do: hybrid attention layouts are used only where the data records one (config/local.json), so other models are sized as full attention and their memory is over-stated; mixture-of-experts speed on a GPU that holds every expert is an upper bound; pre-quantised formats, multi-GPU clusters and prompt-processing time are not modelled. In a comparison with llmfit's own output on about 6,800 catalogue entries, the fit verdict agreed in 98% of cases at 8 GB of video memory and 97% at 12 GB, and the run mode in 99%; the quantisation and memory figure agreed in about 91% to 93%, mostly because of catalogue versions and llmfit's name-based parameter corrections.",
+      "attribution": "Attribution: the sizing arithmetic is ported from llmfit (https://github.com/AlexsJones/llmfit), MIT License, Copyright (c) 2026 Alex Jones. The catalogue it reads is llmfit's hf_models.json under the same licence."
     }
   },
   "ui": {

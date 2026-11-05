@@ -8,6 +8,8 @@ import type {
   RejectedSnapshot,
   RankingRow,
   BestBy,
+  LocalEntry,
+  LocalModels,
   Row,
   SnapshotAge,
   Status,
@@ -488,5 +490,46 @@ export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
     rows,
     meta,
     sourceCount: new Set(benchmarks.map((b) => b.source)).size,
+  };
+}
+
+/**
+ * Open-weights models that have a size on record, joined to their measured standing.
+ * Returned in no meaningful order: the page decides how to order what fits.
+ */
+export function getLocalEntries(): {
+  entries: LocalEntry[];
+  generatedAt: string;
+  rankedCount: number;
+  openWeightsScored: number;
+  unsized: number;
+  withoutLayout: number;
+} {
+  const local = readJson<LocalModels>("local_models.json");
+  const { rows, meta } = getRanking();
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  const entries: LocalEntry[] = [];
+  for (const spec of local.models) {
+    const row = byId.get(spec.model_id);
+    if (!row) continue;
+    entries.push({
+      spec,
+      display_name: row.display_name,
+      rank: row.rank,
+      tied_with: row.tied_with,
+      composite: row.composite,
+      composite_error: row.composite_error,
+      provisional: row.provisional,
+      coverage: { covered: row.coverage.covered, total: row.coverage.total },
+      measured_at: meta.generated_at,
+    });
+  }
+  return {
+    entries,
+    generatedAt: local.meta.generated_at,
+    rankedCount: meta.ranked_count,
+    openWeightsScored: local.meta.open_weights_scored,
+    unsized: local.meta.open_weights_scored - local.meta.matched,
+    withoutLayout: entries.filter((e) => e.spec.attention_layout === null).length,
   };
 }

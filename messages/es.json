@@ -88,7 +88,8 @@
     "ranking": "Ranking",
     "compare": "Comparar",
     "methodology": "Metodología",
-    "aliases": "Alias"
+    "aliases": "Alias",
+    "local": "Qué corre aquí"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -106,6 +107,100 @@
     "notSeparated": "no separados",
     "notSeparatedTitle": "La diferencia entre estos dos compuestos ({gap}) es menor que su intervalo combinado al 95 % (±{combined}). La medición no los separa, así que no se afirma ninguna diferencia.",
     "deltaNote": "El Δ se mide contra el primer modelo seleccionado. Cuando la diferencia cae dentro del intervalo combinado de ambos modelos se lee «no separados»: la misma regla que usa el ranking, aplicada aquí para que una diferencia menor que el error nunca parezca una victoria."
+  },
+  "local": {
+    "title": "¿Qué corre en mi máquina?",
+    "metaTitle": "¿Qué corre en mi máquina? — ModelHub",
+    "metaDescription": "Indica tu GPU, memoria y RAM y mira qué modelos open weights medidos caben, con qué cuantización y a qué velocidad aproximada. Estimaciones a partir del tamaño, ordenadas por compuesto.",
+    "intro": "Indica tu hardware y mira qué modelos open weights medidos caben en su memoria y a qué velocidad aproximada. Son estimaciones a partir del tamaño del modelo, no mediciones en tu equipo. La lista se ordena por compuesto, nunca por lo holgado que quede un modelo.",
+    "hardware": {
+      "title": "Tu hardware",
+      "kind": "Organización de la memoria",
+      "kind_discrete": "GPU dedicada",
+      "kind_unified": "Unificada",
+      "kind_cpu": "Solo CPU",
+      "preset": "Preajuste",
+      "presetCustom": "Valores propios",
+      "presetNote": "Los preajustes solo rellenan números. Van en orden alfabético y ninguno es una recomendación. Las GPU de portátil no aparecen porque su bus de memoria varía; usa valores propios.",
+      "vram": "Memoria de la GPU (GB)",
+      "pool": "Memoria compartida (GB)",
+      "ram": "RAM del sistema (GB)",
+      "ramHint": "RAM instalada. Se reserva cerca del 10% para el sistema.",
+      "bandwidth": "Ancho de banda de memoria (GB/s)",
+      "bandwidthHint": "Opcional. Sin él no se estima la velocidad en GPU.",
+      "context": "Contexto (tokens)",
+      "invalid": "Indica las cifras de memoria de arriba para ver qué cabe."
+    },
+    "hints": {
+      "title": "Pistas de este navegador",
+      "body": "Los navegadores ocultan el hardware exacto. Son solo pistas: no se usan en ninguna cifra de abajo y no se rellena nada por ti.",
+      "checking": "Comprobando…",
+      "gpu": "GPU que reporta el navegador: {name}.",
+      "noGpu": "Este navegador no expone WebGPU.",
+      "memory": "Memoria que reporta el navegador: al menos {gb} GB (los navegadores limitan esta cifra a 8).",
+      "noMemory": "Este navegador no reporta la memoria."
+    },
+    "import": {
+      "title": "Importar desde llmfit",
+      "body": "Ejecuta llmfit recommend --json en una terminal y pega lo que imprime. Se lee dentro de esta página y no se sube a ningún sitio.",
+      "paste": "Salida pegada",
+      "file": "O elige un archivo",
+      "apply": "Usar estas especificaciones",
+      "clear": "Borrar",
+      "ok": "Se leyeron {models, plural, one {# modelo} other {# modelos}} y el bloque de hardware.",
+      "applied": "Hardware rellenado desde la importación.",
+      "error_empty": "No se pegó nada.",
+      "error_too_large": "Es demasiado grande para ser una lista de recommend.",
+      "error_invalid_json": "Eso no es JSON válido.",
+      "error_not_llmfit": "Ese JSON no parece la salida de llmfit recommend.",
+      "stored": "Las especificaciones se recuerdan solo en este navegador.",
+      "storageOff": "Este navegador bloquea el almacenamiento local, así que las especificaciones no se recordarán."
+    },
+    "results": {
+      "fits": "Modelos medidos que caben",
+      "fitsEmpty": "Ningún modelo con rango cabe en este hardware con este contexto.",
+      "provisional": "Modelos provisionales que caben",
+      "provisionalNote": "Medidos en menos de 4 de 5 categorías, por eso no tienen rango. Van en orden alfabético.",
+      "doesNot": "No caben",
+      "doesNotCount": "{count, plural, one {# modelo no cabe} other {# modelos no caben}}",
+      "needs": "necesita {gb} GB"
+    },
+    "row": {
+      "composite": "Compuesto",
+      "rank": "Rango",
+      "memory": "Memoria",
+      "speed": "Velocidad",
+      "speedUnknown": "sin estimación",
+      "speedUnit": "tok/s",
+      "quant": "Cuantización",
+      "mode": "Modo de ejecución",
+      "fit": "Ajuste",
+      "llmfit": "llmfit en tu equipo",
+      "halved": "Contexto reducido a {tokens} tokens para que quepa.",
+      "coverage": "{covered} de {total} categorías",
+      "source": "Repositorio de origen"
+    },
+    "verdict": {
+      "perfect": "Holgado (hasta 60%)",
+      "good": "Cómodo (hasta 85%)",
+      "marginal": "Justo (hasta 98%)",
+      "too_tight": "No cabe (más de 98%)"
+    },
+    "mode": {
+      "gpu": "GPU",
+      "moe_offload": "GPU + RAM, expertos en RAM",
+      "cpu_offload": "GPU + RAM, capas en RAM",
+      "cpu_only": "CPU"
+    },
+    "notes": {
+      "title": "Cómo leer esto",
+      "estimates": "Toda cifra es una estimación a partir del número de parámetros, la cuantización, el contexto y el ancho de banda de memoria. La velocidad real depende del runtime, del controlador y de lo que más use la memoria.",
+      "moe": "Los modelos de mezcla de expertos se dimensionan por parámetros activos para la velocidad. En una GPU que aloja todos los expertos, eso es un tope superior.",
+      "layout": "{withLayout, plural, one {# de {total} modelos tiene} other {# de {total} modelos tienen}} registrada una capa híbrida de atención. El resto se dimensiona como atención completa, lo que sobrestima su memoria.",
+      "unsized": "{count, plural, one {# modelo open weights no tiene} other {# modelos open weights no tienen}} tamaño registrado y no aparece aquí.",
+      "order": "El orden es por compuesto (los empates se muestran como =k) y luego por nombre. El ajuste nunca reordena la lista.",
+      "method": "Método, constantes y atribución: ver la metodología."
+    }
   },
   "model": {
     "description": "Descripción",
@@ -281,6 +376,16 @@
       "agedItem": "{days, plural, one {# día} other {# días}} de antigüedad, estado {state}",
       "agedNone": "Ninguna. Las tres fuentes están dentro de su ritmo declarado.",
       "cadenceUnknown": "Aparte del rechazo está el envejecimiento, que es un fallo distinto: una fuente puede descargarse perfectamente y estar sirviendo números de hace meses. La edad se mide contra el ritmo declarado de cada fuente y ese ritmo se contrasta, en cada corrida, contra el que la fuente realmente mantuvo. En esta corrida no se pudo leer la lista de snapshots publicados, así que no hay ritmo observado con el que contrastar. LiveBench, además, agrega modelos a su corte vigente sin cambiarle la fecha, así que su edad cuenta desde el último modelo que publicó, y cada uno de sus números lleva la fecha de la primera ingesta diaria que lo vio, nunca una anterior a su corte. Fuentes envejecidas ahora mismo:"
+    },
+    "local": {
+      "title": "Qué corre en mi máquina: ajuste de memoria",
+      "body": "La página Local dimensiona modelos open weights para una máquina que tú describes. Es aritmética sobre tamaños publicados y nada de ahí alimenta el compuesto, un rango ni el umbral de cobertura. Los datos de tamaño son un catálogo que mantiene llmfit, unido a los modelos puntuados por nombre normalizado exacto; cuando varios repositorios comparten nombre se usa el más descargado y el desacuerdo de tamaño se publica por fila en data/local_models.json.",
+      "memory": "La memoria necesaria es pesos más caché KV más 0,5 GB de margen del runtime. Los pesos son parámetros × bytes por parámetro según la cuantización (Q8_0 1,05, Q6_K 0,80, Q5_K_M 0,68, Q4_K_M 0,58, Q3_K_M 0,48, Q2_K 0,37). La caché KV es 2 × capas de atención completa × cabezas KV × tamaño de cabeza × contexto × 2 bytes. El contexto por defecto es de 8.192 tokens o el máximo del propio modelo si es menor. Se elige la mejor cuantización que cabe dentro del 98% del conjunto de memoria; si ninguna cabe, se reduce el contexto a la mitad una vez y se repite la búsqueda.",
+      "bands": "El ajuste es el uso de memoria frente al conjunto en el que corre el modelo: hasta 60% holgado, hasta 85% cómodo, hasta 98% justo y por encima no cabe. Solo un modelo totalmente residente en la GPU puede quedar holgado; los que desbordan a RAM o corren en CPU quedan limitados a cómodo. Un conjunto lleno por encima del 98% no carga en la práctica.",
+      "modes": "Modos de ejecución: GPU (todo en memoria de vídeo); mezcla de expertos con los expertos activos en memoria de vídeo y el resto en RAM; GPU más RAM, donde las capas que no caben se quedan en RAM; solo CPU. En memoria unificada hay un único conjunto y nada a donde desbordar.",
+      "speed": "La velocidad es ancho de banda de memoria ÷ gigabytes leídos por token × 0,55, donde 0,55 representa la sobrecarga de kernels, las lecturas de la caché KV y la pérdida del controlador de memoria. Los modelos de mezcla de expertos leen solo los parámetros activos. Las capas desbordadas y los expertos fuera de la GPU se leen de la RAM del sistema a 50 GB/s y luego se escalan por el modo de ejecución. Si no indicas el ancho de banda de la GPU, no se muestra velocidad en GPU en lugar de inventarla.",
+      "limits": "Lo que esto no hace: las capas híbridas de atención se usan solo donde los datos registran una (config/local.json), así que los demás modelos se dimensionan como atención completa y su memoria queda sobrestimada; la velocidad de mezcla de expertos en una GPU que aloja todos los expertos es un tope superior; no se modelan formatos precuantizados, clústeres multi-GPU ni el tiempo de procesar el prompt. En una comparación con la salida propia de llmfit sobre unas 6.800 entradas del catálogo, el veredicto de ajuste coincidió en el 98% de los casos con 8 GB de memoria de vídeo y en el 97% con 12 GB, y el modo de ejecución en el 99%; la cuantización y la cifra de memoria coincidieron en torno al 91% a 93%, sobre todo por versiones del catálogo y por las correcciones de parámetros por nombre de llmfit.",
+      "attribution": "Atribución: la aritmética de dimensionado está portada de llmfit (https://github.com/AlexsJones/llmfit), Licencia MIT, Copyright (c) 2026 Alex Jones. El catálogo que lee es el hf_models.json de llmfit bajo la misma licencia."
     }
   },
   "ui": {
