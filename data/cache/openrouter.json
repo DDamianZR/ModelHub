@@ -2180,8 +2180,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.027,
-        "price_output_usd_per_m": 0.081,
+        "price_input_usd_per_m": 0.03,
+        "price_output_usd_per_m": 0.09,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2414,7 +2414,7 @@
       },
       "inclusionai/ling-3.0-tiny": {
         "context_length": 262144,
-        "created": 1793858375,
+        "created": 1786034890,
         "free_tier": false,
         "hugging_face_id": "inclusionAI/Ling-3.0-tiny",
         "input_modalities": [
@@ -5769,8 +5769,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.011,
-        "price_output_usd_per_m": 0.04,
+        "price_input_usd_per_m": 0.01,
+        "price_output_usd_per_m": 0.037,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -8659,8 +8659,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1529,
-        "price_output_usd_per_m": 10.5572,
+        "price_input_usd_per_m": 0.1824,
+        "price_output_usd_per_m": 9.3388,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

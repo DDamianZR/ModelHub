@@ -796,8 +796,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.027,
-      "price_output_usd_per_m": 0.081,
+      "price_input_usd_per_m": 0.03,
+      "price_output_usd_per_m": 0.09,
       "open_weights": true,
       "hugging_face_id": "google/gemma-4-26B-A4B-it",
       "measured_at": "2026-11-05"
@@ -2512,8 +2512,8 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.011,
-      "price_output_usd_per_m": 0.04,
+      "price_input_usd_per_m": 0.01,
+      "price_output_usd_per_m": 0.037,
       "open_weights": true,
       "hugging_face_id": "openai/gpt-oss-120b",
       "measured_at": "2026-11-05"
@@ -4297,8 +4297,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.1529,
-      "price_output_usd_per_m": 10.5572,
+      "price_input_usd_per_m": 0.1824,
+      "price_output_usd_per_m": 9.3388,
       "open_weights": false,
       "hugging_face_id": null,
       "measured_at": "2026-11-05"
