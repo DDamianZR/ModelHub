@@ -57,11 +57,19 @@ _SUFFIXES = (
 )
 
 
-def norm(name: str) -> str:
+_DIGIT_SEPARATOR = re.compile(r"(?<=\d)[._-](?=\d)")
+
+
+def norm(name: str, fold_versions: bool = True) -> str:
     """Collapse a vendor model string into a comparable key.
 
     Effort levels and thinking modes are stripped because the same underlying model ships
     under many of them; keeping them apart would fragment the ranking.
+
+    A ``.``, ``-`` or ``_`` between two digits is the same version separator whichever
+    source spells it (``x-5-1`` and ``x-5.1``), so it folds to ``.``. The rule is by
+    pattern and applies to every provider. ``fold_versions=False`` returns the spelling
+    as published, which is what model ids are built from so URLs and history stay stable.
     """
     s = name.lower().strip()
     s = re.sub(r"[_\s]+", "-", s)
@@ -73,7 +81,8 @@ def norm(name: str) -> str:
         for suffix in _SUFFIXES:
             if s.endswith(suffix):
                 s, changed = s[: -len(suffix)], True
-    return re.sub(r"-+", "-", s).strip("-")
+    s = re.sub(r"-+", "-", s).strip("-")
+    return _DIGIT_SEPARATOR.sub(".", s) if fold_versions else s
 
 
 def slugify(text: str) -> str:

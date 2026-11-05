@@ -156,6 +156,9 @@ def collect() -> dict:
             continue
         registry[key] = {
             "eci": eci,
+            # The spelling as published, before versions fold. Model ids are built from it
+            # so a URL or a history series does not move when the matching key does.
+            "id_key": norm(row["Model version"], fold_versions=False),
             "display_name": _display_name(row),
             "organization": (row.get("Organization") or "Unknown").strip(),
             "country": (row.get("Country") or "").strip(),

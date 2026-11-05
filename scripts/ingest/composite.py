@@ -415,7 +415,7 @@ def build_models(
         meta = registry[key]
         organization = meta["organization"]
         provider_id = slugify(organization)
-        model_id = f"{provider_id}-{key}"
+        model_id = f"{provider_id}-{meta.get('id_key') or key}"
         providers.setdefault(organization, {
             "id": provider_id,
             "display_name": organization,
