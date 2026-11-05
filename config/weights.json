@@ -24,5 +24,61 @@
     "Models below min_coverage_for_ranking are provisional, never ranked.",
     "SWE-bench scaffold results never count as a bare-model score."
   ],
-  "variant_policy": "model"
+  "variant_policy": "model",
+  "boards": {
+    "note": "Derived, never scored. Price cannot move a composite, a rank or the coverage gate. Each rule names a metric and a filter, never a model or a provider.",
+    "price_blend": {
+      "input": 3,
+      "output": 1
+    },
+    "price_blend_rationale": "Blended USD per million tokens at a fixed 3 input : 1 output ratio, a typical read-heavy chat workload. It is a convention, not a measurement of anyone's usage; changing the ratio reorders the cost axis, so it is debatable by PR.",
+    "ranked_only": true,
+    "rules": [
+      {
+        "id": "composite",
+        "metric": "composite"
+      },
+      {
+        "id": "reasoning",
+        "metric": "category:reasoning"
+      },
+      {
+        "id": "coding",
+        "metric": "category:coding"
+      },
+      {
+        "id": "math",
+        "metric": "category:math"
+      },
+      {
+        "id": "human_preference",
+        "metric": "category:human_preference"
+      },
+      {
+        "id": "instruction_following",
+        "metric": "category:instruction_following"
+      },
+      {
+        "id": "open_weights",
+        "metric": "composite",
+        "filter": {
+          "is_open_weights": true
+        }
+      },
+      {
+        "id": "under_1_usd",
+        "metric": "composite",
+        "filter": {
+          "max_blended_price": 1.0
+        }
+      },
+      {
+        "id": "cheapest_covered",
+        "metric": "price",
+        "filter": {
+          "min_coverage": 4
+        }
+      }
+    ]
+  }
 }

@@ -7,6 +7,7 @@ import type {
   Provider,
   RejectedSnapshot,
   RankingRow,
+  BestBy,
   Row,
   SnapshotAge,
   Status,
@@ -16,6 +17,10 @@ const DATA_DIR = path.join(process.cwd(), "data");
 
 function readJson<T>(file: string): T {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
+}
+
+export function getBestBy(): BestBy {
+  return readJson<BestBy>("best_by.json");
 }
 
 function readHistory(): Map<string, { date: string; value: number }[]> {

@@ -73,6 +73,15 @@ export type Model = {
    * does describe. Stated rather than hidden: the two axes measure two setups.
    */
   human_preference_variant: string | null;
+  /** USD per million tokens at the fixed input:output blend in config/weights.json. */
+  blended_price_usd_per_m?: number | null;
+  /** Blended price divided by composite. null when unpriced or not ranked. */
+  price_per_composite_point?: number | null;
+  /**
+   * Not dominated on (price, composite). null means not evaluated (unpriced or
+   * provisional), which is different from false (evaluated and dominated).
+   */
+  pareto_frontier?: boolean | null;
   vision: { rating: number; rank: number; measured_at: string; variant?: string } | null;
 };
 
@@ -189,3 +198,31 @@ export type RankingRow = Pick<
   | "awaiting_human_votes"
   | "trend"
 >;
+
+/** One "best by" rule from config/weights.json, evaluated. Derived, never scored. */
+export interface BestByBoard {
+  id: string;
+  metric: string;
+  order: "max" | "min";
+  filter: {
+    is_open_weights?: boolean;
+    max_blended_price?: number;
+    min_coverage?: number;
+  };
+  candidates: number;
+  value: number | null;
+  /** Every model nobody in the pool is measurably ahead of; more than one is a tie. */
+  winners: string[];
+  indistinguishable: boolean;
+}
+
+export interface BestBy {
+  meta: {
+    generated_at: string;
+    price_blend: { input: number; output: number };
+    ranked_only: boolean;
+    pareto_members: number;
+    pareto_evaluated: number;
+  };
+  boards: BestByBoard[];
+}

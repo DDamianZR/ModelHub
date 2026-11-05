@@ -31,7 +31,7 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from . import catalogue
+from . import catalogue, derived
 from .sources import epoch, livebench, lmarena, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -501,6 +501,9 @@ def main() -> int:
     router_day = router_status.get("last_success") or date.today().isoformat()
     catalogue.apply_metadata(models, router_matches, router_day)
     unranked = catalogue.build_unranked(router_catalogue, router_matches, router_day)
+    boards_config = derived.load_boards_config()
+    derived.annotate(models, boards_config)
+    best_by = derived.build_boards(models, boards_config)
     boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
     print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
           f"{len(unranked)} unranked entries; boards: "
@@ -597,6 +600,16 @@ def main() -> int:
         "meta": {"generated_at": meta["generated_at"], "source": openrouter.ATTRIBUTION,
                  "scored_matched": len(router_matches), "unranked": len(unranked)},
         "unranked": unranked,
+    })
+    write_json(DATA / "best_by.json", {
+        "meta": {
+            "generated_at": meta["generated_at"], "in_composite": False,
+            "price_blend": boards_config.get("price_blend"),
+            "ranked_only": boards_config.get("ranked_only", True),
+            "pareto_members": sum(1 for m in models if m.get("pareto_frontier")),
+            "pareto_evaluated": sum(1 for m in models if m.get("pareto_frontier") is not None),
+        },
+        "boards": best_by,
     })
     write_json(DATA / "boards.json", {
         "meta": {"generated_at": meta["generated_at"], "in_composite": False},

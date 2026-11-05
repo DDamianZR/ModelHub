@@ -211,6 +211,27 @@
       "empty": "Reviewed on {date}. No benchmark has logged evidence yet. That is a checkable claim about what has been logged as of today, not a promise that no benchmark here has ever been contaminated.",
       "count": "Reviewed on {date}. {count, plural, one {# benchmark has} other {# benchmarks have}} public evidence on record, flagged on every affected model's page next to the source link."
     },
+    "derived": {
+      "title": "Derived metrics: cost and “best by”",
+      "body": "Three things on this site are computed from the composite and from a price, and none of them feeds back into the composite. A model's price cannot change its score, its rank or whether it clears the coverage gate. They are produced by the ingest, with no model involved, and are recomputable from data/models.json and data/best_by.json.",
+      "blend": "Price is blended into one figure per model: USD per million tokens at {input} input to {output} output, that is (input price × {input} + output price × {output}) ÷ {total}. The ratio is a convention, not a measurement of anyone's usage. It lives in config/weights.json and is debatable by PR. Prices come from the OpenRouter catalogue, dated per model, without long-prompt tiers.",
+      "ratio": "Price per composite point is the blended price divided by the composite. It is computed only for ranked models that have a price: {evaluated} in this build. The ratio says what each point costs on average. It does not say the points are the ones you need, and a low composite at a low price gives a low ratio, so read it next to the composite.",
+      "pareto": "The cost frontier marks a model when no other evaluated model costs the same or less and scores the same or more, with at least one strictly better. In this build, {members} of {evaluated} models are on it. The test compares point values and ignores intervals. Requiring the other model's interval to clear this one's was measured on 2026-11-05: 8 members instead of 7. The 3:1 blend was compared with 1:1 and 1:3 the same day, and the frontier did not change.",
+      "unevaluated": "A model with no price or without a rank is not evaluated, which is different from being dominated: its flag is empty, not false. Today {unpriced} ranked models have no price and are outside both the ratio and the frontier.",
+      "rules": "The “best by” cards come from the rules in config/weights.json under boards. Each rule names a metric and a filter, never a model or a provider. Only ranked models take part, so a provisional model never holds a first place. The rules in this build, with how many models each one can choose from:",
+      "rule_composite": "Composite, all ranked models",
+      "rule_reasoning": "Reasoning category score",
+      "rule_coding": "Coding category score",
+      "rule_math": "Math category score",
+      "rule_human_preference": "Human preference category score",
+      "rule_instruction_following": "Instruction-following category score",
+      "rule_open_weights": "Composite, open-weights models only",
+      "rule_under_1_usd": "Composite, blended price at or below 1 USD per million tokens",
+      "rule_cheapest_covered": "Lowest blended price among models with at least 4 of 5 categories",
+      "candidates": "{count, plural, one {# candidate} other {# candidates}}",
+      "ties": "A rule returns every model that no other candidate is measurably ahead of, using the same test as the rank: B is ahead of A when B's value minus its error exceeds A's value plus its error. When more than one model remains, they are reported as a tie, in the same way as the table. A metric without an interval, such as price, separates models only on exact equality.",
+      "cheapest": "The cheapest rule only says which model costs least among those with enough coverage. It says nothing about how well that model scores, and it is not a recommendation."
+    },
     "breaks": {
       "title": "LMArena's methodology breaks",
       "body": "LMArena has changed how its rating is computed three times. Figures either side of a change are not comparable with each other:",

@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
 import {
   getAgedSources,
+  getBestBy,
   getCadence,
   getCategorySources,
   getMethodologyStats,
@@ -61,6 +62,8 @@ export default async function MethodologyPage({
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
   const categorySources = getCategorySources();
+  const bestBy = getBestBy();
+  const blend = bestBy.meta.price_blend;
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -295,6 +298,42 @@ export default async function MethodologyPage({
           <p>{t("dedup.body")}</p>
           <p>{t("dedup.example")}</p>
           <p>{t("dedup.rule")}</p>
+        </Section>
+
+        <Section id="derived" title={t("derived.title")}>
+          <p>{t("derived.body")}</p>
+          <p>
+            {t("derived.blend", {
+              input: blend.input,
+              output: blend.output,
+              total: blend.input + blend.output,
+            })}
+          </p>
+          <p>{t("derived.ratio", { evaluated: bestBy.meta.pareto_evaluated })}</p>
+          <p>
+            {t("derived.pareto", {
+              members: bestBy.meta.pareto_members,
+              evaluated: bestBy.meta.pareto_evaluated,
+            })}
+          </p>
+          <p>
+            {t("derived.unevaluated", {
+              unpriced: meta.ranked_count - bestBy.meta.pareto_evaluated,
+            })}
+          </p>
+          <p>{t("derived.rules")}</p>
+          <ul className="flex flex-col gap-1 pl-4">
+            {bestBy.boards.map((board) => (
+              <li key={board.id} className="list-disc">
+                {t(`derived.rule_${board.id}`)} ·{" "}
+                <span className="num text-xs">
+                  {t("derived.candidates", { count: board.candidates })}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p>{t("derived.ties")}</p>
+          <p>{t("derived.cheapest")}</p>
         </Section>
 
         <Section id="sourceTypes" title={t("sourceTypes.title")}>

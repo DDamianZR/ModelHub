@@ -211,6 +211,27 @@
       "empty": "Revisado el {date}. Ningún benchmark tiene evidencia registrada todavía. Es una afirmación comprobable sobre lo que se ha registrado hasta hoy, no una promesa de que ningún benchmark aquí ha sido contaminado nunca.",
       "count": "Revisado el {date}. {count, plural, one {# benchmark tiene} other {# benchmarks tienen}} evidencia pública registrada, marcada en la ficha de cada modelo afectado junto al enlace de la fuente."
     },
+    "derived": {
+      "title": "Métricas derivadas: costo y «mejor por»",
+      "body": "Tres cosas de este sitio se calculan a partir del compuesto y de un precio, y ninguna regresa al compuesto. El precio de un modelo no cambia su puntaje, su rango ni si pasa el umbral de cobertura. Las produce el ingest, sin ningún modelo de lenguaje, y se pueden recalcular desde data/models.json y data/best_by.json.",
+      "blend": "El precio se combina en una sola cifra por modelo: USD por millón de tokens con {input} de entrada por {output} de salida, es decir (precio de entrada × {input} + precio de salida × {output}) ÷ {total}. La proporción es una convención, no una medición del uso de nadie. Está en config/weights.json y se puede debatir por PR. Los precios vienen del catálogo de OpenRouter, con fecha por modelo y sin tramos de prompt largo.",
+      "ratio": "El precio por punto de compuesto es el precio combinado dividido entre el compuesto. Solo se calcula para modelos con rango y con precio: {evaluated} en esta compilación. La razón dice cuánto cuesta cada punto en promedio. No dice que los puntos sean los que necesitas, y un compuesto bajo a un precio bajo da una razón baja, así que se lee junto al compuesto.",
+      "pareto": "La frontera de costo marca a un modelo cuando ningún otro modelo evaluado cuesta igual o menos y puntúa igual o más, con al menos una de las dos estrictamente mejor. En esta compilación, {members} de {evaluated} modelos están en ella. La prueba compara valores puntuales e ignora los intervalos. Exigir que el intervalo del otro modelo supere al de este se midió el 2026-11-05: 8 miembros en lugar de 7. La proporción 3:1 se comparó el mismo día con 1:1 y 1:3, y la frontera no cambió.",
+      "unevaluated": "Un modelo sin precio o sin rango no se evalúa, lo cual es distinto de estar dominado: su marca queda vacía, no en falso. Hoy {unpriced} modelos con rango no tienen precio y quedan fuera de la razón y de la frontera.",
+      "rules": "Las tarjetas «mejor por» salen de las reglas de config/weights.json, bajo boards. Cada regla nombra una métrica y un filtro, nunca un modelo ni un proveedor. Solo participan los modelos con rango, de modo que un modelo provisional nunca ocupa un primer lugar. Las reglas de esta compilación, con cuántos modelos puede elegir cada una:",
+      "rule_composite": "Compuesto, todos los modelos con rango",
+      "rule_reasoning": "Puntaje de la categoría Razonamiento",
+      "rule_coding": "Puntaje de la categoría Código",
+      "rule_math": "Puntaje de la categoría Matemáticas",
+      "rule_human_preference": "Puntaje de la categoría Preferencia humana",
+      "rule_instruction_following": "Puntaje de la categoría Seguimiento de instrucciones",
+      "rule_open_weights": "Compuesto, solo modelos de pesos abiertos",
+      "rule_under_1_usd": "Compuesto, con precio combinado de 1 USD por millón de tokens o menos",
+      "rule_cheapest_covered": "Menor precio combinado entre modelos con al menos 4 de 5 categorías",
+      "candidates": "{count, plural, one {# candidato} other {# candidatos}}",
+      "ties": "Una regla devuelve todos los modelos frente a los que ningún otro candidato está medible por delante, con la misma prueba que el rango: B va por delante de A cuando el valor de B menos su error supera al valor de A más su error. Si queda más de un modelo, se reportan como empate, igual que en la tabla. Una métrica sin intervalo, como el precio, separa modelos solo por igualdad exacta.",
+      "cheapest": "La regla del menor precio solo dice qué modelo cuesta menos entre los que tienen cobertura suficiente. No dice qué tan bien puntúa ese modelo y no es una recomendación."
+    },
     "breaks": {
       "title": "Los quiebres de metodología de LMArena",
       "body": "LMArena ha cambiado tres veces la forma de calcular su calificación. Las cifras a un lado y al otro de un cambio no son comparables entre sí:",

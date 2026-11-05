@@ -26,7 +26,7 @@ import json
 import unittest
 from pathlib import Path
 
-from scripts.ingest import catalogue, row_dates
+from scripts.ingest import catalogue, derived, row_dates
 from scripts.ingest.composite import build_models, load_weights
 from scripts.ingest.run import flag_recalibration
 from scripts.ingest.sources import lmarena
@@ -81,6 +81,7 @@ class GoldenCompositeTests(unittest.TestCase):
             keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
             matches = catalogue.match_models(keys, router["payload"].get("catalogue") or {})
             catalogue.apply_metadata(models, matches, router["fetched_at"])
+        derived.annotate(models)
         for model in models:
             model.pop("arena_name", None)
 
