@@ -699,6 +699,8 @@ def main() -> int:
     apply_failure_rule(statuses, snapshot_ages, degrade_after_failures())
     if livebench_payload.get("skipped_releases"):
         livebench_status["skipped_releases"] = livebench_payload["skipped_releases"]
+    if livebench_payload.get("category_rule"):
+        livebench_status["category_rule"] = livebench_payload["category_rule"]
 
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import csv
 import json
+import pathlib
 import re
 
 from ..common import SourceError, fetch, norm
@@ -25,10 +26,29 @@ CATEGORY_MAP = {
 }
 
 
-# When a model is missing from the newest release that publishes a category's suite, may it
-# carry its value from an older release that has the suite? Decided by measured drift between
-# releases (see NOTES-REVIVE.md), not by assumption.
-FALLBACK_TO_OLDER = False
+CONFIG = pathlib.Path(__file__).resolve().parents[3] / "config" / "sources.json"
+
+
+def _livebench_config(path: pathlib.Path) -> dict:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    for source in payload.get("sources", []):
+        if source.get("id") == "livebench":
+            return source
+    raise ValueError("livebench: no entry in config/sources.json")
+
+
+def load_max_drift(path: pathlib.Path = CONFIG) -> float:
+    """Largest mean absolute gap between two releases for which their scales count as one.
+
+    Declared in config/sources.json so it is debatable by PR, not buried in code.
+    """
+    return float(_livebench_config(path)["max_cross_release_drift"])
+
+
+def load_min_common(path: pathlib.Path = CONFIG) -> int:
+    """Fewest models two releases must share before their gap says anything about the scale."""
+    return int(_livebench_config(path)["min_common_models"])
+
 
 _V1_LIST = re.compile(r'\[((?:"20\d{2}-\d{2}-\d{2}",?)+)\]')
 _V2_LIST = re.compile(r'\[((?:"20\d{6}",?)+)\]')
@@ -85,20 +105,19 @@ def _resolve_releases(fetcher) -> list[dict]:
     return parse_releases(script)
 
 
-def load_releases(releases: list[dict], fetcher, *, need_all: bool) -> tuple[list[dict], list[dict]]:
+def load_releases(releases: list[dict], fetcher) -> tuple[list[dict], list[dict]]:
     """Readable releases newest first, each with its task map and rows, plus those passed over.
 
-    Per category, the newest release that publishes a suite for it is the one that counts, so
-    loading stops once every scored category has one - unless `need_all`, which also loads the
-    older releases a model may fall back to. A release is passed over when its files are gone
-    or when it publishes no suite for any scored category.
+    Per category the rule compares the newest release that publishes its suite with the
+    nearest earlier one that publishes a different suite (see `comparison_release`), so
+    loading stops once every scored category has both. A release is passed over when its
+    files are gone or when it publishes no suite for any scored category.
     """
     wanted = set(CATEGORY_MAP.values())
     loaded: list[dict] = []
     skipped: list[dict] = []
-    covered: set[str] = set()
     for release in releases:
-        if covered >= wanted and not need_all:
+        if all(comparison_release(loaded, c) for c in wanted):
             break
         try:
             table = fetcher(release["table"]).decode("utf-8", "replace")
@@ -110,7 +129,6 @@ def load_releases(releases: list[dict], fetcher, *, need_all: bool) -> tuple[lis
         if not task_category:
             skipped.append({"date": release["date"], "reason": "no suite for a scored category"})
             continue
-        covered |= set(task_category.values())
         loaded.append({"date": release["date"], "tasks": task_category,
                        "rows": list(csv.DictReader(table.splitlines()))})
     if not loaded:
@@ -119,6 +137,27 @@ def load_releases(releases: list[dict], fetcher, *, need_all: bool) -> tuple[lis
             + ", ".join(f"{s['date']} ({s['reason']})" for s in skipped[:4])
         )
     return loaded, skipped
+
+
+def _suite(release: dict, category: str) -> frozenset[str]:
+    return frozenset(t for t, c in release["tasks"].items() if c == category)
+
+
+def comparison_release(loaded: list[dict], category: str) -> tuple[dict, dict] | None:
+    """(newest release publishing the category, nearest earlier one with a different suite).
+
+    A release that re-publishes the same task set measures on the same scale as the newest,
+    so it says nothing about whether the scales moved; the comparison has to cross a change
+    of suite. None while no such earlier release is known.
+    """
+    publishing = [r for r in loaded if _suite(r, category)]
+    if not publishing:
+        return None
+    newest = publishing[0]
+    for other in publishing[1:]:
+        if _suite(other, category) != _suite(newest, category):
+            return newest, other
+    return None
 
 
 def _row_scores(row: dict, tasks: dict[str, str]) -> dict[str, float]:
@@ -134,51 +173,103 @@ def _row_scores(row: dict, tasks: dict[str, str]) -> dict[str, float]:
     return {c: round(sum(v) / len(v), 2) for c, v in buckets.items()}
 
 
-def collect(fetcher=fetch, fallback: bool | None = None) -> dict:
-    fallback = FALLBACK_TO_OLDER if fallback is None else fallback
-    releases = _resolve_releases(fetcher)
-    loaded, skipped = load_releases(releases, fetcher, need_all=fallback)
+def _category_values(release: dict, category: str) -> dict[str, tuple[str, float]]:
+    """norm(model) -> (name as published, value) for one category of one release."""
+    out: dict[str, tuple[str, float]] = {}
+    for row in release["rows"]:
+        raw_name = (row.get("model") or "").strip()
+        key = norm(raw_name)
+        if not key or key in out:
+            continue
+        value = _row_scores(row, release["tasks"]).get(category)
+        if value is not None:
+            out[key] = (raw_name, value)
+    return out
 
-    # Newest release publishing each category; the rest are only consulted under `fallback`.
+
+def decide_category(newest: dict, older: dict | None, category: str, max_drift: float,
+                    min_common: int) -> dict:
+    """Which release(s) supply one category, derived from how the two releases compare.
+
+    Comparable (mean absolute drift on common models within `max_drift`): the newest release
+    counts and a model it lacks keeps its value from the older one, dated with that release.
+    Not comparable: the scales differ, so the whole category comes from a single release -
+    the one covering more models, the newest on a tie. Only one release: that one.
+    """
+    new_values = _category_values(newest, category)
+    decision = {"category": category, "release": newest["date"], "fallback": False,
+                "drift": None, "common_models": 0, "reason": "single_release",
+                "sources": [(newest["date"], new_values)]}
+    if older is None:
+        return decision
+    old_values = _category_values(older, category)
+    common = sorted(set(new_values) & set(old_values))
+    decision["common_models"] = len(common)
+    if len(common) < min_common:
+        # A mean over a handful of models cannot license mixing scales.
+        decision["reason"] = "too_few_common_models"
+        return decision
+    drift = sum(abs(new_values[k][1] - old_values[k][1]) for k in common) / len(common)
+    decision["drift"] = round(drift, 2)
+    if drift <= max_drift:
+        decision.update(fallback=True, reason="comparable",
+                        sources=[(newest["date"], new_values), (older["date"], old_values)])
+    elif len(old_values) > len(new_values):
+        decision.update(release=older["date"], reason="not_comparable_more_coverage_older",
+                        sources=[(older["date"], old_values)])
+    else:
+        decision["reason"] = "not_comparable_more_coverage_newest"
+    return decision
+
+
+def collect(fetcher=fetch, max_drift: float | None = None, min_common: int | None = None) -> dict:
+    max_drift = load_max_drift() if max_drift is None else max_drift
+    min_common = load_min_common() if min_common is None else min_common
+    releases = _resolve_releases(fetcher)
+    loaded, skipped = load_releases(releases, fetcher)
+
     by_category: dict[str, list[dict]] = {}
     for release in loaded:
-        for category in set(release["tasks"].values()):
+        for category in sorted(set(release["tasks"].values())):
             by_category.setdefault(category, []).append(release)
 
-    per_model: dict[str, dict[str, dict]] = {}   # key -> category -> {value, date, name}
-    for category, candidates in by_category.items():
-        for release in candidates if fallback else candidates[:1]:
-            for row in release["rows"]:
-                raw_name = (row.get("model") or "").strip()
-                key = norm(raw_name)
-                if not key:
-                    continue
-                value = _row_scores(row, release["tasks"]).get(category)
-                if value is None or category in per_model.get(key, {}):
-                    continue
-                per_model.setdefault(key, {})[category] = {
-                    "value": value, "date": release["date"], "name": raw_name}
+    decisions = {}
+    for category, cands in sorted(by_category.items()):
+        pair = comparison_release(loaded, category)
+        newest, older = pair if pair else (cands[0], None)
+        decisions[category] = decide_category(newest, older, category, max_drift, min_common)
 
     scores: dict[str, list[dict]] = {}
-    for key, cats in per_model.items():
-        for category, hit in sorted(cats.items()):
-            scores.setdefault(key, []).append({
-                "benchmark_id": f"livebench_{category}",
-                "category": category,
-                "variant": hit["name"],
-                "value": hit["value"],
-                "source_type": "third_party_benchmark",
-                "source_url": ATTRIBUTION,
-                "measured_at": hit["date"],
-            })
+    for category, decision in decisions.items():
+        taken: set[str] = set()
+        for date, values in decision["sources"]:
+            for key, (name, value) in values.items():
+                if key in taken:
+                    continue
+                taken.add(key)
+                scores.setdefault(key, []).append({
+                    "benchmark_id": f"livebench_{category}",
+                    "category": category,
+                    "variant": name,
+                    "value": value,
+                    "source_type": "third_party_benchmark",
+                    "source_url": ATTRIBUTION,
+                    "measured_at": date,
+                })
 
     if not scores:
         raise SourceError("livebench: no rows parsed")
 
-    used = sorted({h["date"] for cats in per_model.values() for h in cats.values()}, reverse=True)
+    used = sorted({s["measured_at"] for rows in scores.values() for s in rows}, reverse=True)
     payload = {
         "snapshot": used[0],
-        "releases_used": {c: cands[0]["date"] for c, cands in sorted(by_category.items())},
+        "releases_used": {c: d["release"] for c, d in decisions.items()},
+        "category_rule": {
+            c: {"release": d["release"], "fallback": d["fallback"], "drift": d["drift"],
+                "common_models": d["common_models"], "reason": d["reason"],
+                "max_drift": max_drift, "min_common_models": min_common}
+            for c, d in decisions.items()
+        },
         "published_snapshots": sorted(r["date"] for r in releases),
         "scores": scores,
     }

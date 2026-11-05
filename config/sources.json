@@ -231,6 +231,8 @@
       "last_observed_update": "2026-06-25 (snapshot); code repo pushed 2026-07-27",
       "update_cadence": "periodic dated snapshots, roughly monthly",
       "expected_cadence_days": 30,
+      "max_cross_release_drift": 3.0,
+      "min_common_models": 10,
       "provides": {
         "models_in_current_snapshot": 46,
         "task_columns": 23,
@@ -250,7 +252,7 @@
         "The HuggingFace datasets under the 'livebench' org are question sets last touched 2025-04, NOT the leaderboard. Do not ingest them."
       ],
       "caveats": [
-        "Observed 2026-11-04: the site was rebuilt as LiveBench 2.0. Releases up to 2026-06-25 (1.0) moved under /v1/; 2.0 releases (2026-10-14, 2026-10-25) publish suites reasoning, coding, browser, long_agentic, data_analysis, research and design, with no Mathematics and no IF suite. Ingest scores the newest release that publishes a suite for every category LiveBench alone supplies (instruction_following) and records the newer releases it passed over in data/status.json.",
+        "Observed 2026-11-04: the site was rebuilt as LiveBench 2.0. Releases up to 2026-06-25 (1.0) moved under /v1/; 2.0 releases (2026-10-14, 2026-10-25) publish suites reasoning, coding, browser, long_agentic, data_analysis, research and design, with no Mathematics and no IF suite. Ingest decides each category separately: the newest release that publishes its suite is compared with the previous one that does; within max_cross_release_drift (mean absolute gap on common models) the newest counts and absent models keep their older, dated value, otherwise the whole category comes from the single release covering more models. The decision is written to data/status.json.",
         "Snapshot discovery is the weak point: the list of available snapshot dates lives in a JS array inside https://livebench.ai/static/js/main.{hash}.js, and the hash changes on every deploy. Ingest must resolve index.html -> bundle URL -> date array -> newest date, and fall back to the last known-good snapshot on failure."
       ],
       "fragility": "medium"

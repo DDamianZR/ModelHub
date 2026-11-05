@@ -20,9 +20,9 @@ BUNDLE = (
 HTML = '<script src="./static/js/main.abc123.js"></script>'
 
 V1_CATEGORIES = {"Reasoning": ["r1"], "Mathematics": ["m1"], "IF": ["i1"], "Coding": ["c1"]}
-V1_TABLE = "model,r1,m1,i1,c1\nalpha-1,80,60,70,90\n"
+V1_TABLE = "model,r1,m1,i1,c1\nalpha-1,80,60,70,90\nbeta-2,10,20,30,40\ngamma-3,50,50,50,50\n"
 V2_CATEGORIES = {"Reasoning": ["reasoning"], "Coding": ["coding"], "Browser": ["browser"]}
-V2_TABLE = "model,reasoning,coding,browser\nalpha-1,99,99,99\n"
+V2_TABLE = "model,reasoning,coding,browser\nalpha-1,81,20,99\n"
 
 
 def _fetcher(files):
@@ -63,40 +63,80 @@ class ParseReleases(unittest.TestCase):
 
 
 class Collect(unittest.TestCase):
-    """Per category, the newest release that publishes its suite counts."""
+    """Each category is decided on its own, from how its two newest releases compare."""
+
+    MAX_DRIFT = 3.0
+
+    def _collect(self, files=None, max_drift=None, min_common=1):
+        return livebench.collect(_fetcher(files or _site()),
+                                 max_drift=max_drift or self.MAX_DRIFT, min_common=min_common)
 
     def _by_cat(self, payload, key="alpha-1"):
         return {r["category"]: r for r in payload["scores"][key]}
 
-    def test_each_category_comes_from_its_newest_release_with_that_suite(self):
-        payload = livebench.collect(_fetcher(_site()), fallback=False)
+    def test_comparable_category_uses_newest_and_dates_it(self):
+        payload = self._collect()
         rows = self._by_cat(payload)
-        self.assertEqual(set(rows), {"reasoning", "coding", "math", "instruction_following"})
-        self.assertEqual((rows["reasoning"]["value"], rows["reasoning"]["measured_at"]), (99.0, "2026-10-25"))
-        self.assertEqual((rows["coding"]["value"], rows["coding"]["measured_at"]), (99.0, "2026-10-25"))
+        self.assertEqual((rows["reasoning"]["value"], rows["reasoning"]["measured_at"]), (81.0, "2026-10-25"))
+        rule = payload["category_rule"]["reasoning"]
+        self.assertEqual((rule["release"], rule["fallback"], rule["drift"], rule["common_models"]),
+                         ("2026-10-25", True, 1.0, 1))
+
+    def test_comparable_category_lets_an_absent_model_keep_its_older_dated_value(self):
+        rows = self._by_cat(self._collect(), "beta-2")
+        self.assertEqual((rows["reasoning"]["value"], rows["reasoning"]["measured_at"]), (10.0, "2026-06-25"))
+
+    def test_non_comparable_category_comes_from_the_release_covering_more_models(self):
+        payload = self._collect()
+        rule = payload["category_rule"]["coding"]
+        self.assertEqual((rule["release"], rule["fallback"], rule["drift"]), ("2026-06-25", False, 70.0))
+        self.assertEqual(rule["reason"], "not_comparable_more_coverage_older")
+        # One scale for the whole category: alpha takes the older value, not the newer one.
+        self.assertEqual(self._by_cat(payload)["coding"]["value"], 90.0)
+        self.assertEqual(self._by_cat(payload, "gamma-3")["coding"]["measured_at"], "2026-06-25")
+
+    def test_non_comparable_tie_goes_to_the_newest_release(self):
+        extra = ["beta-2,20,20,20", "gamma-3,20,20,20"]
+        files = _site(**{f"{SITE}/data/20261025/table.csv": V2_TABLE + "\n".join(extra) + "\n"})
+        rule = self._collect(files)["category_rule"]["coding"]
+        self.assertEqual((rule["release"], rule["reason"]), ("2026-10-25", "not_comparable_more_coverage_newest"))
+
+    def test_category_with_a_single_release_uses_it(self):
+        payload = self._collect()
+        rows = self._by_cat(payload)
         self.assertEqual((rows["math"]["value"], rows["math"]["measured_at"]), (60.0, "2026-06-25"))
-        self.assertEqual(rows["instruction_following"]["measured_at"], "2026-06-25")
+        self.assertEqual(payload["category_rule"]["math"]["reason"], "single_release")
+        self.assertEqual(payload["category_rule"]["instruction_following"]["release"], "2026-06-25")
+
+    def test_a_release_republishing_the_same_suite_is_not_the_comparison(self):
+        # 2026-10-14 carries the same suite as 2026-10-25 with an extra model; comparing against
+        # it would show drift 0 and hide the change of suite against 2026-06-25.
+        extra = "delta-4,5,5,5" + chr(10)
+        files = _site(**{f"{SITE}/data/20261014/table.csv": V2_TABLE + extra})
+        rule = self._collect(files)["category_rule"]["coding"]
+        self.assertEqual((rule["release"], rule["drift"]), ("2026-06-25", 70.0))
+        self.assertNotIn("delta-4", self._collect(files)["scores"])
+
+    def test_too_few_common_models_leave_the_newest_release_alone(self):
+        payload = self._collect(min_common=2)
+        rule = payload["category_rule"]["reasoning"]
+        self.assertEqual((rule["reason"], rule["fallback"], rule["common_models"]),
+                         ("too_few_common_models", False, 1))
+        self.assertNotIn("reasoning", self._by_cat(payload, "beta-2"))
+
+    def test_threshold_decides_the_same_data(self):
+        rule = self._collect(max_drift=80.0)["category_rule"]["coding"]
+        self.assertEqual((rule["release"], rule["fallback"]), ("2026-10-25", True))
+
+    def test_snapshot_is_the_newest_date_in_use(self):
+        payload = self._collect()
         self.assertEqual(payload["snapshot"], "2026-10-25")
-        self.assertEqual(payload["releases_used"]["math"], "2026-06-25")
         self.assertNotIn("skipped_releases", payload)
-
-    def test_strict_leaves_a_model_absent_from_the_newer_release_without_that_category(self):
-        files = _site(**{
-            f"{SITE}/v1/table_2026_06_25.csv": V1_TABLE + "beta-2,10,20,30,40\n"})
-        rows = self._by_cat(livebench.collect(_fetcher(files), fallback=False), "beta-2")
-        self.assertEqual(set(rows), {"math", "instruction_following"})
-
-    def test_fallback_carries_an_older_value_dated_with_its_own_release(self):
-        files = _site(**{
-            f"{SITE}/v1/table_2026_06_25.csv": V1_TABLE + "beta-2,10,20,30,40\n"})
-        rows = self._by_cat(livebench.collect(_fetcher(files), fallback=True), "beta-2")
-        self.assertEqual(rows["reasoning"]["value"], 10.0)
-        self.assertEqual(rows["reasoning"]["measured_at"], "2026-06-25")
 
     def test_unreadable_newest_release_is_reported_as_skipped(self):
         files = _site()
         del files[f"{SITE}/data/20261025/table.csv"]
-        payload = livebench.collect(_fetcher(files), fallback=False)
+        payload = self._collect(files)
         self.assertEqual(payload["snapshot"], "2026-10-14")
         self.assertEqual([s["date"] for s in payload["skipped_releases"]], ["2026-10-25"])
 
@@ -104,7 +144,7 @@ class Collect(unittest.TestCase):
         files = _site()
         for key in [k for k in files if "/data/" in k]:
             del files[key]
-        payload = livebench.collect(_fetcher(files), fallback=False)
+        payload = self._collect(files)
         self.assertEqual(payload["snapshot"], "2026-06-25")
         self.assertTrue(all(s["reason"].startswith("unreadable")
                             for s in payload["skipped_releases"]))
@@ -114,7 +154,11 @@ class Collect(unittest.TestCase):
         for key in [k for k in files if "table" in k]:
             del files[key]
         with self.assertRaises(SourceError):
-            livebench.collect(_fetcher(files))
+            self._collect(files)
+
+    def test_threshold_is_read_from_config(self):
+        self.assertEqual(livebench.load_max_drift(), 3.0)
+        self.assertGreaterEqual(livebench.load_min_common(), 1)
 
 
 class FailureRule(unittest.TestCase):
