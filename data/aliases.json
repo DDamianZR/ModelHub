@@ -19,31 +19,89 @@
       "lmarena": []
     }
   },
+  "anthropic-claude-fable-5-1": {
+    "canonical_key": "claude-fable-5.1",
+    "display_name": "Claude Fable 5.1 (high)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "claude-fable-5.1"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "claude-fable-5-1-max-effort",
+        "claude-fable-5.1"
+      ],
+      "lmarena": []
+    }
+  },
+  "anthropic-claude-haiku-4-5": {
+    "canonical_key": "claude-haiku-4.5",
+    "display_name": "Claude Haiku 4.5",
+    "variant": "claude-haiku-4-5-20251001-32k",
+    "scored_arena_name": "Claude Haiku 4.5 (20251001)",
+    "names": [
+      "Claude Haiku 4.5 (20251001)",
+      "claude-haiku-4.5"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-haiku-4-5-20251001",
+        "claude-haiku-4-5-20251001_32K"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Claude Haiku 4.5 (20251001)"
+      ]
+    }
+  },
   "anthropic-claude-haiku-5-5": {
-    "canonical_key": "claude-haiku-5-5",
+    "canonical_key": "claude-haiku-5.5",
     "display_name": "Claude Haiku 5.5 (high)",
     "variant": "xhigh",
     "scored_arena_name": null,
     "names": [
-      "claude-haiku-5-5"
+      "claude-haiku-5.5"
     ],
     "matched": {
       "epoch": [
         "claude-haiku-5-5_max"
       ],
       "livebench": [
-        "claude-haiku-5-5-xhigh-effort"
+        "claude-haiku-5-5-xhigh-effort",
+        "claude-haiku-5.5"
       ],
       "lmarena": []
     }
   },
+  "anthropic-claude-opus-4-1": {
+    "canonical_key": "claude-opus-4.1",
+    "display_name": "Claude Opus 4.1",
+    "variant": "claude-opus-4-1-20250805",
+    "scored_arena_name": "Claude Opus 4.1 (20250805)",
+    "names": [
+      "Claude Opus 4.1 (20250805)",
+      "claude-opus-4.1"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-opus-4-1-20250805"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Claude Opus 4.1 (20250805)"
+      ]
+    }
+  },
   "anthropic-claude-opus-4-5": {
-    "canonical_key": "claude-opus-4-5",
+    "canonical_key": "claude-opus-4.5",
     "display_name": "Claude Opus 4.5 (no thinking)",
     "variant": "high",
-    "scored_arena_name": null,
+    "scored_arena_name": "Claude Opus 4.5 (20251101)",
     "names": [
-      "claude-opus-4-5"
+      "Claude Opus 4.5 (20251101)",
+      "claude-opus-4.5"
     ],
     "matched": {
       "epoch": [
@@ -53,16 +111,19 @@
       "livebench": [
         "claude-opus-4-5-20251101-thinking-64k-high-effort"
       ],
-      "lmarena": []
+      "lmarena": [
+        "Claude Opus 4.5 (20251101)"
+      ]
     }
   },
   "anthropic-claude-opus-4-6": {
-    "canonical_key": "claude-opus-4-6",
+    "canonical_key": "claude-opus-4.6",
     "display_name": "Claude Opus 4.6 (no thinking)",
     "variant": "high",
-    "scored_arena_name": null,
+    "scored_arena_name": "Claude Opus 4.6",
     "names": [
-      "claude-opus-4-6"
+      "Claude Opus 4.6",
+      "claude-opus-4.6"
     ],
     "matched": {
       "epoch": [
@@ -74,16 +135,19 @@
       "livebench": [
         "claude-opus-4-6-thinking-auto-high-effort"
       ],
-      "lmarena": []
+      "lmarena": [
+        "Claude Opus 4.6"
+      ]
     }
   },
   "anthropic-claude-opus-4-7": {
-    "canonical_key": "claude-opus-4-7",
+    "canonical_key": "claude-opus-4.7",
     "display_name": "Claude Opus 4.7 (no thinking)",
     "variant": "xhigh",
-    "scored_arena_name": null,
+    "scored_arena_name": "Claude Opus 4.7",
     "names": [
-      "claude-opus-4-7"
+      "Claude Opus 4.7",
+      "claude-opus-4.7"
     ],
     "matched": {
       "epoch": [
@@ -93,16 +157,19 @@
       "livebench": [
         "claude-opus-4-7-xhigh-effort"
       ],
-      "lmarena": []
+      "lmarena": [
+        "Claude Opus 4.7"
+      ]
     }
   },
   "anthropic-claude-opus-4-8": {
-    "canonical_key": "claude-opus-4-8",
+    "canonical_key": "claude-opus-4.8",
     "display_name": "Claude Opus 4.8",
     "variant": "max",
-    "scored_arena_name": null,
+    "scored_arena_name": "Claude Opus 4.8",
     "names": [
-      "claude-opus-4-8"
+      "Claude Opus 4.8",
+      "claude-opus-4.8"
     ],
     "matched": {
       "epoch": [
@@ -113,7 +180,9 @@
       "livebench": [
         "claude-opus-4-8-max-effort"
       ],
-      "lmarena": []
+      "lmarena": [
+        "Claude Opus 4.8"
+      ]
     }
   },
   "anthropic-claude-opus-5": {
@@ -137,30 +206,52 @@
     }
   },
   "anthropic-claude-opus-5-5": {
-    "canonical_key": "claude-opus-5-5",
+    "canonical_key": "claude-opus-5.5",
     "display_name": "Claude Opus 5.5 (high)",
     "variant": "max",
     "scored_arena_name": null,
     "names": [
-      "claude-opus-5-5"
+      "claude-opus-5.5"
     ],
     "matched": {
       "epoch": [
         "claude-opus-5-5_max"
       ],
       "livebench": [
-        "claude-opus-5-5-max-effort"
+        "claude-opus-5-5-max-effort",
+        "claude-opus-5.5"
       ],
       "lmarena": []
     }
   },
+  "anthropic-claude-sonnet-4-5": {
+    "canonical_key": "claude-sonnet-4.5",
+    "display_name": "Claude Sonnet 4.5 (no thinking)",
+    "variant": "claude-sonnet-4-5-20250929-32k",
+    "scored_arena_name": "Claude Sonnet 4.5 (20250929)",
+    "names": [
+      "Claude Sonnet 4.5 (20250929)",
+      "claude-sonnet-4.5"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-sonnet-4-5-20250929",
+        "claude-sonnet-4-5-20250929_32K"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Claude Sonnet 4.5 (20250929)"
+      ]
+    }
+  },
   "anthropic-claude-sonnet-4-6": {
-    "canonical_key": "claude-sonnet-4-6",
+    "canonical_key": "claude-sonnet-4.6",
     "display_name": "Claude Sonnet 4.6 (no thinking)",
     "variant": "medium",
-    "scored_arena_name": null,
+    "scored_arena_name": "Claude Sonnet 4.6",
     "names": [
-      "claude-sonnet-4-6"
+      "Claude Sonnet 4.6",
+      "claude-sonnet-4.6"
     ],
     "matched": {
       "epoch": [
@@ -173,7 +264,9 @@
       "livebench": [
         "claude-sonnet-4-6-thinking-auto-medium-effort"
       ],
-      "lmarena": []
+      "lmarena": [
+        "Claude Sonnet 4.6"
+      ]
     }
   },
   "anthropic-claude-sonnet-5": {
@@ -196,19 +289,20 @@
     }
   },
   "anthropic-claude-sonnet-5-5": {
-    "canonical_key": "claude-sonnet-5-5",
+    "canonical_key": "claude-sonnet-5.5",
     "display_name": "Claude Sonnet 5.5 (high)",
     "variant": "max",
     "scored_arena_name": null,
     "names": [
-      "claude-sonnet-5-5"
+      "claude-sonnet-5.5"
     ],
     "matched": {
       "epoch": [
         "claude-sonnet-5-5_max"
       ],
       "livebench": [
-        "claude-sonnet-5-5-max-effort"
+        "claude-sonnet-5-5-max-effort",
+        "claude-sonnet-5.5"
       ],
       "lmarena": []
     }
@@ -562,13 +656,13 @@
     }
   },
   "google-deepmind-gemma-4-31b": {
-    "canonical_key": "gemma-4-31b",
+    "canonical_key": "gemma-4.31b",
     "display_name": "Gemma 4 31B IT",
-    "variant": "plain",
+    "variant": "gemma-4-31b",
     "scored_arena_name": "Gemma 4 31B",
     "names": [
       "Gemma 4 31B",
-      "gemma-4-31b"
+      "gemma-4.31b"
     ],
     "matched": {
       "epoch": [],
@@ -1285,12 +1379,12 @@
     }
   },
   "mistral-ai-mistral-large-4-0": {
-    "canonical_key": "mistral-large-4-0",
+    "canonical_key": "mistral-large-4.0",
     "display_name": "Mistral Large 4 Preview (high)",
-    "variant": "plain",
+    "variant": "high",
     "scored_arena_name": null,
     "names": [
-      "mistral-large-4-0"
+      "mistral-large-4.0"
     ],
     "matched": {
       "epoch": [
@@ -1340,6 +1434,22 @@
       ]
     }
   },
+  "meta-ai-muse-spark-1.2": {
+    "canonical_key": "muse-spark-1.2",
+    "display_name": "Muse Spark 1.2",
+    "variant": "xhigh",
+    "scored_arena_name": null,
+    "names": [
+      "muse-spark-1.2"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "muse-spark-1.2-xhigh"
+      ],
+      "lmarena": []
+    }
+  },
   "alibaba-qwen3": {
     "canonical_key": "qwen3",
     "display_name": "Qwen3-Max-Instruct",
@@ -1356,46 +1466,6 @@
       "livebench": [],
       "lmarena": [
         "Qwen3-Max-Preview"
-      ]
-    }
-  },
-  "alibaba-qwen3.5-35b-a3b": {
-    "canonical_key": "qwen3.5-35b-a3b",
-    "display_name": "Qwen3.5-35B-A3B",
-    "variant": "plain",
-    "scored_arena_name": "Qwen3.5-35B-A3B",
-    "names": [
-      "Qwen3.5-35B-A3B",
-      "qwen3.5-35b-a3b"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3.5-35b-a3b",
-        "qwen3.5-35b-a3b_none"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "Qwen3.5-35B-A3B"
-      ]
-    }
-  },
-  "alibaba-qwen3.5-397b-a17b": {
-    "canonical_key": "qwen3.5-397b-a17b",
-    "display_name": "Qwen3.5 397B-A17B",
-    "variant": "plain",
-    "scored_arena_name": "Qwen3.5-397B-A17B",
-    "names": [
-      "Qwen3.5-397B-A17B",
-      "qwen3.5-397b-a17b"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3.5-397b-a17b",
-        "qwen3.5-397b-a17b_none"
-      ],
-      "livebench": [],
-      "lmarena": [
-        "Qwen3.5-397B-A17B"
       ]
     }
   },
@@ -1418,6 +1488,46 @@
       ]
     }
   },
+  "alibaba-qwen3.5-35b-a3b": {
+    "canonical_key": "qwen3.5.35b-a3b",
+    "display_name": "Qwen3.5-35B-A3B",
+    "variant": "qwen3.5-35b-a3b",
+    "scored_arena_name": "Qwen3.5-35B-A3B",
+    "names": [
+      "Qwen3.5-35B-A3B",
+      "qwen3.5.35b-a3b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.5-35b-a3b",
+        "qwen3.5-35b-a3b_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Qwen3.5-35B-A3B"
+      ]
+    }
+  },
+  "alibaba-qwen3.5-397b-a17b": {
+    "canonical_key": "qwen3.5.397b-a17b",
+    "display_name": "Qwen3.5 397B-A17B",
+    "variant": "qwen3.5-397b-a17b",
+    "scored_arena_name": "Qwen3.5-397B-A17B",
+    "names": [
+      "Qwen3.5-397B-A17B",
+      "qwen3.5.397b-a17b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-397b-a17b_none"
+      ],
+      "livebench": [],
+      "lmarena": [
+        "Qwen3.5-397B-A17B"
+      ]
+    }
+  },
   "alibaba-qwen3.6": {
     "canonical_key": "qwen3.6",
     "display_name": "Qwen 3.6 Max (Preview)",
@@ -1435,25 +1545,6 @@
       "lmarena": [
         "Qwen3.6-Max-Preview"
       ]
-    }
-  },
-  "alibaba-qwen3.6-27b": {
-    "canonical_key": "qwen3.6-27b",
-    "display_name": "Qwen3.6 27B",
-    "variant": "plain",
-    "scored_arena_name": null,
-    "names": [
-      "qwen3.6-27b"
-    ],
-    "matched": {
-      "epoch": [
-        "qwen3.6-27b",
-        "qwen3.6-27b_none"
-      ],
-      "livebench": [
-        "qwen3.6-27b"
-      ],
-      "lmarena": []
     }
   },
   "alibaba-qwen3.6-plus": {
@@ -1475,6 +1566,25 @@
       "lmarena": [
         "Qwen3.6-Plus"
       ]
+    }
+  },
+  "alibaba-qwen3.6-27b": {
+    "canonical_key": "qwen3.6.27b",
+    "display_name": "Qwen3.6 27B",
+    "variant": "qwen3.6-27b",
+    "scored_arena_name": null,
+    "names": [
+      "qwen3.6.27b"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen3.6-27b",
+        "qwen3.6-27b_none"
+      ],
+      "livebench": [
+        "qwen3.6-27b"
+      ],
+      "lmarena": []
     }
   },
   "alibaba-qwen3.7": {
@@ -1540,13 +1650,13 @@
     }
   },
   "alibaba-qwen3.8-27b": {
-    "canonical_key": "qwen3.8-27b",
+    "canonical_key": "qwen3.8.27b",
     "display_name": "Qwen3.8 27B",
-    "variant": "plain",
+    "variant": "qwen3.8-27b",
     "scored_arena_name": "Qwen3.8-27B",
     "names": [
       "Qwen3.8-27B",
-      "qwen3.8-27b"
+      "qwen3.8.27b"
     ],
     "matched": {
       "epoch": [],

@@ -10,7 +10,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-2-0",
+        "key": "aion-2.0",
         "name": "AionLabs: Aion-2.0",
         "open_weights": false,
         "output_modalities": [
@@ -28,7 +28,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-3-0",
+        "key": "aion-3.0",
         "name": "AionLabs: Aion-3.0",
         "open_weights": false,
         "output_modalities": [
@@ -46,7 +46,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-3-0-mini",
+        "key": "aion-3.0-mini",
         "name": "AionLabs: Aion-3.0-Mini",
         "open_weights": false,
         "output_modalities": [
@@ -64,7 +64,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-3-5",
+        "key": "aion-3.5",
         "name": "AionLabs: Aion 3.5",
         "open_weights": false,
         "output_modalities": [
@@ -82,7 +82,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-3-5-mini",
+        "key": "aion-3.5-mini",
         "name": "AionLabs: Aion 3.5 Mini",
         "open_weights": false,
         "output_modalities": [
@@ -100,7 +100,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "aion-rp-llama-3-1-8b",
+        "key": "aion-rp-llama-3.1.8b",
         "name": "AionLabs: Aion-RP 1.0 (8B)",
         "open_weights": false,
         "output_modalities": [
@@ -214,7 +214,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "magnum-v4-72b",
+        "key": "magnum-v4.72b",
         "name": "Magnum v4 72B",
         "open_weights": true,
         "output_modalities": [
@@ -254,7 +254,7 @@
           "image",
           "text"
         ],
-        "key": "claude-fable-5-1",
+        "key": "claude-fable-5.1",
         "name": "Anthropic: Claude Fable 5.1",
         "open_weights": false,
         "output_modalities": [
@@ -274,7 +274,7 @@
           "image",
           "text"
         ],
-        "key": "claude-fable-5-1",
+        "key": "claude-fable-5.1",
         "name": "Anthropic: Claude Fable 5.1 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -314,7 +314,7 @@
           "image",
           "text"
         ],
-        "key": "claude-haiku-4-5",
+        "key": "claude-haiku-4.5",
         "name": "Anthropic: Claude Haiku 4.5",
         "open_weights": false,
         "output_modalities": [
@@ -334,7 +334,7 @@
           "image",
           "text"
         ],
-        "key": "claude-haiku-4-5",
+        "key": "claude-haiku-4.5",
         "name": "Anthropic: Claude Haiku 4.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -354,7 +354,7 @@
           "image",
           "text"
         ],
-        "key": "claude-haiku-5-5",
+        "key": "claude-haiku-5.5",
         "name": "Anthropic: Claude Haiku 5.5",
         "open_weights": false,
         "output_modalities": [
@@ -374,7 +374,7 @@
           "image",
           "text"
         ],
-        "key": "claude-haiku-5-5",
+        "key": "claude-haiku-5.5",
         "name": "Anthropic: Claude Haiku 5.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -394,7 +394,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-1",
+        "key": "claude-opus-4.1",
         "name": "Anthropic: Claude Opus 4.1",
         "open_weights": false,
         "output_modalities": [
@@ -414,7 +414,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-1",
+        "key": "claude-opus-4.1",
         "name": "Anthropic: Claude Opus 4.1 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -434,7 +434,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-5",
+        "key": "claude-opus-4.5",
         "name": "Anthropic: Claude Opus 4.5",
         "open_weights": false,
         "output_modalities": [
@@ -454,7 +454,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-5",
+        "key": "claude-opus-4.5",
         "name": "Anthropic: Claude Opus 4.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -474,7 +474,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-6",
+        "key": "claude-opus-4.6",
         "name": "Anthropic: Claude Opus 4.6",
         "open_weights": false,
         "output_modalities": [
@@ -494,7 +494,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-6",
+        "key": "claude-opus-4.6",
         "name": "Anthropic: Claude Opus 4.6 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -514,7 +514,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-7",
+        "key": "claude-opus-4.7",
         "name": "Anthropic: Claude Opus 4.7",
         "open_weights": false,
         "output_modalities": [
@@ -534,7 +534,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-7",
+        "key": "claude-opus-4.7",
         "name": "Anthropic: Claude Opus 4.7 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -554,7 +554,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-8",
+        "key": "claude-opus-4.8",
         "name": "Anthropic: Claude Opus 4.8",
         "open_weights": false,
         "output_modalities": [
@@ -574,7 +574,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-4-8",
+        "key": "claude-opus-4.8",
         "name": "Anthropic: Claude Opus 4.8 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -614,7 +614,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-5-5",
+        "key": "claude-opus-5.5",
         "name": "Anthropic: Claude Opus 5.5",
         "open_weights": false,
         "output_modalities": [
@@ -634,7 +634,7 @@
           "image",
           "text"
         ],
-        "key": "claude-opus-5-5",
+        "key": "claude-opus-5.5",
         "name": "Anthropic: Claude Opus 5.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -674,7 +674,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-4-5",
+        "key": "claude-sonnet-4.5",
         "name": "Anthropic: Claude Sonnet 4.5",
         "open_weights": false,
         "output_modalities": [
@@ -694,7 +694,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-4-5",
+        "key": "claude-sonnet-4.5",
         "name": "Anthropic: Claude Sonnet 4.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -714,7 +714,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-4-6",
+        "key": "claude-sonnet-4.6",
         "name": "Anthropic: Claude Sonnet 4.6",
         "open_weights": false,
         "output_modalities": [
@@ -734,7 +734,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-4-6",
+        "key": "claude-sonnet-4.6",
         "name": "Anthropic: Claude Sonnet 4.6 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -774,7 +774,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-5-5",
+        "key": "claude-sonnet-5.5",
         "name": "Anthropic: Claude Sonnet 5.5",
         "open_weights": false,
         "output_modalities": [
@@ -794,7 +794,7 @@
           "image",
           "text"
         ],
-        "key": "claude-sonnet-5-5",
+        "key": "claude-sonnet-5.5",
         "name": "Anthropic: Claude Sonnet 5.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -834,7 +834,7 @@
           "text",
           "video"
         ],
-        "key": "seed-1-6",
+        "key": "seed-1.6",
         "name": "ByteDance Seed: Seed 1.6",
         "open_weights": false,
         "output_modalities": [
@@ -854,7 +854,7 @@
           "text",
           "video"
         ],
-        "key": "seed-1-6-flash",
+        "key": "seed-1.6-flash",
         "name": "ByteDance Seed: Seed 1.6 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -874,7 +874,7 @@
           "text",
           "video"
         ],
-        "key": "seed-2-1-turbo",
+        "key": "seed-2.1-turbo",
         "name": "ByteDance Seed: Seed 2.1 Turbo",
         "open_weights": false,
         "output_modalities": [
@@ -894,7 +894,7 @@
           "text",
           "video"
         ],
-        "key": "seed-2-0-code",
+        "key": "seed-2.0-code",
         "name": "ByteDance Seed: Seed-2.0-Code",
         "open_weights": false,
         "output_modalities": [
@@ -914,7 +914,7 @@
           "text",
           "video"
         ],
-        "key": "seed-2-0-lite",
+        "key": "seed-2.0-lite",
         "name": "ByteDance Seed: Seed-2.0-Lite",
         "open_weights": false,
         "output_modalities": [
@@ -934,7 +934,7 @@
           "text",
           "video"
         ],
-        "key": "seed-2-0-mini",
+        "key": "seed-2.0-mini",
         "name": "ByteDance Seed: Seed-2.0-Mini",
         "open_weights": false,
         "output_modalities": [
@@ -953,7 +953,7 @@
           "image",
           "text"
         ],
-        "key": "ui-tars-1-5-7b",
+        "key": "ui-tars-1.5.7b",
         "name": "ByteDance: UI-TARS 7B ",
         "open_weights": true,
         "output_modalities": [
@@ -1026,7 +1026,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "command-r-08-2024",
+        "key": "command-r-08.2024",
         "name": "Cohere: Command R (08-2024)",
         "open_weights": false,
         "output_modalities": [
@@ -1044,7 +1044,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "command-r-plus-08-2024",
+        "key": "command-r-plus-08.2024",
         "name": "Cohere: Command R+ (08-2024)",
         "open_weights": false,
         "output_modalities": [
@@ -1062,7 +1062,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "command-r7b-12-2024",
+        "key": "command-r7b-12.2024",
         "name": "Cohere: Command R7B (12-2024)",
         "open_weights": false,
         "output_modalities": [
@@ -1116,7 +1116,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-chat-v3-0324",
+        "key": "deepseek-chat-v3.0324",
         "name": "DeepSeek: DeepSeek V3 0324",
         "open_weights": true,
         "output_modalities": [
@@ -1134,7 +1134,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-chat-v3-1",
+        "key": "deepseek-chat-v3.1",
         "name": "DeepSeek: DeepSeek V3.1",
         "open_weights": true,
         "output_modalities": [
@@ -1152,7 +1152,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-r1-0528",
+        "key": "deepseek-r1.0528",
         "name": "DeepSeek: R1 0528",
         "open_weights": true,
         "output_modalities": [
@@ -1170,7 +1170,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-v3-1-terminus",
+        "key": "deepseek-v3.1-terminus",
         "name": "DeepSeek: DeepSeek V3.1 Terminus",
         "open_weights": true,
         "output_modalities": [
@@ -1188,7 +1188,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-v3-2",
+        "key": "deepseek-v3.2",
         "name": "DeepSeek: DeepSeek V3.2",
         "open_weights": true,
         "output_modalities": [
@@ -1206,7 +1206,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "deepseek-v3-2",
+        "key": "deepseek-v3.2",
         "name": "DeepSeek: DeepSeek V3.2 Exp",
         "open_weights": true,
         "output_modalities": [
@@ -1316,7 +1316,7 @@
           "image",
           "text"
         ],
-        "key": "deepseek-v4-1-flash",
+        "key": "deepseek-v4.1-flash",
         "name": "DeepSeek: DeepSeek V4.1 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -1335,7 +1335,7 @@
           "image",
           "text"
         ],
-        "key": "deepseek-v4-1-flash-1017",
+        "key": "deepseek-v4.1-flash-1017",
         "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
         "open_weights": true,
         "output_modalities": [
@@ -1354,7 +1354,7 @@
           "image",
           "text"
         ],
-        "key": "deepseek-v4-1-flash",
+        "key": "deepseek-v4.1-flash",
         "name": "DeepSeek: DeepSeek V4.1 Flash (batch)",
         "open_weights": true,
         "output_modalities": [
@@ -1434,7 +1434,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-2-5-flash",
+        "key": "gemini-2.5-flash",
         "name": "Google: Gemini 2.5 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -1453,7 +1453,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-2-5-flash-image",
+        "key": "gemini-2.5-flash-image",
         "name": "Google: Nano Banana (Gemini 2.5 Flash Image)",
         "open_weights": false,
         "output_modalities": [
@@ -1476,7 +1476,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-2-5-flash-lite",
+        "key": "gemini-2.5-flash-lite",
         "name": "Google: Gemini 2.5 Flash Lite",
         "open_weights": false,
         "output_modalities": [
@@ -1498,7 +1498,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-2-5-pro",
+        "key": "gemini-2.5-pro",
         "name": "Google: Gemini 2.5 Pro",
         "open_weights": false,
         "output_modalities": [
@@ -1519,7 +1519,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-2-5-pro",
+        "key": "gemini-2.5-pro",
         "name": "Google: Gemini 2.5 Pro Preview 06-05",
         "open_weights": false,
         "output_modalities": [
@@ -1622,7 +1622,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-3-1-flash-image",
+        "key": "gemini-3.1-flash-image",
         "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
         "open_weights": false,
         "output_modalities": [
@@ -1642,7 +1642,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-3-1-flash-image",
+        "key": "gemini-3.1-flash-image",
         "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)",
         "open_weights": false,
         "output_modalities": [
@@ -1665,7 +1665,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-flash-lite",
+        "key": "gemini-3.1-flash-lite",
         "name": "Google: Gemini 3.1 Flash Lite",
         "open_weights": false,
         "output_modalities": [
@@ -1684,7 +1684,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-3-1-flash-lite-image",
+        "key": "gemini-3.1-flash-lite-image",
         "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
         "open_weights": false,
         "output_modalities": [
@@ -1707,7 +1707,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-flash-lite",
+        "key": "gemini-3.1-flash-lite",
         "name": "Google: Gemini 3.1 Flash Lite Preview",
         "open_weights": false,
         "output_modalities": [
@@ -1729,7 +1729,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-flash-lite",
+        "key": "gemini-3.1-flash-lite",
         "name": "Google: Gemini 3.1 Flash Lite (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1751,7 +1751,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-pro",
+        "key": "gemini-3.1-pro",
         "name": "Google: Gemini 3.1 Pro Preview",
         "open_weights": false,
         "output_modalities": [
@@ -1773,7 +1773,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-pro-preview-customtools",
+        "key": "gemini-3.1-pro-preview-customtools",
         "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
         "open_weights": false,
         "output_modalities": [
@@ -1795,7 +1795,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-1-pro",
+        "key": "gemini-3.1-pro",
         "name": "Google: Gemini 3.1 Pro Preview (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1817,7 +1817,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-5-flash",
+        "key": "gemini-3.5-flash",
         "name": "Google: Gemini 3.5 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -1839,7 +1839,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-5-flash-lite",
+        "key": "gemini-3.5-flash-lite",
         "name": "Google: Gemini 3.5 Flash Lite",
         "open_weights": false,
         "output_modalities": [
@@ -1861,7 +1861,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-5-flash-lite",
+        "key": "gemini-3.5-flash-lite",
         "name": "Google: Gemini 3.5 Flash Lite (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1883,7 +1883,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-5-flash",
+        "key": "gemini-3.5-flash",
         "name": "Google: Gemini 3.5 Flash (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1905,7 +1905,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-6-flash",
+        "key": "gemini-3.6-flash",
         "name": "Google: Gemini 3.6 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -1927,7 +1927,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-6-flash",
+        "key": "gemini-3.6-flash",
         "name": "Google: Gemini 3.6 Flash (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1949,7 +1949,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-7-flash",
+        "key": "gemini-3.7-flash",
         "name": "Google: Gemini 3.7 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -1971,7 +1971,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-7-flash",
+        "key": "gemini-3.7-flash",
         "name": "Google: Gemini 3.7 Flash (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -1993,7 +1993,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-8-flash",
+        "key": "gemini-3.8-flash",
         "name": "Google: Gemini 3.8 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -2015,7 +2015,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-3-8-flash",
+        "key": "gemini-3.8-flash",
         "name": "Google: Gemini 3.8 Flash (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -2078,7 +2078,7 @@
           "image",
           "text"
         ],
-        "key": "gemini-nano-banana-2-1",
+        "key": "gemini-nano-banana-2.1",
         "name": "Google: Nano Banana 2.1",
         "open_weights": false,
         "output_modalities": [
@@ -2099,7 +2099,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-omni-1-1-flash",
+        "key": "gemini-omni-1.1-flash",
         "name": "Google: Gemini Omni 1.1 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -2120,7 +2120,7 @@
           "text",
           "video"
         ],
-        "key": "gemini-omni-1-2-flash",
+        "key": "gemini-omni-1.2-flash",
         "name": "Google: Gemini Omni 1.2 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -2139,7 +2139,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "gemma-2-27b",
+        "key": "gemma-2.27b",
         "name": "Google: Gemma 2 27B",
         "open_weights": true,
         "output_modalities": [
@@ -2158,7 +2158,7 @@
           "image",
           "text"
         ],
-        "key": "gemma-3-12b",
+        "key": "gemma-3.12b",
         "name": "Google: Gemma 3 12B",
         "open_weights": true,
         "output_modalities": [
@@ -2177,7 +2177,7 @@
           "image",
           "text"
         ],
-        "key": "gemma-3-27b",
+        "key": "gemma-3.27b",
         "name": "Google: Gemma 3 27B",
         "open_weights": true,
         "output_modalities": [
@@ -2196,7 +2196,7 @@
           "image",
           "text"
         ],
-        "key": "gemma-3-4b",
+        "key": "gemma-3.4b",
         "name": "Google: Gemma 3 4B",
         "open_weights": true,
         "output_modalities": [
@@ -2216,14 +2216,14 @@
           "text",
           "video"
         ],
-        "key": "gemma-4-26b-a4b",
+        "key": "gemma-4.26b-a4b",
         "name": "Google: Gemma 4 26B A4B ",
         "open_weights": true,
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.047,
-        "price_output_usd_per_m": 0.14,
+        "price_input_usd_per_m": 0.053,
+        "price_output_usd_per_m": 0.159,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2236,7 +2236,7 @@
           "text",
           "video"
         ],
-        "key": "gemma-4-26b-a4b",
+        "key": "gemma-4.26b-a4b",
         "name": "Google: Gemma 4 26B A4B  (free)",
         "open_weights": true,
         "output_modalities": [
@@ -2256,7 +2256,7 @@
           "text",
           "video"
         ],
-        "key": "gemma-4-31b",
+        "key": "gemma-4.31b",
         "name": "Google: Gemma 4 31B",
         "open_weights": true,
         "output_modalities": [
@@ -2276,7 +2276,7 @@
           "text",
           "video"
         ],
-        "key": "gemma-4-31b",
+        "key": "gemma-4.31b",
         "name": "Google: Gemma 4 31B (free)",
         "open_weights": true,
         "output_modalities": [
@@ -2334,7 +2334,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "mythomax-l2-13b",
+        "key": "mythomax-l2.13b",
         "name": "MythoMax 13B",
         "open_weights": true,
         "output_modalities": [
@@ -2352,7 +2352,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "granite-4-2-8b",
+        "key": "granite-4.2.8b",
         "name": "IBM: Granite 4.2 8B",
         "open_weights": true,
         "output_modalities": [
@@ -2388,7 +2388,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "mercury-2-5",
+        "key": "mercury-2.5",
         "name": "Inception: Mercury 2.5",
         "open_weights": false,
         "output_modalities": [
@@ -2424,7 +2424,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "ling-3-0-flash",
+        "key": "ling-3.0-flash",
         "name": "inclusionAI: Ling 3.0 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -2444,7 +2444,7 @@
           "text",
           "video"
         ],
-        "key": "ling-3-0-flash-vl",
+        "key": "ling-3.0-flash-vl",
         "name": "inclusionAI: Ling 3.0 Flash VL",
         "open_weights": true,
         "output_modalities": [
@@ -2462,7 +2462,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "ling-3-0-tiny",
+        "key": "ling-3.0-tiny",
         "name": "inclusionAI: Ling 3.0 Tiny",
         "open_weights": true,
         "output_modalities": [
@@ -2480,7 +2480,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "ling-3-1-flash",
+        "key": "ling-3.1-flash",
         "name": "inclusionAI: Ling 3.1 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -2534,7 +2534,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "lfm-2-5-2-6b",
+        "key": "lfm-2.5.2.6b",
         "name": "LiquidAI: LFM2.5-2.6B",
         "open_weights": true,
         "output_modalities": [
@@ -2552,7 +2552,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "lfm-2-5-2-6b",
+        "key": "lfm-2.5.2.6b",
         "name": "LiquidAI: LFM2.5-2.6B (free)",
         "open_weights": true,
         "output_modalities": [
@@ -2570,7 +2570,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "lfm-2-5-24b-a2b",
+        "key": "lfm-2.5.24b-a2b",
         "name": "LiquidAI: LFM2.5-24B-A2B",
         "open_weights": true,
         "output_modalities": [
@@ -2606,7 +2606,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "longcat-2-0",
+        "key": "longcat-2.0",
         "name": "Meituan: LongCat 2.0",
         "open_weights": true,
         "output_modalities": [
@@ -2624,7 +2624,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "llama-3-1-70b",
+        "key": "llama-3.1.70b",
         "name": "Meta: Llama 3.1 70B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -2642,7 +2642,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "llama-3-1-8b",
+        "key": "llama-3.1.8b",
         "name": "Meta: Llama 3.1 8B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -2660,7 +2660,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "llama-3-2-1b",
+        "key": "llama-3.2.1b",
         "name": "Meta: Llama 3.2 1B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -2678,7 +2678,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "llama-3-2-3b",
+        "key": "llama-3.2.3b",
         "name": "Meta: Llama 3.2 3B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -2696,7 +2696,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "llama-3-3-70b",
+        "key": "llama-3.3.70b",
         "name": "Meta: Llama 3.3 70B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -2753,7 +2753,7 @@
           "image",
           "text"
         ],
-        "key": "llama-guard-4-12b",
+        "key": "llama-guard-4.12b",
         "name": "Meta: Llama Guard 4 12B",
         "open_weights": true,
         "output_modalities": [
@@ -2793,7 +2793,7 @@
           "text",
           "video"
         ],
-        "key": "muse-spark-1-1",
+        "key": "muse-spark-1.1",
         "name": "Meta: Muse Spark 1.1",
         "open_weights": false,
         "output_modalities": [
@@ -2814,7 +2814,7 @@
           "text",
           "video"
         ],
-        "key": "muse-spark-1-2",
+        "key": "muse-spark-1.2",
         "name": "Meta: Muse Spark 1.2",
         "open_weights": false,
         "output_modalities": [
@@ -2835,7 +2835,7 @@
           "text",
           "video"
         ],
-        "key": "muse-spark-1-2-contributor",
+        "key": "muse-spark-1.2-contributor",
         "name": "Meta: Muse Spark 1.2 Contributor",
         "open_weights": false,
         "output_modalities": [
@@ -2856,7 +2856,7 @@
           "text",
           "video"
         ],
-        "key": "muse-spark-1-3",
+        "key": "muse-spark-1.3",
         "name": "Meta: Muse Spark 1.3",
         "open_weights": false,
         "output_modalities": [
@@ -2877,7 +2877,7 @@
           "text",
           "video"
         ],
-        "key": "muse-spark-1-3-contributor",
+        "key": "muse-spark-1.3-contributor",
         "name": "Meta: Muse Spark 1.3 Contributor",
         "open_weights": false,
         "output_modalities": [
@@ -2975,7 +2975,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "minimax-m2-5",
+        "key": "minimax-m2.5",
         "name": "MiniMax: MiniMax M2.5",
         "open_weights": true,
         "output_modalities": [
@@ -2993,7 +2993,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "minimax-m2-7",
+        "key": "minimax-m2.7",
         "name": "MiniMax: MiniMax M2.7",
         "open_weights": true,
         "output_modalities": [
@@ -3033,7 +3033,7 @@
           "text",
           "video"
         ],
-        "key": "minimax-m3-1-flash",
+        "key": "minimax-m3.1-flash",
         "name": "MiniMax: MiniMax M3.1 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -3205,7 +3205,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-large-4-0",
+        "key": "mistral-large-4.0",
         "name": "Mistral: Mistral Large 4",
         "open_weights": true,
         "output_modalities": [
@@ -3245,7 +3245,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-medium-3-5",
+        "key": "mistral-medium-3.5",
         "name": "Mistral: Mistral Medium 3.5",
         "open_weights": false,
         "output_modalities": [
@@ -3265,7 +3265,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-medium-3-5",
+        "key": "mistral-medium-3.5",
         "name": "Mistral: Mistral Medium 3.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -3285,7 +3285,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-medium-3-1",
+        "key": "mistral-medium-3.1",
         "name": "Mistral: Mistral Medium 3.1",
         "open_weights": false,
         "output_modalities": [
@@ -3378,7 +3378,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-small-3-1-24b",
+        "key": "mistral-small-3.1.24b",
         "name": "Mistral: Mistral Small 3.1 24B",
         "open_weights": true,
         "output_modalities": [
@@ -3397,7 +3397,7 @@
           "image",
           "text"
         ],
-        "key": "mistral-small-3-2-24b",
+        "key": "mistral-small-3.2.24b",
         "name": "Mistral: Mistral Small 3.2 24B",
         "open_weights": true,
         "output_modalities": [
@@ -3474,7 +3474,7 @@
           "image",
           "text"
         ],
-        "key": "moondream3-1-9b-a2b",
+        "key": "moondream3.1.9b-a2b",
         "name": "Moondream: Moondream 3.1",
         "open_weights": true,
         "output_modalities": [
@@ -3510,7 +3510,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "kimi-k2-0905",
+        "key": "kimi-k2.0905",
         "name": "MoonshotAI: Kimi K2 0905",
         "open_weights": true,
         "output_modalities": [
@@ -3547,7 +3547,7 @@
           "image",
           "text"
         ],
-        "key": "kimi-k2-5",
+        "key": "kimi-k2.5",
         "name": "MoonshotAI: Kimi K2.5",
         "open_weights": true,
         "output_modalities": [
@@ -3566,7 +3566,7 @@
           "image",
           "text"
         ],
-        "key": "kimi-k2-6",
+        "key": "kimi-k2.6",
         "name": "MoonshotAI: Kimi K2.6",
         "open_weights": true,
         "output_modalities": [
@@ -3585,7 +3585,7 @@
           "image",
           "text"
         ],
-        "key": "kimi-k2-7-code",
+        "key": "kimi-k2.7-code",
         "name": "MoonshotAI: Kimi K2.7 Code",
         "open_weights": true,
         "output_modalities": [
@@ -3625,7 +3625,7 @@
           "text",
           "video"
         ],
-        "key": "kimi-k3-1-pro",
+        "key": "kimi-k3.1-pro",
         "name": "MoonshotAI: Kimi K3.1 Pro",
         "open_weights": true,
         "output_modalities": [
@@ -3700,7 +3700,7 @@
           "image",
           "text"
         ],
-        "key": "nex-n2-5-mini",
+        "key": "nex-n2.5-mini",
         "name": "Nex AGI: Nex-N2.5-Mini",
         "open_weights": true,
         "output_modalities": [
@@ -3719,7 +3719,7 @@
           "image",
           "text"
         ],
-        "key": "nex-n2-5-pro",
+        "key": "nex-n2.5-pro",
         "name": "Nex AGI: Nex-N2.5-Pro",
         "open_weights": true,
         "output_modalities": [
@@ -3737,7 +3737,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "hermes-4-405b",
+        "key": "hermes-4.405b",
         "name": "Nous: Hermes 4 405B",
         "open_weights": true,
         "output_modalities": [
@@ -3849,7 +3849,7 @@
           "image",
           "text"
         ],
-        "key": "nemotron-3-5-content-safety",
+        "key": "nemotron-3.5-content-safety",
         "name": "NVIDIA: Nemotron 3.5 Content Safety",
         "open_weights": true,
         "output_modalities": [
@@ -3868,7 +3868,7 @@
           "image",
           "text"
         ],
-        "key": "nemotron-3-5-content-safety",
+        "key": "nemotron-3.5-content-safety",
         "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
         "open_weights": true,
         "output_modalities": [
@@ -3886,7 +3886,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "nemotron-3-5-lightning",
+        "key": "nemotron-3.5-lightning",
         "name": "NVIDIA: Nemotron 3.5 Lightning",
         "open_weights": true,
         "output_modalities": [
@@ -3904,7 +3904,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "nemotron-3-5-lightning",
+        "key": "nemotron-3.5-lightning",
         "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
         "open_weights": true,
         "output_modalities": [
@@ -3924,7 +3924,7 @@
           "text",
           "video"
         ],
-        "key": "nemotron-3-5-super-vl",
+        "key": "nemotron-3.5-super-vl",
         "name": "NVIDIA: Nemotron 3.5 Super VL",
         "open_weights": true,
         "output_modalities": [
@@ -3944,7 +3944,7 @@
           "text",
           "video"
         ],
-        "key": "nemotron-3-5-super-vl",
+        "key": "nemotron-3.5-super-vl",
         "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
         "open_weights": true,
         "output_modalities": [
@@ -3980,7 +3980,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "gpt-3-5-turbo-0613",
+        "key": "gpt-3.5-turbo-0613",
         "name": "OpenAI: GPT-3.5 Turbo (older v0613)",
         "open_weights": false,
         "output_modalities": [
@@ -3998,7 +3998,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "gpt-3-5-turbo-16k",
+        "key": "gpt-3.5-turbo-16k",
         "name": "OpenAI: GPT-3.5 Turbo 16k",
         "open_weights": false,
         "output_modalities": [
@@ -4055,7 +4055,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1",
+        "key": "gpt-4.1",
         "name": "OpenAI: GPT-4.1",
         "open_weights": false,
         "output_modalities": [
@@ -4075,7 +4075,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1-mini",
+        "key": "gpt-4.1-mini",
         "name": "OpenAI: GPT-4.1 Mini",
         "open_weights": false,
         "output_modalities": [
@@ -4095,7 +4095,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1-mini",
+        "key": "gpt-4.1-mini",
         "name": "OpenAI: GPT-4.1 Mini (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4115,7 +4115,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1-nano",
+        "key": "gpt-4.1-nano",
         "name": "OpenAI: GPT-4.1 Nano",
         "open_weights": false,
         "output_modalities": [
@@ -4135,7 +4135,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1-nano",
+        "key": "gpt-4.1-nano",
         "name": "OpenAI: GPT-4.1 Nano (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4155,7 +4155,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-4-1",
+        "key": "gpt-4.1",
         "name": "OpenAI: GPT-4.1 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4517,7 +4517,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-1",
+        "key": "gpt-5.1",
         "name": "OpenAI: GPT-5.1",
         "open_weights": false,
         "output_modalities": [
@@ -4536,7 +4536,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-1-codex",
+        "key": "gpt-5.1-codex",
         "name": "OpenAI: GPT-5.1-Codex",
         "open_weights": false,
         "output_modalities": [
@@ -4555,7 +4555,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-1-codex",
+        "key": "gpt-5.1-codex",
         "name": "OpenAI: GPT-5.1-Codex-Max",
         "open_weights": false,
         "output_modalities": [
@@ -4574,7 +4574,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-1-codex-mini",
+        "key": "gpt-5.1-codex-mini",
         "name": "OpenAI: GPT-5.1-Codex-Mini",
         "open_weights": false,
         "output_modalities": [
@@ -4594,7 +4594,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-1",
+        "key": "gpt-5.1",
         "name": "OpenAI: GPT-5.1 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4614,7 +4614,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2",
+        "key": "gpt-5.2",
         "name": "OpenAI: GPT-5.2",
         "open_weights": false,
         "output_modalities": [
@@ -4634,7 +4634,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2",
+        "key": "gpt-5.2",
         "name": "OpenAI: GPT-5.2 Chat",
         "open_weights": false,
         "output_modalities": [
@@ -4653,7 +4653,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2-codex",
+        "key": "gpt-5.2-codex",
         "name": "OpenAI: GPT-5.2-Codex",
         "open_weights": false,
         "output_modalities": [
@@ -4673,7 +4673,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2-pro",
+        "key": "gpt-5.2-pro",
         "name": "OpenAI: GPT-5.2 Pro",
         "open_weights": false,
         "output_modalities": [
@@ -4693,7 +4693,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2-pro",
+        "key": "gpt-5.2-pro",
         "name": "OpenAI: GPT-5.2 Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4713,7 +4713,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-2",
+        "key": "gpt-5.2",
         "name": "OpenAI: GPT-5.2 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4733,7 +4733,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-3-codex",
+        "key": "gpt-5.3-codex",
         "name": "OpenAI: GPT-5.3-Codex",
         "open_weights": false,
         "output_modalities": [
@@ -4753,7 +4753,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4",
+        "key": "gpt-5.4",
         "name": "OpenAI: GPT-5.4",
         "open_weights": false,
         "output_modalities": [
@@ -4773,7 +4773,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-image-2",
+        "key": "gpt-5.4-image-2",
         "name": "OpenAI: GPT-5.4 Image 2",
         "open_weights": false,
         "output_modalities": [
@@ -4794,7 +4794,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-mini",
+        "key": "gpt-5.4-mini",
         "name": "OpenAI: GPT-5.4 Mini",
         "open_weights": false,
         "output_modalities": [
@@ -4814,7 +4814,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-mini",
+        "key": "gpt-5.4-mini",
         "name": "OpenAI: GPT-5.4 Mini (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4834,7 +4834,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-nano",
+        "key": "gpt-5.4-nano",
         "name": "OpenAI: GPT-5.4 Nano",
         "open_weights": false,
         "output_modalities": [
@@ -4854,7 +4854,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-nano",
+        "key": "gpt-5.4-nano",
         "name": "OpenAI: GPT-5.4 Nano (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4874,7 +4874,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-pro",
+        "key": "gpt-5.4-pro",
         "name": "OpenAI: GPT-5.4 Pro",
         "open_weights": false,
         "output_modalities": [
@@ -4894,7 +4894,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4-pro",
+        "key": "gpt-5.4-pro",
         "name": "OpenAI: GPT-5.4 Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4914,7 +4914,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-4",
+        "key": "gpt-5.4",
         "name": "OpenAI: GPT-5.4 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4934,7 +4934,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-5",
+        "key": "gpt-5.5",
         "name": "OpenAI: GPT-5.5",
         "open_weights": false,
         "output_modalities": [
@@ -4954,7 +4954,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-5-pro",
+        "key": "gpt-5.5-pro",
         "name": "OpenAI: GPT-5.5 Pro",
         "open_weights": false,
         "output_modalities": [
@@ -4974,7 +4974,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-5-pro",
+        "key": "gpt-5.5-pro",
         "name": "OpenAI: GPT-5.5 Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -4994,7 +4994,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-5",
+        "key": "gpt-5.5",
         "name": "OpenAI: GPT-5.5 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5014,7 +5014,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-luna",
+        "key": "gpt-5.6-luna",
         "name": "OpenAI: GPT-5.6 Luna",
         "open_weights": false,
         "output_modalities": [
@@ -5034,7 +5034,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-luna-pro",
+        "key": "gpt-5.6-luna-pro",
         "name": "OpenAI: GPT-5.6 Luna Pro",
         "open_weights": false,
         "output_modalities": [
@@ -5054,7 +5054,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-luna-pro",
+        "key": "gpt-5.6-luna-pro",
         "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5074,7 +5074,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-luna",
+        "key": "gpt-5.6-luna",
         "name": "OpenAI: GPT-5.6 Luna (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5094,7 +5094,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-sol",
+        "key": "gpt-5.6-sol",
         "name": "OpenAI: GPT-5.6 Sol",
         "open_weights": false,
         "output_modalities": [
@@ -5114,7 +5114,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-sol-pro",
+        "key": "gpt-5.6-sol-pro",
         "name": "OpenAI: GPT-5.6 Sol Pro",
         "open_weights": false,
         "output_modalities": [
@@ -5134,7 +5134,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-sol-pro",
+        "key": "gpt-5.6-sol-pro",
         "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5154,7 +5154,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-sol",
+        "key": "gpt-5.6-sol",
         "name": "OpenAI: GPT-5.6 Sol (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5174,7 +5174,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-terra",
+        "key": "gpt-5.6-terra",
         "name": "OpenAI: GPT-5.6 Terra",
         "open_weights": false,
         "output_modalities": [
@@ -5194,7 +5194,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-terra-pro",
+        "key": "gpt-5.6-terra-pro",
         "name": "OpenAI: GPT-5.6 Terra Pro",
         "open_weights": false,
         "output_modalities": [
@@ -5214,7 +5214,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-terra-pro",
+        "key": "gpt-5.6-terra-pro",
         "name": "OpenAI: GPT-5.6 Terra Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5234,7 +5234,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-5-6-terra",
+        "key": "gpt-5.6-terra",
         "name": "OpenAI: GPT-5.6 Terra (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5514,7 +5514,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-sol",
+        "key": "gpt-6.1-sol",
         "name": "OpenAI: GPT-6.1 Sol",
         "open_weights": false,
         "output_modalities": [
@@ -5534,7 +5534,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-sol-pro",
+        "key": "gpt-6.1-sol-pro",
         "name": "OpenAI: GPT-6.1 Sol Pro",
         "open_weights": false,
         "output_modalities": [
@@ -5554,7 +5554,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-sol-pro",
+        "key": "gpt-6.1-sol-pro",
         "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5574,7 +5574,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-sol",
+        "key": "gpt-6.1-sol",
         "name": "OpenAI: GPT-6.1 Sol (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5594,7 +5594,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-terra",
+        "key": "gpt-6.1-terra",
         "name": "OpenAI: GPT-6.1 Terra",
         "open_weights": false,
         "output_modalities": [
@@ -5614,7 +5614,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-terra-pro",
+        "key": "gpt-6.1-terra-pro",
         "name": "OpenAI: GPT-6.1 Terra Pro",
         "open_weights": false,
         "output_modalities": [
@@ -5634,7 +5634,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-terra-pro",
+        "key": "gpt-6.1-terra-pro",
         "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -5654,7 +5654,7 @@
           "image",
           "text"
         ],
-        "key": "gpt-6-1-terra",
+        "key": "gpt-6.1-terra",
         "name": "OpenAI: GPT-6.1 Terra (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -6105,7 +6105,7 @@
           "text",
           "video"
         ],
-        "key": "perceptron-mk1-5",
+        "key": "perceptron-mk1.5",
         "name": "Perceptron: Perceptron Mk1.5",
         "open_weights": false,
         "output_modalities": [
@@ -6218,7 +6218,7 @@
           "image",
           "text"
         ],
-        "key": "ternary-bonsai-2-27b",
+        "key": "ternary-bonsai-2.27b",
         "name": "PrismML: Ternary Bonsai 2 27B",
         "open_weights": true,
         "output_modalities": [
@@ -6237,7 +6237,7 @@
           "image",
           "text"
         ],
-        "key": "ternary-bonsai-2-9b",
+        "key": "ternary-bonsai-2.9b",
         "name": "PrismML: Ternary Bonsai 2 9B",
         "open_weights": true,
         "output_modalities": [
@@ -6255,7 +6255,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen-2-5-72b",
+        "key": "qwen-2.5.72b",
         "name": "Qwen2.5 72B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -6273,7 +6273,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen-2-5-7b",
+        "key": "qwen-2.5.7b",
         "name": "Qwen: Qwen2.5 7B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -6291,7 +6291,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen-2-5-coder-32b",
+        "key": "qwen-2.5-coder-32b",
         "name": "Qwen2.5 Coder 32B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -6328,7 +6328,7 @@
           "image",
           "text"
         ],
-        "key": "qwen2-5-vl-72b",
+        "key": "qwen2.5-vl-72b",
         "name": "Qwen: Qwen2.5 VL 72B Instruct",
         "open_weights": true,
         "output_modalities": [
@@ -6346,7 +6346,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-14b",
+        "key": "qwen3.14b",
         "name": "Qwen: Qwen3 14B",
         "open_weights": true,
         "output_modalities": [
@@ -6364,7 +6364,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-235b-a22b-2507",
+        "key": "qwen3.235b-a22b-2507",
         "name": "Qwen: Qwen3 235B A22B Instruct 2507",
         "open_weights": true,
         "output_modalities": [
@@ -6382,7 +6382,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-235b-a22b-thinking-2507",
+        "key": "qwen3.235b-a22b-thinking-2507",
         "name": "Qwen: Qwen3 235B A22B Thinking 2507",
         "open_weights": true,
         "output_modalities": [
@@ -6400,7 +6400,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-30b-a3b",
+        "key": "qwen3.30b-a3b",
         "name": "Qwen: Qwen3 30B A3B",
         "open_weights": true,
         "output_modalities": [
@@ -6418,7 +6418,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-30b-a3b-instruct-2507",
+        "key": "qwen3.30b-a3b-instruct-2507",
         "name": "Qwen: Qwen3 30B A3B Instruct 2507",
         "open_weights": true,
         "output_modalities": [
@@ -6436,7 +6436,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-32b",
+        "key": "qwen3.32b",
         "name": "Qwen: Qwen3 32B",
         "open_weights": true,
         "output_modalities": [
@@ -6622,7 +6622,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-122b-a10b",
+        "key": "qwen3.5.122b-a10b",
         "name": "Qwen: Qwen3.5-122B-A10B",
         "open_weights": true,
         "output_modalities": [
@@ -6642,7 +6642,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-27b",
+        "key": "qwen3.5.27b",
         "name": "Qwen: Qwen3.5-27B",
         "open_weights": true,
         "output_modalities": [
@@ -6662,7 +6662,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-35b-a3b",
+        "key": "qwen3.5.35b-a3b",
         "name": "Qwen: Qwen3.5-35B-A3B",
         "open_weights": true,
         "output_modalities": [
@@ -6682,7 +6682,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-397b-a17b",
+        "key": "qwen3.5.397b-a17b",
         "name": "Qwen: Qwen3.5 397B A17B",
         "open_weights": true,
         "output_modalities": [
@@ -6702,7 +6702,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-9b",
+        "key": "qwen3.5.9b",
         "name": "Qwen: Qwen3.5-9B",
         "open_weights": true,
         "output_modalities": [
@@ -6722,7 +6722,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-flash-02-23",
+        "key": "qwen3.5-flash-02.23",
         "name": "Qwen: Qwen3.5-Flash",
         "open_weights": false,
         "output_modalities": [
@@ -6742,7 +6742,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-plus-02-15",
+        "key": "qwen3.5-plus-02.15",
         "name": "Qwen: Qwen3.5 Plus 2026-02-15",
         "open_weights": false,
         "output_modalities": [
@@ -6762,7 +6762,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-5-plus",
+        "key": "qwen3.5-plus",
         "name": "Qwen: Qwen3.5 Plus 2026-04-20",
         "open_weights": false,
         "output_modalities": [
@@ -6782,7 +6782,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-6-27b",
+        "key": "qwen3.6.27b",
         "name": "Qwen: Qwen3.6 27B",
         "open_weights": true,
         "output_modalities": [
@@ -6802,7 +6802,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-6-35b-a3b",
+        "key": "qwen3.6.35b-a3b",
         "name": "Qwen: Qwen3.6 35B A3B",
         "open_weights": true,
         "output_modalities": [
@@ -6822,7 +6822,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-6-flash",
+        "key": "qwen3.6-flash",
         "name": "Qwen: Qwen3.6 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -6842,7 +6842,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-6-plus",
+        "key": "qwen3.6-plus",
         "name": "Qwen: Qwen3.6 Plus",
         "open_weights": false,
         "output_modalities": [
@@ -6862,7 +6862,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-7-flash",
+        "key": "qwen3.7-flash",
         "name": "Qwen: Qwen3.7 Flash",
         "open_weights": false,
         "output_modalities": [
@@ -6880,7 +6880,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-7",
+        "key": "qwen3.7",
         "name": "Qwen: Qwen3.7 Max",
         "open_weights": false,
         "output_modalities": [
@@ -6899,7 +6899,7 @@
           "image",
           "text"
         ],
-        "key": "qwen3-7-plus",
+        "key": "qwen3.7-plus",
         "name": "Qwen: Qwen3.7 Plus",
         "open_weights": false,
         "output_modalities": [
@@ -6918,7 +6918,7 @@
           "image",
           "text"
         ],
-        "key": "qwen3-7-plus",
+        "key": "qwen3.7-plus",
         "name": "Qwen: Qwen3.7 Plus (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -6936,7 +6936,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "qwen3-8-2-4t-a95b",
+        "key": "qwen3.8.2.4t-a95b",
         "name": "Qwen: Qwen3.8 2.4T A95B",
         "open_weights": true,
         "output_modalities": [
@@ -6956,7 +6956,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-8-27b",
+        "key": "qwen3.8.27b",
         "name": "Qwen: Qwen3.8 27B",
         "open_weights": true,
         "output_modalities": [
@@ -6976,7 +6976,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-8-flash",
+        "key": "qwen3.8-flash",
         "name": "Qwen: Qwen3.8 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -6996,7 +6996,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-8-max-0902",
+        "key": "qwen3.8-max-0902",
         "name": "Qwen: Qwen3.8 Max (0902)",
         "open_weights": false,
         "output_modalities": [
@@ -7016,7 +7016,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-8-max-prime",
+        "key": "qwen3.8-max-prime",
         "name": "Qwen: Qwen3.8 Max Prime",
         "open_weights": false,
         "output_modalities": [
@@ -7037,7 +7037,7 @@
           "text",
           "video"
         ],
-        "key": "qwen3-8-omni-flash",
+        "key": "qwen3.8-omni-flash",
         "name": "Qwen: Qwen3.8 Omni Flash",
         "open_weights": false,
         "output_modalities": [
@@ -7055,7 +7055,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "flint-v1-0",
+        "key": "flint-v1.0",
         "name": "Recursive: Flint (free)",
         "open_weights": true,
         "output_modalities": [
@@ -7073,7 +7073,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "beam-1-0-501b-a23b",
+        "key": "beam-1.0.501b-a23b",
         "name": "Reflection: Beam 1.0 501B A23B",
         "open_weights": true,
         "output_modalities": [
@@ -7280,7 +7280,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "l3-1-euryale-70b",
+        "key": "l3.1-euryale-70b",
         "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
         "open_weights": true,
         "output_modalities": [
@@ -7360,7 +7360,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "step-3-5-flash",
+        "key": "step-3.5-flash",
         "name": "StepFun: Step 3.5 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -7380,7 +7380,7 @@
           "text",
           "video"
         ],
-        "key": "step-3-7-flash",
+        "key": "step-3.7-flash",
         "name": "StepFun: Step 3.7 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -7436,7 +7436,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "hy-mt2-1-8b",
+        "key": "hy-mt2.1.8b",
         "name": "Tencent: Hy-MT2-1.8B",
         "open_weights": true,
         "output_modalities": [
@@ -7454,7 +7454,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "hy-mt2-30b-a3b",
+        "key": "hy-mt2.30b-a3b",
         "name": "Tencent: Hy-MT2-30B-A3B",
         "open_weights": true,
         "output_modalities": [
@@ -7472,7 +7472,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "hy-mt2-7b",
+        "key": "hy-mt2.7b",
         "name": "Tencent: Hy-MT2-7B",
         "open_weights": true,
         "output_modalities": [
@@ -7563,7 +7563,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "cydonia-24b-v4-1",
+        "key": "cydonia-24b-v4.1",
         "name": "TheDrummer: Cydonia 24B V4.1",
         "open_weights": true,
         "output_modalities": [
@@ -7680,7 +7680,7 @@
           "image",
           "text"
         ],
-        "key": "pareto-26-10",
+        "key": "pareto-26.10",
         "name": "Pareto 26.10",
         "open_weights": false,
         "output_modalities": [
@@ -7699,7 +7699,7 @@
           "image",
           "text"
         ],
-        "key": "pareto-26-9",
+        "key": "pareto-26.9",
         "name": "Pareto 26.9",
         "open_weights": false,
         "output_modalities": [
@@ -7717,7 +7717,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "remm-slerp-l2-13b",
+        "key": "remm-slerp-l2.13b",
         "name": "ReMM SLERP 13B",
         "open_weights": true,
         "output_modalities": [
@@ -7791,7 +7791,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-20",
+        "key": "grok-4.20",
         "name": "SpaceXAI: Grok 4.20",
         "open_weights": false,
         "output_modalities": [
@@ -7811,7 +7811,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-20-multi-agent",
+        "key": "grok-4.20-multi-agent",
         "name": "SpaceXAI: Grok 4.20 Multi-Agent",
         "open_weights": false,
         "output_modalities": [
@@ -7831,7 +7831,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-3",
+        "key": "grok-4.3",
         "name": "SpaceXAI: Grok 4.3",
         "open_weights": false,
         "output_modalities": [
@@ -7851,7 +7851,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-3",
+        "key": "grok-4.3",
         "name": "SpaceXAI: Grok 4.3 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -7871,7 +7871,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-5",
+        "key": "grok-4.5",
         "name": "SpaceXAI: Grok 4.5",
         "open_weights": false,
         "output_modalities": [
@@ -7891,7 +7891,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-6",
+        "key": "grok-4.6",
         "name": "SpaceXAI: Grok 4.6",
         "open_weights": false,
         "output_modalities": [
@@ -7911,7 +7911,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-6",
+        "key": "grok-4.6",
         "name": "SpaceXAI: Grok 4.6 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -7931,7 +7931,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-7",
+        "key": "grok-4.7",
         "name": "SpaceXAI: Grok 4.7",
         "open_weights": false,
         "output_modalities": [
@@ -7951,7 +7951,7 @@
           "image",
           "text"
         ],
-        "key": "grok-4-7",
+        "key": "grok-4.7",
         "name": "SpaceXAI: Grok 4.7 (batch)",
         "open_weights": false,
         "output_modalities": [
@@ -7971,7 +7971,7 @@
           "image",
           "text"
         ],
-        "key": "grok-build-0-1",
+        "key": "grok-build-0.1",
         "name": "SpaceXAI: Grok Build 0.1",
         "open_weights": false,
         "output_modalities": [
@@ -7992,7 +7992,7 @@
           "text",
           "video"
         ],
-        "key": "mimo-v2-5",
+        "key": "mimo-v2.5",
         "name": "Xiaomi: MiMo-V2.5",
         "open_weights": true,
         "output_modalities": [
@@ -8010,7 +8010,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "mimo-v2-5-pro",
+        "key": "mimo-v2.5-pro",
         "name": "Xiaomi: MiMo-V2.5-Pro",
         "open_weights": true,
         "output_modalities": [
@@ -8031,7 +8031,7 @@
           "text",
           "video"
         ],
-        "key": "mimo-v2-6-flash",
+        "key": "mimo-v2.6-flash",
         "name": "Xiaomi: MiMo-V2.6-Flash",
         "open_weights": true,
         "output_modalities": [
@@ -8052,7 +8052,7 @@
           "text",
           "video"
         ],
-        "key": "mimo-v2-6-pro",
+        "key": "mimo-v2.6-pro",
         "name": "Xiaomi: MiMo-V2.6-Pro",
         "open_weights": true,
         "output_modalities": [
@@ -8073,7 +8073,7 @@
           "text",
           "video"
         ],
-        "key": "mimo-v2-6-pro-ultraspeed",
+        "key": "mimo-v2.6-pro-ultraspeed",
         "name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed",
         "open_weights": false,
         "output_modalities": [
@@ -8091,7 +8091,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "xing4-0-29b-a4b",
+        "key": "xing4.0.29b-a4b",
         "name": "XingChen: Xing4.0 29B A4B (free)",
         "open_weights": true,
         "output_modalities": [
@@ -8109,7 +8109,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-4-5",
+        "key": "glm-4.5",
         "name": "Z.ai: GLM 4.5",
         "open_weights": true,
         "output_modalities": [
@@ -8127,7 +8127,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-4-5-air",
+        "key": "glm-4.5-air",
         "name": "Z.ai: GLM 4.5 Air",
         "open_weights": true,
         "output_modalities": [
@@ -8146,7 +8146,7 @@
           "image",
           "text"
         ],
-        "key": "glm-4-5v",
+        "key": "glm-4.5v",
         "name": "Z.ai: GLM 4.5V",
         "open_weights": true,
         "output_modalities": [
@@ -8164,7 +8164,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-4-6",
+        "key": "glm-4.6",
         "name": "Z.ai: GLM 4.6",
         "open_weights": true,
         "output_modalities": [
@@ -8184,7 +8184,7 @@
           "text",
           "video"
         ],
-        "key": "glm-4-6v",
+        "key": "glm-4.6v",
         "name": "Z.ai: GLM 4.6V",
         "open_weights": true,
         "output_modalities": [
@@ -8202,7 +8202,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-4-7",
+        "key": "glm-4.7",
         "name": "Z.ai: GLM 4.7",
         "open_weights": true,
         "output_modalities": [
@@ -8220,7 +8220,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-4-7-flash",
+        "key": "glm-4.7-flash",
         "name": "Z.ai: GLM 4.7 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -8274,7 +8274,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-5-1",
+        "key": "glm-5.1",
         "name": "Z.ai: GLM 5.1",
         "open_weights": true,
         "output_modalities": [
@@ -8292,7 +8292,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-5-2",
+        "key": "glm-5.2",
         "name": "Z.ai: GLM 5.2",
         "open_weights": true,
         "output_modalities": [
@@ -8310,7 +8310,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-5-3",
+        "key": "glm-5.3",
         "name": "Z.ai: GLM 5.3",
         "open_weights": true,
         "output_modalities": [
@@ -8330,7 +8330,7 @@
           "text",
           "video"
         ],
-        "key": "glm-5-3-flash",
+        "key": "glm-5.3-flash",
         "name": "Z.ai: GLM 5.3 Flash",
         "open_weights": true,
         "output_modalities": [
@@ -8350,7 +8350,7 @@
           "text",
           "video"
         ],
-        "key": "glm-5-3-flash",
+        "key": "glm-5.3-flash",
         "name": "Z.ai: GLM 5.3 Flash (batch)",
         "open_weights": true,
         "output_modalities": [
@@ -8370,7 +8370,7 @@
           "text",
           "video"
         ],
-        "key": "glm-5-3-flashx",
+        "key": "glm-5.3-flashx",
         "name": "Z.ai: GLM 5.3 FlashX",
         "open_weights": false,
         "output_modalities": [
@@ -8390,7 +8390,7 @@
           "text",
           "video"
         ],
-        "key": "glm-5-3-flashx-legal",
+        "key": "glm-5.3-flashx-legal",
         "name": "Z.ai: GLM 5.3 FlashX Legal",
         "open_weights": false,
         "output_modalities": [
@@ -8408,7 +8408,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-5-3-prime",
+        "key": "glm-5.3-prime",
         "name": "Z.ai: GLM 5.3 Prime",
         "open_weights": false,
         "output_modalities": [
@@ -8426,7 +8426,7 @@
         "input_modalities": [
           "text"
         ],
-        "key": "glm-5-3",
+        "key": "glm-5.3",
         "name": "Z.ai: GLM 5.3 (batch)",
         "open_weights": true,
         "output_modalities": [
@@ -8651,7 +8651,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1824,
+        "price_input_usd_per_m": 0.1605,
         "price_output_usd_per_m": 9.3388,
         "slug": "~moonshotai/kimi-latest"
       },

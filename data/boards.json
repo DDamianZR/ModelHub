@@ -21,6 +21,13 @@
               "measured_at": "2026-09-22"
             },
             {
+              "model_id": "anthropic-claude-fable-5-1",
+              "variant": "claude-fable-5-1_high",
+              "value": 73.3,
+              "stderr": 9.17,
+              "measured_at": "2026-09-10"
+            },
+            {
               "model_id": "anthropic-claude-fable-5",
               "variant": "claude-fable-5_high",
               "value": 63.89,
@@ -154,6 +161,13 @@
               "measured_at": "2026-11-04"
             },
             {
+              "model_id": "anthropic-claude-fable-5-1",
+              "variant": "claude-fable-5-1_max",
+              "value": 2.0,
+              "stderr": 1.139,
+              "measured_at": "2026-09-25"
+            },
+            {
               "model_id": "anthropic-claude-sonnet-5-5",
               "variant": "claude-sonnet-5-5_max",
               "value": 1.33,
@@ -214,6 +228,13 @@
               "value": 72.2,
               "stderr": 1.417,
               "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "anthropic-claude-fable-5-1",
+              "variant": "claude-fable-5-1_max",
+              "value": 70.8,
+              "stderr": 1.439,
+              "measured_at": "2026-09-01"
             },
             {
               "model_id": "anthropic-claude-fable-5",
@@ -277,6 +298,13 @@
               "value": 60.7,
               "stderr": 1.545,
               "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "meta-ai-muse-spark-1.2",
+              "variant": "muse-spark-1.2_xhigh",
+              "value": 60.3,
+              "stderr": 1.552,
+              "measured_at": "2026-08-27"
             },
             {
               "model_id": "anthropic-claude-opus-5",
@@ -566,6 +594,13 @@
               "measured_at": "2026-10-09"
             },
             {
+              "model_id": "anthropic-claude-sonnet-4-5",
+              "variant": "claude-sonnet-4-5-20250929",
+              "value": 23.7,
+              "stderr": 1.345,
+              "measured_at": "2026-08-10"
+            },
+            {
               "model_id": "alibaba-qwen3.5-flash",
               "variant": "qwen3.5-flash",
               "value": 20.32,
@@ -585,6 +620,13 @@
               "value": 19.1,
               "stderr": 1.244,
               "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-haiku-4-5",
+              "variant": "claude-haiku-4-5-20251001",
+              "value": 13.2,
+              "stderr": 1.071,
+              "measured_at": "2026-08-10"
             },
             {
               "model_id": "openai-gpt-5.4-nano",

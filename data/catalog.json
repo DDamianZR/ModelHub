@@ -2,8 +2,8 @@
   "meta": {
     "generated_at": "2026-11-05",
     "source": "https://openrouter.ai/models",
-    "scored_matched": 72,
-    "unranked": 289
+    "scored_matched": 77,
+    "unranked": 284
   },
   "unranked": [
     {
@@ -178,70 +178,6 @@
       "price_output_usd_per_m": 5.0,
       "open_weights": true,
       "hugging_face_id": "anthracite-org/magnum-v4-72b",
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "anthropic/claude-fable-5.1",
-      "name": "Anthropic: Claude Fable 5.1",
-      "status": "unranked",
-      "context_length": 1000000,
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ],
-      "price_input_usd_per_m": 10.0,
-      "price_output_usd_per_m": 50.0,
-      "open_weights": false,
-      "hugging_face_id": null,
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "anthropic/claude-haiku-4.5",
-      "name": "Anthropic: Claude Haiku 4.5",
-      "status": "unranked",
-      "context_length": 200000,
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ],
-      "price_input_usd_per_m": 1.0,
-      "price_output_usd_per_m": 5.0,
-      "open_weights": false,
-      "hugging_face_id": null,
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "anthropic/claude-opus-4.1",
-      "name": "Anthropic: Claude Opus 4.1",
-      "status": "unranked",
-      "context_length": 200000,
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ],
-      "price_input_usd_per_m": 15.0,
-      "price_output_usd_per_m": 75.0,
-      "open_weights": false,
-      "hugging_face_id": null,
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "anthropic/claude-sonnet-4.5",
-      "name": "Anthropic: Claude Sonnet 4.5",
-      "status": "unranked",
-      "context_length": 1000000,
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ],
-      "price_input_usd_per_m": 3.0,
-      "price_output_usd_per_m": 15.0,
-      "open_weights": false,
-      "hugging_face_id": null,
       "measured_at": "2026-11-05"
     },
     {
@@ -811,8 +747,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.047,
-      "price_output_usd_per_m": 0.14,
+      "price_input_usd_per_m": 0.053,
+      "price_output_usd_per_m": 0.159,
       "open_weights": true,
       "hugging_face_id": "google/gemma-4-26B-A4B-it",
       "measured_at": "2026-11-05"
@@ -1187,23 +1123,6 @@
       "price_output_usd_per_m": 1.2,
       "open_weights": true,
       "hugging_face_id": "meta-models/Muse-Glimmer-30B",
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "meta/muse-spark-1.2",
-      "name": "Meta: Muse Spark 1.2",
-      "status": "unranked",
-      "context_length": 1048576,
-      "input_modalities": [
-        "file",
-        "image",
-        "text",
-        "video"
-      ],
-      "price_input_usd_per_m": 1.25,
-      "price_output_usd_per_m": 4.25,
-      "open_weights": false,
-      "hugging_face_id": null,
       "measured_at": "2026-11-05"
     },
     {
@@ -4226,7 +4145,7 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.1824,
+      "price_input_usd_per_m": 0.1605,
       "price_output_usd_per_m": 9.3388,
       "open_weights": false,
       "hugging_face_id": null,
