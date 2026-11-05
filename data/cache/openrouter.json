@@ -1248,7 +1248,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.059,
+        "price_input_usd_per_m": 0.0474,
         "price_output_usd_per_m": 0.3,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
@@ -1303,8 +1303,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.107,
-        "price_output_usd_per_m": 4.278,
+        "price_input_usd_per_m": 0.103,
+        "price_output_usd_per_m": 4.11,
         "slug": "deepseek/deepseek-v4-pro-0813"
       },
       "deepseek/deepseek-v4.1-flash": {
@@ -1341,8 +1341,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash:batch": {
@@ -2180,8 +2180,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.03,
-        "price_output_usd_per_m": 0.09,
+        "price_input_usd_per_m": 0.042,
+        "price_output_usd_per_m": 0.125,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2660,8 +2660,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2,
-        "price_output_usd_per_m": 0.52,
+        "price_input_usd_per_m": 0.59,
+        "price_output_usd_per_m": 0.79,
         "slug": "meta-llama/llama-3.3-70b-instruct"
       },
       "meta-llama/llama-4-maverick": {
@@ -2907,25 +2907,6 @@
         "price_output_usd_per_m": 0.14,
         "slug": "microsoft/phi-4"
       },
-      "minimax/minimax-01": {
-        "context_length": 1000192,
-        "created": 1736915462,
-        "free_tier": false,
-        "hugging_face_id": "MiniMaxAI/MiniMax-Text-01",
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "minimax-01",
-        "name": "MiniMax: MiniMax-01",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.2,
-        "price_output_usd_per_m": 1.1,
-        "slug": "minimax/minimax-01"
-      },
       "minimax/minimax-m1": {
         "context_length": 1000000,
         "created": 1750200414,
@@ -2943,60 +2924,6 @@
         "price_input_usd_per_m": 0.55,
         "price_output_usd_per_m": 2.2,
         "slug": "minimax/minimax-m1"
-      },
-      "minimax/minimax-m2": {
-        "context_length": 204800,
-        "created": 1761252093,
-        "free_tier": false,
-        "hugging_face_id": "MiniMaxAI/MiniMax-M2",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "minimax-m2",
-        "name": "MiniMax: MiniMax M2",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.255,
-        "price_output_usd_per_m": 1.02,
-        "slug": "minimax/minimax-m2"
-      },
-      "minimax/minimax-m2-her": {
-        "context_length": 65536,
-        "created": 1769177239,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "text"
-        ],
-        "key": "minimax-m2-her",
-        "name": "MiniMax: MiniMax M2-her",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
-        "slug": "minimax/minimax-m2-her"
-      },
-      "minimax/minimax-m2.1": {
-        "context_length": 204800,
-        "created": 1766454997,
-        "free_tier": false,
-        "hugging_face_id": "MiniMaxAI/MiniMax-M2.1",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "minimax-m2-1",
-        "name": "MiniMax: MiniMax M2.1",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
-        "slug": "minimax/minimax-m2.1"
       },
       "minimax/minimax-m2.5": {
         "context_length": 204800,
@@ -3030,8 +2957,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.21,
+        "price_output_usd_per_m": 0.84,
         "slug": "minimax/minimax-m2.7"
       },
       "minimax/minimax-m3": {
@@ -3070,8 +2997,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.3,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "mistralai/codestral-2508": {
@@ -5769,8 +5696,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.01,
-        "price_output_usd_per_m": 0.037,
+        "price_input_usd_per_m": 0.028,
+        "price_output_usd_per_m": 0.105,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -5946,7 +5873,7 @@
       },
       "openrouter/auto": {
         "context_length": 2000000,
-        "created": 1699401600,
+        "created": 1793885889,
         "free_tier": false,
         "hugging_face_id": null,
         "input_modalities": [
@@ -5989,6 +5916,29 @@
         "price_input_usd_per_m": null,
         "price_output_usd_per_m": null,
         "slug": "openrouter/auto-beta"
+      },
+      "openrouter/auto-code": {
+        "context_length": 2000000,
+        "created": 1793884321,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "auto-code",
+        "name": "Auto Code",
+        "open_weights": false,
+        "output_modalities": [
+          "image",
+          "text"
+        ],
+        "price_input_usd_per_m": null,
+        "price_output_usd_per_m": null,
+        "slug": "openrouter/auto-code"
       },
       "openrouter/bodybuilder": {
         "context_length": 128000,
@@ -6540,7 +6490,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1,
+        "price_input_usd_per_m": 0.09,
         "price_output_usd_per_m": 1.1,
         "slug": "qwen/qwen3-next-80b-a3b-instruct"
       },
@@ -7504,8 +7454,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.132,
-        "price_output_usd_per_m": 0.528,
+        "price_input_usd_per_m": 0.0825,
+        "price_output_usd_per_m": 0.33,
         "slug": "tencent/hy3"
       },
       "tencent/hy3-preview": {
@@ -7559,8 +7509,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.834,
-        "price_output_usd_per_m": 2.501,
+        "price_input_usd_per_m": 0.7506,
+        "price_output_usd_per_m": 2.2509,
         "slug": "tencent/hy4-preview"
       },
       "thedrummer/cydonia-24b-v4.1": {
@@ -8577,7 +8527,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0963,
+        "price_input_usd_per_m": 0.0927,
         "price_output_usd_per_m": 8.0,
         "slug": "~deepseek/deepseek-pro-latest"
       },
@@ -8595,7 +8545,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.059,
+        "price_input_usd_per_m": 0.0474,
         "price_output_usd_per_m": 0.3,
         "slug": "~deepseek/deepseek-v4-flash-latest"
       },
@@ -8659,8 +8609,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 9.3388,
+        "price_input_usd_per_m": 0.151,
+        "price_output_usd_per_m": 10.5387,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

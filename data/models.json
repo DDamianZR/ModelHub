@@ -1340,8 +1340,8 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 0.107,
-        "output_usd_per_m": 4.278,
+        "input_usd_per_m": 0.103,
+        "output_usd_per_m": 4.11,
         "source_url": "https://openrouter.ai/models",
         "measured_at": "2026-11-05"
       },
@@ -1390,8 +1390,8 @@
       "vision": null,
       "rank": 16,
       "tied_with": 0,
-      "blended_price_usd_per_m": 1.1497,
-      "price_per_composite_point": 0.01468,
+      "blended_price_usd_per_m": 1.1048,
+      "price_per_composite_point": 0.0141,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -2053,7 +2053,7 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 0.059,
+        "input_usd_per_m": 0.0474,
         "output_usd_per_m": 0.3,
         "source_url": "https://openrouter.ai/models",
         "measured_at": "2026-11-05"
@@ -2103,8 +2103,8 @@
       "vision": null,
       "rank": 27,
       "tied_with": 3,
-      "blended_price_usd_per_m": 0.1192,
-      "price_per_composite_point": 0.0016,
+      "blended_price_usd_per_m": 0.1105,
+      "price_per_composite_point": 0.00148,
       "pareto_frontier": true,
       "cohort_recalibration": null
     },
@@ -3781,7 +3781,7 @@
       "tied_with": 3,
       "blended_price_usd_per_m": 0.1138,
       "price_per_composite_point": 0.00171,
-      "pareto_frontier": true,
+      "pareto_frontier": false,
       "cohort_recalibration": null
     },
     {

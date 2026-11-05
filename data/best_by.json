@@ -7,7 +7,7 @@
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 7,
+    "pareto_members": 6,
     "pareto_evaluated": 59
   },
   "boards": [
@@ -129,9 +129,9 @@
         "min_coverage": 4
       },
       "candidates": 59,
-      "value": 0.1138,
+      "value": 0.1105,
       "winners": [
-        "deepseek-deepseek-v4-flash"
+        "deepseek-deepseek-v4-flash-0731"
       ],
       "indistinguishable": false
     }

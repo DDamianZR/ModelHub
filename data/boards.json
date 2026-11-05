@@ -121,16 +121,16 @@
             {
               "model_id": "openai-gpt-6-astra",
               "variant": "gpt-6-astra_max",
-              "value": 25.67,
-              "stderr": 3.679,
-              "measured_at": "2026-09-23"
+              "value": 34.0,
+              "stderr": 4.131,
+              "measured_at": "2026-11-04"
             },
             {
               "model_id": "openai-gpt-6.1-sol",
               "variant": "gpt-6.1-sol_max",
-              "value": 24.67,
-              "stderr": 3.713,
-              "measured_at": "2026-09-30"
+              "value": 23.83,
+              "stderr": 3.653,
+              "measured_at": "2026-11-04"
             },
             {
               "model_id": "openai-gpt-6-sol",
@@ -142,9 +142,9 @@
             {
               "model_id": "anthropic-claude-opus-5-5",
               "variant": "claude-opus-5-5_max",
-              "value": 3.33,
-              "stderr": 1.45,
-              "measured_at": "2026-09-24"
+              "value": 5.83,
+              "stderr": 2.029,
+              "measured_at": "2026-11-04"
             },
             {
               "model_id": "anthropic-claude-fable-5-1",

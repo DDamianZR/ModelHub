@@ -108,9 +108,9 @@
               "variant": "claude-fable-5-1_max"
             },
             "claude-opus-5-5": {
-              "measured_at": "2026-09-24",
-              "stderr": 1.45,
-              "value": 3.33,
+              "measured_at": "2026-11-04",
+              "stderr": 2.029,
+              "value": 5.83,
               "variant": "claude-opus-5-5_max"
             },
             "claude-sonnet-5-5": {
@@ -120,9 +120,9 @@
               "variant": "claude-sonnet-5-5_max"
             },
             "gpt-6-astra": {
-              "measured_at": "2026-09-23",
-              "stderr": 3.679,
-              "value": 25.67,
+              "measured_at": "2026-11-04",
+              "stderr": 4.131,
+              "value": 34.0,
               "variant": "gpt-6-astra_max"
             },
             "gpt-6-luna": {
@@ -138,15 +138,15 @@
               "variant": "gpt-6-sol_max"
             },
             "gpt-6.1-sol": {
-              "measured_at": "2026-09-30",
-              "stderr": 3.713,
-              "value": 24.67,
+              "measured_at": "2026-11-04",
+              "stderr": 3.653,
+              "value": 23.83,
               "variant": "gpt-6.1-sol_max"
             },
             "gpt-6.1-terra": {
-              "measured_at": "2026-11-03",
-              "stderr": 3.109,
-              "value": 19.83,
+              "measured_at": "2026-11-04",
+              "stderr": 3.386,
+              "value": 22.33,
               "variant": "gpt-6.1-terra_max"
             }
           }

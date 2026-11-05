@@ -3,7 +3,7 @@
     "generated_at": "2026-11-05",
     "source": "https://openrouter.ai/models",
     "scored_matched": 68,
-    "unranked": 294
+    "unranked": 291
   },
   "unranked": [
     {
@@ -546,8 +546,8 @@
         "image",
         "text"
       ],
-      "price_input_usd_per_m": 0.3,
-      "price_output_usd_per_m": 1.2,
+      "price_input_usd_per_m": 0.15,
+      "price_output_usd_per_m": 0.6,
       "open_weights": true,
       "hugging_face_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "measured_at": "2026-11-05"
@@ -796,8 +796,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.03,
-      "price_output_usd_per_m": 0.09,
+      "price_input_usd_per_m": 0.042,
+      "price_output_usd_per_m": 0.125,
       "open_weights": true,
       "hugging_face_id": "google/gemma-4-26B-A4B-it",
       "measured_at": "2026-11-05"
@@ -1108,8 +1108,8 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.2,
-      "price_output_usd_per_m": 0.52,
+      "price_input_usd_per_m": 0.59,
+      "price_output_usd_per_m": 0.79,
       "open_weights": true,
       "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
       "measured_at": "2026-11-05"
@@ -1276,21 +1276,6 @@
       "measured_at": "2026-11-05"
     },
     {
-      "slug": "minimax/minimax-01",
-      "name": "MiniMax: MiniMax-01",
-      "status": "unranked",
-      "context_length": 1000192,
-      "input_modalities": [
-        "image",
-        "text"
-      ],
-      "price_input_usd_per_m": 0.2,
-      "price_output_usd_per_m": 1.1,
-      "open_weights": true,
-      "hugging_face_id": "MiniMaxAI/MiniMax-Text-01",
-      "measured_at": "2026-11-05"
-    },
-    {
       "slug": "minimax/minimax-m1",
       "name": "MiniMax: MiniMax M1",
       "status": "unranked",
@@ -1302,48 +1287,6 @@
       "price_output_usd_per_m": 2.2,
       "open_weights": false,
       "hugging_face_id": null,
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "minimax/minimax-m2",
-      "name": "MiniMax: MiniMax M2",
-      "status": "unranked",
-      "context_length": 204800,
-      "input_modalities": [
-        "text"
-      ],
-      "price_input_usd_per_m": 0.255,
-      "price_output_usd_per_m": 1.02,
-      "open_weights": true,
-      "hugging_face_id": "MiniMaxAI/MiniMax-M2",
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "minimax/minimax-m2-her",
-      "name": "MiniMax: MiniMax M2-her",
-      "status": "unranked",
-      "context_length": 65536,
-      "input_modalities": [
-        "text"
-      ],
-      "price_input_usd_per_m": 0.3,
-      "price_output_usd_per_m": 1.2,
-      "open_weights": false,
-      "hugging_face_id": null,
-      "measured_at": "2026-11-05"
-    },
-    {
-      "slug": "minimax/minimax-m2.1",
-      "name": "MiniMax: MiniMax M2.1",
-      "status": "unranked",
-      "context_length": 204800,
-      "input_modalities": [
-        "text"
-      ],
-      "price_input_usd_per_m": 0.3,
-      "price_output_usd_per_m": 1.2,
-      "open_weights": true,
-      "hugging_face_id": "MiniMaxAI/MiniMax-M2.1",
       "measured_at": "2026-11-05"
     },
     {
@@ -1368,8 +1311,8 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.3,
-      "price_output_usd_per_m": 1.2,
+      "price_input_usd_per_m": 0.21,
+      "price_output_usd_per_m": 0.84,
       "open_weights": true,
       "hugging_face_id": "MiniMaxAI/MiniMax-M2.7",
       "measured_at": "2026-11-05"
@@ -1384,8 +1327,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.15,
-      "price_output_usd_per_m": 0.6,
+      "price_input_usd_per_m": 0.075,
+      "price_output_usd_per_m": 0.3,
       "open_weights": true,
       "hugging_face_id": "MiniMaxAI/MiniMax-M3.1-Flash",
       "measured_at": "2026-11-05"
@@ -2512,8 +2455,8 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.01,
-      "price_output_usd_per_m": 0.037,
+      "price_input_usd_per_m": 0.028,
+      "price_output_usd_per_m": 0.105,
       "open_weights": true,
       "hugging_face_id": "openai/gpt-oss-120b",
       "measured_at": "2026-11-05"
@@ -2616,6 +2559,24 @@
     {
       "slug": "openrouter/auto-beta",
       "name": "Auto Router (Beta)",
+      "status": "unranked",
+      "context_length": 2000000,
+      "input_modalities": [
+        "audio",
+        "file",
+        "image",
+        "text",
+        "video"
+      ],
+      "price_input_usd_per_m": null,
+      "price_output_usd_per_m": null,
+      "open_weights": false,
+      "hugging_face_id": null,
+      "measured_at": "2026-11-05"
+    },
+    {
+      "slug": "openrouter/auto-code",
+      "name": "Auto Code",
       "status": "unranked",
       "context_length": 2000000,
       "input_modalities": [
@@ -3059,7 +3020,7 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.1,
+      "price_input_usd_per_m": 0.09,
       "price_output_usd_per_m": 1.1,
       "open_weights": true,
       "hugging_face_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
@@ -3684,8 +3645,8 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.132,
-      "price_output_usd_per_m": 0.528,
+      "price_input_usd_per_m": 0.0825,
+      "price_output_usd_per_m": 0.33,
       "open_weights": true,
       "hugging_face_id": "tencent/Hy3",
       "measured_at": "2026-11-05"
@@ -4245,7 +4206,7 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.0963,
+      "price_input_usd_per_m": 0.0927,
       "price_output_usd_per_m": 8.0,
       "open_weights": false,
       "hugging_face_id": null,
@@ -4297,8 +4258,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.1824,
-      "price_output_usd_per_m": 9.3388,
+      "price_input_usd_per_m": 0.151,
+      "price_output_usd_per_m": 10.5387,
       "open_weights": false,
       "hugging_face_id": null,
       "measured_at": "2026-11-05"
