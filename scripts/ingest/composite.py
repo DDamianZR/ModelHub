@@ -339,17 +339,32 @@ def build_models(
     arena_vision: dict,
     arena_snapshot: str | None,
     vision_snapshot: str | None,
+    epoch_boards: dict[str, dict[str, dict]] | None = None,
 ) -> tuple[list[dict], list[dict], dict, dict, tuple[float, float]]:
-    """Return (models, score rows, providers, aliases, arena min-max used)."""
+    """Return (models, score rows, providers, aliases, arena min-max used).
+
+    `epoch_boards` are third-party measurements kept outside the composite (knowledge,
+    agentic). They count as a source when deciding whether a model is corroborated enough
+    to appear, and for nothing else: never a category score, never coverage.
+    """
     weights, min_coverage, variant_policy = load_weights()
     contamination = load_contamination_registry()
 
     # A model needs corroboration from at least two independent sources to appear at all.
+    # A third-party measurement on a board outside the composite is evidence that the
+    # model exists and was measured, so it corroborates admission - but it is not read
+    # again below, so it cannot move a score or the coverage count.
+    board_keys = {
+        key
+        for boards in (epoch_boards or {}).values()
+        for info in boards.values()
+        for key in info.get("rows", {})
+    }
     keys = sorted(
         key
         for key in registry
         if sum([
-            bool(epoch_scores.get(key)),
+            bool(epoch_scores.get(key)) or key in board_keys,
             bool(livebench_scores.get(key)),
             key in arena_text,
         ]) >= 2
@@ -415,7 +430,7 @@ def build_models(
         meta = registry[key]
         organization = meta["organization"]
         provider_id = slugify(organization)
-        model_id = f"{provider_id}-{key}"
+        model_id = f"{provider_id}-{meta.get('id_key') or key}"
         providers.setdefault(organization, {
             "id": provider_id,
             "display_name": organization,
@@ -446,7 +461,9 @@ def build_models(
                     # another one would rebuild the Frankenstein this policy exists to
                     # avoid, so the cell is left missing and coverage reflects that.
                     continue
-                chosen_entry = matching[0]
+                # A fallback category carries the same benchmark from two releases; the
+                # newest row that matches the chosen variant is the one that counts.
+                chosen_entry = max(matching, key=lambda e: e.get("measured_at") or "")
                 value = chosen_entry["value"]
                 note = (
                     f"variant {chosen_label} ({chosen_entry.get('variant')})"
@@ -477,7 +494,7 @@ def build_models(
                 "half_width_95": half_width,
                 "source_type": slot["source_type"],
                 "source_url": slot["source_url"],
-                "measured_at": slot["measured_at"],
+                "measured_at": chosen_entry.get("measured_at") or slot["measured_at"],
                 "contamination_flag": bool(evidence),
                 "contamination_evidence": evidence,
                 "notes": note or None,

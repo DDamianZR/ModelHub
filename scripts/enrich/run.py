@@ -11,6 +11,7 @@ Usage:
     python -m scripts.enrich.run --force         # regenerate, still skipping manual edits
     python -m scripts.enrich.run --restale       # regenerate only entries checks.contradicts_data flags
     python -m scripts.enrich.run --links-only    # acquisition links, no model calls
+    python -m scripts.enrich.run --unlock <id>   # drop the manual flag so --only <id> regenerates it
 """
 from __future__ import annotations
 
@@ -82,6 +83,26 @@ def prune_orphans(model_ids: set[str]) -> int:
     return 0
 
 
+def unlock(model_id: str) -> int:
+    """Hand one hand-written entry back to the generator.
+
+    A manual entry is never overwritten, so when its text contradicts today's data the
+    audit fails until a human acts. This is that action, made explicit: the text stays
+    in place until a regeneration replaces it.
+    """
+    descriptions = load_json(DESCRIPTIONS, {})
+    entry = descriptions.get(model_id)
+    if not entry:
+        print(f"No description for {model_id!r}")
+        return 1
+    if not entry.pop("manual", False):
+        print(f"{model_id} is not marked manual; nothing to unlock")
+        return 0
+    write_json(DESCRIPTIONS, descriptions)
+    print(f"unlocked {model_id}; regenerate it with --only {model_id} --force")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="ModelHub Layer B enrichment")
     parser.add_argument("--fast", action="store_true", help="use qwen3-8b")
@@ -97,7 +118,11 @@ def main() -> int:
     parser.add_argument("--prune-orphans", action="store_true",
                         help="drop descriptions whose model is no longer in models.json, "
                              "keeping hand-written entries; does not call the model")
+    parser.add_argument("--unlock", type=str, default="",
+                        help="drop the manual flag of one entry so it can be regenerated")
     args = parser.parse_args()
+    if args.unlock:
+        return unlock(args.unlock)
 
     models = load_json(DATA / "models.json", {}).get("models", [])
     if args.prune_orphans:

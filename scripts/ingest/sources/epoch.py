@@ -14,6 +14,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import re
 import zipfile
 
 from ..common import CONFIG, SourceError, fetch, norm
@@ -40,7 +41,6 @@ def min_release_date() -> str:
 
 BENCHMARKS = {
     "gpqa_diamond.csv": ("gpqa_diamond", "reasoning"),
-    "simpleqa_verified.csv": ("simpleqa_verified", "reasoning"),
     "math_level_5.csv": ("math_level_5", "math"),
     "frontiermath.csv": ("frontiermath", "math"),
     "swe_bench_verified.csv": ("swe_bench_verified", "coding"),
@@ -49,9 +49,10 @@ BENCHMARKS = {
 
 # First-party Epoch tables kept OUT of the composite and published as separate boards.
 # Board assignment follows the environment the benchmark is run in, taken from Epoch's own
-# benchmark names. Knowledge is empty on purpose: the only first-party knowledge table,
-# SimpleQA Verified, already feeds Reasoning, and counting it twice would reweight it.
+# benchmark names. SimpleQA Verified measures factual recall, not reasoning, so it is a
+# Knowledge board and never enters category_scores.
 BOARD_TABLES = {
+    "simpleqa_verified.csv": ("simpleqa_verified", "SimpleQA Verified", "knowledge"),
     "mirrorcode.csv": ("mirrorcode", "MirrorCode", "agentic"),
     "spireclimb.csv": ("spireclimb", "SpireClimb", "agentic"),
 }
@@ -105,13 +106,28 @@ def _read_index(archive: zipfile.ZipFile,
     ]
 
 
+_PARENTHETICAL = re.compile(r"\s*\(([^()]*)\)")
+
+
+def drop_unknown_qualifier(name: str) -> str:
+    """Remove the word "unknown" from a name's parenthetical, and the parenthesis if it empties.
+
+    Epoch writes "Model (unknown)" when it does not know a variant. An unknown variant is
+    the absence of a qualifier, not a qualifier, so it is omitted rather than displayed.
+    """
+    def clean(match: re.Match) -> str:
+        words = [w for w in match.group(1).split() if w.lower() != "unknown"]
+        return f" ({' '.join(words)})" if words else ""
+    return _PARENTHETICAL.sub(clean, name).strip()
+
+
 def _display_name(row: dict) -> str:
     """The most readable name a registry row offers, falling back to the raw version id.
 
     A blank or whitespace-only cell counts as missing, so it cannot shadow a real name.
     """
     for column in ("Display name", "Model name", "Model version"):
-        name = (row.get(column) or "").strip()
+        name = drop_unknown_qualifier((row.get(column) or "").strip())
         if name:
             return name
     return ""
@@ -140,6 +156,9 @@ def collect() -> dict:
             continue
         registry[key] = {
             "eci": eci,
+            # The spelling as published, before versions fold. Model ids are built from it
+            # so a URL or a history series does not move when the matching key does.
+            "id_key": norm(row["Model version"], fold_versions=False),
             "display_name": _display_name(row),
             "organization": (row.get("Organization") or "Unknown").strip(),
             "country": (row.get("Country") or "").strip(),

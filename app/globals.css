@@ -9,36 +9,36 @@
    Planes are separated by a 1px hairline, never by a shadow. There is no elevation
    token on purpose.                                                              */
 :root {
-  /* Surfaces: plane 0 (canvas) → plane 3 (overlay). The row lives on the card
-     (--surface-default), not the canvas. */
-  --surface-canvas:  #08090a;
-  --surface-default: #0f1011;   /* the card */
-  --surface-sunk:    #16171a;   /* inputs, chips, the segmented-control track */
-  --surface-raised:  #25272a;   /* hover plane, sits on the card */
-  --surface-overlay: #131416;   /* command palette */
+  /* Surfaces: plane 0 (canvas) -> plane 3 (overlay). Editorial light is the default; the
+     row lives on the card (--surface-default), not the canvas. */
+  --surface-canvas:  #fbfbfa;
+  --surface-default: #ffffff;   /* the card */
+  --surface-sunk:    #f2f2f0;   /* inputs, chips, the segmented-control track */
+  --surface-raised:  #e4e4e1;   /* hover plane, sits on the card */
+  --surface-overlay: #ffffff;   /* command palette */
 
   /* Text */
-  --text-primary:   #d0d6e0;
-  --text-tertiary:  #8a8f98;
-  --text-on-accent: #08090a;
+  --text-primary:   #16181d;
+  --text-tertiary:  #5b616e;
+  --text-on-accent: #ffffff;
 
   /* Lines. line-subtle is the hairline: decorative, may sit below 3:1, and is NEVER the
      boundary of an interactive control. line-default and above carry contrast. */
-  --line-subtle:  #23252a;
-  --line-default: #80858e;
-  --line-strong:  #8a8f98;
+  --line-subtle:  #e6e6e3;
+  --line-default: #6c7180;
+  --line-strong:  #444955;
 
   /* The single accent, and the one non-neutral status color. Both carry the 4.5:1
-     text floor: --accent paints an 11px eyebrow, --attention paints banner labels. */
-  --accent:       #8b93ff;
-  --attention:    #e2a03f;
-  --focus-ring:   #8b93ff;
+     text floor. */
+  --accent:       #4a55d4;
+  --attention:    #96470a;
+  --focus-ring:   #4a55d4;
 
   /* Chart / data marks. The same validated accent: identity in charts comes from
      position, label and dash pattern, never from a second hue. */
-  --mark: #8b93ff;
+  --mark: #4a55d4;
 
-  /* Radius: concentric progression, step 4 — overlay - inset = surface,
+  /* Radius: concentric progression, step 4 - overlay - inset = surface,
      surface - inset = control, control - inset = inner. Checked in CI by
      scripts/check-geometry.mjs. */
   --radius-overlay: 16px;   /* sheets, popovers */
@@ -47,8 +47,8 @@
   --radius-inner:    4px;   /* segmented-control thumb, badges inside a control */
   --inset-nested:    4px;   /* the step that relates one level to the next */
 
-  /* Table rhythm: one line per row, 36-40px. */
-  --row-height: 38px;
+  /* Table rhythm: 44px rows, name over provider fits without growing. */
+  --row-height: 44px;
 
   /* Motion. --dur-fast covers data (filter/sort) and simple state colour changes;
      --dur-base is for controls whose geometry moves (the segmented-control thumb). */
@@ -60,31 +60,32 @@
   --z-sticky:  10;
   --z-palette: 50;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-:root[data-theme="light"] {
-  --surface-canvas:  #fafafa;
-  --surface-default: #ffffff;
-  --surface-sunk:    #f2f2f4;
-  --surface-raised:  #e2e2e8;
-  --surface-overlay: #ffffff;
+/* Dark is opt-in through the toggle. Same names, re-bound. */
+:root[data-theme="dark"] {
+  --surface-canvas:  #08090a;
+  --surface-default: #0f1011;
+  --surface-sunk:    #16171a;
+  --surface-raised:  #25272a;
+  --surface-overlay: #131416;
 
-  --text-primary:   #16181d;
-  --text-tertiary:  #5b606a;
-  --text-on-accent: #ffffff;
+  --text-primary:   #d0d6e0;
+  --text-tertiary:  #8a8f98;
+  --text-on-accent: #08090a;
 
-  --line-subtle:  #e3e4e8;
-  --line-default: #6c7180;
-  --line-strong:  #444955;
+  --line-subtle:  #23252a;
+  --line-default: #80858e;
+  --line-strong:  #8a8f98;
 
-  --accent:       #4a55d4;
-  --attention:    #96470a;
-  --focus-ring:   #4a55d4;
+  --accent:       #8b93ff;
+  --attention:    #e2a03f;
+  --focus-ring:   #8b93ff;
 
-  --mark: #4a55d4;
+  --mark: #8b93ff;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 /* ── Tailwind mapping ────────────────────────────────────────────────────────
@@ -118,6 +119,7 @@
 /* Type scale. Nine sizes, down from sixteen ad-hoc arbitrary values. */
 @theme {
   --font-body:    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono:    var(--font-geist-mono), ui-monospace, monospace;
 
   --text-2xs:  11px;
@@ -146,22 +148,32 @@ body {
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.5;
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
   -webkit-font-smoothing: antialiased;
 }
 
-/* Numbers are the whole point of a ranking. */
+/* Headlines are serif; everything else is the sans. */
+h1, h2:not(.eyebrow) {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: var(--tracking-snug);
+}
+
+/* Tabular figures everywhere; Geist Mono only inside table cells and code. */
 .num {
-  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
+table .num,
+td.num,
+th.num,
+code,
+kbd,
+pre {
+  font-family: var(--font-mono);
+}
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 12px;
 }
 /* In Tailwind's own "components" layer, so a text-* utility on the same element (used
    throughout to recolour an eyebrow label - e.g. className="eyebrow text-accent") wins
@@ -172,8 +184,8 @@ body {
    and degraded banners, both eyebrow+text-accent, both silently rendering as tertiary. */
 @layer components {
   .eyebrow {
-    /* In the layer so a font-* utility (table column headers use the sans) can override. */
-    font-family: var(--font-mono);
+    /* Labels are plain sans: no small caps, no wide tracking. */
+    font-family: var(--font-body);
     color: var(--text-tertiary);
   }
 }

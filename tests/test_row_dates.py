@@ -31,6 +31,14 @@ class StampTests(unittest.TestCase):
         self.assertEqual(scores["b"][0]["measured_at"], "2026-09-11")
         self.assertEqual(scores["a"][0]["measured_at"], SNAPSHOT)
 
+    def test_a_score_carried_from_an_older_release_keeps_that_release_date(self):
+        scores = {"a": [
+            {"benchmark_id": "livebench_math", "value": 50.0, "measured_at": "2026-06-25"},
+            {"benchmark_id": "livebench_coding", "value": 60.0, "measured_at": "2026-10-25"},
+        ]}
+        row_dates.stamp(scores, "2026-10-25", None, "2026-11-05")
+        self.assertEqual([e["measured_at"] for e in scores["a"]], ["2026-06-25", "2026-10-25"])
+
     def test_a_known_row_keeps_its_date_on_later_runs(self):
         state = row_dates.stamp(_scores("a"), SNAPSHOT, None, "2026-07-27")
         state = row_dates.stamp(_scores("a", "b"), SNAPSHOT, state, "2026-09-11")

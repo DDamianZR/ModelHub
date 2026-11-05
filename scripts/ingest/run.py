@@ -132,8 +132,9 @@ def snapshot_age(snapshot: str | None, cadence_days: int | None) -> dict:
 BENCHMARK_CATALOGUE = [
     ("gpqa_diamond", "GPQA Diamond", "reasoning", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
-    ("simpleqa_verified", "SimpleQA Verified", "reasoning", "Epoch AI",
-     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
+    ("simpleqa_verified", "SimpleQA Verified", "knowledge", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Factual recall. Shown on the Knowledge board, outside the composite."),
     ("math_level_5", "MATH Level 5", "math", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
     ("frontiermath", "FrontierMath", "math", "Epoch AI", "third_party_benchmark",
@@ -493,6 +494,7 @@ def main() -> int:
         arena_vision=arena_payload.get("vision") or {},
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
+        epoch_boards=epoch_payload.get("boards") or {},
     )
 
     canonical_keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
@@ -698,6 +700,8 @@ def main() -> int:
     apply_failure_rule(statuses, snapshot_ages, degrade_after_failures())
     if livebench_payload.get("skipped_releases"):
         livebench_status["skipped_releases"] = livebench_payload["skipped_releases"]
+    if livebench_payload.get("category_rule"):
+        livebench_status["category_rule"] = livebench_payload["category_rule"]
 
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

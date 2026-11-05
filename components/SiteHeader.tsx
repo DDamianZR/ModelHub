@@ -40,9 +40,9 @@ export async function SiteHeader({
               destination twice to screen readers. */}
           <LogoMark className="h-7 w-7 shrink-0" />
           <Link href="/" className="min-w-0">
-            <h1 className="truncate text-md leading-none font-semibold tracking-snug">
+            <span className="block truncate font-serif text-lg leading-none font-semibold tracking-snug">
               {t("wordmark")}
-            </h1>
+            </span>
           </Link>
           <span className="eyebrow hidden border-l border-subtle pl-2.5 lg:block">
             {t("tagline")}

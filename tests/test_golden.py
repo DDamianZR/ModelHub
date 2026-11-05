@@ -72,6 +72,7 @@ class GoldenCompositeTests(unittest.TestCase):
             arena_vision=arena_payload.get("vision") or {},
             arena_snapshot=arena_payload.get("snapshot"),
             vision_snapshot=arena_payload.get("vision_snapshot"),
+            epoch_boards=epoch_payload.get("boards") or {},
         )
         flag_recalibration(models, score_rows, weights, {}, {})
         # Price, context and modalities come from the router catalogue cache, applied after

@@ -167,7 +167,7 @@ export default async function VsPage({
             {t("breadcrumb")}
           </Link>
         </p>
-        <h2 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">{title}</h2>
+        <h1 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">{title}</h1>
         <p className="mt-3 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{t("intro")}</p>
         <p className="mt-3 max-w-[46rem] text-base leading-[1.6]">{summary}</p>
         {provisional.map((row) => (

@@ -124,9 +124,9 @@ export default async function ModelPage({
       <div className="mt-4 lg:grid lg:grid-cols-[1fr_18rem] lg:items-start lg:gap-12">
         <article>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 className="text-2xl leading-tight font-semibold tracking-tight">
+            <h1 className="text-2xl leading-tight font-semibold tracking-tight">
               {model.display_name}
-            </h2>
+            </h1>
             {model.is_open_weights ? (
               <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
                 {tt("openWeights")}
@@ -174,7 +174,7 @@ export default async function ModelPage({
           {/* Layer B fills this in. Until then the empty state says so plainly rather
               than showing invented prose that would read as real. */}
           <section id="description" className="mt-8 scroll-mt-6">
-            <h3 className="eyebrow mb-2">{t("description")}</h3>
+            <h2 className="eyebrow mb-2">{t("description")}</h2>
             <Surface className="p-4">
               {text ? (
                 <>
@@ -199,7 +199,7 @@ export default async function ModelPage({
           </section>
 
           <section id="categories" className="mt-8 scroll-mt-6">
-            <h3 className="eyebrow mb-3">{t("categories")}</h3>
+            <h2 className="eyebrow mb-3">{t("categories")}</h2>
             <Surface className="p-4">
               <CategoryBars
                 emptyLabel={tt("noData")}
@@ -247,7 +247,7 @@ export default async function ModelPage({
           )}
 
           <section id="history" className="mt-8 scroll-mt-6">
-            <h3 className="eyebrow mb-2">{t("history")}</h3>
+            <h2 className="eyebrow mb-2">{t("history")}</h2>
             <Surface className="p-4">
               {normalised.length >= 2 ? (
                 <>
@@ -278,7 +278,7 @@ export default async function ModelPage({
           </section>
 
           <section id="sources" className="mt-8 scroll-mt-6">
-            <h3 className="eyebrow mb-2">{t("sources")}</h3>
+            <h2 className="eyebrow mb-2">{t("sources")}</h2>
             <Surface
               className="relative overflow-x-auto p-2"
               role="region"
@@ -379,7 +379,7 @@ export default async function ModelPage({
           </section>
 
           <section id="acquisition" className="mt-8 scroll-mt-6">
-            <h3 className="eyebrow mb-2">{t("acquisition")}</h3>
+            <h2 className="eyebrow mb-2">{t("acquisition")}</h2>
             <Surface className="p-4">
               {links.length > 0 ? (
                 <>

@@ -62,6 +62,28 @@ def apply_failure_rule(sources: dict, snapshot_ages: dict, threshold: int) -> li
     return changed
 
 
+def explain_age(name: str, age: dict, status: dict) -> str:
+    """Why a snapshot is old: the source published nothing, or published what we passed over.
+
+    The two read the same on a date alone and mean opposite things. A source that is quiet is
+    waiting on someone else; one that published releases we could not use is on us.
+    """
+    skipped = status.get("skipped_releases") or []
+    if skipped:
+        listed = ", ".join(f"{s['date']} ({s['reason']})" for s in skipped[:4])
+        return f"{name} published newer releases that were passed over: {listed}"
+    return f"{name} has published nothing newer than {age.get('date')}"
+
+
+def describe_category_rule(name: str, status: dict) -> list[str]:
+    """One line per category stating which release it was scored from, and why."""
+    lines = []
+    for category, rule in sorted((status.get("category_rule") or {}).items()):
+        drift = "" if rule.get("drift") is None else f", drift {rule['drift']} over {rule['common_models']} models"
+        lines.append(f"{name}: {category} from {rule['release']} ({rule['reason']}{drift})")
+    return lines
+
+
 def main() -> int:
     if not STATUS.exists():
         print("no status.json written")
@@ -95,10 +117,15 @@ def main() -> int:
             f"old (warn at {age.get('warn_days')}, degraded at {age.get('degraded_days')})"
         )
         print(detail)
+        print("  " + explain_age(name, age, payload.get("sources", {}).get(name, {})))
         if freshness == "degraded":
             print(f"::error::{detail}")
         else:
             print(f"::warning::{detail}")
+
+    for name, status in payload.get("sources", {}).items():
+        for line in describe_category_rule(name, status):
+            print(line)
 
     for rejected in payload.get("rejected_snapshots", []):
         if isinstance(rejected, dict):

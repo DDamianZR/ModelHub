@@ -80,7 +80,7 @@ function SortBtn({
       onClick={() => onSort(sortKey)}
       aria-label={sortByLabel}
       className={clsx(
-        "eyebrow row-shift flex w-full items-center gap-0.5 tracking-wide hover:text-primary",
+        "eyebrow row-shift flex w-full items-center gap-0.5 hover:text-primary",
         align === "right" ? "justify-end" : "justify-start",
         active && "text-accent",
       )}
@@ -100,7 +100,7 @@ export function RankingTable({
   rows: RankingRow[];
   minCoverage: number;
   /** Categories whose upstream snapshot has aged, keyed by category. */
-  categoryAges?: Record<string, { age_days: number | null; freshness: string }>;
+  categoryAges?: Record<string, { age_days: number | null; freshness: string; date?: string | null }>;
 }) {
   const t = useTranslations("table");
   const tf = useTranslations("filters");
@@ -207,7 +207,7 @@ export function RankingTable({
 
   const ranked = visible.filter((row) => !row.provisional);
   const provisional = visible.filter((row) => row.provisional);
-  const columnCount = 7 + CATEGORIES.length + 1;
+  const columnCount = 6 + CATEGORIES.length + 1;
   const hasFilters =
     query !== "" ||
     access !== "all" ||
@@ -231,16 +231,15 @@ export function RankingTable({
         {/* "=4" is the conventional notation for a joint placing, and a repeated number
             is the honest outcome here rather than a rendering glitch. The explanation
             lives once in the column header's description, referenced per row. */}
-        <td className="num text-xs text-tertiary" aria-describedby="rank-desc">
+        <td className="num w-9 text-xs text-tertiary" aria-describedby="rank-desc">
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
         </td>
 
-        <td>
+        <td className="min-w-56">
           <div className="flex items-center gap-x-2">
             <Link
               href={`/model/${row.id}`}
-              title={row.display_name}
-              className="row-shift inline-block max-w-[8.5rem] truncate text-sm underline-offset-2 hover:underline"
+              className="row-shift text-sm font-medium underline-offset-2 hover:underline"
             >
               {row.display_name}
             </Link>
@@ -252,13 +251,9 @@ export function RankingTable({
               </span>
             ) : null}
           </div>
-        </td>
-
-        <td className="text-sm text-tertiary">
           <Link
             href={`/provider/${row.provider_id}`}
-            title={row.provider_name}
-            className="row-shift block max-w-[5.5rem] truncate underline-offset-2 hover:text-primary hover:underline"
+            className="row-shift block text-xs leading-tight text-tertiary underline-offset-2 hover:text-primary hover:underline"
           >
             {row.provider_name}
           </Link>
@@ -369,7 +364,7 @@ export function RankingTable({
           </span>
           <div className="min-w-0 flex-1">
             <div className="truncate text-base">{row.display_name}</div>
-            <div className="num truncate text-2xs text-tertiary">{row.provider_name}</div>
+            <div className="truncate text-xs text-tertiary">{row.provider_name}</div>
           </div>
           <div className="shrink-0 text-right">
             <div className={clsx("num text-md", metricValue === undefined && "text-tertiary")}>
@@ -578,7 +573,7 @@ export function RankingTable({
         <span className="text-mark" aria-hidden="true">
           ●
         </span>{" "}
-        {t("legendFrontier")} · <span aria-hidden="true">·</span> {t("legendNone")}
+        {t("legendFrontier")}; <span aria-hidden="true">·</span> {t("legendNone")}
       </p>
       {(minContext !== 0 || maxPrice !== 0) && (
         <p className="mt-2 text-2xs text-tertiary">{tf("unknownHidden")}</p>
@@ -592,13 +587,13 @@ export function RankingTable({
           aria-label={t("composite")}
           tabIndex={0}
         >
-          <table className="table-sticky table-dense w-full min-w-[74rem] text-left">
+          <table className="table-sticky table-dense w-full min-w-[64rem] text-left">
             <caption className="sr-only">{t("composite")}</caption>
             <thead>
               <tr>
                 <th
                   scope="col"
-                  className="w-10 border-b border-subtle pr-1.5 align-bottom"
+                  className="w-9 border-b border-subtle pr-1.5 align-bottom"
                   aria-sort={sort === "rank" ? "descending" : "none"}
                 >
                   <SortBtn
@@ -614,9 +609,6 @@ export function RankingTable({
                 <th scope="col" className="border-b border-subtle pr-1.5 align-bottom">
                   <span className="eyebrow">{t("model")}</span>
                 </th>
-                <th scope="col" className="border-b border-subtle pr-1.5 align-bottom">
-                  <span className="eyebrow">{t("provider")}</span>
-                </th>
                 <th
                   scope="col"
                   className="w-28 border-b border-subtle pr-1.5 align-bottom"
@@ -631,7 +623,7 @@ export function RankingTable({
                   />
                 </th>
                 <th scope="col" className="w-32 border-b border-subtle pr-1.5 align-bottom">
-                  <span className="eyebrow block text-right tracking-wide">{t("coverage")}</span>
+                  <span className="eyebrow block text-right">{t("coverage")}</span>
                 </th>
                 {CATEGORIES.map((category) => {
                   const aged = categoryAges[category];
@@ -648,7 +640,7 @@ export function RankingTable({
                             "eyebrow block text-right",
                             aged.freshness === "degraded" && "text-attention",
                           )}
-                          title={t("agedCategoryTitle", { days: aged.age_days })}
+                          title={t("agedCategoryTitle", { days: aged.age_days, date: aged.date ?? "—" })}
                         >
                           {t("agedCategory", { days: aged.age_days })}
                         </span>
@@ -669,10 +661,10 @@ export function RankingTable({
                   </span>
                 </th>
                 <th scope="col" className="w-16 border-b border-subtle pr-1.5 align-bottom">
-                  <span className="eyebrow block text-right tracking-wide">{t("context")}</span>
+                  <span className="eyebrow block text-right">{t("context")}</span>
                 </th>
                 <th scope="col" className="w-20 border-b border-subtle align-bottom">
-                  <span className="eyebrow block text-right tracking-wide">{t("trend")}</span>
+                  <span className="eyebrow block text-right">{t("trend")}</span>
                 </th>
               </tr>
             </thead>

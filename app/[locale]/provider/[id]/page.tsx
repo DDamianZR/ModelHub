@@ -87,9 +87,9 @@ export default async function ProviderPage({
           </Link>{" "}
           / {t("eyebrow")}
         </p>
-        <h2 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">
+        <h1 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">
           {provider.display_name}
-        </h2>
+        </h1>
         <p className="num mt-1 text-xs text-tertiary">
           {provider.country} ·{" "}
           {t("summary", { count: rows.length, ranked: rankedCount, provisional })}

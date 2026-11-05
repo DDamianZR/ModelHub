@@ -103,6 +103,11 @@ def _coverage_facts(model: dict) -> str:
         f"- Categories NOT measured, English names: "
         f"{', '.join(labels_en.get(k, k) for k in missing) or 'none'}",
     ]
+    if not missing:
+        lines.append(
+            "- Every category was measured. Do not write \"sin datos\" or \"no data\" "
+            "for any category."
+        )
     if ranked:
         lines += [
             f"- Relatively stronger, Spanish names: {s_es}",

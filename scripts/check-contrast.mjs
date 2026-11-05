@@ -39,8 +39,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const css = readFileSync(join(root, "app", "globals.css"), "utf8");
 
 /**
- * Dark is the default and lives in `:root`; light re-binds the same names under
- * `:root[data-theme="light"]`. Each block is cut out by its own braces so one theme's
+ * Light is the default and lives in `:root`; dark re-binds the same names under
+ * `:root[data-theme="dark"]`. Each block is cut out by its own braces so one theme's
  * values can never be read as the other's.
  */
 function block(source, opener) {
@@ -53,14 +53,14 @@ function block(source, opener) {
 
 function extractTokens(source) {
   const pattern = /(--[a-z0-9-]+):\s*(#[0-9a-fA-F]{6})\s*;/g;
-  const dark = {};
   const light = {};
-  for (const [, name, value] of block(source, ":root {").matchAll(pattern)) dark[name] = value;
-  for (const [, name, value] of block(source, ':root[data-theme="light"]').matchAll(pattern)) {
-    light[name] = value;
+  const dark = {};
+  for (const [, name, value] of block(source, ":root {").matchAll(pattern)) light[name] = value;
+  for (const [, name, value] of block(source, ':root[data-theme="dark"]').matchAll(pattern)) {
+    dark[name] = value;
   }
-  // Light inherits anything it does not override.
-  return { dark, light: { ...dark, ...light } };
+  // Dark inherits anything it does not override.
+  return { light, dark: { ...light, ...dark } };
 }
 
 function luminance(hex) {

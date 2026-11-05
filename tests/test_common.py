@@ -28,6 +28,22 @@ class NormTests(unittest.TestCase):
         self.assertNotEqual(norm("claude-opus-5"), norm("claude-opus-4-6"))
         self.assertNotEqual(norm("gpt-5-mini"), norm("gpt-5-nano"))
 
+    def test_digit_separators_are_equivalent(self):
+        # Pattern rule, any provider: the separator between two digits is not identity.
+        for stem in ("alpha", "beta-mini", "gamma"):
+            self.assertEqual(norm(f"{stem}-5-1"), norm(f"{stem}-5.1"))
+            self.assertEqual(norm(f"{stem}-5_1"), norm(f"{stem}-5.1"))
+        self.assertEqual(norm("alpha-5-1-max-effort"), norm("alpha-5.1"))
+
+    def test_digit_separator_does_not_join_different_versions(self):
+        self.assertNotEqual(norm("x-5"), norm("x-51"))
+        self.assertNotEqual(norm("x-5-1"), norm("x-51"))
+        self.assertNotEqual(norm("x-5-mini"), norm("x-5-1-mini"))
+
+    def test_published_spelling_is_available_unfolded(self):
+        self.assertEqual(norm("alpha-5-1", fold_versions=False), "alpha-5-1")
+        self.assertEqual(norm("alpha-5.1", fold_versions=False), "alpha-5.1")
+
 
 if __name__ == "__main__":
     unittest.main()

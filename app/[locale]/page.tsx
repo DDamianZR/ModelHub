@@ -1,11 +1,11 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import clsx from "clsx";
 import type { Metadata } from "next";
 import { BoardCards } from "@/components/BoardCards";
 import { JsonLd } from "@/components/JsonLd";
 import { RankingTable } from "@/components/RankingTable";
 import { ScatterChart } from "@/components/ScatterChart";
+import { SearchTrigger } from "@/components/SearchTrigger";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
 import { TrendChart } from "@/components/TrendChart";
@@ -22,7 +22,6 @@ import {
   getBoardCards,
   getCountryTrends,
   getScatterPoints,
-  getTopModels,
   getTrendWindow,
 } from "@/lib/views";
 import { getBestBy } from "@/lib/data";
@@ -57,7 +56,6 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("masthead");
   const tp = await getTranslations("panel");
   const tf = await getTranslations("footer");
   const tn = await getTranslations("nav");
@@ -68,13 +66,15 @@ export default async function HomePage({
   // reads were being serialised into every browser, including two that are 0/65 populated.
   const tableRows = getRankingRows();
   const degraded = getDegradedSources();
-  const aged = getAgedSources();
+  // Only a degraded source (14+ days past its own rhythm) earns the page-level banner;
+  // a source that is merely ageing is marked on its own column instead.
+  const staleDegraded = getAgedSources().filter(
+    (entry) => entry.freshness === "degraded" && !degraded.some((d) => d.name === entry.name),
+  );
   const categoryAges = getCategoryAges();
-  const openWeights = rows.filter((r) => r.is_open_weights).length;
 
   const th = await getTranslations("home");
   const { cards } = getBoardCards();
-  const { top, rankedCount, tiedBeyond } = getTopModels(3);
   const scatter = getScatterPoints();
   const bestBy = getBestBy();
   const accessTrends = getAccessTrends();
@@ -105,193 +105,85 @@ export default async function HomePage({
     description: (await getTranslations({ locale, namespace: "meta" }))("description"),
   };
 
-  const readings: [string, string][] = [
-    [tp("updated"), meta.generated_at],
-    [tp("models"), String(rows.length)],
-    [tp("sources"), String(sourceCount)],
-    [tp("openWeights"), `${openWeights}/${rows.length}`],
-  ];
+  const ranked = rows.filter((r) => !r.provisional);
+  const firsts = ranked.filter((r) => r.rank === 1).length;
+  const period = new Intl.DateTimeFormat(locale, {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(meta.generated_at));
+  const cheapest = cards.find((card) => card.id === "cheapest_covered");
+  const cheapestHref =
+    cheapest && cheapest.winners.length === 1 ? `/model/${cheapest.winners[0].id}` : "/#ranking";
+  const snapshotLine = Object.entries(meta.snapshots)
+    .filter(([, value]) => value)
+    .map(([key, value]) => `${key} ${value}`)
+    .join(" · ");
+  const agingCount = getAgedSources().filter((entry) => entry.freshness === "aging").length;
+  const hasBanner = degraded.length > 0 || staleDegraded.length > 0;
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
-
-      {/* Instrument panel: the state of the data, stated before any ranking is shown.
-          On mobile the prose and the snapshot list step aside — the state is still
-          declared, but in two readings rather than six lines. */}
-      <section className="pt-3 sm:pt-6" aria-labelledby="state-heading">
-        <h2 id="state-heading" className="sr-only">
-          {tp("snapshots")}
-        </h2>
-        <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1 sm:mt-8">
-          <p className="num text-2xl leading-none font-semibold tracking-tight">
-            {th("dataDate", { date: meta.generated_at })}
-          </p>
-          <p className="text-sm text-tertiary">{th("dataDateSub")}</p>
-        </div>
-        <p className="mt-3 hidden max-w-[46rem] text-base leading-[1.6] text-tertiary sm:block">
-          {t("blurb")}
-        </p>
-
-        <Surface
-          as="dl"
-          className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 p-4 sm:mt-5 sm:grid-cols-4 sm:gap-x-8 sm:p-4"
-        >
-          {readings.map(([label, value], i) => (
-            <div key={label} className={i > 1 ? "hidden sm:block" : undefined}>
-              <dt className="eyebrow">{label}</dt>
-              <dd className="num text-sm sm:text-md">{value}</dd>
-            </div>
-          ))}
-          <div className="col-span-2 hidden border-t border-subtle pt-3 sm:col-span-4 sm:block">
-            <dt className="eyebrow">{tp("snapshots")}</dt>
-            <dd className="num text-2xs text-tertiary">
-              {Object.entries(meta.snapshots)
-                .filter(([, value]) => value)
-                .map(([key, value]) => `${key} ${value}`)
-                .join("  ·  ")}
-            </dd>
-          </div>
-        </Surface>
-
-        {degraded.length > 0 && (
-          <Surface className="surface-attention mt-4 p-3 text-xs leading-[1.6]">
-            <span className="eyebrow text-attention">{tp("degraded")}</span>{" "}
-            {degraded
-              .map((entry) =>
-                tp("degradedSource", {
-                  source: entry.name,
-                  since: entry.status.last_success ?? "—",
-                  snapshot: entry.snapshotDate ?? "—",
-                }),
-              )
-              .join(" · ")}
-          </Surface>
-        )}
-
-        {aged.length > 0 && (() => {
-          // Within-rhythm gaps read as a neutral fact, not an alarm: this source's own
-          // observed cadence (median_gap_days) already explains the gap, so nothing here
-          // is actually surprising. Only a gap that exceeds twice that median gets the
-          // attention treatment - see lib/data.ts's getAgedSources for why state "ok" is
-          // required to appear here at all.
-          const withinRhythm = (entry: (typeof aged)[number]) => {
-            const median = entry.observed?.median_gap_days;
-            return median != null && (entry.age_days ?? Infinity) <= median * 2;
-          };
-          const anyExceeding = aged.some((entry) => !withinRhythm(entry));
-          return (
-            <Surface
-              className={clsx(
-                "mt-4 p-3 text-xs leading-[1.6]",
-                anyExceeding && "surface-attention",
-              )}
-            >
-              <span className={clsx("eyebrow", anyExceeding ? "text-attention" : "text-tertiary")}>
-                {tp("aging")}
-              </span>{" "}
-              {aged.map((entry, i) => {
-                const normal = withinRhythm(entry);
-                return (
-                  <span key={entry.name} className={normal ? "text-tertiary" : "text-attention"}>
-                    {i > 0 && " · "}
-                    {normal
-                      ? tp("agingSourceNormal", {
-                          source: entry.name,
-                          days: entry.age_days ?? 0,
-                          median: entry.observed!.median_gap_days.toFixed(1),
-                        })
-                      : tp("agingSource", {
-                          source: entry.name,
-                          days: entry.age_days ?? 0,
-                          date: entry.date ?? "—",
-                        })}
-                  </span>
-                );
-              })}
-            </Surface>
-          );
-        })()}
-      </section>
-
       <JsonLd data={siteJsonLd} />
 
-      <section className="mt-8" aria-labelledby="boards-heading">
-        <h2 id="boards-heading" className="text-lg font-semibold tracking-snug">
-          {th("boardsTitle")}
-        </h2>
-        <p className="mt-1 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{th("boardsNote")}</p>
-        <div className="mt-3">
-          <BoardCards cards={cards} rankedCount={rankedCount} />
-        </div>
-      </section>
-
-      <section className="mt-8" aria-labelledby="top-heading">
-        <h2 id="top-heading" className="text-lg font-semibold tracking-snug">
-          {th("topTitle")}
-        </h2>
-        <p className="mt-1 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{th("topNote")}</p>
-        <ol className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {top.map((model) => (
-            <li key={model.id}>
-              <Surface className="flex h-full flex-col gap-2 p-4">
-                <span className="num text-xl leading-none tracking-snug">
-                  {model.rank === null ? "·" : `${model.tied_with > 0 ? "=" : "#"}${model.rank}/${rankedCount}`}
-                </span>
+      <section
+        className="grid items-start gap-x-12 gap-y-8 pt-8 sm:pt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]"
+        aria-labelledby="hero-heading"
+      >
+        <div>
+          <h1
+            id="hero-heading"
+            className="text-4xl leading-[1.1] font-semibold tracking-tight lg:text-[2.75rem]"
+          >
+            {th("heroTitle", { period })}
+          </h1>
+          <p className="mt-5 max-w-[34rem] text-md leading-[1.6] text-tertiary">
+            {th("heroSummary", {
+              models: rows.length,
+              ranked: ranked.length,
+              sources: sourceCount,
+              firsts,
+              date: meta.generated_at,
+            })}
+          </p>
+          <div className="mt-6">
+            <SearchTrigger label={th("searchLabel")} hint="⌘K" />
+          </div>
+          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+            {(
+              [
+                ["/#ranking", th("chipRanking")],
+                ["/compare", tn("compare")],
+                ["/local", tn("local")],
+                [cheapestHref, th("chipCheapest", { min: cheapest?.filter.min_coverage ?? 0 })],
+              ] as const
+            ).map(([href, label]) => (
+              <li key={label}>
                 <Link
-                  href={`/model/${model.id}`}
-                  className="row-shift text-md underline-offset-2 hover:underline"
+                  href={href}
+                  className="inline-flex min-h-9 items-center rounded-control border border-subtle px-3 hover:bg-sunk"
                 >
-                  {model.display_name}
+                  {label}
                 </Link>
-                <span className="num text-2xs text-tertiary">{model.provider_name}</span>
-                <span className="num mt-auto text-sm">
-                  {model.composite.toFixed(1)}
-                  <span className="ml-1 text-2xs text-tertiary">
-                    {model.composite_error === null ? "±?" : `±${model.composite_error.toFixed(2)}`}
-                  </span>
-                </span>
-              </Surface>
-            </li>
-          ))}
-        </ol>
-        {tiedBeyond > 0 && (
-          <p className="num mt-2 text-2xs text-tertiary">{th("topTied", { count: tiedBeyond })}</p>
-        )}
-      </section>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <section id="ranking" className="mt-8 scroll-mt-6" aria-labelledby="ranking-heading">
-        <h2 id="ranking-heading" className="sr-only">
-          {tn("ranking")}
-        </h2>
-        {/* Scoped to just what the client component uses (verified via `grep -rn
-            useTranslations components`), instead of the whole locale catalogue the root
-            provider used to forward - methodology alone is 61% of es.json and this page
-            has no use for it. */}
-        <NextIntlClientProvider
-          messages={{ table: messages.table, filters: messages.filters }}
-        >
-          <RankingTable
-            rows={tableRows}
-            minCoverage={meta.min_coverage_for_ranking}
-            categoryAges={categoryAges}
-          />
-        </NextIntlClientProvider>
-      </section>
-
-      <section className="mt-8" aria-labelledby="scatter-heading">
-        <h2 id="scatter-heading" className="text-lg font-semibold tracking-snug">
-          {th("scatterTitle")}
-        </h2>
-        <p className="mt-1 max-w-[46rem] text-sm leading-[1.6] text-tertiary">
-          {th("scatterNote", {
-            models: bestBy.meta.pareto_evaluated,
-            input: bestBy.meta.price_blend.input,
-            output: bestBy.meta.price_blend.output,
-          })}
-        </p>
-        <Surface className="mt-3 p-4">
+        <figure className="m-0 min-w-0" aria-labelledby="scatter-heading">
+          <h2 id="scatter-heading" className="text-xl font-semibold tracking-snug">
+            {th("scatterTitle")}
+          </h2>
+          <p className="mt-1 mb-3 max-w-[40rem] text-xs leading-[1.55] text-tertiary">
+            {th("scatterNote", {
+              models: bestBy.meta.pareto_evaluated,
+              input: bestBy.meta.price_blend.input,
+              output: bestBy.meta.price_blend.output,
+            })}
+          </p>
           <ScatterChart
+            compact
             points={scatter}
             locale={locale}
             labels={{
@@ -308,28 +200,82 @@ export default async function HomePage({
                 }),
             }}
           />
-          {/* The same frontier as text: the figure labels it, this list is what a screen
-              reader (or anyone who cannot resolve the marks) reads. */}
-          <h3 className="eyebrow mt-4">{th("scatter.frontierList")}</h3>
-          <ul className="num mt-1 flex flex-col gap-0.5 text-xs">
+          {/* The same frontier as text, for whoever cannot resolve the marks. */}
+          <h3 className="sr-only">{th("scatter.frontierList")}</h3>
+          <ul className="num sr-only">
             {frontierList.map((p) => (
               <li key={p.id}>
-                <Link href={`/model/${p.id}`} className="underline-offset-2 hover:underline">
-                  {p.name}
-                </Link>{" "}
-                <span className="text-tertiary">
-                  {th("scatter.frontierItem", {
-                    composite: p.composite.toFixed(1),
-                    price: p.price.toFixed(p.price < 1 ? 3 : 2),
-                  })}
-                </span>
+                <Link href={`/model/${p.id}`}>{p.name}</Link>{" "}
+                {th("scatter.frontierItem", {
+                  composite: p.composite.toFixed(1),
+                  price: p.price.toFixed(p.price < 1 ? 3 : 2),
+                })}
               </li>
             ))}
           </ul>
-        </Surface>
+        </figure>
       </section>
 
-      <section className="mt-8" aria-labelledby="trends-heading">
+      {hasBanner && (
+        <Surface className="surface-attention mt-8 p-3 text-xs leading-[1.6]">
+          <span className="eyebrow text-attention">{tp("degraded")}</span>{" "}
+          {[
+            ...degraded.map((entry) =>
+              tp("degradedSource", {
+                source: entry.name,
+                since: entry.status.last_success ?? "—",
+                snapshot: entry.snapshotDate ?? "—",
+              }),
+            ),
+            ...staleDegraded.map((entry) =>
+              tp("agingSource", {
+                source: entry.name,
+                days: entry.age_days ?? 0,
+                date: entry.date ?? "—",
+              }),
+            ),
+          ].join(" · ")}
+        </Surface>
+      )}
+
+      <nav className="mt-12" aria-labelledby="boards-heading">
+        <p id="boards-heading" className="eyebrow mb-1">
+          {th("boardsTitle")}
+        </p>
+        <BoardCards cards={cards} />
+        <p className="mt-1 max-w-[46rem] text-xs leading-[1.55] text-tertiary">{th("boardsNote")}</p>
+      </nav>
+
+      <section id="ranking" className="mt-6 scroll-mt-6" aria-labelledby="ranking-heading">
+        <h2 id="ranking-heading" className="sr-only">
+          {tn("ranking")}
+        </h2>
+        {/* Scoped to just what the client component uses (verified via `grep -rn
+            useTranslations components`), instead of the whole locale catalogue the root
+            provider used to forward - methodology alone is 61% of es.json and this page
+            has no use for it. */}
+        <NextIntlClientProvider
+          messages={{ table: messages.table, filters: messages.filters }}
+        >
+          <RankingTable
+            rows={tableRows}
+            minCoverage={meta.min_coverage_for_ranking}
+            categoryAges={categoryAges}
+          />
+        </NextIntlClientProvider>
+        <p className="num mt-3 max-w-[60rem] text-2xs leading-[1.6] text-tertiary">
+          {th("sourcesLine", {
+            snapshots: snapshotLine,
+            aging: agingCount,
+            degraded: degraded.length + staleDegraded.length,
+          })}{" "}
+          <Link href="/methodology#fuentes" className="text-accent underline underline-offset-2">
+            {th("sourcesLink")}
+          </Link>
+        </p>
+      </section>
+
+      <section className="mt-16" aria-labelledby="trends-heading">
         <h2 id="trends-heading" className="text-lg font-semibold tracking-snug">
           {th("trendsTitle")}
         </h2>

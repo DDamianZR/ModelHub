@@ -41,7 +41,10 @@ def stamp(
         since = known.get(key) or (today if known else snapshot)
         since = max(since, snapshot)
         for entry in entries:
-            entry["measured_at"] = since
+            # A score taken from an older release keeps that release's date: the first-seen
+            # day applies to the table that grows in place, not to releases carried below it.
+            if entry.get("measured_at", snapshot) == snapshot:
+                entry["measured_at"] = since
         rows[key] = since
     return {"snapshot": snapshot, "rows": rows}
 

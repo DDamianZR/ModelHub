@@ -4,8 +4,8 @@
     "source": "https://github.com/AlexsJones/llmfit",
     "license": "MIT",
     "in_composite": false,
-    "open_weights_scored": 24,
-    "matched": 23
+    "open_weights_scored": 26,
+    "matched": 24
   },
   "models": [
     {
@@ -210,6 +210,29 @@
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
       "parameters_raw": 763205315794,
       "active_parameters": 16000000000,
+      "is_moe": true,
+      "num_experts": 384,
+      "active_experts": 6,
+      "context_length": 1048576,
+      "num_hidden_layers": 40,
+      "num_attention_heads": 64,
+      "num_key_value_heads": 1,
+      "head_dim": 512,
+      "architecture": "deepseek_v41",
+      "attention_layout": null,
+      "quantization": "Q4_K_M",
+      "min_ram_gb": 426.5,
+      "min_vram_gb": 390.9,
+      "license": "mit",
+      "candidates": 2,
+      "size_disagreement": 0
+    },
+    {
+      "model_id": "deepseek-deepseek-v4.1-flash-1017",
+      "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "parameters_raw": 763205315794,
+      "active_parameters": 49489094695,
       "is_moe": true,
       "num_experts": 384,
       "active_experts": 6,

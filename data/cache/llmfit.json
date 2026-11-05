@@ -3,27 +3,6 @@
   "payload": {
     "catalogue_size": 19192,
     "entries": {
-      "deepseek-v4-1-flash": {
-        "active_experts": 6,
-        "active_parameters": 16000000000,
-        "architecture": "deepseek_v41",
-        "candidates": 2,
-        "context_length": 1048576,
-        "head_dim": 512,
-        "hf_downloads": 1640989,
-        "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash",
-        "is_moe": true,
-        "license": "mit",
-        "min_ram_gb": 426.5,
-        "min_vram_gb": 390.9,
-        "num_attention_heads": 64,
-        "num_experts": 384,
-        "num_hidden_layers": 40,
-        "num_key_value_heads": 1,
-        "parameters_raw": 763205315794,
-        "quantization": "Q4_K_M",
-        "size_disagreement": 0
-      },
       "deepseek-v4-flash": {
         "active_experts": 6,
         "active_parameters": 13000000000,
@@ -108,7 +87,49 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "gemma-4-31b": {
+      "deepseek-v4.1-flash": {
+        "active_experts": 6,
+        "active_parameters": 16000000000,
+        "architecture": "deepseek_v41",
+        "candidates": 2,
+        "context_length": 1048576,
+        "head_dim": 512,
+        "hf_downloads": 1640989,
+        "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "is_moe": true,
+        "license": "mit",
+        "min_ram_gb": 426.5,
+        "min_vram_gb": 390.9,
+        "num_attention_heads": 64,
+        "num_experts": 384,
+        "num_hidden_layers": 40,
+        "num_key_value_heads": 1,
+        "parameters_raw": 763205315794,
+        "quantization": "Q4_K_M",
+        "size_disagreement": 0
+      },
+      "deepseek-v4.1-flash-1017": {
+        "active_experts": 6,
+        "active_parameters": 49489094695,
+        "architecture": "deepseek_v41",
+        "candidates": 2,
+        "context_length": 1048576,
+        "head_dim": 512,
+        "hf_downloads": 85275,
+        "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "is_moe": true,
+        "license": "mit",
+        "min_ram_gb": 426.5,
+        "min_vram_gb": 390.9,
+        "num_attention_heads": 64,
+        "num_experts": 384,
+        "num_hidden_layers": 40,
+        "num_key_value_heads": 1,
+        "parameters_raw": 763205315794,
+        "quantization": "Q4_K_M",
+        "size_disagreement": 0
+      },
+      "gemma-4.31b": {
         "active_experts": null,
         "active_parameters": null,
         "architecture": "gemma4",
@@ -129,7 +150,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "glm-4-7": {
+      "glm-4.7": {
         "active_experts": 8,
         "active_parameters": 34937934644,
         "architecture": "glm4_moe",
@@ -171,7 +192,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "glm-5-1": {
+      "glm-5.1": {
         "active_experts": 8,
         "active_parameters": 40000000000,
         "architecture": "glm_moe_dsa",
@@ -192,7 +213,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "glm-5-2": {
+      "glm-5.2": {
         "active_experts": 8,
         "active_parameters": 40000000000,
         "architecture": "glm_moe_dsa",
@@ -213,7 +234,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "glm-5-3": {
+      "glm-5.3": {
         "active_experts": 8,
         "active_parameters": 40000000000,
         "architecture": "glm_moe_dsa",
@@ -234,7 +255,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "glm-5-3-flash": {
+      "glm-5.3-flash": {
         "active_experts": 8,
         "active_parameters": 18000000000,
         "architecture": "glm5_next",
@@ -318,7 +339,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "kimi-k2-6": {
+      "kimi-k2.6": {
         "active_experts": 8,
         "active_parameters": 32000000000,
         "architecture": "kimi_k25",
@@ -339,7 +360,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "kimi-k2-7-code": {
+      "kimi-k2.7-code": {
         "active_experts": 8,
         "active_parameters": 32000000000,
         "architecture": "kimi_k25",
@@ -402,7 +423,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "qwen3-5-35b-a3b": {
+      "qwen3.5.35b-a3b": {
         "active_experts": 8,
         "active_parameters": 3000000000,
         "architecture": "qwen3_5_moe",
@@ -423,7 +444,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "qwen3-5-397b-a17b": {
+      "qwen3.5.397b-a17b": {
         "active_experts": 10,
         "active_parameters": 17000000000,
         "architecture": "qwen3_5_moe",
@@ -444,7 +465,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "qwen3-6-27b": {
+      "qwen3.6.27b": {
         "active_experts": null,
         "active_parameters": null,
         "architecture": "qwen3_5",
@@ -465,7 +486,7 @@
         "quantization": "Q4_K_M",
         "size_disagreement": 0
       },
-      "qwen3-8-27b": {
+      "qwen3.8.27b": {
         "active_experts": null,
         "active_parameters": null,
         "architecture": "qwen3_5",

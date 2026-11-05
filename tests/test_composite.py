@@ -175,5 +175,85 @@ class AssignSignificanceRanksTests(unittest.TestCase):
         self.assertEqual(models[0]["tied_with"], 0)
 
 
+
+def _lb(benchmark_id, category, value):
+    return {
+        "benchmark_id": benchmark_id, "category": category, "value": value,
+        "source_type": "third_party_benchmark", "source_url": "u",
+        "measured_at": "2026-01-01", "variant": None, "stderr": None,
+    }
+
+
+class BoardAdmissionTests(unittest.TestCase):
+    """A measurement on a board outside the composite corroborates admission only."""
+
+    REGISTRY = {"m": {
+        "organization": "Lab", "country": "XX", "display_name": "M",
+        "release_date": "2026-01-01", "accessibility": "API", "id_key": None,
+    }}
+
+    def _build(self, boards):
+        from scripts.ingest.composite import build_models
+        return build_models(
+            registry=self.REGISTRY, epoch_scores={},
+            livebench_scores={"m": [_lb("lb_reasoning", "reasoning", 60.0)]},
+            arena_text={}, arena_vision={}, arena_snapshot=None, vision_snapshot=None,
+            epoch_boards=boards,
+        )
+
+    def test_one_source_alone_is_not_admitted(self):
+        self.assertEqual(self._build({})[0], [])
+
+    def test_board_measurement_admits_without_touching_score_or_coverage(self):
+        boards = {"knowledge": {"simpleqa_verified": {
+            "name": "SimpleQA", "rows": {"m": {"value": 70.0}}}}}
+        models, rows, *_ = self._build(boards)
+        self.assertEqual(len(models), 1)
+        model = models[0]
+        self.assertEqual(model["category_scores"], {"reasoning": 60.0})
+        self.assertEqual(model["coverage"]["covered"], 1)
+        self.assertEqual(model["composite"], 60.0)
+        self.assertNotIn("knowledge", model["category_scores"])
+        self.assertEqual({r["benchmark_id"] for r in rows}, {"lb_reasoning"})
+
+
+def _row(benchmark_id, category, value, variant, date, source="x"):
+    row = _lb(benchmark_id, category, value)
+    row.update(variant=variant, measured_at=date)
+    return row
+
+
+class FallbackRowTests(unittest.TestCase):
+    """In a fallback category a newer row only counts if it matches the chosen variant."""
+
+    REGISTRY = BoardAdmissionTests.REGISTRY
+    NEW, OLD = "2026-10-25", "2026-06-25"
+
+    def _reasoning_row(self, lb_rows):
+        from scripts.ingest.composite import build_models
+        epoch = {"m": [_row("ep_math", "math", 50.0, "m-max", "2026-05-01"),
+                       _row("ep_coding", "coding", 55.0, "m-max", "2026-05-01")]}
+        models, rows, *_ = build_models(
+            registry=self.REGISTRY, epoch_scores=epoch, livebench_scores={"m": lb_rows},
+            arena_text={}, arena_vision={}, arena_snapshot=None, vision_snapshot=None,
+            epoch_boards={},
+        )
+        return [r for r in rows if r["benchmark_id"] == "lb_reasoning"]
+
+    def test_unlabelled_newer_row_yields_to_older_row_of_the_chosen_variant(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m", self.NEW),
+                                    _row("lb_reasoning", "reasoning", 70.0, "m-max", self.OLD)])
+        self.assertEqual([(r["value"], r["measured_at"]) for r in rows], [(70.0, self.OLD)])
+
+    def test_newer_row_of_the_chosen_variant_beats_the_older_one(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m-max", self.NEW),
+                                    _row("lb_reasoning", "reasoning", 70.0, "m-max", self.OLD)])
+        self.assertEqual([(r["value"], r["measured_at"]) for r in rows], [(90.0, self.NEW)])
+
+    def test_unlabelled_newer_row_without_an_older_row_is_omitted(self):
+        rows = self._reasoning_row([_row("lb_reasoning", "reasoning", 90.0, "m", self.NEW)])
+        self.assertEqual(rows, [])
+
+
 if __name__ == "__main__":
     unittest.main()
