@@ -6,6 +6,7 @@ import {
   type Benchmark,
   type ScoreRow,
 } from "./data";
+import { comparableDates, orderPair } from "./compare";
 import type {
   BoardCard,
   BoardModel,
@@ -120,11 +121,9 @@ export function getTrendWindow(): {
       perDate.set(date, set);
     }
   }
-  const fullest = Math.max(0, ...[...perDate.values()].map((set) => set.size));
-  const dates = [...perDate]
-    .filter(([, set]) => set.size >= fullest * MIN_SNAPSHOT_SHARE)
-    .map(([date]) => date)
-    .sort();
+  const counts = Object.fromEntries([...perDate].map(([date, set]) => [date, set.size]));
+  const dates = comparableDates(counts, MIN_SNAPSHOT_SHARE);
+  const fullest = Math.max(0, ...Object.values(counts));
   return { dates, excluded: perDate.size - dates.length, total: perDate.size, fullest };
 }
 
@@ -268,13 +267,8 @@ export function getBenchmarkPage(id: string): {
 /** How many models the vs pages prerender; the rest render on first request and are cached. */
 export const VS_PRERENDER_TOP = 30;
 
-/**
- * Canonical order of a pair: alphabetical by id. A data-neutral rule, so /vs/a/b and
- * /vs/b/a are one page (the second redirects) and neither model is "first" by preference.
- */
-export function orderPair(a: string, b: string): [string, string] {
-  return a.localeCompare(b) <= 0 ? [a, b] : [b, a];
-}
+// Re-exported so the pages keep one import for everything about a pair.
+export { orderPair };
 
 /** Every unordered pair among the top `n` ranked models, in canonical order. */
 export function getVsPairs(n: number = VS_PRERENDER_TOP): [string, string][] {
