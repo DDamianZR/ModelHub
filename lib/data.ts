@@ -17,15 +17,23 @@ import type {
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-function readJson<T>(file: string): T {
-  return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
+// The data only changes between builds, and the prerender reads the same files for every
+// page (the vs pages alone are 870). Memoised in production; in dev a file edit shows up.
+const jsonCache = new Map<string, unknown>();
+
+export function readJson<T>(file: string): T {
+  const memo = process.env.NODE_ENV === "production";
+  if (memo && jsonCache.has(file)) return jsonCache.get(file) as T;
+  const parsed = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
+  if (memo) jsonCache.set(file, parsed);
+  return parsed;
 }
 
 export function getBestBy(): BestBy {
   return readJson<BestBy>("best_by.json");
 }
 
-function readHistory(): Map<string, { date: string; value: number }[]> {
+export function readHistory(): Map<string, { date: string; value: number }[]> {
   const file = path.join(DATA_DIR, "history.jsonl");
   const grouped = new Map<string, { date: string; value: number }[]>();
   if (!fs.existsSync(file)) return grouped;
@@ -429,9 +437,13 @@ export function getRankingRows(): RankingRow[] {
     rank: row.rank,
     display_name: row.display_name,
     provider_name: row.provider_name,
+    provider_id: row.provider_id,
     is_open_weights: row.is_open_weights,
     release_date: row.release_date,
     country: row.country,
+    context_window: row.context_window ?? null,
+    blended_price_usd_per_m: row.blended_price_usd_per_m ?? null,
+    pareto_frontier: row.pareto_frontier ?? null,
     composite: row.composite,
     composite_error: row.composite_error,
     tied_with: row.tied_with,

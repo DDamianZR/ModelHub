@@ -392,7 +392,12 @@
     "skipToContent": "Saltar al contenido",
     "sections": "Secciones",
     "pageSections": "Secciones de esta página",
-    "modelNav": "Modelo anterior y siguiente por puesto"
+    "modelNav": "Modelo anterior y siguiente por puesto",
+    "themeLabel": "Tema",
+    "themeToLight": "Cambiar a tema claro",
+    "themeToDark": "Cambiar a tema oscuro",
+    "themeLight": "Claro",
+    "themeDark": "Oscuro"
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -414,5 +419,17 @@
     "normalised": "normalizado",
     "paginated": "Fuente paginada: {requests} peticiones en esta corrida, así que se publica el digest del payload normalizado en vez de una lista de URLs que nadie podría comprobar a mano.",
     "scoredMarker": "esta es la fila que puntúa"
+  },
+  "search": {
+    "trigger": "Buscar",
+    "title": "Buscar en el sitio",
+    "placeholder": "Buscar un modelo, proveedor o benchmark",
+    "empty": "Sin resultados.",
+    "loading": "Cargando índice…",
+    "failed": "No se pudo cargar el índice de búsqueda.",
+    "hint": "↑ ↓ para moverte · Enter para abrir · Esc para cerrar",
+    "model": "Modelo",
+    "provider": "Proveedor",
+    "benchmark": "Benchmark"
   }
 }

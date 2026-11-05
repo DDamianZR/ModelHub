@@ -392,7 +392,12 @@
     "skipToContent": "Skip to content",
     "sections": "Sections",
     "pageSections": "Sections of this page",
-    "modelNav": "Previous and next model by rank"
+    "modelNav": "Previous and next model by rank",
+    "themeLabel": "Theme",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme",
+    "themeLight": "Light",
+    "themeDark": "Dark"
   },
   "notFound": {
     "title": "Page not found",
@@ -414,5 +419,17 @@
     "normalised": "normalised",
     "paginated": "Paginated source: {requests} requests this run, so the normalised payload digest is published instead of a URL list nobody could check by hand.",
     "scoredMarker": "this is the row that scores"
+  },
+  "search": {
+    "trigger": "Search",
+    "title": "Search the site",
+    "placeholder": "Search a model, provider or benchmark",
+    "empty": "No results.",
+    "loading": "Loading index…",
+    "failed": "The search index could not be loaded.",
+    "hint": "↑ ↓ to move · Enter to open · Esc to close",
+    "model": "Model",
+    "provider": "Provider",
+    "benchmark": "Benchmark"
   }
 }

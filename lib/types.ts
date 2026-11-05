@@ -24,6 +24,8 @@ export type Model = {
   api_only: boolean;
   release_date: string | null;
   country: string;
+  /** Tokens the model accepts, from the router catalogue. null when unlisted. */
+  context_window: number | null;
   modalities: string[];
   status: string;
   category_scores: Partial<Record<Category, number>>;
@@ -185,9 +187,13 @@ export type RankingRow = Pick<
   | "rank"
   | "display_name"
   | "provider_name"
+  | "provider_id"
   | "is_open_weights"
   | "release_date"
   | "country"
+  | "context_window"
+  | "blended_price_usd_per_m"
+  | "pareto_frontier"
   | "composite"
   | "composite_error"
   | "tied_with"
@@ -293,4 +299,49 @@ export interface LocalModels {
     /** How many of them report a parameter count more than 10% away from the one used. */
     size_disagreement: number;
   })[];
+}
+
+/** One entry of the static search index served at /search-index.json. Short keys on purpose. */
+export interface SearchEntry {
+  t: "model" | "provider" | "benchmark";
+  id: string;
+  /** Display name. */
+  n: string;
+  /** Secondary text: the provider of a model, the category of a benchmark. */
+  s?: string;
+}
+
+/** A model as it appears on a "best by" card: just enough to name it and place it. */
+export interface BoardModel {
+  id: string;
+  display_name: string;
+  provider_name: string;
+  rank: number | null;
+  tied_with: number;
+  composite: number;
+  composite_error: number | null;
+  price: number | null;
+}
+
+/** A "best by" board resolved against the models. Derived, never scored. */
+export interface BoardCard extends Omit<BestByBoard, "winners"> {
+  winners: BoardModel[];
+}
+
+/** One priced, ranked model on the cost-versus-composite chart. */
+export interface ScatterPoint {
+  id: string;
+  name: string;
+  price: number;
+  composite: number;
+  error: number | null;
+  frontier: boolean;
+}
+
+/** A group's best measured Arena rating on each snapshot date. */
+export interface TrendSeries {
+  key: string;
+  /** How many catalogue models of the group have at least one rating. */
+  models: number;
+  points: { date: string; value: number }[];
 }
