@@ -19,9 +19,10 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-/** Runs before first paint so a stored light choice never flashes dark. Dark is the
-    default and needs no attribute; storage access is guarded because it can throw. */
-const THEME_SCRIPT = `try{var t=localStorage.getItem("mh-theme");if(t==="light"){document.documentElement.dataset.theme="light"}}catch(e){}`;
+/** Runs before first paint so the chosen theme never flashes. A stored choice wins; with
+    none, the system preference decides; with neither, the page stays dark. Storage and
+    matchMedia are guarded because either can throw or be absent. */
+const THEME_SCRIPT = `try{var d=document.documentElement,t=null;try{t=localStorage.getItem("mh-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.dataset.theme=t}catch(e){}`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

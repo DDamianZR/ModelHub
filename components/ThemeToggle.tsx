@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 type Theme = "dark" | "light";
 
 /**
- * Dark is the default; light is opt-in and remembered. The inline script in the locale
- * layout applies a stored choice before first paint, so this component only has to keep
- * the attribute and the storage in step. Storage can throw (private mode, blocked
+ * The inline script in the locale layout applies the stored choice, or the system
+ * preference when there is none, before first paint; dark is the fallback. This component
+ * only has to keep the attribute and the storage in step, and an explicit click is always
+ * remembered over the system preference. Storage can throw (private mode, blocked
  * cookies), and a failed write must not break the toggle.
  */
 export function ThemeToggle({
@@ -24,8 +25,7 @@ export function ThemeToggle({
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    if (next === "light") document.documentElement.dataset.theme = "light";
-    else delete document.documentElement.dataset.theme;
+    document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem("mh-theme", next);
     } catch {
