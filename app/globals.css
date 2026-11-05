@@ -397,6 +397,19 @@ pre {
 }
 .skip-link:focus { top: 1rem; left: 1rem; }
 
+/* ── Range slider (/local) ────────────────────────────────────────────────────
+   The platform's own slider, recoloured by accent-color so the filled part and the thumb
+   follow the theme, with a 44px-tall hit area on touch. */
+.rig-range {
+  width: 100%;
+  min-height: 28px;
+  cursor: pointer;
+  accent-color: var(--mark);
+}
+@media (pointer: coarse) {
+  .rig-range { min-height: 44px; }
+}
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 

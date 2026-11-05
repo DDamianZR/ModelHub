@@ -429,6 +429,7 @@ export default async function MethodologyPage({
 
         <Section id="local" title={t("local.title")}>
           <p>{t("local.body")}</p>
+          <p>{t("local.catalogue")}</p>
           <p>{t("local.memory")}</p>
           <p>{t("local.bands")}</p>
           <p>{t("local.modes")}</p>

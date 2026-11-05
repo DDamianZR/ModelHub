@@ -556,16 +556,21 @@ export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
 }
 
 /**
- * Open-weights models that have a size on record, joined to their measured standing.
- * Returned in no meaningful order: the page decides how to order what fits.
+ * Models that have a size on record: the open-weights models ModelHub scores, joined to their
+ * measured standing, followed by the most downloaded models it does not score, which carry
+ * a size and a Hugging Face link and nothing else. Returned in no meaningful order: the page
+ * decides how to order what fits.
  */
 export function getLocalEntries(): {
   entries: LocalEntry[];
   generatedAt: string;
   rankedCount: number;
   openWeightsScored: number;
+  measuredCount: number;
+  unmeasuredCount: number;
   unsized: number;
   withoutLayout: number;
+  catalogueRules: { minDownloads: number | null; minLikes: number | null; maxRows: number | null };
 } {
   const local = readJson<LocalModels>("local_models.json");
   const { rows, meta } = getRanking();
@@ -577,6 +582,11 @@ export function getLocalEntries(): {
     entries.push({
       spec,
       display_name: row.display_name,
+      measured: true,
+      hf_url: spec.source_url,
+      modality: spec.modality,
+      hf_downloads: spec.hf_downloads,
+      hf_likes: spec.hf_likes,
       rank: row.rank,
       tied_with: row.tied_with,
       composite: row.composite,
@@ -586,12 +596,39 @@ export function getLocalEntries(): {
       measured_at: meta.generated_at,
     });
   }
+  const measuredCount = entries.length;
+  for (const spec of local.catalogue ?? []) {
+    entries.push({
+      spec,
+      display_name: spec.display_name,
+      measured: false,
+      hf_url: spec.source_url,
+      modality: spec.modality,
+      hf_downloads: spec.hf_downloads,
+      hf_likes: spec.hf_likes,
+      rank: null,
+      tied_with: 0,
+      composite: null,
+      composite_error: null,
+      provisional: false,
+      coverage: null,
+      measured_at: null,
+    });
+  }
+  const rules = local.meta.catalogue_rules ?? {};
   return {
     entries,
     generatedAt: local.meta.generated_at,
     rankedCount: meta.ranked_count,
     openWeightsScored: local.meta.open_weights_scored,
+    measuredCount,
+    unmeasuredCount: entries.length - measuredCount,
     unsized: local.meta.open_weights_scored - local.meta.matched,
     withoutLayout: entries.filter((e) => e.spec.attention_layout === null).length,
+    catalogueRules: {
+      minDownloads: rules.min_downloads ?? null,
+      minLikes: rules.min_likes ?? null,
+      maxRows: rules.max_rows ?? null,
+    },
   };
 }
