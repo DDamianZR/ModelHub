@@ -10,18 +10,13 @@
   },
   "panel": {
     "updated": "Actualizado",
-    "models": "Modelos rastreados",
     "sources": "Fuentes",
     "openWeights": "Open weights",
-    "snapshots": "Cortes de datos",
     "degraded": "Fuente sin actualizar",
     "degradedSource": "{source} no responde desde el {since}; se muestra su corte del {snapshot}",
-    "ruleHeading": "{source}, versión usada por categoría:",
-    "ruleItem": "{category} {release}{reason, select, comparable { (valores anteriores cubren huecos; deriva {drift})} not_comparable_more_coverage_older { (hay una versión más nueva pero no es comparable, deriva {drift})} not_comparable_more_coverage_newest { (una versión anterior no es comparable y cubre menos modelos, deriva {drift})} too_few_common_models { (pocos modelos en común para comparar versiones)} other {}}",
     "ruleSkipped": "Versiones que publicó y se omitieron: {list}.",
     "aging": "Dato envejecido",
-    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar datos nuevos (último: {date})",
-    "agingSourceNormal": "{source}: {days, plural, one {# día} other {# días}} desde sus últimos datos publicados, dentro de su ritmo habitual (mediana {median} días)"
+    "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar datos nuevos (último: {date})"
   },
   "filters": {
     "label": "Filtros",
@@ -50,7 +45,6 @@
     "math": "Matemáticas",
     "human_preference": "Preferencia humana",
     "instruction_following": "Instrucciones",
-    "knowledge": "Conocimiento",
     "vision": "Visión",
     "trend": "Trayectoria",
     "sortBy": "Ordenar por {column}",
@@ -472,8 +466,6 @@
     "benchmark": "Benchmark"
   },
   "home": {
-    "dataDate": "Datos al {date}",
-    "dataDateSub": "Reconstruido desde fuentes de terceros por la ingesta diaria. Cada cambio es un commit.",
     "boardsTitle": "Mejor por criterio",
     "boardsNote": "Derivado de las mediciones, sin juicio editorial. Los modelos listados juntos no se pueden separar con sus intervalos. El precio nunca entra al compuesto.",
     "board": {
@@ -482,10 +474,7 @@
       "under_1_usd": "Hasta ${price}/M · compuesto",
       "cheapest_covered": "Precio más bajo · {min}+ categorías medidas"
     },
-    "boardTie": "{count, plural, one {# modelo sin separación} other {# modelos sin separación}}",
-    "boardPool": "{count, plural, one {de # candidato} other {de # candidatos}}",
     "boardMore": "{count, plural, other {+# más}}",
-    "boardComposite": "compuesto {value}",
     "boardPerM": "${value}/M",
     "heroTitle": "Ranking de modelos de frontera, {period}",
     "heroSummary": "{models} modelos rastreados, {ranked} con puesto, medidos con {sources} fuentes independientes, con datos al {date}. {firsts, plural, one {El primer puesto lo ocupa un solo modelo.} other {# modelos comparten el primer puesto: sus intervalos no los separan.}}",

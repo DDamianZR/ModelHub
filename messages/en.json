@@ -10,18 +10,13 @@
   },
   "panel": {
     "updated": "Updated",
-    "models": "Models tracked",
     "sources": "Sources",
     "openWeights": "Open weights",
-    "snapshots": "Data snapshots",
     "degraded": "Source not refreshed",
     "degradedSource": "{source} has not responded since {since}; showing its {snapshot} snapshot",
-    "ruleHeading": "{source}, release used by category:",
-    "ruleItem": "{category} {release}{reason, select, comparable { (older values fill gaps; drift {drift})} not_comparable_more_coverage_older { (a newer release exists but is not comparable, drift {drift})} not_comparable_more_coverage_newest { (an older release is not comparable and covers fewer models, drift {drift})} too_few_common_models { (too few shared models to compare releases)} other {}}",
     "ruleSkipped": "Releases it published that were passed over: {list}.",
     "aging": "Data ageing",
-    "agingSource": "{source} has not published new numbers in {days, plural, one {# day} other {# days}} (last: {date})",
-    "agingSourceNormal": "{source}: {days, plural, one {# day} other {# days}} since it last published numbers, within its normal rhythm (median {median} days)"
+    "agingSource": "{source} has not published new numbers in {days, plural, one {# day} other {# days}} (last: {date})"
   },
   "filters": {
     "label": "Filters",
@@ -50,7 +45,6 @@
     "math": "Math",
     "human_preference": "Human preference",
     "instruction_following": "Instructions",
-    "knowledge": "Knowledge",
     "vision": "Vision",
     "trend": "Trajectory",
     "sortBy": "Sort by {column}",
@@ -472,8 +466,6 @@
     "benchmark": "Benchmark"
   },
   "home": {
-    "dataDate": "Data as of {date}",
-    "dataDateSub": "Rebuilt from third-party sources by the daily ingest. Every change is a commit.",
     "boardsTitle": "Best by criterion",
     "boardsNote": "Derived from the measurements, with no editorial call. Models listed together cannot be told apart given their intervals. Price never enters the composite.",
     "board": {
@@ -482,10 +474,7 @@
       "under_1_usd": "Up to ${price}/M · composite",
       "cheapest_covered": "Lowest price · {min}+ categories measured"
     },
-    "boardTie": "{count, plural, one {# model, not separable} other {# models, not separable}}",
-    "boardPool": "{count, plural, one {of # candidate} other {of # candidates}}",
     "boardMore": "{count, plural, other {+# more}}",
-    "boardComposite": "composite {value}",
     "boardPerM": "${value}/M",
     "heroTitle": "Frontier model ranking, {period}",
     "heroSummary": "{models} models tracked, {ranked} with a place, measured with {sources} independent sources, data as of {date}. {firsts, plural, one {One model holds first place.} other {# models share first place: their intervals do not separate them.}}",
