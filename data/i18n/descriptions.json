@@ -24,10 +24,10 @@
     "generated_by": "qwen3-coder:30b"
   },
   "alibaba-qwen3.6": {
-    "en": "Qwen 3.6 Max (Preview) is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Coding and Human preference. Somewhat lower in Math and Reasoning. Instructions was not measured.",
-    "es": "Qwen 3.6 Max (Preview) es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Código y Preferencia humana. Algo por debajo en Matemáticas y Razonamiento. No se midió Instrucciones.",
-    "generated_at": "2026-08-26",
-    "manual": true
+    "en": "Qwen 3.6 Max (Preview) is a language model built by Alibaba in 2026. API-only: its weights are not published, so it cannot be run locally. Relatively stronger in Reasoning and Coding. Relatively weaker in Math and Human preference. No data for Instructions.",
+    "es": "Qwen 3.6 Max (Preview) es un modelo de lenguaje desarrollado por Alibaba en 2026. Solo por API: sus pesos no se publican, no se ejecuta localmente. Relativamente más fuerte en Razonamiento y Código. Relativamente más débil en Matemáticas y Preferencia humana. Sin datos en Instrucciones.",
+    "generated_at": "2026-11-05",
+    "generated_by": "qwen3-coder-30b"
   },
   "alibaba-qwen3.6-27b": {
     "en": "Qwen3.6 27B is a language model built by Alibaba in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Instructions. No data for Human preference.",
@@ -60,8 +60,8 @@
     "generated_by": "qwen3-coder-30b"
   },
   "alibaba-qwen3.8-27b": {
-    "en": "Qwen3.8 27B is a language model built by Alibaba in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Somewhat lower in Coding and Instructions.",
-    "es": "Qwen3.8 27B es un modelo de lenguaje desarrollado por Alibaba en 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Algo por debajo en Código e Instrucciones.",
+    "en": "Qwen3.8 27B is a language model built by Alibaba in 2026. It is open-weights: downloadable and runnable locally. Relatively stronger in Math and Reasoning. Relatively weaker in Coding and Human preference.",
+    "es": "Qwen3.8 27B es un modelo de lenguaje desarrollado por Alibaba en 2026. Es de pesos abiertos: se descarga y corre localmente, sin API. Relativamente más fuerte en Matemáticas y Razonamiento. Relativamente más débil en Código y Preferencia humana.",
     "generated_at": "2026-11-05",
     "generated_by": "qwen3-coder-30b"
   },
