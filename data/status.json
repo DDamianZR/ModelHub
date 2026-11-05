@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T06:08:22+00:00",
+  "generated_at": "2026-11-05T06:15:54+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -112,13 +112,13 @@
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "9a1437f282f51c3fd7c8aa52cc435665c83be2aef58fd464879a4205fd243a45",
+      "normalised_sha256": "5b0a1dfc45146c7f8f6ff2c7ae44a6fdeac2faac89a2c1833064d2cc5232c0c7",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "08d4267ea54fd84c363291cfc3893d20290245331dfc5312bfef669e26aa0710",
-          "bytes": 815540
+          "sha256": "ac186d71d9c5579cf0e61944ff892f6465ea8fb7d98a999b1e47471ce65fcc98",
+          "bytes": 815591
         }
       ]
     }
