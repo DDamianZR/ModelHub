@@ -114,7 +114,7 @@ and how old its numbers are. Silence about staleness would be its own kind of di
 
 ## Stack
 
-Next.js 15 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (stdlib only).
+Next.js 16 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (stdlib only).
 
 Hosting on Vercel's free tier, ingest on GitHub Actions. Operating cost is zero by design, and
 any change that would introduce a bill is out of scope.

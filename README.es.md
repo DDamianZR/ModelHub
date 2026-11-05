@@ -120,7 +120,7 @@ de deshonestidad.
 
 ## Stack
 
-Next.js 15 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (solo stdlib).
+Next.js 16 · React 19 · TypeScript · Tailwind v4 · next-intl · Python 3 (solo stdlib).
 
 Hosting en el plan gratuito de Vercel, ingesta en GitHub Actions. El costo operativo es cero
 por diseño, y cualquier cambio que introduzca un cobro queda fuera de alcance.
