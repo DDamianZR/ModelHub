@@ -7,6 +7,7 @@ import {
   getAgedSources,
   getBestBy,
   getCadence,
+  getCategoryRules,
   getCategorySources,
   getMethodologyStats,
   getRanking,
@@ -79,6 +80,7 @@ export default async function MethodologyPage({
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
   const categorySources = getCategorySources();
+  const categoryRules = getCategoryRules();
   const bestBy = getBestBy();
   const blend = bestBy.meta.price_blend;
 
@@ -151,7 +153,63 @@ export default async function MethodologyPage({
           </p>
 
           <p>{t("formula.multimodal")}</p>
+
+          <p>{t("formula.knowledge")}</p>
         </Section>
+
+        {categoryRules.map((entry) => (
+          <Section key={entry.name} id="releases" title={t("releases.title", { source: entry.name })}>
+            <p>{t("releases.body", { source: entry.name })}</p>
+            <p>
+              {t("releases.comparable", {
+                maxDrift: entry.rules[0]?.[1].max_drift ?? 0,
+                minCommon: entry.rules[0]?.[1].min_common_models ?? 0,
+              })}
+            </p>
+            <p>{t("releases.notComparable")}</p>
+            <p>{t("releases.single")}</p>
+            <table className="mt-1 w-full border-collapse text-left">
+              <caption className="pb-2 text-left text-xs">{t("releases.measured")}</caption>
+              <thead>
+                <tr className="border-b border-subtle">
+                  <th scope="col" className="py-2">
+                    <span className="eyebrow">{t("formula.category")}</span>
+                  </th>
+                  <th scope="col" className="py-2">
+                    <span className="eyebrow">{t("releases.release")}</span>
+                  </th>
+                  <th scope="col" className="py-2 text-right">
+                    <span className="eyebrow">{t("releases.drift")}</span>
+                  </th>
+                  <th scope="col" className="py-2 text-right">
+                    <span className="eyebrow">{t("releases.shared")}</span>
+                  </th>
+                  <th scope="col" className="py-2 pl-4">
+                    <span className="eyebrow">{t("releases.decision")}</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {entry.rules.map(([category, rule]) => (
+                  <tr key={category} className="border-b border-subtle">
+                    <th scope="row" className="py-2 text-sm font-normal">
+                      {tt(category)}
+                    </th>
+                    <td className="num py-2 text-xs">{rule.release}</td>
+                    <td className="num py-2 text-right text-xs">
+                      {rule.drift == null ? "—" : rule.drift.toFixed(2)}
+                    </td>
+                    <td className="num py-2 text-right text-xs">{rule.common_models}</td>
+                    <td className="py-2 pl-4 text-2xs text-tertiary">
+                      {t(`releases.reason.${rule.reason}`)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p>{t("releases.limits")}</p>
+          </Section>
+        ))}
 
         <Section id="uncertainty" title={t("uncertainty.title")}>
           <p>{t("uncertainty.body")}</p>
