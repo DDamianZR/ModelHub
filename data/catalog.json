@@ -747,8 +747,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.057,
-      "price_output_usd_per_m": 0.171,
+      "price_input_usd_per_m": 0.0765,
+      "price_output_usd_per_m": 0.255,
       "open_weights": true,
       "hugging_face_id": "google/gemma-4-26B-A4B-it",
       "measured_at": "2026-11-05"
@@ -3236,7 +3236,7 @@
       "input_modalities": [
         "text"
       ],
-      "price_input_usd_per_m": 0.25,
+      "price_input_usd_per_m": 0.3,
       "price_output_usd_per_m": 1.0,
       "open_weights": true,
       "hugging_face_id": "reflection/Beam-1.0-501B-A23B",
@@ -4145,8 +4145,8 @@
         "text",
         "video"
       ],
-      "price_input_usd_per_m": 0.1605,
-      "price_output_usd_per_m": 10.1583,
+      "price_input_usd_per_m": 0.1539,
+      "price_output_usd_per_m": 10.1489,
       "open_weights": false,
       "hugging_face_id": null,
       "measured_at": "2026-11-05"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T18:45:30+00:00",
+  "generated_at": "2026-11-05T22:39:05+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -138,8 +138,8 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "3e4b9c59bc041a74091c7e84ada56ffa7415134ebdc5fe0d56860edbcbc0a4e4",
-          "bytes": 2280789
+          "sha256": "3118e1ad9b0a2843d4518a4f94e9110fa739a98655b2fcc78e3ce93d96b34965",
+          "bytes": 2280793
         }
       ]
     },
@@ -150,22 +150,22 @@
     },
     "lmarena": {
       "normalised_sha256": "1a436458f8b36c7149907aaf1ee3f2c822b770aca6ea4f1ab2d14c771b3c8527",
-      "requests": 8,
+      "requests": 7,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "731a62f95f8f1e0f84eac5ac20b1b8fe7582abd28ebe6751112d127fa7e38002",
+      "normalised_sha256": "9e9655b82fcf6309c83813e90f31019a41d5b3d06f0432eebcec896f8ef470fa",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "1728b0237c6c5af821b7abcb5657c6e8a4086446e224d51e81426d728ddad5af",
-          "bytes": 814078
+          "sha256": "102c6aecb9fafaa60ce19f43b584a7d6bd7c241132c84041e752303447611671",
+          "bytes": 814080
         }
       ]
     },
     "llmfit": {
-      "normalised_sha256": "c17f6ded1ef923deb62cb05f93b0cdff2ed206ea6e975715032625ba4c36238b",
+      "normalised_sha256": "6431792db6450771997e59a6d55fd7ccbca15648b30ec3758b1e840677e3cddb",
       "requests": 1,
       "upstream": [
         {
