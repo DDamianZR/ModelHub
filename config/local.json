@@ -13,6 +13,22 @@
     "among_candidates": "most downloaded repo; ties broken by repo name",
     "note": "The rule reads no publisher. It is mechanical, so it can pick a repack over the original; candidates and size_disagreement are published per row."
   },
+  "catalogue": {
+    "description": "Models /local shows beyond the scored cohort, so the page can answer 'what could my machine run' and not only 'which ranked models fit'. They carry a size and a Hugging Face link and nothing else: no composite, no rank, no score. The rule below is mechanical and reads no publisher; every threshold is debatable by pull request.",
+    "pipeline_tags": ["text-generation", "image-text-to-text"],
+    "min_parameters": 400000000,
+    "min_context_length": 2048,
+    "min_downloads": 100000,
+    "min_likes": 100,
+    "max_rows": 80,
+    "exclude_name_tokens": [
+      "awq", "gptq", "gguf", "mlx", "fp8", "fp4", "nvfp4", "mxfp4", "bnb", "int4", "int8",
+      "exl2", "autoround", "quantized", "w4a16", "w8a8", "bf16", "4bit", "5bit", "6bit", "8bit",
+      "base", "ocr", "abliterated", "obliterated", "uncensored"
+    ],
+    "exclude_name_suffixes": ["ocr"],
+    "note": "Repos that only re-pack another model (quantised formats), base checkpoints that were never instruction-tuned, OCR-only readers and community 'uncensored' edits are left out by name pattern: a whole word of the repo name must equal a token, or end with a suffix, listed here. Order is Hugging Face downloads, which measures popularity and not quality; the page says so."
+  },
   "attention_layouts": {
     "description": "Hybrid models mix full-attention layers, whose KV cache grows with context, with linear or state-space layers that keep a fixed-size state. Only the full layers are charged for context. A layout is a ratio; it is scaled to the model's real layer count when sizing.",
     "origin": "llmfit-core/src/models.rs, infer_attention_layout_from_name",

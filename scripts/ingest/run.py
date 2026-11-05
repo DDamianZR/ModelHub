@@ -502,17 +502,24 @@ def main() -> int:
     # Sizing data for /local. Fetched here because which repos are kept depends on the
     # cohort just built. Outside the composite: a failure degrades that page and nothing else.
     seen = set(DIGESTS)
+    catalogue_rules = local.load_catalogue_rules()
     llmfit_payload, llmfit_status = gather(
-        "llmfit", lambda: llmfit.collect(local.wanted_keys(models, canonical_keys)))
+        "llmfit", lambda: llmfit.collect(
+            local.wanted_keys(models, canonical_keys),
+            exclude=local.scored_keys(models, canonical_keys),
+            rules=catalogue_rules))
     integrity["llmfit"] = integrity_for(seen, llmfit_payload)
     llmfit_failures = prev_statuses.get("llmfit", {}).get("consecutive_failures", 0)
     llmfit_status["consecutive_failures"] = (
         0 if llmfit_status["state"] == "ok" else llmfit_failures + 1)
     statuses["llmfit"] = llmfit_status
+    layout_rules = local.load_layout_rules()
     local_rows = local.build(
-        models, canonical_keys, llmfit_payload.get("entries") or {}, local.load_layout_rules())
+        models, canonical_keys, llmfit_payload.get("entries") or {}, layout_rules)
+    local_catalogue = local.build_catalogue(llmfit_payload.get("popular") or [], layout_rules)
     print(f"  local: {len(local_rows)} of "
-          f"{sum(1 for m in models if m.get('is_open_weights'))} open-weights models sized")
+          f"{sum(1 for m in models if m.get('is_open_weights'))} open-weights models sized, "
+          f"{len(local_catalogue)} unscored catalogue models")
     router_catalogue = router_payload.get("catalogue") or {}
     router_matches = catalogue.match_models(canonical_keys, router_catalogue)
     router_day = router_status.get("last_success") or date.today().isoformat()
@@ -620,7 +627,7 @@ def main() -> int:
     })
     write_json(DATA / "local_models.json", local.document(
         local_rows, sum(1 for m in models if m.get("is_open_weights")),
-        meta["generated_at"]))
+        meta["generated_at"], local_catalogue, catalogue_rules))
     write_json(DATA / "best_by.json", {
         "meta": {
             "generated_at": meta["generated_at"], "in_composite": False,
