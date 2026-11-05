@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react-hooks/set-state-in-effect -- state is read from the URL or storage after mount on purpose: the page is prerendered, so reading either during render would mismatch the server HTML. */
+
 import { useEffect, useState } from "react";
 
 type Theme = "dark" | "light";
