@@ -355,6 +355,8 @@ export interface ScatterPoint {
   composite: number;
   error: number | null;
   frontier: boolean;
+  rank: number | null;
+  open: boolean | null;
 }
 
 /** A group's best measured Arena rating on each snapshot date. */
