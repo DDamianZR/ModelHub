@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 type Theme = "dark" | "light";
 
 /**
- * The inline script in the locale layout applies the stored choice, or the system
- * preference when there is none, before first paint; dark is the fallback. This component
+ * The inline script in the locale layout applies the stored choice before first paint;
+ * with none stored the theme is light. This component
  * only has to keep the attribute and the storage in step, and an explicit click is always
  * remembered over the system preference. Storage can throw (private mode, blocked
  * cookies), and a failed write must not break the toggle.
@@ -18,10 +18,10 @@ export function ThemeToggle({
 }: {
   labels: { toLight: string; toDark: string; light: string; dark: string };
 }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
+    setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
   }, []);
 
   function toggle() {
@@ -40,7 +40,7 @@ export function ThemeToggle({
       type="button"
       onClick={toggle}
       aria-label={`${theme === "dark" ? labels.dark : labels.light}. ${theme === "dark" ? labels.toLight : labels.toDark}`}
-      className="control control-sm eyebrow shrink-0"
+      className="control control-sm shrink-0 text-xs"
     >
       {/* The icon and, from sm up, the text name the theme in use; the aria-label names
           the action. On a phone the icon alone keeps the wordmark from being clipped. */}

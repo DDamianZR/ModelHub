@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site-url";
 import "../globals.css";
@@ -13,6 +13,12 @@ const geistSans = Geist({
   display: "swap",
 });
 
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
@@ -20,9 +26,9 @@ const geistMono = Geist_Mono({
 });
 
 /** Runs before first paint so the chosen theme never flashes. A stored choice wins; with
-    none, the system preference decides; with neither, the page stays dark. Storage and
-    matchMedia are guarded because either can throw or be absent. */
-const THEME_SCRIPT = `try{var d=document.documentElement,t=null;try{t=localStorage.getItem("mh-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.dataset.theme=t}catch(e){}`;
+    none, the page is light (the system preference is deliberately not followed). Storage
+    is guarded because it can throw. */
+const THEME_SCRIPT = `try{var d=document.documentElement,t=null;try{t=localStorage.getItem("mh-theme")}catch(e){}d.dataset.theme=t==="dark"?"dark":"light"}catch(e){}`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -59,7 +65,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
       <head>
