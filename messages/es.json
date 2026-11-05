@@ -50,6 +50,7 @@
     "math": "Matemáticas",
     "human_preference": "Preferencia humana",
     "instruction_following": "Instrucciones",
+    "knowledge": "Conocimiento",
     "vision": "Visión",
     "trend": "Trayectoria",
     "sortBy": "Ordenar por {column}",
@@ -79,7 +80,7 @@
     "context": "Contexto",
     "frontier": "Frontera",
     "frontierTitle": "Frontera de costo: ningún otro modelo con precio cuesta lo mismo o menos y puntúa igual o más",
-    "legendFrontier": "en la frontera de costo (ver el gráfico más abajo)",
+    "legendFrontier": "en la frontera de costo (ver el gráfico de arriba)",
     "legendNone": "sin medición; el motivo, si se conoce, aparece al pasar el cursor"
   },
   "footer": {
@@ -280,6 +281,7 @@
       "knowledge": "SimpleQA Verified (Epoch) mide conocimiento factual, no razonamiento. Alimenta el tablero de Conocimiento y no participa en el compuesto, así que ningún benchmark de conocimiento mueve el puntaje de Razonamiento de un modelo."
     },
     "releases": {
+      "cutoffs": "Cortes de datos: {snapshots}.",
       "title": "{source}: de qué versión sale cada categoría",
       "body": "{source} publica versiones con fecha, y una más nueva no siempre trae todas las suites de una anterior ni mide en la misma escala. Por eso cada categoría se decide por separado, con una medición. Tomamos la versión más nueva que publica la suite de la categoría y la comparamos con la versión anterior más cercana que publica una suite distinta, usando la diferencia media absoluta entre ambas sobre los modelos que las dos midieron.",
       "comparable": "Si esa diferencia es de {maxDrift} puntos o menos, y se comparten al menos {minCommon} modelos, las dos escalas cuentan como una: se usa la versión más nueva, y un modelo que le falta conserva su valor de la versión anterior, con la fecha de esa versión.",
@@ -472,7 +474,7 @@
   "home": {
     "dataDate": "Datos al {date}",
     "dataDateSub": "Reconstruido desde fuentes de terceros por la ingesta diaria. Cada cambio es un commit.",
-    "boardsTitle": "Valor medido más alto por criterio",
+    "boardsTitle": "Mejor por criterio",
     "boardsNote": "Derivado de las mediciones, sin juicio editorial. Los modelos listados juntos no se pueden separar con sus intervalos. El precio nunca entra al compuesto.",
     "board": {
       "composite": "Compuesto",
@@ -485,9 +487,13 @@
     "boardMore": "{count, plural, other {+# más}}",
     "boardComposite": "compuesto {value}",
     "boardPerM": "${value}/M",
-    "topTitle": "Primeros puestos",
-    "topNote": "Un empate cuenta como empate: un número repetido es un grupo que los datos no separan.",
-    "topTied": "{count, plural, one {# modelo más comparte} other {# modelos más comparten}} este puesto",
+    "heroTitle": "Ranking de modelos de frontera, {period}",
+    "heroSummary": "{models} modelos rastreados, {ranked} con puesto, medidos con {sources} fuentes independientes, con datos al {date}. {firsts, plural, one {El primer puesto lo ocupa un solo modelo.} other {# modelos comparten el primer puesto: sus intervalos no los separan.}}",
+    "searchLabel": "Buscar un modelo, proveedor o benchmark",
+    "chipRanking": "Ranking",
+    "chipCheapest": "Más barato con cobertura ({min}+ categorías)",
+    "sourcesLine": "Cortes de datos: {snapshots}. Fuentes {degraded, plural, =0 {sin fallos} one {con # degradada} other {con # degradadas}}{aging, plural, =0 {} one {, # envejeciendo} other {, # envejeciendo}}.",
+    "sourcesLink": "Versión usada por categoría y salud de cada fuente",
     "scatterTitle": "Precio frente a compuesto",
     "scatterNote": "Modelos con puesto y precio ({models}). Los marcados no son superados en ambos ejes por ningún otro: ninguno cuesta lo mismo o menos y puntúa igual o más. La prueba compara valores puntuales, no intervalos. Precio mezclado a {input} de entrada por {output} de salida.",
     "scatter": {
@@ -529,6 +535,7 @@
     "metaDescription": "Puntajes de {count, plural, one {# modelo} other {# modelos}} en {name} ({source}), con intervalo, fecha y tipo de fuente.",
     "eyebrow": "Benchmark",
     "intro": "Categoría: {category}. Esa categoría pesa {weight}% del compuesto, repartido entre sus benchmarks como describe la metodología. Fuente: {source}.",
+    "introOutside": "Categoría: {category}. Esta categoría no entra al compuesto: se muestra como tablero aparte. Fuente: {source}.",
     "orderNote": "Ordenado por valor medido. Una fila por encima de otra no está medidamente adelante salvo que sus intervalos se separen, por eso se muestra el intervalo.",
     "colModel": "Modelo",
     "colValue": "Valor",

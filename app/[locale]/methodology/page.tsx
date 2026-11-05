@@ -74,6 +74,7 @@ export default async function MethodologyPage({
 
   const t = await getTranslations("methodology");
   const tt = await getTranslations("table");
+  const tp = await getTranslations("panel");
   const { meta } = getRanking();
   const rejected = getRejectedSnapshots();
   const aged = getAgedSources();
@@ -89,9 +90,9 @@ export default async function MethodologyPage({
       <SiteHeader locale={locale} active="methodology" />
 
       <div className="mt-8 max-w-[46rem]">
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight">
+        <h1 className="text-4xl leading-tight font-semibold tracking-tight">
           {t("title")}
-        </h2>
+        </h1>
         <p className="mt-3 text-md leading-[1.65] text-tertiary">
           {t("intro")}
         </p>
@@ -158,8 +159,23 @@ export default async function MethodologyPage({
         </Section>
 
         {categoryRules.map((entry) => (
-          <Section key={entry.name} id="releases" title={t("releases.title", { source: entry.name })}>
+          <Section key={entry.name} id="fuentes" title={t("releases.title", { source: entry.name })}>
+            <p className="num text-xs">
+              {t("releases.cutoffs", {
+                snapshots: Object.entries(meta.snapshots)
+                  .filter(([, value]) => value)
+                  .map(([key, value]) => `${key} ${value}`)
+                  .join(" · "),
+              })}
+            </p>
             <p>{t("releases.body", { source: entry.name })}</p>
+            {entry.skipped.length > 0 && (
+              <p>
+                {tp("ruleSkipped", {
+                  list: entry.skipped.map((s) => `${s.date} (${s.reason})`).join(", "),
+                })}
+              </p>
+            )}
             <p>
               {t("releases.comparable", {
                 maxDrift: entry.rules[0]?.[1].max_drift ?? 0,
@@ -192,7 +208,7 @@ export default async function MethodologyPage({
               <tbody>
                 {entry.rules.map(([category, rule]) => (
                   <tr key={category} className="border-b border-subtle">
-                    <th scope="row" className="py-2 text-sm font-normal">
+                    <th scope="row" className="py-2 pr-4 text-sm font-normal">
                       {tt(category)}
                     </th>
                     <td className="num py-2 text-xs">{rule.release}</td>

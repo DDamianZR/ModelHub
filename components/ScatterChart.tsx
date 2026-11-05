@@ -12,8 +12,8 @@ import type { ScatterPoint } from "@/lib/types";
  * interval is drawn here: drawing one would imply the frontier respects it.
  */
 
-const W = 900;
-const H = 380;
+const WIDE = { w: 900, h: 380 };
+const COMPACT = { w: 640, h: 440 };
 const M = { top: 14, right: 20, bottom: 38, left: 46 };
 const LABEL_H = 12;
 const CHAR_W = 5.9;
@@ -36,9 +36,12 @@ export function ScatterChart({
   points,
   locale,
   labels,
+  compact = false,
 }: {
   points: ScatterPoint[];
   locale: string;
+  /** Taller and narrower, for a half-width column. */
+  compact?: boolean;
   labels: {
     figure: string;
     xAxis: string;
@@ -49,6 +52,8 @@ export function ScatterChart({
   };
 }) {
   if (points.length === 0) return null;
+  const W = compact ? COMPACT.w : WIDE.w;
+  const H = compact ? COMPACT.h : WIDE.h;
 
   const prices = points.map((p) => p.price);
   const xMin = Math.log10(Math.min(...prices) * 0.8);
@@ -91,16 +96,30 @@ export function ScatterChart({
       { x: px - 7, y: py - 9, anchor: "end", text: p.name },
       { x: px - 7, y: py + 16, anchor: "end", text: p.name },
       { x: px - 7, y: py + 3.5, anchor: "end", text: p.name },
+      // Second tier, for a crowded corner: one label height further out.
+      { x: px + 7, y: py - 22, anchor: "start", text: p.name },
+      { x: px - 7, y: py - 22, anchor: "end", text: p.name },
+      { x: px + 7, y: py + 29, anchor: "start", text: p.name },
+      { x: px - 7, y: py + 29, anchor: "end", text: p.name },
     ];
-    const fits = (c: Placed) => {
+    const fits = (c: Placed, strict = true) => {
       const x0 = c.anchor === "start" ? c.x : c.x - width;
       const x1 = x0 + width;
       const y0 = c.y - LABEL_H + 2;
       const y1 = c.y + 2;
       if (x0 < 2 || x1 > W - 2) return false;
-      return !boxes.some((b) => x0 < b.x1 && x1 > b.x0 && y0 < b.y1 && y1 > b.y0);
+      if (!strict) return true;
+      if (boxes.some((b) => x0 < b.x1 && x1 > b.x0 && y0 < b.y1 && y1 > b.y0)) return false;
+      // A label must also clear every frontier mark, its own neighbours included.
+      return !frontier.some((q) => {
+        const qx = x(q.price);
+        const qy = y(q.composite);
+        return x0 < qx + 6 && x1 > qx - 6 && y0 < qy + 6 && y1 > qy - 6;
+      });
     };
-    const choice = candidates.find(fits) ?? candidates[1];
+    // Last resort keeps the label inside the figure even if it has to touch a neighbour.
+    const choice =
+      candidates.find((c) => fits(c)) ?? candidates.find((c) => fits(c, false)) ?? candidates[1];
     const x0 = choice.anchor === "start" ? choice.x : choice.x - width;
     boxes.push({ x0, x1: x0 + width, y0: choice.y - LABEL_H + 2, y1: choice.y + 2 });
     placed.push(choice);
@@ -114,7 +133,7 @@ export function ScatterChart({
       <div className="relative overflow-x-auto" role="region" aria-label={labels.figure} tabIndex={0}>
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          className="block h-auto w-full min-w-[40rem] text-tertiary"
+          className="block h-auto w-full min-w-[34rem] lg:min-w-0 text-tertiary"
         >
           {/* Gridlines are one path; tick labels share their text attributes on the group. */}
           <path

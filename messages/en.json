@@ -50,6 +50,7 @@
     "math": "Math",
     "human_preference": "Human preference",
     "instruction_following": "Instructions",
+    "knowledge": "Knowledge",
     "vision": "Vision",
     "trend": "Trajectory",
     "sortBy": "Sort by {column}",
@@ -79,7 +80,7 @@
     "context": "Context",
     "frontier": "Frontier",
     "frontierTitle": "Cost frontier: no other priced model costs the same or less and scores the same or more",
-    "legendFrontier": "on the cost frontier (see the chart below)",
+    "legendFrontier": "on the cost frontier (see the chart above)",
     "legendNone": "not measured; hover for the reason when it is known"
   },
   "footer": {
@@ -280,6 +281,7 @@
       "knowledge": "SimpleQA Verified (Epoch) measures factual knowledge, not reasoning. It feeds the Knowledge board and takes no part in the composite, so no knowledge benchmark moves a model's Reasoning score."
     },
     "releases": {
+      "cutoffs": "Data cutoffs: {snapshots}.",
       "title": "{source}: which release each category comes from",
       "body": "{source} publishes dated releases, and a newer one does not always publish every suite an older one did, nor measure on the same scale. Each category is therefore decided on its own, from a measurement. We take the newest release that publishes the category's suite and compare it with the nearest earlier release that publishes a different suite, using the mean absolute gap between the two on the models both measured.",
       "comparable": "If that gap is at most {maxDrift} points, and at least {minCommon} models are shared, the two scales count as one: the newest release is used, and a model it lacks keeps its value from the older release, dated with that release.",
@@ -472,7 +474,7 @@
   "home": {
     "dataDate": "Data as of {date}",
     "dataDateSub": "Rebuilt from third-party sources by the daily ingest. Every change is a commit.",
-    "boardsTitle": "Highest measured value by criterion",
+    "boardsTitle": "Best by criterion",
     "boardsNote": "Derived from the measurements, with no editorial call. Models listed together cannot be told apart given their intervals. Price never enters the composite.",
     "board": {
       "composite": "Composite",
@@ -485,9 +487,13 @@
     "boardMore": "{count, plural, other {+# more}}",
     "boardComposite": "composite {value}",
     "boardPerM": "${value}/M",
-    "topTitle": "First places",
-    "topNote": "A tie counts as a tie: a repeated number is a group the data cannot separate.",
-    "topTied": "{count, plural, one {# more model shares} other {# more models share}} this place",
+    "heroTitle": "Frontier model ranking, {period}",
+    "heroSummary": "{models} models tracked, {ranked} with a place, measured with {sources} independent sources, data as of {date}. {firsts, plural, one {One model holds first place.} other {# models share first place: their intervals do not separate them.}}",
+    "searchLabel": "Search a model, provider or benchmark",
+    "chipRanking": "Ranking",
+    "chipCheapest": "Cheapest with coverage ({min}+ categories)",
+    "sourcesLine": "Data cutoffs: {snapshots}. Sources {degraded, plural, =0 {with no failures} one {with # degraded} other {with # degraded}}{aging, plural, =0 {} one {, # ageing} other {, # ageing}}.",
+    "sourcesLink": "Version used per category and source health",
     "scatterTitle": "Price against composite",
     "scatterNote": "Ranked models with a price ({models}). Marked models are not beaten on both axes by any other: none costs the same or less and scores the same or more. The test compares point values, not intervals. Price blended at {input} input to {output} output.",
     "scatter": {
@@ -529,6 +535,7 @@
     "metaDescription": "Scores of {count, plural, one {# model} other {# models}} on {name} ({source}), with interval, date and source type.",
     "eyebrow": "Benchmark",
     "intro": "Category: {category}. That category carries {weight}% of the composite, shared among its benchmarks as the methodology describes. Source: {source}.",
+    "introOutside": "Category: {category}. This category is outside the composite: it is shown as a separate board. Source: {source}.",
     "orderNote": "Ordered by measured value. A row above another is not measurably ahead unless their intervals separate, which is why the interval is shown.",
     "colModel": "Model",
     "colValue": "Value",

@@ -573,7 +573,7 @@ export function RankingTable({
         <span className="text-mark" aria-hidden="true">
           ●
         </span>{" "}
-        {t("legendFrontier")} · <span aria-hidden="true">·</span> {t("legendNone")}
+        {t("legendFrontier")}; <span aria-hidden="true">·</span> {t("legendNone")}
       </p>
       {(minContext !== 0 || maxPrice !== 0) && (
         <p className="mt-2 text-2xs text-tertiary">{tf("unknownHidden")}</p>

@@ -1,28 +1,17 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Surface } from "@/components/Surface";
-import type { BoardCard, BoardModel } from "@/lib/types";
+import type { BoardCard } from "@/lib/types";
 
-const SHOWN = 3;
-
-function placeLabel(model: BoardModel, total: number): string | null {
-  if (model.rank === null) return null;
-  return `${model.tied_with > 0 ? "=" : "#"}${model.rank}/${total}`;
-}
+const SHOWN = 2;
 
 /**
- * The "best by" boards, one card each. A card states the highest measured value, then every
- * model nobody in the pool is measurably ahead of: more than one winner is a tie and is
- * shown as one. Cards are ordered as best_by.json orders them, never by who wins. The price
- * card shows the winner's composite beside the price, so a low price is never read as a score.
+ * The "best by" boards as one compact row of links. Each entry names the criterion and the
+ * highest measured value, then every model nobody in the pool is measurably ahead of: more
+ * than one is a tie and is written as one. Entries keep the order best_by.json gives them,
+ * never an order by who wins, and nothing is styled by who the winner is. The price board
+ * shows the winner's composite beside the price, so a low price is never read as a score.
  */
-export async function BoardCards({
-  cards,
-  rankedCount,
-}: {
-  cards: BoardCard[];
-  rankedCount: number;
-}) {
+export async function BoardCards({ cards }: { cards: BoardCard[] }) {
   const t = await getTranslations("home");
   const tt = await getTranslations("table");
 
@@ -38,7 +27,7 @@ export async function BoardCards({
     return t(`board.${card.id}`);
   };
 
-  const headline = (card: BoardCard): string => {
+  const value = (card: BoardCard): string => {
     if (card.value === null) return "—";
     if (card.metric === "price") {
       return t("boardPerM", { value: card.value.toFixed(card.value < 1 ? 3 : 2) });
@@ -47,45 +36,26 @@ export async function BoardCards({
   };
 
   return (
-    <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="flex flex-col gap-x-8 gap-y-2 text-sm sm:flex-row sm:flex-wrap">
       {cards.map((card) => {
         const shown = card.winners.slice(0, SHOWN);
         const extra = card.winners.length - shown.length;
         return (
-          <li key={card.id}>
-            <Surface className="flex h-full flex-col gap-2 p-4">
-              <span className="eyebrow">{title(card)}</span>
-              <span className="num text-xl leading-none tracking-snug">{headline(card)}</span>
-              <ul className="flex flex-col text-sm">
-                {shown.map((winner) => (
-                  <li key={winner.id} className="flex flex-wrap items-baseline gap-x-2">
-                    <Link
-                      href={`/model/${winner.id}`}
-                      className="row-shift inline-block py-1 underline-offset-2 hover:underline"
-                    >
-                      {winner.display_name}
-                    </Link>
-                    {card.metric === "price" && (
-                      <span className="num text-2xs text-tertiary">
-                        {t("boardComposite", { value: winner.composite.toFixed(1) })}
-                      </span>
-                    )}
-                    {placeLabel(winner, rankedCount) && card.metric !== "price" && (
-                      <span className="num text-2xs text-tertiary">
-                        {placeLabel(winner, rankedCount)}
-                      </span>
-                    )}
-                  </li>
-                ))}
-                {extra > 0 && (
-                  <li className="num text-2xs text-tertiary">{t("boardMore", { count: extra })}</li>
-                )}
-              </ul>
-              <p className="num mt-auto text-2xs text-tertiary">
-                {card.winners.length > 1 && <>{t("boardTie", { count: card.winners.length })} · </>}
-                {t("boardPool", { count: card.candidates })}
-              </p>
-            </Surface>
+          <li key={card.id} className="flex flex-wrap items-baseline gap-x-2">
+            <span className="text-tertiary">{title(card)}</span>
+            <span className="num text-xs text-tertiary">{value(card)}</span>
+            {shown.map((winner, index) => (
+              <span key={winner.id}>
+                {index > 0 && <span className="text-tertiary"> = </span>}
+                <Link
+                  href={`/model/${winner.id}`}
+                  className="inline-block py-1.5 underline underline-offset-2"
+                >
+                  {winner.display_name}
+                </Link>
+              </span>
+            ))}
+            {extra > 0 && <span className="num text-xs text-tertiary">{t("boardMore", { count: extra })}</span>}
           </li>
         );
       })}
