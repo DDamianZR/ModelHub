@@ -66,5 +66,20 @@ class ReadIndexTests(unittest.TestCase):
         self.assertEqual(epoch._display_name(rows[0]), "grok-4.3_high")
 
 
+class UnknownQualifierTests(unittest.TestCase):
+    def test_an_unknown_variant_is_omitted_with_its_parenthesis(self):
+        self.assertEqual(epoch.drop_unknown_qualifier("Model X (unknown)"), "Model X")
+
+    def test_a_known_word_next_to_unknown_survives(self):
+        self.assertEqual(epoch.drop_unknown_qualifier("Model X (unknown thinking)"), "Model X (thinking)")
+
+    def test_a_real_qualifier_is_untouched(self):
+        self.assertEqual(epoch.drop_unknown_qualifier("Model X (high)"), "Model X (high)")
+
+    def test_display_name_never_shows_unknown(self):
+        row = {"Display name": "Model X (unknown)", "Model name": "x", "Model version": "x_1"}
+        self.assertEqual(epoch._display_name(row), "Model X")
+
+
 if __name__ == "__main__":
     unittest.main()

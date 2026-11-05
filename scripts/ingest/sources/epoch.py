@@ -14,6 +14,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import re
 import zipfile
 
 from ..common import CONFIG, SourceError, fetch, norm
@@ -105,13 +106,28 @@ def _read_index(archive: zipfile.ZipFile,
     ]
 
 
+_PARENTHETICAL = re.compile(r"\s*\(([^()]*)\)")
+
+
+def drop_unknown_qualifier(name: str) -> str:
+    """Remove the word "unknown" from a name's parenthetical, and the parenthesis if it empties.
+
+    Epoch writes "Model (unknown)" when it does not know a variant. An unknown variant is
+    the absence of a qualifier, not a qualifier, so it is omitted rather than displayed.
+    """
+    def clean(match: re.Match) -> str:
+        words = [w for w in match.group(1).split() if w.lower() != "unknown"]
+        return f" ({' '.join(words)})" if words else ""
+    return _PARENTHETICAL.sub(clean, name).strip()
+
+
 def _display_name(row: dict) -> str:
     """The most readable name a registry row offers, falling back to the raw version id.
 
     A blank or whitespace-only cell counts as missing, so it cannot shadow a real name.
     """
     for column in ("Display name", "Model name", "Model version"):
-        name = (row.get(column) or "").strip()
+        name = drop_unknown_qualifier((row.get(column) or "").strip())
         if name:
             return name
     return ""
