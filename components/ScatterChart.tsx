@@ -114,8 +114,6 @@ export function ScatterChart({
       <div className="relative overflow-x-auto" role="region" aria-label={labels.figure} tabIndex={0}>
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          role="img"
-          aria-label={labels.figure}
           className="block h-auto w-full min-w-[40rem] text-tertiary"
         >
           {/* Gridlines are one path; tick labels share their text attributes on the group. */}

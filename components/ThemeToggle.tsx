@@ -39,7 +39,7 @@ export function ThemeToggle({
     <button
       type="button"
       onClick={toggle}
-      aria-label={theme === "dark" ? labels.toLight : labels.toDark}
+      aria-label={`${theme === "dark" ? labels.dark : labels.light}. ${theme === "dark" ? labels.toLight : labels.toDark}`}
       className="control control-sm eyebrow shrink-0"
     >
       {/* The icon and, from sm up, the text name the theme in use; the aria-label names

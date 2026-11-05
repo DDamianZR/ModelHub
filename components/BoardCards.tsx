@@ -56,12 +56,12 @@ export async function BoardCards({
             <Surface className="flex h-full flex-col gap-2 p-4">
               <span className="eyebrow">{title(card)}</span>
               <span className="num text-xl leading-none tracking-snug">{headline(card)}</span>
-              <ul className="flex flex-col gap-0.5 text-sm">
+              <ul className="flex flex-col text-sm">
                 {shown.map((winner) => (
                   <li key={winner.id} className="flex flex-wrap items-baseline gap-x-2">
                     <Link
                       href={`/model/${winner.id}`}
-                      className="row-shift underline-offset-2 hover:underline"
+                      className="row-shift inline-block py-1 underline-offset-2 hover:underline"
                     >
                       {winner.display_name}
                     </Link>

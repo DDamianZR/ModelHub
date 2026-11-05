@@ -108,12 +108,11 @@ export function CommandPalette({ labels }: { labels: Labels }) {
       <button
         type="button"
         onClick={open}
-        aria-label={labels.trigger}
         aria-keyshortcuts="Control+K Meta+K"
         className="control control-sm eyebrow shrink-0 gap-2"
       >
         <span>{labels.trigger}</span>
-        <kbd className="num hidden text-2xs text-tertiary sm:inline">⌘K</kbd>
+        <kbd aria-hidden="true" className="num hidden text-2xs text-tertiary sm:inline">⌘K</kbd>
       </button>
 
       <dialog
