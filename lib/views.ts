@@ -91,6 +91,8 @@ export function getScatterPoints(): ScatterPoint[] {
       composite: row.composite,
       error: row.composite_error,
       frontier: row.pareto_frontier === true,
+      rank: row.rank ?? null,
+      open: row.is_open_weights ?? null,
     }));
 }
 

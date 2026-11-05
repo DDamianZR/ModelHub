@@ -182,24 +182,9 @@ export default async function HomePage({
               output: bestBy.meta.price_blend.output,
             })}
           </p>
-          <ScatterChart
-            compact
-            points={scatter}
-            locale={locale}
-            labels={{
-              figure: th("scatter.figure"),
-              xAxis: th("scatter.xAxis"),
-              yAxis: th("scatter.yAxis"),
-              frontier: th("scatter.frontier"),
-              others: th("scatter.others"),
-              tooltip: (p) =>
-                th("scatter.tooltip", {
-                  name: p.name,
-                  composite: p.composite.toFixed(1),
-                  price: p.price.toFixed(p.price < 1 ? 3 : 2),
-                }),
-            }}
-          />
+          <NextIntlClientProvider messages={{ home: { scatter: messages.home.scatter } }}>
+            <ScatterChart compact points={scatter} locale={locale} />
+          </NextIntlClientProvider>
           {/* The same frontier as text, for whoever cannot resolve the marks. */}
           <h3 className="sr-only">{th("scatter.frontierList")}</h3>
           <ul className="num sr-only">
