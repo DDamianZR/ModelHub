@@ -25,46 +25,98 @@ CATEGORY_MAP = {
 }
 
 
-def _resolve_snapshots() -> list[str]:
-    """Every published snapshot date, oldest first.
+# The composite category LiveBench is the only source for. A release that publishes no
+# suite mapped to it cannot stand in for the one before it: scoring from it would silently
+# empty that category for every model.
+REQUIRED_CATEGORIES = frozenset({"instruction_following"})
 
-    The snapshot list lives in a JS array inside a hash-named bundle, which makes this the
-    most fragile step in the pipeline. Failure here is a SourceError, so the run falls back
-    to the cached payload rather than dying.
+_V1_LIST = re.compile(r'\[((?:"20\d{2}-\d{2}-\d{2}",?)+)\]')
+_V2_LIST = re.compile(r'\[((?:"20\d{6}",?)+)\]')
 
-    The whole list is returned, not just the newest, so the run can compare the cadence
-    this source actually keeps against the one config/sources.json declares for it.
+
+def parse_releases(script: str) -> list[dict]:
+    """Every release the site's bundle lists, newest first.
+
+    Two generations coexist in the bundle: dated v1 snapshots, now served under /v1/, and
+    compact-dated 2.0 releases served under /data/<id>/. Both lists live in minified
+    JavaScript, which makes this the most fragile step in the pipeline; a miss is a
+    SourceError, so the run falls back to the cached payload rather than dying.
     """
-    html = fetch(f"{SITE}/").decode("utf-8", "replace")
+    v1 = _V1_LIST.search(script)
+    if not v1:
+        raise SourceError("livebench: could not locate the snapshot list")
+
+    releases: list[dict] = []
+    for date in sorted(set(re.findall(r"20\d{2}-\d{2}-\d{2}", v1.group(1)))):
+        slug = date.replace("-", "_")
+        releases.append({
+            "date": date, "generation": "v1",
+            "table": f"{SITE}/v1/table_{slug}.csv",
+            "categories": f"{SITE}/v1/categories_{slug}.json",
+        })
+    for match in _V2_LIST.finditer(script):
+        for compact in sorted(set(re.findall(r"20\d{6}", match.group(1)))):
+            date = f"{compact[:4]}-{compact[4:6]}-{compact[6:]}"
+            releases.append({
+                "date": date, "generation": "v2",
+                "table": f"{SITE}/data/{compact}/table.csv",
+                "categories": f"{SITE}/data/{compact}/categories.json",
+            })
+    if not releases:
+        raise SourceError("livebench: snapshot list was empty")
+    return sorted({r["date"]: r for r in releases}.values(), key=lambda r: r["date"], reverse=True)
+
+
+def _task_categories(categories: dict) -> dict[str, str]:
+    return {
+        task: CATEGORY_MAP[group]
+        for group, tasks in categories.items()
+        if group in CATEGORY_MAP and isinstance(tasks, list)
+        for task in tasks
+    }
+
+
+def _resolve_releases(fetcher) -> list[dict]:
+    html = fetcher(f"{SITE}/").decode("utf-8", "replace")
     bundle = re.search(r'src="\.?/?(static/js/main\.[0-9a-f]+\.js)"', html)
     if not bundle:
         raise SourceError("livebench: could not locate the JS bundle")
-
-    script = fetch(f"{SITE}/{bundle.group(1)}", timeout=180).decode("utf-8", "replace")
-    array = re.search(r'\[((?:"20\d{2}-\d{2}-\d{2}",?)+)\]', script)
-    if not array:
-        raise SourceError("livebench: could not locate the snapshot list")
-
-    dates = sorted(set(re.findall(r"20\d{2}-\d{2}-\d{2}", array.group(1))))
-    if not dates:
-        raise SourceError("livebench: snapshot list was empty")
-    return dates
+    script = fetcher(f"{SITE}/{bundle.group(1)}", timeout=180).decode("utf-8", "replace")
+    return parse_releases(script)
 
 
-def collect() -> dict:
-    published = _resolve_snapshots()
-    snapshot = published[-1]
-    slug = snapshot.replace("-", "_")
+def select_release(releases: list[dict], fetcher) -> tuple[dict, str, dict[str, str], list[dict]]:
+    """The newest release that can be scored, with the ones passed over and why.
 
-    table = fetch(f"{SITE}/table_{slug}.csv").decode("utf-8", "replace")
-    categories = json.loads(fetch(f"{SITE}/categories_{slug}.json").decode())
+    Newest first. A release is passed over when its files are gone (404) or when it
+    publishes no suite for a required category. Passed-over releases are returned so the
+    status file can say a newer release exists and is not being scored.
+    """
+    skipped: list[dict] = []
+    for release in releases:
+        try:
+            table = fetcher(release["table"]).decode("utf-8", "replace")
+            categories = json.loads(fetcher(release["categories"]).decode())
+        except (SourceError, json.JSONDecodeError) as exc:
+            skipped.append({"date": release["date"], "reason": f"unreadable: {exc}"[:160]})
+            continue
+        task_category = _task_categories(categories)
+        missing = REQUIRED_CATEGORIES - set(task_category.values())
+        if missing:
+            skipped.append({"date": release["date"],
+                            "reason": "no suite for " + ", ".join(sorted(missing))})
+            continue
+        return release, table, task_category, skipped
+    raise SourceError(
+        "livebench: no scoreable release among "
+        + ", ".join(f"{s['date']} ({s['reason']})" for s in skipped[:4])
+    )
 
-    task_category = {
-        task: CATEGORY_MAP[group]
-        for group, tasks in categories.items()
-        if group in CATEGORY_MAP
-        for task in tasks
-    }
+
+def collect(fetcher=fetch) -> dict:
+    releases = _resolve_releases(fetcher)
+    release, table, task_category, skipped = select_release(releases, fetcher)
+    snapshot = release["date"]
 
     scores: dict[str, list[dict]] = {}
     for row in csv.DictReader(table.splitlines()):
@@ -95,4 +147,11 @@ def collect() -> dict:
     if not scores:
         raise SourceError("livebench: no rows parsed")
 
-    return {"snapshot": snapshot, "published_snapshots": published, "scores": scores}
+    payload = {
+        "snapshot": snapshot,
+        "published_snapshots": sorted(r["date"] for r in releases),
+        "scores": scores,
+    }
+    if skipped:
+        payload["skipped_releases"] = skipped
+    return payload

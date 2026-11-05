@@ -30,6 +30,7 @@ from .common import (
 )
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
+from .report_status import apply_failure_rule, degrade_after_failures
 from .sources import epoch, livebench, lmarena
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -629,6 +630,12 @@ def main() -> int:
                 f"of {median}d over {livebench_observed['snapshots']} snapshots"
             )
 
+    # Same rule report_status applies to the file, applied here first so the page - which
+    # reads freshness from status.json - shows the source as degraded too.
+    apply_failure_rule(statuses, snapshot_ages, degrade_after_failures())
+    if livebench_payload.get("skipped_releases"):
+        livebench_status["skipped_releases"] = livebench_payload["skipped_releases"]
+
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "ok": True,
@@ -637,6 +644,7 @@ def main() -> int:
         "thresholds": {
             "warn_cadence_multiple": WARN_CADENCE_MULTIPLE,
             "degraded_cadence_multiple": DEGRADED_CADENCE_MULTIPLE,
+            "degrade_after_consecutive_failures": degrade_after_failures(),
             # Published rather than restated in the frontend: a constant quoted in two
             # places is a constant that will disagree with itself.
             "recalibration_raw_still": RECALIBRATION_RAW_STILL,

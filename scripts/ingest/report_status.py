@@ -23,9 +23,43 @@ import json
 import pathlib
 import sys
 
-STATUS = pathlib.Path(__file__).resolve().parents[2] / "data" / "status.json"
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+STATUS = ROOT / "data" / "status.json"
+SOURCES_CONFIG = ROOT / "config" / "sources.json"
 
 CONSECUTIVE_FAILURE_ERROR = 3
+DEFAULT_DEGRADE_AFTER_FAILURES = 3
+
+
+def degrade_after_failures(config_path: pathlib.Path = SOURCES_CONFIG) -> int:
+    """Failures in a row after which a source counts as degraded, from config/sources.json."""
+    try:
+        value = json.loads(config_path.read_text(encoding="utf-8")).get(
+            "degrade_after_consecutive_failures")
+    except (OSError, json.JSONDecodeError):
+        return DEFAULT_DEGRADE_AFTER_FAILURES
+    return value if isinstance(value, int) and value > 0 else DEFAULT_DEGRADE_AFTER_FAILURES
+
+
+def apply_failure_rule(sources: dict, snapshot_ages: dict, threshold: int) -> list[str]:
+    """Mark a source degraded once it has failed `threshold` runs in a row.
+
+    Snapshot age alone cannot see this: a source that has been unreachable for weeks still
+    holds a cached snapshot whose date is recent against a generous cadence, so it reads
+    "fresh" while nothing has been fetched. Mutates `snapshot_ages` in place and returns
+    the names changed. Idempotent, so running it on an already-adjusted file is harmless.
+    """
+    changed: list[str] = []
+    for name, status in sources.items():
+        streak = status.get("consecutive_failures", 0)
+        age = snapshot_ages.get(name)
+        if streak < threshold or age is None or age.get("freshness") == "degraded":
+            continue
+        age["freshness_by_age"] = age.get("freshness")
+        age["freshness"] = "degraded"
+        age["degraded_reason"] = f"{streak} consecutive failed fetches (limit {threshold})"
+        changed.append(name)
+    return changed
 
 
 def main() -> int:
@@ -34,6 +68,8 @@ def main() -> int:
         return 0
 
     payload = json.loads(STATUS.read_text(encoding="utf-8"))
+    apply_failure_rule(
+        payload.get("sources", {}), payload.get("snapshot_ages", {}), degrade_after_failures())
     for name, status in payload.get("sources", {}).items():
         state = status["state"]
         streak = status.get("consecutive_failures", 0)
@@ -53,6 +89,7 @@ def main() -> int:
         freshness = age.get("freshness")
         if freshness not in ("aging", "degraded"):
             continue
+        reason = f" [{age['degraded_reason']}]" if age.get("degraded_reason") else ""
         detail = (
             f"{name}: snapshot from {age.get('date')} is {age.get('age_days')} day(s) "
             f"old (warn at {age.get('warn_days')}, degraded at {age.get('degraded_days')})"

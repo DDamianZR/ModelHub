@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "degrade_after_consecutive_failures": 3,
   "verified_at": "2026-07-27",
   "verification_method": "Direct HTTP requests against each endpoint. No source was assumed to work from documentation alone.",
   "vocabulary": {
@@ -210,10 +211,10 @@
       "source_type": "third_party_benchmark",
       "access": {
         "type": "static_file",
-        "url_pattern": "https://livebench.ai/table_{YYYY_MM_DD}.csv",
+        "url_pattern": "https://livebench.ai/v1/table_{YYYY_MM_DD}.csv (1.0) | https://livebench.ai/data/{YYYYMMDD}/table.csv (2.0)",
         "companion_urls": [
-          "https://livebench.ai/categories_{YYYY_MM_DD}.json",
-          "https://livebench.ai/cost_{YYYY_MM_DD}.csv"
+          "https://livebench.ai/v1/categories_{YYYY_MM_DD}.json",
+          "https://livebench.ai/v1/cost_{YYYY_MM_DD}.csv"
         ],
         "current_snapshot": "2026_06_25",
         "auth": "none",
@@ -249,6 +250,7 @@
         "The HuggingFace datasets under the 'livebench' org are question sets last touched 2025-04, NOT the leaderboard. Do not ingest them."
       ],
       "caveats": [
+        "Observed 2026-11-04: the site was rebuilt as LiveBench 2.0. Releases up to 2026-06-25 (1.0) moved under /v1/; 2.0 releases (2026-10-14, 2026-10-25) publish suites reasoning, coding, browser, long_agentic, data_analysis, research and design, with no Mathematics and no IF suite. Ingest scores the newest release that publishes a suite for every category LiveBench alone supplies (instruction_following) and records the newer releases it passed over in data/status.json.",
         "Snapshot discovery is the weak point: the list of available snapshot dates lives in a JS array inside https://livebench.ai/static/js/main.{hash}.js, and the hash changes on every deploy. Ingest must resolve index.html -> bundle URL -> date array -> newest date, and fall back to the last known-good snapshot on failure."
       ],
       "fragility": "medium"
