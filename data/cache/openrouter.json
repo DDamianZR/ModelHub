@@ -2222,8 +2222,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.057,
-        "price_output_usd_per_m": 0.171,
+        "price_input_usd_per_m": 0.0765,
+        "price_output_usd_per_m": 0.255,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -7079,7 +7079,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.25,
+        "price_input_usd_per_m": 0.3,
         "price_output_usd_per_m": 1.0,
         "slug": "reflection/beam-1.0-501b-a23b"
       },
@@ -8651,8 +8651,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1605,
-        "price_output_usd_per_m": 10.1583,
+        "price_input_usd_per_m": 0.1539,
+        "price_output_usd_per_m": 10.1489,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {
