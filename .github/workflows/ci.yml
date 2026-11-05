@@ -27,6 +27,17 @@ jobs:
       - name: Run ingest/enrich unit tests
         run: python -m unittest discover -s tests
 
+      # Whose models a pull request moves, aggregated by provider, on the run summary.
+      # Informational, never blocking: a change can legitimately move one lab more than
+      # another. What it cannot do is move it without the table showing it.
+      - name: Per-provider delta against the base branch
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$BASE_REF"
+          python -m scripts.neutrality.provider_delta --base FETCH_HEAD >> "$GITHUB_STEP_SUMMARY"
+
       # The description generator and this audit share checks.py. Running it here is what
       # stops the two standards drifting apart again.
       - name: Audit generated descriptions
