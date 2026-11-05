@@ -25,10 +25,10 @@ CATEGORY_MAP = {
 }
 
 
-# The composite category LiveBench is the only source for. A release that publishes no
-# suite mapped to it cannot stand in for the one before it: scoring from it would silently
-# empty that category for every model.
-REQUIRED_CATEGORIES = frozenset({"instruction_following"})
+# Categories a release must publish to be scoreable. None: the newest readable release is
+# used even when it drops a suite (instruction following has no LiveBench source in the
+# newest versions); the category is then simply unmeasured, never carried from an older one.
+REQUIRED_CATEGORIES: frozenset[str] = frozenset()
 
 _V1_LIST = re.compile(r'\[((?:"20\d{2}-\d{2}-\d{2}",?)+)\]')
 _V2_LIST = re.compile(r'\[((?:"20\d{6}",?)+)\]')

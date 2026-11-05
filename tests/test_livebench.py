@@ -63,25 +63,19 @@ class ParseReleases(unittest.TestCase):
 
 
 class Collect(unittest.TestCase):
-    def test_newest_release_lacking_a_required_category_is_passed_over(self):
+    def test_newest_release_is_used_even_without_instruction_following(self):
         payload = livebench.collect(_fetcher(_site()))
-        self.assertEqual(payload["snapshot"], "2026-06-25")
-        self.assertEqual({s["date"] for s in payload["skipped_releases"]},
-                         {"2026-10-25", "2026-10-14"})
-        self.assertIn("instruction_following", payload["skipped_releases"][0]["reason"])
-        self.assertEqual(payload["published_snapshots"][-1], "2026-10-25")
-        cats = {row["category"] for row in payload["scores"]["alpha-1"]}
-        self.assertEqual(cats, {"reasoning", "math", "instruction_following", "coding"})
-
-    def test_newest_release_is_used_when_it_covers_the_category(self):
-        v2 = dict(V2_CATEGORIES, IF=["ifx"])
-        files = _site(**{
-            f"{SITE}/data/20261025/categories.json": json.dumps(v2),
-            f"{SITE}/data/20261025/table.csv": "model,reasoning,coding,browser,ifx\nbeta-1,1,2,3,4\n",
-        })
-        payload = livebench.collect(_fetcher(files))
         self.assertEqual(payload["snapshot"], "2026-10-25")
         self.assertNotIn("skipped_releases", payload)
+        cats = {row["category"] for row in payload["scores"]["alpha-1"]}
+        self.assertEqual(cats, {"reasoning", "coding"})
+
+    def test_unreadable_newest_release_is_still_reported_as_skipped(self):
+        files = _site()
+        del files[f"{SITE}/data/20261025/table.csv"]
+        payload = livebench.collect(_fetcher(files))
+        self.assertEqual(payload["snapshot"], "2026-10-14")
+        self.assertEqual([s["date"] for s in payload["skipped_releases"]], ["2026-10-25"])
 
     def test_missing_files_fall_through_to_an_older_release(self):
         files = _site()
@@ -94,7 +88,8 @@ class Collect(unittest.TestCase):
 
     def test_nothing_scoreable_raises_so_the_cache_serves(self):
         files = _site()
-        del files[f"{SITE}/v1/table_2026_06_25.csv"]
+        for key in [k for k in files if "table" in k]:
+            del files[key]
         with self.assertRaises(SourceError):
             livebench.collect(_fetcher(files))
 

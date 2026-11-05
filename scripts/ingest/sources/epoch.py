@@ -40,7 +40,6 @@ def min_release_date() -> str:
 
 BENCHMARKS = {
     "gpqa_diamond.csv": ("gpqa_diamond", "reasoning"),
-    "simpleqa_verified.csv": ("simpleqa_verified", "reasoning"),
     "math_level_5.csv": ("math_level_5", "math"),
     "frontiermath.csv": ("frontiermath", "math"),
     "swe_bench_verified.csv": ("swe_bench_verified", "coding"),
@@ -49,9 +48,10 @@ BENCHMARKS = {
 
 # First-party Epoch tables kept OUT of the composite and published as separate boards.
 # Board assignment follows the environment the benchmark is run in, taken from Epoch's own
-# benchmark names. Knowledge is empty on purpose: the only first-party knowledge table,
-# SimpleQA Verified, already feeds Reasoning, and counting it twice would reweight it.
+# benchmark names. SimpleQA Verified measures factual recall, not reasoning, so it is a
+# Knowledge board and never enters category_scores.
 BOARD_TABLES = {
+    "simpleqa_verified.csv": ("simpleqa_verified", "SimpleQA Verified", "knowledge"),
     "mirrorcode.csv": ("mirrorcode", "MirrorCode", "agentic"),
     "spireclimb.csv": ("spireclimb", "SpireClimb", "agentic"),
 }

@@ -132,8 +132,9 @@ def snapshot_age(snapshot: str | None, cadence_days: int | None) -> dict:
 BENCHMARK_CATALOGUE = [
     ("gpqa_diamond", "GPQA Diamond", "reasoning", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
-    ("simpleqa_verified", "SimpleQA Verified", "reasoning", "Epoch AI",
-     "third_party_benchmark", "https://epoch.ai/benchmarks", None),
+    ("simpleqa_verified", "SimpleQA Verified", "knowledge", "Epoch AI",
+     "third_party_benchmark", "https://epoch.ai/benchmarks",
+     "Factual recall. Shown on the Knowledge board, outside the composite."),
     ("math_level_5", "MATH Level 5", "math", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
     ("frontiermath", "FrontierMath", "math", "Epoch AI", "third_party_benchmark",
