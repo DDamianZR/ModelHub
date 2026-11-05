@@ -13,6 +13,7 @@
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:geometry": "node scripts/check-geometry.mjs",
     "check:ux": "node scripts/audit-ux.mjs",
+    "test:fit": "node --test \"tests/*.test.ts\"",
     "ingest": "python -m scripts.ingest.run",
     "enrich": "python -m scripts.enrich.run",
     "onboard": "python -m scripts.enrich.onboard"

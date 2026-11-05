@@ -49,6 +49,10 @@ jobs:
 
       - run: npm run typecheck
 
+      # Fit arithmetic ported from llmfit, checked against hand-computed values. Node's own
+      # test runner, so it adds no dependency.
+      - run: npm run test:fit
+
       # A token pairing below 3:1 fails the build rather than being found later.
       # Same principle as the enrich audit above: a check that only runs during
       # the post-mortem is not a check.

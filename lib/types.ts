@@ -226,3 +226,71 @@ export interface BestBy {
   };
   boards: BestByBoard[];
 }
+
+/**
+ * One open-weights model with the shape needed to size it for a local machine
+ * (data/local_models.json). Sizes come from the llmfit catalogue and are joined to a scored
+ * model by normalised name; nothing here is a measurement of quality.
+ */
+export interface LocalModelSpec {
+  model_id: string;
+  hf_repo: string;
+  parameters_raw: number;
+  /** Per-token active parameters for mixture-of-experts models; null for dense ones. */
+  active_parameters: number | null;
+  is_moe: boolean;
+  num_experts: number | null;
+  active_experts: number | null;
+  context_length: number;
+  num_hidden_layers: number | null;
+  num_attention_heads: number | null;
+  num_key_value_heads: number | null;
+  head_dim: number | null;
+  architecture: string | null;
+  /**
+   * Hybrid models: layers with a context-scaled KV cache versus layers with fixed-size
+   * state. Read from config/local.json by name pattern at ingest, so the browser carries
+   * no model names. null means "unknown", sized as all full attention.
+   */
+  attention_layout: { full: number; linear: number } | null;
+  /** The quantisation the catalogue lists the repo at; the fit search starts from the ladder. */
+  quantization: string;
+  min_ram_gb: number;
+  min_vram_gb: number | null;
+  license: string | null;
+}
+
+/**
+ * What /local needs per sizeable model: the sizing shape joined to the model's measured
+ * standing. The composite is displayed as-is and never used to decide whether a model fits.
+ */
+export interface LocalEntry {
+  spec: LocalModelSpec;
+  display_name: string;
+  /** null for provisional models, which never hold a ranked slot. */
+  rank: number | null;
+  tied_with: number;
+  composite: number;
+  composite_error: number | null;
+  provisional: boolean;
+  coverage: { covered: number; total: number };
+  measured_at: string | null;
+}
+
+export interface LocalModels {
+  meta: {
+    generated_at: string;
+    source: string;
+    license: string;
+    in_composite: false;
+    open_weights_scored: number;
+    matched: number;
+  };
+  models: (LocalModelSpec & {
+    source_url: string;
+    /** Repos sharing this normalised name in the catalogue; the most downloaded was used. */
+    candidates: number;
+    /** How many of them report a parameter count more than 10% away from the one used. */
+    size_disagreement: number;
+  })[];
+}
