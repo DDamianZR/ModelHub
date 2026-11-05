@@ -21,18 +21,18 @@
               "measured_at": "2026-09-22"
             },
             {
-              "model_id": "anthropic-claude-fable-5-1",
-              "variant": "claude-fable-5-1_high",
-              "value": 73.3,
-              "stderr": 9.17,
-              "measured_at": "2026-09-10"
-            },
-            {
               "model_id": "anthropic-claude-fable-5",
               "variant": "claude-fable-5_high",
               "value": 63.89,
               "stderr": 10.404,
               "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "google-deepmind-gemini-4-argon",
+              "variant": "gemini-4-argon_high",
+              "value": 58.89,
+              "stderr": 11.714,
+              "measured_at": "2026-10-14"
             },
             {
               "model_id": "openai-gpt-6-astra",
@@ -133,6 +133,13 @@
               "measured_at": "2026-11-04"
             },
             {
+              "model_id": "openai-gpt-6.1-terra",
+              "variant": "gpt-6.1-terra_max",
+              "value": 22.33,
+              "stderr": 3.386,
+              "measured_at": "2026-11-04"
+            },
+            {
               "model_id": "openai-gpt-6-sol",
               "variant": "gpt-6-sol_max",
               "value": 7.5,
@@ -145,13 +152,6 @@
               "value": 5.83,
               "stderr": 2.029,
               "measured_at": "2026-11-04"
-            },
-            {
-              "model_id": "anthropic-claude-fable-5-1",
-              "variant": "claude-fable-5-1_max",
-              "value": 2.0,
-              "stderr": 1.139,
-              "measured_at": "2026-09-25"
             },
             {
               "model_id": "anthropic-claude-sonnet-5-5",
@@ -174,7 +174,435 @@
     {
       "id": "knowledge",
       "in_composite": false,
-      "benchmarks": []
+      "benchmarks": [
+        {
+          "id": "simpleqa_verified",
+          "name": "SimpleQA Verified",
+          "source_url": "https://epoch.ai/benchmarks",
+          "rows": [
+            {
+              "model_id": "google-deepmind-gemini-4-argon",
+              "variant": "gemini-4-argon_high",
+              "value": 76.0,
+              "stderr": 1.351,
+              "measured_at": "2026-10-13"
+            },
+            {
+              "model_id": "openai-gpt-6-astra",
+              "variant": "gpt-6-astra_max",
+              "value": 75.6,
+              "stderr": 1.359,
+              "measured_at": "2026-08-30"
+            },
+            {
+              "model_id": "openai-gpt-6.1-sol",
+              "variant": "gpt-6.1-sol_max",
+              "value": 73.9,
+              "stderr": 1.39,
+              "measured_at": "2026-09-29"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3.1-pro",
+              "variant": "gemini-3.1-pro-preview_high",
+              "value": 73.5,
+              "stderr": 1.396,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "anthropic-claude-opus-5-5",
+              "variant": "claude-opus-5-5_max",
+              "value": 72.2,
+              "stderr": 1.417,
+              "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "anthropic-claude-fable-5",
+              "variant": "claude-fable-5_xhigh",
+              "value": 70.7,
+              "stderr": 1.44,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3.8-flash",
+              "variant": "gemini-3.8-flash_high",
+              "value": 69.7,
+              "stderr": 1.454,
+              "measured_at": "2026-09-02"
+            },
+            {
+              "model_id": "openai-gpt-5.6-sol",
+              "variant": "gpt-5.6-sol_max",
+              "value": 69.7,
+              "stderr": 1.454,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3.7-flash",
+              "variant": "gemini-3.7-flash_high",
+              "value": 69.2,
+              "stderr": 1.461,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3-flash",
+              "variant": "gemini-3-flash-preview_high",
+              "value": 66.8,
+              "stderr": 1.49,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3.5-flash",
+              "variant": "gemini-3.5-flash_high",
+              "value": 66.2,
+              "stderr": 1.497,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "google-deepmind-gemini-3.6-flash",
+              "variant": "gemini-3.6-flash_high",
+              "value": 66.2,
+              "stderr": 1.497,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.5",
+              "variant": "gpt-5.5_xhigh",
+              "value": 63.0,
+              "stderr": 1.528,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-6-sol",
+              "variant": "gpt-6-sol_max",
+              "value": 60.7,
+              "stderr": 1.545,
+              "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "anthropic-claude-opus-5",
+              "variant": "claude-opus-5_max",
+              "value": 59.9,
+              "stderr": 1.551,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "meta-ai-muse-spark-1.1",
+              "variant": "muse-spark-1.1",
+              "value": 57.79,
+              "stderr": 1.567,
+              "measured_at": "2026-08-31"
+            },
+            {
+              "model_id": "openai-gpt-6.1-terra",
+              "variant": "gpt-6.1-terra_max",
+              "value": 57.3,
+              "stderr": 1.565,
+              "measured_at": "2026-10-26"
+            },
+            {
+              "model_id": "xai-grok-4.7",
+              "variant": "grok-4.7_xhigh",
+              "value": 56.0,
+              "stderr": 1.57,
+              "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "alibaba-qwen3.7",
+              "variant": "qwen3.7-max",
+              "value": 55.77,
+              "stderr": 1.574,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-opus-4-8",
+              "variant": "claude-opus-4-8_max",
+              "value": 53.0,
+              "stderr": 1.579,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "deepseek-deepseek-v4-pro-0813",
+              "variant": "deepseek-v4-pro-0813_max",
+              "value": 52.91,
+              "stderr": 1.581,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "alibaba-qwen3.6",
+              "variant": "qwen3.6-max-preview",
+              "value": 52.0,
+              "stderr": 1.582,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-opus-4-7",
+              "variant": "claude-opus-4-7_xhigh",
+              "value": 51.7,
+              "stderr": 1.581,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "moonshot-kimi-k3",
+              "variant": "kimi-k3_max",
+              "value": 50.6,
+              "stderr": 1.582,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5",
+              "variant": "gpt-5-2025-08-07_high",
+              "value": 50.1,
+              "stderr": 1.582,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "xai-grok-4.6",
+              "variant": "grok-4.6_high",
+              "value": 49.3,
+              "stderr": 1.582,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "alibaba-qwen3",
+              "variant": "qwen3-max-2025-09-23",
+              "value": 48.75,
+              "stderr": 1.582,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "xai-grok-4.5",
+              "variant": "grok-4.5_high",
+              "value": 48.3,
+              "stderr": 1.581,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.1",
+              "variant": "gpt-5.1-2025-11-13_high",
+              "value": 48.0,
+              "stderr": 1.581,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-opus-4-6",
+              "variant": "claude-opus-4-6_max",
+              "value": 47.0,
+              "stderr": 1.579,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "deepseek-deepseek-v4-pro",
+              "variant": "deepseek-v4-pro_max",
+              "value": 46.99,
+              "stderr": 1.581,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-sonnet-5-5",
+              "variant": "claude-sonnet-5-5_max",
+              "value": 46.5,
+              "stderr": 1.578,
+              "measured_at": "2026-09-29"
+            },
+            {
+              "model_id": "alibaba-qwen3.8",
+              "variant": "qwen3.8-max_xhigh",
+              "value": 45.8,
+              "stderr": 1.576,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-opus-4-5",
+              "variant": "claude-opus-4-5-20251101_32K",
+              "value": 45.7,
+              "stderr": 1.576,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.4",
+              "variant": "gpt-5.4-2026-03-05_xhigh",
+              "value": 45.1,
+              "stderr": 1.574,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "alibaba-qwen3.6-plus",
+              "variant": "qwen3.6-plus",
+              "value": 44.14,
+              "stderr": 1.572,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.6-terra",
+              "variant": "gpt-5.6-terra_max",
+              "value": 43.2,
+              "stderr": 1.567,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "deepseek-deepseek-v4.1-flash",
+              "variant": "deepseek-v4.1-flash_max",
+              "value": 42.9,
+              "stderr": 1.566,
+              "measured_at": "2026-10-13"
+            },
+            {
+              "model_id": "deepseek-deepseek-v4.1-flash-1017",
+              "variant": "deepseek-v4.1-flash-1017_max",
+              "value": 42.5,
+              "stderr": 1.564,
+              "measured_at": "2026-10-19"
+            },
+            {
+              "model_id": "openai-gpt-6-luna",
+              "variant": "gpt-6-luna_max",
+              "value": 41.4,
+              "stderr": 1.558,
+              "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "openai-gpt-5.6-luna",
+              "variant": "gpt-5.6-luna_max",
+              "value": 41.0,
+              "stderr": 1.556,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "z-ai-zhipu-ai-glm-5.3",
+              "variant": "glm-5.3_max",
+              "value": 41.0,
+              "stderr": 1.556,
+              "measured_at": "2026-08-28"
+            },
+            {
+              "model_id": "thinking-machines-inkling",
+              "variant": "Inkling_xhigh",
+              "value": 40.3,
+              "stderr": 1.552,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.2",
+              "variant": "gpt-5.2-2025-12-11_xhigh",
+              "value": 37.1,
+              "stderr": 1.528,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "moonshot-kimi-k2.7-code",
+              "variant": "kimi-k2.7-code",
+              "value": 36.5,
+              "stderr": 1.523,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-sonnet-4-6",
+              "variant": "claude-sonnet-4-6_high",
+              "value": 35.5,
+              "stderr": 1.514,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "moonshot-kimi-k2.6",
+              "variant": "kimi-k2.6",
+              "value": 34.9,
+              "stderr": 1.508,
+              "measured_at": "2026-08-10"
+            },
+            {
+              "model_id": "z-ai-zhipu-ai-glm-5.2",
+              "variant": "glm-5.2_max",
+              "value": 34.2,
+              "stderr": 1.501,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "z-ai-zhipu-ai-glm-5.1",
+              "variant": "glm-5.1",
+              "value": 34.0,
+              "stderr": 1.499,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-sonnet-5",
+              "variant": "claude-sonnet-5_max",
+              "value": 33.7,
+              "stderr": 1.496,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "deepseek-deepseek-v4-flash-0731",
+              "variant": "deepseek-v4-flash-0731_max",
+              "value": 33.63,
+              "stderr": 1.496,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "xai-grok-4.3",
+              "variant": "grok-4.3_high",
+              "value": 33.2,
+              "stderr": 1.49,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "z-ai-zhipu-ai-glm-4.7",
+              "variant": "glm-4.7",
+              "value": 32.2,
+              "stderr": 1.478,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.4-mini",
+              "variant": "gpt-5.4-mini-2026-03-17_high",
+              "value": 29.4,
+              "stderr": 1.441,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "anthropic-claude-haiku-5-5",
+              "variant": "claude-haiku-5-5_max",
+              "value": 23.8,
+              "stderr": 1.347,
+              "measured_at": "2026-10-09"
+            },
+            {
+              "model_id": "alibaba-qwen3.5-flash",
+              "variant": "qwen3.5-flash",
+              "value": 20.32,
+              "stderr": 1.274,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "mistral-ai-mistral-large-4-0",
+              "variant": "mistral-large-4-0_high",
+              "value": 20.0,
+              "stderr": 1.266,
+              "measured_at": "2026-10-09"
+            },
+            {
+              "model_id": "thinking-machines-inkling-small",
+              "variant": "inkling-small_xhigh",
+              "value": 19.1,
+              "stderr": 1.244,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "openai-gpt-5.4-nano",
+              "variant": "gpt-5.4-nano-2026-03-17_high",
+              "value": 11.7,
+              "stderr": 1.017,
+              "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "google-deepmind-gemma-4-31b",
+              "variant": "gemma-4-31b-it",
+              "value": 10.4,
+              "stderr": 0.966,
+              "measured_at": "2026-08-27"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -11,10 +11,11 @@
     {
       "id": "simpleqa_verified",
       "name": "SimpleQA Verified",
-      "category": "reasoning",
+      "category": "knowledge",
       "source": "Epoch AI",
       "source_type": "third_party_benchmark",
-      "url": "https://epoch.ai/benchmarks"
+      "url": "https://epoch.ai/benchmarks",
+      "notes": "Factual recall. Shown on the Knowledge board, outside the composite."
     },
     {
       "id": "math_level_5",

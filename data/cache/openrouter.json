@@ -1248,7 +1248,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0474,
+        "price_input_usd_per_m": 0.0434,
         "price_output_usd_per_m": 0.3,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
@@ -2089,6 +2089,48 @@
         "price_output_usd_per_m": 7.5,
         "slug": "google/gemini-nano-banana-2.1"
       },
+      "google/gemini-omni-1.1-flash": {
+        "context_length": 131072,
+        "created": 1793825668,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-omni-1-1-flash",
+        "name": "Google: Gemini Omni 1.1 Flash",
+        "open_weights": false,
+        "output_modalities": [
+          "text",
+          "video"
+        ],
+        "price_input_usd_per_m": 1.5,
+        "price_output_usd_per_m": 9.0,
+        "slug": "google/gemini-omni-1.1-flash"
+      },
+      "google/gemini-omni-1.2-flash": {
+        "context_length": 131072,
+        "created": 1793898961,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-omni-1-2-flash",
+        "name": "Google: Gemini Omni 1.2 Flash",
+        "open_weights": false,
+        "output_modalities": [
+          "text",
+          "video"
+        ],
+        "price_input_usd_per_m": 1.5,
+        "price_output_usd_per_m": 9.0,
+        "slug": "google/gemini-omni-1.2-flash"
+      },
       "google/gemma-2-27b-it": {
         "context_length": 8192,
         "created": 1720828800,
@@ -2180,8 +2222,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.042,
-        "price_output_usd_per_m": 0.125,
+        "price_input_usd_per_m": 0.047,
+        "price_output_usd_per_m": 0.14,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -5696,8 +5738,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.028,
-        "price_output_usd_per_m": 0.105,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -8545,7 +8587,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0474,
+        "price_input_usd_per_m": 0.0434,
         "price_output_usd_per_m": 0.3,
         "slug": "~deepseek/deepseek-v4-flash-latest"
       },
@@ -8609,8 +8651,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.151,
-        "price_output_usd_per_m": 10.5387,
+        "price_input_usd_per_m": 0.1824,
+        "price_output_usd_per_m": 9.3388,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {
