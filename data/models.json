@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-04",
+    "generated_at": "2026-11-05",
     "model_count": 76,
     "ranked_count": 62,
     "provisional_count": 14,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-11-04",
+      "epoch": "2026-11-05",
       "livebench": "2026-06-25",
       "lmarena_text": "2026-10-28",
       "lmarena_vision": "2026-10-19"
@@ -86,12 +86,7 @@
       },
       "rank": 1,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.95,
-        "composite_effect": 0.59,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-fable-5",
@@ -102,11 +97,18 @@
       "api_only": true,
       "release_date": "2026-06-09",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 10.0,
+        "output_usd_per_m": 50.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -163,11 +165,18 @@
       "api_only": true,
       "release_date": "2026-09-22",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 4.0,
+        "output_usd_per_m": 20.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -224,11 +233,18 @@
       "api_only": true,
       "release_date": "2026-09-03",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 10.0,
+        "output_usd_per_m": 50.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -285,11 +301,18 @@
       "api_only": true,
       "release_date": "2026-09-01",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 10.0,
+        "output_usd_per_m": 50.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -346,12 +369,19 @@
       "api_only": true,
       "release_date": "2026-07-09",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 4.25,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -403,12 +433,7 @@
       },
       "rank": 4,
       "tied_with": 2,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.85,
-        "composite_effect": 0.58,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-6.1-sol",
@@ -419,11 +444,18 @@
       "api_only": true,
       "release_date": "2026-09-29",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -480,11 +512,20 @@
       "api_only": true,
       "release_date": "2026-08-13",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "audio",
+        "file",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.75,
+        "output_usd_per_m": 3.75,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -541,12 +582,20 @@
       "api_only": true,
       "release_date": "2026-02-19",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 12.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -598,12 +647,7 @@
       },
       "rank": 7,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.89,
-        "composite_effect": 0.58,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.6-sol",
@@ -614,11 +658,18 @@
       "api_only": true,
       "release_date": "2026-07-09",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 4.0,
+        "output_usd_per_m": 20.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -675,11 +726,18 @@
       "api_only": true,
       "release_date": "2026-08-12",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 500000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 6.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -736,11 +794,18 @@
       "api_only": false,
       "release_date": "2026-07-16",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.192,
+        "output_usd_per_m": 16.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -797,11 +862,20 @@
       "api_only": true,
       "release_date": "2026-09-02",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "audio",
+        "file",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.825,
+        "output_usd_per_m": 4.125,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -858,11 +932,18 @@
       "api_only": true,
       "release_date": "2026-07-24",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 25.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -919,11 +1000,17 @@
       "api_only": false,
       "release_date": "2026-09-09",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.045,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -980,11 +1067,16 @@
       "api_only": true,
       "release_date": "2026-05-19",
       "country": "China",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.475,
+        "output_usd_per_m": 4.425,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1030,12 +1122,7 @@
       "vision": null,
       "rank": 13,
       "tied_with": 5,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.78,
-        "composite_effect": 0.57,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.5",
@@ -1046,12 +1133,18 @@
       "api_only": true,
       "release_date": "2026-07-08",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 500000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 6.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1103,12 +1196,7 @@
       },
       "rank": 13,
       "tied_with": 5,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.23,
-        "composite_effect": 0.48,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.5",
@@ -1119,12 +1207,18 @@
       "api_only": true,
       "release_date": "2026-04-23",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 30.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1176,12 +1270,7 @@
       },
       "rank": 13,
       "tied_with": 5,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.62,
-        "composite_effect": 0.54,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4-pro-0813",
@@ -1192,11 +1281,16 @@
       "api_only": false,
       "release_date": "2026-08-13",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.107,
+        "output_usd_per_m": 4.278,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1253,11 +1347,16 @@
       "api_only": false,
       "release_date": "2026-08-14",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.0699,
+        "output_usd_per_m": 1.4,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1314,11 +1413,18 @@
       "api_only": true,
       "release_date": "2026-09-22",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1375,11 +1481,18 @@
       "api_only": true,
       "release_date": "2026-09-21",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 500000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 6.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1436,12 +1549,18 @@
       "api_only": false,
       "release_date": "2026-08-14",
       "country": "China",
-      "context_window": null,
+      "context_window": 1024000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.15,
+        "output_usd_per_m": 1.875,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1493,12 +1612,7 @@
       },
       "rank": 22,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.05,
-        "composite_effect": 0.46,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3-pro",
@@ -1566,12 +1680,7 @@
       },
       "rank": 22,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.88,
-        "composite_effect": 0.68,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-5-5",
@@ -1582,11 +1691,18 @@
       "api_only": true,
       "release_date": "2026-09-28",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1643,11 +1759,19 @@
       "api_only": true,
       "release_date": "2026-08-05",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 4.25,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1704,11 +1828,18 @@
       "api_only": true,
       "release_date": "2026-02-05",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 25.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1765,11 +1896,18 @@
       "api_only": true,
       "release_date": "2026-07-09",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 12.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1826,11 +1964,16 @@
       "api_only": false,
       "release_date": "2026-07-31",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.059,
+        "output_usd_per_m": 0.3,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1887,11 +2030,20 @@
       "api_only": true,
       "release_date": "2026-07-21",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "audio",
+        "file",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.75,
+        "output_usd_per_m": 3.75,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -1948,12 +2100,18 @@
       "api_only": false,
       "release_date": "2026-08-20",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.15,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2005,12 +2163,7 @@
       },
       "rank": 27,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.75,
-        "composite_effect": 0.56,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "deepseek-deepseek-v4-pro",
@@ -2021,11 +2174,16 @@
       "api_only": false,
       "release_date": "2026-04-24",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.6,
+        "output_usd_per_m": 3.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2071,12 +2229,7 @@
       "vision": null,
       "rank": 29,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.3,
-        "composite_effect": 0.49,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-sonnet-5",
@@ -2087,11 +2240,18 @@
       "api_only": true,
       "release_date": "2026-06-30",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2148,11 +2308,18 @@
       "api_only": true,
       "release_date": "2026-02-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 3.0,
+        "output_usd_per_m": 15.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2209,11 +2376,16 @@
       "api_only": false,
       "release_date": "2026-06-16",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.006,
+        "output_usd_per_m": 6.8,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2270,11 +2442,18 @@
       "api_only": true,
       "release_date": "2026-03-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 400000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.2,
+        "output_usd_per_m": 1.25,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2331,11 +2510,20 @@
       "api_only": true,
       "release_date": "2026-05-19",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
-        "text"
+        "text",
+        "audio",
+        "file",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.5,
+        "output_usd_per_m": 9.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2392,12 +2580,20 @@
       "api_only": true,
       "release_date": "2025-12-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.5,
+        "output_usd_per_m": 3.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2449,12 +2645,7 @@
       },
       "rank": 35,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.6,
-        "composite_effect": 0.64,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4",
@@ -2465,12 +2656,18 @@
       "api_only": true,
       "release_date": "2026-03-05",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 2.5,
+        "output_usd_per_m": 15.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2522,12 +2719,7 @@
       },
       "rank": 36,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.33,
-        "composite_effect": 0.5,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-5",
@@ -2538,11 +2730,18 @@
       "api_only": true,
       "release_date": "2025-11-24",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 200000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 25.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2599,11 +2798,18 @@
       "api_only": false,
       "release_date": "2026-07-15",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 524288,
       "modalities": [
-        "text"
+        "text",
+        "audio",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.0,
+        "output_usd_per_m": 4.05,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2649,12 +2855,7 @@
       "vision": null,
       "rank": 37,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.13,
-        "composite_effect": 0.47,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-8",
@@ -2665,11 +2866,18 @@
       "api_only": true,
       "release_date": "2026-05-28",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 25.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2726,11 +2934,18 @@
       "api_only": true,
       "release_date": "2026-07-09",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.2,
+        "output_usd_per_m": 1.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2787,11 +3002,18 @@
       "api_only": true,
       "release_date": "2026-09-22",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1050000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.1,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2848,12 +3070,17 @@
       "api_only": false,
       "release_date": "2026-04-20",
       "country": "China",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
         "text",
         "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.65,
+        "output_usd_per_m": 3.41,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2905,12 +3132,7 @@
       },
       "rank": 43,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.39,
-        "composite_effect": 0.51,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "anthropic-claude-opus-4-7",
@@ -2921,11 +3143,18 @@
       "api_only": true,
       "release_date": "2026-04-16",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 5.0,
+        "output_usd_per_m": 25.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -2982,11 +3211,18 @@
       "api_only": true,
       "release_date": "2026-10-07",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.1,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3043,12 +3279,18 @@
       "api_only": false,
       "release_date": "2026-06-01",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.3,
+        "output_usd_per_m": 1.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3100,12 +3342,7 @@
       },
       "rank": 44,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.91,
-        "composite_effect": 0.44,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-3.5-flash-lite",
@@ -3116,12 +3353,20 @@
       "api_only": true,
       "release_date": "2026-07-21",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.3,
+        "output_usd_per_m": 2.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3173,12 +3418,7 @@
       },
       "rank": 44,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.98,
-        "composite_effect": 0.45,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5",
@@ -3189,12 +3429,18 @@
       "api_only": true,
       "release_date": "2025-10-07",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 400000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3246,12 +3492,7 @@
       },
       "rank": 44,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.34,
-        "composite_effect": 0.41,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.4-mini",
@@ -3262,11 +3503,18 @@
       "api_only": true,
       "release_date": "2026-03-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 400000,
       "modalities": [
-        "text"
+        "text",
+        "file",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.75,
+        "output_usd_per_m": 4.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3323,11 +3571,16 @@
       "api_only": false,
       "release_date": "2026-04-24",
       "country": "China",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.091,
+        "output_usd_per_m": 0.182,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3384,11 +3637,18 @@
       "api_only": false,
       "release_date": "2026-04-22",
       "country": "China",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
-        "text"
+        "text",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.45,
+        "output_usd_per_m": 2.7,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3445,12 +3705,18 @@
       "api_only": true,
       "release_date": "2025-12-11",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 400000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.75,
+        "output_usd_per_m": 14.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3502,12 +3768,7 @@
       },
       "rank": 51,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.52,
-        "composite_effect": 0.38,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-5",
@@ -3518,11 +3779,16 @@
       "api_only": false,
       "release_date": "2026-02-11",
       "country": "China",
-      "context_window": null,
+      "context_window": 204800,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.0,
+        "output_usd_per_m": 3.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3568,12 +3834,7 @@
       "vision": null,
       "rank": 51,
       "tied_with": 3,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.2,
-        "composite_effect": 0.56,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2.7-code",
@@ -3584,11 +3845,17 @@
       "api_only": false,
       "release_date": "2026-06-12",
       "country": "China",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
-        "text"
+        "text",
+        "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.6,
+        "output_usd_per_m": 3.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3645,11 +3912,16 @@
       "api_only": false,
       "release_date": "2026-04-07",
       "country": "China",
-      "context_window": null,
+      "context_window": 204800,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.4,
+        "output_usd_per_m": 4.4,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3695,12 +3967,7 @@
       "vision": null,
       "rank": 54,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.54,
-        "composite_effect": 0.62,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6",
@@ -3761,12 +4028,7 @@
       "vision": null,
       "rank": 56,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.21,
-        "composite_effect": 0.57,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.6-plus",
@@ -3777,11 +4039,18 @@
       "api_only": true,
       "release_date": "2026-03-31",
       "country": "China",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
-        "text"
+        "text",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.325,
+        "output_usd_per_m": 1.95,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3827,12 +4096,7 @@
       "vision": null,
       "rank": 56,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.0,
-        "composite_effect": 0.45,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "xai-grok-4.3",
@@ -3843,12 +4107,18 @@
       "api_only": true,
       "release_date": "2026-04-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 2.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3900,12 +4170,7 @@
       },
       "rank": 57,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.21,
-        "composite_effect": 0.33,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-pro",
@@ -3916,12 +4181,20 @@
       "api_only": true,
       "release_date": "2025-06-05",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -3973,12 +4246,7 @@
       },
       "rank": 57,
       "tied_with": 1,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.43,
-        "composite_effect": 0.61,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.1",
@@ -3989,12 +4257,18 @@
       "api_only": true,
       "release_date": "2025-11-13",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 400000,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "file"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 1.25,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4046,12 +4320,7 @@
       },
       "rank": 60,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.72,
-        "composite_effect": 0.48,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.7-plus",
@@ -4062,12 +4331,17 @@
       "api_only": true,
       "release_date": "2026-06-02",
       "country": "China",
-      "context_window": null,
+      "context_window": 1000000,
       "modalities": [
         "text",
         "vision"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.32,
+        "output_usd_per_m": 1.28,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4117,12 +4391,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.37,
-        "composite_effect": 1.26,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-397b-a17b",
@@ -4133,12 +4402,18 @@
       "api_only": false,
       "release_date": "2026-02-13",
       "country": "China",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.5,
+        "output_usd_per_m": 3.6,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4188,12 +4463,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.03,
-        "composite_effect": 1.14,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3",
@@ -4253,12 +4523,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.06,
-        "composite_effect": 0.76,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "moonshot-kimi-k2-thinking-turbo",
@@ -4317,12 +4582,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.56,
-        "composite_effect": 0.96,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-5.5-instant",
@@ -4388,12 +4648,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.66,
-        "composite_effect": 1.0,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-gemini-3.1-flash-lite",
@@ -4404,12 +4659,20 @@
       "api_only": true,
       "release_date": "2026-03-03",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.25,
+        "output_usd_per_m": 1.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4459,12 +4722,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.59,
-        "composite_effect": 0.97,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "meta-ai-muse-spark",
@@ -4531,12 +4789,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.77,
-        "composite_effect": 0.94,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "alibaba-qwen3.5-35b-a3b",
@@ -4547,11 +4800,18 @@
       "api_only": false,
       "release_date": "2026-02-24",
       "country": "China",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
-        "text"
+        "text",
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.14,
+        "output_usd_per_m": 1.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4595,12 +4855,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.16,
-        "composite_effect": 0.81,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "z-ai-zhipu-ai-glm-4.7",
@@ -4611,11 +4866,16 @@
       "api_only": false,
       "release_date": "2025-12-22",
       "country": "China",
-      "context_window": null,
+      "context_window": 204800,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.6,
+        "output_usd_per_m": 2.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4659,12 +4919,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.98,
-        "composite_effect": 1.12,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "thinking-machines-inkling-small",
@@ -4675,12 +4930,18 @@
       "api_only": false,
       "release_date": "2026-07-15",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 524288,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.45,
+        "output_usd_per_m": 1.2,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4730,12 +4991,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.56,
-        "composite_effect": 0.96,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "openai-gpt-oss-20b",
@@ -4746,11 +5002,16 @@
       "api_only": false,
       "release_date": "2025-08-05",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 131072,
       "modalities": [
         "text"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.03,
+        "output_usd_per_m": 0.13,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4854,12 +5115,7 @@
       "vision": null,
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.22,
-        "composite_effect": 0.56,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemma-4-31b",
@@ -4870,12 +5126,18 @@
       "api_only": false,
       "release_date": "2026-04-02",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 262144,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.2,
+        "output_usd_per_m": 0.4,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4925,12 +5187,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 3.14,
-        "composite_effect": 1.18,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     },
     {
       "id": "google-deepmind-gemini-2.5-flash",
@@ -4941,12 +5198,20 @@
       "api_only": true,
       "release_date": "2025-06-17",
       "country": "United States of America",
-      "context_window": null,
+      "context_window": 1048576,
       "modalities": [
         "text",
-        "vision"
+        "vision",
+        "audio",
+        "file",
+        "video"
       ],
-      "pricing": null,
+      "pricing": {
+        "input_usd_per_m": 0.3,
+        "output_usd_per_m": 2.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
       "acquisition": {
         "hf_repo": null,
         "provider_page": null,
@@ -4996,12 +5261,7 @@
       },
       "rank": null,
       "tied_with": 0,
-      "cohort_recalibration": {
-        "raw_delta": 0.0,
-        "normalized_delta": 2.61,
-        "composite_effect": 1.12,
-        "threshold": 0.28
-      }
+      "cohort_recalibration": null
     }
   ]
 }

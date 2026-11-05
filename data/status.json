@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-05T05:14:47+00:00",
+  "generated_at": "2026-11-05T06:08:22+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-04",
+      "last_success": "2026-11-05",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-04",
+      "last_success": "2026-11-05",
       "error": null,
       "consecutive_failures": 0,
       "skipped_releases": [
@@ -26,15 +26,21 @@
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-11-04",
+      "last_success": "2026-11-05",
       "error": null,
       "served_by": "rows-latest",
+      "consecutive_failures": 0
+    },
+    "openrouter": {
+      "state": "ok",
+      "last_success": "2026-11-05",
+      "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-04",
+      "date": "2026-11-05",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -43,7 +49,7 @@
     },
     "livebench": {
       "date": "2026-06-25",
-      "age_days": 132,
+      "age_days": 133,
       "freshness": "degraded",
       "cadence_days": 30,
       "warn_days": 60,
@@ -60,12 +66,20 @@
     },
     "lmarena": {
       "date": "2026-10-28",
-      "age_days": 7,
-      "freshness": "fresh",
+      "age_days": 8,
+      "freshness": "aging",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
       "category": "human_preference"
+    },
+    "openrouter": {
+      "date": "2026-11-05",
+      "age_days": 0,
+      "freshness": "fresh",
+      "cadence_days": 1,
+      "warn_days": 2,
+      "degraded_days": 4
     }
   },
   "thresholds": {
@@ -77,13 +91,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "640086897c01ed34dd9b5832dabee4a1e3b2698dc21af7f8924f29bd86479311",
+      "normalised_sha256": "77e0ff572930d54e8145261f29c7c83476f2e1206f3211dd7a1b42a076d3e7be",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "e05c200846cf4c9f9ef602cb5c6d554f43874e7a6072177969c424c75e6b7644",
-          "bytes": 2280777
+          "sha256": "c05aef4ed191f53afdecc9931c93c0eb8cd2888ba4a69db8954d6d175e1cedb7",
+          "bytes": 2280785
         }
       ]
     },
@@ -96,6 +110,17 @@
       "normalised_sha256": "cf1ec9fc79ed3632c4ee5bd4401e585f7f317859137cdf9d39f31460eb8f1787",
       "requests": 7,
       "upstream": []
+    },
+    "openrouter": {
+      "normalised_sha256": "9a1437f282f51c3fd7c8aa52cc435665c83be2aef58fd464879a4205fd243a45",
+      "requests": 1,
+      "upstream": [
+        {
+          "url": "https://openrouter.ai/api/v1/models",
+          "sha256": "08d4267ea54fd84c363291cfc3893d20290245331dfc5312bfef669e26aa0710",
+          "bytes": 815540
+        }
+      ]
     }
   }
 }
