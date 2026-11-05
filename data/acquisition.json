@@ -231,7 +231,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-09-29",
+    "checked_at": "2026-11-05",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -261,7 +261,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-09-29",
+    "checked_at": "2026-11-05",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -366,7 +366,7 @@
       "ollama_tag": null,
       "provider_page": "https://www.anthropic.com/claude"
     },
-    "checked_at": "2026-09-29",
+    "checked_at": "2026-11-05",
     "verified": {
       "api_docs": true,
       "hf_repo": false,
@@ -491,6 +491,21 @@
       "api_docs": true,
       "hf_repo": true,
       "ollama_tag": true,
+      "provider_page": true
+    }
+  },
+  "deepseek-deepseek-v4.1-flash-1017": {
+    "acquisition": {
+      "api_docs": "https://api-docs.deepseek.com/",
+      "hf_repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "ollama_tag": null,
+      "provider_page": "https://www.deepseek.com/"
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": true,
+      "ollama_tag": false,
       "provider_page": true
     }
   },
@@ -644,6 +659,21 @@
       "provider_page": true
     }
   },
+  "google-deepmind-gemini-4-argon": {
+    "acquisition": {
+      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://deepmind.google/models/gemini/"
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": true
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "acquisition": {
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
@@ -761,6 +791,21 @@
       "api_docs": false,
       "hf_repo": true,
       "ollama_tag": true,
+      "provider_page": false
+    }
+  },
+  "mistral-ai-mistral-large-4-0": {
+    "acquisition": {
+      "api_docs": null,
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": null
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": false,
+      "hf_repo": false,
+      "ollama_tag": false,
       "provider_page": false
     }
   },
@@ -926,7 +971,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.4-mini": {
@@ -956,7 +1001,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": true
+      "provider_page": false
     }
   },
   "openai-gpt-5.5": {
@@ -971,7 +1016,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.5-instant": {
@@ -986,7 +1031,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-5.6-luna": {
@@ -1061,7 +1106,7 @@
       "api_docs": true,
       "hf_repo": false,
       "ollama_tag": false,
-      "provider_page": false
+      "provider_page": true
     }
   },
   "openai-gpt-6-sol": {
@@ -1080,6 +1125,21 @@
     }
   },
   "openai-gpt-6.1-sol": {
+    "acquisition": {
+      "api_docs": "https://platform.openai.com/docs/models",
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": "https://openai.com/api/"
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": false
+    }
+  },
+  "openai-gpt-6.1-terra": {
     "acquisition": {
       "api_docs": "https://platform.openai.com/docs/models",
       "hf_repo": null,
@@ -1119,6 +1179,21 @@
     "checked_at": "2026-09-29",
     "verified": {
       "api_docs": true,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": false
+    }
+  },
+  "stepfun-step-5": {
+    "acquisition": {
+      "api_docs": null,
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": null
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": false,
       "hf_repo": false,
       "ollama_tag": false,
       "provider_page": false
@@ -1227,6 +1302,21 @@
       "hf_repo": false,
       "ollama_tag": false,
       "provider_page": true
+    }
+  },
+  "xiaomi-corp-mimo-v2.6-pro": {
+    "acquisition": {
+      "api_docs": null,
+      "hf_repo": null,
+      "ollama_tag": null,
+      "provider_page": null
+    },
+    "checked_at": "2026-11-05",
+    "verified": {
+      "api_docs": false,
+      "hf_repo": false,
+      "ollama_tag": false,
+      "provider_page": false
     }
   },
   "z-ai-zhipu-ai-glm-4.7": {
