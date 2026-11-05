@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "description": "Inputs to data/local_models.json, the sizing data behind /local. Nothing here feeds the composite or any rank.",
+  "source": {
+    "name": "llmfit",
+    "repository": "https://github.com/AlexsJones/llmfit",
+    "license": "MIT",
+    "catalogue": "llmfit-core/data/hf_models.json"
+  },
+  "selection": {
+    "eligible": "scored models whose accessibility is open weights",
+    "match": "exact equality of the normalised model name (namespace before the slash ignored)",
+    "among_candidates": "most downloaded repo; ties broken by repo name",
+    "note": "The rule reads no publisher. It is mechanical, so it can pick a repack over the original; candidates and size_disagreement are published per row."
+  },
+  "attention_layouts": {
+    "description": "Hybrid models mix full-attention layers, whose KV cache grows with context, with linear or state-space layers that keep a fixed-size state. Only the full layers are charged for context. A layout is a ratio; it is scaled to the model's real layer count when sizing.",
+    "origin": "llmfit-core/src/models.rs, infer_attention_layout_from_name",
+    "limit": "Only the families llmfit lists have a layout. Any other hybrid, and any model with no match here, is sized as all full attention, which over-states its memory. Add a rule by pull request with the model's own config as evidence.",
+    "rules": [
+      { "id": "next", "all_of": [["qwen3-next", "qwen3.5-next"]], "full": 10, "linear": 30 },
+      { "id": "very-large-moe", "all_of": [["qwen3.5-", "qwen3.6-", "qwen3.8-"], ["-a95b"]], "full": 23, "linear": 69 },
+      { "id": "moe", "all_of": [["qwen3.5-", "qwen3.6-", "qwen3.8-"], ["-a3b", "-a10b", "-a17b"]], "full": 10, "linear": 30 },
+      { "id": "dense", "all_of": [["qwen3.5-", "qwen3.6-", "qwen3.8-"]], "full": 16, "linear": 48 },
+      { "id": "mamba-transformer-1-7", "all_of": [["jamba"]], "full": 4, "linear": 28 },
+      { "id": "mamba2-shared-attention", "all_of": [["zamba"]], "full": 2, "linear": 54 }
+    ]
+  }
+}

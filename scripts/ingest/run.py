@@ -31,8 +31,8 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from . import catalogue, derived
-from .sources import epoch, livebench, lmarena, openrouter
+from . import catalogue, derived, local
+from .sources import epoch, livebench, lmarena, llmfit, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
@@ -496,6 +496,21 @@ def main() -> int:
     )
 
     canonical_keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
+
+    # Sizing data for /local. Fetched here because which repos are kept depends on the
+    # cohort just built. Outside the composite: a failure degrades that page and nothing else.
+    seen = set(DIGESTS)
+    llmfit_payload, llmfit_status = gather(
+        "llmfit", lambda: llmfit.collect(local.wanted_keys(models, canonical_keys)))
+    integrity["llmfit"] = integrity_for(seen, llmfit_payload)
+    llmfit_failures = prev_statuses.get("llmfit", {}).get("consecutive_failures", 0)
+    llmfit_status["consecutive_failures"] = (
+        0 if llmfit_status["state"] == "ok" else llmfit_failures + 1)
+    statuses["llmfit"] = llmfit_status
+    local_rows = local.build(
+        models, canonical_keys, llmfit_payload.get("entries") or {}, local.load_layout_rules())
+    print(f"  local: {len(local_rows)} of "
+          f"{sum(1 for m in models if m.get('is_open_weights'))} open-weights models sized")
     router_catalogue = router_payload.get("catalogue") or {}
     router_matches = catalogue.match_models(canonical_keys, router_catalogue)
     router_day = router_status.get("last_success") or date.today().isoformat()
@@ -601,6 +616,9 @@ def main() -> int:
                  "scored_matched": len(router_matches), "unranked": len(unranked)},
         "unranked": unranked,
     })
+    write_json(DATA / "local_models.json", local.document(
+        local_rows, sum(1 for m in models if m.get("is_open_weights")),
+        meta["generated_at"]))
     write_json(DATA / "best_by.json", {
         "meta": {
             "generated_at": meta["generated_at"], "in_composite": False,
@@ -648,6 +666,7 @@ def main() -> int:
         "lmarena": snapshot_age(arena_payload.get("snapshot"), cadences.get("lmarena")),
         "openrouter": snapshot_age(router_status.get("last_success"),
                                    cadences.get("openrouter")),
+        "llmfit": snapshot_age(llmfit_status.get("last_success"), cadences.get("llmfit")),
     }
     snapshot_ages["livebench"]["snapshot"] = livebench_payload.get("snapshot")
     # The composite category each source feeds, so the table can flag the affected column

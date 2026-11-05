@@ -604,6 +604,57 @@
       "decision": "exclude",
       "decision_rationale": "Frozen: iberbench/iberbench_all last updated 2025-03-20, sixteen months before checking, and the Space is SLEEPING. The proposed homepage iberbench.uni.lu does not resolve.",
       "verified_at": "2026-08-03"
+    },
+    {
+      "id": "llmfit",
+      "name": "llmfit model catalogue (AlexsJones/llmfit)",
+      "homepage": "https://github.com/AlexsJones/llmfit",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "metadata",
+      "source_type": "catalogue_metadata",
+      "access": {
+        "type": "raw_file",
+        "url": "https://raw.githubusercontent.com/AlexsJones/llmfit/main/llmfit-core/data/hf_models.json",
+        "auth": "none",
+        "format": "JSON array (about 17 MB)",
+        "rate_limit": "none observed",
+        "robots_txt": "not applicable (raw.githubusercontent.com file)"
+      },
+      "license": {
+        "spdx": "MIT",
+        "evidence": "LICENSE at the repository root, 'MIT License, Copyright (c) 2026 Alex Jones'; the GitHub API reports spdx_id MIT (checked 2026-11-05).",
+        "attribution": "Required: the licence notice and copyright line are reproduced in NOTICE and on /methodology."
+      },
+      "last_observed_update": "2026-11-03 (repository push)",
+      "update_cadence": "continuous",
+      "expected_cadence_days": 7,
+      "provides": {
+        "fields": [
+          "parameters_raw",
+          "active_parameters",
+          "num_experts",
+          "active_experts",
+          "context_length",
+          "num_hidden_layers",
+          "num_key_value_heads",
+          "head_dim",
+          "architecture",
+          "min_ram_gb",
+          "min_vram_gb"
+        ]
+      },
+      "notes": [
+        "Never feeds the composite or any rank. It only sizes models for the 'what runs on my machine?' page.",
+        "Only entries whose normalised name equals an open-weights scored model are kept; the rest of the file is discarded at ingest.",
+        "The fit arithmetic in lib/fit.ts is ported from llmfit-core (models.rs, fit.rs), also MIT."
+      ],
+      "caveats": [
+        "The catalogue is a scrape: several repos share a name and can report different parameter counts. The most downloaded wins and the disagreement is published per row.",
+        "Hybrid attention layouts exist only for the families llmfit lists; any other model is sized as full attention and its memory is over-stated."
+      ],
+      "fragility": "medium"
     }
   ]
 }
