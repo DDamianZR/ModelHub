@@ -300,3 +300,13 @@ export function getVsModels(
   if (!left || !right || left.id === right.id) return null;
   return { a: left, b: right, rankedCount: meta.ranked_count };
 }
+
+/** The oldest and newest measured_at among one model's scores, for "measured between". */
+export function getScoreDateRange(id: string): { from: string; to: string } | null {
+  const { scores } = readJson<{ scores: ScoreRow[] }>("scores.json");
+  const dates = scores
+    .filter((score) => score.model_id === id && score.measured_at)
+    .map((score) => score.measured_at as string)
+    .sort();
+  return dates.length ? { from: dates[0], to: dates[dates.length - 1] } : null;
+}

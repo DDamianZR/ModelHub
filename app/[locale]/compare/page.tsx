@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { CompareBoard } from "@/components/CompareBoard";
@@ -7,6 +9,21 @@ import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "compare" });
+  return pageMetadata({
+    locale,
+    path: "/compare",
+    title: `${t("title")} · ModelHub`,
+    description: t("intro"),
+  });
 }
 
 export default async function ComparePage({

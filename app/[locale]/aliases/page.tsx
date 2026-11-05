@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getAliases, getIntegrity } from "@/lib/data";
@@ -19,6 +21,21 @@ const REPO = "https://github.com/DDamianZR/ModelHub";
  * It is the worst failure this pipeline can have and the only one it cannot detect on its
  * own, so the whole mapping is published for anyone to check.
  */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "aliases" });
+  return pageMetadata({
+    locale,
+    path: "/aliases",
+    title: `${t("title")} · ModelHub`,
+    description: t("intro"),
+  });
+}
+
 export default async function AliasesPage({
   params,
 }: {

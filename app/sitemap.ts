@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getModelIds, getRanking } from "@/lib/data";
+import { getBenchmarkIds, getProviderIds, getVsPairs } from "@/lib/views";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site-url";
 
@@ -33,5 +34,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticEntries, ...modelEntries];
+  const entriesFor = (paths: string[]) =>
+    paths.flatMap((path) =>
+      routing.locales.map((locale) => ({
+        url: `${url}/${locale}${path}`,
+        lastModified,
+        alternates: { languages: alternates(url, path) },
+      })),
+    );
+
+  return [
+    ...staticEntries,
+    ...modelEntries,
+    ...entriesFor(getProviderIds().map((id) => `/provider/${id}`)),
+    ...entriesFor(getBenchmarkIds().map((id) => `/benchmark/${id}`)),
+    // The prerendered head-to-heads only. Any other pair renders on demand but is not
+    // advertised: 76 models make 2 850 pairs, and most of them nobody searches for.
+    ...entriesFor(getVsPairs().map(([a, b]) => `/vs/${a}/${b}`)),
+  ];
 }

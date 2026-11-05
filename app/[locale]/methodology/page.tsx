@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
@@ -44,6 +46,21 @@ function Section({
       </Surface>
     </section>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "methodology" });
+  return pageMetadata({
+    locale,
+    path: "/methodology",
+    title: `${t("title")} · ModelHub`,
+    description: t("intro"),
+  });
 }
 
 export default async function MethodologyPage({
