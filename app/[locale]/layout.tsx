@@ -2,22 +2,26 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site-url";
 import "../globals.css";
 
-const inter = Inter({
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist-sans",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-geist-mono",
   display: "swap",
 });
+
+/** Runs before first paint so a stored light choice never flashes dark. Dark is the
+    default and needs no attribute; storage access is guarded because it can throw. */
+const THEME_SCRIPT = `try{var t=localStorage.getItem("mh-theme");if(t==="light"){document.documentElement.dataset.theme="light"}}catch(e){}`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -35,17 +39,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    // Absolute URLs: a relative hreflang is ignored by search engines, and Lighthouse
-    // fails the document for it.
     metadataBase: new URL(url),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        es: `${url}/es`,
-        en: `${url}/en`,
-        "x-default": `${url}/es`,
-      },
-    },
   };
 }
 
@@ -64,8 +58,12 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body>
         {/* First focusable element in the document, invisible until a keyboard user
             tabs to it - the escape hatch past SiteHeader's logo/links/nav, which

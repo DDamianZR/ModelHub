@@ -1,38 +1,42 @@
 @import "tailwindcss";
 
 /* ── Semantic design tokens ──────────────────────────────────────────────────
-   Every colour below is verified by scripts/check-contrast.mjs, which parses
-   THIS file. Do not hand-tune a value without re-running it: the boundary
-   tokens are load-bearing for WCAG 1.4.11 and the margins are thin.          */
+   Dark is the default and lives in :root; light is the same names re-bound under
+   [data-theme="light"]. Every colour below is verified by scripts/check-contrast.mjs,
+   which parses THIS file. Do not hand-tune a value without re-running it: the boundary
+   tokens are load-bearing for WCAG 1.4.11 and the margins are thin.
+
+   Planes are separated by a 1px hairline, never by a shadow. There is no elevation
+   token on purpose.                                                              */
 :root {
-  /* Surfaces: plane 0 (canvas) → plane 3 (overlay). iOS grouped-background family:
-     the row lives on the card (--surface-default), not the canvas — see the hover
-     and elevation criteria in scripts/check-contrast.mjs. */
-  --surface-canvas:  #f2f2f7;   /* systemGroupedBackground */
-  --surface-default: #ffffff;   /* the card */
-  --surface-sunk:    #ebebf0;
-  --surface-raised:  #e5e5ea;   /* systemGray5 — hover plane, sits on the card */
-  --surface-overlay: #ffffff;
+  /* Surfaces: plane 0 (canvas) → plane 3 (overlay). The row lives on the card
+     (--surface-default), not the canvas. */
+  --surface-canvas:  #08090a;
+  --surface-default: #0f1011;   /* the card */
+  --surface-sunk:    #16171a;   /* inputs, chips, the segmented-control track */
+  --surface-raised:  #25272a;   /* hover plane, sits on the card */
+  --surface-overlay: #131416;   /* command palette */
 
   /* Text */
-  --text-primary:   #1c1c1e;
-  --text-tertiary:  #5d5d63;
-  --text-on-accent: #ffffff;
+  --text-primary:   #d0d6e0;
+  --text-tertiary:  #8a8f98;
+  --text-on-accent: #08090a;
 
-  /* Lines. line-subtle is decorative and may sit below 3:1; it is NEVER the
+  /* Lines. line-subtle is the hairline: decorative, may sit below 3:1, and is NEVER the
      boundary of an interactive control. line-default and above carry contrast. */
-  --line-subtle:  #d8d8de;
-  --line-default: #767680;      /* base of the iOS hairline separator */
-  --line-strong:  #48484a;
+  --line-subtle:  #23252a;
+  --line-default: #80858e;
+  --line-strong:  #8a8f98;
 
-  /* Accent, and the one non-neutral status color. Both carry the 4.5:1 text
-     floor: --accent paints an 11px eyebrow, --attention paints banner labels. */
-  --accent:       #514ecb;
-  --attention:    #9a4b00;
-  --focus-ring:   #514ecb;
+  /* The single accent, and the one non-neutral status color. Both carry the 4.5:1
+     text floor: --accent paints an 11px eyebrow, --attention paints banner labels. */
+  --accent:       #8b93ff;
+  --attention:    #e2a03f;
+  --focus-ring:   #8b93ff;
 
-  /* Chart / data marks */
-  --mark: #514ecb;
+  /* Chart / data marks. The same validated accent: identity in charts comes from
+     position, label and dash pattern, never from a second hue. */
+  --mark: #8b93ff;
 
   /* Radius: concentric progression, step 4 — overlay - inset = surface,
      surface - inset = control, control - inset = inner. Checked in CI by
@@ -43,44 +47,44 @@
   --radius-inner:    4px;   /* segmented-control thumb, badges inside a control */
   --inset-nested:    4px;   /* the step that relates one level to the next */
 
+  /* Table rhythm: one line per row, 36-40px. */
+  --row-height: 38px;
+
   /* Motion. --dur-fast covers data (filter/sort) and simple state colour changes;
      --dur-base is for controls whose geometry moves (the segmented-control thumb). */
   --dur-fast: 90ms;
   --dur-base: 200ms;
-  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);   /* iOS spring approximation */
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
 
   /* Z-index */
   --z-sticky:  10;
   --z-palette: 50;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface-canvas:  #000000;   /* true black: OLED-off, and the card gets a real
-                                      plane boundary without drawing one */
-    --surface-default: #1c1c1e;
-    --surface-sunk:    #0d0d0e;
-    --surface-raised:  #323236;
-    --surface-overlay: #1c1c1e;
+:root[data-theme="light"] {
+  --surface-canvas:  #fafafa;
+  --surface-default: #ffffff;
+  --surface-sunk:    #f2f2f4;
+  --surface-raised:  #e2e2e8;
+  --surface-overlay: #ffffff;
 
-    --text-primary:   #f2f2f7;
-    --text-tertiary:  #9e9ea6;
-    --text-on-accent: #1c1c1e;
+  --text-primary:   #16181d;
+  --text-tertiary:  #5b606a;
+  --text-on-accent: #ffffff;
 
-    --line-subtle:  #2c2c2e;
-    --line-default: #8e8e93;
-    --line-strong:  #a0a0a8;
+  --line-subtle:  #e3e4e8;
+  --line-default: #6c7180;
+  --line-strong:  #444955;
 
-    --accent:       #a29cff;
-    --attention:    #ff9f0a;
-    --focus-ring:   #a29cff;
+  --accent:       #4a55d4;
+  --attention:    #96470a;
+  --focus-ring:   #4a55d4;
 
-    --mark: #a29cff;
+  --mark: #4a55d4;
 
-    color-scheme: dark;
-  }
+  color-scheme: light;
 }
 
 /* ── Tailwind mapping ────────────────────────────────────────────────────────
@@ -90,6 +94,8 @@
    what the previous, unused colour block did.                                */
 @theme inline {
   --color-sunk:        var(--surface-sunk);
+  --color-raised:      var(--surface-raised);
+  --color-overlay:     var(--surface-overlay);
 
   --color-primary:     var(--text-primary);
   --color-tertiary:    var(--text-tertiary);
@@ -111,15 +117,15 @@
 
 /* Type scale. Nine sizes, down from sixteen ad-hoc arbitrary values. */
 @theme {
-  --font-body:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-body:    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-geist-mono), ui-monospace, monospace;
 
   --text-2xs:  11px;
   --text-xs:   12px;
   --text-sm:   13px;
-  --text-base: 15px;
-  --text-md:   17px;
-  --text-lg:   20px;
+  --text-base: 14px;
+  --text-md:   16px;
+  --text-lg:   19px;
   --text-xl:   22px;
   --text-2xl:  28px;
   --text-3xl:  34px;
@@ -138,8 +144,10 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -245,20 +253,13 @@ body {
   opacity: 0.7;
 }
 
-/* ── Surface: the grouped card ─────────────────────────────────────────────────
-   Light gets a hairline border for definition against a canvas close to it in
-   luminance; dark relies on the canvas/card contrast (1.23:1, see
-   scripts/check-contrast.mjs) and skips the border, matching Apple's own
-   grouped-card treatment on an OLED-black canvas. */
+/* ── Surface: the card ─────────────────────────────────────────────────────────
+   A flat plane with a hairline border in both themes. No shadow anywhere: depth is
+   a 1px line, not a blur. */
 .surface {
   background: var(--surface-default);
   border-radius: var(--radius-surface);
   border: 1px solid var(--line-subtle);
-}
-@media (prefers-color-scheme: dark) {
-  .surface {
-    border: none;
-  }
 }
 /* Attention-flagged surface: degraded-source and out-of-rhythm banners. 3px has
    no non-arbitrary Tailwind border-width step, so it's a plain rule like the
@@ -293,25 +294,30 @@ body {
 .note-attention { border-left-color: var(--attention); }
 
 /* Sticky table header. border-collapse: separate is required for sticky cells
-   to paint their own background instead of showing rows through.
-   Material: the one translucent layer in the whole redesign, deliberately not
-   used anywhere else - backdrop-filter over a scrolling container is fragile
-   in paint order and expensive on mobile (see the plan's rejection of
-   translucency everywhere). The opaque fallback is required, not decorative:
+   to paint their own background instead of showing rows through. Opaque on purpose:
    contrast is only guaranteed against the solid colour. */
 .table-sticky { border-collapse: separate; border-spacing: 0; }
 .table-sticky thead th {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  background: color-mix(in srgb, var(--surface-default) 78%, transparent);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: var(--surface-default);
 }
-@supports not (backdrop-filter: blur(1px)) {
-  .table-sticky thead th {
-    background: var(--surface-default);
-  }
+
+/* One-line rows, 36-40px, hairline between them. Cells carry the height so a row never
+   grows because a neighbour wrapped. */
+.table-dense td,
+.table-dense tbody th {
+  height: var(--row-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  white-space: nowrap;
+}
+.table-dense thead th { height: 34px; }
+
+/* The command palette is a native <dialog>: focus trap and Esc come from the platform. */
+.palette::backdrop {
+  background: rgb(0 0 0 / 0.55);
 }
 
 /* Skip link — hidden until focused. Borders on --line-strong rather than the
