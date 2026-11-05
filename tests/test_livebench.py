@@ -9,7 +9,8 @@ import tempfile
 import unittest
 
 from scripts.ingest.common import SourceError
-from scripts.ingest.report_status import apply_failure_rule, degrade_after_failures
+from scripts.ingest.report_status import (
+    apply_failure_rule, degrade_after_failures, describe_category_rule, explain_age)
 from scripts.ingest.sources import livebench
 
 SITE = livebench.SITE
@@ -191,6 +192,26 @@ class FailureRule(unittest.TestCase):
             path.write_text("{}", encoding="utf-8")
             self.assertEqual(degrade_after_failures(path), 3)
             self.assertEqual(degrade_after_failures(pathlib.Path(tmp) / "missing.json"), 3)
+
+
+class Explain(unittest.TestCase):
+    def test_a_quiet_source_is_not_blamed_on_skipped_releases(self):
+        text = explain_age("livebench", {"date": "2026-06-25"}, {})
+        self.assertIn("nothing newer", text)
+
+    def test_skipped_releases_are_named_with_their_reason(self):
+        text = explain_age("livebench", {"date": "2026-06-25"},
+                           {"skipped_releases": [{"date": "2026-10-25", "reason": "unreadable"}]})
+        self.assertIn("passed over", text)
+        self.assertIn("2026-10-25 (unreadable)", text)
+
+    def test_category_rule_lines_state_release_and_drift(self):
+        lines = describe_category_rule("livebench", {"category_rule": {
+            "coding": {"release": "2026-06-25", "reason": "not_comparable_more_coverage_older",
+                       "drift": 17.9, "common_models": 15}}})
+        self.assertEqual(len(lines), 1)
+        self.assertIn("coding from 2026-06-25", lines[0])
+        self.assertIn("drift 17.9 over 15 models", lines[0])
 
 
 if __name__ == "__main__":

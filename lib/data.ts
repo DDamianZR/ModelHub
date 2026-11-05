@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type {
   AgedSource,
+  CategoryRule,
   Meta,
   Model,
   Provider,
@@ -106,13 +107,63 @@ export function getAgedSources(): AgedSource[] {
     .map(([name, value]) => ({ name, ...value }));
 }
 
-/** Age keyed by the composite category it affects, for flagging a table column. */
+const DAY_MS = 86_400_000;
+
+/**
+ * Age keyed by the composite category it affects, for flagging a table column.
+ *
+ * A source that declares a per-category rule (which release each category came from) is aged
+ * per category, from the release the number was measured in: one source can serve a fresh
+ * category and one that stopped being published months ago.
+ */
 export function getCategoryAges(): Record<string, AgedSource> {
   const out: Record<string, AgedSource> = {};
+  const status = readStatus();
+  const perCategory = new Set(
+    Object.entries(status?.sources ?? {})
+      .filter(([, value]) => value.category_rule)
+      .map(([name]) => name),
+  );
   for (const source of getAgedSources()) {
-    if (source.category) out[source.category] = source;
+    if (source.category && !perCategory.has(source.name)) out[source.category] = source;
+  }
+  if (!status) return out;
+  const today = Date.parse(status.generated_at.slice(0, 10));
+  for (const name of perCategory) {
+    const age = status.snapshot_ages?.[name];
+    if (!age?.warn_days || !age.degraded_days) continue;
+    for (const [category, rule] of Object.entries(status.sources[name].category_rule ?? {})) {
+      const days = Math.round((today - Date.parse(rule.release)) / DAY_MS);
+      if (days <= age.warn_days) continue;
+      out[category] = {
+        name,
+        ...age,
+        date: rule.release,
+        age_days: days,
+        freshness: days >= age.degraded_days ? "degraded" : "aging",
+      };
+    }
   }
   return out;
+}
+
+/** Per-category release decisions of every source that makes them, for the data footnote. */
+export function getCategoryRules(): {
+  name: string;
+  newest: string | null;
+  rules: [string, CategoryRule][];
+  skipped: { date: string; reason: string }[];
+}[] {
+  const status = readStatus();
+  if (!status) return [];
+  return Object.entries(status.sources ?? {})
+    .filter(([, value]) => value.category_rule)
+    .map(([name, value]) => ({
+      name,
+      newest: status.snapshot_ages?.[name]?.snapshot ?? null,
+      rules: Object.entries(value.category_rule ?? {}).sort(([a], [b]) => a.localeCompare(b)),
+      skipped: value.skipped_releases ?? [],
+    }));
 }
 
 /**

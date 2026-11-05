@@ -16,6 +16,9 @@
     "snapshots": "Cortes de datos",
     "degraded": "Fuente sin actualizar",
     "degradedSource": "{source} no responde desde el {since}; se muestra su corte del {snapshot}",
+    "ruleHeading": "{source}, versión usada por categoría:",
+    "ruleItem": "{category} {release}{reason, select, comparable { (valores anteriores cubren huecos; deriva {drift})} not_comparable_more_coverage_older { (hay una versión más nueva pero no es comparable, deriva {drift})} not_comparable_more_coverage_newest { (una versión anterior no es comparable y cubre menos modelos, deriva {drift})} too_few_common_models { (pocos modelos en común para comparar versiones)} other {}}",
+    "ruleSkipped": "Versiones que publicó y se omitieron: {list}.",
     "aging": "Dato envejecido",
     "agingSource": "{source} lleva {days, plural, one {# día} other {# días}} sin publicar datos nuevos (último: {date})",
     "agingSourceNormal": "{source}: {days, plural, one {# día} other {# días}} desde sus últimos datos publicados, dentro de su ritmo habitual (mediana {median} días)"
@@ -58,7 +61,7 @@
     "apiOnly": "Solo API",
     "noHistory": "Sin historial suficiente",
     "agedCategory": "{days, plural, one {#d} other {#d}}",
-    "agedCategoryTitle": "La fuente de esta categoría no publica datos nuevos desde hace {days, plural, one {# día} other {# días}}",
+    "agedCategoryTitle": "La versión más nueva que trae esta categoría es del {date}, hace {days, plural, one {# día} other {# días}}",
     "provisionalTitle": "Provisional · no rankeado",
     "provisionalNote": "Estos modelos tienen menos de {min} de {total} categorías medidas. Se muestran, pero no compiten por un puesto: al repartir el peso solo entre las categorías disponibles, un modelo poco medido sube por lo que le falta, no por ser mejor.",
     "awaitingVotesTitle": "Tiene los benchmarks, pero todavía no acumula votos en LMArena. No es una penalización.",
@@ -264,7 +267,7 @@
       "category": "Categoría",
       "weight": "Peso",
       "inputs": "Entradas",
-      "inputs_reasoning": "GPQA Diamond, SimpleQA Verified (Epoch) · LiveBench Reasoning",
+      "inputs_reasoning": "GPQA Diamond (Epoch) · LiveBench Reasoning",
       "inputs_coding": "SWE-bench Verified (Epoch) · LiveBench Coding y Agentic Coding",
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, arena de texto, categoría overall",
@@ -273,7 +276,28 @@
       "singleSourceNote": "«Fuente única» marca las categorías que dependen de un solo proveedor de datos: si esa fuente se cae, la categoría entera queda sin corte nuevo, no solo un benchmark dentro de ella.",
       "equation": "compuesto = Σ(puntaje_categoría × peso) ÷ Σ(peso de las categorías con dato)",
       "normalisation": "Los benchmarks que ya vienen en porcentaje se usan tal cual. Las calificaciones Bradley-Terry de LMArena no son porcentajes, así que se normalizan min-max contra el conjunto de modelos presente en cada build: en el build actual, {min} y {max} son el 0 y el 100. Esto significa que el valor normalizado de Arena de un modelo puede moverse aunque su calificación no cambie, si entra o sale un modelo del extremo.",
-      "multimodal": "Lo multimodal no entra al compuesto. Se muestra como puntaje de visión aparte. Meter una categoría en la que la mayoría de modelos de texto no compite obligaría a penalizarlos por una ausencia que no dice nada sobre su calidad."
+      "multimodal": "Lo multimodal no entra al compuesto. Se muestra como puntaje de visión aparte. Meter una categoría en la que la mayoría de modelos de texto no compite obligaría a penalizarlos por una ausencia que no dice nada sobre su calidad.",
+      "knowledge": "SimpleQA Verified (Epoch) mide conocimiento factual, no razonamiento. Alimenta el tablero de Conocimiento y no participa en el compuesto, así que ningún benchmark de conocimiento mueve el puntaje de Razonamiento de un modelo."
+    },
+    "releases": {
+      "title": "{source}: de qué versión sale cada categoría",
+      "body": "{source} publica versiones con fecha, y una más nueva no siempre trae todas las suites de una anterior ni mide en la misma escala. Por eso cada categoría se decide por separado, con una medición. Tomamos la versión más nueva que publica la suite de la categoría y la comparamos con la versión anterior más cercana que publica una suite distinta, usando la diferencia media absoluta entre ambas sobre los modelos que las dos midieron.",
+      "comparable": "Si esa diferencia es de {maxDrift} puntos o menos, y se comparten al menos {minCommon} modelos, las dos escalas cuentan como una: se usa la versión más nueva, y un modelo que le falta conserva su valor de la versión anterior, con la fecha de esa versión.",
+      "notComparable": "Si la diferencia es mayor, o se comparten muy pocos modelos para saberlo, la categoría sale de una sola versión: la que cubre más modelos y, en empate, la más nueva. Nunca se mezclan dos escalas dentro de una categoría.",
+      "single": "Una categoría sin versión anterior con la cual comparar usa la versión más nueva tal como se publicó. Los umbrales viven en config/sources.json y se pueden debatir por PR.",
+      "measured": "Decisión medida en esta compilación",
+      "release": "Versión usada",
+      "drift": "Diferencia media",
+      "shared": "Modelos en común",
+      "decision": "Decisión",
+      "reason": {
+        "comparable": "comparable: versión más nueva, los valores anteriores cubren huecos",
+        "not_comparable_more_coverage_older": "no comparable: la versión anterior cubre más modelos",
+        "not_comparable_more_coverage_newest": "no comparable: la versión más nueva cubre más modelos",
+        "too_few_common_models": "pocos modelos en común para comparar: solo la versión más nueva",
+        "single_release": "sin versión anterior con la cual comparar"
+      },
+      "limits": "Límites: la diferencia es un promedio sobre los modelos que ambas versiones midieron, así que no dice nada de los modelos que solo midió una, y con pocos modelos en común es una estimación débil, por eso se exige un mínimo. Una categoría tomada de una versión anterior es tan antigua como esa versión, y el encabezado de su columna lo indica."
     },
     "coverage": {
       "title": "El gate de cobertura",

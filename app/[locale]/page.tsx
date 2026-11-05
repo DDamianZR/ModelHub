@@ -1,6 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import clsx from "clsx";
 import type { Metadata } from "next";
 import { BoardCards } from "@/components/BoardCards";
 import { JsonLd } from "@/components/JsonLd";
@@ -13,6 +12,7 @@ import { IconGitHub, IconGlobe, IconInstagram } from "@/components/icons";
 import {
   getAgedSources,
   getCategoryAges,
+  getCategoryRules,
   getDegradedSources,
   getRanking,
   getRankingRows,
@@ -68,7 +68,13 @@ export default async function HomePage({
   // reads were being serialised into every browser, including two that are 0/65 populated.
   const tableRows = getRankingRows();
   const degraded = getDegradedSources();
-  const aged = getAgedSources();
+  // Only a degraded source (14+ days past its own rhythm) earns the page-level banner;
+  // a source that is merely ageing is marked on its own column instead.
+  const staleDegraded = getAgedSources().filter(
+    (entry) => entry.freshness === "degraded" && !degraded.some((d) => d.name === entry.name),
+  );
+  const rules = getCategoryRules();
+  const ttable = await getTranslations("table");
   const categoryAges = getCategoryAges();
   const openWeights = rows.filter((r) => r.is_open_weights).length;
 
@@ -154,64 +160,52 @@ export default async function HomePage({
           </div>
         </Surface>
 
-        {degraded.length > 0 && (
+        {(degraded.length > 0 || staleDegraded.length > 0) && (
           <Surface className="surface-attention mt-4 p-3 text-xs leading-[1.6]">
             <span className="eyebrow text-attention">{tp("degraded")}</span>{" "}
-            {degraded
-              .map((entry) =>
+            {[
+              ...degraded.map((entry) =>
                 tp("degradedSource", {
                   source: entry.name,
                   since: entry.status.last_success ?? "—",
                   snapshot: entry.snapshotDate ?? "—",
                 }),
-              )
-              .join(" · ")}
+              ),
+              ...staleDegraded.map((entry) =>
+                tp("agingSource", {
+                  source: entry.name,
+                  days: entry.age_days ?? 0,
+                  date: entry.date ?? "—",
+                }),
+              ),
+            ].join(" · ")}
           </Surface>
         )}
 
-        {aged.length > 0 && (() => {
-          // Within-rhythm gaps read as a neutral fact, not an alarm: this source's own
-          // observed cadence (median_gap_days) already explains the gap, so nothing here
-          // is actually surprising. Only a gap that exceeds twice that median gets the
-          // attention treatment - see lib/data.ts's getAgedSources for why state "ok" is
-          // required to appear here at all.
-          const withinRhythm = (entry: (typeof aged)[number]) => {
-            const median = entry.observed?.median_gap_days;
-            return median != null && (entry.age_days ?? Infinity) <= median * 2;
-          };
-          const anyExceeding = aged.some((entry) => !withinRhythm(entry));
-          return (
-            <Surface
-              className={clsx(
-                "mt-4 p-3 text-xs leading-[1.6]",
-                anyExceeding && "surface-attention",
-              )}
-            >
-              <span className={clsx("eyebrow", anyExceeding ? "text-attention" : "text-tertiary")}>
-                {tp("aging")}
-              </span>{" "}
-              {aged.map((entry, i) => {
-                const normal = withinRhythm(entry);
-                return (
-                  <span key={entry.name} className={normal ? "text-tertiary" : "text-attention"}>
-                    {i > 0 && " · "}
-                    {normal
-                      ? tp("agingSourceNormal", {
-                          source: entry.name,
-                          days: entry.age_days ?? 0,
-                          median: entry.observed!.median_gap_days.toFixed(1),
-                        })
-                      : tp("agingSource", {
-                          source: entry.name,
-                          days: entry.age_days ?? 0,
-                          date: entry.date ?? "—",
-                        })}
-                  </span>
-                );
-              })}
-            </Surface>
-          );
-        })()}
+        {rules.length > 0 && (
+          <p className="mt-4 max-w-[60rem] text-xs leading-[1.6] text-tertiary">
+            {rules.map((entry) => (
+              <span key={entry.name} className="block">
+                {tp("ruleHeading", { source: entry.name })}{" "}
+                {entry.rules
+                  .map(([category, rule]) =>
+                    tp("ruleItem", {
+                      category: ttable(category),
+                      release: rule.release,
+                      reason: rule.reason,
+                      drift: rule.drift == null ? "—" : rule.drift.toFixed(1),
+                    }),
+                  )
+                  .join("; ")}
+                .
+                {entry.skipped.length > 0 &&
+                  ` ${tp("ruleSkipped", {
+                    list: entry.skipped.map((s) => `${s.date} (${s.reason})`).join(", "),
+                  })}`}
+              </span>
+            ))}
+          </p>
+        )}
       </section>
 
       <JsonLd data={siteJsonLd} />

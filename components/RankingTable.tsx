@@ -100,7 +100,7 @@ export function RankingTable({
   rows: RankingRow[];
   minCoverage: number;
   /** Categories whose upstream snapshot has aged, keyed by category. */
-  categoryAges?: Record<string, { age_days: number | null; freshness: string }>;
+  categoryAges?: Record<string, { age_days: number | null; freshness: string; date?: string | null }>;
 }) {
   const t = useTranslations("table");
   const tf = useTranslations("filters");
@@ -648,7 +648,7 @@ export function RankingTable({
                             "eyebrow block text-right",
                             aged.freshness === "degraded" && "text-attention",
                           )}
-                          title={t("agedCategoryTitle", { days: aged.age_days })}
+                          title={t("agedCategoryTitle", { days: aged.age_days, date: aged.date ?? "—" })}
                         >
                           {t("agedCategory", { days: aged.age_days })}
                         </span>

@@ -16,6 +16,9 @@
     "snapshots": "Data snapshots",
     "degraded": "Source not refreshed",
     "degradedSource": "{source} has not responded since {since}; showing its {snapshot} snapshot",
+    "ruleHeading": "{source}, release used by category:",
+    "ruleItem": "{category} {release}{reason, select, comparable { (older values fill gaps; drift {drift})} not_comparable_more_coverage_older { (a newer release exists but is not comparable, drift {drift})} not_comparable_more_coverage_newest { (an older release is not comparable and covers fewer models, drift {drift})} too_few_common_models { (too few shared models to compare releases)} other {}}",
+    "ruleSkipped": "Releases it published that were passed over: {list}.",
     "aging": "Data ageing",
     "agingSource": "{source} has not published new numbers in {days, plural, one {# day} other {# days}} (last: {date})",
     "agingSourceNormal": "{source}: {days, plural, one {# day} other {# days}} since it last published numbers, within its normal rhythm (median {median} days)"
@@ -58,7 +61,7 @@
     "apiOnly": "API only",
     "noHistory": "Not enough history",
     "agedCategory": "{days, plural, one {#d} other {#d}}",
-    "agedCategoryTitle": "The source behind this category has not published new numbers in {days, plural, one {# day} other {# days}}",
+    "agedCategoryTitle": "The newest release that carries this category is from {date}, {days, plural, one {# day} other {# days}} ago",
     "provisionalTitle": "Provisional · not ranked",
     "provisionalNote": "These models have fewer than {min} of {total} categories measured. They stay visible but don't compete for a slot: spreading the weight across only the available categories lifts a thinly measured model on what it is missing, not on being better.",
     "awaitingVotesTitle": "Has the benchmarks but hasn't accumulated LMArena votes yet. This is not a penalty.",
@@ -264,7 +267,7 @@
       "category": "Category",
       "weight": "Weight",
       "inputs": "Inputs",
-      "inputs_reasoning": "GPQA Diamond, SimpleQA Verified (Epoch) · LiveBench Reasoning",
+      "inputs_reasoning": "GPQA Diamond (Epoch) · LiveBench Reasoning",
       "inputs_coding": "SWE-bench Verified (Epoch) · LiveBench Coding and Agentic Coding",
       "inputs_math": "MATH Level 5, FrontierMath (Epoch) · LiveBench Mathematics",
       "inputs_human_preference": "LMArena, text arena, overall category",
@@ -273,7 +276,28 @@
       "singleSourceNote": "\"Single source\" marks categories that depend on one data provider: if that source goes down, the whole category gets no new snapshot, not just one benchmark inside it.",
       "equation": "composite = Σ(category score × weight) ÷ Σ(weight of categories with data)",
       "normalisation": "Benchmarks already reported as percentages are used as-is. LMArena's Bradley-Terry ratings are not percentages, so they are min-max normalised against the cohort present in each build: in the current build, {min} and {max} are the 0 and the 100. This means a model's normalised Arena value can move even when its rating doesn't, if a model enters or leaves either extreme.",
-      "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality."
+      "multimodal": "Multimodal stays out of the composite and is shown as a separate vision score. Including a category most text models don't compete in would mean penalising them for an absence that says nothing about their quality.",
+      "knowledge": "SimpleQA Verified (Epoch) measures factual knowledge, not reasoning. It feeds the Knowledge board and takes no part in the composite, so no knowledge benchmark moves a model's Reasoning score."
+    },
+    "releases": {
+      "title": "{source}: which release each category comes from",
+      "body": "{source} publishes dated releases, and a newer one does not always publish every suite an older one did, nor measure on the same scale. Each category is therefore decided on its own, from a measurement. We take the newest release that publishes the category's suite and compare it with the nearest earlier release that publishes a different suite, using the mean absolute gap between the two on the models both measured.",
+      "comparable": "If that gap is at most {maxDrift} points, and at least {minCommon} models are shared, the two scales count as one: the newest release is used, and a model it lacks keeps its value from the older release, dated with that release.",
+      "notComparable": "If the gap is larger, or too few models are shared to tell, the category comes from a single release: the one covering more models, the newest on a tie. Two scales are never mixed inside one category.",
+      "single": "A category with no earlier release to compare against uses the newest release as published. The thresholds live in config/sources.json and are debatable by PR.",
+      "measured": "Decision measured in this build",
+      "release": "Release used",
+      "drift": "Mean gap",
+      "shared": "Shared models",
+      "decision": "Decision",
+      "reason": {
+        "comparable": "comparable: newest release, older values fill gaps",
+        "not_comparable_more_coverage_older": "not comparable: the older release covers more models",
+        "not_comparable_more_coverage_newest": "not comparable: the newest release covers more models",
+        "too_few_common_models": "too few shared models to compare: newest release only",
+        "single_release": "no earlier release to compare"
+      },
+      "limits": "Limits: the gap is a mean over the models both releases measured, so it says nothing about models only one of them measured, and with few shared models it is a weak estimate, which is why a minimum is required. A category taken from an older release is as old as that release, and its column header says so."
     },
     "coverage": {
       "title": "The coverage gate",

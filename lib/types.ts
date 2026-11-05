@@ -103,17 +103,34 @@ export type Provider = { id: string; display_name: string; country: string };
 
 export type SourceState = "ok" | "cached" | "stale" | "failed";
 
+/** Which release one category was scored from, and the measurement that decided it. */
+export type CategoryRule = {
+  release: string;
+  fallback: boolean;
+  /** Mean absolute gap on the models two releases share; null when nothing was compared. */
+  drift: number | null;
+  common_models: number;
+  reason: string;
+  max_drift: number;
+  min_common_models: number;
+};
+
 export type SourceStatus = {
   state: SourceState;
   last_success: string | null;
   age_days?: number;
   error?: string | null;
+  /** Newer releases the source published that the ingest could not use. */
+  skipped_releases?: { date: string; reason: string }[];
+  category_rule?: Record<string, CategoryRule>;
 };
 
 export type SnapshotAge = {
   date: string | null;
   age_days: number | null;
   freshness: "fresh" | "aging" | "degraded" | "unknown";
+  /** Date of the newest release the source published, when that differs from `date`. */
+  snapshot?: string | null;
   /** The composite category this source feeds, when it feeds exactly one. */
   category?: string;
   cadence_days?: number;
