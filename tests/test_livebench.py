@@ -63,17 +63,40 @@ class ParseReleases(unittest.TestCase):
 
 
 class Collect(unittest.TestCase):
-    def test_newest_release_is_used_even_without_instruction_following(self):
-        payload = livebench.collect(_fetcher(_site()))
-        self.assertEqual(payload["snapshot"], "2026-10-25")
-        self.assertNotIn("skipped_releases", payload)
-        cats = {row["category"] for row in payload["scores"]["alpha-1"]}
-        self.assertEqual(cats, {"reasoning", "coding"})
+    """Per category, the newest release that publishes its suite counts."""
 
-    def test_unreadable_newest_release_is_still_reported_as_skipped(self):
+    def _by_cat(self, payload, key="alpha-1"):
+        return {r["category"]: r for r in payload["scores"][key]}
+
+    def test_each_category_comes_from_its_newest_release_with_that_suite(self):
+        payload = livebench.collect(_fetcher(_site()), fallback=False)
+        rows = self._by_cat(payload)
+        self.assertEqual(set(rows), {"reasoning", "coding", "math", "instruction_following"})
+        self.assertEqual((rows["reasoning"]["value"], rows["reasoning"]["measured_at"]), (99.0, "2026-10-25"))
+        self.assertEqual((rows["coding"]["value"], rows["coding"]["measured_at"]), (99.0, "2026-10-25"))
+        self.assertEqual((rows["math"]["value"], rows["math"]["measured_at"]), (60.0, "2026-06-25"))
+        self.assertEqual(rows["instruction_following"]["measured_at"], "2026-06-25")
+        self.assertEqual(payload["snapshot"], "2026-10-25")
+        self.assertEqual(payload["releases_used"]["math"], "2026-06-25")
+        self.assertNotIn("skipped_releases", payload)
+
+    def test_strict_leaves_a_model_absent_from_the_newer_release_without_that_category(self):
+        files = _site(**{
+            f"{SITE}/v1/table_2026_06_25.csv": V1_TABLE + "beta-2,10,20,30,40\n"})
+        rows = self._by_cat(livebench.collect(_fetcher(files), fallback=False), "beta-2")
+        self.assertEqual(set(rows), {"math", "instruction_following"})
+
+    def test_fallback_carries_an_older_value_dated_with_its_own_release(self):
+        files = _site(**{
+            f"{SITE}/v1/table_2026_06_25.csv": V1_TABLE + "beta-2,10,20,30,40\n"})
+        rows = self._by_cat(livebench.collect(_fetcher(files), fallback=True), "beta-2")
+        self.assertEqual(rows["reasoning"]["value"], 10.0)
+        self.assertEqual(rows["reasoning"]["measured_at"], "2026-06-25")
+
+    def test_unreadable_newest_release_is_reported_as_skipped(self):
         files = _site()
         del files[f"{SITE}/data/20261025/table.csv"]
-        payload = livebench.collect(_fetcher(files))
+        payload = livebench.collect(_fetcher(files), fallback=False)
         self.assertEqual(payload["snapshot"], "2026-10-14")
         self.assertEqual([s["date"] for s in payload["skipped_releases"]], ["2026-10-25"])
 
@@ -81,7 +104,7 @@ class Collect(unittest.TestCase):
         files = _site()
         for key in [k for k in files if "/data/" in k]:
             del files[key]
-        payload = livebench.collect(_fetcher(files))
+        payload = livebench.collect(_fetcher(files), fallback=False)
         self.assertEqual(payload["snapshot"], "2026-06-25")
         self.assertTrue(all(s["reason"].startswith("unreadable")
                             for s in payload["skipped_releases"]))

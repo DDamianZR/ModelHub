@@ -25,10 +25,10 @@ CATEGORY_MAP = {
 }
 
 
-# Categories a release must publish to be scoreable. None: the newest readable release is
-# used even when it drops a suite (instruction following has no LiveBench source in the
-# newest versions); the category is then simply unmeasured, never carried from an older one.
-REQUIRED_CATEGORIES: frozenset[str] = frozenset()
+# When a model is missing from the newest release that publishes a category's suite, may it
+# carry its value from an older release that has the suite? Decided by measured drift between
+# releases (see NOTES-REVIVE.md), not by assumption.
+FALLBACK_TO_OLDER = False
 
 _V1_LIST = re.compile(r'\[((?:"20\d{2}-\d{2}-\d{2}",?)+)\]')
 _V2_LIST = re.compile(r'\[((?:"20\d{6}",?)+)\]')
@@ -85,15 +85,21 @@ def _resolve_releases(fetcher) -> list[dict]:
     return parse_releases(script)
 
 
-def select_release(releases: list[dict], fetcher) -> tuple[dict, str, dict[str, str], list[dict]]:
-    """The newest release that can be scored, with the ones passed over and why.
+def load_releases(releases: list[dict], fetcher, *, need_all: bool) -> tuple[list[dict], list[dict]]:
+    """Readable releases newest first, each with its task map and rows, plus those passed over.
 
-    Newest first. A release is passed over when its files are gone (404) or when it
-    publishes no suite for a required category. Passed-over releases are returned so the
-    status file can say a newer release exists and is not being scored.
+    Per category, the newest release that publishes a suite for it is the one that counts, so
+    loading stops once every scored category has one - unless `need_all`, which also loads the
+    older releases a model may fall back to. A release is passed over when its files are gone
+    or when it publishes no suite for any scored category.
     """
+    wanted = set(CATEGORY_MAP.values())
+    loaded: list[dict] = []
     skipped: list[dict] = []
+    covered: set[str] = set()
     for release in releases:
+        if covered >= wanted and not need_all:
+            break
         try:
             table = fetcher(release["table"]).decode("utf-8", "replace")
             categories = json.loads(fetcher(release["categories"]).decode())
@@ -101,57 +107,83 @@ def select_release(releases: list[dict], fetcher) -> tuple[dict, str, dict[str, 
             skipped.append({"date": release["date"], "reason": f"unreadable: {exc}"[:160]})
             continue
         task_category = _task_categories(categories)
-        missing = REQUIRED_CATEGORIES - set(task_category.values())
-        if missing:
-            skipped.append({"date": release["date"],
-                            "reason": "no suite for " + ", ".join(sorted(missing))})
+        if not task_category:
+            skipped.append({"date": release["date"], "reason": "no suite for a scored category"})
             continue
-        return release, table, task_category, skipped
-    raise SourceError(
-        "livebench: no scoreable release among "
-        + ", ".join(f"{s['date']} ({s['reason']})" for s in skipped[:4])
-    )
+        covered |= set(task_category.values())
+        loaded.append({"date": release["date"], "tasks": task_category,
+                       "rows": list(csv.DictReader(table.splitlines()))})
+    if not loaded:
+        raise SourceError(
+            "livebench: no scoreable release among "
+            + ", ".join(f"{s['date']} ({s['reason']})" for s in skipped[:4])
+        )
+    return loaded, skipped
 
 
-def collect(fetcher=fetch) -> dict:
+def _row_scores(row: dict, tasks: dict[str, str]) -> dict[str, float]:
+    buckets: dict[str, list[float]] = {}
+    for task, category in tasks.items():
+        raw = row.get(task)
+        if not raw:
+            continue
+        try:
+            buckets.setdefault(category, []).append(float(raw))
+        except ValueError:
+            continue
+    return {c: round(sum(v) / len(v), 2) for c, v in buckets.items()}
+
+
+def collect(fetcher=fetch, fallback: bool | None = None) -> dict:
+    fallback = FALLBACK_TO_OLDER if fallback is None else fallback
     releases = _resolve_releases(fetcher)
-    release, table, task_category, skipped = select_release(releases, fetcher)
-    snapshot = release["date"]
+    loaded, skipped = load_releases(releases, fetcher, need_all=fallback)
+
+    # Newest release publishing each category; the rest are only consulted under `fallback`.
+    by_category: dict[str, list[dict]] = {}
+    for release in loaded:
+        for category in set(release["tasks"].values()):
+            by_category.setdefault(category, []).append(release)
+
+    per_model: dict[str, dict[str, dict]] = {}   # key -> category -> {value, date, name}
+    for category, candidates in by_category.items():
+        for release in candidates if fallback else candidates[:1]:
+            for row in release["rows"]:
+                raw_name = (row.get("model") or "").strip()
+                key = norm(raw_name)
+                if not key:
+                    continue
+                value = _row_scores(row, release["tasks"]).get(category)
+                if value is None or category in per_model.get(key, {}):
+                    continue
+                per_model.setdefault(key, {})[category] = {
+                    "value": value, "date": release["date"], "name": raw_name}
 
     scores: dict[str, list[dict]] = {}
-    for row in csv.DictReader(table.splitlines()):
-        raw_name = (row.get("model") or "").strip()
-        key = norm(raw_name)
-        if not key:
-            continue
-        buckets: dict[str, list[float]] = {}
-        for task, category in task_category.items():
-            raw = row.get(task)
-            if not raw:
-                continue
-            try:
-                buckets.setdefault(category, []).append(float(raw))
-            except ValueError:
-                continue
-        for category, values in buckets.items():
+    for key, cats in per_model.items():
+        for category, hit in sorted(cats.items()):
             scores.setdefault(key, []).append({
                 "benchmark_id": f"livebench_{category}",
                 "category": category,
-                "variant": raw_name,
-                "value": round(sum(values) / len(values), 2),
+                "variant": hit["name"],
+                "value": hit["value"],
                 "source_type": "third_party_benchmark",
                 "source_url": ATTRIBUTION,
-                "measured_at": snapshot,
+                "measured_at": hit["date"],
             })
 
     if not scores:
         raise SourceError("livebench: no rows parsed")
 
+    used = sorted({h["date"] for cats in per_model.values() for h in cats.values()}, reverse=True)
     payload = {
-        "snapshot": snapshot,
+        "snapshot": used[0],
+        "releases_used": {c: cands[0]["date"] for c, cands in sorted(by_category.items())},
         "published_snapshots": sorted(r["date"] for r in releases),
         "scores": scores,
     }
-    if skipped:
-        payload["skipped_releases"] = skipped
+    # Only releases newer than the oldest one in use can be "newer but not scored".
+    newest_unreadable = [s for s in skipped if s["date"] > used[-1]]
+    if newest_unreadable:
+        payload["skipped_releases"] = newest_unreadable
     return payload
