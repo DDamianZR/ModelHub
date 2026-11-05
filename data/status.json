@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T18:33:39+00:00",
+  "generated_at": "2026-11-05T18:45:30+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -144,22 +144,22 @@
       ]
     },
     "livebench": {
-      "normalised_sha256": "f763e8905e5ce34f39ab269bef1b37cad25f2dc2d8c51d47d5e8524666a9e401",
+      "normalised_sha256": "1ad1d944a258ea141e35c0bf1f82e8e62e56bc2131c1faeb30370fb5939e81f4",
       "requests": 28,
       "upstream": []
     },
     "lmarena": {
       "normalised_sha256": "1a436458f8b36c7149907aaf1ee3f2c822b770aca6ea4f1ab2d14c771b3c8527",
-      "requests": 7,
+      "requests": 8,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "096f58b53b0738f6f7662ccf331533f9e646e5e46d4f8f5e5be497248c61f22a",
+      "normalised_sha256": "731a62f95f8f1e0f84eac5ac20b1b8fe7582abd28ebe6751112d127fa7e38002",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "b2aec338ae0bd2867447fa4671d305879d933a3394b48cb50b5653b6b415e9c3",
+          "sha256": "1728b0237c6c5af821b7abcb5657c6e8a4086446e224d51e81426d728ddad5af",
           "bytes": 814078
         }
       ]

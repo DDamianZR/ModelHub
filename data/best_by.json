@@ -7,8 +7,8 @@
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 3,
-    "pareto_evaluated": 58
+    "pareto_members": 4,
+    "pareto_evaluated": 60
   },
   "boards": [
     {
@@ -16,14 +16,11 @@
       "metric": "composite",
       "order": "max",
       "filter": {},
-      "candidates": 61,
-      "value": 84.24,
+      "candidates": 63,
+      "value": 84.49,
       "winners": [
-        "anthropic-claude-opus-5-5",
-        "openai-gpt-6-astra",
-        "deepseek-deepseek-v4.1-flash",
-        "openai-gpt-6.1-sol",
-        "anthropic-claude-fable-5"
+        "anthropic-claude-fable-5-1",
+        "anthropic-claude-opus-5-5"
       ],
       "indistinguishable": true
     },
@@ -32,21 +29,20 @@
       "metric": "category:reasoning",
       "order": "max",
       "filter": {},
-      "candidates": 61,
-      "value": 95.77,
+      "candidates": 63,
+      "value": 94.21,
       "winners": [
         "openai-gpt-6-astra",
-        "anthropic-claude-sonnet-5-5",
-        "google-deepmind-gemini-3.8-flash",
         "openai-gpt-6.1-sol",
-        "openai-gpt-5.6-terra",
-        "xai-grok-4.7",
+        "anthropic-claude-sonnet-5-5",
         "google-deepmind-gemini-3-pro",
         "openai-gpt-5.6-sol",
         "anthropic-claude-opus-5",
+        "google-deepmind-gemini-3.8-flash",
+        "openai-gpt-5.6-terra",
         "openai-gpt-5.5",
+        "openai-gpt-6-sol",
         "anthropic-claude-opus-5-5",
-        "openai-gpt-6-luna",
         "z-ai-zhipu-ai-glm-5.1"
       ],
       "indistinguishable": true
@@ -56,7 +52,7 @@
       "metric": "category:coding",
       "order": "max",
       "filter": {},
-      "candidates": 61,
+      "candidates": 63,
       "value": 78.73,
       "winners": [
         "anthropic-claude-opus-5-5",
@@ -70,7 +66,7 @@
       "metric": "category:math",
       "order": "max",
       "filter": {},
-      "candidates": 61,
+      "candidates": 63,
       "value": 97.08,
       "winners": [
         "anthropic-claude-opus-5-5"
@@ -94,7 +90,7 @@
       "metric": "category:instruction_following",
       "order": "max",
       "filter": {},
-      "candidates": 52,
+      "candidates": 54,
       "value": 81.41,
       "winners": [
         "google-deepmind-gemini-3.8-flash"
@@ -122,7 +118,7 @@
       "filter": {
         "max_blended_price": 1.0
       },
-      "candidates": 12,
+      "candidates": 13,
       "value": 83.32,
       "winners": [
         "deepseek-deepseek-v4.1-flash"
@@ -136,7 +132,7 @@
       "filter": {
         "min_coverage": 4
       },
-      "candidates": 58,
+      "candidates": 60,
       "value": 0.1076,
       "winners": [
         "deepseek-deepseek-v4-flash-0731"

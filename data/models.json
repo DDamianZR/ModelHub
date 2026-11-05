@@ -2,8 +2,8 @@
   "meta": {
     "generated_at": "2026-11-05",
     "model_count": 85,
-    "ranked_count": 61,
-    "provisional_count": 24,
+    "ranked_count": 63,
+    "provisional_count": 22,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
@@ -20,6 +20,77 @@
     }
   },
   "models": [
+    {
+      "id": "anthropic-claude-fable-5-1",
+      "display_name": "Claude Fable 5.1 (high)",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-01",
+      "country": "United States of America",
+      "context_window": 1000000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 10.0,
+        "output_usd_per_m": 50.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "coding": 74.19,
+        "instruction_following": 72.99,
+        "math": 97.01,
+        "reasoning": 91.69
+      },
+      "category_errors": {
+        "coding": null,
+        "instruction_following": null,
+        "math": null,
+        "reasoning": null
+      },
+      "composite": 84.49,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 1,
+        "max_sources": 3,
+        "benchmarks": 4
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 1,
+      "tied_with": 1,
+      "blended_price_usd_per_m": 20.0,
+      "price_per_composite_point": 0.23671,
+      "pareto_frontier": true,
+      "cohort_recalibration": null
+    },
     {
       "id": "anthropic-claude-opus-5-5",
       "display_name": "Claude Opus 5.5 (high)",
@@ -49,22 +120,22 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 90.59,
+        "reasoning": 91.37,
         "coding": 78.73,
         "instruction_following": 65.74,
         "math": 97.08
       },
       "category_errors": {
-        "reasoning": 3.808,
+        "reasoning": 1.904,
         "coding": null,
         "instruction_following": null,
         "math": null
       },
-      "composite": 84.24,
-      "composite_error": 1.12,
+      "composite": 84.47,
+      "composite_error": 0.56,
       "uncertainty": {
         "measured_inputs": 1,
-        "total_inputs": 4,
+        "total_inputs": 5,
         "is_lower_bound": true
       },
       "coverage": {
@@ -85,9 +156,9 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 1,
-      "tied_with": 4,
+      "tied_with": 1,
       "blended_price_usd_per_m": 8.0,
-      "price_per_composite_point": 0.09497,
+      "price_per_composite_point": 0.09471,
       "pareto_frontier": true,
       "cohort_recalibration": null
     },
@@ -120,22 +191,22 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 95.77,
+        "reasoning": 94.21,
         "coding": 66.54,
         "instruction_following": 75.58,
         "math": 96.81
       },
       "category_errors": {
-        "reasoning": 2.685,
+        "reasoning": 1.343,
         "coding": null,
         "instruction_following": null,
         "math": null
       },
-      "composite": 83.85,
-      "composite_error": 0.79,
+      "composite": 83.4,
+      "composite_error": 0.4,
       "uncertainty": {
         "measured_inputs": 1,
-        "total_inputs": 4,
+        "total_inputs": 5,
         "is_lower_bound": true
       },
       "coverage": {
@@ -155,10 +226,10 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 1,
-      "tied_with": 4,
+      "rank": 3,
+      "tied_with": 3,
       "blended_price_usd_per_m": 20.0,
-      "price_per_composite_point": 0.23852,
+      "price_per_composite_point": 0.23981,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -225,82 +296,11 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 1,
-      "tied_with": 4,
+      "rank": 3,
+      "tied_with": 3,
       "blended_price_usd_per_m": 0.1588,
       "price_per_composite_point": 0.00191,
       "pareto_frontier": true,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-6.1-sol",
-      "display_name": "GPT-6.1 Sol (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-29",
-      "country": "United States of America",
-      "context_window": 1050000,
-      "modalities": [
-        "text",
-        "file",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 2.0,
-        "output_usd_per_m": 10.0,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 95.39,
-        "coding": 64.87,
-        "instruction_following": 74.15,
-        "math": 96.83
-      },
-      "category_errors": {
-        "reasoning": 2.701,
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 83.0,
-      "composite_error": 0.79,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 4,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 1,
-      "tied_with": 4,
-      "blended_price_usd_per_m": 4.0,
-      "price_per_composite_point": 0.04819,
-      "pareto_frontier": false,
       "cohort_recalibration": null
     },
     {
@@ -367,10 +367,81 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 1,
-      "tied_with": 4,
+      "rank": 3,
+      "tied_with": 3,
       "blended_price_usd_per_m": 20.0,
       "price_per_composite_point": 0.2414,
+      "pareto_frontier": false,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-6.1-sol",
+      "display_name": "GPT-6.1 Sol (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-29",
+      "country": "United States of America",
+      "context_window": 1050000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 10.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 94.01,
+        "coding": 64.87,
+        "instruction_following": 74.15,
+        "math": 96.83
+      },
+      "category_errors": {
+        "reasoning": 1.351,
+        "coding": null,
+        "instruction_following": null,
+        "math": null
+      },
+      "composite": 82.6,
+      "composite_error": 0.4,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 3,
+      "tied_with": 3,
+      "blended_price_usd_per_m": 4.0,
+      "price_per_composite_point": 0.04843,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -440,8 +511,8 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 3,
-      "tied_with": 2,
+      "rank": 4,
+      "tied_with": 1,
       "blended_price_usd_per_m": 1.5,
       "price_per_composite_point": 0.01818,
       "pareto_frontier": false,
@@ -511,84 +582,11 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 3,
-      "tied_with": 2,
+      "rank": 4,
+      "tied_with": 1,
       "blended_price_usd_per_m": null,
       "price_per_composite_point": null,
       "pareto_frontier": null,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "google-deepmind-gemini-3.8-flash",
-      "display_name": "Gemini 3.8 Flash (high)",
-      "provider_id": "google-deepmind",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-02",
-      "country": "United States of America",
-      "context_window": 1048576,
-      "modalities": [
-        "text",
-        "audio",
-        "file",
-        "vision",
-        "video"
-      ],
-      "pricing": {
-        "input_usd_per_m": 0.825,
-        "output_usd_per_m": 4.125,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 95.39,
-        "coding": 61.54,
-        "instruction_following": 81.41,
-        "math": 91.56
-      },
-      "category_errors": {
-        "reasoning": 2.746,
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 82.07,
-      "composite_error": 0.81,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 4,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "high",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 3,
-      "tied_with": 2,
-      "blended_price_usd_per_m": 1.65,
-      "price_per_composite_point": 0.0201,
-      "pareto_frontier": false,
       "cohort_recalibration": null
     },
     {
@@ -655,8 +653,8 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 4,
-      "tied_with": 3,
+      "rank": 5,
+      "tied_with": 1,
       "blended_price_usd_per_m": 8.0,
       "price_per_composite_point": 0.09716,
       "pareto_frontier": false,
@@ -726,31 +724,33 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 4,
-      "tied_with": 3,
+      "rank": 5,
+      "tied_with": 1,
       "blended_price_usd_per_m": 10.0,
       "price_per_composite_point": 0.12183,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
     {
-      "id": "xai-grok-4.7",
-      "display_name": "Grok 4.7 (high)",
-      "provider_id": "xai",
+      "id": "google-deepmind-gemini-3.8-flash",
+      "display_name": "Gemini 3.8 Flash (high)",
+      "provider_id": "google-deepmind",
       "is_open_weights": false,
       "license": "API access",
       "api_only": true,
-      "release_date": "2026-09-21",
+      "release_date": "2026-09-02",
       "country": "United States of America",
-      "context_window": 500000,
+      "context_window": 1048576,
       "modalities": [
         "text",
+        "audio",
         "file",
-        "vision"
+        "vision",
+        "video"
       ],
       "pricing": {
-        "input_usd_per_m": 2.0,
-        "output_usd_per_m": 6.0,
+        "input_usd_per_m": 0.825,
+        "output_usd_per_m": 4.125,
         "source_url": "https://openrouter.ai/models",
         "measured_at": "2026-11-05"
       },
@@ -762,22 +762,22 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 92.74,
-        "coding": 63.26,
-        "instruction_following": 75.28,
-        "math": 95.68
+        "reasoning": 92.34,
+        "coding": 61.54,
+        "instruction_following": 81.41,
+        "math": 91.56
       },
       "category_errors": {
-        "reasoning": 3.04,
+        "reasoning": 1.373,
         "coding": null,
         "instruction_following": null,
         "math": null
       },
-      "composite": 81.68,
-      "composite_error": 0.89,
+      "composite": 81.17,
+      "composite_error": 0.4,
       "uncertainty": {
         "measured_inputs": 1,
-        "total_inputs": 4,
+        "total_inputs": 5,
         "is_lower_bound": true
       },
       "coverage": {
@@ -794,13 +794,13 @@
       },
       "provisional": false,
       "awaiting_human_votes": true,
-      "variant": "xhigh",
+      "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 4,
-      "tied_with": 3,
-      "blended_price_usd_per_m": 3.0,
-      "price_per_composite_point": 0.03673,
+      "rank": 11,
+      "tied_with": 4,
+      "blended_price_usd_per_m": 1.65,
+      "price_per_composite_point": 0.02033,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -833,22 +833,22 @@
       },
       "status": "verified",
       "category_scores": {
-        "reasoning": 95.58,
+        "reasoning": 93.6,
         "coding": 70.33,
         "instruction_following": 56.79,
         "math": 96.13
       },
       "category_errors": {
-        "reasoning": 2.687,
+        "reasoning": 1.343,
         "coding": null,
         "instruction_following": null,
         "math": null
       },
-      "composite": 81.44,
-      "composite_error": 0.79,
+      "composite": 80.86,
+      "composite_error": 0.4,
       "uncertainty": {
         "measured_inputs": 1,
-        "total_inputs": 4,
+        "total_inputs": 5,
         "is_lower_bound": true
       },
       "coverage": {
@@ -868,10 +868,10 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 4,
-      "tied_with": 3,
+      "rank": 11,
+      "tied_with": 4,
       "blended_price_usd_per_m": 4.0,
-      "price_per_composite_point": 0.04912,
+      "price_per_composite_point": 0.04947,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -940,7 +940,7 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 11,
-      "tied_with": 3,
+      "tied_with": 4,
       "blended_price_usd_per_m": 4.0,
       "price_per_composite_point": 0.04961,
       "pareto_frontier": false,
@@ -1019,80 +1019,9 @@
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 11,
-      "tied_with": 3,
+      "tied_with": 4,
       "blended_price_usd_per_m": 4.5,
       "price_per_composite_point": 0.05591,
-      "pareto_frontier": false,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-5.6-terra",
-      "display_name": "GPT-5.6 Terra (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-07-09",
-      "country": "United States of America",
-      "context_window": 1050000,
-      "modalities": [
-        "text",
-        "file",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 2.0,
-        "output_usd_per_m": 12.0,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 93.31,
-        "coding": 64.27,
-        "instruction_following": 64.62,
-        "math": 94.91
-      },
-      "category_errors": {
-        "reasoning": 3.011,
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 80.08,
-      "composite_error": 0.89,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 4,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 11,
-      "tied_with": 3,
-      "blended_price_usd_per_m": 4.5,
-      "price_per_composite_point": 0.05619,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -1159,9 +1088,80 @@
       "human_preference_variant": null,
       "vision": null,
       "rank": 11,
-      "tied_with": 3,
+      "tied_with": 4,
       "blended_price_usd_per_m": 2.2125,
       "price_per_composite_point": 0.02765,
+      "pareto_frontier": false,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "xai-grok-4.7",
+      "display_name": "Grok 4.7 (high)",
+      "provider_id": "xai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-21",
+      "country": "United States of America",
+      "context_window": 500000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 6.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 87.69,
+        "coding": 63.26,
+        "instruction_following": 75.28,
+        "math": 95.68
+      },
+      "category_errors": {
+        "reasoning": 1.52,
+        "coding": null,
+        "instruction_following": null,
+        "math": null
+      },
+      "composite": 80.19,
+      "composite_error": 0.45,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "xhigh",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 12,
+      "tied_with": 0,
+      "blended_price_usd_per_m": 3.0,
+      "price_per_composite_point": 0.03741,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -1464,6 +1464,77 @@
       "cohort_recalibration": null
     },
     {
+      "id": "openai-gpt-5.6-terra",
+      "display_name": "GPT-5.6 Terra (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-07-09",
+      "country": "United States of America",
+      "context_window": 1050000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 2.0,
+        "output_usd_per_m": 12.0,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 91.97,
+        "coding": 64.27,
+        "instruction_following": 64.62,
+        "math": 94.91
+      },
+      "category_errors": {
+        "reasoning": 1.506,
+        "coding": null,
+        "instruction_following": null,
+        "math": null
+      },
+      "composite": 79.69,
+      "composite_error": 0.44,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 16,
+      "tied_with": 0,
+      "blended_price_usd_per_m": 4.5,
+      "price_per_composite_point": 0.05647,
+      "pareto_frontier": false,
+      "cohort_recalibration": null
+    },
+    {
       "id": "anthropic-claude-opus-4-6",
       "display_name": "Claude Opus 4.6 (no thinking)",
       "provider_id": "anthropic",
@@ -1675,7 +1746,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 18,
+      "rank": 19,
       "tied_with": 0,
       "blended_price_usd_per_m": 4.144,
       "price_per_composite_point": 0.052,
@@ -1744,7 +1815,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 24,
+      "rank": 25,
       "tied_with": 0,
       "blended_price_usd_per_m": 1.1048,
       "price_per_composite_point": 0.0141,
@@ -1813,7 +1884,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 25,
+      "rank": 26,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.4024,
       "price_per_composite_point": 0.00515,
@@ -1890,7 +1961,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 26,
+      "rank": 27,
       "tied_with": 1,
       "blended_price_usd_per_m": 3.0,
       "price_per_composite_point": 0.0387,
@@ -1963,152 +2034,10 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 26,
+      "rank": 27,
       "tied_with": 1,
       "blended_price_usd_per_m": 1.5,
       "price_per_composite_point": 0.01953,
-      "pareto_frontier": false,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "thinking-machines-inkling",
-      "display_name": "Inkling",
-      "provider_id": "thinking-machines",
-      "is_open_weights": true,
-      "license": "Open weights (unrestricted)",
-      "api_only": false,
-      "release_date": "2026-07-15",
-      "country": "United States of America",
-      "context_window": 524288,
-      "modalities": [
-        "text",
-        "audio",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 1.0,
-        "output_usd_per_m": 4.05,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 88.26,
-        "coding": 58.04,
-        "instruction_following": 70.1,
-        "math": 88.36,
-        "human_preference": 74.35
-      },
-      "category_errors": {
-        "reasoning": 3.795,
-        "coding": null,
-        "instruction_following": null,
-        "math": null,
-        "human_preference": 2.006
-      },
-      "composite": 75.91,
-      "composite_error": 1.0,
-      "uncertainty": {
-        "measured_inputs": 2,
-        "total_inputs": 5,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 5,
-        "total": 5,
-        "missing": []
-      },
-      "evidence": {
-        "sources": 3,
-        "max_sources": 3,
-        "benchmarks": 6
-      },
-      "provisional": false,
-      "awaiting_human_votes": false,
-      "variant": "xhigh",
-      "human_preference_variant": "plain",
-      "vision": null,
-      "rank": 27,
-      "tied_with": 2,
-      "blended_price_usd_per_m": 1.7625,
-      "price_per_composite_point": 0.02322,
-      "pareto_frontier": false,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "openai-gpt-6-luna",
-      "display_name": "GPT-6 Luna (high)",
-      "provider_id": "openai",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-22",
-      "country": "United States of America",
-      "context_window": 1050000,
-      "modalities": [
-        "text",
-        "file",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 0.1,
-        "output_usd_per_m": 0.5,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "reasoning": 90.47,
-        "coding": 62.31,
-        "instruction_following": 55.93,
-        "math": 89.12
-      },
-      "category_errors": {
-        "reasoning": 3.634,
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 75.77,
-      "composite_error": 1.07,
-      "uncertainty": {
-        "measured_inputs": 1,
-        "total_inputs": 4,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 4,
-        "total": 5,
-        "missing": [
-          "human_preference"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": false,
-      "awaiting_human_votes": true,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": 27,
-      "tied_with": 2,
-      "blended_price_usd_per_m": 0.2,
-      "price_per_composite_point": 0.00264,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -2182,8 +2111,8 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 27,
-      "tied_with": 2,
+      "rank": 28,
+      "tied_with": 0,
       "blended_price_usd_per_m": 10.0,
       "price_per_composite_point": 0.1321,
       "pareto_frontier": false,
@@ -2259,10 +2188,81 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": 0.5813,
       "price_per_composite_point": 0.00767,
+      "pareto_frontier": false,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "anthropic-claude-haiku-5-5",
+      "display_name": "Claude Haiku 5.5 (high)",
+      "provider_id": "anthropic",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-10-07",
+      "country": "United States of America",
+      "context_window": 1000000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 0.1,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "coding": 61.38,
+        "instruction_following": 66.47,
+        "math": 92.75,
+        "reasoning": 81.23
+      },
+      "category_errors": {
+        "coding": null,
+        "instruction_following": null,
+        "math": null,
+        "reasoning": null
+      },
+      "composite": 75.5,
+      "composite_error": null,
+      "uncertainty": {
+        "measured_inputs": 0,
+        "total_inputs": 4,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "xhigh",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 29,
+      "tied_with": 6,
+      "blended_price_usd_per_m": 0.2,
+      "price_per_composite_point": 0.00265,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -2330,8 +2330,8 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": 0.45,
       "price_per_composite_point": 0.00596,
       "pareto_frontier": false,
@@ -2407,8 +2407,8 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": 10.0,
       "price_per_composite_point": 0.13294,
       "pareto_frontier": false,
@@ -2484,8 +2484,8 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": 5.625,
       "price_per_composite_point": 0.07493,
       "pareto_frontier": false,
@@ -2557,8 +2557,8 @@
       "variant": "high",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": 3.375,
       "price_per_composite_point": 0.04524,
       "pareto_frontier": false,
@@ -2628,11 +2628,153 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 28,
-      "tied_with": 5,
+      "rank": 29,
+      "tied_with": 6,
       "blended_price_usd_per_m": null,
       "price_per_composite_point": null,
       "pareto_frontier": null,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "thinking-machines-inkling",
+      "display_name": "Inkling",
+      "provider_id": "thinking-machines",
+      "is_open_weights": true,
+      "license": "Open weights (unrestricted)",
+      "api_only": false,
+      "release_date": "2026-07-15",
+      "country": "United States of America",
+      "context_window": 524288,
+      "modalities": [
+        "text",
+        "audio",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 1.0,
+        "output_usd_per_m": 4.05,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 83.31,
+        "coding": 58.04,
+        "instruction_following": 70.1,
+        "math": 88.36,
+        "human_preference": 74.35
+      },
+      "category_errors": {
+        "reasoning": 1.897,
+        "coding": null,
+        "instruction_following": null,
+        "math": null,
+        "human_preference": 2.006
+      },
+      "composite": 74.68,
+      "composite_error": 0.56,
+      "uncertainty": {
+        "measured_inputs": 2,
+        "total_inputs": 6,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 5,
+        "total": 5,
+        "missing": []
+      },
+      "evidence": {
+        "sources": 3,
+        "max_sources": 3,
+        "benchmarks": 6
+      },
+      "provisional": false,
+      "awaiting_human_votes": false,
+      "variant": "xhigh",
+      "human_preference_variant": "plain",
+      "vision": null,
+      "rank": 31,
+      "tied_with": 2,
+      "blended_price_usd_per_m": 1.7625,
+      "price_per_composite_point": 0.0236,
+      "pareto_frontier": false,
+      "cohort_recalibration": null
+    },
+    {
+      "id": "openai-gpt-6-luna",
+      "display_name": "GPT-6 Luna (high)",
+      "provider_id": "openai",
+      "is_open_weights": false,
+      "license": "API access",
+      "api_only": true,
+      "release_date": "2026-09-22",
+      "country": "United States of America",
+      "context_window": 1050000,
+      "modalities": [
+        "text",
+        "file",
+        "vision"
+      ],
+      "pricing": {
+        "input_usd_per_m": 0.1,
+        "output_usd_per_m": 0.5,
+        "source_url": "https://openrouter.ai/models",
+        "measured_at": "2026-11-05"
+      },
+      "acquisition": {
+        "hf_repo": null,
+        "provider_page": null,
+        "api_docs": null,
+        "ollama_tag": null
+      },
+      "status": "verified",
+      "category_scores": {
+        "reasoning": 86.12,
+        "coding": 62.31,
+        "instruction_following": 55.93,
+        "math": 89.12
+      },
+      "category_errors": {
+        "reasoning": 1.817,
+        "coding": null,
+        "instruction_following": null,
+        "math": null
+      },
+      "composite": 74.5,
+      "composite_error": 0.53,
+      "uncertainty": {
+        "measured_inputs": 1,
+        "total_inputs": 5,
+        "is_lower_bound": true
+      },
+      "coverage": {
+        "covered": 4,
+        "total": 5,
+        "missing": [
+          "human_preference"
+        ]
+      },
+      "evidence": {
+        "sources": 2,
+        "max_sources": 3,
+        "benchmarks": 5
+      },
+      "provisional": false,
+      "awaiting_human_votes": true,
+      "variant": "max",
+      "human_preference_variant": null,
+      "vision": null,
+      "rank": 31,
+      "tied_with": 2,
+      "blended_price_usd_per_m": 0.2,
+      "price_per_composite_point": 0.00268,
+      "pareto_frontier": false,
       "cohort_recalibration": null
     },
     {
@@ -2705,8 +2847,8 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 29,
-      "tied_with": 0,
+      "rank": 31,
+      "tied_with": 2,
       "blended_price_usd_per_m": 6.0,
       "price_per_composite_point": 0.08059,
       "pareto_frontier": false,
@@ -2843,7 +2985,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 36,
+      "rank": 38,
       "tied_with": 1,
       "blended_price_usd_per_m": 1.7045,
       "price_per_composite_point": 0.02311,
@@ -2920,7 +3062,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 36,
+      "rank": 38,
       "tied_with": 1,
       "blended_price_usd_per_m": 3.4375,
       "price_per_composite_point": 0.04766,
@@ -2991,7 +3133,7 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 38,
+      "rank": 40,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.4625,
       "price_per_composite_point": 0.00627,
@@ -3068,7 +3210,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 39,
+      "rank": 41,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.2375,
       "price_per_composite_point": 0.00324,
@@ -3137,7 +3279,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 40,
+      "rank": 42,
       "tied_with": 3,
       "blended_price_usd_per_m": 2.0,
       "price_per_composite_point": 0.02728,
@@ -3208,7 +3350,7 @@
       "variant": "high",
       "human_preference_variant": "claude opus 4.5 (20251101)",
       "vision": null,
-      "rank": 40,
+      "rank": 42,
       "tied_with": 3,
       "blended_price_usd_per_m": 10.0,
       "price_per_composite_point": 0.13671,
@@ -3284,7 +3426,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 40,
+      "rank": 42,
       "tied_with": 3,
       "blended_price_usd_per_m": 1.34,
       "price_per_composite_point": 0.01852,
@@ -3353,7 +3495,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 40,
+      "rank": 42,
       "tied_with": 3,
       "blended_price_usd_per_m": 2.15,
       "price_per_composite_point": 0.0303,
@@ -3432,7 +3574,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 43,
+      "rank": 45,
       "tied_with": 0,
       "blended_price_usd_per_m": 1.125,
       "price_per_composite_point": 0.01605,
@@ -3502,7 +3644,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 45,
+      "rank": 47,
       "tied_with": 1,
       "blended_price_usd_per_m": 1.325,
       "price_per_composite_point": 0.01879,
@@ -3579,7 +3721,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 45,
+      "rank": 47,
       "tied_with": 1,
       "blended_price_usd_per_m": 4.8125,
       "price_per_composite_point": 0.06895,
@@ -3643,7 +3785,7 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 47,
+      "rank": 49,
       "tied_with": 0,
       "blended_price_usd_per_m": null,
       "price_per_composite_point": null,
@@ -3714,7 +3856,7 @@
       "variant": "xhigh",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 49,
+      "rank": 51,
       "tied_with": 2,
       "blended_price_usd_per_m": 1.6875,
       "price_per_composite_point": 0.02479,
@@ -3791,7 +3933,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 49,
+      "rank": 51,
       "tied_with": 2,
       "blended_price_usd_per_m": 0.525,
       "price_per_composite_point": 0.00773,
@@ -3870,7 +4012,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 49,
+      "rank": 51,
       "tied_with": 2,
       "blended_price_usd_per_m": 0.85,
       "price_per_composite_point": 0.01254,
@@ -3941,7 +4083,7 @@
       "variant": "qwen3.6-27b",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 52,
+      "rank": 54,
       "tied_with": 0,
       "blended_price_usd_per_m": 1.0125,
       "price_per_composite_point": 0.01522,
@@ -4010,7 +4152,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 53,
+      "rank": 55,
       "tied_with": 3,
       "blended_price_usd_per_m": 0.1138,
       "price_per_composite_point": 0.00172,
@@ -4081,7 +4223,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 53,
+      "rank": 55,
       "tied_with": 3,
       "blended_price_usd_per_m": 0.7312,
       "price_per_composite_point": 0.01121,
@@ -4158,7 +4300,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 53,
+      "rank": 55,
       "tied_with": 3,
       "blended_price_usd_per_m": 3.4375,
       "price_per_composite_point": 0.05333,
@@ -4227,7 +4369,7 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": null,
-      "rank": 53,
+      "rank": 55,
       "tied_with": 3,
       "blended_price_usd_per_m": 1.55,
       "price_per_composite_point": 0.02411,
@@ -4304,7 +4446,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 59,
+      "rank": 61,
       "tied_with": 1,
       "blended_price_usd_per_m": 1.5625,
       "price_per_composite_point": 0.02536,
@@ -4383,7 +4525,7 @@
         "measured_at": "2026-10-19",
         "source_url": "https://lmarena.ai/leaderboard"
       },
-      "rank": 59,
+      "rank": 61,
       "tied_with": 1,
       "blended_price_usd_per_m": 3.4375,
       "price_per_composite_point": 0.05755,
@@ -4454,7 +4596,7 @@
       "variant": "claude-opus-4-1-20250805",
       "human_preference_variant": "claude opus 4.1 (20250805)",
       "vision": null,
-      "rank": 60,
+      "rank": 62,
       "tied_with": 0,
       "blended_price_usd_per_m": 30.0,
       "price_per_composite_point": 0.53976,
@@ -4879,76 +5021,6 @@
       "rank": null,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.56,
-      "price_per_composite_point": null,
-      "pareto_frontier": null,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "anthropic-claude-fable-5-1",
-      "display_name": "Claude Fable 5.1 (high)",
-      "provider_id": "anthropic",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-09-01",
-      "country": "United States of America",
-      "context_window": 1000000,
-      "modalities": [
-        "text",
-        "file",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 10.0,
-        "output_usd_per_m": 50.0,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "coding": 74.19,
-        "instruction_following": 72.99,
-        "math": 97.01
-      },
-      "category_errors": {
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 81.5,
-      "composite_error": null,
-      "uncertainty": {
-        "measured_inputs": 0,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "human_preference",
-          "reasoning"
-        ]
-      },
-      "evidence": {
-        "sources": 1,
-        "max_sources": 3,
-        "benchmarks": 4
-      },
-      "provisional": true,
-      "awaiting_human_votes": true,
-      "variant": "max",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "blended_price_usd_per_m": 20.0,
       "price_per_composite_point": null,
       "pareto_frontier": null,
       "cohort_recalibration": null
@@ -5512,76 +5584,6 @@
       "rank": null,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.5625,
-      "price_per_composite_point": null,
-      "pareto_frontier": null,
-      "cohort_recalibration": null
-    },
-    {
-      "id": "anthropic-claude-haiku-5-5",
-      "display_name": "Claude Haiku 5.5 (high)",
-      "provider_id": "anthropic",
-      "is_open_weights": false,
-      "license": "API access",
-      "api_only": true,
-      "release_date": "2026-10-07",
-      "country": "United States of America",
-      "context_window": 1000000,
-      "modalities": [
-        "text",
-        "file",
-        "vision"
-      ],
-      "pricing": {
-        "input_usd_per_m": 0.1,
-        "output_usd_per_m": 0.5,
-        "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
-      },
-      "acquisition": {
-        "hf_repo": null,
-        "provider_page": null,
-        "api_docs": null,
-        "ollama_tag": null
-      },
-      "status": "verified",
-      "category_scores": {
-        "coding": 61.38,
-        "instruction_following": 66.47,
-        "math": 92.75
-      },
-      "category_errors": {
-        "coding": null,
-        "instruction_following": null,
-        "math": null
-      },
-      "composite": 73.11,
-      "composite_error": null,
-      "uncertainty": {
-        "measured_inputs": 0,
-        "total_inputs": 3,
-        "is_lower_bound": true
-      },
-      "coverage": {
-        "covered": 3,
-        "total": 5,
-        "missing": [
-          "human_preference",
-          "reasoning"
-        ]
-      },
-      "evidence": {
-        "sources": 2,
-        "max_sources": 3,
-        "benchmarks": 5
-      },
-      "provisional": true,
-      "awaiting_human_votes": true,
-      "variant": "xhigh",
-      "human_preference_variant": null,
-      "vision": null,
-      "rank": null,
-      "tied_with": 0,
-      "blended_price_usd_per_m": 0.2,
       "price_per_composite_point": null,
       "pareto_frontier": null,
       "cohort_recalibration": null
