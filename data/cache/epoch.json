@@ -1,6 +1,158 @@
 {
   "fetched_at": "2026-11-05",
   "payload": {
+    "boards": {
+      "agentic": {
+        "mirrorcode": {
+          "name": "MirrorCode",
+          "rows": {
+            "claude-fable-5": {
+              "measured_at": "2026-08-10",
+              "stderr": 10.404,
+              "value": 63.89,
+              "variant": "claude-fable-5_high"
+            },
+            "claude-fable-5-1": {
+              "measured_at": "2026-09-10",
+              "stderr": 9.17,
+              "value": 73.3,
+              "variant": "claude-fable-5-1_high"
+            },
+            "claude-opus-4-7": {
+              "measured_at": "2026-08-12",
+              "stderr": 9.036,
+              "value": 31.11,
+              "variant": "claude-opus-4-7_high"
+            },
+            "claude-opus-5-5": {
+              "measured_at": "2026-09-22",
+              "stderr": 7.88,
+              "value": 78.89,
+              "variant": "claude-opus-5-5_high"
+            },
+            "gemini-3.1-pro": {
+              "measured_at": "2026-08-10",
+              "stderr": 4.562,
+              "value": 8.89,
+              "variant": "gemini-3.1-pro-preview_high"
+            },
+            "gemini-3.7-flash": {
+              "measured_at": "2026-10-21",
+              "stderr": 12.157,
+              "value": 41.11,
+              "variant": "gemini-3.7-flash_high"
+            },
+            "gemini-4-argon": {
+              "measured_at": "2026-10-14",
+              "stderr": 11.714,
+              "value": 58.89,
+              "variant": "gemini-4-argon_high"
+            },
+            "gpt-5": {
+              "measured_at": "2026-10-21",
+              "stderr": 3.438,
+              "value": 4.44,
+              "variant": "gpt-5-2025-08-07_high"
+            },
+            "gpt-5.4": {
+              "measured_at": "2026-08-10",
+              "stderr": 7.709,
+              "value": 15.56,
+              "variant": "gpt-5.4-2026-03-05_high"
+            },
+            "gpt-5.5": {
+              "measured_at": "2026-08-10",
+              "stderr": 6.042,
+              "value": 10.0,
+              "variant": "gpt-5.5_high"
+            },
+            "gpt-5.6-sol": {
+              "measured_at": "2026-08-10",
+              "stderr": 9.23,
+              "value": 20.0,
+              "variant": "gpt-5.6-sol_high"
+            },
+            "gpt-6-astra": {
+              "measured_at": "2026-08-30",
+              "stderr": 11.86,
+              "value": 46.7,
+              "variant": "gpt-6-astra_high"
+            },
+            "gpt-6-luna": {
+              "measured_at": "2026-10-21",
+              "stderr": 9.027,
+              "value": 26.67,
+              "variant": "gpt-6-luna_max"
+            },
+            "grok-4.5": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.723,
+              "value": 32.22,
+              "variant": "grok-4.5_high"
+            },
+            "grok-4.6": {
+              "measured_at": "2026-10-21",
+              "stderr": 11.015,
+              "value": 41.11,
+              "variant": "grok-4.6_xhigh"
+            }
+          }
+        },
+        "spireclimb": {
+          "name": "SpireClimb",
+          "rows": {
+            "claude-fable-5-1": {
+              "measured_at": "2026-09-25",
+              "stderr": 1.139,
+              "value": 2.0,
+              "variant": "claude-fable-5-1_max"
+            },
+            "claude-opus-5-5": {
+              "measured_at": "2026-11-04",
+              "stderr": 2.029,
+              "value": 5.83,
+              "variant": "claude-opus-5-5_max"
+            },
+            "claude-sonnet-5-5": {
+              "measured_at": "2026-09-29",
+              "stderr": 0.936,
+              "value": 1.33,
+              "variant": "claude-sonnet-5-5_max"
+            },
+            "gpt-6-astra": {
+              "measured_at": "2026-11-04",
+              "stderr": 4.131,
+              "value": 34.0,
+              "variant": "gpt-6-astra_max"
+            },
+            "gpt-6-luna": {
+              "measured_at": "2026-09-28",
+              "stderr": 0.0,
+              "value": 0.0,
+              "variant": "gpt-6-luna_max"
+            },
+            "gpt-6-sol": {
+              "measured_at": "2026-09-24",
+              "stderr": 2.144,
+              "value": 7.5,
+              "variant": "gpt-6-sol_max"
+            },
+            "gpt-6.1-sol": {
+              "measured_at": "2026-11-04",
+              "stderr": 3.653,
+              "value": 23.83,
+              "variant": "gpt-6.1-sol_max"
+            },
+            "gpt-6.1-terra": {
+              "measured_at": "2026-11-04",
+              "stderr": 3.386,
+              "value": 22.33,
+              "variant": "gpt-6.1-terra_max"
+            }
+          }
+        }
+      }
+    },
     "registry": {
       "accounts/fireworks/models/glm-4p6": {
         "accessibility": "Open weights (unrestricted)",

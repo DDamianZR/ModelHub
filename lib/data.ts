@@ -7,6 +7,9 @@ import type {
   Provider,
   RejectedSnapshot,
   RankingRow,
+  BestBy,
+  LocalEntry,
+  LocalModels,
   Row,
   SnapshotAge,
   Status,
@@ -14,11 +17,23 @@ import type {
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-function readJson<T>(file: string): T {
-  return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
+// The data only changes between builds, and the prerender reads the same files for every
+// page (the vs pages alone are 870). Memoised in production; in dev a file edit shows up.
+const jsonCache = new Map<string, unknown>();
+
+export function readJson<T>(file: string): T {
+  const memo = process.env.NODE_ENV === "production";
+  if (memo && jsonCache.has(file)) return jsonCache.get(file) as T;
+  const parsed = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
+  if (memo) jsonCache.set(file, parsed);
+  return parsed;
 }
 
-function readHistory(): Map<string, { date: string; value: number }[]> {
+export function getBestBy(): BestBy {
+  return readJson<BestBy>("best_by.json");
+}
+
+export function readHistory(): Map<string, { date: string; value: number }[]> {
   const file = path.join(DATA_DIR, "history.jsonl");
   const grouped = new Map<string, { date: string; value: number }[]>();
   if (!fs.existsSync(file)) return grouped;
@@ -422,14 +437,17 @@ export function getRankingRows(): RankingRow[] {
     rank: row.rank,
     display_name: row.display_name,
     provider_name: row.provider_name,
+    provider_id: row.provider_id,
     is_open_weights: row.is_open_weights,
-    release_date: row.release_date,
     country: row.country,
+    context_window: row.context_window ?? null,
+    blended_price_usd_per_m: row.blended_price_usd_per_m ?? null,
+    pareto_frontier: row.pareto_frontier ?? null,
     composite: row.composite,
     composite_error: row.composite_error,
     tied_with: row.tied_with,
-    coverage: row.coverage,
-    evidence: row.evidence,
+    coverage: { covered: row.coverage.covered, total: row.coverage.total },
+    benchmarks: row.evidence.benchmarks,
     category_scores: row.category_scores,
     provisional: row.provisional,
     awaiting_human_votes: row.awaiting_human_votes,
@@ -483,5 +501,46 @@ export function getRanking(): { rows: Row[]; meta: Meta; sourceCount: number } {
     rows,
     meta,
     sourceCount: new Set(benchmarks.map((b) => b.source)).size,
+  };
+}
+
+/**
+ * Open-weights models that have a size on record, joined to their measured standing.
+ * Returned in no meaningful order: the page decides how to order what fits.
+ */
+export function getLocalEntries(): {
+  entries: LocalEntry[];
+  generatedAt: string;
+  rankedCount: number;
+  openWeightsScored: number;
+  unsized: number;
+  withoutLayout: number;
+} {
+  const local = readJson<LocalModels>("local_models.json");
+  const { rows, meta } = getRanking();
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  const entries: LocalEntry[] = [];
+  for (const spec of local.models) {
+    const row = byId.get(spec.model_id);
+    if (!row) continue;
+    entries.push({
+      spec,
+      display_name: row.display_name,
+      rank: row.rank,
+      tied_with: row.tied_with,
+      composite: row.composite,
+      composite_error: row.composite_error,
+      provisional: row.provisional,
+      coverage: { covered: row.coverage.covered, total: row.coverage.total },
+      measured_at: meta.generated_at,
+    });
+  }
+  return {
+    entries,
+    generatedAt: local.meta.generated_at,
+    rankedCount: meta.ranked_count,
+    openWeightsScored: local.meta.open_weights_scored,
+    unsized: local.meta.open_weights_scored - local.meta.matched,
+    withoutLayout: entries.filter((e) => e.spec.attention_layout === null).length,
   };
 }

@@ -13,25 +13,25 @@
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:geometry": "node scripts/check-geometry.mjs",
     "check:ux": "node scripts/audit-ux.mjs",
+    "test:fit": "node --test \"tests/*.test.ts\"",
     "ingest": "python -m scripts.ingest.run",
     "enrich": "python -m scripts.enrich.run",
     "onboard": "python -m scripts.enrich.onboard"
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "next": "15.5.22",
-    "next-intl": "4.13.4",
+    "next": "16.4.5",
+    "next-intl": "4.14.9",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.3.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "26.1.2",
     "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react-dom": "19.2.4",
     "eslint": "9.39.5",
-    "eslint-config-next": "15.5.22",
+    "eslint-config-next": "16.4.5",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3"
   }

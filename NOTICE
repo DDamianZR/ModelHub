@@ -3,7 +3,7 @@ ModelHub — attribution for third-party data
 
 The source code in this repository is MIT licensed. The datasets under /data are derived
 from the third-party sources below and remain subject to their licences. Attribution is a
-condition of all three.
+condition of all of them.
 
 CHANGES MADE TO THE ORIGINAL DATA
   The data in /data is modified. ModelHub does not redistribute these sources verbatim.
@@ -46,6 +46,38 @@ LiveBench
   Repo    : https://github.com/LiveBench/LiveBench
   Used for: per-task scores aggregated into Reasoning, Coding, Math and
             Instruction-Following category averages.
+
+-----------------------------------------------------------------------------------------
+llmfit
+  Licence : MIT License
+  Source  : https://github.com/AlexsJones/llmfit
+  Used for: the sizing arithmetic in lib/fit.ts (bytes per parameter by quantisation,
+            KV-cache size, mixture-of-experts memory split, verdict bands, run-mode
+            selection and the bandwidth speed model) is ported from llmfit-core
+            (models.rs, fit.rs, hardware.rs), and the model catalogue behind the
+            "What runs on my machine?" page is llmfit's hf_models.json.
+  Changes : ported from Rust to TypeScript and reduced to the single-machine paths;
+            GPU bandwidth presets are copied from hardware.rs; the catalogue is filtered
+            to open-weights models ModelHub scores and joined by normalised name.
+
+  Copyright (c) 2026 Alex Jones
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
+  software and associated documentation files (the "Software"), to deal in the Software
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to the following
+  conditions:
+
+  The above copyright notice and this permission notice shall be included in all copies
+  or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+  PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -----------------------------------------------------------------------------------------
 Not included

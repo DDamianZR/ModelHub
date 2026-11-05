@@ -58,6 +58,30 @@ def is_locked(entry: dict | None) -> bool:
     return bool(entry and entry.get("manual"))
 
 
+def prune_orphans(model_ids: set[str]) -> int:
+    """Drop descriptions of models the ingest no longer publishes.
+
+    An orphan is never shown on the site, but the audit counts it as a failure, so a
+    retired or renamed model would otherwise keep CI red until someone edits the file by
+    hand. Entries marked manual are kept: they are human work and a human removes them.
+    """
+    if not model_ids:
+        print("No models found. Run the ingest first.")
+        return 1
+    descriptions = load_json(DESCRIPTIONS, {})
+    orphans = sorted(mid for mid in descriptions if mid not in model_ids)
+    kept = [mid for mid in orphans if descriptions[mid].get("manual")]
+    removed = [mid for mid in orphans if mid not in kept]
+    for mid in removed:
+        del descriptions[mid]
+        print(f"  pruned {mid}")
+    for mid in kept:
+        print(f"  kept {mid} (manual)")
+    write_json(DESCRIPTIONS, descriptions)
+    print(f"\npruned {len(removed)} · kept manual {len(kept)}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="ModelHub Layer B enrichment")
     parser.add_argument("--fast", action="store_true", help="use qwen3-8b")
@@ -70,9 +94,14 @@ def main() -> int:
                              "against today's scores; ignores --force")
     parser.add_argument("--links-only", action="store_true",
                         help="rebuild acquisition links without calling the model")
+    parser.add_argument("--prune-orphans", action="store_true",
+                        help="drop descriptions whose model is no longer in models.json, "
+                             "keeping hand-written entries; does not call the model")
     args = parser.parse_args()
 
     models = load_json(DATA / "models.json", {}).get("models", [])
+    if args.prune_orphans:
+        return prune_orphans({m["id"] for m in models})
     providers = {
         p["id"]: p["display_name"]
         for p in load_json(DATA / "providers.json", {}).get("providers", [])

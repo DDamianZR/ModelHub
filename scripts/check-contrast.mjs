@@ -21,6 +21,8 @@
  *    (it paints banner labels). Shipped: 4.95:1 light, 6.21:1 dark.
  *  - `--mark` added to the border rules at 3.0. It paints CategoryBars and was
  *    previously unchecked entirely.
+ *  - 2026-11: dark moved to :root with light under [data-theme="light"]; elevation floor
+ *    relaxed 1.08 -> 1.03 now that every card draws a hairline (see ELEVATION_MIN).
  *  - Hover-plane criterion changed. Before: `ratio(raised, canvas) >= 1.25`.
  *    In a card layout the row sits on the card, not the canvas — and with
  *    canvas/card themselves at 1.12:1 (light), no third plane can be 1.25:1
@@ -36,21 +38,29 @@ import { dirname, join } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const css = readFileSync(join(root, "app", "globals.css"), "utf8");
 
-/** Pull the `:root` block and the `prefers-color-scheme: dark` block separately. */
+/**
+ * Dark is the default and lives in `:root`; light re-binds the same names under
+ * `:root[data-theme="light"]`. Each block is cut out by its own braces so one theme's
+ * values can never be read as the other's.
+ */
+function block(source, opener) {
+  const start = source.indexOf(opener);
+  if (start === -1) return "";
+  const open = source.indexOf("{", start);
+  const close = source.indexOf("}", open);
+  return source.slice(open, close);
+}
+
 function extractTokens(source) {
-  const light = {};
-  const dark = {};
-
-  const darkStart = source.indexOf("@media (prefers-color-scheme: dark)");
-  const lightPart = darkStart === -1 ? source : source.slice(0, darkStart);
-  const darkPart = darkStart === -1 ? "" : source.slice(darkStart);
-
   const pattern = /(--[a-z0-9-]+):\s*(#[0-9a-fA-F]{6})\s*;/g;
-  for (const [, name, value] of lightPart.matchAll(pattern)) light[name] = value;
-  for (const [, name, value] of darkPart.matchAll(pattern)) dark[name] = value;
-
-  // Dark inherits anything it does not override.
-  return { light, dark: { ...light, ...dark } };
+  const dark = {};
+  const light = {};
+  for (const [, name, value] of block(source, ":root {").matchAll(pattern)) dark[name] = value;
+  for (const [, name, value] of block(source, ':root[data-theme="light"]').matchAll(pattern)) {
+    light[name] = value;
+  }
+  // Light inherits anything it does not override.
+  return { dark, light: { ...dark, ...light } };
 }
 
 function luminance(hex) {
@@ -94,7 +104,10 @@ const TEXT_RULES = [
  *  must read as its own plane against the canvas. Two relations, not one: see the
  *  header comment for why a single raised-vs-canvas check stopped being satisfiable. */
 const HOVER_MIN = 1.25;
-const ELEVATION_MIN = 1.08;
+// Cards carry a 1px hairline in both themes (no shadow, no plane-only separation), so the
+// card/canvas luminance step only has to be perceptible, not carry the boundary. It was
+// 1.08 when dark cards had no border. Linear's own pair (#0f1011 on #08090a) is 1.04.
+const ELEVATION_MIN = 1.03;
 
 let failures = 0;
 const report = [];

@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "generated_at": "2026-11-05",
+    "in_composite": false,
+    "price_blend": {
+      "input": 3,
+      "output": 1
+    },
+    "ranked_only": true,
+    "pareto_members": 6,
+    "pareto_evaluated": 59
+  },
+  "boards": [
+    {
+      "id": "composite",
+      "metric": "composite",
+      "order": "max",
+      "filter": {},
+      "candidates": 62,
+      "value": 83.41,
+      "winners": [
+        "alibaba-qwen3.8",
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5-5"
+      ],
+      "indistinguishable": true
+    },
+    {
+      "id": "reasoning",
+      "metric": "category:reasoning",
+      "order": "max",
+      "filter": {},
+      "candidates": 62,
+      "value": 92.61,
+      "winners": [
+        "google-deepmind-gemini-3-pro",
+        "moonshot-kimi-k3",
+        "z-ai-zhipu-ai-glm-5"
+      ],
+      "indistinguishable": true
+    },
+    {
+      "id": "coding",
+      "metric": "category:coding",
+      "order": "max",
+      "filter": {},
+      "candidates": 62,
+      "value": 78.73,
+      "winners": [
+        "anthropic-claude-opus-5-5",
+        "alibaba-qwen3.6",
+        "google-deepmind-gemini-3-flash"
+      ],
+      "indistinguishable": true
+    },
+    {
+      "id": "math",
+      "metric": "category:math",
+      "order": "max",
+      "filter": {},
+      "candidates": 62,
+      "value": 97.08,
+      "winners": [
+        "anthropic-claude-opus-5-5"
+      ],
+      "indistinguishable": false
+    },
+    {
+      "id": "human_preference",
+      "metric": "category:human_preference",
+      "order": "max",
+      "filter": {},
+      "candidates": 26,
+      "value": 100.0,
+      "winners": [
+        "alibaba-qwen3.8",
+        "google-deepmind-gemini-3.1-pro",
+        "google-deepmind-gemini-3-pro",
+        "meta-ai-muse-spark-1.1",
+        "alibaba-qwen3.7"
+      ],
+      "indistinguishable": true
+    },
+    {
+      "id": "instruction_following",
+      "metric": "category:instruction_following",
+      "order": "max",
+      "filter": {},
+      "candidates": 54,
+      "value": 81.41,
+      "winners": [
+        "google-deepmind-gemini-3.8-flash"
+      ],
+      "indistinguishable": false
+    },
+    {
+      "id": "open_weights",
+      "metric": "composite",
+      "order": "max",
+      "filter": {
+        "is_open_weights": true
+      },
+      "candidates": 17,
+      "value": 79.68,
+      "winners": [
+        "moonshot-kimi-k3"
+      ],
+      "indistinguishable": false
+    },
+    {
+      "id": "under_1_usd",
+      "metric": "composite",
+      "order": "max",
+      "filter": {
+        "max_blended_price": 1.0
+      },
+      "candidates": 13,
+      "value": 78.87,
+      "winners": [
+        "deepseek-deepseek-v4.1-flash"
+      ],
+      "indistinguishable": false
+    },
+    {
+      "id": "cheapest_covered",
+      "metric": "price",
+      "order": "min",
+      "filter": {
+        "min_coverage": 4
+      },
+      "candidates": 59,
+      "value": 0.1105,
+      "winners": [
+        "deepseek-deepseek-v4-flash-0731"
+      ],
+      "indistinguishable": false
+    }
+  ]
+}

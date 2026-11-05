@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
 import {
   getAgedSources,
+  getBestBy,
   getCadence,
   getCategorySources,
   getMethodologyStats,
@@ -45,6 +48,21 @@ function Section({
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "methodology" });
+  return pageMetadata({
+    locale,
+    path: "/methodology",
+    title: `${t("title")} · ModelHub`,
+    description: t("intro"),
+  });
+}
+
 export default async function MethodologyPage({
   params,
 }: {
@@ -61,6 +79,8 @@ export default async function MethodologyPage({
   const stats = getMethodologyStats();
   const livebench = getCadence("livebench");
   const categorySources = getCategorySources();
+  const bestBy = getBestBy();
+  const blend = bestBy.meta.price_blend;
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -223,7 +243,7 @@ export default async function MethodologyPage({
           {rejected.length === 0 ? (
             <p>{t("rejections.none")}</p>
           ) : (
-            <div className="overflow-x-auto" role="region" aria-label={t("rejections.title")} tabIndex={0}>
+            <div className="relative overflow-x-auto" role="region" aria-label={t("rejections.title")} tabIndex={0}>
               <table
                 className="w-full border-collapse text-left min-w-[34rem]"
               >
@@ -295,6 +315,52 @@ export default async function MethodologyPage({
           <p>{t("dedup.body")}</p>
           <p>{t("dedup.example")}</p>
           <p>{t("dedup.rule")}</p>
+        </Section>
+
+        <Section id="derived" title={t("derived.title")}>
+          <p>{t("derived.body")}</p>
+          <p>
+            {t("derived.blend", {
+              input: blend.input,
+              output: blend.output,
+              total: blend.input + blend.output,
+            })}
+          </p>
+          <p>{t("derived.ratio", { evaluated: bestBy.meta.pareto_evaluated })}</p>
+          <p>
+            {t("derived.pareto", {
+              members: bestBy.meta.pareto_members,
+              evaluated: bestBy.meta.pareto_evaluated,
+            })}
+          </p>
+          <p>
+            {t("derived.unevaluated", {
+              unpriced: meta.ranked_count - bestBy.meta.pareto_evaluated,
+            })}
+          </p>
+          <p>{t("derived.rules")}</p>
+          <ul className="flex flex-col gap-1 pl-4">
+            {bestBy.boards.map((board) => (
+              <li key={board.id} className="list-disc">
+                {t(`derived.rule_${board.id}`)} ·{" "}
+                <span className="num text-xs">
+                  {t("derived.candidates", { count: board.candidates })}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p>{t("derived.ties")}</p>
+          <p>{t("derived.cheapest")}</p>
+        </Section>
+
+        <Section id="local" title={t("local.title")}>
+          <p>{t("local.body")}</p>
+          <p>{t("local.memory")}</p>
+          <p>{t("local.bands")}</p>
+          <p>{t("local.modes")}</p>
+          <p>{t("local.speed")}</p>
+          <p>{t("local.limits")}</p>
+          <p>{t("local.attribution")}</p>
         </Section>
 
         <Section id="sourceTypes" title={t("sourceTypes.title")}>

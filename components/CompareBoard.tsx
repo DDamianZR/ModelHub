@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react-hooks/set-state-in-effect -- state is read from the URL or storage after mount on purpose: the page is prerendered, so reading either during render would mismatch the server HTML. */
+
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
@@ -7,31 +9,23 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { CoverageMeter } from "./CoverageMeter";
 import { CategoryBars } from "./CategoryBars";
 import { Surface } from "./Surface";
+import { separation } from "@/lib/compare";
 import type { Row } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
 const MAX_SELECTION = 4;
 
-/**
- * Δ against the baseline, suppressed when the gap falls inside the two models'
- * combined 95% interval.
- *
- * This is the ranking's own rule applied to the compare page: an interval that can only
- * widen supports "these two overlap" but never "these two differ". Printing a bare
- * subtraction here would let a difference smaller than the error read as a win, which is
- * exactly the bias the composite is built to avoid. A model with no published error is
- * treated as unknown, not zero, so no separation is claimed against it either.
- */
+/** Δ against the baseline, suppressed when the gap falls inside the combined interval. */
 function delta(
   model: Row,
   baseline: Row,
 ): { gap: number; combined: number | null; separated: boolean } {
-  const gap = model.composite - baseline.composite;
-  if (model.composite_error === null || baseline.composite_error === null) {
-    return { gap, combined: null, separated: false };
-  }
-  const combined = model.composite_error + baseline.composite_error;
-  return { gap, combined, separated: Math.abs(gap) > combined };
+  return separation(
+    model.composite,
+    model.composite_error,
+    baseline.composite,
+    baseline.composite_error,
+  );
 }
 
 export function CompareBoard({ rows }: { rows: Row[] }) {
@@ -252,7 +246,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
           <div className="mt-10">
             <h3 className="eyebrow mb-2">{t("tableView")}</h3>
             <Surface
-              className="overflow-x-auto p-2"
+              className="relative overflow-x-auto p-2"
               role="region"
               aria-label={t("tableView")}
               tabIndex={0}

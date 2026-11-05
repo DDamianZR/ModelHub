@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "degrade_after_consecutive_failures": 3,
   "verified_at": "2026-07-27",
   "verification_method": "Direct HTTP requests against each endpoint. No source was assumed to work from documentation alone.",
   "vocabulary": {
@@ -210,10 +211,10 @@
       "source_type": "third_party_benchmark",
       "access": {
         "type": "static_file",
-        "url_pattern": "https://livebench.ai/table_{YYYY_MM_DD}.csv",
+        "url_pattern": "https://livebench.ai/v1/table_{YYYY_MM_DD}.csv (1.0) | https://livebench.ai/data/{YYYYMMDD}/table.csv (2.0)",
         "companion_urls": [
-          "https://livebench.ai/categories_{YYYY_MM_DD}.json",
-          "https://livebench.ai/cost_{YYYY_MM_DD}.csv"
+          "https://livebench.ai/v1/categories_{YYYY_MM_DD}.json",
+          "https://livebench.ai/v1/cost_{YYYY_MM_DD}.csv"
         ],
         "current_snapshot": "2026_06_25",
         "auth": "none",
@@ -249,6 +250,7 @@
         "The HuggingFace datasets under the 'livebench' org are question sets last touched 2025-04, NOT the leaderboard. Do not ingest them."
       ],
       "caveats": [
+        "Observed 2026-11-04: the site was rebuilt as LiveBench 2.0. Releases up to 2026-06-25 (1.0) moved under /v1/; 2.0 releases (2026-10-14, 2026-10-25) publish suites reasoning, coding, browser, long_agentic, data_analysis, research and design, with no Mathematics and no IF suite. Ingest scores the newest release that publishes a suite for every category LiveBench alone supplies (instruction_following) and records the newer releases it passed over in data/status.json.",
         "Snapshot discovery is the weak point: the list of available snapshot dates lives in a JS array inside https://livebench.ai/static/js/main.{hash}.js, and the hash changes on every deploy. Ingest must resolve index.html -> bundle URL -> date array -> newest date, and fall back to the last known-good snapshot on failure."
       ],
       "fragility": "medium"
@@ -458,6 +460,51 @@
       "fragility": "n/a"
     },
     {
+      "id": "openrouter",
+      "name": "OpenRouter model catalogue",
+      "homepage": "https://openrouter.ai/models",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "metadata",
+      "source_type": "catalogue_metadata",
+      "access": {
+        "type": "json_api",
+        "url": "https://openrouter.ai/api/v1/models",
+        "auth": "none",
+        "format": "JSON",
+        "rate_limit": "none observed",
+        "robots_txt": "User-agent: * / Allow: / (Disallow: /seo/ only)"
+      },
+      "license": {
+        "spdx": "unverified",
+        "evidence": "Public documented endpoint that answers without a key (checked 2026-11-05). No data licence was found for the catalogue.",
+        "action_required": "A human should read the terms of use in a browser. Until then only facts are republished (price, context length, modalities, Hugging Face repo id); the free-text description and any prose are not stored.",
+        "scope": "metadata only; never a score"
+      },
+      "last_observed_update": "2026-11-05 (live catalogue)",
+      "update_cadence": "continuous",
+      "expected_cadence_days": 1,
+      "provides": {
+        "fields": [
+          "price_input_usd_per_m",
+          "price_output_usd_per_m",
+          "context_length",
+          "input_modalities",
+          "hugging_face_id"
+        ]
+      },
+      "notes": [
+        "Never feeds the composite. Models it lists that have no benchmark in the cohort are published in data/catalog.json as unranked.",
+        "open_weights here means 'has a Hugging Face repo id', a proxy that is stored beside the entry and does not replace the accessibility Epoch reports.",
+        "Matching is by normalised model name with pattern rules; the namespace before the slash is never read."
+      ],
+      "caveats": [
+        "Price is the router's listed price for the plain listing, not a vendor's own price sheet, and tiered pricing overrides for very long prompts are not represented."
+      ],
+      "fragility": "low"
+    },
+    {
       "id": "aider_polyglot",
       "name": "Aider Polyglot Leaderboard",
       "homepage": "https://aider.chat/docs/leaderboards/",
@@ -495,7 +542,9 @@
         "The file is well-formed and easy to parse — it is simply out of date. Ingesting it would put 2025 numbers next to 2026 numbers in a 'current frontier' ranking, which is worse than omitting it.",
         "If this data is wanted for historical depth, take it via Epoch's aider_polyglot_external.csv, which already carries 'Source' and 'Source link' provenance."
       ],
-      "caveats": [],
+      "caveats": [
+        "Re-checked 2026-11-05 after the licence turned out to be Apache-2.0 (the condition for inclusion): 0 of the 76 scored models appear in the file (69 rows, newest run 2025-10-03, so it only covers earlier model generations). It would add a permanently degraded source and an empty board, so the decision stays exclude."
+      ],
       "fragility": "n/a"
     },
     {
@@ -555,6 +604,57 @@
       "decision": "exclude",
       "decision_rationale": "Frozen: iberbench/iberbench_all last updated 2025-03-20, sixteen months before checking, and the Space is SLEEPING. The proposed homepage iberbench.uni.lu does not resolve.",
       "verified_at": "2026-08-03"
+    },
+    {
+      "id": "llmfit",
+      "name": "llmfit model catalogue (AlexsJones/llmfit)",
+      "homepage": "https://github.com/AlexsJones/llmfit",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "metadata",
+      "source_type": "catalogue_metadata",
+      "access": {
+        "type": "raw_file",
+        "url": "https://raw.githubusercontent.com/AlexsJones/llmfit/main/llmfit-core/data/hf_models.json",
+        "auth": "none",
+        "format": "JSON array (about 17 MB)",
+        "rate_limit": "none observed",
+        "robots_txt": "not applicable (raw.githubusercontent.com file)"
+      },
+      "license": {
+        "spdx": "MIT",
+        "evidence": "LICENSE at the repository root, 'MIT License, Copyright (c) 2026 Alex Jones'; the GitHub API reports spdx_id MIT (checked 2026-11-05).",
+        "attribution": "Required: the licence notice and copyright line are reproduced in NOTICE and on /methodology."
+      },
+      "last_observed_update": "2026-11-03 (repository push)",
+      "update_cadence": "continuous",
+      "expected_cadence_days": 7,
+      "provides": {
+        "fields": [
+          "parameters_raw",
+          "active_parameters",
+          "num_experts",
+          "active_experts",
+          "context_length",
+          "num_hidden_layers",
+          "num_key_value_heads",
+          "head_dim",
+          "architecture",
+          "min_ram_gb",
+          "min_vram_gb"
+        ]
+      },
+      "notes": [
+        "Never feeds the composite or any rank. It only sizes models for the 'what runs on my machine?' page.",
+        "Only entries whose normalised name equals an open-weights scored model are kept; the rest of the file is discarded at ingest.",
+        "The fit arithmetic in lib/fit.ts is ported from llmfit-core (models.rs, fit.rs), also MIT."
+      ],
+      "caveats": [
+        "The catalogue is a scrape: several repos share a name and can report different parameter counts. The most downloaded wins and the disagreement is published per row.",
+        "Hybrid attention layouts exist only for the families llmfit lists; any other model is sized as full attention and its memory is over-stated."
+      ],
+      "fragility": "medium"
     }
   ]
 }

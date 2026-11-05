@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T14:33:26+00:00",
+  "generated_at": "2026-11-05T16:25:42+00:00",
   "ok": true,
   "sources": {
     "epoch": {
@@ -9,17 +9,38 @@
       "consecutive_failures": 0
     },
     "livebench": {
-      "state": "stale",
-      "last_success": "2026-10-18",
-      "age_days": 18,
-      "error": "https://livebench.ai/table_2026_06_25.csv: HTTP Error 404: Not Found",
-      "consecutive_failures": 18
+      "state": "ok",
+      "last_success": "2026-11-05",
+      "error": null,
+      "consecutive_failures": 0,
+      "skipped_releases": [
+        {
+          "date": "2026-10-25",
+          "reason": "no suite for instruction_following"
+        },
+        {
+          "date": "2026-10-14",
+          "reason": "no suite for instruction_following"
+        }
+      ]
     },
     "lmarena": {
       "state": "ok",
       "last_success": "2026-11-05",
       "error": null,
       "served_by": "rows-latest",
+      "consecutive_failures": 0
+    },
+    "openrouter": {
+      "state": "ok",
+      "last_success": "2026-11-05",
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "llmfit": {
+      "state": "ok",
+      "last_success": "2026-11-05",
+      "error": null,
       "consecutive_failures": 0
     }
   },
@@ -33,14 +54,21 @@
       "degraded_days": 4
     },
     "livebench": {
-      "date": "2026-10-18",
-      "age_days": 18,
-      "freshness": "fresh",
+      "date": "2026-06-25",
+      "age_days": 133,
+      "freshness": "degraded",
       "cadence_days": 30,
       "warn_days": 60,
       "degraded_days": 120,
-      "snapshot": "2026-09-02",
-      "category": "instruction_following"
+      "snapshot": "2026-06-25",
+      "category": "instruction_following",
+      "observed": {
+        "snapshots": 13,
+        "median_gap_days": 35.5,
+        "longest_gap_days": 179,
+        "first": "2024-06-24",
+        "last": "2026-10-25"
+      }
     },
     "lmarena": {
       "date": "2026-10-28",
@@ -50,46 +78,74 @@
       "warn_days": 8,
       "degraded_days": 16,
       "category": "human_preference"
+    },
+    "openrouter": {
+      "date": "2026-11-05",
+      "age_days": 0,
+      "freshness": "fresh",
+      "cadence_days": 1,
+      "warn_days": 2,
+      "degraded_days": 4
+    },
+    "llmfit": {
+      "date": "2026-11-05",
+      "age_days": 0,
+      "freshness": "fresh",
+      "cadence_days": 7,
+      "warn_days": 14,
+      "degraded_days": 28
     }
   },
   "thresholds": {
     "warn_cadence_multiple": 2,
     "degraded_cadence_multiple": 4,
+    "degrade_after_consecutive_failures": 3,
     "recalibration_raw_still": 0.5
   },
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "640086897c01ed34dd9b5832dabee4a1e3b2698dc21af7f8924f29bd86479311",
+      "normalised_sha256": "6c3aefe900d383315461d4ba5a74a334ef2e1522858b83b642b3a302a5991710",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "dd40b7eab45ee92afed5c37e9a7c9d7ff6a5c934c00f6e770246e62fb0bfddde",
-          "bytes": 2280781
+          "sha256": "22e2a8f5c29d05fc5a8192ff98375b0a76d670cec9f073449640e6609c1c7b93",
+          "bytes": 2280795
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "31399bad47d4ad5a2af38f74f9b9eedafc8bc69b6d6f07a54da258d764d57b3b",
-      "requests": 2,
-      "upstream": [
-        {
-          "url": "https://livebench.ai/",
-          "sha256": "26c57741e45fcf5613c4b34ec91ed2b02d39f82176210c54b7ecaa33f3de13fa",
-          "bytes": 889
-        },
-        {
-          "url": "https://livebench.ai/static/js/main.1e1ce12d.js",
-          "sha256": "b4158e5400886ba821e3c3b284a4a0b36687ffd04faedbe8a0492cf29d79ee8f",
-          "bytes": 386105
-        }
-      ]
+      "normalised_sha256": "a5ce4e59450c3242c973bfae5f0b36bb1bb8c79a5911836ef3b9633edf80bb8d",
+      "requests": 8,
+      "upstream": []
     },
     "lmarena": {
       "normalised_sha256": "cf1ec9fc79ed3632c4ee5bd4401e585f7f317859137cdf9d39f31460eb8f1787",
       "requests": 7,
       "upstream": []
+    },
+    "openrouter": {
+      "normalised_sha256": "e44f542500a32f42cc29b883393c7f72066990b890a0ad5436d7f685e7dcd21f",
+      "requests": 1,
+      "upstream": [
+        {
+          "url": "https://openrouter.ai/api/v1/models",
+          "sha256": "aba2396a2f6f9f435cdf66b4c9bccd1e3d835a6132dd8c7b3fe96fb4b162607a",
+          "bytes": 811479
+        }
+      ]
+    },
+    "llmfit": {
+      "normalised_sha256": "051ce89407bd4a5ef4cde4324cc364b5259b041d0760fd3c6fe86581ce9167ef",
+      "requests": 1,
+      "upstream": [
+        {
+          "url": "https://raw.githubusercontent.com/AlexsJones/llmfit/main/llmfit-core/data/hf_models.json",
+          "sha256": "298dbdf36913e1071e62dd07033b0bdf2672a208d71838d2e96d1f464fbd723a",
+          "bytes": 17293734
+        }
+      ]
     }
   }
 }

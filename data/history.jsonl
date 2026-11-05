@@ -28,6 +28,7 @@
 {"model_id": "alibaba-qwen3.8-27b", "benchmark_id": "lmarena_text_overall", "value": 1439.7, "date": "2026-10-20", "source_type": "human_eval", "variant": "Qwen3.8-27B"}
 {"model_id": "alibaba-qwen3.8-27b", "benchmark_id": "lmarena_text_overall", "value": 1439.9, "date": "2026-10-22", "source_type": "human_eval", "variant": "Qwen3.8-27B"}
 {"model_id": "alibaba-qwen3.8-27b", "benchmark_id": "lmarena_text_overall", "value": 1438.4, "date": "2026-10-28", "source_type": "human_eval", "variant": "Qwen3.8-27B"}
+{"model_id": "deepseek-deepseek-v4-flash", "benchmark_id": "lmarena_text_overall", "value": 1431.8, "date": "2026-10-28", "source_type": "human_eval", "variant": "DeepSeek-V4-Flash"}
 {"model_id": "deepseek-deepseek-v4-pro", "benchmark_id": "lmarena_text_overall", "value": 1451.3, "date": "2026-10-20", "source_type": "human_eval", "variant": "DeepSeek-V4-Pro"}
 {"model_id": "deepseek-deepseek-v4-pro", "benchmark_id": "lmarena_text_overall", "value": 1451.3, "date": "2026-10-22", "source_type": "human_eval", "variant": "DeepSeek-V4-Pro"}
 {"model_id": "deepseek-deepseek-v4-pro", "benchmark_id": "lmarena_text_overall", "value": 1451.1, "date": "2026-10-28", "source_type": "human_eval", "variant": "DeepSeek-V4-Pro"}
@@ -178,10 +179,6 @@
 {"model_id": "openai-gpt-oss-20b", "benchmark_id": "lmarena_text_overall", "value": 1287.6, "date": "2026-10-20", "source_type": "human_eval", "variant": "gpt-oss-20b"}
 {"model_id": "openai-gpt-oss-20b", "benchmark_id": "lmarena_text_overall", "value": 1287.5, "date": "2026-10-22", "source_type": "human_eval", "variant": "gpt-oss-20b"}
 {"model_id": "openai-gpt-oss-20b", "benchmark_id": "lmarena_text_overall", "value": 1287.3, "date": "2026-10-28", "source_type": "human_eval", "variant": "gpt-oss-20b"}
-{"model_id": "stepfun-step-5", "benchmark_id": "lmarena_text_overall", "value": 1441.4, "date": "2026-10-15", "source_type": "human_eval", "variant": "Step 5 Preview"}
-{"model_id": "stepfun-step-5", "benchmark_id": "lmarena_text_overall", "value": 1440.3, "date": "2026-10-20", "source_type": "human_eval", "variant": "Step 5 Preview"}
-{"model_id": "stepfun-step-5", "benchmark_id": "lmarena_text_overall", "value": 1442.0, "date": "2026-10-22", "source_type": "human_eval", "variant": "Step 5 Preview"}
-{"model_id": "stepfun-step-5", "benchmark_id": "lmarena_text_overall", "value": 1442.7, "date": "2026-10-28", "source_type": "human_eval", "variant": "Step 5 Preview"}
 {"model_id": "thinking-machines-inkling", "benchmark_id": "lmarena_text_overall", "value": 1441.8, "date": "2026-10-20", "source_type": "human_eval", "variant": "Inkling"}
 {"model_id": "thinking-machines-inkling", "benchmark_id": "lmarena_text_overall", "value": 1442.0, "date": "2026-10-22", "source_type": "human_eval", "variant": "Inkling"}
 {"model_id": "thinking-machines-inkling", "benchmark_id": "lmarena_text_overall", "value": 1442.7, "date": "2026-10-28", "source_type": "human_eval", "variant": "Inkling"}
@@ -194,9 +191,6 @@
 {"model_id": "xai-grok-4.5", "benchmark_id": "lmarena_text_overall", "value": 1447.7, "date": "2026-10-20", "source_type": "human_eval", "variant": "Grok 4.5"}
 {"model_id": "xai-grok-4.5", "benchmark_id": "lmarena_text_overall", "value": 1448.0, "date": "2026-10-22", "source_type": "human_eval", "variant": "Grok 4.5"}
 {"model_id": "xai-grok-4.5", "benchmark_id": "lmarena_text_overall", "value": 1447.6, "date": "2026-10-28", "source_type": "human_eval", "variant": "Grok 4.5"}
-{"model_id": "xiaomi-corp-mimo-v2.6-pro", "benchmark_id": "lmarena_text_overall", "value": 1491.1, "date": "2026-10-20", "source_type": "human_eval", "variant": "MiMo-V2.6-Pro"}
-{"model_id": "xiaomi-corp-mimo-v2.6-pro", "benchmark_id": "lmarena_text_overall", "value": 1491.1, "date": "2026-10-22", "source_type": "human_eval", "variant": "MiMo-V2.6-Pro"}
-{"model_id": "xiaomi-corp-mimo-v2.6-pro", "benchmark_id": "lmarena_text_overall", "value": 1491.4, "date": "2026-10-28", "source_type": "human_eval", "variant": "MiMo-V2.6-Pro"}
 {"model_id": "z-ai-zhipu-ai-glm-4.7", "benchmark_id": "lmarena_text_overall", "value": 1435.3, "date": "2026-10-20", "source_type": "human_eval", "variant": "GLM-4.7"}
 {"model_id": "z-ai-zhipu-ai-glm-4.7", "benchmark_id": "lmarena_text_overall", "value": 1435.4, "date": "2026-10-22", "source_type": "human_eval", "variant": "GLM-4.7"}
 {"model_id": "z-ai-zhipu-ai-glm-4.7", "benchmark_id": "lmarena_text_overall", "value": 1435.4, "date": "2026-10-28", "source_type": "human_eval", "variant": "GLM-4.7"}

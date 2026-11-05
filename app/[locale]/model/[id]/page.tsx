@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
@@ -9,11 +10,31 @@ import { getAcquisition, getAdjacentModels, getModelDetail, getModelIds } from "
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
+import { pageMetadata } from "@/lib/seo";
+import { orderPair } from "@/lib/views";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     getModelIds().map((id) => ({ locale, id })),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}): Promise<Metadata> {
+  const { locale, id } = await params;
+  const detail = getModelDetail(id);
+  if (!detail) return {};
+  const t = await getTranslations({ locale, namespace: "model" });
+  const name = detail.model.display_name;
+  return pageMetadata({
+    locale,
+    path: `/model/${id}`,
+    title: `${t("metaTitle", { name })} · ModelHub`,
+    description: t("metaDescription", { name, provider: detail.model.provider_name }),
+  });
 }
 
 /** Section ids are also the anchor targets used by the rail in the right column. */
@@ -80,6 +101,24 @@ export default async function ModelPage({
         )}
       </nav>
 
+      {/* Static head-to-head pages with the models either side in the ranking. Neighbours
+          by rank, never chosen by who the model is. */}
+      {(adjacent.prev || adjacent.next) && (
+        <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs">
+          {[adjacent.prev, adjacent.next].map((other) =>
+            other ? (
+              <Link
+                key={other.id}
+                href={`/vs/${orderPair(id, other.id)[0]}/${orderPair(id, other.id)[1]}`}
+                className="py-1 text-accent underline underline-offset-2"
+              >
+                {t("compareWith", { name: other.display_name })}
+              </Link>
+            ) : null,
+          )}
+        </p>
+      )}
+
       {/* Two columns at lg. The single 52rem column left 60% of a desktop viewport
           empty; the rail fills it with the figures a reader scrolls back up for. */}
       <div className="mt-4 lg:grid lg:grid-cols-[1fr_18rem] lg:items-start lg:gap-12">
@@ -101,7 +140,12 @@ export default async function ModelPage({
           </div>
 
           <p className="num mt-1 text-xs text-tertiary">
-            {model.provider_name}
+            <Link
+              href={`/provider/${model.provider_id}`}
+              className="underline-offset-2 hover:text-primary hover:underline"
+            >
+              {model.provider_name}
+            </Link>
             {model.country ? ` · ${model.country}` : ""}
             {model.release_date ? ` · ${model.release_date}` : ""}
           </p>
@@ -236,7 +280,7 @@ export default async function ModelPage({
           <section id="sources" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("sources")}</h3>
             <Surface
-              className="overflow-x-auto p-2"
+              className="relative overflow-x-auto p-2"
               role="region"
               aria-label={t("sources")}
               tabIndex={0}

@@ -30,7 +30,9 @@ from .common import (
 )
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
-from .sources import epoch, livebench, lmarena
+from .report_status import apply_failure_rule, degrade_after_failures
+from . import catalogue, derived, local
+from .sources import epoch, livebench, lmarena, llmfit, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
@@ -450,10 +452,17 @@ def main() -> int:
         # of only changing behaviour no one is watching for.
         arena_status["served_by"] = arena_payload.get("served_by")
 
+    # Metadata and a coding-agent board, both outside the composite. A failure of either
+    # degrades its own page section and nothing else.
+    seen = set(DIGESTS)
+    router_payload, router_status = gather("openrouter", openrouter.collect)
+    integrity["openrouter"] = integrity_for(seen, router_payload)
+
     statuses = {
         "epoch": epoch_status,
         "livebench": livebench_status,
         "lmarena": arena_status,
+        "openrouter": router_status,
     }
     prev_statuses = previous_statuses()
     for name, status in statuses.items():
@@ -485,6 +494,36 @@ def main() -> int:
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
     )
+
+    canonical_keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
+
+    # Sizing data for /local. Fetched here because which repos are kept depends on the
+    # cohort just built. Outside the composite: a failure degrades that page and nothing else.
+    seen = set(DIGESTS)
+    llmfit_payload, llmfit_status = gather(
+        "llmfit", lambda: llmfit.collect(local.wanted_keys(models, canonical_keys)))
+    integrity["llmfit"] = integrity_for(seen, llmfit_payload)
+    llmfit_failures = prev_statuses.get("llmfit", {}).get("consecutive_failures", 0)
+    llmfit_status["consecutive_failures"] = (
+        0 if llmfit_status["state"] == "ok" else llmfit_failures + 1)
+    statuses["llmfit"] = llmfit_status
+    local_rows = local.build(
+        models, canonical_keys, llmfit_payload.get("entries") or {}, local.load_layout_rules())
+    print(f"  local: {len(local_rows)} of "
+          f"{sum(1 for m in models if m.get('is_open_weights'))} open-weights models sized")
+    router_catalogue = router_payload.get("catalogue") or {}
+    router_matches = catalogue.match_models(canonical_keys, router_catalogue)
+    router_day = router_status.get("last_success") or date.today().isoformat()
+    catalogue.apply_metadata(models, router_matches, router_day)
+    unranked = catalogue.build_unranked(router_catalogue, router_matches, router_day)
+    boards_config = derived.load_boards_config()
+    derived.annotate(models, boards_config)
+    best_by = derived.build_boards(models, boards_config)
+    boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
+    print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
+          f"{len(unranked)} unranked entries; boards: "
+          + ", ".join(f"{b['id']}={sum(len(x['rows']) for x in b['benchmarks'])}"
+                      for b in boards))
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
@@ -572,6 +611,28 @@ def main() -> int:
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})
+    write_json(DATA / "catalog.json", {
+        "meta": {"generated_at": meta["generated_at"], "source": openrouter.ATTRIBUTION,
+                 "scored_matched": len(router_matches), "unranked": len(unranked)},
+        "unranked": unranked,
+    })
+    write_json(DATA / "local_models.json", local.document(
+        local_rows, sum(1 for m in models if m.get("is_open_weights")),
+        meta["generated_at"]))
+    write_json(DATA / "best_by.json", {
+        "meta": {
+            "generated_at": meta["generated_at"], "in_composite": False,
+            "price_blend": boards_config.get("price_blend"),
+            "ranked_only": boards_config.get("ranked_only", True),
+            "pareto_members": sum(1 for m in models if m.get("pareto_frontier")),
+            "pareto_evaluated": sum(1 for m in models if m.get("pareto_frontier") is not None),
+        },
+        "boards": best_by,
+    })
+    write_json(DATA / "boards.json", {
+        "meta": {"generated_at": meta["generated_at"], "in_composite": False},
+        "boards": boards,
+    })
     write_json(DATA / "providers.json", {
         "providers": sorted(providers.values(), key=lambda p: p["display_name"])
     })
@@ -603,6 +664,9 @@ def main() -> int:
             cadences.get("livebench"),
         ),
         "lmarena": snapshot_age(arena_payload.get("snapshot"), cadences.get("lmarena")),
+        "openrouter": snapshot_age(router_status.get("last_success"),
+                                   cadences.get("openrouter")),
+        "llmfit": snapshot_age(llmfit_status.get("last_success"), cadences.get("llmfit")),
     }
     snapshot_ages["livebench"]["snapshot"] = livebench_payload.get("snapshot")
     # The composite category each source feeds, so the table can flag the affected column
@@ -629,6 +693,12 @@ def main() -> int:
                 f"of {median}d over {livebench_observed['snapshots']} snapshots"
             )
 
+    # Same rule report_status applies to the file, applied here first so the page - which
+    # reads freshness from status.json - shows the source as degraded too.
+    apply_failure_rule(statuses, snapshot_ages, degrade_after_failures())
+    if livebench_payload.get("skipped_releases"):
+        livebench_status["skipped_releases"] = livebench_payload["skipped_releases"]
+
     write_json(DATA / "status.json", {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "ok": True,
@@ -637,6 +707,7 @@ def main() -> int:
         "thresholds": {
             "warn_cadence_multiple": WARN_CADENCE_MULTIPLE,
             "degraded_cadence_multiple": DEGRADED_CADENCE_MULTIPLE,
+            "degrade_after_consecutive_failures": degrade_after_failures(),
             # Published rather than restated in the frontend: a constant quoted in two
             # places is a constant that will disagree with itself.
             "recalibration_raw_still": RECALIBRATION_RAW_STILL,

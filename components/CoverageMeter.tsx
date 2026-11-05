@@ -6,6 +6,10 @@ import clsx from "clsx";
  * A composite built from three categories is not the same claim as one built from five,
  * and the ranking is dishonest if it hides the difference. This puts the evidence base
  * next to the number instead of in a footnote.
+ *
+ * One element, drawn in CSS (see .coverage in globals.css) from two custom properties.
+ * It used to be one <span> per segment, five per meter, rendered twice per model in the
+ * ranking: 68 KB of the home page's HTML for a five-bar glyph.
  */
 export function CoverageMeter({
   covered,
@@ -16,26 +20,13 @@ export function CoverageMeter({
   total: number;
   label: string;
 }) {
-  const partial = covered < total;
-
   return (
     <span
-      className="inline-flex items-center gap-[3px]"
+      className={clsx("coverage", covered < total && "coverage-partial")}
+      style={{ "--covered": covered, "--total": total } as React.CSSProperties}
       role="img"
       aria-label={label}
       title={label}
-    >
-      {Array.from({ length: total }, (_, i) => (
-        <span
-          key={i}
-          aria-hidden="true"
-          className={clsx(
-            "block h-[13px] w-[3px] rounded-[2px]",
-            i < covered ? "bg-accent" : "bg-sunk",
-            i < covered && partial && "opacity-65",
-          )}
-        />
-      ))}
-    </span>
+    />
   );
 }
