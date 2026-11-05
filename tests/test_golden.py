@@ -26,7 +26,7 @@ import json
 import unittest
 from pathlib import Path
 
-from scripts.ingest import row_dates
+from scripts.ingest import catalogue, row_dates
 from scripts.ingest.composite import build_models, load_weights
 from scripts.ingest.run import flag_recalibration
 from scripts.ingest.sources import lmarena
@@ -64,7 +64,7 @@ class GoldenCompositeTests(unittest.TestCase):
 
         weights, _min_coverage, _policy = load_weights()
 
-        models, score_rows, _providers, _aliases, _arena_minmax = build_models(
+        models, score_rows, _providers, aliases, _arena_minmax = build_models(
             registry=epoch_payload.get("registry") or {},
             epoch_scores=epoch_payload.get("scores") or {},
             livebench_scores=livebench_payload.get("scores") or {},
@@ -74,6 +74,13 @@ class GoldenCompositeTests(unittest.TestCase):
             vision_snapshot=arena_payload.get("vision_snapshot"),
         )
         flag_recalibration(models, score_rows, weights, {}, {})
+        # Price, context and modalities come from the router catalogue cache, applied after
+        # scoring exactly as run.py does; every scored field is still compared below.
+        if (DATA / "cache" / "openrouter.json").exists():
+            router = _cache_file("openrouter")
+            keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
+            matches = catalogue.match_models(keys, router["payload"].get("catalogue") or {})
+            catalogue.apply_metadata(models, matches, router["fetched_at"])
         for model in models:
             model.pop("arena_name", None)
 

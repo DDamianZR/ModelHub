@@ -47,6 +47,16 @@ BENCHMARKS = {
 }
 
 
+# First-party Epoch tables kept OUT of the composite and published as separate boards.
+# Board assignment follows the environment the benchmark is run in, taken from Epoch's own
+# benchmark names. Knowledge is empty on purpose: the only first-party knowledge table,
+# SimpleQA Verified, already feeds Reasoning, and counting it twice would reweight it.
+BOARD_TABLES = {
+    "mirrorcode.csv": ("mirrorcode", "MirrorCode", "agentic"),
+    "spireclimb.csv": ("spireclimb", "SpireClimb", "agentic"),
+}
+
+
 def _read_index(archive: zipfile.ZipFile,
                  read) -> list[dict]:
     """Model registry rows, normalised to the column names the rest of collect() expects.
@@ -176,4 +186,35 @@ def collect() -> dict:
     if not registry:
         raise SourceError("epoch: registry came back empty")
 
-    return {"registry": registry, "scores": scores}
+    boards: dict[str, dict[str, dict]] = {}
+    for filename, (benchmark_id, name, board) in BOARD_TABLES.items():
+        try:
+            rows = read(filename)
+        except KeyError:
+            continue
+        best: dict[str, dict] = {}
+        for row in rows:
+            key = norm(row.get("Model version", ""))
+            raw = row.get("mean_score") or row.get("Best score (across scorers)")
+            if not raw or key not in registry:
+                continue
+            try:
+                value = round(float(raw) * 100.0, 2)
+            except ValueError:
+                continue
+            try:
+                stderr = round(float(row["stderr"]) * 100.0, 3)
+            except (KeyError, TypeError, ValueError):
+                stderr = None
+            # Not part of the composite, so no variant policy applies: the strongest
+            # published variant is shown with its name beside it.
+            if key not in best or value > best[key]["value"]:
+                best[key] = {
+                    "variant": row.get("Model version", "").strip(),
+                    "value": value,
+                    "stderr": stderr,
+                    "measured_at": (row.get("Started at") or "")[:10] or None,
+                }
+        boards.setdefault(board, {})[benchmark_id] = {"name": name, "rows": best}
+
+    return {"registry": registry, "scores": scores, "boards": boards}

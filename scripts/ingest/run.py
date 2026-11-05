@@ -31,7 +31,8 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from .sources import epoch, livebench, lmarena
+from . import catalogue
+from .sources import epoch, livebench, lmarena, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
@@ -451,10 +452,17 @@ def main() -> int:
         # of only changing behaviour no one is watching for.
         arena_status["served_by"] = arena_payload.get("served_by")
 
+    # Metadata and a coding-agent board, both outside the composite. A failure of either
+    # degrades its own page section and nothing else.
+    seen = set(DIGESTS)
+    router_payload, router_status = gather("openrouter", openrouter.collect)
+    integrity["openrouter"] = integrity_for(seen, router_payload)
+
     statuses = {
         "epoch": epoch_status,
         "livebench": livebench_status,
         "lmarena": arena_status,
+        "openrouter": router_status,
     }
     prev_statuses = previous_statuses()
     for name, status in statuses.items():
@@ -486,6 +494,18 @@ def main() -> int:
         arena_snapshot=arena_payload.get("snapshot"),
         vision_snapshot=arena_payload.get("vision_snapshot"),
     )
+
+    canonical_keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
+    router_catalogue = router_payload.get("catalogue") or {}
+    router_matches = catalogue.match_models(canonical_keys, router_catalogue)
+    router_day = router_status.get("last_success") or date.today().isoformat()
+    catalogue.apply_metadata(models, router_matches, router_day)
+    unranked = catalogue.build_unranked(router_catalogue, router_matches, router_day)
+    boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
+    print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
+          f"{len(unranked)} unranked entries; boards: "
+          + ", ".join(f"{b['id']}={sum(len(x['rows']) for x in b['benchmarks'])}"
+                      for b in boards))
 
     incoming_history: list[dict] = []
     if arena_status["state"] == "ok":
@@ -573,6 +593,15 @@ def main() -> int:
 
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})
+    write_json(DATA / "catalog.json", {
+        "meta": {"generated_at": meta["generated_at"], "source": openrouter.ATTRIBUTION,
+                 "scored_matched": len(router_matches), "unranked": len(unranked)},
+        "unranked": unranked,
+    })
+    write_json(DATA / "boards.json", {
+        "meta": {"generated_at": meta["generated_at"], "in_composite": False},
+        "boards": boards,
+    })
     write_json(DATA / "providers.json", {
         "providers": sorted(providers.values(), key=lambda p: p["display_name"])
     })
@@ -604,6 +633,8 @@ def main() -> int:
             cadences.get("livebench"),
         ),
         "lmarena": snapshot_age(arena_payload.get("snapshot"), cadences.get("lmarena")),
+        "openrouter": snapshot_age(router_status.get("last_success"),
+                                   cadences.get("openrouter")),
     }
     snapshot_ages["livebench"]["snapshot"] = livebench_payload.get("snapshot")
     # The composite category each source feeds, so the table can flag the affected column

@@ -460,6 +460,51 @@
       "fragility": "n/a"
     },
     {
+      "id": "openrouter",
+      "name": "OpenRouter model catalogue",
+      "homepage": "https://openrouter.ai/models",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "metadata",
+      "source_type": "catalogue_metadata",
+      "access": {
+        "type": "json_api",
+        "url": "https://openrouter.ai/api/v1/models",
+        "auth": "none",
+        "format": "JSON",
+        "rate_limit": "none observed",
+        "robots_txt": "User-agent: * / Allow: / (Disallow: /seo/ only)"
+      },
+      "license": {
+        "spdx": "unverified",
+        "evidence": "Public documented endpoint that answers without a key (checked 2026-11-05). No data licence was found for the catalogue.",
+        "action_required": "A human should read the terms of use in a browser. Until then only facts are republished (price, context length, modalities, Hugging Face repo id); the free-text description and any prose are not stored.",
+        "scope": "metadata only; never a score"
+      },
+      "last_observed_update": "2026-11-05 (live catalogue)",
+      "update_cadence": "continuous",
+      "expected_cadence_days": 1,
+      "provides": {
+        "fields": [
+          "price_input_usd_per_m",
+          "price_output_usd_per_m",
+          "context_length",
+          "input_modalities",
+          "hugging_face_id"
+        ]
+      },
+      "notes": [
+        "Never feeds the composite. Models it lists that have no benchmark in the cohort are published in data/catalog.json as unranked.",
+        "open_weights here means 'has a Hugging Face repo id', a proxy that is stored beside the entry and does not replace the accessibility Epoch reports.",
+        "Matching is by normalised model name with pattern rules; the namespace before the slash is never read."
+      ],
+      "caveats": [
+        "Price is the router's listed price for the plain listing, not a vendor's own price sheet, and tiered pricing overrides for very long prompts are not represented."
+      ],
+      "fragility": "low"
+    },
+    {
       "id": "aider_polyglot",
       "name": "Aider Polyglot Leaderboard",
       "homepage": "https://aider.chat/docs/leaderboards/",
@@ -497,7 +542,9 @@
         "The file is well-formed and easy to parse — it is simply out of date. Ingesting it would put 2025 numbers next to 2026 numbers in a 'current frontier' ranking, which is worse than omitting it.",
         "If this data is wanted for historical depth, take it via Epoch's aider_polyglot_external.csv, which already carries 'Source' and 'Source link' provenance."
       ],
-      "caveats": [],
+      "caveats": [
+        "Re-checked 2026-11-05 after the licence turned out to be Apache-2.0 (the condition for inclusion): 0 of the 76 scored models appear in the file (69 rows, newest run 2025-10-03, so it only covers earlier model generations). It would add a permanently degraded source and an empty board, so the decision stays exclude."
+      ],
       "fragility": "n/a"
     },
     {

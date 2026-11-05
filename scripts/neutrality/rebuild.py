@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 from typing import Callable
 
-from scripts.ingest import row_dates
+from scripts.ingest import catalogue, row_dates
 from scripts.ingest.composite import build_models
 from scripts.ingest.sources import lmarena
 
@@ -67,4 +67,11 @@ def rebuild(
         registry = registry_transform(registry)
     kwargs["registry"] = registry
     models, _scores, _providers, aliases, _minmax = build_models(**kwargs)
+    # Same metadata step run.py applies after scoring; it reads no score and no label of
+    # who made a model, so it cannot change a ranking, only fill price and context.
+    if (CACHE / "openrouter.json").exists():
+        cached = _cache_file("openrouter")
+        keys = {mid: info["canonical_key"] for mid, info in aliases.items()}
+        matches = catalogue.match_models(keys, cached["payload"].get("catalogue") or {})
+        catalogue.apply_metadata(models, matches, cached["fetched_at"])
     return models, aliases
