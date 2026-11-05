@@ -68,6 +68,62 @@ class ParseTests(unittest.TestCase):
                 llmfit.collect({"model-7b"})
 
 
+CATALOGUE = {
+    "pipeline_tags": ["text-generation", "image-text-to-text"],
+    "min_parameters": 400_000_000, "min_context_length": 2048, "min_downloads": 1000,
+    "min_likes": 10, "max_rows": 3, "exclude_name_tokens": ["awq", "base", "uncensored"],
+    "exclude_name_suffixes": ["ocr"],
+}
+
+
+def pop_row(name: str, downloads: int = 5000, **extra) -> dict:
+    return row(name, 7_000_000_000, downloads, hf_likes=50, pipeline_tag="text-generation", **extra)
+
+
+class PopularTests(unittest.TestCase):
+    def test_orders_by_downloads_then_name_and_cuts_at_max_rows(self):
+        rows = [pop_row("o/D-7B", 5000), pop_row("o/B-7B", 9000), pop_row("o/A-7B", 9000),
+                pop_row("o/C-7B", 8000)]
+        names = [e["hf_repo"] for e in llmfit.popular(rows, set(), CATALOGUE)]
+        self.assertEqual(names, ["o/A-7B", "o/B-7B", "o/C-7B"])
+
+    def test_scored_models_are_never_repeated_as_unmeasured(self):
+        rows = [pop_row("o/Model-7B"), pop_row("o/Other-7B")]
+        out = llmfit.popular(rows, {"model-7b"}, CATALOGUE)
+        self.assertEqual([e["hf_repo"] for e in out], ["o/Other-7B"])
+
+    def test_repacks_bases_and_ocr_readers_are_left_out_by_whole_word(self):
+        rows = [pop_row("o/M-7B-AWQ"), pop_row("o/M-7B-Base"), pop_row("o/LightOnOCR-1B"),
+                pop_row("o/dots.ocr"), pop_row("o/M-7B-uncensored"),
+                pop_row("o/Database-7B"), pop_row("o/Keeper-7B")]
+        names = {e["hf_repo"] for e in llmfit.popular(rows, set(), CATALOGUE)}
+        self.assertEqual(names, {"o/Database-7B", "o/Keeper-7B"})
+
+    def test_thresholds_and_pipeline_tag_gate_entries(self):
+        rows = [
+            pop_row("o/Few-Downloads-7B", 10),
+            {**pop_row("o/Few-Likes-7B"), "hf_likes": 1},
+            {**pop_row("o/Wrong-Tag-7B"), "pipeline_tag": "text-to-speech"},
+            {**pop_row("o/Tiny-7B"), "parameters_raw": 100_000_000},
+            {**pop_row("o/Short-Window-7B"), "context_length": 1024},
+            pop_row("o/Passes-7B"),
+        ]
+        self.assertEqual([e["hf_repo"] for e in llmfit.popular(rows, set(), CATALOGUE)], ["o/Passes-7B"])
+
+    def test_publisher_never_changes_the_outcome(self):
+        a = llmfit.popular([pop_row("lab-a/Model-7B")], set(), CATALOGUE)
+        b = llmfit.popular([pop_row("lab-b/Model-7B")], set(), CATALOGUE)
+        self.assertEqual([e["parameters_raw"] for e in a], [e["parameters_raw"] for e in b])
+
+    def test_no_rules_means_no_catalogue(self):
+        self.assertEqual(llmfit.popular([pop_row("o/Model-7B")], set(), {}), [])
+
+    def test_shipped_rules_load_with_every_threshold_present(self):
+        rules = local.load_catalogue_rules()
+        for key in ("pipeline_tags", "min_parameters", "min_downloads", "min_likes", "max_rows"):
+            self.assertIn(key, rules)
+
+
 RULES = [
     {"all_of": [["next-family"]], "full": 10, "linear": 30},
     {"all_of": [["hybrid-"], ["-moe-tag"]], "full": 10, "linear": 30},
@@ -140,6 +196,28 @@ class BuildTests(unittest.TestCase):
         models = [model("open-one", open_weights=True), model("closed-one", open_weights=False),
                   model("open-two", open_weights=True)]
         self.assertEqual(local.wanted_keys(models, self.keys), {"model-7b", "absent-model"})
+
+    def test_catalogue_rows_carry_a_link_and_no_score(self):
+        rows = local.build_catalogue(
+            [{**ENTRY, "hf_repo": "o/Free-7B", "hf_downloads": 9, "hf_likes": 3,
+              "pipeline_tag": "image-text-to-text"}], [])
+        self.assertEqual(rows[0]["model_id"], "hf:o/Free-7B")
+        self.assertEqual(rows[0]["display_name"], "Free-7B")
+        self.assertEqual(rows[0]["source_url"], "https://huggingface.co/o/Free-7B")
+        self.assertEqual(rows[0]["modality"], "vision")
+        for forbidden in ("composite", "rank", "score"):
+            self.assertNotIn(forbidden, rows[0])
+
+    def test_scored_keys_include_closed_models(self):
+        models = [model("open-one", open_weights=True), model("closed-one", open_weights=False)]
+        self.assertEqual(local.scored_keys(models, self.keys), {"model-7b"})
+
+    def test_document_lists_the_catalogue_and_its_rules(self):
+        extra = local.build_catalogue([{**ENTRY, "hf_repo": "o/Free-7B"}], [])
+        doc = local.document([], 0, "2026-11-05T00:00:00+00:00", extra, {"max_rows": 3})
+        self.assertEqual(doc["meta"]["catalogue_rows"], 1)
+        self.assertEqual(doc["meta"]["catalogue_rules"], {"max_rows": 3})
+        self.assertEqual(len(doc["catalogue"]), 1)
 
     def test_document_states_it_is_outside_the_composite(self):
         rows = local.build([model("open-one", open_weights=True)], self.keys, {"model-7b": ENTRY}, [])
