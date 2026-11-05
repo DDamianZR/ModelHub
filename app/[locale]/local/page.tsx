@@ -43,7 +43,8 @@ export default async function LocalPage({
 
   const t = await getTranslations("local");
   const messages = await getMessages();
-  const { entries, rankedCount, withoutLayout, unsized } = getLocalEntries();
+  const { entries, rankedCount, withoutLayout, unsized, unmeasuredCount, catalogueRules } =
+    getLocalEntries();
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -61,6 +62,8 @@ export default async function LocalPage({
             rankedCount={rankedCount}
             withLayout={entries.length - withoutLayout}
             unsized={unsized}
+            unmeasuredCount={unmeasuredCount}
+            catalogueRules={catalogueRules}
           />
         </NextIntlClientProvider>
       </section>

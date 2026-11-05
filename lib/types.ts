@@ -286,19 +286,44 @@ export interface LocalModelSpec {
 }
 
 /**
- * What /local needs per sizeable model: the sizing shape joined to the model's measured
- * standing. The composite is displayed as-is and never used to decide whether a model fits.
+ * Facts about a Hugging Face repo that a card shows and the fit arithmetic never reads.
+ * `hf_downloads` and `hf_likes` measure popularity on the hub, not quality.
+ */
+export interface LocalRepoFacts {
+  source_url: string;
+  /** "vision" when the repo takes images as well as text; null when the catalogue omits it. */
+  modality: "text" | "vision" | null;
+  hf_downloads: number | null;
+  hf_likes: number | null;
+  /** Repos sharing this normalised name in the catalogue; the most downloaded was used. */
+  candidates: number;
+  /** How many of them report a parameter count more than 10% away from the one used. */
+  size_disagreement: number;
+}
+
+export type LocalModelRow = LocalModelSpec & LocalRepoFacts;
+
+/**
+ * What /local needs per model: the sizing shape, plus the model's measured standing when
+ * ModelHub scores it. The composite is displayed as-is and never used to decide whether a
+ * model fits. A model ModelHub does not measure (`measured: false`) carries no composite,
+ * rank or coverage at all: the page lists it because it can run, not because it was ranked.
  */
 export interface LocalEntry {
   spec: LocalModelSpec;
   display_name: string;
-  /** null for provisional models, which never hold a ranked slot. */
+  measured: boolean;
+  hf_url: string;
+  modality: "text" | "vision" | null;
+  hf_downloads: number | null;
+  hf_likes: number | null;
+  /** null for provisional and unmeasured models, which never hold a ranked slot. */
   rank: number | null;
   tied_with: number;
-  composite: number;
+  composite: number | null;
   composite_error: number | null;
   provisional: boolean;
-  coverage: { covered: number; total: number };
+  coverage: { covered: number; total: number } | null;
   measured_at: string | null;
 }
 
@@ -310,14 +335,16 @@ export interface LocalModels {
     in_composite: false;
     open_weights_scored: number;
     matched: number;
+    catalogue_rows: number;
+    catalogue_rules: {
+      min_downloads?: number;
+      min_likes?: number;
+      max_rows?: number;
+    };
   };
-  models: (LocalModelSpec & {
-    source_url: string;
-    /** Repos sharing this normalised name in the catalogue; the most downloaded was used. */
-    candidates: number;
-    /** How many of them report a parameter count more than 10% away from the one used. */
-    size_disagreement: number;
-  })[];
+  models: LocalModelRow[];
+  /** Most downloaded models outside the cohort: sized, linked, never scored. */
+  catalogue: (LocalModelRow & { display_name: string })[];
 }
 
 /** One entry of the static search index served at /search-index.json. Short keys on purpose. */
