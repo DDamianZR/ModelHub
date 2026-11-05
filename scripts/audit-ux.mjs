@@ -179,7 +179,13 @@ if (!existsSync(htmlPath)) {
   check("prerendered document chars", html.length, html.length < 380000, "< 380 000 (was 441 013)");
 
   const rsc = [...html.matchAll(/__next_f\.push\(\[1,(.*?)\]\)/gs)].reduce((n, m) => n + m[1].length, 0);
-  check("inline RSC payload chars", rsc, rsc < 110000, "< 110 000 (was 176 319)");
+  // 2026-11: 110 000 -> 120 000. The home gained the best-by cards, first places, the cost
+  // scatter and two trend charts (the redesign brief asked for them): base 69 251, now about
+  // 115 000. About 20 000 of the growth is that new server-rendered content and about 9 000
+  // is the extra columns the ranking rows carry (price, context, provider link). Measured
+  // after the cuts that cost nothing: coverage meter as one CSS element, the scatter's
+  // unlabelled points as one path, shared chart gridlines, one trend caption.
+  check("inline RSC payload chars", rsc, rsc < 120000, "< 120 000 (was 176 319; 110 000 before the 2026-11 home)");
 
   // Nesting-aware: take each sr-only element's own text, not everything up to the
   // next closing tag of the same name. This is the bug that produced two wrong numbers.
