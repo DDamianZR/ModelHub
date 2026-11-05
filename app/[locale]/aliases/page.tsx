@@ -66,9 +66,9 @@ export default async function AliasesPage({
       <SiteHeader locale={locale} active="aliases" />
 
       <div id="main-content" className="mt-8 max-w-[46rem]">
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight">
+        <h1 className="text-2xl leading-tight font-semibold tracking-tight">
           {t("title")}
-        </h2>
+        </h1>
         <p className="mt-3 text-md leading-[1.65] text-tertiary">
           {t("intro")}
         </p>

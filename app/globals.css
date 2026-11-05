@@ -152,7 +152,7 @@ body {
 }
 
 /* Headlines are serif; everything else is the sans. */
-h1, h2 {
+h1, h2:not(.eyebrow) {
   font-family: var(--font-serif);
   font-weight: 500;
   letter-spacing: var(--tracking-snug);

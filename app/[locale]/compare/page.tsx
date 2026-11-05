@@ -43,9 +43,9 @@ export default async function ComparePage({
       <SiteHeader locale={locale} active="compare" />
 
       <section className="mt-8">
-        <h2 className="text-xl leading-tight font-semibold">
+        <h1 className="text-xl leading-tight font-semibold">
           {t("title")}
-        </h2>
+        </h1>
         <p
           className="mt-2 max-w-[46rem] text-base leading-[1.6] text-tertiary"
         >

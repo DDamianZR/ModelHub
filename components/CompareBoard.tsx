@@ -216,7 +216,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
           <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {CATEGORIES.map((category) => (
               <section key={category}>
-                <h3 className="eyebrow mb-2">{tt(category)}</h3>
+                <h2 className="eyebrow mb-2">{tt(category)}</h2>
                 <CategoryBars
                   emptyLabel={tt("noData")}
                   rows={chosen.map((row) => ({
@@ -228,7 +228,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
             ))}
 
             <section>
-              <h3 className="eyebrow mb-2">{tt("vision")}</h3>
+              <h2 className="eyebrow mb-2">{tt("vision")}</h2>
               <p className="mb-2 text-2xs text-tertiary">{t("visionNote")}</p>
               <CategoryBars
                 emptyLabel={tt("noData")}
@@ -244,7 +244,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
           </div>
 
           <div className="mt-10">
-            <h3 className="eyebrow mb-2">{t("tableView")}</h3>
+            <h2 className="eyebrow mb-2">{t("tableView")}</h2>
             <Surface
               className="relative overflow-x-auto p-2"
               role="region"

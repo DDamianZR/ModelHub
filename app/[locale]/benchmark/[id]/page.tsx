@@ -73,7 +73,7 @@ export default async function BenchmarkPage({
             {t("eyebrow")}
           </Link>
         </p>
-        <h2 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">{benchmark.name}</h2>
+        <h1 className="mt-1 text-2xl leading-tight font-semibold tracking-tight">{benchmark.name}</h1>
         <p className="num mt-1 text-xs text-tertiary">
           {benchmark.source} · {benchmark.source_type} · {t("rows", { count: rows.length })} ·{" "}
           <a
@@ -86,11 +86,13 @@ export default async function BenchmarkPage({
           </a>
         </p>
         <p className="mt-3 max-w-[46rem] text-sm leading-[1.6] text-tertiary">
-          {t("intro", {
-            category: tt(benchmark.category),
-            weight: weight === null ? "?" : Math.round(weight * 100),
-            source: benchmark.source,
-          })}
+          {weight === null
+            ? t("introOutside", { category: tt(benchmark.category), source: benchmark.source })
+            : t("intro", {
+                category: tt(benchmark.category),
+                weight: Math.round(weight * 100),
+                source: benchmark.source,
+              })}
         </p>
         <p className="mt-2 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{t("orderNote")}</p>
       </section>
