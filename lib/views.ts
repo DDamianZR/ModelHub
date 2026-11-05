@@ -93,14 +93,50 @@ export function getScatterPoints(): ScatterPoint[] {
     }));
 }
 
+/** A snapshot must measure at least this share of the fullest snapshot's models to count. */
+const MIN_SNAPSHOT_SHARE = 0.5;
+
 /**
- * For each snapshot date, the highest Arena rating among a group's models. A maximum is
- * used instead of a mean because the set of models measured changes from one snapshot to
- * the next: a mean moves when a weaker model is added, a maximum only when the best one
- * moves. Only models still in the catalogue are counted, which is a survivorship limit the
+ * Which snapshot dates are comparable. history.jsonl does not hold the same models on
+ * every date: on 2026-11-05 its first 79 rows (every date before 2026-10-15) belong to a
+ * single model and the whole cohort appears from 2026-10-15 on. A group's best rating on a
+ * date with one model is that model's rating, so plotting it beside a full snapshot draws a
+ * jump that is coverage, not performance. Dates measuring fewer than half the models of the
+ * fullest date are therefore left out, and the page states how many.
+ */
+export function getTrendWindow(): {
+  dates: string[];
+  excluded: number;
+  total: number;
+  fullest: number;
+} {
+  const perDate = new Map<string, Set<string>>();
+  const catalogue = new Set(getRanking().rows.map((row) => row.id));
+  for (const [modelId, points] of readHistory()) {
+    if (!catalogue.has(modelId)) continue;
+    for (const { date } of points) {
+      const set = perDate.get(date) ?? new Set<string>();
+      set.add(modelId);
+      perDate.set(date, set);
+    }
+  }
+  const fullest = Math.max(0, ...[...perDate.values()].map((set) => set.size));
+  const dates = [...perDate]
+    .filter(([, set]) => set.size >= fullest * MIN_SNAPSHOT_SHARE)
+    .map(([date]) => date)
+    .sort();
+  return { dates, excluded: perDate.size - dates.length, total: perDate.size, fullest };
+}
+
+/**
+ * For each comparable snapshot date, the highest Arena rating among a group's models. A
+ * maximum is used instead of a mean because the set of models measured changes from one
+ * snapshot to the next: a mean moves when a weaker model is added, a maximum only when the
+ * best one moves. Only models still in the catalogue are counted, a survivorship limit the
  * page states.
  */
 function groupTrend(keyOf: (row: Row) => string | null, keys: string[]): TrendSeries[] {
+  const usable = new Set(getTrendWindow().dates);
   const group = new Map<string, string>();
   for (const row of getRanking().rows) {
     const key = keyOf(row);
@@ -113,6 +149,7 @@ function groupTrend(keyOf: (row: Row) => string | null, keys: string[]): TrendSe
     if (!key) continue;
     const byDate = best.get(key) ?? new Map<string, number>();
     for (const { date, value } of points) {
+      if (!usable.has(date)) continue;
       if (value > (byDate.get(date) ?? -Infinity)) byDate.set(date, value);
     }
     best.set(key, byDate);
@@ -121,7 +158,7 @@ function groupTrend(keyOf: (row: Row) => string | null, keys: string[]): TrendSe
     members.set(key, set);
   }
   return keys
-    .filter((key) => best.has(key))
+    .filter((key) => (best.get(key)?.size ?? 0) > 0)
     .map((key) => ({
       key,
       models: members.get(key)?.size ?? 0,

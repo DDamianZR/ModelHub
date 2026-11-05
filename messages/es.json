@@ -30,7 +30,12 @@
     "origin": "Origen",
     "showing": "{count, plural, one {# modelo} other {# modelos}} de {total}",
     "clear": "Limpiar",
-    "provider": "Proveedor"
+    "provider": "Proveedor",
+    "context": "Contexto",
+    "contextAtLeast": "{size}+ tokens",
+    "price": "Precio",
+    "priceAtMost": "Hasta ${price}/M",
+    "unknownHidden": "Los modelos sin precio o contexto listado se ocultan mientras estos filtros estén activos."
   },
   "table": {
     "rank": "#",
@@ -64,7 +69,14 @@
     "compositeDesc": "Compuesto ponderado sobre 100, seguido del semiancho de un intervalo al 95 %. Ese intervalo es un piso, no una estimación: las entradas que no publican error aportan cero, así que el intervalo real solo puede ser más ancho. ±? significa que ninguna fuente publicó error, lo que es «se desconoce», no «es cero».",
     "coverageDesc": "Cinco segmentos, uno por categoría, rellenos donde esa categoría se midió. Al lado, el número de benchmarks que sostienen el compuesto: una pregunta distinta de cuántas categorías se cubrieron.",
     "trendUp": "al alza",
-    "trendDown": "a la baja"
+    "trendDown": "a la baja",
+    "tabs": "Ordenar por categoría",
+    "provider": "Proveedor",
+    "price": "$/M",
+    "priceTitle": "Precio mezclado en USD por millón de tokens, con la proporción entrada:salida de config/weights.json",
+    "context": "Contexto",
+    "frontier": "Frontera de costo",
+    "frontierTitle": "Ningún otro modelo con precio cuesta lo mismo o menos y puntúa igual o más"
   },
   "footer": {
     "methodNote": "El compuesto pondera Razonamiento 25 · Código 25 · Matemáticas 20 · Preferencia humana 15 · Instrucciones 15. Lo multimodal se mide aparte y no entra al compuesto: castigar a un modelo de solo texto por una categoría en la que no compite sería inventar una diferencia que no existe.",
@@ -431,5 +443,51 @@
     "model": "Modelo",
     "provider": "Proveedor",
     "benchmark": "Benchmark"
+  },
+  "home": {
+    "dataDate": "Datos al {date}",
+    "dataDateSub": "Reconstruido desde fuentes de terceros por la ingesta diaria. Cada cambio es un commit.",
+    "boardsTitle": "Valor medido más alto por criterio",
+    "boardsNote": "Derivado de las mediciones, sin juicio editorial. Los modelos listados juntos no se pueden separar con sus intervalos. El precio nunca entra al compuesto.",
+    "board": {
+      "composite": "Compuesto",
+      "open_weights": "Pesos abiertos · compuesto",
+      "under_1_usd": "Hasta ${price}/M · compuesto",
+      "cheapest_covered": "Precio más bajo · {min}+ categorías medidas"
+    },
+    "boardTie": "{count} modelos sin separación",
+    "boardPool": "de {count} candidatos",
+    "boardMore": "+{count} más",
+    "boardComposite": "compuesto {value}",
+    "boardPerM": "${value}/M",
+    "topTitle": "Primeros puestos",
+    "topNote": "Un empate cuenta como empate: un número repetido es un grupo que los datos no separan.",
+    "topTied": "{count, plural, one {# modelo más comparte} other {# modelos más comparten}} este puesto",
+    "scatterTitle": "Precio frente a compuesto",
+    "scatterNote": "Modelos con puesto y precio ({count}). Los marcados no son superados en ambos ejes por ningún otro: ninguno cuesta lo mismo o menos y puntúa igual o más. La prueba compara valores puntuales, no intervalos. Precio mezclado a {input} de entrada por {output} de salida.",
+    "scatter": {
+      "figure": "Dispersión del precio mezclado en USD por millón de tokens frente al compuesto",
+      "xAxis": "USD por millón de tokens, mezclado (escala log)",
+      "yAxis": "Compuesto",
+      "frontier": "En la frontera de costo",
+      "others": "Otros modelos con precio",
+      "tooltip": "{name}: compuesto {composite}, ${price}/M",
+      "frontierList": "Frontera de costo, de menor a mayor precio",
+      "frontierItem": "compuesto {composite}, ${price}/M"
+    },
+    "trendsTitle": "Puntuación de Arena en el tiempo",
+    "trendAccess": "Pesos abiertos y propietarios",
+    "trendCountry": "Por país de origen",
+    "trend": {
+      "open": "Pesos abiertos",
+      "proprietary": "Propietarios"
+    },
+    "trendModels": "{count, plural, one {# modelo} other {# modelos}}",
+    "trendCaption": "Mayor puntuación de Arena entre los modelos del grupo medidos ese día, del {from} al {to}: {shown} de {total} cortes. Un corte que mide menos de la mitad de los modelos del más completo se deja fuera ({excluded}), porque un corte delgado baja el mejor del grupo por ausencia, no por desempeño. Solo cuentan los modelos que siguen en el catálogo. Compara cada línea consigo misma en el tiempo, no la distancia entre líneas.",
+    "outTitle": "Otros tableros",
+    "outNote": "No se usan como fuente. Se enlazan para que sigan al alcance; no se ingiere nada de ellos.",
+    "outAnalysis": "Artificial Analysis",
+    "outDesign": "DesignArena",
+    "outSwebench": "Leaderboard de scaffolds de SWE-bench"
   }
 }

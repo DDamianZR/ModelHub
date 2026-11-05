@@ -313,7 +313,12 @@ body {
   padding-bottom: 0;
   white-space: nowrap;
 }
-.table-dense thead th { height: 34px; }
+.table-dense thead th {
+  height: auto;
+  white-space: normal;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
 
 /* The command palette is a native <dialog>: focus trap and Esc come from the platform. */
 .palette::backdrop {

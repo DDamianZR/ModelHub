@@ -30,7 +30,12 @@
     "origin": "Origin",
     "showing": "{count, plural, one {# model} other {# models}} of {total}",
     "clear": "Clear",
-    "provider": "Provider"
+    "provider": "Provider",
+    "context": "Context",
+    "contextAtLeast": "{size}+ tokens",
+    "price": "Price",
+    "priceAtMost": "Up to ${price}/M",
+    "unknownHidden": "Models with no listed price or context are hidden while these filters are on."
   },
   "table": {
     "rank": "#",
@@ -64,7 +69,14 @@
     "compositeDesc": "Weighted composite out of 100, followed by the half-width of a 95% interval. That interval is a floor, not an estimate: inputs that publish no error contribute zero, so the real interval can only be wider. ±? means no source published an error at all, which is unknown rather than zero.",
     "coverageDesc": "Five segments, one per category, filled where that category was measured. Beside it, the number of benchmarks standing behind the composite — a different question from how many categories were covered.",
     "trendUp": "rising",
-    "trendDown": "falling"
+    "trendDown": "falling",
+    "tabs": "Order by category",
+    "provider": "Provider",
+    "price": "$/M",
+    "priceTitle": "Blended price in USD per million tokens, at the input:output ratio set in config/weights.json",
+    "context": "Context",
+    "frontier": "Cost frontier",
+    "frontierTitle": "No other priced model costs the same or less and scores the same or more"
   },
   "footer": {
     "methodNote": "The composite weights Reasoning 25 · Coding 25 · Math 20 · Human preference 15 · Instructions 15. Multimodal is measured separately and stays out of the composite: penalising a text-only model for a category it does not compete in would invent a difference that isn't there.",
@@ -431,5 +443,51 @@
     "model": "Model",
     "provider": "Provider",
     "benchmark": "Benchmark"
+  },
+  "home": {
+    "dataDate": "Data as of {date}",
+    "dataDateSub": "Rebuilt from third-party sources by the daily ingest. Every change is a commit.",
+    "boardsTitle": "Highest measured value by criterion",
+    "boardsNote": "Derived from the measurements, with no editorial call. Models listed together cannot be told apart given their intervals. Price never enters the composite.",
+    "board": {
+      "composite": "Composite",
+      "open_weights": "Open weights · composite",
+      "under_1_usd": "Up to ${price}/M · composite",
+      "cheapest_covered": "Lowest price · {min}+ categories measured"
+    },
+    "boardTie": "{count} models, not separable",
+    "boardPool": "of {count} candidates",
+    "boardMore": "+{count} more",
+    "boardComposite": "composite {value}",
+    "boardPerM": "${value}/M",
+    "topTitle": "First places",
+    "topNote": "A tie counts as a tie: a repeated number is a group the data cannot separate.",
+    "topTied": "{count, plural, one {# more model shares} other {# more models share}} this place",
+    "scatterTitle": "Price against composite",
+    "scatterNote": "Ranked models with a price ({count}). Marked models are not beaten on both axes by any other: none costs the same or less and scores the same or more. The test compares point values, not intervals. Price blended at {input} input to {output} output.",
+    "scatter": {
+      "figure": "Scatter plot of blended price in USD per million tokens against composite",
+      "xAxis": "USD per million tokens, blended (log scale)",
+      "yAxis": "Composite",
+      "frontier": "On the cost frontier",
+      "others": "Other priced models",
+      "tooltip": "{name}: composite {composite}, ${price}/M",
+      "frontierList": "Cost frontier, from lowest price",
+      "frontierItem": "composite {composite}, ${price}/M"
+    },
+    "trendsTitle": "Arena rating over time",
+    "trendAccess": "Open weights and proprietary",
+    "trendCountry": "By country of origin",
+    "trend": {
+      "open": "Open weights",
+      "proprietary": "Proprietary"
+    },
+    "trendModels": "{count, plural, one {# model} other {# models}}",
+    "trendCaption": "Highest Arena rating among the group's models measured that day, {from} to {to}: {shown} of {total} snapshots. A snapshot measuring fewer than half the models of the fullest one is left out ({excluded}), because a thin snapshot lowers a group's best by absence, not by performance. Only models still in the catalogue are counted. Compare each line with itself over time rather than the gap between lines.",
+    "outTitle": "Other boards",
+    "outNote": "Not used as sources here. Linked so they stay reachable; nothing is ingested from them.",
+    "outAnalysis": "Artificial Analysis",
+    "outDesign": "DesignArena",
+    "outSwebench": "SWE-bench scaffold leaderboard"
   }
 }

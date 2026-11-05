@@ -13,7 +13,23 @@ import { CATEGORIES } from "@/lib/types";
 
 type SortKey = "rank" | "composite" | (typeof CATEGORIES)[number];
 type Access = "all" | "open" | "api";
-type MobileMetric = "composite" | (typeof CATEGORIES)[number];
+
+/** Context floors in tokens and price ceilings in USD per million, for the two filters.
+    Round numbers a reader would pick, not tuned to the current catalogue. */
+const CONTEXT_FLOORS = [131_072, 262_144, 1_000_000] as const;
+const PRICE_CEILINGS = [0.5, 1, 3, 10] as const;
+
+function formatContext(tokens: number | null): string {
+  if (tokens === null) return "·";
+  return tokens >= 1_000_000
+    ? `${Math.round((tokens / 1_000_000) * 10) / 10}M`
+    : `${Math.round(tokens / 1024)}K`;
+}
+
+function formatPrice(price: number | null): string {
+  if (price === null) return "·";
+  return price < 1 ? price.toFixed(3) : price.toFixed(2);
+}
 
 function Chip({
   active,
@@ -94,7 +110,8 @@ export function RankingTable({
   const [origin, setOrigin] = useState<string>("all");
   const [provider, setProvider] = useState<string>("all");
   const [sort, setSort] = useState<SortKey>("rank");
-  const [mobileMetric, setMobileMetric] = useState<MobileMetric>("composite");
+  const [minContext, setMinContext] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
   const [restored, setRestored] = useState(false);
 
   // Restore from the URL on mount. Deliberately not useSearchParams: that opts the
@@ -106,6 +123,10 @@ export function RankingTable({
     const o = params.get("origin");
     const p = params.get("provider");
     const s = params.get("sort");
+    const c = Number(params.get("ctx"));
+    const pr = Number(params.get("price"));
+    if ((CONTEXT_FLOORS as readonly number[]).includes(c)) setMinContext(c);
+    if ((PRICE_CEILINGS as readonly number[]).includes(pr)) setMaxPrice(pr);
     if (q) setQuery(q);
     if (a && (["all", "open", "api"] as const).includes(a as Access)) setAccess(a as Access);
     if (o) setOrigin(o);
@@ -126,9 +147,11 @@ export function RankingTable({
     if (origin !== "all") params.set("origin", origin);
     if (provider !== "all") params.set("provider", provider);
     if (sort !== "rank") params.set("sort", sort);
+    if (minContext) params.set("ctx", String(minContext));
+    if (maxPrice) params.set("price", String(maxPrice));
     const qs = params.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [restored, query, access, origin, provider, sort, pathname, router]);
+  }, [restored, query, access, origin, provider, sort, minContext, maxPrice, pathname, router]);
 
   const origins = useMemo(
     () => Array.from(new Set(rows.map((r) => r.country).filter(Boolean))).sort(),
@@ -147,6 +170,10 @@ export function RankingTable({
       if (access === "api" && row.is_open_weights) return false;
       if (origin !== "all" && row.country !== origin) return false;
       if (provider !== "all" && row.provider_name !== provider) return false;
+      // A model with no listed context or price is hidden while the matching filter is on:
+      // "unknown" cannot be shown to satisfy a bound.
+      if (minContext && (row.context_window ?? 0) < minContext) return false;
+      if (maxPrice && (row.blended_price_usd_per_m ?? Infinity) > maxPrice) return false;
       if (!needle) return true;
       return (
         row.display_name.toLowerCase().includes(needle) ||
@@ -174,12 +201,22 @@ export function RankingTable({
       if (bv === undefined) return -1;
       return bv - av;
     });
-  }, [rows, query, access, origin, provider, sort]);
+  }, [rows, query, access, origin, provider, sort, minContext, maxPrice]);
 
   const ranked = visible.filter((row) => !row.provisional);
   const provisional = visible.filter((row) => row.provisional);
-  const columnCount = 4 + CATEGORIES.length + 1;
-  const hasFilters = query !== "" || access !== "all" || origin !== "all" || provider !== "all";
+  const columnCount = 7 + CATEGORIES.length + 1;
+  const hasFilters =
+    query !== "" ||
+    access !== "all" ||
+    origin !== "all" ||
+    provider !== "all" ||
+    minContext !== 0 ||
+    maxPrice !== 0;
+  // The tab strip and the sort are one state: "rank" is the composite tab.
+  const metric: "rank" | (typeof CATEGORIES)[number] =
+    sort === "rank" || sort === "composite" ? "rank" : sort;
+  const mobileMetric = metric === "rank" ? "composite" : metric;
 
   const renderRow = (row: RankingRow) => {
     const partial = row.coverage.covered < row.coverage.total;
@@ -188,16 +225,16 @@ export function RankingTable({
       : t("complete", { total: row.coverage.total });
 
     return (
-      <tr key={row.id} className="row-hover border-b border-subtle">
+      <tr key={row.id} className="row-hover">
         {/* "=4" is the conventional notation for a joint placing, and a repeated number
             is the honest outcome here rather than a rendering glitch. The explanation
             lives once in the column header's description, referenced per row. */}
-        <td className="num py-2 pr-2 text-xs text-tertiary" aria-describedby="rank-desc">
+        <td className="num border-b border-subtle pr-2 text-xs text-tertiary" aria-describedby="rank-desc">
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
         </td>
 
-        <td className="py-2 pr-4">
-          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <td className="border-b border-subtle pr-3">
+          <div className="flex items-center gap-x-2">
             <Link
               href={`/model/${row.id}`}
               className="row-shift text-base underline-offset-2 hover:underline"
@@ -210,8 +247,11 @@ export function RankingTable({
               <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
                 {t("openWeights")}
               </span>
-            ) : (
-              <span className="eyebrow text-tertiary">{t("apiOnly")}</span>
+            ) : null}
+            {row.pareto_frontier === true && (
+              <span className="eyebrow rounded-inner border border-subtle px-1 py-0.5" title={t("frontierTitle")}>
+                {t("frontier")}
+              </span>
             )}
             {row.awaiting_human_votes && !row.provisional && (
               <span className="eyebrow border border-subtle px-1" title={t("awaitingVotesTitle")}>
@@ -219,29 +259,33 @@ export function RankingTable({
               </span>
             )}
           </div>
-          <div className="num text-2xs text-tertiary">
-            {row.provider_name}
-            {row.release_date ? ` · ${row.release_date}` : ""}
-          </div>
         </td>
 
-        <td className="num py-2 pr-3 text-right text-md" aria-describedby="composite-desc">
+        <td className="border-b border-subtle pr-3 text-sm text-tertiary">
+          <Link href={`/provider/${row.provider_id}`} className="row-shift underline-offset-2 hover:text-primary hover:underline">
+            {row.provider_name}
+          </Link>
+        </td>
+
+        <td className="num border-b border-subtle pr-3 text-right text-md" aria-describedby="composite-desc">
           {row.composite.toFixed(1)}
           <span className="ml-1 text-2xs text-tertiary">
             {row.composite_error === null ? "±?" : `±${row.composite_error.toFixed(2)}`}
           </span>
         </td>
 
-        <td className="py-2 pr-4 text-right" aria-describedby="coverage-desc">
-          <CoverageMeter
-            covered={row.coverage.covered}
-            total={row.coverage.total}
-            label={coverageLabel}
-          />
+        <td className="border-b border-subtle pr-4 text-right" aria-describedby="coverage-desc">
           {/* Beside coverage, not inside it: coverage is how much of the composite was
-              measured, this is how much evidence stands behind what was. */}
-          <span className="num mt-0.5 block text-2xs text-tertiary">
-            {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
+              measured, the count is how much evidence stands behind what was. */}
+          <span className="inline-flex items-center gap-2">
+            <CoverageMeter
+              covered={row.coverage.covered}
+              total={row.coverage.total}
+              label={coverageLabel}
+            />
+            <span className="num w-9 text-left text-2xs text-tertiary">
+              {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
+            </span>
           </span>
         </td>
 
@@ -250,7 +294,11 @@ export function RankingTable({
           return (
             <td
               key={category}
-              className={clsx("num py-2 pr-3 text-right text-xs", value === undefined && "text-tertiary")}
+              className={clsx(
+                "num border-b border-subtle pr-3 text-right text-xs",
+                value === undefined && "text-tertiary",
+                category === metric && "bg-sunk",
+              )}
             >
               {value === undefined ? (
                 <>
@@ -266,7 +314,15 @@ export function RankingTable({
           );
         })}
 
-        <td className="py-2 text-right">
+        <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
+          {formatPrice(row.blended_price_usd_per_m ?? null)}
+        </td>
+
+        <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
+          {formatContext(row.context_window ?? null)}
+        </td>
+
+        <td className="border-b border-subtle text-right">
           <div className="flex justify-end">
             <Sparkline
               points={row.trend}
@@ -319,9 +375,9 @@ export function RankingTable({
     );
   };
 
-  const mobileMetrics: Array<{ key: MobileMetric; label: string }> = [
+  const mobileMetrics: Array<{ key: "composite" | (typeof CATEGORIES)[number]; label: string }> = [
     { key: "composite", label: t("composite") },
-    ...CATEGORIES.map((cat) => ({ key: cat as MobileMetric, label: t(cat) })),
+    ...CATEGORIES.map((cat) => ({ key: cat, label: t(cat) })),
   ];
 
   return (
@@ -332,6 +388,17 @@ export function RankingTable({
         <span id="rank-desc">{t("rankDesc")}</span>
         <span id="composite-desc">{t("compositeDesc")}</span>
         <span id="coverage-desc">{t("coverageDesc")}</span>
+      </div>
+
+      {/* Category tabs, desktop. The same state as the column sort and the mobile strip:
+          choosing a tab orders the table by that category. */}
+      <div className="no-scrollbar mb-3 hidden overflow-x-auto md:block">
+        <SegmentedControl
+          label={t("tabs")}
+          value={mobileMetric}
+          onChange={(next) => setSort(next === "composite" ? "rank" : next)}
+          options={mobileMetrics.map(({ key, label }) => ({ value: key, label }))}
+        />
       </div>
 
       {/* One scrolling row on mobile, a wrapping bar from sm up. Four stacked filter
@@ -425,6 +492,46 @@ export function RankingTable({
           </select>
         </div>
 
+        <div className="flex shrink-0 items-center gap-1.5">
+          <label htmlFor="context-filter" className="eyebrow hidden sm:inline">
+            {tf("context")}
+          </label>
+          <select
+            id="context-filter"
+            value={minContext}
+            onChange={(e) => setMinContext(Number(e.target.value))}
+            aria-label={tf("context")}
+            className="eyebrow min-h-7 rounded-control border border-line bg-transparent px-1"
+          >
+            <option value={0}>{tf("all")}</option>
+            {CONTEXT_FLOORS.map((floor) => (
+              <option key={floor} value={floor}>
+                {tf("contextAtLeast", { size: formatContext(floor) })}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1.5">
+          <label htmlFor="price-filter" className="eyebrow hidden sm:inline">
+            {tf("price")}
+          </label>
+          <select
+            id="price-filter"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(Number(e.target.value))}
+            aria-label={tf("price")}
+            className="eyebrow min-h-7 rounded-control border border-line bg-transparent px-1"
+          >
+            <option value={0}>{tf("all")}</option>
+            {PRICE_CEILINGS.map((ceiling) => (
+              <option key={ceiling} value={ceiling}>
+                {tf("priceAtMost", { price: ceiling })}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {hasFilters && (
           <button
             type="button"
@@ -433,6 +540,8 @@ export function RankingTable({
               setAccess("all");
               setOrigin("all");
               setProvider("all");
+              setMinContext(0);
+              setMaxPrice(0);
               setSort("rank");
             }}
             className="control control-sm eyebrow shrink-0"
@@ -445,6 +554,9 @@ export function RankingTable({
           {tf("showing", { count: visible.length, total: rows.length })}
         </span>
       </div>
+      {(minContext !== 0 || maxPrice !== 0) && (
+        <p className="mt-2 text-2xs text-tertiary">{tf("unknownHidden")}</p>
+      )}
 
       {/* Desktop: the real table, unchanged in semantics. */}
       <Surface className="mt-3 hidden md:block">
@@ -454,13 +566,13 @@ export function RankingTable({
           aria-label={t("composite")}
           tabIndex={0}
         >
-          <table className="table-sticky w-full min-w-[62rem] text-left">
+          <table className="table-sticky table-dense w-full min-w-[74rem] text-left">
             <caption className="sr-only">{t("composite")}</caption>
             <thead>
               <tr>
                 <th
                   scope="col"
-                  className="w-10 border-b border-subtle py-2 pr-2 align-bottom"
+                  className="w-10 border-b border-subtle pr-2 align-bottom"
                   aria-sort={sort === "rank" ? "descending" : "none"}
                 >
                   <SortBtn
@@ -472,13 +584,16 @@ export function RankingTable({
                     align="left"
                   />
                 </th>
-                {/* A label, not a control. The header that sorts by rank is "#". */}
-                <th scope="col" className="border-b border-subtle py-2 pr-4 align-bottom">
+                {/* Labels, not controls. The header that sorts by rank is "#". */}
+                <th scope="col" className="border-b border-subtle pr-3 align-bottom">
                   <span className="eyebrow">{t("model")}</span>
+                </th>
+                <th scope="col" className="border-b border-subtle pr-3 align-bottom">
+                  <span className="eyebrow">{t("provider")}</span>
                 </th>
                 <th
                   scope="col"
-                  className="w-24 border-b border-subtle py-2 pr-3 align-bottom"
+                  className="w-28 border-b border-subtle pr-3 align-bottom"
                   aria-sort={sort === "composite" ? "descending" : "none"}
                 >
                   <SortBtn
@@ -489,7 +604,7 @@ export function RankingTable({
                     sortByLabel={t("sortBy", { column: t("composite") })}
                   />
                 </th>
-                <th scope="col" className="w-20 border-b border-subtle py-2 pr-4 align-bottom">
+                <th scope="col" className="w-32 border-b border-subtle pr-4 align-bottom">
                   <span className="eyebrow block text-right">{t("coverage")}</span>
                 </th>
                 {CATEGORIES.map((category) => {
@@ -498,7 +613,7 @@ export function RankingTable({
                     <th
                       key={category}
                       scope="col"
-                      className="w-20 border-b border-subtle py-2 pr-3 align-bottom"
+                      className="w-20 border-b border-subtle pr-3 align-bottom"
                       aria-sort={sort === category ? "descending" : "none"}
                     >
                       {aged?.age_days != null && (
@@ -522,7 +637,15 @@ export function RankingTable({
                     </th>
                   );
                 })}
-                <th scope="col" className="w-20 border-b border-subtle py-2 align-bottom">
+                <th scope="col" className="w-16 border-b border-subtle pr-3 align-bottom">
+                  <span className="eyebrow block text-right" title={t("priceTitle")}>
+                    {t("price")}
+                  </span>
+                </th>
+                <th scope="col" className="w-16 border-b border-subtle pr-3 align-bottom">
+                  <span className="eyebrow block text-right">{t("context")}</span>
+                </th>
+                <th scope="col" className="w-20 border-b border-subtle align-bottom">
                   <span className="eyebrow block text-right">{t("trend")}</span>
                 </th>
               </tr>
@@ -533,7 +656,7 @@ export function RankingTable({
             {provisional.length > 0 && (
               <tbody>
                 <tr>
-                  <th colSpan={columnCount} scope="colgroup" className="pt-8">
+                  <th colSpan={columnCount} scope="colgroup" className="h-auto pt-8">
                     <div className="border-t border-subtle pt-3 text-left">
                       <span className="eyebrow text-attention">{t("provisionalTitle")}</span>
                       <p className="mt-1 max-w-[46rem] text-xs font-normal leading-[1.55] text-tertiary">
@@ -560,7 +683,7 @@ export function RankingTable({
           <SegmentedControl
             label={t("composite")}
             value={mobileMetric}
-            onChange={setMobileMetric}
+            onChange={(next) => setSort(next === "composite" ? "rank" : next)}
             options={mobileMetrics.map(({ key, label }) => ({ value: key, label }))}
           />
         </div>
