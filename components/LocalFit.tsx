@@ -381,7 +381,7 @@ export function LocalFit({
 
         <div className="flex flex-col gap-1">
           <span className="eyebrow">{t("hardware.kind")}</span>
-          <div className="max-w-full overflow-x-auto">
+          <div className="no-scrollbar relative max-w-full overflow-x-auto">
             <SegmentedControl
               options={kindOptions}
               value={form.kind}

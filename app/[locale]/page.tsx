@@ -87,6 +87,12 @@ export default async function HomePage({
     total: trendWindow.total,
     excluded: trendWindow.excluded,
   });
+  const trendValues = [...accessTrends, ...countryTrends].flatMap((series) =>
+    series.points.map((point) => point.value),
+  );
+  const trendDomain: [number, number] | undefined = trendValues.length
+    ? [Math.min(...trendValues), Math.max(...trendValues)]
+    : undefined;
   const trendLabel = (key: string) =>
     key === "open" || key === "proprietary" ? th(`trend.${key}`) : key;
   const frontierList = scatter.filter((p) => p.frontier).sort((a, b) => a.price - b.price);
@@ -279,7 +285,7 @@ export default async function HomePage({
         </h2>
         <p className="mt-1 max-w-[46rem] text-sm leading-[1.6] text-tertiary">
           {th("scatterNote", {
-            count: bestBy.meta.pareto_evaluated,
+            models: bestBy.meta.pareto_evaluated,
             input: bestBy.meta.price_blend.input,
             output: bestBy.meta.price_blend.output,
           })}
@@ -331,22 +337,23 @@ export default async function HomePage({
           <Surface className="p-4">
             <TrendChart
               series={accessTrends}
+              domain={trendDomain}
               labelOf={trendLabel}
               title={th("trendAccess")}
-              caption={trendCaption}
               modelsLabel={(count) => th("trendModels", { count })}
             />
           </Surface>
           <Surface className="p-4">
             <TrendChart
               series={countryTrends}
+              domain={trendDomain}
               labelOf={trendLabel}
               title={th("trendCountry")}
-              caption={trendCaption}
               modelsLabel={(count) => th("trendModels", { count })}
             />
           </Surface>
         </div>
+        <p className="mt-2 max-w-[46rem] text-2xs leading-[1.5] text-tertiary">{trendCaption}</p>
       </section>
 
       <footer className="mt-12 border-t border-subtle pt-6" aria-labelledby="notes-heading">

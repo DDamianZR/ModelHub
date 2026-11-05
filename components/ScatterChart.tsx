@@ -111,29 +111,34 @@ export function ScatterChart({
 
   return (
     <figure className="m-0">
-      <div className="overflow-x-auto" role="region" aria-label={labels.figure} tabIndex={0}>
+      <div className="relative overflow-x-auto" role="region" aria-label={labels.figure} tabIndex={0}>
         <svg
           viewBox={`0 0 ${W} ${H}`}
           role="img"
           aria-label={labels.figure}
           className="block h-auto w-full min-w-[40rem] text-tertiary"
         >
-          {yTicks.map((t) => (
-            <g key={`y${t}`}>
-              <line x1={M.left} x2={W - M.right} y1={y(t)} y2={y(t)} stroke="var(--line-subtle)" />
-              <text x={M.left - 8} y={y(t) + 3.5} textAnchor="end" fontSize="10" fill="currentColor" className="num">
+          {/* Gridlines are one path; tick labels share their text attributes on the group. */}
+          <path
+            d={[
+              ...yTicks.map((t) => `M${M.left},${y(t).toFixed(1)}H${W - M.right}`),
+              ...xTicks.map((t) => `M${x(t).toFixed(1)},${M.top}V${H - M.bottom}`),
+            ].join("")}
+            stroke="var(--line-subtle)"
+            fill="none"
+          />
+          <g fontSize="10" fill="currentColor" className="num">
+            {yTicks.map((t) => (
+              <text key={`y${t}`} x={M.left - 8} y={y(t) + 3.5} textAnchor="end">
                 {t}
               </text>
-            </g>
-          ))}
-          {xTicks.map((t) => (
-            <g key={`x${t}`}>
-              <line x1={x(t)} x2={x(t)} y1={M.top} y2={H - M.bottom} stroke="var(--line-subtle)" />
-              <text x={x(t)} y={H - M.bottom + 16} textAnchor="middle" fontSize="10" fill="currentColor" className="num">
+            ))}
+            {xTicks.map((t) => (
+              <text key={`x${t}`} x={x(t)} y={H - M.bottom + 16} textAnchor="middle">
                 {formatPrice(t)}
               </text>
-            </g>
-          ))}
+            ))}
+          </g>
           <text x={(M.left + W - M.right) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="currentColor">
             {labels.xAxis}
           </text>
@@ -148,14 +153,17 @@ export function ScatterChart({
 
           {step && <path d={step} fill="none" stroke="var(--mark)" strokeWidth="1.25" strokeDasharray="3 3" />}
 
-          {others.map((p) => (
-            <a key={p.id} href={`/${locale}/model/${p.id}`}>
-              <title>{labels.tooltip(p)}</title>
-              <circle cx={x(p.price)} cy={y(p.composite)} r="3" fill="none" stroke="currentColor" strokeWidth="1.25" />
-              {/* A larger invisible target, so a 3px mark is still reachable by touch. */}
-              <circle cx={x(p.price)} cy={y(p.composite)} r="9" fill="transparent" />
-            </a>
-          ))}
+          {/* The other priced models: one path of hollow circles, because 50-odd linked marks
+              with tooltips were 26 KB of the home page for points that are not labelled. Each
+              is in the ranking table with its price. */}
+          <path
+            d={others
+              .map((p) => `M${(x(p.price) - 3).toFixed(1)},${y(p.composite).toFixed(1)}a3,3 0 1,0 6,0a3,3 0 1,0 -6,0`)
+              .join("")}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+          />
           {frontier.map((p, i) => (
             <a key={p.id} href={`/${locale}/model/${p.id}`}>
               <title>{labels.tooltip(p)}</title>

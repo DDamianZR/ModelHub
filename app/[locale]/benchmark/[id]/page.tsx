@@ -99,7 +99,7 @@ export default async function BenchmarkPage({
         {rows.length === 0 ? (
           <p className="py-10 text-center text-sm text-tertiary">{t("empty")}</p>
         ) : (
-          <div className="overflow-x-auto p-2" role="region" aria-label={benchmark.name} tabIndex={0}>
+          <div className="relative overflow-x-auto p-2" role="region" aria-label={benchmark.name} tabIndex={0}>
             <table className="table-sticky table-dense w-full min-w-[52rem] text-left">
               <caption className="sr-only">{benchmark.name}</caption>
               <thead>

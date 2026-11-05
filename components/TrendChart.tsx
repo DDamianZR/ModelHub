@@ -21,22 +21,23 @@ export function TrendChart({
   series,
   labelOf,
   title,
-  caption,
   modelsLabel,
+  domain,
 }: {
   series: TrendSeries[];
   labelOf: (key: string) => string;
   title: string;
-  caption: string;
   modelsLabel: (count: number) => string;
+  /** Shared [low, high] so charts that sit side by side use one vertical scale. */
+  domain?: [number, number];
 }) {
   const all = series.flatMap((s) => s.points);
   if (all.length === 0) return null;
 
   const t0 = Math.min(...all.map((p) => day(p.date)));
   const t1 = Math.max(...all.map((p) => day(p.date)));
-  const lo = Math.min(...all.map((p) => p.value));
-  const hi = Math.max(...all.map((p) => p.value));
+  const lo = domain ? domain[0] : Math.min(...all.map((p) => p.value));
+  const hi = domain ? domain[1] : Math.max(...all.map((p) => p.value));
   const span = hi - lo;
   const tickStep = span <= 40 ? 10 : span <= 100 ? 20 : 50;
   const yMin = Math.floor(lo / tickStep) * tickStep;
@@ -85,20 +86,24 @@ export function TrendChart({
         })}
       </ul>
 
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${title}. ${caption}`} className="mt-2 block h-auto w-full text-tertiary">
-        {yTicks.map((v) => (
-          <g key={v}>
-            <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="var(--line-subtle)" />
-            <text x={M.left - 6} y={y(v) + 3.5} textAnchor="end" fontSize="10" fill="currentColor" className="num">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title} className="mt-2 block h-auto w-full text-tertiary">
+        <path
+          d={yTicks.map((v) => `M${M.left},${y(v).toFixed(1)}H${W - M.right}`).join("")}
+          stroke="var(--line-subtle)"
+          fill="none"
+        />
+        <g fontSize="10" fill="currentColor" className="num">
+          {yTicks.map((v) => (
+            <text key={v} x={M.left - 6} y={y(v) + 3.5} textAnchor="end">
               {v}
             </text>
-          </g>
-        ))}
-        {ticks.map((m) => (
-          <text key={m.date} x={x(m.date)} y={H - 8} textAnchor="middle" fontSize="10" fill="currentColor" className="num">
-            {m.label}
-          </text>
-        ))}
+          ))}
+          {ticks.map((m) => (
+            <text key={m.date} x={x(m.date)} y={H - 8} textAnchor="middle">
+              {m.label}
+            </text>
+          ))}
+        </g>
         {series.map((s, i) => (
           <polyline
             key={s.key}
@@ -127,7 +132,6 @@ export function TrendChart({
           )),
         )}
       </svg>
-      <figcaption className="mt-1 text-2xs leading-[1.5] text-tertiary">{caption}</figcaption>
     </figure>
   );
 }

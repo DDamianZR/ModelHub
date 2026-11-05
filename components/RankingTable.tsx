@@ -78,7 +78,7 @@ function SortBtn({
       onClick={() => onSort(sortKey)}
       aria-label={sortByLabel}
       className={clsx(
-        "eyebrow row-shift flex w-full items-center gap-0.5 hover:text-primary",
+        "eyebrow row-shift flex w-full items-center gap-0.5 tracking-wide hover:text-primary",
         align === "right" ? "justify-end" : "justify-start",
         active && "text-accent",
       )}
@@ -229,64 +229,55 @@ export function RankingTable({
         {/* "=4" is the conventional notation for a joint placing, and a repeated number
             is the honest outcome here rather than a rendering glitch. The explanation
             lives once in the column header's description, referenced per row. */}
-        <td className="num border-b border-subtle pr-2 text-xs text-tertiary" aria-describedby="rank-desc">
+        <td className="num text-xs text-tertiary" aria-describedby="rank-desc">
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
         </td>
 
-        <td className="border-b border-subtle pr-3">
+        <td>
           <div className="flex items-center gap-x-2">
             <Link
               href={`/model/${row.id}`}
-              className="row-shift text-base underline-offset-2 hover:underline"
+              title={row.display_name}
+              className="row-shift inline-block max-w-[8.5rem] truncate text-sm underline-offset-2 hover:underline"
             >
               {row.display_name}
             </Link>
             {row.is_open_weights ? (
               // A neutral fact, not a virtue: a filled badge marks it as metadata
               // rather than reusing the accent, which would read as an endorsement.
-              <span className="eyebrow rounded-inner bg-sunk px-1.5 py-0.5 text-tertiary">
+              <span className="rounded-inner bg-sunk px-1.5 py-0.5 text-2xs text-tertiary">
                 {t("openWeights")}
               </span>
             ) : null}
-            {row.pareto_frontier === true && (
-              <span className="eyebrow rounded-inner border border-subtle px-1 py-0.5" title={t("frontierTitle")}>
-                {t("frontier")}
-              </span>
-            )}
-            {row.awaiting_human_votes && !row.provisional && (
-              <span className="eyebrow border border-subtle px-1" title={t("awaitingVotesTitle")}>
-                {t("awaitingVotes")}
-              </span>
-            )}
           </div>
         </td>
 
-        <td className="border-b border-subtle pr-3 text-sm text-tertiary">
-          <Link href={`/provider/${row.provider_id}`} className="row-shift underline-offset-2 hover:text-primary hover:underline">
+        <td className="text-sm text-tertiary">
+          <Link
+            href={`/provider/${row.provider_id}`}
+            title={row.provider_name}
+            className="row-shift block max-w-[5.5rem] truncate underline-offset-2 hover:text-primary hover:underline"
+          >
             {row.provider_name}
           </Link>
         </td>
 
-        <td className="num border-b border-subtle pr-3 text-right text-md" aria-describedby="composite-desc">
+        <td className="num text-right text-md" aria-describedby="composite-desc">
           {row.composite.toFixed(1)}
           <span className="ml-1 text-2xs text-tertiary">
             {row.composite_error === null ? "±?" : `±${row.composite_error.toFixed(2)}`}
           </span>
         </td>
 
-        <td className="border-b border-subtle pr-4 text-right" aria-describedby="coverage-desc">
-          {/* Beside coverage, not inside it: coverage is how much of the composite was
-              measured, the count is how much evidence stands behind what was. */}
-          <span className="inline-flex items-center gap-2">
-            <CoverageMeter
-              covered={row.coverage.covered}
-              total={row.coverage.total}
-              label={coverageLabel}
-            />
-            <span className="num w-9 text-left text-2xs text-tertiary">
-              {t("evidenceShort", { benchmarks: row.evidence.benchmarks })}
-            </span>
-          </span>
+        <td className="text-right" aria-describedby="coverage-desc">
+          {/* The benchmark count stands beside coverage in the accessible name and tooltip:
+              coverage is how much of the composite was measured, the count is how much
+              evidence stands behind what was. */}
+          <CoverageMeter
+            covered={row.coverage.covered}
+            total={row.coverage.total}
+            label={`${coverageLabel} · ${t("evidenceShort", { benchmarks: row.benchmarks })}`}
+          />
         </td>
 
         {CATEGORIES.map((category) => {
@@ -294,8 +285,13 @@ export function RankingTable({
           return (
             <td
               key={category}
+              aria-describedby={
+                value === undefined && category === "human_preference" && row.awaiting_human_votes
+                  ? "awaiting-desc"
+                  : undefined
+              }
               className={clsx(
-                "num border-b border-subtle pr-3 text-right text-xs",
+                "num text-right text-xs",
                 value === undefined && "text-tertiary",
                 category === metric && "bg-sunk",
               )}
@@ -304,7 +300,16 @@ export function RankingTable({
                 <>
                   {/* The dot means "not measured", so it needs a text equivalent
                       rather than being a faint visual cue on its own. */}
-                  <span aria-hidden="true">·</span>
+                  <span
+                    aria-hidden="true"
+                    title={
+                      category === "human_preference" && row.awaiting_human_votes
+                        ? t("awaitingVotesTitle")
+                        : undefined
+                    }
+                  >
+                    ·
+                  </span>
                   <span className="sr-only">{t("noData")}</span>
                 </>
               ) : (
@@ -314,15 +319,26 @@ export function RankingTable({
           );
         })}
 
-        <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
+        <td
+          className="num text-right text-xs text-tertiary"
+          aria-describedby={row.pareto_frontier === true ? "frontier-desc" : undefined}
+        >
+          {row.pareto_frontier === true && (
+            <>
+              <span aria-hidden="true" className="mr-1 text-mark" title={t("frontierTitle")}>
+                ●
+              </span>
+              <span className="sr-only">{t("frontier")}</span>
+            </>
+          )}
           {formatPrice(row.blended_price_usd_per_m ?? null)}
         </td>
 
-        <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
+        <td className="num text-right text-xs text-tertiary">
           {formatContext(row.context_window ?? null)}
         </td>
 
-        <td className="border-b border-subtle text-right">
+        <td className="text-right">
           <div className="flex justify-end">
             <Sparkline
               points={row.trend}
@@ -388,6 +404,8 @@ export function RankingTable({
         <span id="rank-desc">{t("rankDesc")}</span>
         <span id="composite-desc">{t("compositeDesc")}</span>
         <span id="coverage-desc">{t("coverageDesc")}</span>
+        <span id="frontier-desc">{t("frontierTitle")}</span>
+        <span id="awaiting-desc">{t("awaitingVotesTitle")}</span>
       </div>
 
       {/* Category tabs, desktop. The same state as the column sort and the mobile strip:
@@ -554,6 +572,12 @@ export function RankingTable({
           {tf("showing", { count: visible.length, total: rows.length })}
         </span>
       </div>
+      <p className="mt-2 hidden text-2xs text-tertiary md:block">
+        <span className="text-mark" aria-hidden="true">
+          ●
+        </span>{" "}
+        {t("legendFrontier")} · <span aria-hidden="true">·</span> {t("legendNone")}
+      </p>
       {(minContext !== 0 || maxPrice !== 0) && (
         <p className="mt-2 text-2xs text-tertiary">{tf("unknownHidden")}</p>
       )}
@@ -561,7 +585,7 @@ export function RankingTable({
       {/* Desktop: the real table, unchanged in semantics. */}
       <Surface className="mt-3 hidden md:block">
         <div
-          className="overflow-x-auto p-2"
+          className="relative overflow-x-auto"
           role="region"
           aria-label={t("composite")}
           tabIndex={0}
@@ -572,7 +596,7 @@ export function RankingTable({
               <tr>
                 <th
                   scope="col"
-                  className="w-10 border-b border-subtle pr-2 align-bottom"
+                  className="w-10 border-b border-subtle pr-1.5 align-bottom"
                   aria-sort={sort === "rank" ? "descending" : "none"}
                 >
                   <SortBtn
@@ -585,15 +609,15 @@ export function RankingTable({
                   />
                 </th>
                 {/* Labels, not controls. The header that sorts by rank is "#". */}
-                <th scope="col" className="border-b border-subtle pr-3 align-bottom">
+                <th scope="col" className="border-b border-subtle pr-1.5 align-bottom">
                   <span className="eyebrow">{t("model")}</span>
                 </th>
-                <th scope="col" className="border-b border-subtle pr-3 align-bottom">
+                <th scope="col" className="border-b border-subtle pr-1.5 align-bottom">
                   <span className="eyebrow">{t("provider")}</span>
                 </th>
                 <th
                   scope="col"
-                  className="w-28 border-b border-subtle pr-3 align-bottom"
+                  className="w-28 border-b border-subtle pr-1.5 align-bottom"
                   aria-sort={sort === "composite" ? "descending" : "none"}
                 >
                   <SortBtn
@@ -604,8 +628,8 @@ export function RankingTable({
                     sortByLabel={t("sortBy", { column: t("composite") })}
                   />
                 </th>
-                <th scope="col" className="w-32 border-b border-subtle pr-4 align-bottom">
-                  <span className="eyebrow block text-right">{t("coverage")}</span>
+                <th scope="col" className="w-32 border-b border-subtle pr-1.5 align-bottom">
+                  <span className="eyebrow block text-right tracking-wide">{t("coverage")}</span>
                 </th>
                 {CATEGORIES.map((category) => {
                   const aged = categoryAges[category];
@@ -613,7 +637,7 @@ export function RankingTable({
                     <th
                       key={category}
                       scope="col"
-                      className="w-20 border-b border-subtle pr-3 align-bottom"
+                      className="w-20 border-b border-subtle pr-1.5 align-bottom"
                       aria-sort={sort === category ? "descending" : "none"}
                     >
                       {aged?.age_days != null && (
@@ -637,16 +661,16 @@ export function RankingTable({
                     </th>
                   );
                 })}
-                <th scope="col" className="w-16 border-b border-subtle pr-3 align-bottom">
+                <th scope="col" className="w-16 border-b border-subtle pr-1.5 align-bottom">
                   <span className="eyebrow block text-right" title={t("priceTitle")}>
                     {t("price")}
                   </span>
                 </th>
-                <th scope="col" className="w-16 border-b border-subtle pr-3 align-bottom">
-                  <span className="eyebrow block text-right">{t("context")}</span>
+                <th scope="col" className="w-16 border-b border-subtle pr-1.5 align-bottom">
+                  <span className="eyebrow block text-right tracking-wide">{t("context")}</span>
                 </th>
                 <th scope="col" className="w-20 border-b border-subtle align-bottom">
-                  <span className="eyebrow block text-right">{t("trend")}</span>
+                  <span className="eyebrow block text-right tracking-wide">{t("trend")}</span>
                 </th>
               </tr>
             </thead>
@@ -656,7 +680,7 @@ export function RankingTable({
             {provisional.length > 0 && (
               <tbody>
                 <tr>
-                  <th colSpan={columnCount} scope="colgroup" className="h-auto pt-8">
+                  <th colSpan={columnCount} scope="colgroup" className="h-auto whitespace-normal pt-8">
                     <div className="border-t border-subtle pt-3 text-left">
                       <span className="eyebrow text-attention">{t("provisionalTitle")}</span>
                       <p className="mt-1 max-w-[46rem] text-xs font-normal leading-[1.55] text-tertiary">

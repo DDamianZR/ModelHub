@@ -182,7 +182,7 @@ export default async function VsPage({
       </section>
 
       <Surface className="mt-5">
-        <div className="overflow-x-auto p-2" role="region" aria-label={title} tabIndex={0}>
+        <div className="relative overflow-x-auto p-2" role="region" aria-label={title} tabIndex={0}>
           <table className="table-sticky table-dense w-full min-w-[44rem] text-left">
             <caption className="sr-only">{title}</caption>
             <thead>

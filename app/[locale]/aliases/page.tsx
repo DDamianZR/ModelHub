@@ -99,7 +99,7 @@ export default async function AliasesPage({
       </div>
 
       <section className="mt-10">
-        <div className="overflow-x-auto" role="region" aria-label={t("title")} tabIndex={0}>
+        <div className="relative overflow-x-auto" role="region" aria-label={t("title")} tabIndex={0}>
           <table
             className="w-full border-collapse text-left min-w-[58rem]"
           >

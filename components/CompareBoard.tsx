@@ -244,7 +244,7 @@ export function CompareBoard({ rows }: { rows: Row[] }) {
           <div className="mt-10">
             <h3 className="eyebrow mb-2">{t("tableView")}</h3>
             <Surface
-              className="overflow-x-auto p-2"
+              className="relative overflow-x-auto p-2"
               role="region"
               aria-label={t("tableView")}
               tabIndex={0}

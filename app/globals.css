@@ -159,7 +159,6 @@ body {
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -173,6 +172,8 @@ body {
    and degraded banners, both eyebrow+text-accent, both silently rendering as tertiary. */
 @layer components {
   .eyebrow {
+    /* In the layer so a font-* utility (table column headers use the sans) can override. */
+    font-family: var(--font-mono);
     color: var(--text-tertiary);
   }
 }
@@ -268,6 +269,40 @@ body {
   border-left: 3px solid var(--attention);
 }
 
+/* ── Coverage meter ────────────────────────────────────────────────────────────
+   `total` segments of 3px with a 3px gap, the first `covered` of them filled. The segment
+   pattern is a mask and the fill a hard-stop gradient, so one element carries all of it.
+   Partial coverage is drawn at reduced strength, as the per-segment version did. */
+.coverage {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(var(--total) * 6px - 3px);
+  height: 13px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) calc(var(--covered) * 6px - 3px),
+    var(--surface-sunk) 0
+  );
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 6px);
+  mask: repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 6px);
+}
+.coverage-partial {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 65%, transparent) calc(var(--covered) * 6px - 3px),
+    var(--surface-sunk) 0
+  );
+}
+
+/* Cells of a dense table: one hairline under every row and a fixed right gutter, so the
+   markup does not repeat the same six utility classes on every cell of every row. */
+@layer components {
+  .table-dense td {
+    border-bottom: 1px solid var(--line-subtle);
+    padding-right: 6px;
+  }
+}
+
 /* ── Table row hover ── */
 .row-hover {
   transition: background-color var(--dur-fast) var(--ease-out);
@@ -312,6 +347,14 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   white-space: nowrap;
+}
+.table-dense td:first-child,
+.table-dense thead th:first-child {
+  padding-left: 12px;
+}
+.table-dense td:last-child,
+.table-dense thead th:last-child {
+  padding-right: 12px;
 }
 .table-dense thead th {
   height: auto;

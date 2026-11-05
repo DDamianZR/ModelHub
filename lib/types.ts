@@ -189,7 +189,6 @@ export type RankingRow = Pick<
   | "provider_name"
   | "provider_id"
   | "is_open_weights"
-  | "release_date"
   | "country"
   | "context_window"
   | "blended_price_usd_per_m"
@@ -197,13 +196,16 @@ export type RankingRow = Pick<
   | "composite"
   | "composite_error"
   | "tied_with"
-  | "coverage"
-  | "evidence"
   | "category_scores"
   | "provisional"
   | "awaiting_human_votes"
   | "trend"
->;
+> & {
+  /** Only the two numbers the meter draws; the list of missing categories stays on the server. */
+  coverage: { covered: number; total: number };
+  /** How many benchmarks stand behind the composite (Row.evidence.benchmarks). */
+  benchmarks: number;
+};
 
 /** One "best by" rule from config/weights.json, evaluated. Derived, never scored. */
 export interface BestByBoard {

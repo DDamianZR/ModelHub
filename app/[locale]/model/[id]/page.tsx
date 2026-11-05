@@ -280,7 +280,7 @@ export default async function ModelPage({
           <section id="sources" className="mt-8 scroll-mt-6">
             <h3 className="eyebrow mb-2">{t("sources")}</h3>
             <Surface
-              className="overflow-x-auto p-2"
+              className="relative overflow-x-auto p-2"
               role="region"
               aria-label={t("sources")}
               tabIndex={0}

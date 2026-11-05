@@ -243,7 +243,7 @@ export default async function MethodologyPage({
           {rejected.length === 0 ? (
             <p>{t("rejections.none")}</p>
           ) : (
-            <div className="overflow-x-auto" role="region" aria-label={t("rejections.title")} tabIndex={0}>
+            <div className="relative overflow-x-auto" role="region" aria-label={t("rejections.title")} tabIndex={0}>
               <table
                 className="w-full border-collapse text-left min-w-[34rem]"
               >
