@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-05",
+    "generated_at": "2026-11-06",
     "model_count": 85,
     "ranked_count": 63,
     "provisional_count": 22,
@@ -8,7 +8,7 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-11-05",
+      "epoch": "2026-11-06",
       "livebench": "2026-10-25",
       "lmarena_text": "2026-10-28",
       "lmarena_vision": "2026-10-19"
@@ -39,7 +39,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -110,7 +110,7 @@
         "input_usd_per_m": 4.0,
         "output_usd_per_m": 20.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -181,7 +181,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -248,10 +248,10 @@
         "vision"
       ],
       "pricing": {
-        "input_usd_per_m": 0.045,
-        "output_usd_per_m": 0.5,
+        "input_usd_per_m": 0.051,
+        "output_usd_per_m": 0.567,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -298,8 +298,8 @@
       "vision": null,
       "rank": 3,
       "tied_with": 3,
-      "blended_price_usd_per_m": 0.1588,
-      "price_per_composite_point": 0.00191,
+      "blended_price_usd_per_m": 0.18,
+      "price_per_composite_point": 0.00216,
       "pareto_frontier": true,
       "cohort_recalibration": null
     },
@@ -322,7 +322,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -393,7 +393,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -466,7 +466,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 3.75,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -608,7 +608,7 @@
         "input_usd_per_m": 4.0,
         "output_usd_per_m": 20.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -679,7 +679,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -752,7 +752,7 @@
         "input_usd_per_m": 0.825,
         "output_usd_per_m": 4.125,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -823,7 +823,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -894,7 +894,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -967,7 +967,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 12.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1042,7 +1042,7 @@
         "input_usd_per_m": 1.475,
         "output_usd_per_m": 4.425,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1113,7 +1113,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1184,7 +1184,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1256,7 +1256,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 4.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1328,7 +1328,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 4.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1405,7 +1405,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 30.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1482,7 +1482,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 12.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1553,7 +1553,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1630,7 +1630,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1701,7 +1701,7 @@
         "input_usd_per_m": 0.192,
         "output_usd_per_m": 16.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1767,10 +1767,10 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 0.103,
-        "output_usd_per_m": 4.11,
+        "input_usd_per_m": 0.1165,
+        "output_usd_per_m": 4.66,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1817,8 +1817,8 @@
       "vision": null,
       "rank": 25,
       "tied_with": 0,
-      "blended_price_usd_per_m": 1.1048,
-      "price_per_composite_point": 0.0141,
+      "blended_price_usd_per_m": 1.2524,
+      "price_per_composite_point": 0.01599,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -1839,7 +1839,7 @@
         "input_usd_per_m": 0.0699,
         "output_usd_per_m": 1.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1910,7 +1910,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1989,7 +1989,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 3.75,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2060,7 +2060,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2137,7 +2137,7 @@
         "input_usd_per_m": 0.15,
         "output_usd_per_m": 1.875,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2214,7 +2214,7 @@
         "input_usd_per_m": 0.1,
         "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2285,7 +2285,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2356,7 +2356,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2433,7 +2433,7 @@
         "input_usd_per_m": 2.5,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2512,7 +2512,7 @@
         "input_usd_per_m": 1.5,
         "output_usd_per_m": 9.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2654,7 +2654,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 4.05,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2725,7 +2725,7 @@
         "input_usd_per_m": 0.1,
         "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2796,7 +2796,7 @@
         "input_usd_per_m": 3.0,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2868,10 +2868,10 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 0.0434,
+        "input_usd_per_m": 0.0566,
         "output_usd_per_m": 0.3,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2918,8 +2918,8 @@
       "vision": null,
       "rank": 33,
       "tied_with": 0,
-      "blended_price_usd_per_m": 0.1076,
-      "price_per_composite_point": 0.00144,
+      "blended_price_usd_per_m": 0.1174,
+      "price_per_composite_point": 0.00158,
       "pareto_frontier": true,
       "cohort_recalibration": null
     },
@@ -2940,7 +2940,7 @@
         "input_usd_per_m": 0.006,
         "output_usd_per_m": 6.8,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3011,7 +3011,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3088,7 +3088,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 1.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3159,7 +3159,7 @@
         "input_usd_per_m": 0.15,
         "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3231,10 +3231,10 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 1.6,
-        "output_usd_per_m": 3.2,
+        "input_usd_per_m": 0.889,
+        "output_usd_per_m": 1.7779,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3281,8 +3281,8 @@
       "vision": null,
       "rank": 42,
       "tied_with": 3,
-      "blended_price_usd_per_m": 2.0,
-      "price_per_composite_point": 0.02728,
+      "blended_price_usd_per_m": 1.1112,
+      "price_per_composite_point": 0.01516,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -3305,7 +3305,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3375,7 +3375,7 @@
         "input_usd_per_m": 0.65,
         "output_usd_per_m": 3.41,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3450,7 +3450,7 @@
         "input_usd_per_m": 1.4,
         "output_usd_per_m": 4.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3523,7 +3523,7 @@
         "input_usd_per_m": 0.5,
         "output_usd_per_m": 3.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3599,7 +3599,7 @@
         "input_usd_per_m": 0.6,
         "output_usd_per_m": 3.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3670,7 +3670,7 @@
         "input_usd_per_m": 1.75,
         "output_usd_per_m": 14.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3811,7 +3811,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 4.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3882,7 +3882,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3961,7 +3961,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4038,7 +4038,7 @@
         "input_usd_per_m": 0.45,
         "output_usd_per_m": 2.7,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4107,7 +4107,7 @@
         "input_usd_per_m": 0.091,
         "output_usd_per_m": 0.182,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4156,7 +4156,7 @@
       "tied_with": 3,
       "blended_price_usd_per_m": 0.1138,
       "price_per_composite_point": 0.00172,
-      "pareto_frontier": false,
+      "pareto_frontier": true,
       "cohort_recalibration": null
     },
     {
@@ -4178,7 +4178,7 @@
         "input_usd_per_m": 0.325,
         "output_usd_per_m": 1.95,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4249,7 +4249,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4324,7 +4324,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 3.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4395,7 +4395,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4474,7 +4474,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4551,7 +4551,7 @@
         "input_usd_per_m": 15.0,
         "output_usd_per_m": 75.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4624,7 +4624,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4691,7 +4691,7 @@
         "input_usd_per_m": 0.15,
         "output_usd_per_m": 0.6,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4759,7 +4759,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 5.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4826,7 +4826,7 @@
         "input_usd_per_m": 0.7,
         "output_usd_per_m": 2.1,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4895,7 +4895,7 @@
         "input_usd_per_m": 0.435,
         "output_usd_per_m": 0.87,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4969,7 +4969,7 @@
         "input_usd_per_m": 0.32,
         "output_usd_per_m": 1.28,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5107,7 +5107,7 @@
         "input_usd_per_m": 0.5,
         "output_usd_per_m": 3.6,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5182,7 +5182,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 2.7,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5255,7 +5255,7 @@
         "input_usd_per_m": 0.6,
         "output_usd_per_m": 2.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5324,7 +5324,7 @@
         "input_usd_per_m": 0.45,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5532,7 +5532,7 @@
         "input_usd_per_m": 0.25,
         "output_usd_per_m": 1.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5677,7 +5677,7 @@
         "input_usd_per_m": 0.14,
         "output_usd_per_m": 1.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5746,7 +5746,7 @@
         "input_usd_per_m": 3.0,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5816,7 +5816,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 0.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5891,7 +5891,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 5.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6022,7 +6022,7 @@
         "input_usd_per_m": 0.03,
         "output_usd_per_m": 0.13,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6093,7 +6093,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-05"
+        "measured_at": "2026-11-06"
       },
       "acquisition": {
         "hf_repo": null,

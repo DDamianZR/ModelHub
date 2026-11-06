@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05",
+  "fetched_at": "2026-11-06",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1104,8 +1104,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2574,
-        "price_output_usd_per_m": 1.0287,
+        "price_input_usd_per_m": 0.32,
+        "price_output_usd_per_m": 0.89,
         "slug": "deepseek/deepseek-chat"
       },
       "deepseek/deepseek-chat-v3-0324": {
@@ -1248,7 +1248,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0434,
+        "price_input_usd_per_m": 0.0566,
         "price_output_usd_per_m": 0.3,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
@@ -1267,8 +1267,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2156,
-        "price_output_usd_per_m": 0.6468,
+        "price_input_usd_per_m": 0.44,
+        "price_output_usd_per_m": 1.32,
         "slug": "deepseek/deepseek-v4-flash-vision-exp"
       },
       "deepseek/deepseek-v4-pro": {
@@ -1285,8 +1285,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.6,
-        "price_output_usd_per_m": 3.2,
+        "price_input_usd_per_m": 0.889,
+        "price_output_usd_per_m": 1.7779,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1303,8 +1303,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.103,
-        "price_output_usd_per_m": 4.11,
+        "price_input_usd_per_m": 0.1165,
+        "price_output_usd_per_m": 4.66,
         "slug": "deepseek/deepseek-v4-pro-0813"
       },
       "deepseek/deepseek-v4.1-flash": {
@@ -1322,8 +1322,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.045,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.051,
+        "price_output_usd_per_m": 0.567,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -2222,8 +2222,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0765,
-        "price_output_usd_per_m": 0.255,
+        "price_input_usd_per_m": 0.09,
+        "price_output_usd_per_m": 0.3,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -3039,8 +3039,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "mistralai/codestral-2508": {
@@ -3553,8 +3553,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.5,
-        "price_output_usd_per_m": 2.5,
+        "price_input_usd_per_m": 0.532,
+        "price_output_usd_per_m": 3.325,
         "slug": "moonshotai/kimi-k2.5"
       },
       "moonshotai/kimi-k2.6": {
@@ -3800,8 +3800,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 2.4,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.4,
         "slug": "nvidia/nemotron-3-super-120b-a12b"
       },
       "nvidia/nemotron-3-ultra-550b-a55b": {
@@ -3858,25 +3858,6 @@
         "price_input_usd_per_m": 0.2,
         "price_output_usd_per_m": 0.2,
         "slug": "nvidia/nemotron-3.5-content-safety"
-      },
-      "nvidia/nemotron-3.5-content-safety:free": {
-        "context_length": 128000,
-        "created": 1780581864,
-        "free_tier": true,
-        "hugging_face_id": "nvidia/Nemotron-3.5-Content-Safety",
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "nemotron-3.5-content-safety",
-        "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "nvidia/nemotron-3.5-content-safety:free"
       },
       "nvidia/nemotron-3.5-lightning": {
         "context_length": 262144,
@@ -5738,8 +5719,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.026,
+        "price_output_usd_per_m": 0.096,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -7496,8 +7477,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0825,
-        "price_output_usd_per_m": 0.33,
+        "price_input_usd_per_m": 0.132,
+        "price_output_usd_per_m": 0.528,
         "slug": "tencent/hy3"
       },
       "tencent/hy3-preview": {
@@ -7551,8 +7532,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7506,
-        "price_output_usd_per_m": 2.2509,
+        "price_input_usd_per_m": 0.834,
+        "price_output_usd_per_m": 2.501,
         "slug": "tencent/hy4-preview"
       },
       "thedrummer/cydonia-24b-v4.1": {
@@ -8569,7 +8550,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0927,
+        "price_input_usd_per_m": 0.0999,
         "price_output_usd_per_m": 8.0,
         "slug": "~deepseek/deepseek-pro-latest"
       },
@@ -8587,8 +8568,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0434,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.0563,
+        "price_output_usd_per_m": 0.169,
         "slug": "~deepseek/deepseek-v4-flash-latest"
       },
       "~google/gemini-flash-latest": {
@@ -8651,8 +8632,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1539,
-        "price_output_usd_per_m": 10.1489,
+        "price_input_usd_per_m": 0.1719,
+        "price_output_usd_per_m": 9.7471,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {
@@ -8810,7 +8791,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0285,
+        "price_input_usd_per_m": 0.0284,
         "price_output_usd_per_m": 0.0923,
         "slug": "~z-ai/glm-flash-latest"
       },
