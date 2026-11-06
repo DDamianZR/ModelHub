@@ -126,7 +126,7 @@ project that gets graded. That is also why the rules are enforced in code: a one
 project cannot rely on remembering to be careful.
 
 - **Repository:** [github.com/DDamianZR/ModelHub](https://github.com/DDamianZR/ModelHub)
-- **Portfolio / Personal Site:** [ddzendreros.github.io/dzendreros](https://ddzendreros.github.io/dzendreros)
+- **Portfolio / Personal Site:** [dzendreros.vercel.app](https://dzendreros.vercel.app)
 - **Instagram:** [@diego_zr.p](https://www.instagram.com/diego_zr.p/)
 
 Contributions are welcome.

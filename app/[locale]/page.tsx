@@ -346,7 +346,7 @@ export default async function HomePage({
           </a>
           <span aria-hidden="true">·</span>
           <a
-            href="https://ddzendreros.github.io/dzendreros"
+            href="https://dzendreros.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 py-1.5 underline underline-offset-2 transition-opacity hover:opacity-80"

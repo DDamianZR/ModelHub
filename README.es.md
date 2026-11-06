@@ -133,7 +133,7 @@ estén aplicadas en código: un proyecto de una sola persona no puede depender d
 tener cuidado.
 
 - **Repositorio:** [github.com/DDamianZR/ModelHub](https://github.com/DDamianZR/ModelHub)
-- **Portafolio / Sitio personal:** [ddzendreros.github.io/dzendreros](https://ddzendreros.github.io/dzendreros)
+- **Portafolio / Sitio personal:** [dzendreros.vercel.app](https://dzendreros.vercel.app)
 - **Instagram:** [@diego_zr.p](https://www.instagram.com/diego_zr.p/)
 
 Las contribuciones son bienvenidas.
