@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-06T14:12:20+00:00",
+  "generated_at": "2026-11-07T12:54:22+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-06",
+      "last_success": "2026-11-07",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-06",
+      "last_success": "2026-11-07",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
@@ -54,27 +54,27 @@
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-11-06",
+      "last_success": "2026-11-07",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-06",
+      "last_success": "2026-11-07",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-06",
+      "last_success": "2026-11-07",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-06",
+      "date": "2026-11-07",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -83,7 +83,7 @@
     },
     "livebench": {
       "date": "2026-11-05",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -99,16 +99,16 @@
       }
     },
     "lmarena": {
-      "date": "2026-10-28",
-      "age_days": 9,
-      "freshness": "aging",
+      "date": "2026-11-06",
+      "age_days": 1,
+      "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
       "degraded_days": 16,
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-06",
+      "date": "2026-11-07",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -116,7 +116,7 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-06",
+      "date": "2026-11-07",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
@@ -133,13 +133,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "4f9b77d0ded8a42e97904fe074acdaf7e9d442f37decb7ad67a234fa7c2e4965",
+      "normalised_sha256": "a3bf13164b63bd8d4221311b8428fc1156bd2fde06e5bb8dfa915d21e00741b5",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "81318d2e8b6d50a7d24106133cba2c8bb97e6fa5cd0c4611ffc0d7c2210de858",
-          "bytes": 2280793
+          "sha256": "a400e0c306f6bbf5c11f595a1cd1b0db6c23b5692549f1d5269bb800712e5a74",
+          "bytes": 2281333
         }
       ]
     },
@@ -149,18 +149,18 @@
       "upstream": []
     },
     "lmarena": {
-      "normalised_sha256": "1a436458f8b36c7149907aaf1ee3f2c822b770aca6ea4f1ab2d14c771b3c8527",
+      "normalised_sha256": "5097d604c09b3be5d82c50c2d9336ca21ef3989f7588ed709eff493d53fa7603",
       "requests": 7,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "3bdfd9b6f56b59b39da0bbd03d101bd396589b0543fa42c71d37620ba4dd0af5",
+      "normalised_sha256": "45e4b080194aad9a4f8e6d1ef30bf890479ec3fa112224cf0784fc67545142c4",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "e09a65767cd93d95d10617c6412690b0195800b6c8d9420559d1a163989ee8b3",
-          "bytes": 813273
+          "sha256": "08b4635fd684689feda841f906d59e0dcd8ad9dd57a7c0b7f0667d46b740876a",
+          "bytes": 827419
         }
       ]
     },

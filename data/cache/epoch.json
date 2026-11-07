@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06",
+  "fetched_at": "2026-11-07",
   "payload": {
     "boards": {
       "agentic": {
@@ -102,7 +102,7 @@
           "name": "SpireClimb",
           "rows": {
             "claude-fable-5.1": {
-              "measured_at": "2026-09-25",
+              "measured_at": "2026-11-05",
               "stderr": 1.139,
               "value": 2.0,
               "variant": "claude-fable-5-1_max"
@@ -114,7 +114,7 @@
               "variant": "claude-opus-5-5_max"
             },
             "claude-sonnet-5.5": {
-              "measured_at": "2026-09-29",
+              "measured_at": "2026-11-05",
               "stderr": 0.936,
               "value": 1.33,
               "variant": "claude-sonnet-5-5_max"
@@ -126,15 +126,15 @@
               "variant": "gpt-6-astra_max"
             },
             "gpt-6-luna": {
-              "measured_at": "2026-09-28",
+              "measured_at": "2026-11-05",
               "stderr": 0.0,
               "value": 0.0,
               "variant": "gpt-6-luna_max"
             },
             "gpt-6-sol": {
-              "measured_at": "2026-09-24",
-              "stderr": 2.144,
-              "value": 7.5,
+              "measured_at": "2026-11-05",
+              "stderr": 2.432,
+              "value": 9.17,
               "variant": "gpt-6-sol_max"
             },
             "gpt-6.1-sol": {
@@ -551,6 +551,12 @@
               "stderr": 1.582,
               "value": 50.6,
               "variant": "kimi-k3_max"
+            },
+            "kimi-k3.1-pro-together": {
+              "measured_at": "2026-11-06",
+              "stderr": 1.534,
+              "value": 62.2,
+              "variant": "kimi-k3.1-pro-together_max"
             },
             "mistral-large-4.0": {
               "measured_at": "2026-10-09",
@@ -2510,6 +2516,15 @@
         "display_name": "Kimi K3.1 Pro (high)",
         "eci": 0.0,
         "id_key": "kimi-k3.1-pro",
+        "organization": "Moonshot",
+        "release_date": "2026-10-23"
+      },
+      "kimi-k3.1-pro-together": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Kimi K3.1 Pro (Together, high)",
+        "eci": 0.0,
+        "id_key": "kimi-k3.1-pro-together",
         "organization": "Moonshot",
         "release_date": "2026-10-23"
       },
@@ -6008,6 +6023,18 @@
           "stderr": 1.494,
           "value": 93.12,
           "variant": "kimi-k3_max"
+        }
+      ],
+      "kimi-k3.1-pro-together": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.439,
+          "value": 94.19,
+          "variant": "kimi-k3.1-pro-together_max"
         }
       ],
       "magistral-small-2506": [

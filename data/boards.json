@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-06",
+    "generated_at": "2026-11-07",
     "in_composite": false
   },
   "boards": [
@@ -149,9 +149,9 @@
             {
               "model_id": "openai-gpt-6-sol",
               "variant": "gpt-6-sol_max",
-              "value": 7.5,
-              "stderr": 2.144,
-              "measured_at": "2026-09-24"
+              "value": 9.17,
+              "stderr": 2.432,
+              "measured_at": "2026-11-05"
             },
             {
               "model_id": "anthropic-claude-opus-5-5",
@@ -165,21 +165,21 @@
               "variant": "claude-fable-5-1_max",
               "value": 2.0,
               "stderr": 1.139,
-              "measured_at": "2026-09-25"
+              "measured_at": "2026-11-05"
             },
             {
               "model_id": "anthropic-claude-sonnet-5-5",
               "variant": "claude-sonnet-5-5_max",
               "value": 1.33,
               "stderr": 0.936,
-              "measured_at": "2026-09-29"
+              "measured_at": "2026-11-05"
             },
             {
               "model_id": "openai-gpt-6-luna",
               "variant": "gpt-6-luna_max",
               "value": 0.0,
               "stderr": 0.0,
-              "measured_at": "2026-09-28"
+              "measured_at": "2026-11-05"
             }
           ]
         }
