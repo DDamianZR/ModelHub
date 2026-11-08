@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07",
+  "fetched_at": "2026-11-08",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1248,7 +1248,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0487,
+        "price_input_usd_per_m": 0.0434,
         "price_output_usd_per_m": 0.3,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
@@ -1303,8 +1303,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7179,
-        "price_output_usd_per_m": 1.4358,
+        "price_input_usd_per_m": 0.2413,
+        "price_output_usd_per_m": 0.4827,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1321,8 +1321,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1165,
-        "price_output_usd_per_m": 4.66,
+        "price_input_usd_per_m": 0.111,
+        "price_output_usd_per_m": 4.44,
         "slug": "deepseek/deepseek-v4-pro-0813"
       },
       "deepseek/deepseek-v4.1-flash": {
@@ -1341,7 +1341,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.051,
-        "price_output_usd_per_m": 0.567,
+        "price_output_usd_per_m": 0.41,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -1359,9 +1359,28 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.006,
+        "price_output_usd_per_m": 0.5,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
+      },
+      "deepseek/deepseek-v4.1-flash-1017:batch": {
+        "context_length": 1048576,
+        "created": 1792225624,
+        "free_tier": false,
+        "hugging_face_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "deepseek-v4.1-flash-1017",
+        "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.011,
+        "price_output_usd_per_m": 0.2,
+        "slug": "deepseek/deepseek-v4.1-flash-1017:batch"
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "context_length": 1048576,
@@ -1378,8 +1397,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.112,
-        "price_output_usd_per_m": 0.336,
+        "price_input_usd_per_m": 0.011,
+        "price_output_usd_per_m": 0.2,
         "slug": "deepseek/deepseek-v4.1-flash:batch"
       },
       "dots-studio/dots-3-note-preview:free": {
@@ -2380,60 +2399,6 @@
         "price_output_usd_per_m": 0.25,
         "slug": "ibm-granite/granite-4.2-8b"
       },
-      "inception/mercury-2": {
-        "context_length": 128000,
-        "created": 1772636275,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "text"
-        ],
-        "key": "mercury-2",
-        "name": "Inception: Mercury 2",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.25,
-        "price_output_usd_per_m": 0.75,
-        "slug": "inception/mercury-2"
-      },
-      "inception/mercury-2.5": {
-        "context_length": 260000,
-        "created": 1788892137,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "text"
-        ],
-        "key": "mercury-2.5",
-        "name": "Inception: Mercury 2.5",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.04,
-        "price_output_usd_per_m": 0.15,
-        "slug": "inception/mercury-2.5"
-      },
-      "inception/mercury-3": {
-        "context_length": 1000000,
-        "created": 1792158337,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "text"
-        ],
-        "key": "mercury-3",
-        "name": "Inception: Mercury 3",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.35,
-        "slug": "inception/mercury-3"
-      },
       "inclusionai/ling-3.0-flash": {
         "context_length": 262144,
         "created": 1784818580,
@@ -2738,8 +2703,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0509,
-        "price_output_usd_per_m": 0.335,
+        "price_input_usd_per_m": 0.05,
+        "price_output_usd_per_m": 0.33,
         "slug": "meta-llama/llama-3.2-3b-instruct"
       },
       "meta-llama/llama-3.3-70b-instruct": {
@@ -3646,8 +3611,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.5,
-        "price_output_usd_per_m": 2.5,
+        "price_input_usd_per_m": 0.532,
+        "price_output_usd_per_m": 3.325,
         "slug": "moonshotai/kimi-k2.5"
       },
       "moonshotai/kimi-k2.6": {
@@ -3744,8 +3709,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 2.28,
-        "price_output_usd_per_m": 11.4,
+        "price_input_usd_per_m": 0.917,
+        "price_output_usd_per_m": 6.0,
         "slug": "moonshotai/kimi-k3:batch"
       },
       "morph/morph-v3-fast": {
@@ -3766,6 +3731,24 @@
         "price_output_usd_per_m": 1.2,
         "slug": "morph/morph-v3-fast"
       },
+      "morph/morph-v3-fast:batch": {
+        "context_length": 81920,
+        "created": 1751910002,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "text"
+        ],
+        "key": "morph-v3-fast",
+        "name": "Morph: Morph V3 Fast (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.4,
+        "price_output_usd_per_m": 0.6,
+        "slug": "morph/morph-v3-fast:batch"
+      },
       "morph/morph-v3-large": {
         "context_length": 262144,
         "created": 1751910858,
@@ -3783,6 +3766,24 @@
         "price_input_usd_per_m": 0.9,
         "price_output_usd_per_m": 1.9,
         "slug": "morph/morph-v3-large"
+      },
+      "morph/morph-v3-large:batch": {
+        "context_length": 262144,
+        "created": 1751910858,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "text"
+        ],
+        "key": "morph-v3-large",
+        "name": "Morph: Morph V3 Large (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.45,
+        "price_output_usd_per_m": 0.95,
+        "slug": "morph/morph-v3-large:batch"
       },
       "nex-agi/nex-n2.5-mini": {
         "context_length": 262144,
@@ -5812,8 +5813,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.018,
-        "price_output_usd_per_m": 0.065,
+        "price_input_usd_per_m": 0.026,
+        "price_output_usd_per_m": 0.098,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -6862,8 +6863,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.45,
-        "price_output_usd_per_m": 2.7,
+        "price_input_usd_per_m": 0.32,
+        "price_output_usd_per_m": 3.2,
         "slug": "qwen/qwen3.6-27b"
       },
       "qwen/qwen3.6-35b-a3b": {
@@ -8416,6 +8417,24 @@
         "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
       },
+      "z-ai/glm-5.2:batch": {
+        "context_length": 1048576,
+        "created": 1781631930,
+        "free_tier": false,
+        "hugging_face_id": "zai-org/GLM-5.2",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "glm-5.2",
+        "name": "Z.ai: GLM 5.2 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.37,
+        "price_output_usd_per_m": 1.5,
+        "slug": "z-ai/glm-5.2:batch"
+      },
       "z-ai/glm-5.3": {
         "context_length": 1048576,
         "created": 1787086655,
@@ -8450,8 +8469,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.0335,
+        "price_output_usd_per_m": 0.083,
         "slug": "z-ai/glm-5.3-flash"
       },
       "z-ai/glm-5.3-flash:batch": {
@@ -8546,8 +8565,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.45,
-        "price_output_usd_per_m": 2.0,
+        "price_input_usd_per_m": 0.37,
+        "price_output_usd_per_m": 1.5,
         "slug": "z-ai/glm-5.3:batch"
       },
       "z-ai/glm-5v-turbo": {
@@ -8701,8 +8720,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0484,
-        "price_output_usd_per_m": 0.1452,
+        "price_input_usd_per_m": 0.0434,
+        "price_output_usd_per_m": 0.3,
         "slug": "~deepseek/deepseek-v4-flash-latest"
       },
       "~google/gemini-flash-latest": {
@@ -8765,7 +8784,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1719,
+        "price_input_usd_per_m": 0.151,
         "price_output_usd_per_m": 9.3388,
         "slug": "~moonshotai/kimi-latest"
       },
@@ -8924,8 +8943,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0285,
-        "price_output_usd_per_m": 0.0923,
+        "price_input_usd_per_m": 0.0335,
+        "price_output_usd_per_m": 0.083,
         "slug": "~z-ai/glm-flash-latest"
       },
       "~z-ai/glm-latest": {
