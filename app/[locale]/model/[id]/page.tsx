@@ -3,10 +3,20 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
+import { Fee, Price } from "@/components/CurrencyProvider";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
 import { Surface } from "@/components/Surface";
-import { getAcquisition, getAdjacentModels, getModelDetail, getModelIds } from "@/lib/data";
+import {
+  getAcquisition,
+  getAdjacentModels,
+  getBestBy,
+  getFx,
+  getModelDetail,
+  getModelIds,
+  getPlansFor,
+} from "@/lib/data";
+import { formatRate } from "@/lib/currency";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
@@ -38,7 +48,7 @@ export async function generateMetadata({
 }
 
 /** Section ids are also the anchor targets used by the rail in the right column. */
-const SECTIONS = ["description", "categories", "history", "sources", "acquisition"] as const;
+const SECTIONS = ["description", "categories", "cost", "history", "sources", "acquisition"] as const;
 
 export default async function ModelPage({
   params,
@@ -54,6 +64,10 @@ export default async function ModelPage({
   const { model, scores, history, description } = detail;
   const { links, checkedAt, withheld } = getAcquisition(id);
   const adjacent = getAdjacentModels(id);
+  const fx = getFx();
+  const plans = getPlansFor(id);
+  const blend = getBestBy().meta.price_blend;
+  const pricing = model.pricing ?? null;
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
   const tui = await getTranslations("ui");
@@ -245,6 +259,104 @@ export default async function ModelPage({
               })}
             </p>
           )}
+
+          {/* What it costs to use through an API, from the router catalogue, and which subscription
+              plans are on record. Neither can move a score; both say where they came from and
+              when, and a missing price is stated as missing, never shown as free. */}
+          <section id="cost" className="mt-8 scroll-mt-6">
+            <h2 className="eyebrow mb-2">{t("cost")}</h2>
+            <Surface className="p-4">
+              {pricing ? (
+                <>
+                  <dl className="num grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+                    <div>
+                      <dd className="m-0 text-lg font-semibold leading-none text-primary">
+                        <Price usd={pricing.input_usd_per_m} />
+                      </dd>
+                      <dt className="mt-1 text-2xs text-tertiary">{t("costInput")}</dt>
+                    </div>
+                    <div>
+                      <dd className="m-0 text-lg font-semibold leading-none text-primary">
+                        <Price usd={pricing.output_usd_per_m} />
+                      </dd>
+                      <dt className="mt-1 text-2xs text-tertiary">{t("costOutput")}</dt>
+                    </div>
+                    <div>
+                      <dd className="m-0 text-lg font-semibold leading-none text-primary">
+                        <Price usd={model.blended_price_usd_per_m ?? null} />
+                      </dd>
+                      <dt className="mt-1 text-2xs text-tertiary">
+                        {t("costBlended", { input: blend.input, output: blend.output })}
+                      </dt>
+                    </div>
+                    <div>
+                      <dd className="m-0 text-lg font-semibold leading-none text-primary">
+                        {model.context_window === null
+                          ? "·"
+                          : model.context_window.toLocaleString("en-US")}
+                      </dd>
+                      <dt className="mt-1 text-2xs text-tertiary">{t("costContext")}</dt>
+                    </div>
+                  </dl>
+                  <p className="mt-3 text-xs leading-[1.6] text-tertiary">
+                    {t("costNote", { date: pricing.measured_at })}{" "}
+                    <a
+                      href={pricing.source_url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="text-accent underline underline-offset-2"
+                    >
+                      {t("costSource")}
+                    </a>
+                  </p>
+                  {model.is_open_weights && (
+                    <p className="mt-2 text-xs leading-[1.6] text-tertiary">{t("costOpenWeights")}</p>
+                  )}
+                </>
+              ) : (
+                <p className="text-sm text-tertiary">{t("costUnpriced")}</p>
+              )}
+              {fx && (
+                <p className="mt-2 text-xs leading-[1.6] text-tertiary">
+                  {t("costFx", { rate: formatRate(fx.mxn), date: fx.date })}
+                </p>
+              )}
+
+              <h3 className="eyebrow mt-5 mb-2">{t("plans")}</h3>
+              {plans.length > 0 ? (
+                <ul className="flex flex-col gap-2">
+                  {plans.map((plan) => (
+                    <li key={plan.id} className="text-sm">
+                      <span className="font-medium text-primary">{plan.name}</span>
+                      <span className="num ml-2 text-xs text-tertiary">
+                        {plan.price_usd_per_month === null ? (
+                          t("planNoFee")
+                        ) : (
+                          <>
+                            <Fee usd={plan.price_usd_per_month} /> {t("planPerMonth")}
+                          </>
+                        )}
+                        {" · "}
+                        {t("planVerified", { date: plan.verified_at })}
+                        {" · "}
+                        <a
+                          href={plan.source_url}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          className="text-accent underline underline-offset-2"
+                        >
+                          {t("planSource")}
+                        </a>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-tertiary">{t("plansNone")}</p>
+              )}
+              <p className="mt-2 text-xs leading-[1.6] text-tertiary">{t("plansNote")}</p>
+            </Surface>
+          </section>
 
           <section id="history" className="mt-8 scroll-mt-6">
             <h2 className="eyebrow mb-2">{t("history")}</h2>

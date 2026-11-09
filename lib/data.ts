@@ -1,10 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { FxRate } from "./currency";
 import type {
   AgedSource,
   CategoryRule,
   Meta,
   Model,
+  Plan,
   Provider,
   RejectedSnapshot,
   RankingRow,
@@ -28,6 +30,39 @@ export function readJson<T>(file: string): T {
   const parsed = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), "utf8")) as T;
   if (memo) jsonCache.set(file, parsed);
   return parsed;
+}
+
+/**
+ * USD to MXN reference rate, or null when none has ever been fetched or the file is unusable.
+ * Null is not an error: the page then shows USD only and hides the selector.
+ */
+export function getFx(): FxRate | null {
+  const file = path.join(DATA_DIR, "fx.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const payload = JSON.parse(fs.readFileSync(file, "utf8")) as {
+      date?: string;
+      rates?: { MXN?: number };
+      meta?: { publisher?: string };
+    };
+    const mxn = payload.rates?.MXN;
+    if (typeof mxn !== "number" || !Number.isFinite(mxn) || mxn <= 0 || !payload.date) return null;
+    return { mxn, date: payload.date, publisher: payload.meta?.publisher ?? "" };
+  } catch {
+    return null;
+  }
+}
+
+/** Plans that include a model, in file order. An empty answer means none are on record. */
+export function getPlansFor(modelId: string): Plan[] {
+  const file = path.join(DATA_DIR, "plans.json");
+  if (!fs.existsSync(file)) return [];
+  try {
+    const { plans } = JSON.parse(fs.readFileSync(file, "utf8")) as { plans?: Plan[] };
+    return (plans ?? []).filter((plan) => plan.model_ids.includes(modelId));
+  } catch {
+    return [];
+  }
 }
 
 export function getBestBy(): BestBy {

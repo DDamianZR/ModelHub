@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Price } from "@/components/CurrencyProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
@@ -85,7 +86,7 @@ export default async function VsPage({
   const provisional = [left, right].filter((row) => row.provisional);
   const ranges = [getScoreDateRange(left.id), getScoreDateRange(right.id)];
 
-  type Line = { label: string; a: string; b: string; diff?: string; note?: string };
+  type Line = { label: string; a: React.ReactNode; b: React.ReactNode; diff?: string; note?: string };
   const lines: Line[] = [
     {
       label: t("rank"),
@@ -115,8 +116,8 @@ export default async function VsPage({
     },
     {
       label: t("price"),
-      a: left.blended_price_usd_per_m == null ? "·" : left.blended_price_usd_per_m.toFixed(left.blended_price_usd_per_m < 1 ? 3 : 2),
-      b: right.blended_price_usd_per_m == null ? "·" : right.blended_price_usd_per_m.toFixed(right.blended_price_usd_per_m < 1 ? 3 : 2),
+      a: <Price usd={left.blended_price_usd_per_m ?? null} />,
+      b: <Price usd={right.blended_price_usd_per_m ?? null} />,
     },
     {
       label: t("context"),

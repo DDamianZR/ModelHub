@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { BoardCards } from "@/components/BoardCards";
+import { Price } from "@/components/CurrencyProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RankingTable } from "@/components/RankingTable";
 import { ScatterChart } from "@/components/ScatterChart";
@@ -191,9 +192,9 @@ export default async function HomePage({
             {frontierList.map((p) => (
               <li key={p.id}>
                 <Link href={`/model/${p.id}`}>{p.name}</Link>{" "}
-                {th("scatter.frontierItem", {
+                {th.rich("scatter.frontierItem", {
                   composite: p.composite.toFixed(1),
-                  price: p.price.toFixed(p.price < 1 ? 3 : 2),
+                  price: () => <Price usd={p.price} />,
                 })}
               </li>
             ))}

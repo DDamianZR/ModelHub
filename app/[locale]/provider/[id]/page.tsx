@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CoverageMeter } from "@/components/CoverageMeter";
+import { CurrencySymbol, PriceDigits } from "@/components/CurrencyProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Surface } from "@/components/Surface";
@@ -118,7 +119,9 @@ export default async function ProviderPage({
                   <span className="eyebrow block text-right">{tt("coverage")}</span>
                 </th>
                 <th scope="col" className="w-20 border-b border-subtle pr-3 align-bottom">
-                  <span className="eyebrow block text-right">{tt("price")}</span>
+                  <span className="eyebrow block text-right">
+                    {tt.rich("price", { symbol: () => <CurrencySymbol /> })}
+                  </span>
                 </th>
                 <th scope="col" className="w-24 border-b border-subtle pr-3 align-bottom">
                   <span className="eyebrow block text-right">{t("release")}</span>
@@ -169,9 +172,7 @@ export default async function ProviderPage({
                       />
                     </td>
                     <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
-                      {row.blended_price_usd_per_m == null
-                        ? "·"
-                        : row.blended_price_usd_per_m.toFixed(row.blended_price_usd_per_m < 1 ? 3 : 2)}
+                      <PriceDigits usd={row.blended_price_usd_per_m ?? null} />
                     </td>
                     <td className="num border-b border-subtle pr-3 text-right text-xs text-tertiary">
                       {row.release_date ?? "·"}
