@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "note": "Consumer subscription plans that include a model, entered by pull request. This is access information, never a score: it cannot move a composite, a rank or the coverage gate, and a plan fee is never converted into a per-token price. Every entry needs a source_url on the plan's own page and the date someone last read it; an entry without either is withheld. An empty list means nobody has recorded one, not that no plan exists.",
+  "plans": []
+}

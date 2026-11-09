@@ -10,6 +10,8 @@ import { CoverageMeter } from "./CoverageMeter";
 import { SegmentedControl } from "./SegmentedControl";
 import { Sparkline } from "./Sparkline";
 import { Surface } from "./Surface";
+import { useCurrency } from "./CurrencyProvider";
+import { formatRate } from "@/lib/currency";
 import type { RankingRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
@@ -26,11 +28,6 @@ function formatContext(tokens: number | null): string {
   return tokens >= 1_000_000
     ? `${Math.round((tokens / 1_000_000) * 10) / 10}M`
     : `${Math.round(tokens / 1024)}K`;
-}
-
-function formatPrice(price: number | null): string {
-  if (price === null) return "·";
-  return price < 1 ? price.toFixed(3) : price.toFixed(2);
 }
 
 function Chip({
@@ -106,6 +103,9 @@ export function RankingTable({
   const tf = useTranslations("filters");
   const router = useRouter();
   const pathname = usePathname();
+  // Display only: the filter below still compares USD, so a saved ?price=1 means the same
+  // thing in either currency.
+  const { digits: formatMoney, axis: formatCeiling, symbol, currency, fx } = useCurrency();
 
   const [query, setQuery] = useState("");
   const [access, setAccess] = useState<Access>("all");
@@ -328,7 +328,7 @@ export function RankingTable({
               <span className="sr-only">{t("frontier")}</span>
             </>
           )}
-          {formatPrice(row.blended_price_usd_per_m ?? null)}
+          {formatMoney(row.blended_price_usd_per_m ?? null)}
         </td>
 
         <td className="num text-right text-xs text-tertiary">
@@ -541,7 +541,7 @@ export function RankingTable({
             <option value={0}>{tf("all")}</option>
             {PRICE_CEILINGS.map((ceiling) => (
               <option key={ceiling} value={ceiling}>
-                {tf("priceAtMost", { price: ceiling })}
+                {tf("priceAtMost", { price: formatCeiling(ceiling) })}
               </option>
             ))}
           </select>
@@ -656,8 +656,15 @@ export function RankingTable({
                   );
                 })}
                 <th scope="col" className="w-16 border-b border-subtle pr-1.5 align-bottom">
-                  <span className="eyebrow block text-right" title={t("priceTitle")}>
-                    {t("price")}
+                  <span
+                    className="eyebrow block text-right"
+                    title={
+                      currency === "MXN" && fx
+                        ? `${t("priceTitle", { currency })} ${t("priceTitleFx", { rate: formatRate(fx.mxn), date: fx.date })}`
+                        : t("priceTitle", { currency })
+                    }
+                  >
+                    {t.rich("price", { symbol: () => symbol })}
                   </span>
                 </th>
                 <th scope="col" className="w-16 border-b border-subtle pr-1.5 align-bottom">

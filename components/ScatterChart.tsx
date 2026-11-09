@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { SegmentedControl } from "@/components/SegmentedControl";
+import { useCurrency } from "@/components/CurrencyProvider";
 import { dominanceMap } from "@/lib/dominance";
 import type { ScatterPoint } from "@/lib/types";
 
@@ -45,14 +46,6 @@ function niceTicks(lo: number, hi: number, step: number): number[] {
   for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(v);
   return out;
 }
-
-function formatPrice(value: number): string {
-  if (value >= 10) return `$${value.toFixed(0)}`;
-  if (value >= 1) return `$${value.toFixed(value % 1 === 0 ? 0 : 1)}`;
-  return `$${value}`;
-}
-
-const exactPrice = (value: number) => `$${value.toFixed(value < 1 ? 3 : 2)}`;
 
 const circles = (list: { cx: number; cy: number }[], r: number) =>
   list
@@ -152,6 +145,9 @@ export function ScatterChart({
 }) {
   const t = useTranslations("home.scatter");
   const router = useRouter();
+  // Labels only. Every position, the frontier and the dominance quadrants are computed on
+  // the USD prices in `points`, so switching currency redraws no mark.
+  const { price: exactPrice, axis: formatPrice, currency } = useCurrency();
   const W = compact ? COMPACT.w : WIDE.w;
   const H = compact ? COMPACT.h : WIDE.h;
 
@@ -301,7 +297,7 @@ export function ScatterChart({
         </div>
         <div>
           <dd className="m-0 text-lg font-semibold leading-none text-primary">{exactPrice(active.price)}</dd>
-          <dt className="mt-1 text-2xs text-tertiary">{t("price")}</dt>
+          <dt className="mt-1 text-2xs text-tertiary">{t("price", { currency })}</dt>
         </div>
       </dl>
       <div className="mt-3 flex flex-col gap-1 border-t border-subtle pt-2 leading-[1.45]">
@@ -350,7 +346,7 @@ export function ScatterChart({
         )}
       </div>
 
-      <div className="relative overflow-x-auto" role="region" aria-label={t("figure")} tabIndex={0} onKeyDown={onKeyDown}>
+      <div className="relative overflow-x-auto" role="region" aria-label={t("figure", { currency })} tabIndex={0} onKeyDown={onKeyDown}>
         <div
           className={clsx("relative min-w-[34rem] lg:min-w-0", hoverId && "cursor-pointer")}
           onPointerMove={onPointerMove}
@@ -380,7 +376,7 @@ export function ScatterChart({
               ))}
             </g>
             <text x={(M.left + W - M.right) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="currentColor">
-              {t("xAxis")}
+              {t("xAxis", { currency })}
             </text>
             <text
               transform={`translate(11 ${(M.top + H - M.bottom) / 2}) rotate(-90)`}

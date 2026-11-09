@@ -3,9 +3,12 @@ import { getMessages, getTranslations } from "next-intl/server";
 import clsx from "clsx";
 import { Link } from "@/i18n/navigation";
 import { CommandPalette } from "@/components/CommandPalette";
+import { CurrencySwitch, CurrencyToggle } from "@/components/CurrencySwitch";
 import { LogoMark } from "@/components/LogoMark";
 import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { formatRate } from "@/lib/currency";
+import { getFx } from "@/lib/data";
 
 export async function SiteHeader({
   locale,
@@ -23,6 +26,7 @@ export async function SiteHeader({
   // app/[locale]/layout.tsx. Scoped here, on the one header every page renders, rather
   // than once per page.
   const messages = await getMessages();
+  const fx = getFx();
 
   const links = [
     { key: "ranking", href: "/" },
@@ -72,34 +76,55 @@ export async function SiteHeader({
               dark: tui("themeDark"),
             }}
           />
+          <CurrencySwitch
+            label={tui("currencyLabel")}
+            note={
+              fx
+                ? tui("currencyNote", { rate: formatRate(fx.mxn), date: fx.date })
+                : ""
+            }
+          />
           <NextIntlClientProvider messages={{ locale: messages.locale }}>
             <LocaleSwitch locale={locale} />
           </NextIntlClientProvider>
         </div>
       </div>
 
-      <nav
-        className="no-scrollbar mt-3 flex gap-x-1 overflow-x-auto border-b border-subtle pb-2"
-        aria-label={tn("label")}
-      >
-        {links.map((link) => (
-          <Link
-            key={link.key}
-            href={link.href}
-            /* The active item carries both a fill and a hue, so the state is not
-               colour-alone — same signature as .control-on. */
-            className={clsx(
-              "eyebrow row-shift flex min-h-8 shrink-0 items-center rounded-control px-3",
-              active === link.key
-                ? "bg-sunk font-semibold text-accent"
-                : "text-tertiary hover:text-primary",
-            )}
-            aria-current={active === link.key ? "page" : undefined}
-          >
-            {tn(link.key)}
-          </Link>
-        ))}
-      </nav>
+      {/* The border and spacing moved to this wrapper so the phone-sized currency button can
+          sit beside the links; from sm up the button is hidden and the nav fills the row as
+          it always did. */}
+      <div className="mt-3 flex items-start gap-2 border-b border-subtle pb-2">
+        <nav
+          className="no-scrollbar flex min-w-0 flex-1 gap-x-1 overflow-x-auto"
+          aria-label={tn("label")}
+        >
+          {links.map((link) => (
+            <Link
+              key={link.key}
+              href={link.href}
+              /* The active item carries both a fill and a hue, so the state is not
+                 colour-alone — same signature as .control-on. */
+              className={clsx(
+                "eyebrow row-shift flex min-h-8 shrink-0 items-center rounded-control px-3",
+                active === link.key
+                  ? "bg-sunk font-semibold text-accent"
+                  : "text-tertiary hover:text-primary",
+              )}
+              aria-current={active === link.key ? "page" : undefined}
+            >
+              {tn(link.key)}
+            </Link>
+          ))}
+        </nav>
+        <CurrencyToggle
+          label={tui("currencyLabel")}
+          note={fx ? tui("currencyNote", { rate: formatRate(fx.mxn), date: fx.date }) : ""}
+          switchTo={{
+            USD: tui("currencySwitchTo", { to: "USD" }),
+            MXN: tui("currencySwitchTo", { to: "MXN" }),
+          }}
+        />
+      </div>
     </header>
   );
 }

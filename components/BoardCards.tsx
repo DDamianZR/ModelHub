@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { Price, PriceShort } from "@/components/CurrencyProvider";
 import type { BoardCard } from "@/lib/types";
 
 const SHOWN = 2;
@@ -15,11 +16,12 @@ export async function BoardCards({ cards }: { cards: BoardCard[] }) {
   const t = await getTranslations("home");
   const tt = await getTranslations("table");
 
-  const title = (card: BoardCard): string => {
+  const title = (card: BoardCard): React.ReactNode => {
     if (card.id.startsWith("composite")) return t("board.composite");
     if (card.metric.startsWith("category:")) return tt(card.metric.slice("category:".length));
     if (card.id === "under_1_usd") {
-      return t("board.under_1_usd", { price: card.filter.max_blended_price ?? 0 });
+      const ceiling = card.filter.max_blended_price ?? 0;
+      return t.rich("board.under_1_usd", { price: () => <PriceShort usd={ceiling} /> });
     }
     if (card.id === "cheapest_covered") {
       return t("board.cheapest_covered", { min: card.filter.min_coverage ?? 0 });
@@ -27,10 +29,11 @@ export async function BoardCards({ cards }: { cards: BoardCard[] }) {
     return t(`board.${card.id}`);
   };
 
-  const value = (card: BoardCard): string => {
+  const value = (card: BoardCard): React.ReactNode => {
     if (card.value === null) return "—";
     if (card.metric === "price") {
-      return t("boardPerM", { value: card.value.toFixed(card.value < 1 ? 3 : 2) });
+      const usd = card.value;
+      return t.rich("boardPerM", { value: () => <Price usd={usd} /> });
     }
     return card.value.toFixed(1);
   };

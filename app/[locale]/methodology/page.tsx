@@ -9,11 +9,13 @@ import {
   getCadence,
   getCategoryRules,
   getCategorySources,
+  getFx,
   getMethodologyStats,
   getRanking,
   getRejectedSnapshots,
 } from "@/lib/data";
 import { routing } from "@/i18n/routing";
+import { formatRate } from "@/lib/currency";
 import { CATEGORIES } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -84,6 +86,7 @@ export default async function MethodologyPage({
   const categoryRules = getCategoryRules();
   const bestBy = getBestBy();
   const blend = bestBy.meta.price_blend;
+  const fx = getFx();
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -400,6 +403,12 @@ export default async function MethodologyPage({
               total: blend.input + blend.output,
             })}
           </p>
+          <p>
+            {fx
+              ? t("derived.currency", { rate: formatRate(fx.mxn), date: fx.date })
+              : t("derived.currencyNone")}
+          </p>
+          <p>{t("derived.plans")}</p>
           <p>{t("derived.ratio", { evaluated: bestBy.meta.pareto_evaluated })}</p>
           <p>
             {t("derived.pareto", {

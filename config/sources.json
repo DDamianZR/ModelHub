@@ -507,6 +507,47 @@
       "fragility": "low"
     },
     {
+      "id": "fx",
+      "name": "USD to MXN reference rate (Frankfurter, European Central Bank rates)",
+      "homepage": "https://frankfurter.dev",
+      "status": "active",
+      "freshness": "fresh",
+      "v1_decision": "include",
+      "tier": "metadata",
+      "source_type": "reference_rate",
+      "access": {
+        "type": "json_api",
+        "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN",
+        "auth": "none",
+        "format": "JSON",
+        "rate_limit": "none observed"
+      },
+      "license": {
+        "spdx": "unverified",
+        "evidence": "Public endpoint that answers without a key or an account (checked 2026-11-09). The rates are the European Central Bank's euro foreign exchange reference rates, republished.",
+        "action_required": "A human should read the ECB's reuse terms and Frankfurter's terms of use in a browser. Until then only one number, its date and its publisher are republished.",
+        "scope": "display metadata only; never a score"
+      },
+      "last_observed_update": "2026-11-06 (rate date)",
+      "update_cadence": "once per ECB working day",
+      "expected_cadence_days": 3,
+      "provides": {
+        "fields": [
+          "usd_to_mxn_rate",
+          "rate_date"
+        ]
+      },
+      "notes": [
+        "Never feeds the composite. Prices stay in USD in /data; the rate is applied in the reader's browser, so no converted price is ever stored.",
+        "The cadence is 3 days, not 1, because the ECB fixes no rate on weekends: a rate that is three days old on a Monday is on time."
+      ],
+      "caveats": [
+        "A reference rate is not what a bank, an exchange house or a card network charges a person, and it is not Banxico's FIX rate. The page labels converted prices as an estimate and prints the rate's date.",
+        "Only the pair USD to MXN is read. Adding a currency means changing fx.py and lib/currency.ts, by pull request."
+      ],
+      "fragility": "low"
+    },
+    {
       "id": "aider_polyglot",
       "name": "Aider Polyglot Leaderboard",
       "homepage": "https://aider.chat/docs/leaderboards/",

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import { CurrencyProvider } from "@/components/CurrencyProvider";
 import { routing } from "@/i18n/routing";
+import { getFx } from "@/lib/data";
 import { siteUrl } from "@/lib/site-url";
 import "../globals.css";
 
@@ -87,7 +89,12 @@ export default async function LocaleLayout({
             outer provider exists only so useLocale()/the next-intl Link component still
             resolve for any client component that needs the current locale but not any
             message text. */}
-        <NextIntlClientProvider messages={{}}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={{}}>
+          {/* Only the rate crosses to the browser: two numbers and a date. Prices stay USD in
+              /data and are converted at display time, so this changes how a figure reads and
+              nothing a ranking or a filter computes. */}
+          <CurrencyProvider fx={getFx()}>{children}</CurrencyProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

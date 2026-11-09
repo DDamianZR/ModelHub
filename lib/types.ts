@@ -75,6 +75,16 @@ export type Model = {
    * does describe. Stated rather than hidden: the two axes measure two setups.
    */
   human_preference_variant: string | null;
+  /**
+   * What the router catalogue lists for API use, in USD per million tokens. A side that the
+   * catalogue does not price is null, never 0. Absent when the model is not matched there.
+   */
+  pricing?: {
+    input_usd_per_m: number | null;
+    output_usd_per_m: number | null;
+    source_url: string;
+    measured_at: string;
+  } | null;
   /** USD per million tokens at the fixed input:output blend in config/weights.json. */
   blended_price_usd_per_m?: number | null;
   /** Blended price divided by composite. null when unpriced or not ranked. */
@@ -100,6 +110,21 @@ export type Meta = {
 };
 
 export type Provider = { id: string; display_name: string; country: string };
+
+/**
+ * A consumer subscription plan that includes a model (data/plans.json, from config/plans.json).
+ * Access information entered by pull request, with the page it came from and the day someone
+ * last read it. Never a score, and the fee is never converted into a per-token price.
+ */
+export type Plan = {
+  id: string;
+  name: string;
+  /** USD per month, or null when the plan page lists no fee. */
+  price_usd_per_month: number | null;
+  model_ids: string[];
+  source_url: string;
+  verified_at: string;
+};
 
 export type SourceState = "ok" | "cached" | "stale" | "failed";
 
