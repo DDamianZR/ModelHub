@@ -31,8 +31,8 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from . import catalogue, derived, local
-from .sources import epoch, livebench, lmarena, llmfit, openrouter
+from . import catalogue, derived, local, plans
+from .sources import epoch, fx, livebench, lmarena, llmfit, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
 STALE_AFTER_DAYS = 7
@@ -459,11 +459,17 @@ def main() -> int:
     router_payload, router_status = gather("openrouter", openrouter.collect)
     integrity["openrouter"] = integrity_for(seen, router_payload)
 
+    # USD to MXN reference rate, applied in the browser to prices that stay in USD here.
+    seen = set(DIGESTS)
+    fx_payload, fx_status = gather("fx", fx.collect)
+    integrity["fx"] = integrity_for(seen, fx_payload)
+
     statuses = {
         "epoch": epoch_status,
         "livebench": livebench_status,
         "lmarena": arena_status,
         "openrouter": router_status,
+        "fx": fx_status,
     }
     prev_statuses = previous_statuses()
     for name, status in statuses.items():
@@ -529,6 +535,10 @@ def main() -> int:
     derived.annotate(models, boards_config)
     best_by = derived.build_boards(models, boards_config)
     boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
+    valid_plans, plan_problems = plans.validate(
+        plans.load(), {model["id"] for model in models})
+    for problem in plan_problems:
+        print(f"  plans: withheld - {problem}")
     print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
           f"{len(unranked)} unranked entries; boards: "
           + ", ".join(f"{b['id']}={sum(len(x['rows']) for x in b['benchmarks'])}"
@@ -628,6 +638,11 @@ def main() -> int:
     write_json(DATA / "local_models.json", local.document(
         local_rows, sum(1 for m in models if m.get("is_open_weights")),
         meta["generated_at"], local_catalogue, catalogue_rules))
+    write_json(DATA / "plans.json", plans.document(valid_plans, meta["generated_at"]))
+    if fx_payload.get("rates"):
+        # Not rewritten from nothing: with no rate and no cache the file the last good run
+        # left stays, and the page keeps showing USD with that rate's own date.
+        write_json(DATA / "fx.json", fx.document(fx_payload, meta["generated_at"]))
     write_json(DATA / "best_by.json", {
         "meta": {
             "generated_at": meta["generated_at"], "in_composite": False,
@@ -676,6 +691,9 @@ def main() -> int:
         "openrouter": snapshot_age(router_status.get("last_success"),
                                    cadences.get("openrouter")),
         "llmfit": snapshot_age(llmfit_status.get("last_success"), cadences.get("llmfit")),
+        # Aged from the rate's own date, not from the fetch: the ECB fixes it once per
+        # working day, so a rate fetched today can already be three days old.
+        "fx": snapshot_age(fx_payload.get("date"), cadences.get("fx")),
     }
     snapshot_ages["livebench"]["snapshot"] = livebench_payload.get("snapshot")
     # The composite category each source feeds, so the table can flag the affected column
