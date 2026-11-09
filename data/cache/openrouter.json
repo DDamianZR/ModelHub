@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08",
+  "fetched_at": "2026-11-09",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1303,8 +1303,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2413,
-        "price_output_usd_per_m": 0.4827,
+        "price_input_usd_per_m": 0.894,
+        "price_output_usd_per_m": 1.788,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1341,7 +1341,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.051,
-        "price_output_usd_per_m": 0.41,
+        "price_output_usd_per_m": 0.567,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -2221,7 +2221,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.35,
+        "price_output_usd_per_m": 0.45,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -2259,8 +2259,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0675,
-        "price_output_usd_per_m": 0.225,
+        "price_input_usd_per_m": 0.09,
+        "price_output_usd_per_m": 0.3,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2667,8 +2667,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.08,
+        "price_input_usd_per_m": 0.02,
+        "price_output_usd_per_m": 0.04,
         "slug": "meta-llama/llama-3.1-8b-instruct"
       },
       "meta-llama/llama-3.2-1b-instruct": {
@@ -2987,26 +2987,8 @@
         "price_output_usd_per_m": 0.14,
         "slug": "microsoft/phi-4"
       },
-      "minimax/minimax-m1": {
-        "context_length": 1000000,
-        "created": 1750200414,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "text"
-        ],
-        "key": "minimax-m1",
-        "name": "MiniMax: MiniMax M1",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.55,
-        "price_output_usd_per_m": 2.2,
-        "slug": "minimax/minimax-m1"
-      },
       "minimax/minimax-m2.5": {
-        "context_length": 204800,
+        "context_length": 200000,
         "created": 1770908502,
         "free_tier": false,
         "hugging_face_id": "MiniMaxAI/MiniMax-M2.5",
@@ -3024,7 +3006,7 @@
         "slug": "minimax/minimax-m2.5"
       },
       "minimax/minimax-m2.7": {
-        "context_length": 204800,
+        "context_length": 196608,
         "created": 1773836697,
         "free_tier": false,
         "hugging_face_id": "MiniMaxAI/MiniMax-M2.7",
@@ -3077,8 +3059,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.3,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "minimax/minimax-m3:batch": {
@@ -3461,8 +3443,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.2,
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.3,
         "slug": "mistralai/mistral-small-3.2-24b-instruct"
       },
       "mistralai/mixtral-8x22b-instruct": {
@@ -3709,7 +3691,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.917,
+        "price_input_usd_per_m": 0.883,
         "price_output_usd_per_m": 6.0,
         "slug": "moonshotai/kimi-k3:batch"
       },
@@ -5813,8 +5795,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.026,
-        "price_output_usd_per_m": 0.098,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "openai/gpt-oss-120b"
       },
       "openai/gpt-oss-120b:batch": {
@@ -6763,7 +6745,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.6,
         "price_output_usd_per_m": 3.6,
         "slug": "qwen/qwen3.5-397b-a17b"
       },
@@ -7100,6 +7082,26 @@
         "price_input_usd_per_m": 2.0,
         "price_output_usd_per_m": 6.0,
         "slug": "qwen/qwen3.8-max-0902"
+      },
+      "qwen/qwen3.8-max-0902:batch": {
+        "context_length": 262144,
+        "created": 1788469704,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "qwen3.8-max-0902",
+        "name": "Qwen: Qwen3.8 Max (0902) (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.15,
+        "price_output_usd_per_m": 3.45,
+        "slug": "qwen/qwen3.8-max-0902:batch"
       },
       "qwen/qwen3.8-max-prime": {
         "context_length": 1000000,
@@ -7486,7 +7488,7 @@
         "slug": "stepfun/step-3.7-flash"
       },
       "stepfun/step-5-preview": {
-        "context_length": 1048576,
+        "context_length": 1000000,
         "created": 1791462849,
         "free_tier": false,
         "hugging_face_id": "stepfun-ai/Step-5-Preview",
@@ -7591,8 +7593,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.132,
-        "price_output_usd_per_m": 0.528,
+        "price_input_usd_per_m": 0.0825,
+        "price_output_usd_per_m": 0.33,
         "slug": "tencent/hy3"
       },
       "tencent/hy3-preview": {
@@ -7646,8 +7648,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.834,
-        "price_output_usd_per_m": 2.501,
+        "price_input_usd_per_m": 0.7506,
+        "price_output_usd_per_m": 2.2509,
         "slug": "tencent/hy4-preview"
       },
       "thedrummer/cydonia-24b-v4.1": {
@@ -8118,7 +8120,7 @@
         "slug": "xiaomi/mimo-v2.5"
       },
       "xiaomi/mimo-v2.5-pro": {
-        "context_length": 1050000,
+        "context_length": 1024000,
         "created": 1776874273,
         "free_tier": false,
         "hugging_face_id": "XiaomiMiMo/MiMo-V2.5-Pro",
@@ -8248,8 +8250,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.13,
-        "price_output_usd_per_m": 0.85,
+        "price_input_usd_per_m": 0.2,
+        "price_output_usd_per_m": 1.1,
         "slug": "z-ai/glm-4.5-air"
       },
       "z-ai/glm-4.5v": {
@@ -8413,7 +8415,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.006,
+        "price_input_usd_per_m": 0.0075,
         "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
       },
@@ -8431,8 +8433,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.37,
-        "price_output_usd_per_m": 1.5,
+        "price_input_usd_per_m": 0.623,
+        "price_output_usd_per_m": 1.271,
         "slug": "z-ai/glm-5.2:batch"
       },
       "z-ai/glm-5.3": {
@@ -8489,8 +8491,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.18,
+        "price_input_usd_per_m": 0.043,
+        "price_output_usd_per_m": 0.087,
         "slug": "z-ai/glm-5.3-flash:batch"
       },
       "z-ai/glm-5.3-flashx": {
@@ -8565,8 +8567,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.37,
-        "price_output_usd_per_m": 1.5,
+        "price_input_usd_per_m": 0.45,
+        "price_output_usd_per_m": 2.0,
         "slug": "z-ai/glm-5.3:batch"
       },
       "z-ai/glm-5v-turbo": {
@@ -8784,8 +8786,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.151,
-        "price_output_usd_per_m": 9.3388,
+        "price_input_usd_per_m": 0.1824,
+        "price_output_usd_per_m": 10.1489,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

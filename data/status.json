@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-08T13:16:25+00:00",
+  "generated_at": "2026-11-09T16:08:11+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-08",
+      "last_success": "2026-11-09",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-08",
+      "last_success": "2026-11-09",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
@@ -54,27 +54,33 @@
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-11-08",
+      "last_success": "2026-11-09",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-08",
+      "last_success": "2026-11-09",
+      "error": null,
+      "consecutive_failures": 0
+    },
+    "fx": {
+      "state": "ok",
+      "last_success": "2026-11-09",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-08",
+      "last_success": "2026-11-09",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -83,7 +89,7 @@
     },
     "livebench": {
       "date": "2026-11-05",
-      "age_days": 3,
+      "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -99,8 +105,8 @@
       }
     },
     "lmarena": {
-      "date": "2026-11-06",
-      "age_days": 2,
+      "date": "2026-11-08",
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -108,7 +114,7 @@
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -116,12 +122,20 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
       "warn_days": 14,
       "degraded_days": 28
+    },
+    "fx": {
+      "date": "2026-11-09",
+      "age_days": 0,
+      "freshness": "fresh",
+      "cadence_days": 3,
+      "warn_days": 6,
+      "degraded_days": 12
     }
   },
   "thresholds": {
@@ -138,7 +152,7 @@
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "7255c28bf4e2512265d65d90d0c3e39a1700a6f8d4a6ea4bc9cc436a2cbee071",
+          "sha256": "3b5171cab38a2e461e1168526c6458ca17bd63ba34edf6164dad0bc69827d595",
           "bytes": 2283869
         }
       ]
@@ -149,18 +163,29 @@
       "upstream": []
     },
     "lmarena": {
-      "normalised_sha256": "5097d604c09b3be5d82c50c2d9336ca21ef3989f7588ed709eff493d53fa7603",
+      "normalised_sha256": "4a784bfd99d431488654ee2ec90ef04d7af572ee0eafd53b972d14019929626f",
       "requests": 7,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "78b2e3de56f0060ac62d831fe1fc893c4c9e08e1ff7277e1c38271fa127568b7",
+      "normalised_sha256": "82fe7d5f0bc1d2d6ad9f3afacec48170d255e3413958100503c2385276f8b378",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "88b6a14932c22794f80f5c7ee1542227109f95ed7b259c9773c8800d70c156e5",
-          "bytes": 829008
+          "sha256": "5b335b37a9a9711568357a3ec4d8f2f86c6c78837884046ba753258326b4f911",
+          "bytes": 829648
+        }
+      ]
+    },
+    "fx": {
+      "normalised_sha256": "9b3c76a3edefb9fcdf8f50a88af700546bb5de5578bd009e194a9a78e9f8bd87",
+      "requests": 1,
+      "upstream": [
+        {
+          "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN",
+          "sha256": "b6a0dc16b6d74644236b969c85f6aa7654cc1fe0fe2fe5ad7ebd920fadba87a4",
+          "bytes": 71
         }
       ]
     },
