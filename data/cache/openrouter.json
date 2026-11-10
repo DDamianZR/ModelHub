@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09",
+  "fetched_at": "2026-11-10",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -283,6 +283,46 @@
         "price_input_usd_per_m": 5.0,
         "price_output_usd_per_m": 25.0,
         "slug": "anthropic/claude-fable-5.1:batch"
+      },
+      "anthropic/claude-fable-5.2": {
+        "context_length": 1000000,
+        "created": 1794253781,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "claude-fable-5.2",
+        "name": "Anthropic: Claude Fable 5.2",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 8.0,
+        "price_output_usd_per_m": 40.0,
+        "slug": "anthropic/claude-fable-5.2"
+      },
+      "anthropic/claude-fable-5.2:batch": {
+        "context_length": 1000000,
+        "created": 1794253781,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "claude-fable-5.2",
+        "name": "Anthropic: Claude Fable 5.2 (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 4.0,
+        "price_output_usd_per_m": 20.0,
+        "slug": "anthropic/claude-fable-5.2:batch"
       },
       "anthropic/claude-fable-5:batch": {
         "context_length": 1000000,
@@ -1303,8 +1343,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.894,
-        "price_output_usd_per_m": 1.788,
+        "price_input_usd_per_m": 0.9553,
+        "price_output_usd_per_m": 1.9105,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1340,8 +1380,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.051,
-        "price_output_usd_per_m": 0.567,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.2,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -1397,8 +1437,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.011,
-        "price_output_usd_per_m": 0.2,
+        "price_input_usd_per_m": 0.112,
+        "price_output_usd_per_m": 0.336,
         "slug": "deepseek/deepseek-v4.1-flash:batch"
       },
       "dots-studio/dots-3-note-preview:free": {
@@ -2259,8 +2299,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.09,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.08,
+        "price_output_usd_per_m": 0.1,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2721,8 +2761,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.59,
-        "price_output_usd_per_m": 0.79,
+        "price_input_usd_per_m": 0.71,
+        "price_output_usd_per_m": 0.71,
         "slug": "meta-llama/llama-3.3-70b-instruct"
       },
       "meta-llama/llama-4-maverick": {
@@ -2781,6 +2821,28 @@
         "price_input_usd_per_m": 0.18,
         "price_output_usd_per_m": 0.18,
         "slug": "meta-llama/llama-guard-4-12b"
+      },
+      "meta/muse-ember": {
+        "context_length": 1048576,
+        "created": 1794247648,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "muse-ember",
+        "name": "Meta: Muse Ember",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.5,
+        "slug": "meta/muse-ember"
       },
       "meta/muse-glimmer-30b": {
         "context_length": 131072,
@@ -3059,8 +3121,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "minimax/minimax-m3:batch": {
@@ -3691,8 +3753,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.883,
-        "price_output_usd_per_m": 6.0,
+        "price_input_usd_per_m": 2.28,
+        "price_output_usd_per_m": 11.4,
         "slug": "moonshotai/kimi-k3:batch"
       },
       "morph/morph-v3-fast": {
@@ -3804,6 +3866,25 @@
         "price_input_usd_per_m": 0.075,
         "price_output_usd_per_m": 0.25,
         "slug": "nex-agi/nex-n2.5-pro"
+      },
+      "nex-agi/nex-n2.6": {
+        "context_length": 262144,
+        "created": 1794282379,
+        "free_tier": false,
+        "hugging_face_id": "nex-agi/Nex-N2.6",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "nex-n2.6",
+        "name": "Nex AGI: Nex-N2.6",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.12,
+        "price_output_usd_per_m": 0.4,
+        "slug": "nex-agi/nex-n2.6"
       },
       "nousresearch/hermes-4-405b": {
         "context_length": 131072,
@@ -3988,7 +4069,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.5,
+        "price_output_usd_per_m": 0.47,
         "slug": "nvidia/nemotron-3.5-super-vl"
       },
       "nvidia/nemotron-3.5-super-vl:free": {
@@ -6409,8 +6490,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.12,
-        "price_output_usd_per_m": 0.24,
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.22,
         "slug": "qwen/qwen3-14b"
       },
       "qwen/qwen3-235b-a22b-2507": {
@@ -7004,7 +7085,7 @@
         "slug": "qwen/qwen3.8-2.4t-a95b"
       },
       "qwen/qwen3.8-27b": {
-        "context_length": 1024000,
+        "context_length": 1048575,
         "created": 1786722910,
         "free_tier": false,
         "hugging_face_id": "Qwen/Qwen3.8-27B",
@@ -7258,13 +7339,13 @@
         "context_length": 1048576,
         "created": 1793818990,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "ricursiveAI/Ripple-65B-Preview",
         "input_modalities": [
           "text"
         ],
         "key": "ripple-65b",
         "name": "Ricursive: Ripple 65B Preview",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -7427,28 +7508,6 @@
         "price_output_usd_per_m": 0.0,
         "slug": "scaledown/summarize"
       },
-      "stealth/crouton-alpha": {
-        "context_length": 1048576,
-        "created": 1793669930,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "audio",
-          "file",
-          "image",
-          "text",
-          "video"
-        ],
-        "key": "crouton-alpha",
-        "name": "Crouton Alpha",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "stealth/crouton-alpha"
-      },
       "stepfun/step-3.5-flash": {
         "context_length": 262144,
         "created": 1769728337,
@@ -7593,8 +7652,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0825,
-        "price_output_usd_per_m": 0.33,
+        "price_input_usd_per_m": 0.132,
+        "price_output_usd_per_m": 0.528,
         "slug": "tencent/hy3"
       },
       "tencent/hy3-preview": {
@@ -7648,8 +7707,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7506,
-        "price_output_usd_per_m": 2.2509,
+        "price_input_usd_per_m": 0.834,
+        "price_output_usd_per_m": 2.501,
         "slug": "tencent/hy4-preview"
       },
       "thedrummer/cydonia-24b-v4.1": {
@@ -7725,6 +7784,25 @@
         "price_input_usd_per_m": 1.0,
         "price_output_usd_per_m": 4.05,
         "slug": "thinkingmachines/inkling"
+      },
+      "thinkingmachines/inkling-2-small:free": {
+        "context_length": 1048576,
+        "created": 1794261847,
+        "free_tier": true,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "inkling-2-small",
+        "name": "Thinking Machines: Inkling 2 Small (free)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.0,
+        "price_output_usd_per_m": 0.0,
+        "slug": "thinkingmachines/inkling-2-small:free"
       },
       "thinkingmachines/inkling-small": {
         "context_length": 524288,
@@ -8415,7 +8493,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0075,
+        "price_input_usd_per_m": 0.007,
         "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
       },
@@ -8433,8 +8511,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.623,
-        "price_output_usd_per_m": 1.271,
+        "price_input_usd_per_m": 0.527,
+        "price_output_usd_per_m": 1.075,
         "slug": "z-ai/glm-5.2:batch"
       },
       "z-ai/glm-5.3": {
@@ -8471,8 +8549,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0335,
-        "price_output_usd_per_m": 0.083,
+        "price_input_usd_per_m": 0.0399,
+        "price_output_usd_per_m": 0.0784,
         "slug": "z-ai/glm-5.3-flash"
       },
       "z-ai/glm-5.3-flash:batch": {
@@ -8491,8 +8569,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.043,
-        "price_output_usd_per_m": 0.087,
+        "price_input_usd_per_m": 0.03,
+        "price_output_usd_per_m": 0.061,
         "slug": "z-ai/glm-5.3-flash:batch"
       },
       "z-ai/glm-5.3-flashx": {
@@ -8607,8 +8685,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 10.0,
-        "price_output_usd_per_m": 50.0,
+        "price_input_usd_per_m": 8.0,
+        "price_output_usd_per_m": 40.0,
         "slug": "~anthropic/claude-fable-latest"
       },
       "~anthropic/claude-haiku-latest": {
@@ -8787,7 +8865,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 10.1489,
+        "price_output_usd_per_m": 9.3388,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {
@@ -8945,8 +9023,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0335,
-        "price_output_usd_per_m": 0.083,
+        "price_input_usd_per_m": 0.0399,
+        "price_output_usd_per_m": 0.0784,
         "slug": "~z-ai/glm-flash-latest"
       },
       "~z-ai/glm-latest": {

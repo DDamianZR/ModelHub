@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-09T16:08:11+00:00",
+  "generated_at": "2026-11-10T14:48:28+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-09",
+      "last_success": "2026-11-10",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-09",
+      "last_success": "2026-11-10",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
         "coding": {
           "release": "2026-06-25",
           "fallback": false,
-          "drift": 19.14,
+          "drift": 11.47,
           "common_models": 19,
           "reason": "not_comparable_more_coverage_older",
           "max_drift": 3.0,
@@ -42,7 +42,7 @@
           "min_common_models": 10
         },
         "reasoning": {
-          "release": "2026-10-25",
+          "release": "2026-11-06",
           "fallback": true,
           "drift": 0.13,
           "common_models": 19,
@@ -53,34 +53,34 @@
       }
     },
     "lmarena": {
-      "state": "ok",
+      "state": "cached",
       "last_success": "2026-11-09",
-      "error": null,
-      "served_by": "rows-latest",
-      "consecutive_failures": 0
+      "age_days": 1,
+      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=0&length=100: HTTP Error 502: Bad Gateway",
+      "consecutive_failures": 1
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-09",
+      "last_success": "2026-11-10",
       "error": null,
       "consecutive_failures": 0
     },
     "fx": {
       "state": "ok",
-      "last_success": "2026-11-09",
+      "last_success": "2026-11-10",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-09",
+      "last_success": "2026-11-10",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -88,25 +88,25 @@
       "degraded_days": 4
     },
     "livebench": {
-      "date": "2026-11-05",
+      "date": "2026-11-06",
       "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
       "degraded_days": 120,
-      "snapshot": "2026-10-25",
+      "snapshot": "2026-11-06",
       "category": "instruction_following",
       "observed": {
-        "snapshots": 13,
-        "median_gap_days": 35.5,
+        "snapshots": 14,
+        "median_gap_days": 35,
         "longest_gap_days": 179,
         "first": "2024-06-24",
-        "last": "2026-10-25"
+        "last": "2026-11-06"
       }
     },
     "lmarena": {
       "date": "2026-11-08",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -114,7 +114,7 @@
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -122,7 +122,7 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
@@ -131,7 +131,7 @@
     },
     "fx": {
       "date": "2026-11-09",
-      "age_days": 0,
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 3,
       "warn_days": 6,
@@ -147,34 +147,34 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "89b02a7a091371a22687ad91da8cbf09dbce016dfa2a1072511b6364e7dadbf6",
+      "normalised_sha256": "4ba9444822166357aff08605e04f15278e90904c24e4794077e03cb0e03de4aa",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "3b5171cab38a2e461e1168526c6458ca17bd63ba34edf6164dad0bc69827d595",
-          "bytes": 2283869
+          "sha256": "0e4da97211703ecbb60f7521654c81634b6d240ab11648f398f4435181801532",
+          "bytes": 2297089
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "1ad1d944a258ea141e35c0bf1f82e8e62e56bc2131c1faeb30370fb5939e81f4",
-      "requests": 28,
+      "normalised_sha256": "12d2e36e425fe519ef026bb5532f6c9491299999ff9c10c900947d6d01365243",
+      "requests": 30,
       "upstream": []
     },
     "lmarena": {
       "normalised_sha256": "4a784bfd99d431488654ee2ec90ef04d7af572ee0eafd53b972d14019929626f",
-      "requests": 7,
+      "requests": 0,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "82fe7d5f0bc1d2d6ad9f3afacec48170d255e3413958100503c2385276f8b378",
+      "normalised_sha256": "39b40a160a799c3d14a355559b0e0aa78451a9cf2cfdf8bfceb3c3aac07a3f90",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "5b335b37a9a9711568357a3ec4d8f2f86c6c78837884046ba753258326b4f911",
-          "bytes": 829648
+          "sha256": "0fe8be8f76491327ce806bb453b076f6dc33a35238ce454353c97aaa3d74a87f",
+          "bytes": 836331
         }
       ]
     },

@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-11-09",
+  "fetched_at": "2026-11-10",
   "payload": {
     "category_rule": {
       "coding": {
         "common_models": 19,
-        "drift": 19.14,
+        "drift": 11.47,
         "fallback": false,
         "max_drift": 3.0,
         "min_common_models": 10,
@@ -36,7 +36,7 @@
         "max_drift": 3.0,
         "min_common_models": 10,
         "reason": "comparable",
-        "release": "2026-10-25"
+        "release": "2026-11-06"
       }
     },
     "published_snapshots": [
@@ -52,13 +52,14 @@
       "2026-01-08",
       "2026-06-25",
       "2026-10-14",
-      "2026-10-25"
+      "2026-10-25",
+      "2026-11-06"
     ],
     "releases_used": {
       "coding": "2026-06-25",
       "instruction_following": "2026-06-25",
       "math": "2026-06-25",
-      "reasoning": "2026-10-25"
+      "reasoning": "2026-11-06"
     },
     "scores": {
       "claude-fable-5": [
@@ -130,7 +131,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 91.7,
@@ -144,6 +145,17 @@
           "source_url": "https://livebench.ai/",
           "value": 91.69,
           "variant": "claude-fable-5-1-max-effort"
+        }
+      ],
+      "claude-fable-5.2": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.8,
+          "variant": "claude-fable-5.2"
         }
       ],
       "claude-haiku-5.5": [
@@ -177,7 +189,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 82.4,
@@ -414,7 +426,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 92.2,
@@ -537,7 +549,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 91.6,
@@ -785,7 +797,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 89.1,
@@ -1013,7 +1025,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 89.3,
@@ -1033,7 +1045,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 95.1,
@@ -1044,7 +1056,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 68.3,
@@ -1158,7 +1170,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 77.6,
@@ -1509,7 +1521,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 90.6,
@@ -1556,7 +1568,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 92.7,
@@ -1603,7 +1615,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 81.8,
@@ -1688,7 +1700,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 92.6,
@@ -1708,7 +1720,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 88.7,
@@ -1822,7 +1834,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 91.2,
@@ -1869,7 +1881,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 82.7,
@@ -1954,7 +1966,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 78.3,
@@ -2077,7 +2089,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 90.7,
@@ -2097,7 +2109,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 91.1,
@@ -2108,7 +2120,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 79.6,
@@ -2157,7 +2169,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 82.9,
@@ -2195,7 +2207,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 83.9,
@@ -2215,7 +2227,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 85.2,
@@ -2329,7 +2341,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 89.7,
@@ -2349,7 +2361,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 73.7,
@@ -2387,7 +2399,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 90.6,
@@ -2483,7 +2495,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 74.6,
@@ -2494,7 +2506,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 71.7,
@@ -2684,7 +2696,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 88.2,
@@ -2769,7 +2781,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 80.0,
@@ -2903,7 +2915,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 75.1,
@@ -2914,7 +2926,7 @@
         {
           "benchmark_id": "livebench_reasoning",
           "category": "reasoning",
-          "measured_at": "2026-10-25",
+          "measured_at": "2026-11-06",
           "source_type": "third_party_benchmark",
           "source_url": "https://livebench.ai/",
           "value": 83.8,
@@ -2922,6 +2934,6 @@
         }
       ]
     },
-    "snapshot": "2026-10-25"
+    "snapshot": "2026-11-06"
   }
 }

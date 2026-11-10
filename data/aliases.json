@@ -36,6 +36,24 @@
       "lmarena": []
     }
   },
+  "anthropic-claude-fable-5-2": {
+    "canonical_key": "claude-fable-5.2",
+    "display_name": "Claude Fable 5.2 (high)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "claude-fable-5.2"
+    ],
+    "matched": {
+      "epoch": [
+        "claude-fable-5-2_max"
+      ],
+      "livebench": [
+        "claude-fable-5.2"
+      ],
+      "lmarena": []
+    }
+  },
   "anthropic-claude-haiku-4-5": {
     "canonical_key": "claude-haiku-4.5",
     "display_name": "Claude Haiku 4.5",
