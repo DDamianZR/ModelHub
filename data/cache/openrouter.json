@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10",
+  "fetched_at": "2026-11-11",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -96,13 +96,13 @@
         "context_length": 32768,
         "created": 1738696718,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "aion-labs/Aion-RP-Llama-3.1-8B",
         "input_modalities": [
           "text"
         ],
         "key": "aion-rp-llama-3.1.8b",
         "name": "AionLabs: Aion-RP 1.0 (8B)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -864,45 +864,41 @@
         "price_output_usd_per_m": 5.0,
         "slug": "anthropic/claude-sonnet-5:batch"
       },
-      "bytedance-seed/seed-1.6": {
-        "context_length": 262144,
-        "created": 1766504997,
-        "free_tier": false,
-        "hugging_face_id": null,
+      "baidu/ernie-5.5-flash-preview:free": {
+        "context_length": 1024000,
+        "created": 1794333533,
+        "free_tier": true,
+        "hugging_face_id": "baidu/ERNIE-5.5-Flash-Preview",
         "input_modalities": [
-          "image",
-          "text",
-          "video"
+          "text"
         ],
-        "key": "seed-1.6",
-        "name": "ByteDance Seed: Seed 1.6",
-        "open_weights": false,
+        "key": "ernie-5.5-flash",
+        "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.25,
-        "price_output_usd_per_m": 2.0,
-        "slug": "bytedance-seed/seed-1.6"
+        "price_input_usd_per_m": 0.0,
+        "price_output_usd_per_m": 0.0,
+        "slug": "baidu/ernie-5.5-flash-preview:free"
       },
-      "bytedance-seed/seed-1.6-flash": {
-        "context_length": 262144,
-        "created": 1766505011,
+      "baidu/ernie-light-dt-1.0-intl": {
+        "context_length": 1024000,
+        "created": 1794331260,
         "free_tier": false,
         "hugging_face_id": null,
         "input_modalities": [
-          "image",
-          "text",
-          "video"
+          "text"
         ],
-        "key": "seed-1.6-flash",
-        "name": "ByteDance Seed: Seed 1.6 Flash",
+        "key": "ernie-light-dt-1.0-intl",
+        "name": "Baidu: ERNIE-Light-DT-1.0",
         "open_weights": false,
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
-        "slug": "bytedance-seed/seed-1.6-flash"
+        "price_input_usd_per_m": 1.13,
+        "price_output_usd_per_m": 3.94,
+        "slug": "baidu/ernie-light-dt-1.0-intl"
       },
       "bytedance-seed/seed-2-1-turbo": {
         "context_length": 262144,
@@ -923,26 +919,6 @@
         "price_input_usd_per_m": 0.5,
         "price_output_usd_per_m": 2.5,
         "slug": "bytedance-seed/seed-2-1-turbo"
-      },
-      "bytedance-seed/seed-2.0-code": {
-        "context_length": 262144,
-        "created": 1786550701,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "image",
-          "text",
-          "video"
-        ],
-        "key": "seed-2.0-code",
-        "name": "ByteDance Seed: Seed-2.0-Code",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.5,
-        "price_output_usd_per_m": 3.0,
-        "slug": "bytedance-seed/seed-2.0-code"
       },
       "bytedance-seed/seed-2.0-lite": {
         "context_length": 262144,
@@ -1043,14 +1019,14 @@
         "context_length": 192000,
         "created": 1790102896,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/command-a-plus-05-2026-bf16",
         "input_modalities": [
           "image",
           "text"
         ],
         "key": "command-a-plus",
         "name": "Cohere: Command A+",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -1062,13 +1038,13 @@
         "context_length": 128000,
         "created": 1724976000,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/c4ai-command-r-08-2024",
         "input_modalities": [
           "text"
         ],
         "key": "command-r-08.2024",
         "name": "Cohere: Command R (08-2024)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -1080,13 +1056,13 @@
         "context_length": 128000,
         "created": 1724976000,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/c4ai-command-r-plus-08-2024",
         "input_modalities": [
           "text"
         ],
         "key": "command-r-plus-08.2024",
         "name": "Cohere: Command R+ (08-2024)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -1098,13 +1074,13 @@
         "context_length": 128000,
         "created": 1734158152,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/c4ai-command-r7b-12-2024",
         "input_modalities": [
           "text"
         ],
         "key": "command-r7b-12.2024",
         "name": "Cohere: Command R7B (12-2024)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -1270,8 +1246,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.091,
-        "price_output_usd_per_m": 0.182,
+        "price_input_usd_per_m": 0.09,
+        "price_output_usd_per_m": 0.18,
         "slug": "deepseek/deepseek-v4-flash"
       },
       "deepseek/deepseek-v4-flash-0731": {
@@ -1343,8 +1319,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.9553,
-        "price_output_usd_per_m": 1.9105,
+        "price_input_usd_per_m": 0.8923,
+        "price_output_usd_per_m": 1.7845,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1380,8 +1356,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.051,
+        "price_output_usd_per_m": 0.567,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -1445,14 +1421,14 @@
         "context_length": 512000,
         "created": 1786680361,
         "free_tier": true,
-        "hugging_face_id": null,
+        "hugging_face_id": "dots-studio/dots3-note-prev",
         "input_modalities": [
           "image",
           "text"
         ],
         "key": "dots-3-note",
         "name": "Dots Studio: Dots3-Note Preview (free)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -2146,6 +2122,50 @@
         "price_output_usd_per_m": 5.0,
         "slug": "google/gemini-4-argon:batch"
       },
+      "google/gemini-4-carbon": {
+        "context_length": 1048576,
+        "created": 1794326871,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-carbon",
+        "name": "Google: Gemini 4 Carbon",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 2.0,
+        "price_output_usd_per_m": 10.0,
+        "slug": "google/gemini-4-carbon"
+      },
+      "google/gemini-4-carbon:batch": {
+        "context_length": 1048576,
+        "created": 1794326871,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-carbon",
+        "name": "Google: Gemini 4 Carbon (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.0,
+        "price_output_usd_per_m": 5.0,
+        "slug": "google/gemini-4-carbon:batch"
+      },
       "google/gemini-nano-banana-2.1": {
         "context_length": 65536,
         "created": 1791300825,
@@ -2499,13 +2519,13 @@
         "context_length": 1000000,
         "created": 1790950024,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "inclusionAI/Ling-3.1-flash",
         "input_modalities": [
           "text"
         ],
         "key": "ling-3.1-flash",
         "name": "inclusionAI: Ling 3.1 Flash",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -2548,6 +2568,24 @@
         "price_input_usd_per_m": 0.03,
         "price_output_usd_per_m": 0.15,
         "slug": "inference-net/schematron-v2-turbo"
+      },
+      "kt/midm-k-3.0-pro": {
+        "context_length": 261795,
+        "created": 1793897701,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "text"
+        ],
+        "key": "midm-k-3.0-pro",
+        "name": "KT: Mi:dm K 3.0 Pro",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.2,
+        "price_output_usd_per_m": 0.8,
+        "slug": "kt/midm-k-3.0-pro"
       },
       "liquid/lfm-2.5-2.6b": {
         "context_length": 128000,
@@ -2653,8 +2691,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.4,
-        "price_output_usd_per_m": 0.75,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 0.5,
         "slug": "mancer/weaver"
       },
       "meituan/longcat-2.0": {
@@ -3063,8 +3101,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.27,
+        "price_output_usd_per_m": 1.08,
         "slug": "minimax/minimax-m2.5"
       },
       "minimax/minimax-m2.7": {
@@ -3263,14 +3301,14 @@
         "context_length": 131072,
         "created": 1731978415,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Large-Instruct-2407",
         "input_modalities": [
           "file",
           "text"
         ],
         "key": "mistral-large-2407",
         "name": "Mistral Large 2407",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -3282,7 +3320,7 @@
         "context_length": 262144,
         "created": 1764624472,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
         "input_modalities": [
           "file",
           "image",
@@ -3290,7 +3328,7 @@
         ],
         "key": "mistral-large-2512",
         "name": "Mistral: Mistral Large 3 2512",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -3341,7 +3379,7 @@
         "context_length": 262144,
         "created": 1777570439,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
         "input_modalities": [
           "file",
           "image",
@@ -3349,7 +3387,7 @@
         ],
         "key": "mistral-medium-3.5",
         "name": "Mistral: Mistral Medium 3.5",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -3361,7 +3399,7 @@
         "context_length": 262144,
         "created": 1777570439,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
         "input_modalities": [
           "file",
           "image",
@@ -3369,7 +3407,7 @@
         ],
         "key": "mistral-medium-3.5",
         "name": "Mistral: Mistral Medium 3.5 (batch)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -3829,6 +3867,24 @@
         "price_output_usd_per_m": 0.95,
         "slug": "morph/morph-v3-large:batch"
       },
+      "motif-technologies/motif-3": {
+        "context_length": 262144,
+        "created": 1793655334,
+        "free_tier": false,
+        "hugging_face_id": "Motif-Technologies/Motif-3",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "motif-3",
+        "name": "Motif Technologies: Motif 3",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.2,
+        "slug": "motif-technologies/motif-3"
+      },
       "nex-agi/nex-n2.5-mini": {
         "context_length": 262144,
         "created": 1788890061,
@@ -3944,7 +4000,7 @@
         "slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
       },
       "nvidia/nemotron-3-super-120b-a12b": {
-        "context_length": 1048576,
+        "context_length": 262144,
         "created": 1773245239,
         "free_tier": false,
         "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
@@ -4056,7 +4112,7 @@
         "context_length": 1048576,
         "created": 1792076662,
         "free_tier": false,
-        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
         "input_modalities": [
           "image",
           "text",
@@ -4076,7 +4132,7 @@
         "context_length": 1000000,
         "created": 1792076662,
         "free_tier": true,
-        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
         "input_modalities": [
           "image",
           "text",
@@ -6403,24 +6459,6 @@
         "price_output_usd_per_m": 0.4,
         "slug": "qwen/qwen-2.5-72b-instruct"
       },
-      "qwen/qwen-2.5-7b-instruct": {
-        "context_length": 32768,
-        "created": 1729036800,
-        "free_tier": false,
-        "hugging_face_id": "Qwen/Qwen2.5-7B-Instruct",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "qwen-2.5.7b",
-        "name": "Qwen: Qwen2.5 7B Instruct",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.2,
-        "slug": "qwen/qwen-2.5-7b-instruct"
-      },
       "qwen/qwen-2.5-coder-32b-instruct": {
         "context_length": 32768,
         "created": 1731368400,
@@ -7918,8 +7956,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.35,
-        "price_output_usd_per_m": 0.65,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 0.5,
         "slug": "undi95/remm-slerp-l2-13b"
       },
       "upstage/solar-mini4": {
@@ -8278,24 +8316,6 @@
         "price_output_usd_per_m": 8.7,
         "slug": "xiaomi/mimo-v2.6-pro-ultraspeed"
       },
-      "xingchen-agi/xing4.0-29b-a4b:free": {
-        "context_length": 262144,
-        "created": 1792177496,
-        "free_tier": true,
-        "hugging_face_id": "XingChen-AGI/Xing4.0-29B-A4B",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "xing4.0.29b-a4b",
-        "name": "XingChen: Xing4.0 29B A4B (free)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "xingchen-agi/xing4.0-29b-a4b:free"
-      },
       "z-ai/glm-4.5": {
         "context_length": 131072,
         "created": 1753471347,
@@ -8475,8 +8495,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.4,
-        "price_output_usd_per_m": 4.4,
+        "price_input_usd_per_m": 1.33,
+        "price_output_usd_per_m": 4.18,
         "slug": "z-ai/glm-5.1"
       },
       "z-ai/glm-5.2": {
@@ -8569,7 +8589,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.03,
+        "price_input_usd_per_m": 0.047,
         "price_output_usd_per_m": 0.061,
         "slug": "z-ai/glm-5.3-flash:batch"
       },
@@ -8865,7 +8885,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 9.3388,
+        "price_output_usd_per_m": 11.0055,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

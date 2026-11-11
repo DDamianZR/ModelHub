@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-11-10",
+    "generated_at": "2026-11-11",
     "in_composite": false,
     "price_blend": {
       "input": 3,
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 7,
-    "pareto_evaluated": 60
+    "pareto_members": 6,
+    "pareto_evaluated": 61
   },
   "boards": [
     {
@@ -16,7 +16,7 @@
       "metric": "composite",
       "order": "max",
       "filter": {},
-      "candidates": 63,
+      "candidates": 65,
       "value": 84.49,
       "winners": [
         "anthropic-claude-fable-5-1",
@@ -29,7 +29,7 @@
       "metric": "category:reasoning",
       "order": "max",
       "filter": {},
-      "candidates": 63,
+      "candidates": 65,
       "value": 94.21,
       "winners": [
         "openai-gpt-6-astra",
@@ -52,7 +52,7 @@
       "metric": "category:coding",
       "order": "max",
       "filter": {},
-      "candidates": 63,
+      "candidates": 65,
       "value": 78.73,
       "winners": [
         "anthropic-claude-opus-5-5",
@@ -66,7 +66,7 @@
       "metric": "category:math",
       "order": "max",
       "filter": {},
-      "candidates": 63,
+      "candidates": 65,
       "value": 97.08,
       "winners": [
         "anthropic-claude-opus-5-5"
@@ -90,7 +90,7 @@
       "metric": "category:instruction_following",
       "order": "max",
       "filter": {},
-      "candidates": 54,
+      "candidates": 56,
       "value": 81.41,
       "winners": [
         "google-deepmind-gemini-3.8-flash"
@@ -132,7 +132,7 @@
       "filter": {
         "min_coverage": 4
       },
-      "candidates": 60,
+      "candidates": 61,
       "value": 0.0495,
       "winners": [
         "z-ai-zhipu-ai-glm-5.3-flash"

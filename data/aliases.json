@@ -673,6 +673,24 @@
       "lmarena": []
     }
   },
+  "google-deepmind-gemini-4-carbon": {
+    "canonical_key": "gemini-4-carbon",
+    "display_name": "Gemini 4 Carbon (high)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "gemini-4-carbon"
+    ],
+    "matched": {
+      "epoch": [
+        "gemini-4-carbon_high"
+      ],
+      "livebench": [
+        "gemini-4-carbon"
+      ],
+      "lmarena": []
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4.31b",
     "display_name": "Gemma 4 31B IT",
@@ -1464,6 +1482,40 @@
       "epoch": [],
       "livebench": [
         "muse-spark-1.2-xhigh"
+      ],
+      "lmarena": []
+    }
+  },
+  "meta-ai-muse-spark-1.3": {
+    "canonical_key": "muse-spark-1.3",
+    "display_name": "Muse Spark 1.3 (high)",
+    "variant": "xhigh",
+    "scored_arena_name": null,
+    "names": [
+      "muse-spark-1.3"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "muse-spark-1.3",
+        "muse-spark-1.3-xhigh"
+      ],
+      "lmarena": []
+    }
+  },
+  "meta-ai-muse-wonder-1.0": {
+    "canonical_key": "muse-wonder-1.0",
+    "display_name": "Muse Wonder (high)",
+    "variant": "max",
+    "scored_arena_name": null,
+    "names": [
+      "muse-wonder-1.0"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "muse-wonder-1.0",
+        "muse-wonder-1.0-max"
       ],
       "lmarena": []
     }

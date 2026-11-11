@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10",
+  "fetched_at": "2026-11-11",
   "payload": {
     "boards": {
       "agentic": {
@@ -7,16 +7,28 @@
           "name": "MirrorCode",
           "rows": {
             "claude-fable-5": {
-              "measured_at": "2026-08-10",
-              "stderr": 10.404,
-              "value": 63.89,
-              "variant": "claude-fable-5_high"
+              "measured_at": "2026-10-30",
+              "stderr": 10.44,
+              "value": 70.0,
+              "variant": "claude-fable-5_max"
             },
             "claude-fable-5.1": {
-              "measured_at": "2026-09-10",
-              "stderr": 9.17,
-              "value": 73.3,
-              "variant": "claude-fable-5-1_high"
+              "measured_at": "2026-09-09",
+              "stderr": 3.917,
+              "value": 93.33,
+              "variant": "claude-fable-5-1_max"
+            },
+            "claude-haiku-5.5": {
+              "measured_at": "2026-10-21",
+              "stderr": 8.045,
+              "value": 78.89,
+              "variant": "claude-haiku-5-5_max"
+            },
+            "claude-opus-4.6": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.026,
+              "value": 33.33,
+              "variant": "claude-opus-4-6_max"
             },
             "claude-opus-4.7": {
               "measured_at": "2026-08-12",
@@ -24,11 +36,47 @@
               "value": 31.11,
               "variant": "claude-opus-4-7_high"
             },
+            "claude-opus-4.8": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.846,
+              "value": 65.56,
+              "variant": "claude-opus-4-8_max"
+            },
+            "claude-opus-5": {
+              "measured_at": "2026-10-20",
+              "stderr": 7.176,
+              "value": 87.78,
+              "variant": "claude-opus-5_max"
+            },
             "claude-opus-5.5": {
-              "measured_at": "2026-09-22",
-              "stderr": 7.88,
-              "value": 78.89,
-              "variant": "claude-opus-5-5_high"
+              "measured_at": "2026-10-30",
+              "stderr": 2.555,
+              "value": 95.56,
+              "variant": "claude-opus-5-5_max"
+            },
+            "claude-sonnet-5": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.69,
+              "value": 63.33,
+              "variant": "claude-sonnet-5_max"
+            },
+            "claude-sonnet-5.5": {
+              "measured_at": "2026-10-05",
+              "stderr": 1.514,
+              "value": 97.78,
+              "variant": "claude-sonnet-5-5_max"
+            },
+            "deepseek-v4-pro-0813": {
+              "measured_at": "2026-10-20",
+              "stderr": 10.026,
+              "value": 33.33,
+              "variant": "deepseek-v4-pro-0813_max"
+            },
+            "deepseek-v4.1-flash": {
+              "measured_at": "2026-10-21",
+              "stderr": 11.37,
+              "value": 64.44,
+              "variant": "deepseek-v4.1-flash_max"
             },
             "gemini-3.1-pro": {
               "measured_at": "2026-08-10",
@@ -36,11 +84,23 @@
               "value": 8.89,
               "variant": "gemini-3.1-pro-preview_high"
             },
+            "gemini-3.6-flash": {
+              "measured_at": "2026-10-21",
+              "stderr": 9.315,
+              "value": 23.33,
+              "variant": "gemini-3.6-flash_high"
+            },
             "gemini-3.7-flash": {
               "measured_at": "2026-10-21",
               "stderr": 12.157,
               "value": 41.11,
               "variant": "gemini-3.7-flash_high"
+            },
+            "gemini-3.8-flash": {
+              "measured_at": "2026-09-02",
+              "stderr": 11.915,
+              "value": 38.89,
+              "variant": "gemini-3.8-flash_high"
             },
             "gemini-4-argon": {
               "measured_at": "2026-10-14",
@@ -48,23 +108,41 @@
               "value": 58.89,
               "variant": "gemini-4-argon_high"
             },
+            "glm-5.2": {
+              "measured_at": "2026-10-21",
+              "stderr": 11.524,
+              "value": 36.67,
+              "variant": "glm-5.2_max"
+            },
             "gpt-5": {
               "measured_at": "2026-10-21",
               "stderr": 3.438,
               "value": 4.44,
               "variant": "gpt-5-2025-08-07_high"
             },
+            "gpt-5.2": {
+              "measured_at": "2026-10-21",
+              "stderr": 9.956,
+              "value": 32.22,
+              "variant": "gpt-5.2-2025-12-11_xhigh"
+            },
             "gpt-5.4": {
-              "measured_at": "2026-08-10",
-              "stderr": 7.709,
-              "value": 15.56,
-              "variant": "gpt-5.4-2026-03-05_high"
+              "measured_at": "2026-10-29",
+              "stderr": 8.1,
+              "value": 23.33,
+              "variant": "gpt-5.4-2026-03-05_xhigh"
             },
             "gpt-5.5": {
-              "measured_at": "2026-08-10",
-              "stderr": 6.042,
-              "value": 10.0,
-              "variant": "gpt-5.5_high"
+              "measured_at": "2026-10-29",
+              "stderr": 10.131,
+              "value": 23.33,
+              "variant": "gpt-5.5_xhigh"
+            },
+            "gpt-5.6-luna": {
+              "measured_at": "2026-10-21",
+              "stderr": 9.822,
+              "value": 21.11,
+              "variant": "gpt-5.6-luna_max"
             },
             "gpt-5.6-sol": {
               "measured_at": "2026-08-10",
@@ -72,17 +150,41 @@
               "value": 20.0,
               "variant": "gpt-5.6-sol_high"
             },
+            "gpt-5.6-terra": {
+              "measured_at": "2026-10-20",
+              "stderr": 12.373,
+              "value": 41.11,
+              "variant": "gpt-5.6-terra_max"
+            },
             "gpt-6-astra": {
-              "measured_at": "2026-08-30",
-              "stderr": 11.86,
-              "value": 46.7,
-              "variant": "gpt-6-astra_high"
+              "measured_at": "2026-10-29",
+              "stderr": 11.819,
+              "value": 60.0,
+              "variant": "gpt-6-astra_max"
             },
             "gpt-6-luna": {
               "measured_at": "2026-10-21",
               "stderr": 9.027,
               "value": 26.67,
               "variant": "gpt-6-luna_max"
+            },
+            "gpt-6-sol": {
+              "measured_at": "2026-10-29",
+              "stderr": 11.206,
+              "value": 48.89,
+              "variant": "gpt-6-sol_max"
+            },
+            "gpt-6.1-sol": {
+              "measured_at": "2026-10-05",
+              "stderr": 11.347,
+              "value": 61.11,
+              "variant": "gpt-6.1-sol_max"
+            },
+            "gpt-6.1-terra": {
+              "measured_at": "2026-10-30",
+              "stderr": 9.315,
+              "value": 76.67,
+              "variant": "gpt-6.1-terra_max"
             },
             "grok-4.5": {
               "measured_at": "2026-10-21",
@@ -95,6 +197,48 @@
               "stderr": 11.015,
               "value": 41.11,
               "variant": "grok-4.6_xhigh"
+            },
+            "grok-4.7": {
+              "measured_at": "2026-10-29",
+              "stderr": 11.44,
+              "value": 54.44,
+              "variant": "grok-4.7_xhigh"
+            },
+            "kimi-k3": {
+              "measured_at": "2026-09-03",
+              "stderr": 11.44,
+              "value": 54.44,
+              "variant": "kimi-k3_max"
+            },
+            "mistral-large-4.0": {
+              "measured_at": "2026-10-21",
+              "stderr": 8.859,
+              "value": 27.78,
+              "variant": "mistral-large-4-0_high"
+            },
+            "muse-spark-1.3": {
+              "measured_at": "2026-10-20",
+              "stderr": 10.846,
+              "value": 54.44,
+              "variant": "muse-spark-1.3_max"
+            },
+            "muse-wonder-1.0": {
+              "measured_at": "2026-10-14",
+              "stderr": 10.599,
+              "value": 45.56,
+              "variant": "muse-wonder-1.0_max"
+            },
+            "qwen3.8": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.895,
+              "value": 52.22,
+              "variant": "qwen3.8-max_xhigh"
+            },
+            "qwen3.8-max-0902": {
+              "measured_at": "2026-10-21",
+              "stderr": 10.27,
+              "value": 47.78,
+              "variant": "qwen3.8-max-0902_xhigh"
             }
           }
         },
@@ -359,6 +503,12 @@
               "stderr": 1.351,
               "value": 76.0,
               "variant": "gemini-4-argon_high"
+            },
+            "gemini-4-carbon": {
+              "measured_at": "2026-11-02",
+              "stderr": 1.317,
+              "value": 77.7,
+              "variant": "gemini-4-carbon_high"
             },
             "gemma-4.31b": {
               "measured_at": "2026-08-27",
@@ -2828,6 +2978,15 @@
         "organization": "Moonshot",
         "release_date": "2025-09-05"
       },
+      "muse-ember-1.0": {
+        "accessibility": "",
+        "country": "United States of America",
+        "display_name": "Muse Ember",
+        "eci": 0.0,
+        "id_key": "muse-ember-1.0",
+        "organization": "Meta AI",
+        "release_date": "2026-11-09"
+      },
       "muse-glimmer": {
         "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
@@ -4717,6 +4876,18 @@
           "stderr": 1.192,
           "value": 96.4,
           "variant": "gemini-4-argon_high"
+        }
+      ],
+      "gemini-4-carbon": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-02",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.207,
+          "value": 96.53,
+          "variant": "gemini-4-carbon_high"
         }
       ],
       "gemma-4.26b-a4b-it-minimal": [
