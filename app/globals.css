@@ -196,54 +196,61 @@ pre {
    masthead. Selected state is a fill (--accent + --text-on-accent) plus a
    font-weight bump, so it survives greyscale without relying on hue alone —
    the same guarantee the old bordered variant made, by different means.     */
-.control {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 0 0.6rem;
-  border-radius: var(--radius-control);
-  background: var(--surface-sunk);
-  color: var(--text-tertiary);
-  transition:
-    background-color var(--dur-fast) var(--ease-out),
-    color            var(--dur-fast) var(--ease-out),
-    opacity          var(--dur-fast) var(--ease-out);
-}
+/* In the "components" layer for the same reason as .eyebrow above: left un-layered, this
+   block beat every utility on the same element. `sm:hidden` on the phone currency button
+   lost to display: inline-flex, so a second currency control showed on desktop (measured:
+   2 visible at 1440px), and `min-h-11` on the /local controls lost to min-height: 32px,
+   so their phone touch targets were 32px instead of the 44px the markup asks for. */
+@layer components {
+  .control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 0.6rem;
+    border-radius: var(--radius-control);
+    background: var(--surface-sunk);
+    color: var(--text-tertiary);
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      color            var(--dur-fast) var(--ease-out),
+      opacity          var(--dur-fast) var(--ease-out);
+  }
 
-.control:hover:not(:disabled) {
-  background: var(--surface-raised);
-  color: var(--text-primary);
-}
+  .control:hover:not(:disabled) {
+    background: var(--surface-raised);
+    color: var(--text-primary);
+  }
 
-/* The HIG's tactile press gesture: a control dims on touch-down. */
-.control:active:not(:disabled) {
-  opacity: 0.7;
-}
+  /* The HIG's tactile press gesture: a control dims on touch-down. */
+  .control:active:not(:disabled) {
+    opacity: 0.7;
+  }
 
-/* Selected. Fill plus weight, so the state survives greyscale.
-   Driven by a class rather than by an [aria-pressed="true"] selector so the paint
-   does not depend on an accessibility attribute staying in sync with the styling
-   contract. The component sets both from the same boolean. */
-.control-on {
-  background: var(--accent);
-  color: var(--text-on-accent);
-  font-weight: 600;
-}
-.control-on:hover:not(:disabled) {
-  background: var(--accent);
-  color: var(--text-on-accent);
-}
+  /* Selected. Fill plus weight, so the state survives greyscale.
+     Driven by a class rather than by an [aria-pressed="true"] selector so the paint
+     does not depend on an accessibility attribute staying in sync with the styling
+     contract. The component sets both from the same boolean. */
+  .control-on {
+    background: var(--accent);
+    color: var(--text-on-accent);
+    font-weight: 600;
+  }
+  .control-on:hover:not(:disabled) {
+    background: var(--accent);
+    color: var(--text-on-accent);
+  }
 
-.control:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
+  .control:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
 
-/* Compact variant for dense filter rows. Still clears 32px via the parent gap. */
-.control-sm {
-  min-height: 28px;
-  padding: 0 0.45rem;
+  /* Compact variant for dense filter rows. Still clears 32px via the parent gap. */
+  .control-sm {
+    min-height: 28px;
+    padding: 0 0.45rem;
+  }
 }
 
 /* ── Segmented control ────────────────────────────────────────────────────────
