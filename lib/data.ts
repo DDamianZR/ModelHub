@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { FxRate } from "./currency";
+import type { ReweightRow } from "./reweight";
 import type {
   AgedSource,
   CategoryRule,
@@ -513,6 +514,35 @@ export function getCategorySources(): Record<string, string[]> {
 export function getModelIds(): string[] {
   const { models } = readJson<{ models: Model[] }>("models.json");
   return models.map((model) => model.id);
+}
+
+/** The weights and the coverage rule the site itself applies, from config/weights.json. */
+export function getSiteWeights(): { weights: Record<string, number>; minCoverage: number } {
+  const config = readJson<{ weights: Record<string, number>; min_coverage_for_ranking: number }>(
+    "../config/weights.json",
+  );
+  return { weights: config.weights, minCoverage: config.min_coverage_for_ranking };
+}
+
+/**
+ * Rows for /reweight: each model's published category scores and intervals, with its
+ * published placing beside them, so the browser can recombine them and say what differs.
+ */
+export function getReweightRows(): ReweightRow[] {
+  return getRanking().rows.map((row) => ({
+    id: row.id,
+    display_name: row.display_name,
+    provider_name: row.provider_name,
+    category_scores: row.category_scores,
+    category_errors: row.category_errors ?? {},
+    composite: row.composite,
+    composite_error: row.composite_error,
+    rank: row.rank,
+    tied_with: row.tied_with,
+    is_open_weights: row.is_open_weights,
+    context_window: row.context_window ?? null,
+    blended_price_usd_per_m: row.blended_price_usd_per_m ?? null,
+  }));
 }
 
 /** Narrowed rows for the ranking table — smaller RSC payload than full Row[]. */

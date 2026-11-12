@@ -101,7 +101,8 @@
     "compare": "Compare",
     "methodology": "Methodology",
     "aliases": "Aliases",
-    "local": "What runs here"
+    "local": "What runs here",
+    "reweight": "Your ranking"
   },
   "compare": {
     "title": "Compare models",
@@ -426,6 +427,7 @@
       "example": "This exists because of a real problem. Since the weight is spread across only the categories that have data, a thinly measured model rises on what it is MISSING rather than on being better. Qwen3-Max-Instruct, with 3 of 5 categories, was landing at rank 5, above models measured on all five. That is precisely the bias this site exists to fight, so it is corrected in code rather than in a footnote.",
       "newModels": "The threshold is 4 and not 5 on purpose. A newly released model can have all four benchmarks and no LMArena votes yet; that case ranks normally, flagged as awaiting human votes. Sufficient evidence is required; being new is not punished.",
       "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5.",
+      "reweight": "On “Your ranking” the reader changes the weights, and there “4 of 5 categories” stops meaning anything as soon as one of them weighs zero. The same rule is then stated as a share: a model is given a place if the categories it was measured on add up to at least {share}% of the chosen weight. That number is not new: it is the least the rule above admits under the site's weights, it is computed from config/weights.json, and with those weights it agrees with the gate on every model.",
       "scope": "The whole catalogue also has a cutoff date: only models published on or after {date} are eligible at all. That is not a measurement threshold like the one above - it is a scope filter, and it decides which models exist on the site before anything is measured. The value lives in config/weights.json, with its reasoning documented right there, and is debatable by PR like any other number on this page."
     },
     "variants": {
@@ -684,6 +686,29 @@
     "source": "Source",
     "empty": "No model in the catalogue has a score on this benchmark.",
     "rows": "{count, plural, one {# score} other {# scores}}"
+  },
+  "reweight": {
+    "title": "Your ranking",
+    "metaDescription": "Change the weight of each category and see how the models reorder. The scores are the published ones; only the way they are combined changes.",
+    "intro": "The site's composite weighs five categories with weights that are a decision, not a fact. Here you can set your own. The scores and their intervals are the published ones: the only thing that changes is how they are combined.",
+    "rules": "The rules are the site's: models whose intervals overlap share a place, and a model measured on too little of what you chose to weigh is given no place.",
+    "rulesLink": "How it is computed",
+    "weights": "Weights",
+    "reset": "Back to the site's weights",
+    "shareOf": "{share}% of the composite",
+    "siteShare": "site: {share}%",
+    "noWeight": "Give weight to at least one category to order the models.",
+    "same": "These are the site's weights: the order below is the published ranking, with {placed} models placed.",
+    "readout": "With these weights, {moved} of the {compared} models placed either way sit in a different place than on the site. {apart, plural, =0 {No model is} one {# model is} other {# models are}} left without a place for coverage.",
+    "filtersNote": "Filters hide rows; each model's place is still its place among all comparable models, not among the ones left in view.",
+    "personal": "A personal ranking, not the published one.",
+    "published": "See the site's ranking",
+    "tableLabel": "Models ordered with your weights",
+    "colComposite": "With your weights",
+    "colSite": "On the site",
+    "empty": "No model meets these filters.",
+    "apartTitle": "{count, plural, one {# model without a place} other {# models without a place}} with these weights",
+    "apartNote": "They were measured on categories adding up to less than {share}% of the weight you chose. Ordering them with the rest would lift them on what they are missing."
   },
   "vs": {
     "metaTitle": "{a} and {b}: measured comparison",
