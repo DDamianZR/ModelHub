@@ -6,6 +6,7 @@ import {
   type Benchmark,
   type ScoreRow,
 } from "./data";
+import { findBoardBenchmark, halfWidth95, type BoardsFile } from "./boards";
 import { comparableDates, orderPair } from "./compare";
 import type {
   BoardCard,
@@ -224,27 +225,70 @@ export function getBenchmarkIds(): string[] {
   return readJson<{ benchmarks: Benchmark[] }>("benchmarks.json").benchmarks.map((b) => b.id);
 }
 
+/** What the benchmark page prints per model, whether the row was scored or sits on a board. */
+export type BenchmarkPageRow = Pick<
+  ScoreRow,
+  "model_id" | "value" | "unit" | "half_width_95" | "measured_at"
+> & {
+  /** A scored row's own type, or the benchmark's for a board row. */
+  source_type: string;
+  /** Absent on a board row: the contamination registry is only applied to scored rows. */
+  contamination_flag?: boolean;
+  /** Board rows only: the published variant the value belongs to. */
+  variant?: string | null;
+  display_name: string;
+  provider_name: string;
+};
+
 export function getBenchmarkPage(id: string): {
   benchmark: Benchmark;
   weight: number | null;
-  rows: (ScoreRow & { display_name: string; provider_name: string })[];
+  rows: BenchmarkPageRow[];
+  /** True when the rows come from a board rather than from the scored rows. */
+  fromBoard: boolean;
 } | null {
   const { benchmarks } = readJson<{ benchmarks: Benchmark[] }>("benchmarks.json");
   const benchmark = benchmarks.find((b) => b.id === id);
   if (!benchmark) return null;
   const { scores } = readJson<{ scores: ScoreRow[] }>("scores.json");
   const byId = new Map(getRanking().rows.map((row) => [row.id, row]));
-  const rows = scores
-    .filter((score) => score.benchmark_id === id)
-    .flatMap((score) => {
-      const model = byId.get(score.model_id);
-      return model
-        ? [{ ...score, display_name: model.display_name, provider_name: model.provider_name }]
-        : [];
-    })
-    .sort((a, b) => b.value - a.value || a.display_name.localeCompare(b.display_name));
+  const named = <T extends { model_id: string }>(row: T) => {
+    const model = byId.get(row.model_id);
+    return model
+      ? [{ ...row, display_name: model.display_name, provider_name: model.provider_name }]
+      : [];
+  };
+  let rows: BenchmarkPageRow[] = scores.filter((score) => score.benchmark_id === id).flatMap(named);
+
+  // A benchmark kept outside the composite has no rows in scores.json by design; its
+  // measurements are on a board. Without this the page listed the benchmark and then
+  // said no model had been measured on it (0 rows shown, 66 on the board, 2026-11-12).
+  let fromBoard = false;
+  if (rows.length === 0) {
+    const onBoard = findBoardBenchmark(readJson<BoardsFile>("boards.json"), id);
+    if (onBoard) {
+      fromBoard = true;
+      rows = onBoard.rows
+        .map((row) => ({
+          model_id: row.model_id,
+          value: row.value,
+          // The ingest scales board values to 0-100 exactly as it scales scored ones
+          // (scripts/ingest/sources/epoch.py multiplies both by 100).
+          unit: "percent",
+          half_width_95: halfWidth95(row.stderr),
+          source_type: benchmark.source_type,
+          measured_at: row.measured_at ?? null,
+          // No variant rule applies outside the composite: the ingest keeps the variant
+          // with the highest value, so the row has to say which one that is.
+          variant: row.variant ?? null,
+        }))
+        .flatMap(named);
+    }
+  }
+
+  rows.sort((a, b) => b.value - a.value || a.display_name.localeCompare(b.display_name));
   const { weights } = readJson<{ weights: Record<string, number> }>("../config/weights.json");
-  return { benchmark, weight: weights[benchmark.category] ?? null, rows };
+  return { benchmark, weight: weights[benchmark.category] ?? null, rows, fromBoard };
 }
 
 /** How many models the vs pages prerender; the rest render on first request and are cached. */

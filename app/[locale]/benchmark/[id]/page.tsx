@@ -9,6 +9,8 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-url";
+import { BOARD_CATEGORIES } from "@/lib/boards";
+import { CATEGORIES } from "@/lib/types";
 import { getBenchmarkIds, getBenchmarkPage } from "@/lib/views";
 
 export function generateStaticParams() {
@@ -49,7 +51,13 @@ export default async function BenchmarkPage({
 
   const t = await getTranslations("benchmark");
   const tt = await getTranslations("table");
-  const { benchmark, weight, rows } = page;
+  const { benchmark, weight, rows, fromBoard } = page;
+  // A category the ingest starts publishing before it has a label prints its id instead
+  // of failing the build with a missing message.
+  const labelled: readonly string[] = [...CATEGORIES, ...BOARD_CATEGORIES];
+  const category = labelled.includes(benchmark.category)
+    ? tt(benchmark.category)
+    : benchmark.category;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -87,14 +95,17 @@ export default async function BenchmarkPage({
         </p>
         <p className="mt-3 max-w-[46rem] text-sm leading-[1.6] text-tertiary">
           {weight === null
-            ? t("introOutside", { category: tt(benchmark.category), source: benchmark.source })
+            ? t("introOutside", { category, source: benchmark.source })
             : t("intro", {
-                category: tt(benchmark.category),
+                category,
                 weight: Math.round(weight * 100),
                 source: benchmark.source,
               })}
         </p>
         <p className="mt-2 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{t("orderNote")}</p>
+        {fromBoard && (
+          <p className="mt-2 max-w-[46rem] text-sm leading-[1.6] text-tertiary">{t("boardNote")}</p>
+        )}
       </section>
 
       <Surface className="mt-5">
@@ -165,6 +176,7 @@ export default async function BenchmarkPage({
                       </td>
                       <td className="border-b border-subtle text-2xs text-tertiary">
                         {row.contamination_flag && t("contaminated")}
+                        {row.variant && <span className="num">{row.variant}</span>}
                       </td>
                     </tr>
                   );
