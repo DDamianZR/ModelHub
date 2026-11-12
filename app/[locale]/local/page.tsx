@@ -5,7 +5,7 @@ import { LocalFit } from "@/components/LocalFit";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getLocalEntries } from "@/lib/data";
 import { routing } from "@/i18n/routing";
-import { siteUrl } from "@/lib/site-url";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -18,19 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "local" });
-  const url = siteUrl();
-  return {
+  return pageMetadata({
+    locale,
+    path: "/local",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: `/${locale}/local`,
-      languages: {
-        es: `${url}/es/local`,
-        en: `${url}/en/local`,
-        "x-default": `${url}/es/local`,
-      },
-    },
-  };
+  });
 }
 
 export default async function LocalPage({

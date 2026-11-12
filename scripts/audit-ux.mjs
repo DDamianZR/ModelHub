@@ -222,6 +222,29 @@ if (!existsSync(htmlPath)) {
 
   const headings = (html.match(/<h[12]\b/g) || []).length;
   check("home headings (h1+h2)", headings, headings >= 4, ">= 4 (was 1)");
+
+  // Every page names exactly one share card, and the card it names was built. Until
+  // 2026-11 only the home had one and nothing noticed: a page that sets its own Open
+  // Graph block silently drops the layout's image, so every link to a model page was
+  // shared without a preview. The framework's own error pages are not shared.
+  const appDir = join(root, ".next", "server", "app");
+  const pages = [];
+  const collect = (dir) => {
+    for (const name of readdirSync(dir)) {
+      const full = join(dir, name);
+      if (statSync(full).isDirectory()) collect(full);
+      else if (name.endsWith(".html") && !name.startsWith("_")) pages.push(full);
+    }
+  };
+  collect(appDir);
+  const badCards = pages.filter((file) => {
+    const cards = [...read(file).matchAll(/<meta property="og:image" content="([^"]*)"/g)];
+    if (cards.length !== 1) return true;
+    const route = cards[0][1].replace(/^https?:\/\/[^/]+/, "").split("?")[0];
+    return !existsSync(join(appDir, `${route}.body`));
+  });
+  check("pages without one built share card", badCards.length, badCards.length === 0,
+    `0 of ${pages.length} — ${badCards.slice(0, 3).map((f) => relative(appDir, f)).join(", ") || "none"}`);
 }
 
 // ── 6. Invariants ────────────────────────────────────────────────────────────

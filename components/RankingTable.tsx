@@ -12,23 +12,13 @@ import { Sparkline } from "./Sparkline";
 import { Surface } from "./Surface";
 import { useCurrency } from "./CurrencyProvider";
 import { formatRate } from "@/lib/currency";
+import { CONTEXT_FLOORS, PRICE_CEILINGS, formatContext } from "@/lib/filters";
+import { unpackRankingRows, type PackedRanking } from "@/lib/ranking-wire";
 import type { RankingRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
 type SortKey = "rank" | "composite" | (typeof CATEGORIES)[number];
 type Access = "all" | "open" | "api";
-
-/** Context floors in tokens and price ceilings in USD per million, for the two filters.
-    Round numbers a reader would pick, not tuned to the current catalogue. */
-const CONTEXT_FLOORS = [131_072, 262_144, 1_000_000] as const;
-const PRICE_CEILINGS = [0.5, 1, 3, 10] as const;
-
-function formatContext(tokens: number | null): string {
-  if (tokens === null) return "·";
-  return tokens >= 1_000_000
-    ? `${Math.round((tokens / 1_000_000) * 10) / 10}M`
-    : `${Math.round(tokens / 1024)}K`;
-}
 
 function Chip({
   active,
@@ -90,15 +80,17 @@ function SortBtn({
 }
 
 export function RankingTable({
-  rows,
+  rows: packed,
   minCoverage,
   categoryAges = {},
 }: {
-  rows: RankingRow[];
+  /** Packed for the wire; see lib/ranking-wire.ts. */
+  rows: PackedRanking;
   minCoverage: number;
   /** Categories whose upstream snapshot has aged, keyed by category. */
   categoryAges?: Record<string, { age_days: number | null; freshness: string; date?: string | null }>;
 }) {
+  const rows = useMemo(() => unpackRankingRows(packed), [packed]);
   const t = useTranslations("table");
   const tf = useTranslations("filters");
   const router = useRouter();
@@ -231,7 +223,7 @@ export function RankingTable({
         {/* "=4" is the conventional notation for a joint placing, and a repeated number
             is the honest outcome here rather than a rendering glitch. The explanation
             lives once in the column header's description, referenced per row. */}
-        <td className="num w-9 text-xs text-tertiary" aria-describedby="rank-desc">
+        <td className="num w-9 text-left text-tertiary" aria-describedby="rank-desc">
           {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
         </td>
 
@@ -239,7 +231,7 @@ export function RankingTable({
           <div className="flex items-center gap-x-2">
             <Link
               href={`/model/${row.id}`}
-              className="row-shift text-sm font-medium underline-offset-2 hover:underline"
+              className="row-shift row-name"
             >
               {row.display_name}
             </Link>
@@ -253,13 +245,15 @@ export function RankingTable({
           </div>
           <Link
             href={`/provider/${row.provider_id}`}
-            className="row-shift block text-xs leading-tight text-tertiary underline-offset-2 hover:text-primary hover:underline"
+            className="row-shift row-sub"
           >
             {row.provider_name}
           </Link>
         </td>
 
-        <td className="num text-right text-md" aria-describedby="composite-desc">
+        {/* leading-normal: text-md sets no line height of its own, so without it this cell
+            would take the smaller one .ranking td.num gives the other numeric cells. */}
+        <td className="num text-md leading-normal" aria-describedby="composite-desc">
           {row.composite.toFixed(1)}
           <span className="ml-1 text-2xs text-tertiary">
             {row.composite_error === null ? "±?" : `±${row.composite_error.toFixed(2)}`}
@@ -288,7 +282,7 @@ export function RankingTable({
                   : undefined
               }
               className={clsx(
-                "num text-right text-xs",
+                "num",
                 value === undefined && "text-tertiary",
                 category === metric && "bg-sunk",
               )}
@@ -317,7 +311,7 @@ export function RankingTable({
         })}
 
         <td
-          className="num text-right text-xs text-tertiary"
+          className="num text-tertiary"
           aria-describedby={row.pareto_frontier === true ? "frontier-desc" : undefined}
         >
           {row.pareto_frontier === true && (
@@ -331,7 +325,7 @@ export function RankingTable({
           {formatMoney(row.blended_price_usd_per_m ?? null)}
         </td>
 
-        <td className="num text-right text-xs text-tertiary">
+        <td className="num text-tertiary">
           {formatContext(row.context_window ?? null)}
         </td>
 
@@ -357,7 +351,7 @@ export function RankingTable({
       <li key={row.id}>
         <Link
           href={`/model/${row.id}`}
-          className="row-hover flex min-h-11 items-center gap-3 border-b border-subtle px-3 py-3"
+          className="row-hover row-item"
         >
           <span className="num w-7 shrink-0 text-right text-xs text-tertiary">
             {row.rank === null ? "·" : row.tied_with > 0 ? `=${row.rank}` : row.rank}
@@ -587,7 +581,7 @@ export function RankingTable({
           aria-label={t("composite")}
           tabIndex={0}
         >
-          <table className="table-sticky table-dense w-full min-w-[64rem] text-left">
+          <table className="ranking table-sticky table-dense w-full min-w-[64rem] text-left">
             <caption className="sr-only">{t("composite")}</caption>
             <thead>
               <tr>

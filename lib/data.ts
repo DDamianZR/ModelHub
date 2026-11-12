@@ -1,11 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { FxRate } from "./currency";
+import { parseChanges, type ChangeEvent } from "./changes";
+import type { ReweightRow } from "./reweight";
 import type {
   AgedSource,
   CategoryRule,
   Meta,
   Model,
+  ExpiredPlan,
   Plan,
   Provider,
   RejectedSnapshot,
@@ -53,16 +56,46 @@ export function getFx(): FxRate | null {
   }
 }
 
+/**
+ * How many days a plan entry stays current, as config/plans.json states it. Read from the
+ * config, where the number is decided, rather than from the generated file. Null when the
+ * config does not state one, in which case no page quotes a limit.
+ */
+export function getPlanMaxAgeDays(): number | null {
+  try {
+    const days = readJson<{ max_age_days?: unknown }>("../config/plans.json").max_age_days;
+    return typeof days === "number" && Number.isInteger(days) && days > 0 ? days : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Everything on record about subscription plans: the ones fit to show, the ones set aside
+ * because nobody has re-read their page within the limit, and that limit in days. A missing
+ * or unreadable file is an empty record, never an error: plans are optional information.
+ */
+export function getPlans(): { plans: Plan[]; expired: ExpiredPlan[]; maxAgeDays: number | null } {
+  const file = path.join(DATA_DIR, "plans.json");
+  if (!fs.existsSync(file)) return { plans: [], expired: [], maxAgeDays: null };
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as {
+      plans?: Plan[];
+      expired?: ExpiredPlan[];
+    };
+    return {
+      plans: parsed.plans ?? [],
+      expired: parsed.expired ?? [],
+      maxAgeDays: getPlanMaxAgeDays(),
+    };
+  } catch {
+    return { plans: [], expired: [], maxAgeDays: null };
+  }
+}
+
 /** Plans that include a model, in file order. An empty answer means none are on record. */
 export function getPlansFor(modelId: string): Plan[] {
-  const file = path.join(DATA_DIR, "plans.json");
-  if (!fs.existsSync(file)) return [];
-  try {
-    const { plans } = JSON.parse(fs.readFileSync(file, "utf8")) as { plans?: Plan[] };
-    return (plans ?? []).filter((plan) => plan.model_ids.includes(modelId));
-  } catch {
-    return [];
-  }
+  return getPlans().plans.filter((plan) => plan.model_ids.includes(modelId));
 }
 
 export function getBestBy(): BestBy {
@@ -515,6 +548,35 @@ export function getModelIds(): string[] {
   return models.map((model) => model.id);
 }
 
+/** The weights and the coverage rule the site itself applies, from config/weights.json. */
+export function getSiteWeights(): { weights: Record<string, number>; minCoverage: number } {
+  const config = readJson<{ weights: Record<string, number>; min_coverage_for_ranking: number }>(
+    "../config/weights.json",
+  );
+  return { weights: config.weights, minCoverage: config.min_coverage_for_ranking };
+}
+
+/**
+ * Rows for /reweight: each model's published category scores and intervals, with its
+ * published placing beside them, so the browser can recombine them and say what differs.
+ */
+export function getReweightRows(): ReweightRow[] {
+  return getRanking().rows.map((row) => ({
+    id: row.id,
+    display_name: row.display_name,
+    provider_name: row.provider_name,
+    category_scores: row.category_scores,
+    category_errors: row.category_errors ?? {},
+    composite: row.composite,
+    composite_error: row.composite_error,
+    rank: row.rank,
+    tied_with: row.tied_with,
+    is_open_weights: row.is_open_weights,
+    context_window: row.context_window ?? null,
+    blended_price_usd_per_m: row.blended_price_usd_per_m ?? null,
+  }));
+}
+
 /** Narrowed rows for the ranking table — smaller RSC payload than full Row[]. */
 export function getRankingRows(): RankingRow[] {
   const { rows } = getRanking();
@@ -666,4 +728,30 @@ export function getLocalEntries(): {
       maxRows: rules.max_rows ?? null,
     },
   };
+}
+
+/**
+ * The change log written by the ingest, plus the names the page needs to print it. A missing
+ * or unreadable log is an empty one: the log starts the day the ingest first writes it.
+ * Models that have left the catalogue are not in the ranking, so they print by id.
+ */
+export function getChangeLog(): {
+  events: ChangeEvent[];
+  models: Record<string, string>;
+  benchmarks: Record<string, string>;
+} {
+  let events: ChangeEvent[] = [];
+  try {
+    // CHANGES_FILE lets a build be checked against a log kept outside /data.
+    events = parseChanges(
+      fs.readFileSync(process.env.CHANGES_FILE ?? path.join(DATA_DIR, "changes.jsonl"), "utf8"),
+    );
+  } catch {
+    events = [];
+  }
+  const models = Object.fromEntries(getRanking().rows.map((row) => [row.id, row.display_name]));
+  const benchmarks = Object.fromEntries(
+    readJson<{ benchmarks: Benchmark[] }>("benchmarks.json").benchmarks.map((b) => [b.id, b.name]),
+  );
+  return { events, models, benchmarks };
 }

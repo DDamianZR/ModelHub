@@ -31,7 +31,7 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from . import catalogue, derived, local, plans
+from . import backfill_changes, catalogue, changelog, derived, local, plans
 from .sources import epoch, fx, livebench, lmarena, llmfit, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -135,6 +135,12 @@ BENCHMARK_CATALOGUE = [
     ("simpleqa_verified", "SimpleQA Verified", "knowledge", "Epoch AI",
      "third_party_benchmark", "https://epoch.ai/benchmarks",
      "Factual recall. Shown on the Knowledge board, outside the composite."),
+    ("mirrorcode", "MirrorCode", "agentic", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks",
+     "Agentic task completion. Shown on the Agentic board, outside the composite."),
+    ("spireclimb", "SpireClimb", "agentic", "Epoch AI", "third_party_benchmark",
+     "https://epoch.ai/benchmarks",
+     "Agentic task completion. Shown on the Agentic board, outside the composite."),
     ("math_level_5", "MATH Level 5", "math", "Epoch AI", "third_party_benchmark",
      "https://epoch.ai/benchmarks", None),
     ("frontiermath", "FrontierMath", "math", "Epoch AI", "third_party_benchmark",
@@ -535,9 +541,11 @@ def main() -> int:
     derived.annotate(models, boards_config)
     best_by = derived.build_boards(models, boards_config)
     boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
-    valid_plans, plan_problems = plans.validate(
-        plans.load(), {model["id"] for model in models})
-    for problem in plan_problems:
+    plans_file = plans.load()
+    checked_plans = plans.validate(plans_file, {model["id"] for model in models})
+    for stale in checked_plans.expired:
+        print(f"  plans: expired - {stale['id']!r}, last read {stale['verified_at']}")
+    for problem in checked_plans.problems:
         print(f"  plans: withheld - {problem}")
     print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
           f"{len(unranked)} unranked entries; boards: "
@@ -628,8 +636,17 @@ def main() -> int:
         },
     }
 
+    # Read the build on disk before replacing it: the log states how this run differs from
+    # the last one published. Text only, written after the scoring is finished.
+    # The first run that finds no log builds it from the builds git already holds.
+    backfill_changes.seed()
+    replaced = changelog.read_state()
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})
+    if replaced is not None:
+        changelog.append(changelog.diff_states(
+            replaced, changelog.build_state(models, score_rows, meta), meta["generated_at"]
+        ))
     write_json(DATA / "catalog.json", {
         "meta": {"generated_at": meta["generated_at"], "source": openrouter.ATTRIBUTION,
                  "scored_matched": len(router_matches), "unranked": len(unranked)},
@@ -638,7 +655,8 @@ def main() -> int:
     write_json(DATA / "local_models.json", local.document(
         local_rows, sum(1 for m in models if m.get("is_open_weights")),
         meta["generated_at"], local_catalogue, catalogue_rules))
-    write_json(DATA / "plans.json", plans.document(valid_plans, meta["generated_at"]))
+    write_json(DATA / "plans.json", plans.document(
+        checked_plans, meta["generated_at"], plans.max_age_days(plans_file)))
     if fx_payload.get("rates"):
         # Not rewritten from nothing: with no rate and no cache the file the last good run
         # left stays, and the page keeps showing USD with that rate's own date.
