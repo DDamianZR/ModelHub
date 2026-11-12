@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { FxRate } from "./currency";
+import { parseChanges, type ChangeEvent } from "./changes";
 import type { ReweightRow } from "./reweight";
 import type {
   AgedSource,
@@ -727,4 +728,30 @@ export function getLocalEntries(): {
       maxRows: rules.max_rows ?? null,
     },
   };
+}
+
+/**
+ * The change log written by the ingest, plus the names the page needs to print it. A missing
+ * or unreadable log is an empty one: the log starts the day the ingest first writes it.
+ * Models that have left the catalogue are not in the ranking, so they print by id.
+ */
+export function getChangeLog(): {
+  events: ChangeEvent[];
+  models: Record<string, string>;
+  benchmarks: Record<string, string>;
+} {
+  let events: ChangeEvent[] = [];
+  try {
+    // CHANGES_FILE lets a build be checked against a log kept outside /data.
+    events = parseChanges(
+      fs.readFileSync(process.env.CHANGES_FILE ?? path.join(DATA_DIR, "changes.jsonl"), "utf8"),
+    );
+  } catch {
+    events = [];
+  }
+  const models = Object.fromEntries(getRanking().rows.map((row) => [row.id, row.display_name]));
+  const benchmarks = Object.fromEntries(
+    readJson<{ benchmarks: Benchmark[] }>("benchmarks.json").benchmarks.map((b) => [b.id, b.name]),
+  );
+  return { events, models, benchmarks };
 }

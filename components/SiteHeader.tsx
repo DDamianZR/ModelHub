@@ -21,6 +21,7 @@ export async function SiteHeader({
     | "reweight"
     | "local"
     | "plans"
+    | "changes"
     | "methodology"
     | "aliases"
     | "none";
@@ -42,6 +43,7 @@ export async function SiteHeader({
     { key: "reweight", href: "/reweight" },
     { key: "local", href: "/local" },
     { key: "plans", href: "/plans" },
+    { key: "changes", href: "/changes" },
     { key: "methodology", href: "/methodology" },
     { key: "aliases", href: "/aliases" },
   ] as const;

@@ -104,7 +104,8 @@
     "aliases": "Alias",
     "local": "Qué corre aquí",
     "reweight": "Tu ranking",
-    "plans": "Planes"
+    "plans": "Planes",
+    "changes": "Cambios"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -742,6 +743,31 @@
     "empty": "Ningún modelo cumple estos filtros.",
     "apartTitle": "{count, plural, one {# modelo sin puesto} other {# modelos sin puesto}} con estos pesos",
     "apartNote": "Fueron medidos en categorías que suman menos del {share}% del peso que elegiste. Ordenarlos junto a los demás los haría subir por lo que les falta."
+  },
+  "changes": {
+    "title": "Qué cambió",
+    "metaDescription": "Bitácora fechada de lo que se movió en el ranking: modelos que entraron o salieron, cambios de puesto y de mediciones, con la fecha de cada uno.",
+    "intro": "Cada corrida diaria queda registrada: qué modelos entraron o salieron, quiénes cruzaron el umbral de cobertura, quiénes cambiaron de puesto y qué medición propia cambió ese día.",
+    "method": "Un cambio de puesto se mide entre los modelos que tenían puesto los dos días, porque un modelo nuevo arriba baja un lugar a todos los de abajo sin que ninguno haya cambiado. Si ninguna medición propia cambió, se dice así y no se inventa una razón. Las cifras de cada día son las de ese día; las de hoy están en el ranking.",
+    "feed": "Suscribirse por Atom",
+    "empty": "Todavía no hay cambios registrados. La bitácora se escribe en la corrida diaria del ingest.",
+    "summary": "{added, plural, =0 {} one {# modelo nuevo · } other {# modelos nuevos · }}{removed, plural, =0 {} one {# salió · } other {# salieron · }}{gate, plural, =0 {} one {# cruzó el umbral de cobertura · } other {# cruzaron el umbral de cobertura · }}{moved, plural, =0 {sin cambios de puesto} one {# cambió de puesto} other {# cambiaron de puesto}}",
+    "summaryShift": "Cambio general del ranking ese día",
+    "addedRanked": "entró al ranking en el puesto {place}.",
+    "addedProvisional": "apareció como provisional, sin puesto.",
+    "removed": "salió del catálogo.",
+    "gateEntered": "entró al ranking: pasó de {from} a {to} de {total} categorías medidas.",
+    "gateLeft": "dejó el ranking: pasó de {from} a {to} de {total} categorías medidas.",
+    "moved": "pasó del puesto {from} al {to}; compuesto {before} → {after}.",
+    "ownUnchanged": "Ninguna de sus propias mediciones cambió ese día.",
+    "ownChanged": "Cambió su propia medición: {rows}.",
+    "cohortShift": "Cambio general: {moved} de {compared} modelos con puesto cambiaron de lugar ese mismo día, así que no se listan uno por uno.",
+    "price": "precio mezclado: US${before} → US${after} por millón de tokens.",
+    "benchmarkRows": "{changed} puntajes cambiaron, {added} nuevos, {removed} retirados.",
+    "arenaScale": "La escala de LMArena cambió: mínimo {minBefore} → {minAfter}, máximo {maxBefore} → {maxAfter}.",
+    "modelTitle": "Últimos cambios",
+    "modelNone": "Ningún cambio registrado para este modelo.",
+    "modelAll": "Ver todos los cambios"
   },
   "vs": {
     "metaTitle": "{a} y {b}: comparación de mediciones",

@@ -104,7 +104,8 @@
     "aliases": "Aliases",
     "local": "What runs here",
     "reweight": "Your ranking",
-    "plans": "Plans"
+    "plans": "Plans",
+    "changes": "Changes"
   },
   "compare": {
     "title": "Compare models",
@@ -742,6 +743,31 @@
     "empty": "No model meets these filters.",
     "apartTitle": "{count, plural, one {# model without a place} other {# models without a place}} with these weights",
     "apartNote": "They were measured on categories adding up to less than {share}% of the weight you chose. Ordering them with the rest would lift them on what they are missing."
+  },
+  "changes": {
+    "title": "What changed",
+    "metaDescription": "A dated log of what moved in the ranking: models that arrived or left, changes of place and of measurements, each with its date.",
+    "intro": "Every daily run is recorded: which models arrived or left, which crossed the coverage gate, which changed place and which of their own measurements changed that day.",
+    "method": "A change of place is measured among the models that held a place on both days, because a new model at the top lowers everyone below it without any of them having changed. If none of a model's own measurements changed, it says so rather than inventing a reason. Each day's figures are that day's; today's are in the ranking.",
+    "feed": "Subscribe by Atom",
+    "empty": "No changes recorded yet. The log is written by the daily ingest run.",
+    "summary": "{added, plural, =0 {} one {# new model · } other {# new models · }}{removed, plural, =0 {} one {# left · } other {# left · }}{gate, plural, =0 {} one {# crossed the coverage gate · } other {# crossed the coverage gate · }}{moved, plural, =0 {no changes of place} one {# changed place} other {# changed place}}",
+    "summaryShift": "A ranking-wide change that day",
+    "addedRanked": "entered the ranking at place {place}.",
+    "addedProvisional": "appeared as provisional, without a place.",
+    "removed": "left the catalogue.",
+    "gateEntered": "entered the ranking: went from {from} to {to} of {total} measured categories.",
+    "gateLeft": "left the ranking: went from {from} to {to} of {total} measured categories.",
+    "moved": "went from place {from} to {to}; composite {before} → {after}.",
+    "ownUnchanged": "None of its own measurements changed that day.",
+    "ownChanged": "Its own measurement changed: {rows}.",
+    "cohortShift": "A ranking-wide change: {moved} of {compared} ranked models changed place the same day, so they are not listed one by one.",
+    "price": "blended price: US${before} → US${after} per million tokens.",
+    "benchmarkRows": "{changed} scores changed, {added} new, {removed} removed.",
+    "arenaScale": "The LMArena scale changed: minimum {minBefore} → {minAfter}, maximum {maxBefore} → {maxAfter}.",
+    "modelTitle": "Recent changes",
+    "modelNone": "No changes recorded for this model.",
+    "modelAll": "See all changes"
   },
   "vs": {
     "metaTitle": "{a} and {b}: measured comparison",

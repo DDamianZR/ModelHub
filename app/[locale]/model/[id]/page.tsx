@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
 import { PlanFee, Price } from "@/components/CurrencyProvider";
+import { ChangeLine } from "@/components/ChangeLine";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
@@ -12,6 +13,7 @@ import {
   getAcquisition,
   getAdjacentModels,
   getBestBy,
+  getChangeLog,
   getFx,
   getModelDetail,
   getModelIds,
@@ -24,6 +26,7 @@ import { CATEGORIES } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
 import { pageMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-url";
+import { eventsForModel } from "@/lib/changes";
 import { orderPair } from "@/lib/views";
 
 export function generateStaticParams() {
@@ -74,6 +77,9 @@ export default async function ModelPage({
   const pricing = model.pricing ?? null;
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
+  const tc = await getTranslations("changes");
+  const log = getChangeLog();
+  const recent = eventsForModel(log.events, id).slice(0, 6);
 
   // What this page is, for crawlers: which benchmarks it reports for the model and where
   // they came from. No score is repeated here; a figure copied into structured data is one
@@ -513,6 +519,29 @@ export default async function ModelPage({
                 </tbody>
               </table>
             </Surface>
+          </section>
+
+          <section id="changes" className="mt-8 scroll-mt-6">
+            <h2 className="eyebrow mb-2">{tc("modelTitle")}</h2>
+            <Surface>
+              {recent.length === 0 ? (
+                <p className="px-3 py-3 text-sm text-tertiary">{tc("modelNone")}</p>
+              ) : (
+                <ul className="divide-y divide-[var(--line-subtle)]">
+                  {recent.map((event, i) => (
+                    <li key={i} className="px-3 py-2 text-sm leading-[1.55]">
+                      <span className="num mr-2 text-xs text-tertiary">{event.date}</span>
+                      <ChangeLine event={event} models={log.models} benchmarks={log.benchmarks} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </Surface>
+            <p className="mt-2 text-sm">
+              <Link href="/changes" className="text-accent underline underline-offset-2">
+                {tc("modelAll")}
+              </Link>
+            </p>
           </section>
 
           <section id="acquisition" className="mt-8 scroll-mt-6">
