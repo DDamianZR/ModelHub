@@ -322,6 +322,29 @@ pre {
   }
 }
 
+/* The home ranking prints every model twice, as a table row and as a phone list item, so a
+   utility string repeated per row is paid for about 180 times in the prerendered document.
+   These four rules state the repeated ones once. They are written with @apply from the same
+   utilities the markup used to carry, so nothing is restyled, and they sit in the
+   "components" layer so a utility on the element still wins (the composite cell's text-md,
+   the rank cell's text-left). Measured on the 89-model home, together with the packed rows
+   in lib/ranking-wire.ts: 386 361 -> 342 863 prerendered characters, against a budget of
+   380 000 that main was failing. */
+@layer components {
+  .ranking td.num {
+    @apply text-right text-xs;
+  }
+  .row-name {
+    @apply text-sm font-medium underline-offset-2 hover:underline;
+  }
+  .row-sub {
+    @apply block text-xs leading-tight text-tertiary underline-offset-2 hover:text-primary hover:underline;
+  }
+  .row-item {
+    @apply flex min-h-11 items-center gap-3 border-b border-subtle px-3 py-3;
+  }
+}
+
 /* ── Table row hover ── */
 .row-hover {
   transition: background-color var(--dur-fast) var(--ease-out);

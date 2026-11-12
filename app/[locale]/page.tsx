@@ -18,6 +18,7 @@ import {
   getRanking,
   getRankingRows,
 } from "@/lib/data";
+import { packRankingRows } from "@/lib/ranking-wire";
 import {
   getAccessTrends,
   getBoardCards,
@@ -244,7 +245,7 @@ export default async function HomePage({
           messages={{ table: messages.table, filters: messages.filters }}
         >
           <RankingTable
-            rows={tableRows}
+            rows={packRankingRows(tableRows)}
             minCoverage={meta.min_coverage_for_ranking}
             categoryAges={categoryAges}
           />
