@@ -119,12 +119,22 @@ export type Provider = { id: string; display_name: string; country: string };
 export type Plan = {
   id: string;
   name: string;
-  /** USD per month, or null when the plan page lists no fee. */
-  price_usd_per_month: number | null;
+  /** The monthly fee as charged, in `currency`. Null when the plan page lists no fee. */
+  price_per_month: number | null;
+  /** The currency the fee is billed in; null exactly when there is no fee. */
+  currency: "MXN" | "USD" | null;
+  /** Two-letter code of the country the price was read from. */
+  region: string;
   model_ids: string[];
   source_url: string;
   verified_at: string;
 };
+
+/**
+ * A plan whose evidence is older than the limit in config/plans.json. It is named with the
+ * date it was last read and carries no fee: an old price is what must not be repeated.
+ */
+export type ExpiredPlan = Pick<Plan, "id" | "name" | "region" | "source_url" | "verified_at">;
 
 export type SourceState = "ok" | "cached" | "stale" | "failed";
 

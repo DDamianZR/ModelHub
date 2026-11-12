@@ -535,9 +535,11 @@ def main() -> int:
     derived.annotate(models, boards_config)
     best_by = derived.build_boards(models, boards_config)
     boards = catalogue.build_boards(epoch_payload.get("boards") or {}, canonical_keys)
-    valid_plans, plan_problems = plans.validate(
-        plans.load(), {model["id"] for model in models})
-    for problem in plan_problems:
+    plans_file = plans.load()
+    checked_plans = plans.validate(plans_file, {model["id"] for model in models})
+    for stale in checked_plans.expired:
+        print(f"  plans: expired - {stale['id']!r}, last read {stale['verified_at']}")
+    for problem in checked_plans.problems:
         print(f"  plans: withheld - {problem}")
     print(f"  catalogue: {len(router_matches)} of {len(models)} scored models matched, "
           f"{len(unranked)} unranked entries; boards: "
@@ -638,7 +640,8 @@ def main() -> int:
     write_json(DATA / "local_models.json", local.document(
         local_rows, sum(1 for m in models if m.get("is_open_weights")),
         meta["generated_at"], local_catalogue, catalogue_rules))
-    write_json(DATA / "plans.json", plans.document(valid_plans, meta["generated_at"]))
+    write_json(DATA / "plans.json", plans.document(
+        checked_plans, meta["generated_at"], plans.max_age_days(plans_file)))
     if fx_payload.get("rates"):
         # Not rewritten from nothing: with no rate and no cache the file the last good run
         # left stays, and the page keeps showing USD with that rate's own date.

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
-import { Fee, Price } from "@/components/CurrencyProvider";
+import { PlanFee, Price } from "@/components/CurrencyProvider";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
 import { Surface } from "@/components/Surface";
@@ -329,13 +329,17 @@ export default async function ModelPage({
                     <li key={plan.id} className="text-sm">
                       <span className="font-medium text-primary">{plan.name}</span>
                       <span className="num ml-2 text-xs text-tertiary">
-                        {plan.price_usd_per_month === null ? (
+                        {plan.price_per_month === null || plan.currency === null ? (
                           t("planNoFee")
                         ) : (
                           <>
-                            <Fee usd={plan.price_usd_per_month} /> {t("planPerMonth")}
+                            <PlanFee amount={plan.price_per_month} charged={plan.currency} />{" "}
+                            {t("planPerMonth")}
                           </>
                         )}
+                        {/* A fee is a fee somewhere: the country it was read in goes with it. */}
+                        {" · "}
+                        {plan.region}
                         {" · "}
                         {t("planVerified", { date: plan.verified_at })}
                         {" · "}

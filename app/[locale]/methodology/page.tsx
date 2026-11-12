@@ -11,6 +11,7 @@ import {
   getCategorySources,
   getFx,
   getMethodologyStats,
+  getPlanMaxAgeDays,
   getRanking,
   getRejectedSnapshots,
   getSiteWeights,
@@ -93,6 +94,7 @@ export default async function MethodologyPage({
   const countingVisits = analyticsScriptSrc() !== null;
   const site = getSiteWeights();
   const coverageBar = minCoveredShare(site.weights, site.minCoverage);
+  const planMaxAgeDays = getPlanMaxAgeDays();
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -416,6 +418,9 @@ export default async function MethodologyPage({
               : t("derived.currencyNone")}
           </p>
           <p>{t("derived.plans")}</p>
+          {planMaxAgeDays !== null && (
+            <p>{t("derived.plansExpiry", { days: planMaxAgeDays })}</p>
+          )}
           <p>{t("derived.ratio", { evaluated: bestBy.meta.pareto_evaluated })}</p>
           <p>
             {t("derived.pareto", {
