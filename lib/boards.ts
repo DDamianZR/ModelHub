@@ -23,7 +23,7 @@ export interface BoardsFile {
 }
 
 /** Categories that exist only as a board and have a label in messages/*.json (table.*). */
-export const BOARD_CATEGORIES = ["knowledge"] as const;
+export const BOARD_CATEGORIES = ["knowledge", "agentic"] as const;
 
 /**
  * The 95% half-width of a published standard error, to three decimals: the same arithmetic
