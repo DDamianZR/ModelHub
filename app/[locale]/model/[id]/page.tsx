@@ -44,6 +44,7 @@ export async function generateMetadata({
     path: `/model/${id}`,
     title: `${t("metaTitle", { name })} · ModelHub`,
     description: t("metaDescription", { name, provider: detail.model.provider_name }),
+    ownCard: true,
   });
 }
 

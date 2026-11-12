@@ -376,6 +376,7 @@
     "contaminationLink": "see evidence",
     "compareWith": "Compare with {name}",
     "metaTitle": "{name}: scores and sources",
+    "shareSubtitle": "{provider} · third-party scores, each with its source and date",
     "metaDescription": "Composite, coverage and sources of {name} ({provider}), from third-party evaluations and human voting, each with its date."
   },
   "methodology": {
@@ -687,6 +688,7 @@
   },
   "vs": {
     "metaTitle": "{a} and {b}: measured comparison",
+    "shareSubtitle": "The same measurements as the ranking, side by side, with their intervals",
     "metaDescription": "{a} and {b} side by side: composite with interval, five categories, price and context window, from the same measurements as the ranking.",
     "title": "{a} and {b}",
     "intro": "Side by side, from the same measurements as the ranking. A difference smaller than the combined 95% interval is not one the data can show.",
