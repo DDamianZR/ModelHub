@@ -4,7 +4,7 @@ import { getBenchmarkIds, getProviderIds, getVsPairs } from "@/lib/views";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site-url";
 
-const STATIC_PATHS = ["", "/compare", "/local", "/methodology", "/aliases"];
+const STATIC_PATHS = ["", "/compare", "/local", "/plans", "/methodology", "/aliases"];
 
 function alternates(url: string, path: string): Record<string, string> {
   return Object.fromEntries(

@@ -101,7 +101,8 @@
     "compare": "Comparar",
     "methodology": "Metodología",
     "aliases": "Alias",
-    "local": "Qué corre aquí"
+    "local": "Qué corre aquí",
+    "plans": "Planes"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -472,6 +473,7 @@
       "currency": "El selector de moneda solo cambia cómo se escribe un precio. Los precios se publican en USD y el navegador los multiplica por 1 USD = {rate} MXN, la tasa de referencia del Banco Central Europeo al {date} que sirve Frankfurter. No es el tipo de cambio de ningún banco ni el FIX de Banxico, así que un precio en pesos es una estimación. La tasa no entra al compuesto, al rango, a los filtros (que comparan en USD) ni a la frontera de costo.",
       "currencyNone": "Todavía no hay una tasa USD a MXN disponible, así que todos los precios se muestran en USD y el selector de moneda está oculto.",
       "plans": "Los planes de suscripción se anotan a mano en config/plans.json, porque ninguna fuente pública legible por máquina dice qué plan incluye qué modelo. Cada plan lleva la página de donde salió y la fecha en que alguien la leyó; sin esas dos cosas no se publica. La cuota mensual de un plan nunca se convierte en precio por token ni se compara con el precio de la API. Si un modelo no muestra ningún plan, nadie lo ha registrado todavía; no significa que no exista.",
+      "plansExpiry": "La tarifa se anota tal como se cobra: el monto, la moneda en que se factura y el país donde se leyó, porque el mismo plan cuesta distinto en cada país. Un precio en pesos nunca se guarda convertido a dólares. Y la evidencia caduca: una entrada que nadie ha vuelto a leer en más de {days, plural, one {# día} other {# días}} se retira sola de la lista y se nombra como vencida, sin su precio. El límite vive en config/plans.json y es debatible por PR.",
       "ratio": "El precio por punto de compuesto es el precio combinado dividido entre el compuesto. Solo se calcula para modelos con rango y con precio: {evaluated} en esta compilación. La razón dice cuánto cuesta cada punto en promedio. No dice que los puntos sean los que necesitas, y un compuesto bajo a un precio bajo da una razón baja, así que se lee junto al compuesto.",
       "pareto": "La frontera de costo marca a un modelo cuando ningún otro modelo evaluado cuesta igual o menos y puntúa igual o más, con al menos una de las dos estrictamente mejor. En esta compilación, {members} de {evaluated} modelos están en ella. La prueba compara valores puntuales e ignora los intervalos. Exigir que el intervalo del otro modelo supere al de este se midió el 2026-11-05: 8 miembros en lugar de 7. La proporción 3:1 se comparó el mismo día con 1:1 y 1:3, y la frontera no cambió.",
       "unevaluated": "Un modelo sin precio o sin rango no se evalúa, lo cual es distinto de estar dominado: su marca queda vacía, no en falso. Hoy {unpriced} modelos con rango no tienen precio y quedan fuera de la razón y de la frontera.",
@@ -655,6 +657,27 @@
     "outAnalysis": "Artificial Analysis",
     "outDesign": "DesignArena",
     "outSwebench": "Leaderboard de scaffolds de SWE-bench"
+  },
+  "plans": {
+    "title": "Planes de suscripción",
+    "metaDescription": "Cuánto cuesta al mes cada plan de suscripción, tal como se cobra en cada país, con la página de donde salió el precio y la fecha en que se leyó.",
+    "intro": "Cuánto cuesta al mes cada plan, tal como se cobra, con el país donde se leyó el precio, la página de donde salió y la fecha en que alguien la leyó. Ordenados del más barato al más caro.",
+    "notAPrice": "Un plan es un cobro mensual fijo por una app de chat. No equivale al precio por token de la API y no se compara con él. Tampoco mueve un puntaje ni un puesto.",
+    "expiry": "Una entrada que nadie ha vuelto a leer en más de {days, plural, one {# día} other {# días}} se retira sola y aparece abajo como vencida, sin su precio. Si esta lista se descuida se hace más corta; nunca muestra un precio viejo como vigente.",
+    "empty": "Ningún plan registrado todavía. Eso no significa que no existan: nadie los ha anotado con su fuente y su fecha.",
+    "colPlan": "Plan",
+    "colFee": "Tarifa",
+    "colRegion": "País",
+    "colRead": "Leído el",
+    "colModels": "Modelos que incluye",
+    "noFee": "Sin tarifa listada",
+    "perMonth": "al mes",
+    "fxNote": "La tarifa es la que se cobra, en su moneda. La cifra entre paréntesis es una equivalencia aproximada con el tipo de cambio de referencia de {date} ({rate} pesos por dólar); no es un precio.",
+    "expiredTitle": "{count, plural, one {# plan vencido} other {# planes vencidos}}",
+    "expiredNote": "Se leyeron hace más tiempo del que este sitio considera vigente. Se nombran con la fecha de su última lectura y sin precio, porque repetir un precio viejo es justo lo que se quiere evitar.",
+    "expiredSince": "sin verificar desde el {date}",
+    "contribute": "Los precios se anotan a mano, por país, y cualquiera puede aportar o releer uno.",
+    "contributeLink": "Reportar el precio de un plan"
   },
   "provider": {
     "metaTitle": "{name}: modelos medidos",

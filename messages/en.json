@@ -101,7 +101,8 @@
     "compare": "Compare",
     "methodology": "Methodology",
     "aliases": "Aliases",
-    "local": "What runs here"
+    "local": "What runs here",
+    "plans": "Plans"
   },
   "compare": {
     "title": "Compare models",
@@ -472,6 +473,7 @@
       "currency": "The currency selector only changes how a price is written. Prices are published in USD and the browser multiplies them by 1 USD = {rate} MXN, the European Central Bank reference rate for {date} as served by Frankfurter. It is not any bank's rate nor Banxico's FIX, so a price in pesos is an estimate. The rate does not enter the composite, the rank, the filters (which compare in USD) or the cost frontier.",
       "currencyNone": "No USD to MXN rate is available yet, so every price is shown in USD and the currency selector is hidden.",
       "plans": "Subscription plans are entered by hand in config/plans.json, because no public, machine-readable source says which plan includes which model. Each plan carries the page it came from and the date someone read it; without both it is not published. A plan's monthly fee is never converted into a per-token price or compared with the API price. If a model shows no plan, nobody has recorded one yet; it does not mean none exists.",
+      "plansExpiry": "A fee is entered as it is charged: the amount, the currency it is billed in and the country it was read in, because the same plan costs different amounts in different countries. A price in pesos is never stored converted to dollars. And evidence expires: an entry nobody has re-read in more than {days, plural, one {# day} other {# days}} is set aside from the list by itself and named as expired, without its price. The limit lives in config/plans.json and is debatable by PR.",
       "ratio": "Price per composite point is the blended price divided by the composite. It is computed only for ranked models that have a price: {evaluated} in this build. The ratio says what each point costs on average. It does not say the points are the ones you need, and a low composite at a low price gives a low ratio, so read it next to the composite.",
       "pareto": "The cost frontier marks a model when no other evaluated model costs the same or less and scores the same or more, with at least one strictly better. In this build, {members} of {evaluated} models are on it. The test compares point values and ignores intervals. Requiring the other model's interval to clear this one's was measured on 2026-11-05: 8 members instead of 7. The 3:1 blend was compared with 1:1 and 1:3 the same day, and the frontier did not change.",
       "unevaluated": "A model with no price or without a rank is not evaluated, which is different from being dominated: its flag is empty, not false. Today {unpriced} ranked models have no price and are outside both the ratio and the frontier.",
@@ -655,6 +657,27 @@
     "outAnalysis": "Artificial Analysis",
     "outDesign": "DesignArena",
     "outSwebench": "SWE-bench scaffold leaderboard"
+  },
+  "plans": {
+    "title": "Subscription plans",
+    "metaDescription": "What each subscription plan costs per month, as it is charged in each country, with the page the price came from and the date it was read.",
+    "intro": "What each plan costs per month, as it is charged, with the country the price was read in, the page it came from and the date someone read it. Ordered from the cheapest up.",
+    "notAPrice": "A plan is a flat monthly fee for a chat app. It is not equivalent to the API price per token and is not compared with it. It does not move a score or a place either.",
+    "expiry": "An entry nobody has re-read in more than {days, plural, one {# day} other {# days}} is set aside by itself and appears below as expired, without its price. If this list is neglected it gets shorter; it never shows an old price as a current one.",
+    "empty": "No plan on record yet. That does not mean none exist: nobody has entered one with its source and its date.",
+    "colPlan": "Plan",
+    "colFee": "Fee",
+    "colRegion": "Country",
+    "colRead": "Read on",
+    "colModels": "Models it includes",
+    "noFee": "No fee listed",
+    "perMonth": "per month",
+    "fxNote": "The fee is the one charged, in its own currency. The figure in brackets is a rough equivalent at the reference rate of {date} ({rate} pesos per dollar); it is not a price.",
+    "expiredTitle": "{count, plural, one {# expired plan} other {# expired plans}}",
+    "expiredNote": "These were read longer ago than this site treats as current. They are named with the date of their last reading and without a price, because repeating an old price is exactly what this is meant to prevent.",
+    "expiredSince": "not verified since {date}",
+    "contribute": "Prices are entered by hand, per country, and anyone can add or re-read one.",
+    "contributeLink": "Report a plan price"
   },
   "provider": {
     "metaTitle": "{name}: measured models",

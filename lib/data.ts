@@ -6,6 +6,7 @@ import type {
   CategoryRule,
   Meta,
   Model,
+  ExpiredPlan,
   Plan,
   Provider,
   RejectedSnapshot,
@@ -53,16 +54,46 @@ export function getFx(): FxRate | null {
   }
 }
 
+/**
+ * How many days a plan entry stays current, as config/plans.json states it. Read from the
+ * config, where the number is decided, rather than from the generated file. Null when the
+ * config does not state one, in which case no page quotes a limit.
+ */
+export function getPlanMaxAgeDays(): number | null {
+  try {
+    const days = readJson<{ max_age_days?: unknown }>("../config/plans.json").max_age_days;
+    return typeof days === "number" && Number.isInteger(days) && days > 0 ? days : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Everything on record about subscription plans: the ones fit to show, the ones set aside
+ * because nobody has re-read their page within the limit, and that limit in days. A missing
+ * or unreadable file is an empty record, never an error: plans are optional information.
+ */
+export function getPlans(): { plans: Plan[]; expired: ExpiredPlan[]; maxAgeDays: number | null } {
+  const file = path.join(DATA_DIR, "plans.json");
+  if (!fs.existsSync(file)) return { plans: [], expired: [], maxAgeDays: null };
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as {
+      plans?: Plan[];
+      expired?: ExpiredPlan[];
+    };
+    return {
+      plans: parsed.plans ?? [],
+      expired: parsed.expired ?? [],
+      maxAgeDays: getPlanMaxAgeDays(),
+    };
+  } catch {
+    return { plans: [], expired: [], maxAgeDays: null };
+  }
+}
+
 /** Plans that include a model, in file order. An empty answer means none are on record. */
 export function getPlansFor(modelId: string): Plan[] {
-  const file = path.join(DATA_DIR, "plans.json");
-  if (!fs.existsSync(file)) return [];
-  try {
-    const { plans } = JSON.parse(fs.readFileSync(file, "utf8")) as { plans?: Plan[] };
-    return (plans ?? []).filter((plan) => plan.model_ids.includes(modelId));
-  } catch {
-    return [];
-  }
+  return getPlans().plans.filter((plan) => plan.model_ids.includes(modelId));
 }
 
 export function getBestBy(): BestBy {

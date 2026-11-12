@@ -15,7 +15,7 @@ export async function SiteHeader({
   active,
 }: {
   locale: string;
-  active: "ranking" | "compare" | "local" | "methodology" | "aliases" | "none";
+  active: "ranking" | "compare" | "local" | "plans" | "methodology" | "aliases" | "none";
 }) {
   const t = await getTranslations("masthead");
   const tn = await getTranslations("nav");
@@ -32,6 +32,7 @@ export async function SiteHeader({
     { key: "ranking", href: "/" },
     { key: "compare", href: "/compare" },
     { key: "local", href: "/local" },
+    { key: "plans", href: "/plans" },
     { key: "methodology", href: "/methodology" },
     { key: "aliases", href: "/aliases" },
   ] as const;
