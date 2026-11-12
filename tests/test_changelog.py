@@ -5,11 +5,13 @@ knowing who made a model, so the fixtures never say.
 """
 import copy
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
-from scripts.ingest import changelog
+from scripts.ingest import backfill_changes, changelog
 
 DATA = Path(__file__).resolve().parents[1] / "data"
 
@@ -182,6 +184,46 @@ class AppendTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / "changes.jsonl"
             changelog.append([], path)
+            self.assertFalse(path.exists())
+
+
+class SeedTests(unittest.TestCase):
+    """The ingest builds the log from history once; it must never stop a run or redo it."""
+
+    EVENTS = [{"date": "2026-01-01", "type": "model_added", "model_id": "m-a"}]
+
+    def test_an_existing_log_is_left_exactly_as_it_is(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "changes.jsonl"
+            path.write_text("kept\n", encoding="utf-8")
+            with mock.patch.object(backfill_changes, "rebuild") as rebuild:
+                self.assertEqual(backfill_changes.seed(path), 0)
+                rebuild.assert_not_called()
+            self.assertEqual(path.read_text(encoding="utf-8"), "kept\n")
+
+    def test_a_missing_log_is_written_from_history(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "changes.jsonl"
+            with mock.patch.object(backfill_changes, "rebuild", return_value=([], self.EVENTS, 0)):
+                self.assertEqual(backfill_changes.seed(path), 1)
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")), self.EVENTS[0])
+
+    def test_no_history_or_no_git_writes_nothing_and_does_not_raise(self):
+        failures = (
+            subprocess.CalledProcessError(128, "git"),  # not a repository, or a bad object
+            FileNotFoundError("git"),                    # git is not installed
+            json.JSONDecodeError("bad", "", 0),          # a build that is not JSON
+        )
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "changes.jsonl"
+            for failure in failures:
+                with self.subTest(failure=type(failure).__name__):
+                    with mock.patch.object(backfill_changes, "rebuild", side_effect=failure):
+                        self.assertEqual(backfill_changes.seed(path), 0)
+                    self.assertFalse(path.exists())
+            # A shallow clone: one build, so no pair to compare and no events.
+            with mock.patch.object(backfill_changes, "rebuild", return_value=([], [], 0)):
+                self.assertEqual(backfill_changes.seed(path), 0)
             self.assertFalse(path.exists())
 
 

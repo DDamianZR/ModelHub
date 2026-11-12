@@ -31,7 +31,7 @@ from .common import (
 from . import row_dates
 from .composite import ARENA_BENCHMARK, build_models, contamination_reviewed_at, load_weights
 from .report_status import apply_failure_rule, degrade_after_failures
-from . import catalogue, changelog, derived, local, plans
+from . import backfill_changes, catalogue, changelog, derived, local, plans
 from .sources import epoch, fx, livebench, lmarena, llmfit, openrouter
 
 # Beyond this a cached payload is no longer "recent enough to stand in".
@@ -632,6 +632,8 @@ def main() -> int:
 
     # Read the build on disk before replacing it: the log states how this run differs from
     # the last one published. Text only, written after the scoring is finished.
+    # The first run that finds no log builds it from the builds git already holds.
+    backfill_changes.seed()
     replaced = changelog.read_state()
     write_json(DATA / "models.json", {"meta": meta, "models": models})
     write_json(DATA / "scores.json", {"meta": meta, "scores": score_rows})

@@ -1,8 +1,9 @@
-"""Rebuild data/changes.jsonl from the git history of /data. A one-off, kept for audit.
+"""Rebuild data/changes.jsonl from the git history of /data.
 
 The daily ingest appends to the log from the day it started doing so. Everything before
 that already exists as commits, so this walks them and applies the same diff_states() the
-ingest uses to each consecutive pair of builds. Run it from a full clone:
+ingest uses to each consecutive pair of builds. The ingest calls seed() once, when the log
+does not exist yet; the command line is kept for audit. Run it from a full clone:
 
     python -m scripts.ingest.backfill_changes               # print the summary only
     python -m scripts.ingest.backfill_changes --out FILE    # write the log somewhere else
@@ -56,18 +57,9 @@ def builds() -> list[tuple[str, str, dict]]:
     return out
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--write", action="store_true", help="write data/changes.jsonl")
-    parser.add_argument("--force", action="store_true", help="overwrite an existing log")
-    parser.add_argument("--out", type=Path, help="write the log to this path instead of /data")
-    args = parser.parse_args(argv)
-
+def rebuild() -> tuple[list[tuple[str, str, dict]], list[dict], int]:
+    """(builds, events, quiet transitions) for the whole history this clone can see."""
     history = builds()
-    if len(history) < 2:
-        print("Fewer than two comparable builds in this clone; is it a shallow one?", file=sys.stderr)
-        return 1
-
     share = load_cohort_share()
     events: list[dict] = []
     quiet = 0
@@ -78,6 +70,51 @@ def main(argv: list[str] | None = None) -> int:
         if not any(e["type"] in ("model_added", "model_removed", "gate_crossed", "moved", "cohort_shift") for e in found):
             quiet += 1
         events.extend(found)
+    return history, events, quiet
+
+
+def write(events: list[dict], target: Path) -> None:
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(
+        "".join(json.dumps(event, ensure_ascii=False) + "\n" for event in events),
+        encoding="utf-8", newline="\n",
+    )
+
+
+def seed(target: Path = CHANGES) -> int:
+    """Create the log from history the first time the ingest runs with it. Returns events written.
+
+    The ingest calls this before it appends the day's own changes, so a log that does not
+    exist yet starts with every day git already holds instead of on the day this shipped.
+    It does nothing once the log exists, and it never stops a run: with a shallow clone, no
+    git, or a history it cannot read, it writes nothing and the log simply begins today.
+    """
+    if target.exists():
+        return 0
+    try:
+        _, events, _ = rebuild()
+    except (OSError, subprocess.SubprocessError, ValueError, KeyError) as error:
+        print(f"  changes: history not readable, the log starts today ({type(error).__name__})")
+        return 0
+    if not events:
+        print("  changes: no earlier builds in this clone, the log starts today")
+        return 0
+    write(events, target)
+    print(f"  changes: seeded {len(events)} events from history, up to {events[-1]['date']}")
+    return len(events)
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--write", action="store_true", help="write data/changes.jsonl")
+    parser.add_argument("--force", action="store_true", help="overwrite an existing log")
+    parser.add_argument("--out", type=Path, help="write the log to this path instead of /data")
+    args = parser.parse_args(argv)
+
+    history, events, quiet = rebuild()
+    if len(history) < 2:
+        print("Fewer than two comparable builds in this clone; is it a shallow one?", file=sys.stderr)
+        return 1
 
     types = Counter(event["type"] for event in events)
     moved = [event for event in events if event["type"] == "moved"]
@@ -98,10 +135,7 @@ def main(argv: list[str] | None = None) -> int:
     if target.exists() and not args.force:
         print(f"{target} exists; pass --force to replace it.", file=sys.stderr)
         return 1
-    target.write_text(
-        "".join(json.dumps(event, ensure_ascii=False) + "\n" for event in events),
-        encoding="utf-8", newline="\n",
-    )
+    write(events, target)
     print(f"wrote {len(events)} events to {target}")
     return 0
 

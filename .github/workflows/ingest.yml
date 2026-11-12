@@ -31,6 +31,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      # The change log is built once from the builds already in git, and a shallow clone
+      # holds only the last one. Fetched only while the log does not exist yet, so the
+      # daily run stays a shallow clone from the day after.
+      - name: Fetch history to seed the change log
+        if: ${{ hashFiles('data/changes.jsonl') == '' }}
+        run: git fetch --unshallow
+
       # No pip install step: the ingest is stdlib only, by design.
       - name: Run ingest
         run: python -m scripts.ingest.run
