@@ -379,6 +379,7 @@
     "contaminationLink": "ver evidencia",
     "compareWith": "Comparar con {name}",
     "metaTitle": "{name}: puntajes y fuentes",
+    "shareSubtitle": "{provider} · puntajes de terceros, cada uno con su fuente y su fecha",
     "metaDescription": "Compuesto, cobertura y fuentes de {name} ({provider}), de evaluaciones de terceros y votación humana, cada una con su fecha."
   },
   "methodology": {
@@ -744,6 +745,7 @@
   },
   "vs": {
     "metaTitle": "{a} y {b}: comparación de mediciones",
+    "shareSubtitle": "Las mismas mediciones del ranking, lado a lado, con sus intervalos",
     "metaDescription": "{a} y {b} lado a lado: compuesto con intervalo, cinco categorías, precio y ventana de contexto, con las mismas mediciones del ranking.",
     "title": "{a} y {b}",
     "intro": "Lado a lado, con las mismas mediciones del ranking. Una diferencia menor que el intervalo combinado al 95 % no es una que los datos puedan mostrar.",

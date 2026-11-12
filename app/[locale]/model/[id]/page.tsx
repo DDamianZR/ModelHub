@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
 import { PlanFee, Price } from "@/components/CurrencyProvider";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
 import { Surface } from "@/components/Surface";
@@ -15,12 +16,14 @@ import {
   getModelDetail,
   getModelIds,
   getPlansFor,
+  getRanking,
 } from "@/lib/data";
 import { formatRate } from "@/lib/currency";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/site-url";
 import { orderPair } from "@/lib/views";
 
 export function generateStaticParams() {
@@ -44,6 +47,7 @@ export async function generateMetadata({
     path: `/model/${id}`,
     title: `${t("metaTitle", { name })} · ModelHub`,
     description: t("metaDescription", { name, provider: detail.model.provider_name }),
+    ownCard: true,
   });
 }
 
@@ -70,6 +74,22 @@ export default async function ModelPage({
   const pricing = model.pricing ?? null;
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
+
+  // What this page is, for crawlers: which benchmarks it reports for the model and where
+  // they came from. No score is repeated here; a figure copied into structured data is one
+  // more place for it to be read without its date.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: t("metaTitle", { name: model.display_name }),
+    description: t("metaDescription", { name: model.display_name, provider: model.provider_name }),
+    url: `${siteUrl()}/${locale}/model/${id}`,
+    inLanguage: locale,
+    dateModified: getRanking().meta.generated_at,
+    creator: { "@type": "Organization", name: "ModelHub", url: siteUrl() },
+    isBasedOn: [...new Set(scores.map((score) => score.source_url))],
+    variableMeasured: [...new Set(scores.map((score) => score.benchmark?.name ?? score.benchmark_id))],
+  };
   const tui = await getTranslations("ui");
 
   const partial = model.coverage.covered < model.coverage.total;
@@ -88,6 +108,7 @@ export default async function ModelPage({
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
+      <JsonLd data={jsonLd} />
 
       <nav
         className="mt-6 flex items-center justify-between gap-4"
