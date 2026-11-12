@@ -16,6 +16,7 @@ import {
 } from "@/lib/data";
 import { routing } from "@/i18n/routing";
 import { formatRate } from "@/lib/currency";
+import { analyticsScriptSrc } from "@/lib/measurement";
 import { CATEGORIES } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -87,6 +88,7 @@ export default async function MethodologyPage({
   const bestBy = getBestBy();
   const blend = bestBy.meta.price_blend;
   const fx = getFx();
+  const countingVisits = analyticsScriptSrc() !== null;
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -507,6 +509,27 @@ export default async function MethodologyPage({
               {t("reproduce.link")}
             </a>
           </p>
+        </Section>
+
+        {/* Says what the layout actually does: both read the same switch, so this cannot
+            claim a counter that is not loaded or hide one that is. */}
+        <Section id="visits" title={t("visits.title")}>
+          {countingVisits ? (
+            <>
+              <p>{t("visits.on")}</p>
+              <p>{t("visits.stored")}</p>
+              <p className="mt-1">
+                <a
+                  href="https://vercel.com/docs/analytics/privacy-policy"
+                  className="eyebrow inline-block py-[6px] underline underline-offset-2 text-accent"
+                >
+                  {t("visits.link")}
+                </a>
+              </p>
+            </>
+          ) : (
+            <p>{t("visits.off")}</p>
+          )}
         </Section>
       </div>
     </main>
