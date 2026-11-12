@@ -60,25 +60,6 @@ export function getBoardCards(): { cards: BoardCard[]; generatedAt: string } {
   return { cards, generatedAt: bestBy.meta.generated_at };
 }
 
-/**
- * The first `limit` ranked models in rank order, plus how many more share the last rank.
- * With a tie at the cut the list is not a clean "top N", so the overflow is returned for
- * the page to state rather than hidden.
- */
-export function getTopModels(limit: number): {
-  top: BoardModel[];
-  rankedCount: number;
-  tiedBeyond: number;
-} {
-  const ranked = getRanking()
-    .rows.filter((row) => !row.provisional)
-    .sort(byRank);
-  const top = ranked.slice(0, limit);
-  const last = top[top.length - 1];
-  const tiedBeyond = last ? ranked.slice(limit).filter((row) => row.rank === last.rank).length : 0;
-  return { top: top.map(toBoardModel), rankedCount: ranked.length, tiedBeyond };
-}
-
 /** Ranked models that have a price: the population the cost frontier is evaluated on. */
 export function getScatterPoints(): ScatterPoint[] {
   return getRanking()

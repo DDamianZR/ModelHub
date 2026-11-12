@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ── Semantic design tokens ──────────────────────────────────────────────────
-   Dark is the default and lives in :root; light is the same names re-bound under
-   [data-theme="light"]. Every colour below is verified by scripts/check-contrast.mjs,
+   Light is the default and lives in :root; dark is the same names re-bound under
+   [data-theme="dark"]. Every colour below is verified by scripts/check-contrast.mjs,
    which parses THIS file. Do not hand-tune a value without re-running it: the boundary
    tokens are load-bearing for WCAG 1.4.11 and the margins are thin.
 
