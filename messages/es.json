@@ -46,6 +46,7 @@
     "human_preference": "Preferencia humana",
     "instruction_following": "Instrucciones",
     "knowledge": "Conocimiento",
+    "agentic": "Agéntico",
     "vision": "Visión",
     "trend": "Trayectoria",
     "sortBy": "Ordenar por {column}",
@@ -625,8 +626,25 @@
     "heroTitle": "Ranking de modelos de frontera, {period}",
     "heroSummary": "{models} modelos rastreados, {ranked} con puesto, medidos con {sources} fuentes independientes, con datos al {date}. {firsts, plural, one {El primer puesto lo ocupa un solo modelo.} other {# modelos comparten el primer puesto: sus intervalos no los separan.}}",
     "searchLabel": "Buscar un modelo, proveedor o benchmark",
-    "chipRanking": "Ranking",
     "chipCheapest": "Más barato con cobertura ({min}+ categorías)",
+    "entrance": {
+      "reweight": {
+        "title": "Ponderar a tu criterio",
+        "body": "Cambia el peso de cada categoría y mira cómo se reordena."
+      },
+      "changes": {
+        "title": "Qué cambió",
+        "body": "Quién entró, salió o cambió de puesto, con su fecha."
+      },
+      "local": {
+        "title": "Qué corre en mi máquina",
+        "body": "Pon tu memoria y mira qué modelos abiertos caben."
+      },
+      "plans": {
+        "title": "Cuánto cuesta un plan",
+        "body": "Tarifas tal como se cobran, con país, fuente y fecha."
+      }
+    },
     "sourcesLine": "Cortes de datos: {snapshots}. Fuentes {degraded, plural, =0 {sin fallos} one {con # degradada} other {con # degradadas}}{aging, plural, =0 {} one {, # envejeciendo} other {, # envejeciendo}}.",
     "sourcesLink": "Versión usada por categoría y salud de cada fuente",
     "scatterTitle": "Precio frente a compuesto",

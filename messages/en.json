@@ -46,6 +46,7 @@
     "human_preference": "Human preference",
     "instruction_following": "Instructions",
     "knowledge": "Knowledge",
+    "agentic": "Agentic",
     "vision": "Vision",
     "trend": "Trajectory",
     "sortBy": "Sort by {column}",
@@ -625,8 +626,25 @@
     "heroTitle": "Frontier model ranking, {period}",
     "heroSummary": "{models} models tracked, {ranked} with a place, measured with {sources} independent sources, data as of {date}. {firsts, plural, one {One model holds first place.} other {# models share first place: their intervals do not separate them.}}",
     "searchLabel": "Search a model, provider or benchmark",
-    "chipRanking": "Ranking",
     "chipCheapest": "Cheapest with coverage ({min}+ categories)",
+    "entrance": {
+      "reweight": {
+        "title": "Weigh it your way",
+        "body": "Change each category's weight and watch the ranking reorder."
+      },
+      "changes": {
+        "title": "What changed",
+        "body": "Who arrived, left or changed place, with the date."
+      },
+      "local": {
+        "title": "What runs on my machine",
+        "body": "Set your memory and see which open models fit."
+      },
+      "plans": {
+        "title": "What a plan costs",
+        "body": "Fees as charged, with country, source and date."
+      }
+    },
     "sourcesLine": "Data cutoffs: {snapshots}. Sources {degraded, plural, =0 {with no failures} one {with # degraded} other {with # degraded}}{aging, plural, =0 {} one {, # ageing} other {, # ageing}}.",
     "sourcesLink": "Version used per category and source health",
     "scatterTitle": "Price against composite",
