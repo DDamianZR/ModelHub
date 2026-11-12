@@ -102,7 +102,8 @@
     "compare": "Comparar",
     "methodology": "Metodología",
     "aliases": "Alias",
-    "local": "Qué corre aquí"
+    "local": "Qué corre aquí",
+    "reweight": "Tu ranking"
   },
   "compare": {
     "title": "Comparar modelos",
@@ -427,6 +428,7 @@
       "example": "Existe por un problema real. Como el peso se reparte solo entre las categorías con dato, un modelo poco medido sube por lo que le FALTA, no por ser mejor. Qwen3-Max-Instruct, con 3 de 5 categorías, aparecía en el puesto 5 por encima de modelos medidos en las cinco. Ese es exactamente el sesgo que este sitio existe para combatir, así que se corrige en el código y no con una nota al pie.",
       "newModels": "El umbral es 4 y no 5 a propósito. Un modelo recién salido puede tener los cuatro benchmarks y todavía no acumular votos en LMArena; ese caso rankea normal, marcado como «sin voto humano aún». Se exige evidencia suficiente, no se castiga ser nuevo.",
       "current": "En el build actual: {ranked} modelos rankeados y {provisional} provisionales, con el umbral en {min} de 5.",
+      "reweight": "En «Tu ranking» el lector cambia los pesos, y ahí «4 de 5 categorías» deja de significar algo en cuanto una pesa cero. La misma regla se enuncia entonces como proporción: un modelo recibe puesto si las categorías en que fue medido suman al menos el {share}% del peso elegido. Ese número no es nuevo: es lo mínimo que admite la regla de arriba con los pesos del sitio, se calcula desde config/weights.json y con esos pesos coincide con el gate en todos los modelos.",
       "scope": "El catálogo entero también tiene una fecha de corte: solo entran modelos publicados desde el {date}. No es un umbral de medición como el de arriba — es un filtro de alcance, y decide qué modelos existen en el sitio antes de que se mida nada. El valor vive en config/weights.json, con su razón documentada ahí mismo, y es debatible por PR como cualquier otro número de esta página."
     },
     "variants": {
@@ -693,6 +695,29 @@
     "source": "Fuente",
     "empty": "Ningún modelo del catálogo tiene puntaje en este benchmark.",
     "rows": "{count, plural, one {# puntaje} other {# puntajes}}"
+  },
+  "reweight": {
+    "title": "Tu ranking",
+    "metaDescription": "Cambia el peso de cada categoría y mira cómo se reordenan los modelos. Los puntajes son los publicados; solo cambia cómo se combinan.",
+    "intro": "El compuesto del sitio pondera cinco categorías con pesos que son una decisión, no un hecho. Aquí puedes poner los tuyos. Los puntajes y sus intervalos son los publicados: lo único que cambia es cómo se combinan.",
+    "rules": "Las reglas son las del sitio: los modelos cuyos intervalos se traslapan comparten puesto, y un modelo medido en muy poco de lo que elegiste ponderar no recibe puesto.",
+    "rulesLink": "Cómo se calcula",
+    "weights": "Pesos",
+    "reset": "Volver a los pesos del sitio",
+    "shareOf": "{share}% del compuesto",
+    "siteShare": "sitio: {share}%",
+    "noWeight": "Da peso a por lo menos una categoría para ordenar los modelos.",
+    "same": "Estos son los pesos del sitio: el orden de abajo es el ranking publicado, con {placed} modelos con puesto.",
+    "readout": "Con estos pesos, {moved} de los {compared} modelos con puesto en ambos casos quedan en un lugar distinto al del sitio. {apart, plural, =0 {Ningún modelo queda} one {# modelo queda} other {# modelos quedan}} sin puesto por cobertura.",
+    "filtersNote": "Los filtros ocultan filas; el puesto de cada modelo sigue siendo su lugar entre todos los comparables, no entre los que quedan a la vista.",
+    "personal": "Ranking personal, no el publicado.",
+    "published": "Ver el ranking del sitio",
+    "tableLabel": "Modelos ordenados con tus pesos",
+    "colComposite": "Con tus pesos",
+    "colSite": "En el sitio",
+    "empty": "Ningún modelo cumple estos filtros.",
+    "apartTitle": "{count, plural, one {# modelo sin puesto} other {# modelos sin puesto}} con estos pesos",
+    "apartNote": "Fueron medidos en categorías que suman menos del {share}% del peso que elegiste. Ordenarlos junto a los demás los haría subir por lo que les falta."
   },
   "vs": {
     "metaTitle": "{a} y {b}: comparación de mediciones",

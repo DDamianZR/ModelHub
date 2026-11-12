@@ -12,24 +12,13 @@ import { Sparkline } from "./Sparkline";
 import { Surface } from "./Surface";
 import { useCurrency } from "./CurrencyProvider";
 import { formatRate } from "@/lib/currency";
+import { CONTEXT_FLOORS, PRICE_CEILINGS, formatContext } from "@/lib/filters";
 import { unpackRankingRows, type PackedRanking } from "@/lib/ranking-wire";
 import type { RankingRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 
 type SortKey = "rank" | "composite" | (typeof CATEGORIES)[number];
 type Access = "all" | "open" | "api";
-
-/** Context floors in tokens and price ceilings in USD per million, for the two filters.
-    Round numbers a reader would pick, not tuned to the current catalogue. */
-const CONTEXT_FLOORS = [131_072, 262_144, 1_000_000] as const;
-const PRICE_CEILINGS = [0.5, 1, 3, 10] as const;
-
-function formatContext(tokens: number | null): string {
-  if (tokens === null) return "·";
-  return tokens >= 1_000_000
-    ? `${Math.round((tokens / 1_000_000) * 10) / 10}M`
-    : `${Math.round(tokens / 1024)}K`;
-}
 
 function Chip({
   active,

@@ -13,7 +13,9 @@ import {
   getMethodologyStats,
   getRanking,
   getRejectedSnapshots,
+  getSiteWeights,
 } from "@/lib/data";
+import { minCoveredShare } from "@/lib/composite";
 import { routing } from "@/i18n/routing";
 import { formatRate } from "@/lib/currency";
 import { analyticsScriptSrc } from "@/lib/measurement";
@@ -89,6 +91,8 @@ export default async function MethodologyPage({
   const blend = bestBy.meta.price_blend;
   const fx = getFx();
   const countingVisits = analyticsScriptSrc() !== null;
+  const site = getSiteWeights();
+  const coverageBar = minCoveredShare(site.weights, site.minCoverage);
 
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
@@ -292,6 +296,7 @@ export default async function MethodologyPage({
               min: meta.min_coverage_for_ranking,
             })}
           </p>
+          <p>{t("coverage.reweight", { share: Math.round(coverageBar * 100) })}</p>
           <p>{t("coverage.scope", { date: meta.min_release_date })}</p>
         </Section>
 
