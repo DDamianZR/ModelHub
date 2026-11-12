@@ -508,6 +508,13 @@
       "git": "Cada corrida diaria queda como un commit. Eso significa que cualquier cambio en cualquier número es un diff auditable: puedes ver cuándo cambió, cuánto y por qué corrida.",
       "link": "Ver el repositorio"
     },
+    "visits": {
+      "title": "Qué se cuenta de tu visita",
+      "off": "Este sitio no cuenta visitas ni carga ningún script de medición.",
+      "on": "El sitio cuenta páginas vistas con Vercel Web Analytics. De cada página vista envía su dirección sin parámetros, así que la dirección enviada no incluye lo que escribes en el buscador ni los filtros que eliges.",
+      "stored": "Según la documentación de Vercel, junto con la dirección se guardan la página de origen, la ubicación aproximada, el sistema operativo, el navegador y el tipo de dispositivo. No se usan cookies de terceros, y el hash que distingue a un visitante de otro se descarta a las 24 horas.",
+      "link": "Leer la política de datos de Vercel Web Analytics"
+    },
     "uncertainty": {
       "title": "Incertidumbre y empates estadísticos",
       "body": "Epoch publica un error estándar en cada fila y LMArena publica un intervalo de confianza en cada rating. Ese dato existía en las fuentes desde el primer día y se descartaba al mostrar. Ahora se propaga hasta el compuesto y se enseña.",

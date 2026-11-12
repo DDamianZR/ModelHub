@@ -508,6 +508,13 @@
       "git": "Every daily run lands as a commit. That means any change to any number is an auditable diff: you can see when it changed, by how much, and which run did it.",
       "link": "View the repository"
     },
+    "visits": {
+      "title": "What is counted about your visit",
+      "off": "This site does not count visits and loads no measurement script.",
+      "on": "The site counts page views with Vercel Web Analytics. For each view it sends the page address without its parameters, so the address sent never includes what you type in the search box or the filters you choose.",
+      "stored": "According to Vercel's documentation, the referring page, approximate location, operating system, browser and device type are stored with the address. No third-party cookies are used, and the hash that tells one visitor from another is discarded after 24 hours.",
+      "link": "Read the Vercel Web Analytics data policy"
+    },
     "uncertainty": {
       "title": "Uncertainty and statistical ties",
       "body": "Epoch publishes a standard error on every row and LMArena publishes a confidence interval on every rating. That data was in the sources from day one and was dropped on the way to the page. It is now propagated to the composite and shown.",
