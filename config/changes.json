@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "note": "Rules for data/changes.jsonl, the dated log of what moved between builds. Text only: nothing here can move a composite, a rank or the coverage gate.",
+  "cohort_share": 0.5,
+  "cohort_share_rationale": "When more than this share of the models ranked on both days change place in one transition, the day is logged as one event with counts instead of one line per model. Read from the 110 transitions between 2026-08-04 and 2026-11-12: 83 moved nobody, 24 moved between 2% and 40% of the common cohort, and 3 moved 75% or more. Those three are the daily ingest of 2026-10-14, in which 39 models crossed the coverage gate, and the two merges of 2026-11-05. The line sits in the gap between 40% and 75%; it is debatable by PR like every other number here."
+}
