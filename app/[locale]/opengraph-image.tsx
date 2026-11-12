@@ -13,11 +13,11 @@ export function generateStaticParams() {
 // Light-palette values from app/globals.css, copied rather than referenced: Satori (the
 // renderer behind ImageResponse) doesn't resolve CSS custom properties, and an OG card is
 // read as a static preview in someone else's UI theme anyway, not this site's.
-const PAPER = "#f2f2f7";
-const INK = "#1c1c1e";
-const MUTED = "#5d5d63";
-const RULE = "#d8d8de";
-const ACCENT = "#514ecb";
+const PAPER = "#fbfbfa"; // --surface-canvas
+const INK = "#16181d"; // --text-primary
+const MUTED = "#5b616e"; // --text-tertiary
+const RULE = "#e6e6e3"; // --line-subtle
+const ACCENT = "#4a55d4"; // --accent
 
 export default async function OpengraphImage({
   params,
