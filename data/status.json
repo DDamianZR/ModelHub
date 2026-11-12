@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-11T14:12:45+00:00",
+  "generated_at": "2026-11-12T15:05:36+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
         "coding": {
           "release": "2026-06-25",
           "fallback": false,
-          "drift": 11.47,
+          "drift": 11.94,
           "common_models": 19,
           "reason": "not_comparable_more_coverage_older",
           "max_drift": 3.0,
@@ -54,33 +54,33 @@
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "served_by": "rows-latest",
       "consecutive_failures": 0
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "consecutive_failures": 0
     },
     "fx": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-11",
+      "last_success": "2026-11-12",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -89,7 +89,7 @@
     },
     "livebench": {
       "date": "2026-11-11",
-      "age_days": 0,
+      "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -106,7 +106,7 @@
     },
     "lmarena": {
       "date": "2026-11-09",
-      "age_days": 2,
+      "age_days": 3,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -114,7 +114,7 @@
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -122,7 +122,7 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
@@ -130,7 +130,7 @@
       "degraded_days": 28
     },
     "fx": {
-      "date": "2026-11-10",
+      "date": "2026-11-11",
       "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 3,
@@ -147,18 +147,18 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "4c262c37fd09bf656f15f258e58c438a08bcf148cc0ec2a84a7b59e32e44d2bf",
+      "normalised_sha256": "28976328f21e21417463e422f38245724893e96b670b0775f2f9d819409ee1cb",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "e750f72d77d211a1d8ce888a2b01d1a512e2af2205746f012bcf9bd47f52ed6d",
-          "bytes": 2301695
+          "sha256": "54f9d959dd5fa08c1ed2b4773e76c1edd6ca24eba25f3083a2fa0ff12bc2a440",
+          "bytes": 2311217
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "823d1259abc68ca5122c536746bdd2a2ab4869bff250ca85c41ae4d29faa6fbd",
+      "normalised_sha256": "1912dfe064e2968ca1180e4369bde6953591cb5c699478881b89e7a6edb6df2d",
       "requests": 30,
       "upstream": []
     },
@@ -168,23 +168,23 @@
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "054bd6ff78bab08a81c0ae97581127b642ddd0d8408023baa155fd5142dc653a",
+      "normalised_sha256": "cb9d7006a0a1385fa781db6970cad9292eaa51a73591df1be36e2d7d216eda3e",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "b938166331cae2aca2397e8a50b983e8f934d81896aa24866a0b004114251757",
-          "bytes": 839925
+          "sha256": "f7fc8c48ac4a9dbc733cce4150b4775c1c1269abc8f9dbdc3d9f582a77703164",
+          "bytes": 845249
         }
       ]
     },
     "fx": {
-      "normalised_sha256": "ff38bb280a7e68ef2e98922639455f924736f0fde254d904b5052920a4b8e513",
+      "normalised_sha256": "12ac20dc583f6f48637b4cf31dc4c1bc73d3afeccde535d207fde6cb4bc91b00",
       "requests": 1,
       "upstream": [
         {
           "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN",
-          "sha256": "b012affef12d483f65f612a45945fb00db983dfaed0999d81795d3b1d30638ef",
+          "sha256": "bc9fddac50e23e505e8c45b073a37a2da9e1ef4e06b981739823ecb6d7925732",
           "bytes": 71
         }
       ]
