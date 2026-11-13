@@ -59,6 +59,12 @@ _CLOSED_CLAIM = (
     "via api", "by api", "through api", "mediante api", "por api"
 )
 
+# "Algo por debajo" is adverbial: it takes an intransitive verb ("se encuentra", "está") or
+# none ("Algo por debajo en X."). The model kept prefixing a verb that cannot carry it -
+# "Deja/Es/Presenta algo por debajo en X" - which reads as broken Spanish. Nine committed
+# entries had it, and on 2026-09-29 and 2026-10-03 only a human read caught it.
+_BROKEN_ES_WEAKNESS = re.compile(r"\b(deja|es|presenta)\s+algo\s+por\s+debajo\b", re.IGNORECASE)
+
 # Phrases from the English half that turned up untranslated inside the Spanish half.
 _ENGLISH_IN_SPANISH = (
     "no weights are published", "cannot be run locally", "it is downloadable",
@@ -288,7 +294,12 @@ def _one_language(text: str, locale: str, display_name: str, coverage: int) -> l
             problems.append(f"{locale}: banned phrase {phrase!r}")
             break
 
-    sentences = [s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s.strip()]
+    if locale == "es":
+        broken = _BROKEN_ES_WEAKNESS.search(text)
+        if broken:
+            problems.append(f"es: ungrammatical weakness phrase ({broken.group(0)!r})")
+
+    sentences =[s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s.strip()]
     if len(sentences) < MIN_SENTENCES:
         problems.append(
             f"{locale}: {len(sentences)} sentence(s), needs {MIN_SENTENCES} - truncated"
