@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-12",
+  "fetched_at": "2026-11-13",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1319,8 +1319,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.8923,
-        "price_output_usd_per_m": 1.7845,
+        "price_input_usd_per_m": 0.9,
+        "price_output_usd_per_m": 1.5,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1375,8 +1375,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.038,
+        "price_output_usd_per_m": 0.5,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -2166,6 +2166,50 @@
         "price_output_usd_per_m": 5.0,
         "slug": "google/gemini-4-carbon:batch"
       },
+      "google/gemini-4-hydrogen": {
+        "context_length": 1048576,
+        "created": 1794506460,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-hydrogen",
+        "name": "Google: Gemini 4 Hydrogen",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.5,
+        "price_output_usd_per_m": 7.5,
+        "slug": "google/gemini-4-hydrogen"
+      },
+      "google/gemini-4-hydrogen:batch": {
+        "context_length": 1048576,
+        "created": 1794506460,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-hydrogen",
+        "name": "Google: Gemini 4 Hydrogen (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.75,
+        "price_output_usd_per_m": 3.75,
+        "slug": "google/gemini-4-hydrogen:batch"
+      },
       "google/gemini-nano-banana-2.1": {
         "context_length": 65536,
         "created": 1791300825,
@@ -2319,8 +2363,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.1,
+        "price_input_usd_per_m": 0.09,
+        "price_output_usd_per_m": 0.3,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2456,7 +2500,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.06,
-        "price_output_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.25,
         "slug": "ibm-granite/granite-4.2-8b"
       },
       "inclusionai/ling-3.0-flash": {
@@ -2586,42 +2630,6 @@
         "price_input_usd_per_m": 0.2,
         "price_output_usd_per_m": 0.8,
         "slug": "kt/midm-k-3.0-pro"
-      },
-      "liquid/lfm-2.5-2.6b": {
-        "context_length": 128000,
-        "created": 1786470519,
-        "free_tier": false,
-        "hugging_face_id": "LiquidAI/LFM2.5-2.6B",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "lfm-2.5.2.6b",
-        "name": "LiquidAI: LFM2.5-2.6B",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.35,
-        "price_output_usd_per_m": 0.5,
-        "slug": "liquid/lfm-2.5-2.6b"
-      },
-      "liquid/lfm-2.5-2.6b:free": {
-        "context_length": 65536,
-        "created": 1786470519,
-        "free_tier": true,
-        "hugging_face_id": "LiquidAI/LFM2.5-2.6B",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "lfm-2.5.2.6b",
-        "name": "LiquidAI: LFM2.5-2.6B (free)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "liquid/lfm-2.5-2.6b:free"
       },
       "liquid/lfm-2.5-24b-a2b": {
         "context_length": 128000,
@@ -3088,7 +3096,7 @@
         "slug": "microsoft/phi-4"
       },
       "minimax/minimax-m2.5": {
-        "context_length": 200000,
+        "context_length": 198000,
         "created": 1770908502,
         "free_tier": false,
         "hugging_face_id": "MiniMaxAI/MiniMax-M2.5",
@@ -3102,7 +3110,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.27,
-        "price_output_usd_per_m": 1.08,
+        "price_output_usd_per_m": 0.95,
         "slug": "minimax/minimax-m2.5"
       },
       "minimax/minimax-m2.7": {
@@ -3159,8 +3167,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "minimax/minimax-m3:batch": {
@@ -3693,8 +3701,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.532,
-        "price_output_usd_per_m": 3.325,
+        "price_input_usd_per_m": 0.5,
+        "price_output_usd_per_m": 2.5,
         "slug": "moonshotai/kimi-k2.5"
       },
       "moonshotai/kimi-k2.6": {
@@ -3771,8 +3779,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2375,
-        "price_output_usd_per_m": 8.7856,
+        "price_input_usd_per_m": 2.0,
+        "price_output_usd_per_m": 10.0,
         "slug": "moonshotai/kimi-k3.1-pro"
       },
       "moonshotai/kimi-k3.1-pro:batch": {
@@ -6288,6 +6296,25 @@
         "price_output_usd_per_m": 0.5,
         "slug": "particle-ai/particle-1"
       },
+      "particle-ai/particle-1:free": {
+        "context_length": 1048576,
+        "created": 1793207893,
+        "free_tier": true,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "particle-1",
+        "name": "Particle AI: Particle-1 (free)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.0,
+        "price_output_usd_per_m": 0.0,
+        "slug": "particle-ai/particle-1:free"
+      },
       "perceptron/perceptron-mk1": {
         "context_length": 32768,
         "created": 1778597029,
@@ -6904,8 +6931,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.17,
-        "price_output_usd_per_m": 0.25,
+        "price_input_usd_per_m": 0.044,
+        "price_output_usd_per_m": 0.065,
         "slug": "qwen/qwen3.5-9b"
       },
       "qwen/qwen3.5-flash-02-23": {
@@ -7407,8 +7434,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.3,
         "slug": "ricursiveai/ripple-65b-preview"
       },
       "sakana/fugu-max": {
@@ -7843,18 +7870,37 @@
         "price_output_usd_per_m": 4.05,
         "slug": "thinkingmachines/inkling"
       },
+      "thinkingmachines/inkling-2-small": {
+        "context_length": 1048576,
+        "created": 1794261847,
+        "free_tier": false,
+        "hugging_face_id": "thinkingmachines/Inkling-2-Small",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "inkling-2-small",
+        "name": "Thinking Machines: Inkling 2 Small",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.0,
+        "slug": "thinkingmachines/inkling-2-small"
+      },
       "thinkingmachines/inkling-2-small:free": {
         "context_length": 1048576,
         "created": 1794261847,
         "free_tier": true,
-        "hugging_face_id": null,
+        "hugging_face_id": "thinkingmachines/Inkling-2-Small",
         "input_modalities": [
           "image",
           "text"
         ],
         "key": "inkling-2-small",
         "name": "Thinking Machines: Inkling 2 Small (free)",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -8288,8 +8334,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.48,
-        "price_output_usd_per_m": 1.8,
+        "price_input_usd_per_m": 0.435,
+        "price_output_usd_per_m": 0.87,
         "slug": "xiaomi/mimo-v2.5-pro"
       },
       "xiaomi/mimo-v2.6-flash": {
@@ -8588,8 +8634,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0699,
-        "price_output_usd_per_m": 1.4,
+        "price_input_usd_per_m": 0.084,
+        "price_output_usd_per_m": 3.6,
         "slug": "z-ai/glm-5.3"
       },
       "z-ai/glm-5.3-flash": {
@@ -8823,8 +8869,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.022,
-        "price_output_usd_per_m": 0.4,
+        "price_input_usd_per_m": 0.038,
+        "price_output_usd_per_m": 0.5,
         "slug": "~deepseek/deepseek-flash-latest"
       },
       "~deepseek/deepseek-pro-latest": {
@@ -8881,8 +8927,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.75,
-        "price_output_usd_per_m": 3.75,
+        "price_input_usd_per_m": 1.5,
+        "price_output_usd_per_m": 7.5,
         "slug": "~google/gemini-flash-latest"
       },
       "~google/gemini-pro-latest": {
@@ -8924,7 +8970,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 11.0055,
+        "price_output_usd_per_m": 10.6066,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-12",
+  "fetched_at": "2026-11-13",
   "payload": {
     "category_rule": {
       "coding": {
@@ -1061,6 +1061,17 @@
           "source_url": "https://livebench.ai/",
           "value": 90.6,
           "variant": "gemini-4-carbon"
+        }
+      ],
+      "gemini-4-hydrogen": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 88.6,
+          "variant": "gemini-4-hydrogen"
         }
       ],
       "gemma-4.31b": [

@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-12T15:05:36+00:00",
+  "generated_at": "2026-11-13T14:29:36+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-12",
+      "last_success": "2026-11-13",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-12",
+      "last_success": "2026-11-13",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
@@ -53,34 +53,34 @@
       }
     },
     "lmarena": {
-      "state": "ok",
+      "state": "cached",
       "last_success": "2026-11-12",
-      "error": null,
-      "served_by": "rows-latest",
-      "consecutive_failures": 0
+      "age_days": 1,
+      "error": "https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=%22category%22%3D%27overall%27+AND+%22leaderboard_publish_date%22%3E%3D%272026-01-01%27&offset=0&length=1: HTTP Error 500: Internal Server Error; rows-latest fallback also failed: https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=0&length=100: HTTP Error 501: Not Implemented",
+      "consecutive_failures": 1
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-12",
+      "last_success": "2026-11-13",
       "error": null,
       "consecutive_failures": 0
     },
     "fx": {
       "state": "ok",
-      "last_success": "2026-11-12",
+      "last_success": "2026-11-13",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-12",
+      "last_success": "2026-11-13",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-12",
+      "date": "2026-11-13",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -88,8 +88,8 @@
       "degraded_days": 4
     },
     "livebench": {
-      "date": "2026-11-11",
-      "age_days": 1,
+      "date": "2026-11-13",
+      "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -106,7 +106,7 @@
     },
     "lmarena": {
       "date": "2026-11-09",
-      "age_days": 3,
+      "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -114,7 +114,7 @@
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-12",
+      "date": "2026-11-13",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -122,7 +122,7 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-12",
+      "date": "2026-11-13",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
@@ -130,7 +130,7 @@
       "degraded_days": 28
     },
     "fx": {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "age_days": 1,
       "freshness": "fresh",
       "cadence_days": 3,
@@ -147,44 +147,44 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "28976328f21e21417463e422f38245724893e96b670b0775f2f9d819409ee1cb",
+      "normalised_sha256": "b766fefe478c15278f64787bed036addab5a536e895b12003792d9ead3b87f66",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "54f9d959dd5fa08c1ed2b4773e76c1edd6ca24eba25f3083a2fa0ff12bc2a440",
-          "bytes": 2311217
+          "sha256": "b07bd2eb34cc26469ea832daa2b17e6088f127caa3361c0ee78bac1d05671814",
+          "bytes": 2311400
         }
       ]
     },
     "livebench": {
-      "normalised_sha256": "1912dfe064e2968ca1180e4369bde6953591cb5c699478881b89e7a6edb6df2d",
+      "normalised_sha256": "03b19632e839c47067df6552202bddeacff76750b59120d2a3650842b5e901da",
       "requests": 30,
       "upstream": []
     },
     "lmarena": {
       "normalised_sha256": "6cc2bec29f76045d5611c888571424d9463ed7fbe5d2b7b04f37626347c82338",
-      "requests": 7,
+      "requests": 0,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "cb9d7006a0a1385fa781db6970cad9292eaa51a73591df1be36e2d7d216eda3e",
+      "normalised_sha256": "d75f7b45c48a47b55cef769d811d6d2d772194eebb1032aaa656bd03c7fc52d2",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "f7fc8c48ac4a9dbc733cce4150b4775c1c1269abc8f9dbdc3d9f582a77703164",
-          "bytes": 845249
+          "sha256": "4d6ca10287a496d91b311dd1274ae719d4ea541dff1e88b1aa104d3206052eed",
+          "bytes": 849046
         }
       ]
     },
     "fx": {
-      "normalised_sha256": "12ac20dc583f6f48637b4cf31dc4c1bc73d3afeccde535d207fde6cb4bc91b00",
+      "normalised_sha256": "986a82948dd8d2fa26499b92afbb1f3a9b5fd18e37562d6805c0d8e2ba4fe38d",
       "requests": 1,
       "upstream": [
         {
           "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN",
-          "sha256": "bc9fddac50e23e505e8c45b073a37a2da9e1ef4e06b981739823ecb6d7925732",
+          "sha256": "d593a374b6ebb824f5c53606375d5fa151f2ed14a009f8ab95b80d7666ce289b",
           "bytes": 71
         }
       ]
