@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13",
+  "fetched_at": "2026-11-14",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1120,8 +1120,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.32,
-        "price_output_usd_per_m": 0.89,
+        "price_input_usd_per_m": 0.2574,
+        "price_output_usd_per_m": 1.0287,
         "slug": "deepseek/deepseek-chat"
       },
       "deepseek/deepseek-chat-v3-0324": {
@@ -1356,8 +1356,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.0507,
+        "price_output_usd_per_m": 0.2028,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -2363,8 +2363,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.09,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.0675,
+        "price_output_usd_per_m": 0.225,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2576,6 +2576,25 @@
         "price_input_usd_per_m": 0.045,
         "price_output_usd_per_m": 0.135,
         "slug": "inclusionai/ling-3.1-flash"
+      },
+      "inclusionai/ling-3.2-flash:free": {
+        "context_length": 1048576,
+        "created": 1794591958,
+        "free_tier": true,
+        "hugging_face_id": "inclusionAI/Ling-3.2-flash",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "ling-3.2-flash",
+        "name": "inclusionAI: Ling 3.2 Flash (free)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.0,
+        "price_output_usd_per_m": 0.0,
+        "slug": "inclusionai/ling-3.2-flash:free"
       },
       "inference-net/schematron-v2-small": {
         "context_length": 128000,
@@ -2789,8 +2808,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.33,
+        "price_input_usd_per_m": 0.0509,
+        "price_output_usd_per_m": 0.335,
         "slug": "meta-llama/llama-3.2-3b-instruct"
       },
       "meta-llama/llama-3.3-70b-instruct": {
@@ -5322,8 +5341,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 4.4,
-        "price_output_usd_per_m": 22.0,
+        "price_input_usd_per_m": 4.0,
+        "price_output_usd_per_m": 20.0,
         "slug": "openai/gpt-5.6-sol"
       },
       "openai/gpt-5.6-sol-pro": {
@@ -6931,8 +6950,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.044,
-        "price_output_usd_per_m": 0.065,
+        "price_input_usd_per_m": 0.17,
+        "price_output_usd_per_m": 0.25,
         "slug": "qwen/qwen3.5-9b"
       },
       "qwen/qwen3.5-flash-02-23": {
@@ -7170,7 +7189,7 @@
         "slug": "qwen/qwen3.8-2.4t-a95b"
       },
       "qwen/qwen3.8-27b": {
-        "context_length": 1048575,
+        "context_length": 1024000,
         "created": 1786722910,
         "free_tier": false,
         "hugging_face_id": "Qwen/Qwen3.8-27B",
@@ -8970,7 +8989,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 10.6066,
+        "price_output_usd_per_m": 11.0055,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

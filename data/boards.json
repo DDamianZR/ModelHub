@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-13",
+    "generated_at": "2026-11-14",
     "in_composite": false
   },
   "boards": [
@@ -147,6 +147,13 @@
               "measured_at": "2026-10-14"
             },
             {
+              "model_id": "anthropic-claude-opus-4-7",
+              "variant": "claude-opus-4-7_max",
+              "value": 43.33,
+              "stderr": 9.595,
+              "measured_at": "2026-10-30"
+            },
+            {
               "model_id": "google-deepmind-gemini-3.7-flash",
               "variant": "gemini-3.7-flash_high",
               "value": 41.11,
@@ -166,6 +173,13 @@
               "value": 41.11,
               "stderr": 11.015,
               "measured_at": "2026-10-21"
+            },
+            {
+              "model_id": "mistral-ai-mistral-large-4-0",
+              "variant": "mistral-large-4-0_high",
+              "value": 40.0,
+              "stderr": 10.641,
+              "measured_at": "2026-11-02"
             },
             {
               "model_id": "google-deepmind-gemini-3.8-flash",
@@ -207,20 +221,6 @@
               "variant": "grok-4.5_high",
               "value": 32.22,
               "stderr": 10.723,
-              "measured_at": "2026-10-21"
-            },
-            {
-              "model_id": "anthropic-claude-opus-4-7",
-              "variant": "claude-opus-4-7_high",
-              "value": 31.11,
-              "stderr": 9.036,
-              "measured_at": "2026-08-12"
-            },
-            {
-              "model_id": "mistral-ai-mistral-large-4-0",
-              "variant": "mistral-large-4-0_high",
-              "value": 27.78,
-              "stderr": 8.859,
               "measured_at": "2026-10-21"
             },
             {
@@ -310,8 +310,8 @@
             {
               "model_id": "anthropic-claude-fable-5-2",
               "variant": "claude-fable-5-2_max",
-              "value": 19.62,
-              "stderr": 3.486,
+              "value": 15.33,
+              "stderr": 3.12,
               "measured_at": "2026-11-06"
             },
             {

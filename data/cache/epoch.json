@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13",
+  "fetched_at": "2026-11-14",
   "payload": {
     "boards": {
       "agentic": {
@@ -31,10 +31,10 @@
               "variant": "claude-opus-4-6_max"
             },
             "claude-opus-4.7": {
-              "measured_at": "2026-08-12",
-              "stderr": 9.036,
-              "value": 31.11,
-              "variant": "claude-opus-4-7_high"
+              "measured_at": "2026-10-30",
+              "stderr": 9.595,
+              "value": 43.33,
+              "variant": "claude-opus-4-7_max"
             },
             "claude-opus-4.8": {
               "measured_at": "2026-10-21",
@@ -211,9 +211,9 @@
               "variant": "kimi-k3_max"
             },
             "mistral-large-4.0": {
-              "measured_at": "2026-10-21",
-              "stderr": 8.859,
-              "value": 27.78,
+              "measured_at": "2026-11-02",
+              "stderr": 10.641,
+              "value": 40.0,
               "variant": "mistral-large-4-0_high"
             },
             "muse-spark-1.3": {
@@ -253,8 +253,8 @@
             },
             "claude-fable-5.2": {
               "measured_at": "2026-11-06",
-              "stderr": 3.486,
-              "value": 19.62,
+              "stderr": 3.12,
+              "value": 15.33,
               "variant": "claude-fable-5-2_max"
             },
             "claude-opus-5.5": {
@@ -1889,6 +1889,15 @@
         "organization": "Google DeepMind",
         "release_date": "2026-11-10"
       },
+      "gemini-4-hydrogen": {
+        "accessibility": "API access",
+        "country": "United States of America",
+        "display_name": "Gemini 4 Hydrogen (high)",
+        "eci": 0.0,
+        "id_key": "gemini-4-hydrogen",
+        "organization": "Google DeepMind",
+        "release_date": "2026-11-12"
+      },
       "gemini-robotics-er-1.5": {
         "accessibility": "",
         "country": "",
@@ -3006,7 +3015,7 @@
         "release_date": "2025-09-05"
       },
       "muse-ember-1.0": {
-        "accessibility": "",
+        "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Muse Ember",
         "eci": 0.0,
