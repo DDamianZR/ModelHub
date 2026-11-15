@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14",
+  "fetched_at": "2026-11-15",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1375,8 +1375,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.038,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.02,
+        "price_output_usd_per_m": 0.108,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -1394,8 +1394,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.15,
+        "price_input_usd_per_m": 0.029,
+        "price_output_usd_per_m": 0.252,
         "slug": "deepseek/deepseek-v4.1-flash-1017:batch"
       },
       "deepseek/deepseek-v4.1-flash:batch": {
@@ -2500,7 +2500,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.06,
-        "price_output_usd_per_m": 0.25,
+        "price_output_usd_per_m": 0.15,
         "slug": "ibm-granite/granite-4.2-8b"
       },
       "inclusionai/ling-3.0-flash": {
@@ -3798,8 +3798,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 2.0,
-        "price_output_usd_per_m": 10.0,
+        "price_input_usd_per_m": 0.2403,
+        "price_output_usd_per_m": 8.4023,
         "slug": "moonshotai/kimi-k3.1-pro"
       },
       "moonshotai/kimi-k3.1-pro:batch": {
@@ -3818,8 +3818,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7,
-        "price_output_usd_per_m": 6.0,
+        "price_input_usd_per_m": 0.275,
+        "price_output_usd_per_m": 4.125,
         "slug": "moonshotai/kimi-k3.1-pro:batch"
       },
       "moonshotai/kimi-k3:batch": {
@@ -4172,7 +4172,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.47,
+        "price_output_usd_per_m": 0.5,
         "slug": "nvidia/nemotron-3.5-super-vl"
       },
       "nvidia/nemotron-3.5-super-vl:free": {
@@ -5341,8 +5341,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 4.0,
-        "price_output_usd_per_m": 20.0,
+        "price_input_usd_per_m": 4.4,
+        "price_output_usd_per_m": 22.0,
         "slug": "openai/gpt-5.6-sol"
       },
       "openai/gpt-5.6-sol-pro": {
@@ -6311,7 +6311,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
+        "price_input_usd_per_m": 0.06,
         "price_output_usd_per_m": 0.5,
         "slug": "particle-ai/particle-1"
       },
@@ -6816,25 +6816,6 @@
         "price_output_usd_per_m": 0.6,
         "slug": "qwen/qwen3-vl-30b-a3b-instruct"
       },
-      "qwen/qwen3-vl-30b-a3b-thinking": {
-        "context_length": 262144,
-        "created": 1759794479,
-        "free_tier": false,
-        "hugging_face_id": "Qwen/Qwen3-VL-30B-A3B-Thinking",
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "qwen3-vl-30b-a3b",
-        "name": "Qwen: Qwen3 VL 30B A3B Thinking",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.29,
-        "price_output_usd_per_m": 1.0,
-        "slug": "qwen/qwen3-vl-30b-a3b-thinking"
-      },
       "qwen/qwen3-vl-8b-instruct": {
         "context_length": 262144,
         "created": 1760463308,
@@ -6950,8 +6931,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.17,
-        "price_output_usd_per_m": 0.25,
+        "price_input_usd_per_m": 0.021,
+        "price_output_usd_per_m": 0.03,
         "slug": "qwen/qwen3.5-9b"
       },
       "qwen/qwen3.5-flash-02-23": {
@@ -7612,24 +7593,6 @@
         "price_output_usd_per_m": 0.0,
         "slug": "scaledown/summarize"
       },
-      "stepfun/step-3.5-flash": {
-        "context_length": 262144,
-        "created": 1769728337,
-        "free_tier": false,
-        "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "step-3.5-flash",
-        "name": "StepFun: Step 3.5 Flash",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.3,
-        "slug": "stepfun/step-3.5-flash"
-      },
       "stepfun/step-3.7-flash": {
         "context_length": 262144,
         "created": 1779985069,
@@ -7669,24 +7632,6 @@
         "price_input_usd_per_m": 1.0,
         "price_output_usd_per_m": 2.7,
         "slug": "stepfun/step-5-preview"
-      },
-      "tencent/hunyuan-a13b-instruct": {
-        "context_length": 131072,
-        "created": 1751987664,
-        "free_tier": false,
-        "hugging_face_id": "tencent/Hunyuan-A13B-Instruct",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "hunyuan-a13b",
-        "name": "Tencent: Hunyuan A13B Instruct",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.14,
-        "price_output_usd_per_m": 0.57,
-        "slug": "tencent/hunyuan-a13b-instruct"
       },
       "tencent/hy-mt2-1.8b": {
         "context_length": 8192,
@@ -8527,8 +8472,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.6,
-        "price_output_usd_per_m": 2.2,
+        "price_input_usd_per_m": 0.4,
+        "price_output_usd_per_m": 1.75,
         "slug": "z-ai/glm-4.7"
       },
       "z-ai/glm-4.7-flash": {
@@ -8620,24 +8565,6 @@
         "price_input_usd_per_m": 0.007,
         "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
-      },
-      "z-ai/glm-5.2:batch": {
-        "context_length": 1048576,
-        "created": 1781631930,
-        "free_tier": false,
-        "hugging_face_id": "zai-org/GLM-5.2",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "glm-5.2",
-        "name": "Z.ai: GLM 5.2 (batch)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.322,
-        "price_output_usd_per_m": 0.989,
-        "slug": "z-ai/glm-5.2:batch"
       },
       "z-ai/glm-5.3": {
         "context_length": 1048576,
@@ -8888,8 +8815,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.038,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.02,
+        "price_output_usd_per_m": 0.108,
         "slug": "~deepseek/deepseek-flash-latest"
       },
       "~deepseek/deepseek-pro-latest": {
