@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-16",
+  "fetched_at": "2026-11-17",
   "payload": {
     "boards": {
       "agentic": {
@@ -939,7 +939,7 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Fable 5.2 (high)",
-        "eci": 173.44,
+        "eci": 0.0,
         "id_key": "claude-fable-5-2",
         "organization": "Anthropic",
         "release_date": "2026-11-09"
@@ -948,7 +948,7 @@
         "accessibility": "API access",
         "country": "United States of America",
         "display_name": "Claude Fable 5.2 (with fallback, max)",
-        "eci": 173.44,
+        "eci": 0.0,
         "id_key": "claude-fable-5-2-fallback",
         "organization": "Anthropic",
         "release_date": "2026-11-09"
@@ -2592,7 +2592,7 @@
         "release_date": "2026-07-15"
       },
       "inkling-2-small": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "United States of America",
         "display_name": "Inkling 2 Small",
         "eci": 0.0,
@@ -2841,7 +2841,7 @@
         "eci": 0.0,
         "id_key": "mimo-v2.5",
         "organization": "Xiaomi Corp",
-        "release_date": "2026-04-23"
+        "release_date": "2026-04-22"
       },
       "mimo-v2.5-pro": {
         "accessibility": "Open weights (unrestricted)",
@@ -2853,7 +2853,7 @@
         "release_date": "2026-04-23"
       },
       "mimo-v2.6-flash": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "China",
         "display_name": "MiMo-V2.6 Flash",
         "eci": 0.0,
@@ -2862,7 +2862,7 @@
         "release_date": "2026-09-21"
       },
       "mimo-v2.6-pro": {
-        "accessibility": "",
+        "accessibility": "Open weights (unrestricted)",
         "country": "China",
         "display_name": "MiMo-V2.6 Pro",
         "eci": 0.0,

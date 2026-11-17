@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-16",
+  "fetched_at": "2026-11-17",
   "payload": {
     "category_rule": {
       "coding": {
@@ -2817,6 +2817,17 @@
           "source_url": "https://livebench.ai/",
           "value": 80.03,
           "variant": "qwen3.8-27b"
+        }
+      ],
+      "qwen4": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 92.2,
+          "variant": "qwen4-max"
         }
       ],
       "smaug-agentic": [

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-16",
+  "fetched_at": "2026-11-17",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1356,8 +1356,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.14,
-        "price_output_usd_per_m": 0.42,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.2,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -1375,8 +1375,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.036,
+        "price_output_usd_per_m": 0.5,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -1394,8 +1394,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.037,
-        "price_output_usd_per_m": 0.326,
+        "price_input_usd_per_m": 0.036,
+        "price_output_usd_per_m": 0.15,
         "slug": "deepseek/deepseek-v4.1-flash-1017:batch"
       },
       "deepseek/deepseek-v4.1-flash:batch": {
@@ -2924,8 +2924,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.35,
+        "price_output_usd_per_m": 1.5,
         "slug": "meta/muse-glimmer-30b"
       },
       "meta/muse-glimmer-30b:batch": {
@@ -3758,8 +3758,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.6,
-        "price_output_usd_per_m": 3.5,
+        "price_input_usd_per_m": 0.7,
+        "price_output_usd_per_m": 3.75,
         "slug": "moonshotai/kimi-k2.7-code"
       },
       "moonshotai/kimi-k3": {
@@ -3818,8 +3818,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7,
-        "price_output_usd_per_m": 6.0,
+        "price_input_usd_per_m": 0.372,
+        "price_output_usd_per_m": 5.583,
         "slug": "moonshotai/kimi-k3.1-pro:batch"
       },
       "moonshotai/kimi-k3:batch": {
@@ -4078,8 +4078,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.6,
-        "price_output_usd_per_m": 2.4,
+        "price_input_usd_per_m": 0.5,
+        "price_output_usd_per_m": 2.2,
         "slug": "nvidia/nemotron-3-ultra-550b-a55b"
       },
       "nvidia/nemotron-3-ultra-550b-a55b:free": {
@@ -4120,7 +4120,7 @@
         "slug": "nvidia/nemotron-3.5-content-safety"
       },
       "nvidia/nemotron-3.5-lightning": {
-        "context_length": 262144,
+        "context_length": 1048576,
         "created": 1786452751,
         "free_tier": false,
         "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
@@ -6015,8 +6015,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.018,
+        "price_output_usd_per_m": 0.09,
         "slug": "openai/gpt-oss-20b"
       },
       "openai/gpt-oss-20b:batch": {
@@ -6931,8 +6931,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.095,
-        "price_output_usd_per_m": 0.139,
+        "price_input_usd_per_m": 0.17,
+        "price_output_usd_per_m": 0.25,
         "slug": "qwen/qwen3.5-9b"
       },
       "qwen/qwen3.5-flash-02-23": {
@@ -7326,8 +7326,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.5,
-        "price_output_usd_per_m": 4.5,
+        "price_input_usd_per_m": 1.425,
+        "price_output_usd_per_m": 4.275,
         "slug": "qwen/qwen4-max"
       },
       "recursive/flint-v1.0:free": {
@@ -8605,6 +8605,24 @@
         "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
       },
+      "z-ai/glm-5.2:batch": {
+        "context_length": 1048576,
+        "created": 1781631930,
+        "free_tier": false,
+        "hugging_face_id": "zai-org/GLM-5.2",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "glm-5.2",
+        "name": "Z.ai: GLM 5.2 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.322,
+        "price_output_usd_per_m": 0.989,
+        "slug": "z-ai/glm-5.2:batch"
+      },
       "z-ai/glm-5.3": {
         "context_length": 1048576,
         "created": 1787086655,
@@ -8639,8 +8657,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0399,
-        "price_output_usd_per_m": 0.0784,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.5,
         "slug": "z-ai/glm-5.3-flash"
       },
       "z-ai/glm-5.3-flash:batch": {
@@ -8659,8 +8677,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.18,
+        "price_input_usd_per_m": 0.024,
+        "price_output_usd_per_m": 0.069,
         "slug": "z-ai/glm-5.3-flash:batch"
       },
       "z-ai/glm-5.3-flashx": {
@@ -8717,8 +8735,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 2.8,
-        "price_output_usd_per_m": 8.8,
+        "price_input_usd_per_m": 1.68,
+        "price_output_usd_per_m": 5.28,
         "slug": "z-ai/glm-5.3-prime"
       },
       "z-ai/glm-5.3:batch": {
@@ -8735,8 +8753,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.45,
-        "price_output_usd_per_m": 2.0,
+        "price_input_usd_per_m": 0.281,
+        "price_output_usd_per_m": 1.25,
         "slug": "z-ai/glm-5.3:batch"
       },
       "z-ai/glm-5v-turbo": {
