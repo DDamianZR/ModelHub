@@ -1154,6 +1154,24 @@
       "lmarena": []
     }
   },
+  "openai-gpt-6.2-astra": {
+    "canonical_key": "gpt-6.2-astra",
+    "display_name": "GPT-6.2 Astra (max)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "gpt-6.2-astra"
+    ],
+    "matched": {
+      "epoch": [
+        "gpt-6.2-astra_max"
+      ],
+      "livebench": [
+        "gpt-6.2-astra"
+      ],
+      "lmarena": []
+    }
+  },
   "openai-gpt-oss-20b": {
     "canonical_key": "gpt-oss-20b",
     "display_name": "gpt-oss-20b",

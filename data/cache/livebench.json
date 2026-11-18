@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17",
+  "fetched_at": "2026-11-18",
   "payload": {
     "category_rule": {
       "coding": {
@@ -1747,6 +1747,28 @@
           "source_url": "https://livebench.ai/",
           "value": 88.7,
           "variant": "gpt-6.1-terra"
+        }
+      ],
+      "gpt-6.2-astra": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 91.6,
+          "variant": "gpt-6.2-astra"
+        }
+      ],
+      "gpt-6.2-sol": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 90.6,
+          "variant": "gpt-6.2-sol"
         }
       ],
       "grok-4.3": [

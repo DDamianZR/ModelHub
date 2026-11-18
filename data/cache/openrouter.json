@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17",
+  "fetched_at": "2026-11-18",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1174,8 +1174,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.5,
-        "price_output_usd_per_m": 2.15,
+        "price_input_usd_per_m": 0.571,
+        "price_output_usd_per_m": 2.286,
         "slug": "deepseek/deepseek-r1-0528"
       },
       "deepseek/deepseek-v3.1-terminus": {
@@ -1356,8 +1356,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.0507,
+        "price_output_usd_per_m": 0.2028,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -2325,7 +2325,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.35,
+        "price_output_usd_per_m": 0.45,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -3398,8 +3398,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.4,
-        "price_output_usd_per_m": 2.0,
+        "price_input_usd_per_m": 0.44,
+        "price_output_usd_per_m": 2.2,
         "slug": "mistralai/mistral-medium-3"
       },
       "mistralai/mistral-medium-3-5": {
@@ -3458,8 +3458,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.4,
-        "price_output_usd_per_m": 2.0,
+        "price_input_usd_per_m": 0.44,
+        "price_output_usd_per_m": 2.2,
         "slug": "mistralai/mistral-medium-3.1"
       },
       "mistralai/mistral-nemo": {
@@ -3570,8 +3570,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.2,
         "slug": "mistralai/mistral-small-3.2-24b-instruct"
       },
       "mistralai/mixtral-8x22b-instruct": {
@@ -5905,6 +5905,166 @@
         "price_output_usd_per_m": 2.5,
         "slug": "openai/gpt-6.1-terra:batch"
       },
+      "openai/gpt-6.2-astra": {
+        "context_length": 1050000,
+        "created": 1794938423,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-astra",
+        "name": "OpenAI: GPT-6.2 Astra",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 8.0,
+        "price_output_usd_per_m": 40.0,
+        "slug": "openai/gpt-6.2-astra"
+      },
+      "openai/gpt-6.2-astra-pro": {
+        "context_length": 1050000,
+        "created": 1794938432,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-astra-pro",
+        "name": "OpenAI: GPT-6.2 Astra Pro",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 8.0,
+        "price_output_usd_per_m": 40.0,
+        "slug": "openai/gpt-6.2-astra-pro"
+      },
+      "openai/gpt-6.2-astra-pro:batch": {
+        "context_length": 1050000,
+        "created": 1794938432,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-astra-pro",
+        "name": "OpenAI: GPT-6.2 Astra Pro (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 4.0,
+        "price_output_usd_per_m": 20.0,
+        "slug": "openai/gpt-6.2-astra-pro:batch"
+      },
+      "openai/gpt-6.2-astra:batch": {
+        "context_length": 1050000,
+        "created": 1794938423,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-astra",
+        "name": "OpenAI: GPT-6.2 Astra (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 4.0,
+        "price_output_usd_per_m": 20.0,
+        "slug": "openai/gpt-6.2-astra:batch"
+      },
+      "openai/gpt-6.2-sol": {
+        "context_length": 1050000,
+        "created": 1794938371,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-sol",
+        "name": "OpenAI: GPT-6.2 Sol",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 2.0,
+        "price_output_usd_per_m": 10.0,
+        "slug": "openai/gpt-6.2-sol"
+      },
+      "openai/gpt-6.2-sol-pro": {
+        "context_length": 1050000,
+        "created": 1794938409,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-sol-pro",
+        "name": "OpenAI: GPT-6.2 Sol Pro",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 2.0,
+        "price_output_usd_per_m": 10.0,
+        "slug": "openai/gpt-6.2-sol-pro"
+      },
+      "openai/gpt-6.2-sol-pro:batch": {
+        "context_length": 1050000,
+        "created": 1794938409,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-sol-pro",
+        "name": "OpenAI: GPT-6.2 Sol Pro (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.0,
+        "price_output_usd_per_m": 5.0,
+        "slug": "openai/gpt-6.2-sol-pro:batch"
+      },
+      "openai/gpt-6.2-sol:batch": {
+        "context_length": 1050000,
+        "created": 1794938371,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "gpt-6.2-sol",
+        "name": "OpenAI: GPT-6.2 Sol (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.0,
+        "price_output_usd_per_m": 5.0,
+        "slug": "openai/gpt-6.2-sol:batch"
+      },
       "openai/gpt-audio": {
         "context_length": 128000,
         "created": 1768862569,
@@ -6774,7 +6934,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.09,
+        "price_input_usd_per_m": 0.1,
         "price_output_usd_per_m": 1.1,
         "slug": "qwen/qwen3-next-80b-a3b-instruct"
       },
@@ -6871,8 +7031,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.26,
-        "price_output_usd_per_m": 2.6,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 2.4,
         "slug": "qwen/qwen3.5-27b"
       },
       "qwen/qwen3.5-35b-a3b": {
@@ -7185,8 +7345,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 1.875,
+        "price_input_usd_per_m": 0.06,
+        "price_output_usd_per_m": 2.2,
         "slug": "qwen/qwen3.8-27b"
       },
       "qwen/qwen3.8-27b:batch": {
@@ -7766,14 +7926,14 @@
         "context_length": 1048576,
         "created": 1794838706,
         "free_tier": false,
-        "hugging_face_id": null,
+        "hugging_face_id": "tencent/Hy4-flash",
         "input_modalities": [
           "image",
           "text"
         ],
         "key": "hy4-flash",
         "name": "Tencent: Hy4 flash",
-        "open_weights": false,
+        "open_weights": true,
         "output_modalities": [
           "text"
         ],
@@ -8324,7 +8484,7 @@
         "slug": "xiaomi/mimo-v2.5"
       },
       "xiaomi/mimo-v2.5-pro": {
-        "context_length": 1024000,
+        "context_length": 262144,
         "created": 1776874273,
         "free_tier": false,
         "hugging_face_id": "XiaomiMiMo/MiMo-V2.5-Pro",
@@ -8337,8 +8497,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.435,
-        "price_output_usd_per_m": 0.87,
+        "price_input_usd_per_m": 0.48,
+        "price_output_usd_per_m": 1.8,
         "slug": "xiaomi/mimo-v2.5-pro"
       },
       "xiaomi/mimo-v2.6-flash": {
@@ -8992,8 +9152,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 10.0,
-        "price_output_usd_per_m": 50.0,
+        "price_input_usd_per_m": 8.0,
+        "price_output_usd_per_m": 40.0,
         "slug": "~openai/gpt-astra-latest"
       },
       "~openai/gpt-luna-latest": {

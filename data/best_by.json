@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-11-17",
+    "generated_at": "2026-11-18",
     "in_composite": false,
     "price_blend": {
       "input": 3,
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 7,
+    "pareto_members": 4,
     "pareto_evaluated": 61
   },
   "boards": [
@@ -133,9 +133,9 @@
         "min_coverage": 4
       },
       "candidates": 61,
-      "value": 0.09,
+      "value": 0.0887,
       "winners": [
-        "deepseek-deepseek-v4-flash-0731"
+        "deepseek-deepseek-v4.1-flash"
       ],
       "indistinguishable": false
     }

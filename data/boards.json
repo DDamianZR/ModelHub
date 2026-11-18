@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-17",
+    "generated_at": "2026-11-18",
     "in_composite": false
   },
   "boards": [
@@ -61,6 +61,13 @@
               "value": 70.0,
               "stderr": 10.44,
               "measured_at": "2026-10-30"
+            },
+            {
+              "model_id": "openai-gpt-6.2-astra",
+              "variant": "gpt-6.2-astra_max",
+              "value": 67.78,
+              "stderr": 11.669,
+              "measured_at": "2026-10-27"
             },
             {
               "model_id": "anthropic-claude-opus-4-8",
@@ -287,6 +294,13 @@
           "source_url": "https://epoch.ai/benchmarks",
           "rows": [
             {
+              "model_id": "openai-gpt-6.2-astra",
+              "variant": "gpt-6.2-astra_max",
+              "value": 41.33,
+              "stderr": 4.226,
+              "measured_at": "2026-11-06"
+            },
+            {
               "model_id": "openai-gpt-6-astra",
               "variant": "gpt-6-astra_max",
               "value": 34.0,
@@ -368,6 +382,13 @@
               "value": 94.0,
               "stderr": 0.751,
               "measured_at": "2026-11-06"
+            },
+            {
+              "model_id": "openai-gpt-6.2-astra",
+              "variant": "gpt-6.2-astra_max",
+              "value": 78.5,
+              "stderr": 1.3,
+              "measured_at": "2026-10-27"
             },
             {
               "model_id": "google-deepmind-gemini-4-carbon",
