@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18",
+  "fetched_at": "2026-11-19",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1264,8 +1264,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.06,
-        "price_output_usd_per_m": 0.18,
+        "price_input_usd_per_m": 0.062,
+        "price_output_usd_per_m": 0.3,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
       "deepseek/deepseek-v4-flash-0731:batch": {
@@ -1375,8 +1375,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.036,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -2210,6 +2210,50 @@
         "price_output_usd_per_m": 3.75,
         "slug": "google/gemini-4-hydrogen:batch"
       },
+      "google/gemini-4-neon": {
+        "context_length": 1048576,
+        "created": 1795006977,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-neon",
+        "name": "Google: Gemini 4 Neon",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 3.0,
+        "price_output_usd_per_m": 15.0,
+        "slug": "google/gemini-4-neon"
+      },
+      "google/gemini-4-neon:batch": {
+        "context_length": 1048576,
+        "created": 1795006977,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "audio",
+          "file",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "gemini-4-neon",
+        "name": "Google: Gemini 4 Neon (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.5,
+        "price_output_usd_per_m": 7.5,
+        "slug": "google/gemini-4-neon:batch"
+      },
       "google/gemini-nano-banana-2.1": {
         "context_length": 65536,
         "created": 1791300825,
@@ -2325,7 +2369,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.45,
+        "price_output_usd_per_m": 0.16,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -3758,8 +3802,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7,
-        "price_output_usd_per_m": 3.75,
+        "price_input_usd_per_m": 0.65,
+        "price_output_usd_per_m": 3.5,
         "slug": "moonshotai/kimi-k2.7-code"
       },
       "moonshotai/kimi-k3": {
@@ -3798,8 +3842,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2403,
-        "price_output_usd_per_m": 8.4023,
+        "price_input_usd_per_m": 0.253,
+        "price_output_usd_per_m": 8.8,
         "slug": "moonshotai/kimi-k3.1-pro"
       },
       "moonshotai/kimi-k3.1-pro:batch": {
@@ -7031,8 +7075,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 2.4,
+        "price_input_usd_per_m": 0.195,
+        "price_output_usd_per_m": 1.56,
         "slug": "qwen/qwen3.5-27b"
       },
       "qwen/qwen3.5-35b-a3b": {
@@ -8052,25 +8096,6 @@
         "price_output_usd_per_m": 1.0,
         "slug": "thinkingmachines/inkling-2-small"
       },
-      "thinkingmachines/inkling-2-small:free": {
-        "context_length": 1048576,
-        "created": 1794261847,
-        "free_tier": true,
-        "hugging_face_id": "thinkingmachines/Inkling-2-Small",
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "inkling-2-small",
-        "name": "Thinking Machines: Inkling 2 Small (free)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "thinkingmachines/inkling-2-small:free"
-      },
       "thinkingmachines/inkling-small": {
         "context_length": 524288,
         "created": 1785443117,
@@ -8743,8 +8768,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.4,
-        "price_output_usd_per_m": 4.4,
+        "price_input_usd_per_m": 1.19,
+        "price_output_usd_per_m": 3.74,
         "slug": "z-ai/glm-5.1"
       },
       "z-ai/glm-5.2": {
@@ -8761,8 +8786,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.007,
-        "price_output_usd_per_m": 6.8,
+        "price_input_usd_per_m": 0.62,
+        "price_output_usd_per_m": 2.42,
         "slug": "z-ai/glm-5.2"
       },
       "z-ai/glm-5.2:batch": {
@@ -9032,8 +9057,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.036,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.035,
+        "price_output_usd_per_m": 0.15,
         "slug": "~deepseek/deepseek-flash-latest"
       },
       "~deepseek/deepseek-pro-latest": {
@@ -9068,8 +9093,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0434,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.0466,
+        "price_output_usd_per_m": 0.1399,
         "slug": "~deepseek/deepseek-v4-flash-latest"
       },
       "~google/gemini-flash-latest": {

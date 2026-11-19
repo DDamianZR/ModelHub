@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-18",
+    "generated_at": "2026-11-19",
     "in_composite": false
   },
   "boards": [
@@ -336,6 +336,13 @@
               "measured_at": "2026-11-05"
             },
             {
+              "model_id": "google-deepmind-gemini-4-hydrogen",
+              "variant": "gemini-4-hydrogen_xhigh",
+              "value": 7.67,
+              "stderr": 2.349,
+              "measured_at": "2026-11-13"
+            },
+            {
               "model_id": "anthropic-claude-opus-5-5",
               "variant": "claude-opus-5-5_max",
               "value": 5.83,
@@ -431,6 +438,13 @@
               "value": 72.2,
               "stderr": 1.417,
               "measured_at": "2026-09-22"
+            },
+            {
+              "model_id": "google-deepmind-gemini-4-hydrogen",
+              "variant": "gemini-4-hydrogen_xhigh",
+              "value": 70.9,
+              "stderr": 1.437,
+              "measured_at": "2026-11-13"
             },
             {
               "model_id": "anthropic-claude-fable-5-1",

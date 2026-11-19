@@ -691,6 +691,24 @@
       "lmarena": []
     }
   },
+  "google-deepmind-gemini-4-hydrogen": {
+    "canonical_key": "gemini-4-hydrogen",
+    "display_name": "Gemini 4 Hydrogen (high)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "gemini-4-hydrogen"
+    ],
+    "matched": {
+      "epoch": [
+        "gemini-4-hydrogen_xhigh"
+      ],
+      "livebench": [
+        "gemini-4-hydrogen"
+      ],
+      "lmarena": []
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4.31b",
     "display_name": "Gemma 4 31B IT",
