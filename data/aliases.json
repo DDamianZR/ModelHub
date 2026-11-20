@@ -709,6 +709,24 @@
       "lmarena": []
     }
   },
+  "google-deepmind-gemini-4-neon": {
+    "canonical_key": "gemini-4-neon",
+    "display_name": "Gemini 4 Neon (high)",
+    "variant": "plain",
+    "scored_arena_name": null,
+    "names": [
+      "gemini-4-neon"
+    ],
+    "matched": {
+      "epoch": [
+        "gemini-4-neon_xhigh"
+      ],
+      "livebench": [
+        "gemini-4-neon"
+      ],
+      "lmarena": []
+    }
+  },
   "google-deepmind-gemma-4-31b": {
     "canonical_key": "gemma-4.31b",
     "display_name": "Gemma 4 31B IT",
@@ -1174,7 +1192,7 @@
   },
   "openai-gpt-6.2-astra": {
     "canonical_key": "gpt-6.2-astra",
-    "display_name": "GPT-6.2 Astra (max)",
+    "display_name": "GPT-6.2 Astra (high)",
     "variant": "plain",
     "scored_arena_name": null,
     "names": [

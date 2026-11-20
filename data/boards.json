@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-19",
+    "generated_at": "2026-11-20",
     "in_composite": false
   },
   "boards": [
@@ -417,6 +417,13 @@
               "value": 75.6,
               "stderr": 1.359,
               "measured_at": "2026-08-30"
+            },
+            {
+              "model_id": "google-deepmind-gemini-4-neon",
+              "variant": "gemini-4-neon_xhigh",
+              "value": 75.2,
+              "stderr": 1.366,
+              "measured_at": "2026-11-19"
             },
             {
               "model_id": "openai-gpt-6.1-sol",
