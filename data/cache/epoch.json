@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-20",
+  "fetched_at": "2026-11-21",
   "payload": {
     "boards": {
       "agentic": {
@@ -3547,6 +3547,15 @@
         "id_key": "qwen3.8-27b",
         "organization": "Alibaba",
         "release_date": "2026-08-14"
+      },
+      "qwen4": {
+        "accessibility": "API access",
+        "country": "China",
+        "display_name": "Qwen4-Max (high)",
+        "eci": 0.0,
+        "id_key": "qwen4",
+        "organization": "Alibaba",
+        "release_date": "2026-11-16"
       },
       "ring-2.6.1t": {
         "accessibility": "Open weights (unrestricted)",

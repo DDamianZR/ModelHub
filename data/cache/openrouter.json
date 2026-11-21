@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-20",
+  "fetched_at": "2026-11-21",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1120,8 +1120,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.29,
-        "price_output_usd_per_m": 1.14,
+        "price_input_usd_per_m": 0.25,
+        "price_output_usd_per_m": 1.0,
         "slug": "deepseek/deepseek-chat-v3-0324"
       },
       "deepseek/deepseek-chat-v3.1": {
@@ -1283,8 +1283,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.44,
-        "price_output_usd_per_m": 1.32,
+        "price_input_usd_per_m": 0.2156,
+        "price_output_usd_per_m": 0.6468,
         "slug": "deepseek/deepseek-v4-flash-vision-exp"
       },
       "deepseek/deepseek-v4-pro": {
@@ -1338,8 +1338,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.0498,
+        "price_output_usd_per_m": 0.1992,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -1398,25 +1398,6 @@
         "price_input_usd_per_m": 0.05,
         "price_output_usd_per_m": 0.15,
         "slug": "deepseek/deepseek-v4.1-flash:batch"
-      },
-      "dots-studio/dots-3-note-preview:free": {
-        "context_length": 512000,
-        "created": 1786680361,
-        "free_tier": true,
-        "hugging_face_id": "dots-studio/dots3-note-prev",
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "dots-3-note",
-        "name": "Dots Studio: Dots3-Note Preview (free)",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "dots-studio/dots-3-note-preview:free"
       },
       "elorian/glimpse": {
         "context_length": 262144,
@@ -2351,7 +2332,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.16,
+        "price_output_usd_per_m": 0.45,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -2389,8 +2370,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.09,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.0675,
+        "price_output_usd_per_m": 0.225,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -2747,24 +2728,6 @@
         "price_input_usd_per_m": 0.3,
         "price_output_usd_per_m": 0.5,
         "slug": "mancer/weaver"
-      },
-      "meituan/longcat-2.0": {
-        "context_length": 1048756,
-        "created": 1784554658,
-        "free_tier": false,
-        "hugging_face_id": "meituan-longcat/LongCat-2.0",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "longcat-2.0",
-        "name": "Meituan: LongCat 2.0",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.2,
-        "slug": "meituan/longcat-2.0"
       },
       "meta-llama/llama-3.1-70b-instruct": {
         "context_length": 131072,
@@ -3136,8 +3099,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.295,
-        "price_output_usd_per_m": 1.2,
+        "price_input_usd_per_m": 0.27,
+        "price_output_usd_per_m": 0.95,
         "slug": "minimax/minimax-m2.5"
       },
       "minimax/minimax-m2.7": {
@@ -3154,8 +3117,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.21,
-        "price_output_usd_per_m": 0.84,
+        "price_input_usd_per_m": 0.6,
+        "price_output_usd_per_m": 1.8,
         "slug": "minimax/minimax-m2.7"
       },
       "minimax/minimax-m3": {
@@ -3194,8 +3157,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "minimax/minimax-m3.1-flash"
       },
       "minimax/minimax-m3:batch": {
@@ -4199,7 +4162,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.5,
+        "price_output_usd_per_m": 0.47,
         "slug": "nvidia/nemotron-3.5-super-vl"
       },
       "nvidia/nemotron-3.5-super-vl:free": {
@@ -6202,8 +6165,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.018,
-        "price_output_usd_per_m": 0.09,
+        "price_input_usd_per_m": 0.017,
+        "price_output_usd_per_m": 0.085,
         "slug": "openai/gpt-oss-20b"
       },
       "openai/gpt-oss-20b:batch": {
@@ -6907,8 +6870,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.6,
+        "price_input_usd_per_m": 0.07,
+        "price_output_usd_per_m": 0.28,
         "slug": "qwen/qwen3-coder-30b-a3b-instruct"
       },
       "qwen/qwen3-coder-flash": {
@@ -7517,6 +7480,25 @@
         "price_output_usd_per_m": 4.275,
         "slug": "qwen/qwen4-max"
       },
+      "radixark/daisyrose-27b": {
+        "context_length": 262144,
+        "created": 1795222188,
+        "free_tier": false,
+        "hugging_face_id": "RadixArk/DaisyRose-27B",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "daisyrose-27b",
+        "name": "RadixArk: DaisyRose 27B",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 1.875,
+        "slug": "radixark/daisyrose-27b"
+      },
       "recursive/flint-v1.0:free": {
         "context_length": 262144,
         "created": 1792622765,
@@ -7912,24 +7894,6 @@
         "price_output_usd_per_m": 0.528,
         "slug": "tencent/hy3"
       },
-      "tencent/hy3-preview": {
-        "context_length": 262144,
-        "created": 1776878150,
-        "free_tier": false,
-        "hugging_face_id": "tencent/Hy3-preview",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "hy3",
-        "name": "Tencent: Hy3 preview",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.18,
-        "price_output_usd_per_m": 0.6,
-        "slug": "tencent/hy3-preview"
-      },
       "tencent/hy4": {
         "context_length": 1048576,
         "created": 1793766031,
@@ -8059,6 +8023,25 @@
         "price_input_usd_per_m": 1.0,
         "price_output_usd_per_m": 4.05,
         "slug": "thinkingmachines/inkling"
+      },
+      "thinkingmachines/inkling-2-mini": {
+        "context_length": 1048576,
+        "created": 1795227585,
+        "free_tier": false,
+        "hugging_face_id": "thinkingmachines/Inkling-2-Mini",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "inkling-2-mini",
+        "name": "Thinking Machines: Inkling 2 Mini",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.4,
+        "slug": "thinkingmachines/inkling-2-mini"
       },
       "thinkingmachines/inkling-2-small": {
         "context_length": 1048576,
@@ -8490,7 +8473,7 @@
         "slug": "xiaomi/mimo-v2.5-pro"
       },
       "xiaomi/mimo-v2.6-flash": {
-        "context_length": 1050000,
+        "context_length": 1048576,
         "created": 1790021264,
         "free_tier": false,
         "hugging_face_id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
@@ -8511,7 +8494,7 @@
         "slug": "xiaomi/mimo-v2.6-flash"
       },
       "xiaomi/mimo-v2.6-pro": {
-        "context_length": 1050000,
+        "context_length": 1048576,
         "created": 1790021259,
         "free_tier": false,
         "hugging_face_id": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
@@ -8731,8 +8714,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.19,
-        "price_output_usd_per_m": 3.74,
+        "price_input_usd_per_m": 1.4,
+        "price_output_usd_per_m": 4.4,
         "slug": "z-ai/glm-5.1"
       },
       "z-ai/glm-5.2": {
@@ -9038,7 +9021,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1485,
+        "price_input_usd_per_m": 0.0999,
         "price_output_usd_per_m": 8.0,
         "slug": "~deepseek/deepseek-pro-latest"
       },
