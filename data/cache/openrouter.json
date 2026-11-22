@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-21",
+  "fetched_at": "2026-11-22",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -2350,8 +2350,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.1,
+        "price_input_usd_per_m": 0.04,
+        "price_output_usd_per_m": 0.05,
         "slug": "google/gemma-3-4b-it"
       },
       "google/gemma-4-26b-a4b-it": {
@@ -2488,8 +2488,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.11,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 0.5,
         "slug": "gryphe/mythomax-l2-13b"
       },
       "ibm-granite/granite-4.2-8b": {
@@ -3788,8 +3788,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.253,
-        "price_output_usd_per_m": 8.8,
+        "price_input_usd_per_m": 0.2403,
+        "price_output_usd_per_m": 8.4023,
         "slug": "moonshotai/kimi-k3.1-pro"
       },
       "moonshotai/kimi-k3.1-pro:batch": {
@@ -6165,8 +6165,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.017,
-        "price_output_usd_per_m": 0.085,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.3,
         "slug": "openai/gpt-oss-20b"
       },
       "openai/gpt-oss-20b:batch": {
@@ -7021,8 +7021,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.195,
-        "price_output_usd_per_m": 1.56,
+        "price_input_usd_per_m": 0.26,
+        "price_output_usd_per_m": 2.6,
         "slug": "qwen/qwen3.5-27b"
       },
       "qwen/qwen3.5-35b-a3b": {
@@ -7335,8 +7335,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.06,
-        "price_output_usd_per_m": 1.96,
+        "price_input_usd_per_m": 0.035,
+        "price_output_usd_per_m": 1.5,
         "slug": "qwen/qwen3.8-27b"
       },
       "qwen/qwen3.8-27b:batch": {
@@ -7890,8 +7890,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.132,
-        "price_output_usd_per_m": 0.528,
+        "price_input_usd_per_m": 0.14,
+        "price_output_usd_per_m": 0.58,
         "slug": "tencent/hy3"
       },
       "tencent/hy4": {
@@ -8039,8 +8039,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.4,
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.3,
         "slug": "thinkingmachines/inkling-2-mini"
       },
       "thinkingmachines/inkling-2-small": {
@@ -8642,8 +8642,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.4,
-        "price_output_usd_per_m": 1.75,
+        "price_input_usd_per_m": 0.6,
+        "price_output_usd_per_m": 2.2,
         "slug": "z-ai/glm-4.7"
       },
       "z-ai/glm-4.7-flash": {
@@ -9021,7 +9021,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0999,
+        "price_input_usd_per_m": 0.1188,
         "price_output_usd_per_m": 8.0,
         "slug": "~deepseek/deepseek-pro-latest"
       },
@@ -9103,7 +9103,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1805,
+        "price_input_usd_per_m": 0.1824,
         "price_output_usd_per_m": 11.0055,
         "slug": "~moonshotai/kimi-latest"
       },
