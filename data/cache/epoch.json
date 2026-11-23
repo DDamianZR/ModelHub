@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22",
+  "fetched_at": "2026-11-23",
   "payload": {
     "boards": {
       "agentic": {
@@ -328,6 +328,12 @@
               "stderr": 0.0,
               "value": 0.0,
               "variant": "kimi-k3.1-pro-together_max"
+            },
+            "muse-ember-1.0": {
+              "measured_at": "2026-11-19",
+              "stderr": 0.0,
+              "value": 0.0,
+              "variant": "muse-ember-1.0_max"
             }
           }
         }
@@ -863,6 +869,12 @@
               "stderr": 1.58,
               "value": 47.3,
               "variant": "qwen3.8-max-0902_xhigh"
+            },
+            "qwen4": {
+              "measured_at": "2026-11-20",
+              "stderr": 1.577,
+              "value": 54.1,
+              "variant": "qwen4-max_xhigh"
             },
             "seed-1.6": {
               "measured_at": "2026-10-30",
@@ -7095,6 +7107,18 @@
           "stderr": 1.725,
           "value": 92.3,
           "variant": "qwen3.8-max-0902_xhigh"
+        }
+      ],
+      "qwen4": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-20",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 1.575,
+          "value": 94.0,
+          "variant": "qwen4-max_xhigh"
         }
       ],
       "seed-1.6": [

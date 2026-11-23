@@ -1792,6 +1792,24 @@
       ]
     }
   },
+  "alibaba-qwen4": {
+    "canonical_key": "qwen4",
+    "display_name": "Qwen4-Max (high)",
+    "variant": "xhigh",
+    "scored_arena_name": null,
+    "names": [
+      "qwen4"
+    ],
+    "matched": {
+      "epoch": [
+        "qwen4-max_xhigh"
+      ],
+      "livebench": [
+        "qwen4-max"
+      ],
+      "lmarena": []
+    }
+  },
   "stepfun-step-5": {
     "canonical_key": "step-5",
     "display_name": "Step 5 Preview (high)",
