@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23",
+  "fetched_at": "2026-11-24",
   "payload": {
     "catalogue_size": 21148,
     "entries": {
@@ -346,6 +346,29 @@
         "parameters_raw": 952377623626,
         "pipeline_tag": "image-text-to-text",
         "quantization": "Q4_K_M",
+        "size_disagreement": 0
+      },
+      "inkling-2-small": {
+        "active_experts": 8,
+        "active_parameters": 41459786532,
+        "architecture": "inkling2",
+        "candidates": 1,
+        "context_length": 4096,
+        "head_dim": 128,
+        "hf_downloads": 48974,
+        "hf_likes": 693,
+        "hf_repo": "thinkingmachines/Inkling-2-Small",
+        "is_moe": true,
+        "license": "apache-2.0",
+        "min_ram_gb": 332.0,
+        "min_vram_gb": 304.3,
+        "num_attention_heads": 48,
+        "num_experts": 384,
+        "num_hidden_layers": 48,
+        "num_key_value_heads": 8,
+        "parameters_raw": 594050672720,
+        "pipeline_tag": "image-text-to-text",
+        "quantization": "NVFP4",
         "size_disagreement": 0
       },
       "inkling-small": {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23",
+  "fetched_at": "2026-11-24",
   "payload": {
     "boards": {
       "agentic": {
@@ -281,10 +281,22 @@
               "value": 1.33,
               "variant": "claude-sonnet-5-5_max"
             },
+            "gemini-4-argon": {
+              "measured_at": "2026-11-20",
+              "stderr": 3.21,
+              "value": 16.67,
+              "variant": "gemini-4-argon_high"
+            },
+            "gemini-4-carbon": {
+              "measured_at": "2026-11-20",
+              "stderr": 3.981,
+              "value": 31.17,
+              "variant": "gemini-4-carbon_high"
+            },
             "gemini-4-hydrogen": {
-              "measured_at": "2026-11-13",
-              "stderr": 2.349,
-              "value": 7.67,
+              "measured_at": "2026-11-22",
+              "stderr": 2.995,
+              "value": 13.5,
               "variant": "gemini-4-hydrogen_xhigh"
             },
             "gpt-6-astra": {
@@ -334,6 +346,12 @@
               "stderr": 0.0,
               "value": 0.0,
               "variant": "muse-ember-1.0_max"
+            },
+            "qwen4": {
+              "measured_at": "2026-11-23",
+              "stderr": 0.0,
+              "value": 0.0,
+              "variant": "qwen4-max_xhigh"
             }
           }
         }

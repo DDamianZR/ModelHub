@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-23",
+    "generated_at": "2026-11-24",
     "in_composite": false
   },
   "boards": [
@@ -308,6 +308,13 @@
               "measured_at": "2026-11-04"
             },
             {
+              "model_id": "google-deepmind-gemini-4-carbon",
+              "variant": "gemini-4-carbon_high",
+              "value": 31.17,
+              "stderr": 3.981,
+              "measured_at": "2026-11-20"
+            },
+            {
               "model_id": "openai-gpt-6.1-sol",
               "variant": "gpt-6.1-sol_max",
               "value": 23.83,
@@ -322,6 +329,13 @@
               "measured_at": "2026-11-04"
             },
             {
+              "model_id": "google-deepmind-gemini-4-argon",
+              "variant": "gemini-4-argon_high",
+              "value": 16.67,
+              "stderr": 3.21,
+              "measured_at": "2026-11-20"
+            },
+            {
               "model_id": "anthropic-claude-fable-5-2",
               "variant": "claude-fable-5-2_max",
               "value": 15.33,
@@ -329,18 +343,18 @@
               "measured_at": "2026-11-06"
             },
             {
+              "model_id": "google-deepmind-gemini-4-hydrogen",
+              "variant": "gemini-4-hydrogen_xhigh",
+              "value": 13.5,
+              "stderr": 2.995,
+              "measured_at": "2026-11-22"
+            },
+            {
               "model_id": "openai-gpt-6-sol",
               "variant": "gpt-6-sol_max",
               "value": 9.17,
               "stderr": 2.432,
               "measured_at": "2026-11-05"
-            },
-            {
-              "model_id": "google-deepmind-gemini-4-hydrogen",
-              "variant": "gemini-4-hydrogen_xhigh",
-              "value": 7.67,
-              "stderr": 2.349,
-              "measured_at": "2026-11-13"
             },
             {
               "model_id": "anthropic-claude-opus-5-5",
@@ -362,6 +376,13 @@
               "value": 1.33,
               "stderr": 0.936,
               "measured_at": "2026-11-05"
+            },
+            {
+              "model_id": "alibaba-qwen4",
+              "variant": "qwen4-max_xhigh",
+              "value": 0.0,
+              "stderr": 0.0,
+              "measured_at": "2026-11-23"
             },
             {
               "model_id": "openai-gpt-6-luna",

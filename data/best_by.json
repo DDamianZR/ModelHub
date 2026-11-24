@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-11-23",
+    "generated_at": "2026-11-24",
     "in_composite": false,
     "price_blend": {
       "input": 3,
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 5,
+    "pareto_members": 4,
     "pareto_evaluated": 61
   },
   "boards": [
@@ -133,9 +133,9 @@
         "min_coverage": 4
       },
       "candidates": 61,
-      "value": 0.0484,
+      "value": 0.0887,
       "winners": [
-        "z-ai-zhipu-ai-glm-5.3-flash"
+        "deepseek-deepseek-v4.1-flash"
       ],
       "indistinguishable": false
     }

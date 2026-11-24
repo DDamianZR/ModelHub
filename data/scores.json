@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-11-23",
-    "model_count": 93,
+    "generated_at": "2026-11-24",
+    "model_count": 94,
     "ranked_count": 65,
-    "provisional_count": 28,
+    "provisional_count": 29,
     "min_coverage_for_ranking": 4,
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-11-23",
+      "epoch": "2026-11-24",
       "livebench": "2026-11-06",
       "lmarena_text": "2026-11-22",
       "lmarena_vision": "2026-11-19"
@@ -4373,6 +4373,38 @@
       "variant": "xhigh",
       "variant_mismatch": "plain",
       "measured_name": "Inkling"
+    },
+    {
+      "model_id": "thinking-machines-inkling-2-small",
+      "benchmark_id": "livebench_reasoning",
+      "value": 87.1,
+      "unit": "percent",
+      "stderr": null,
+      "half_width_95": null,
+      "source_type": "third_party_benchmark",
+      "source_url": "https://livebench.ai/",
+      "measured_at": "2026-11-24",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": null,
+      "variant": "plain"
+    },
+    {
+      "model_id": "thinking-machines-inkling-2-small",
+      "benchmark_id": "lmarena_text_overall",
+      "value": 1402.8,
+      "unit": "bradley_terry_rating",
+      "stderr": null,
+      "half_width_95": 11.7,
+      "source_type": "human_eval",
+      "source_url": "https://lmarena.ai/leaderboard",
+      "measured_at": "2026-11-22",
+      "contamination_flag": false,
+      "contamination_evidence": [],
+      "notes": "2682 votes; rank 158",
+      "variant": "plain",
+      "variant_mismatch": "inkling 2 small",
+      "measured_name": "Inkling 2 Small"
     },
     {
       "model_id": "thinking-machines-inkling-small",

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23",
+  "fetched_at": "2026-11-24",
   "payload": {
     "category_rule": {
       "coding": {
@@ -2035,6 +2035,28 @@
           "source_url": "https://livebench.ai/",
           "value": 78.35,
           "variant": "inkling-xhigh"
+        }
+      ],
+      "inkling-2-mini": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 78.9,
+          "variant": "inkling-2-mini"
+        }
+      ],
+      "inkling-2-small": [
+        {
+          "benchmark_id": "livebench_reasoning",
+          "category": "reasoning",
+          "measured_at": "2026-11-06",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://livebench.ai/",
+          "value": 87.1,
+          "variant": "inkling-2-small"
         }
       ],
       "kimi-k2.6": [
