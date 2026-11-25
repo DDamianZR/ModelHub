@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24",
+  "fetched_at": "2026-11-25",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1283,8 +1283,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.2156,
-        "price_output_usd_per_m": 0.6468,
+        "price_input_usd_per_m": 0.44,
+        "price_output_usd_per_m": 1.32,
         "slug": "deepseek/deepseek-v4-flash-vision-exp"
       },
       "deepseek/deepseek-v4-pro": {
@@ -1301,8 +1301,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 1.28,
-        "price_output_usd_per_m": 2.56,
+        "price_input_usd_per_m": 0.7775,
+        "price_output_usd_per_m": 1.5852,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1357,8 +1357,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.03,
-        "price_output_usd_per_m": 0.2,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.6,
         "slug": "deepseek/deepseek-v4.1-flash-1017"
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
@@ -3086,7 +3086,7 @@
         "slug": "microsoft/phi-4"
       },
       "minimax/minimax-m2.5": {
-        "context_length": 198000,
+        "context_length": 65536,
         "created": 1770908502,
         "free_tier": false,
         "hugging_face_id": "MiniMaxAI/MiniMax-M2.5",
@@ -3099,8 +3099,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.27,
-        "price_output_usd_per_m": 0.95,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.2,
         "slug": "minimax/minimax-m2.5"
       },
       "minimax/minimax-m2.7": {
@@ -4029,7 +4029,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
+        "price_input_usd_per_m": 0.07,
         "price_output_usd_per_m": 0.2,
         "slug": "nvidia/nemotron-3.5-lightning"
       },
@@ -7087,8 +7087,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.7,
+        "price_input_usd_per_m": 0.1,
+        "price_output_usd_per_m": 0.89,
         "slug": "qwen/qwen3.6-35b-a3b"
       },
       "qwen/qwen3.6-flash": {
@@ -7241,8 +7241,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.06,
-        "price_output_usd_per_m": 1.96,
+        "price_input_usd_per_m": 0.035,
+        "price_output_usd_per_m": 1.5,
         "slug": "qwen/qwen3.8-27b"
       },
       "qwen/qwen3.8-27b:batch": {
@@ -8105,6 +8105,24 @@
         "price_output_usd_per_m": 0.5,
         "slug": "undi95/remm-slerp-l2-13b"
       },
+      "upstage/solar-mini-4-5": {
+        "context_length": 524288,
+        "created": 1795562304,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "text"
+        ],
+        "key": "solar-mini-4.5",
+        "name": "Upstage: Solar Mini 4.5 (Preview)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.01,
+        "price_output_usd_per_m": 0.04,
+        "slug": "upstage/solar-mini-4-5"
+      },
       "upstage/solar-mini4": {
         "context_length": 524288,
         "created": 1790160358,
@@ -8122,6 +8140,24 @@
         "price_input_usd_per_m": 0.05,
         "price_output_usd_per_m": 0.2,
         "slug": "upstage/solar-mini4"
+      },
+      "upstage/solar-pro-4-contributor": {
+        "context_length": 524288,
+        "created": 1795562304,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "text"
+        ],
+        "key": "solar-pro-4-contributor",
+        "name": "Upstage: Solar Pro 4 Contributor",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.09,
+        "price_output_usd_per_m": 0.36,
+        "slug": "upstage/solar-pro-4-contributor"
       },
       "upstage/solar-pro4": {
         "context_length": 524288,
@@ -8339,27 +8375,6 @@
         "price_output_usd_per_m": 4.8,
         "slug": "x-ai/grok-4.7:batch"
       },
-      "xiaomi/mimo-v2.5": {
-        "context_length": 1000000,
-        "created": 1776874269,
-        "free_tier": false,
-        "hugging_face_id": "XiaomiMiMo/MiMo-V2.5",
-        "input_modalities": [
-          "audio",
-          "image",
-          "text",
-          "video"
-        ],
-        "key": "mimo-v2.5",
-        "name": "Xiaomi: MiMo-V2.5",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.4,
-        "price_output_usd_per_m": 2.0,
-        "slug": "xiaomi/mimo-v2.5"
-      },
       "xiaomi/mimo-v2.6-flash": {
         "context_length": 1048576,
         "created": 1790021264,
@@ -8380,6 +8395,27 @@
         "price_input_usd_per_m": 0.14,
         "price_output_usd_per_m": 0.28,
         "slug": "xiaomi/mimo-v2.6-flash"
+      },
+      "xiaomi/mimo-v2.6-flash-mopd": {
+        "context_length": 1048576,
+        "created": 1795456634,
+        "free_tier": false,
+        "hugging_face_id": "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+        "input_modalities": [
+          "audio",
+          "image",
+          "text",
+          "video"
+        ],
+        "key": "mimo-v2.6-flash-mopd",
+        "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.5,
+        "price_output_usd_per_m": 1.0,
+        "slug": "xiaomi/mimo-v2.6-flash-mopd"
       },
       "xiaomi/mimo-v2.6-pro": {
         "context_length": 1048576,
@@ -8455,8 +8491,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.13,
-        "price_output_usd_per_m": 0.85,
+        "price_input_usd_per_m": 0.14,
+        "price_output_usd_per_m": 0.86,
         "slug": "z-ai/glm-4.5-air"
       },
       "z-ai/glm-4.5v": {
@@ -8535,7 +8571,7 @@
         "slug": "z-ai/glm-4.7"
       },
       "z-ai/glm-4.7-flash": {
-        "context_length": 200000,
+        "context_length": 131072,
         "created": 1768833913,
         "free_tier": false,
         "hugging_face_id": "zai-org/GLM-4.7-Flash",
@@ -8676,8 +8712,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.5,
+        "price_input_usd_per_m": 0.12,
+        "price_output_usd_per_m": 0.38,
         "slug": "z-ai/glm-5.3-flash"
       },
       "z-ai/glm-5.3-flash:batch": {
@@ -8891,8 +8927,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.03,
-        "price_output_usd_per_m": 0.2,
+        "price_input_usd_per_m": 0.036,
+        "price_output_usd_per_m": 0.5,
         "slug": "~deepseek/deepseek-flash-latest"
       },
       "~deepseek/deepseek-pro-latest": {

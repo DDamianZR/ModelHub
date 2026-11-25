@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24",
+  "fetched_at": "2026-11-25",
   "payload": {
     "boards": {
       "agentic": {
@@ -107,6 +107,12 @@
               "stderr": 11.714,
               "value": 58.89,
               "variant": "gemini-4-argon_high"
+            },
+            "gemini-4-neon": {
+              "measured_at": "2026-11-19",
+              "stderr": 11.804,
+              "value": 61.11,
+              "variant": "gemini-4-neon_xhigh"
             },
             "glm-5.2": {
               "measured_at": "2026-10-21",
@@ -298,6 +304,12 @@
               "stderr": 2.995,
               "value": 13.5,
               "variant": "gemini-4-hydrogen_xhigh"
+            },
+            "gemini-4-neon": {
+              "measured_at": "2026-11-23",
+              "stderr": 4.362,
+              "value": 51.17,
+              "variant": "gemini-4-neon_xhigh"
             },
             "gpt-6-astra": {
               "measured_at": "2026-11-04",
@@ -2695,6 +2707,24 @@
         "id_key": "inkling",
         "organization": "Thinking Machines",
         "release_date": "2026-07-15"
+      },
+      "inkling-2-mini": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Inkling 2 Mini (high)",
+        "eci": 0.0,
+        "id_key": "inkling-2-mini",
+        "organization": "Thinking Machines",
+        "release_date": "2026-11-20"
+      },
+      "inkling-2-mini-minimal": {
+        "accessibility": "Open weights (unrestricted)",
+        "country": "United States of America",
+        "display_name": "Inkling 2 Mini (minimal)",
+        "eci": 0.0,
+        "id_key": "inkling-2-mini-minimal",
+        "organization": "Thinking Machines",
+        "release_date": "2026-11-20"
       },
       "inkling-2-small": {
         "accessibility": "Open weights (unrestricted)",

@@ -1330,6 +1330,25 @@
       ]
     }
   },
+  "thinking-machines-inkling-2-mini": {
+    "canonical_key": "inkling-2-mini",
+    "display_name": "Inkling 2 Mini (high)",
+    "variant": "plain",
+    "scored_arena_name": "Inkling 2 Mini",
+    "names": [
+      "Inkling 2 Mini",
+      "inkling-2-mini"
+    ],
+    "matched": {
+      "epoch": [],
+      "livebench": [
+        "inkling-2-mini"
+      ],
+      "lmarena": [
+        "Inkling 2 Mini"
+      ]
+    }
+  },
   "thinking-machines-inkling-2-small": {
     "canonical_key": "inkling-2-small",
     "display_name": "Inkling 2 Small",

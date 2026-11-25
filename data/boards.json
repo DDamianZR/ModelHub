@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-24",
+    "generated_at": "2026-11-25",
     "in_composite": false
   },
   "boards": [
@@ -89,6 +89,13 @@
               "value": 63.33,
               "stderr": 10.69,
               "measured_at": "2026-10-21"
+            },
+            {
+              "model_id": "google-deepmind-gemini-4-neon",
+              "variant": "gemini-4-neon_xhigh",
+              "value": 61.11,
+              "stderr": 11.804,
+              "measured_at": "2026-11-19"
             },
             {
               "model_id": "openai-gpt-6.1-sol",
@@ -293,6 +300,13 @@
           "name": "SpireClimb",
           "source_url": "https://epoch.ai/benchmarks",
           "rows": [
+            {
+              "model_id": "google-deepmind-gemini-4-neon",
+              "variant": "gemini-4-neon_xhigh",
+              "value": 51.17,
+              "stderr": 4.362,
+              "measured_at": "2026-11-23"
+            },
             {
               "model_id": "openai-gpt-6.2-astra",
               "variant": "gpt-6.2-astra_max",
