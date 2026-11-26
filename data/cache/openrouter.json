@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25",
+  "fetched_at": "2026-11-26",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1301,8 +1301,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7775,
-        "price_output_usd_per_m": 1.5852,
+        "price_input_usd_per_m": 0.8012,
+        "price_output_usd_per_m": 1.5593,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -2332,7 +2332,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.16,
+        "price_output_usd_per_m": 0.45,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -2602,6 +2602,25 @@
         "price_input_usd_per_m": 0.0,
         "price_output_usd_per_m": 0.0,
         "slug": "inclusionai/ling-3.2-flash:free"
+      },
+      "inclusionai/lingsante-3.1-air-vl": {
+        "context_length": 131072,
+        "created": 1795705284,
+        "free_tier": false,
+        "hugging_face_id": "inclusionAI/LingSante-3.1-air-VL",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "lingsante-3.1-air-vl",
+        "name": "inclusionAI: LingSante 3.1 Air VL",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.06,
+        "price_output_usd_per_m": 0.18,
+        "slug": "inclusionai/lingsante-3.1-air-vl"
       },
       "inference-net/schematron-v2-small": {
         "context_length": 128000,
@@ -3200,6 +3219,25 @@
         "price_output_usd_per_m": 0.9,
         "slug": "mistralai/codestral-2508"
       },
+      "mistralai/codestral-2508:batch": {
+        "context_length": 256000,
+        "created": 1754079630,
+        "free_tier": false,
+        "hugging_face_id": null,
+        "input_modalities": [
+          "file",
+          "text"
+        ],
+        "key": "codestral-2508",
+        "name": "Mistral: Codestral 2508 (batch)",
+        "open_weights": false,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.45,
+        "slug": "mistralai/codestral-2508:batch"
+      },
       "mistralai/devstral-2512": {
         "context_length": 262144,
         "created": 1765285419,
@@ -3276,6 +3314,25 @@
         "price_output_usd_per_m": 0.15,
         "slug": "mistralai/ministral-8b-2512"
       },
+      "mistralai/ministral-8b-2512:batch": {
+        "context_length": 262144,
+        "created": 1764681654,
+        "free_tier": false,
+        "hugging_face_id": "mistralai/Ministral-3-8B-Instruct-2512",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "ministral-8b-2512",
+        "name": "Mistral: Ministral 3 8B 2512 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.075,
+        "slug": "mistralai/ministral-8b-2512:batch"
+      },
       "mistralai/mistral-large": {
         "context_length": 128000,
         "created": 1708905600,
@@ -3333,6 +3390,26 @@
         "price_input_usd_per_m": 0.5,
         "price_output_usd_per_m": 1.5,
         "slug": "mistralai/mistral-large-2512"
+      },
+      "mistralai/mistral-large-2512:batch": {
+        "context_length": 262144,
+        "created": 1764624472,
+        "free_tier": false,
+        "hugging_face_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+        "input_modalities": [
+          "file",
+          "image",
+          "text"
+        ],
+        "key": "mistral-large-2512",
+        "name": "Mistral: Mistral Large 3 2512 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.25,
+        "price_output_usd_per_m": 0.75,
+        "slug": "mistralai/mistral-large-2512:batch"
       },
       "mistralai/mistral-large-4-0": {
         "context_length": 1048576,
@@ -3467,6 +3544,25 @@
         "price_output_usd_per_m": 0.6,
         "slug": "mistralai/mistral-small-2603"
       },
+      "mistralai/mistral-small-2603:batch": {
+        "context_length": 262144,
+        "created": 1773695685,
+        "free_tier": false,
+        "hugging_face_id": "mistralai/Mistral-Small-4-119B-2603",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "key": "mistral-small-2603",
+        "name": "Mistral: Mistral Small 4 (batch)",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.075,
+        "price_output_usd_per_m": 0.3,
+        "slug": "mistralai/mistral-small-2603:batch"
+      },
       "mistralai/mistral-small-3.1-24b-instruct": {
         "context_length": 128000,
         "created": 1742238937,
@@ -3600,6 +3696,24 @@
         "price_input_usd_per_m": 0.3,
         "price_output_usd_per_m": 2.5,
         "slug": "moondream/moondream3.1-9b-a2b"
+      },
+      "moonshotai/kimi-k2": {
+        "context_length": 131072,
+        "created": 1752263252,
+        "free_tier": false,
+        "hugging_face_id": "moonshotai/Kimi-K2-Instruct",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "kimi-k2",
+        "name": "MoonshotAI: Kimi K2 0711",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.57,
+        "price_output_usd_per_m": 2.3,
+        "slug": "moonshotai/kimi-k2"
       },
       "moonshotai/kimi-k2.5": {
         "context_length": 262144,
@@ -6967,8 +7081,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.45,
-        "price_output_usd_per_m": 3.0,
+        "price_input_usd_per_m": 0.5,
+        "price_output_usd_per_m": 3.6,
         "slug": "qwen/qwen3.5-397b-a17b"
       },
       "qwen/qwen3.5-9b": {
@@ -6987,7 +7101,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.17,
+        "price_input_usd_per_m": 0.1,
         "price_output_usd_per_m": 0.25,
         "slug": "qwen/qwen3.5-9b"
       },
@@ -7241,8 +7355,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.035,
-        "price_output_usd_per_m": 1.5,
+        "price_input_usd_per_m": 0.06,
+        "price_output_usd_per_m": 1.96,
         "slug": "qwen/qwen3.8-27b"
       },
       "qwen/qwen3.8-27b:batch": {
@@ -7437,7 +7551,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.25,
+        "price_input_usd_per_m": 0.3,
         "price_output_usd_per_m": 1.0,
         "slug": "reflection/beam-1.0-501b-a23b"
       },
@@ -8008,6 +8122,24 @@
         "price_output_usd_per_m": 0.96,
         "slug": "thinkingmachines/inkling-small:batch"
       },
+      "tngtech/deepseek-r1t2-chimera": {
+        "context_length": 131072,
+        "created": 1751986985,
+        "free_tier": false,
+        "hugging_face_id": "tngtech/DeepSeek-TNG-R1T2-Chimera",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "deepseek-r1t2-chimera",
+        "name": "TNG: DeepSeek R1T2 Chimera",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 1.0,
+        "price_output_usd_per_m": 2.625,
+        "slug": "tngtech/deepseek-r1t2-chimera"
+      },
       "typesafe/jev-router": {
         "context_length": 1000000,
         "created": 1790363560,
@@ -8029,63 +8161,6 @@
         "price_input_usd_per_m": null,
         "price_output_usd_per_m": null,
         "slug": "typesafe/jev-router"
-      },
-      "unbiased/pareto-26.10": {
-        "context_length": 1048576,
-        "created": 1792073620,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "pareto-26.10",
-        "name": "Pareto 26.10",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.8,
-        "price_output_usd_per_m": 3.2,
-        "slug": "unbiased/pareto-26.10"
-      },
-      "unbiased/pareto-26.10-preview": {
-        "context_length": 1048576,
-        "created": 1790863623,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "pareto-26.10",
-        "name": "Pareto 26.10 Preview",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.8,
-        "price_output_usd_per_m": 3.2,
-        "slug": "unbiased/pareto-26.10-preview"
-      },
-      "unbiased/pareto-26.9": {
-        "context_length": 262144,
-        "created": 1791930537,
-        "free_tier": false,
-        "hugging_face_id": null,
-        "input_modalities": [
-          "image",
-          "text"
-        ],
-        "key": "pareto-26.9",
-        "name": "Pareto 26.9",
-        "open_weights": false,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 2.5,
-        "price_output_usd_per_m": 7.5,
-        "slug": "unbiased/pareto-26.9"
       },
       "undi95/remm-slerp-l2-13b": {
         "context_length": 6144,
@@ -8491,8 +8566,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.14,
-        "price_output_usd_per_m": 0.86,
+        "price_input_usd_per_m": 0.2,
+        "price_output_usd_per_m": 1.1,
         "slug": "z-ai/glm-4.5-air"
       },
       "z-ai/glm-4.5v": {
@@ -8712,8 +8787,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.12,
-        "price_output_usd_per_m": 0.38,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.5,
         "slug": "z-ai/glm-5.3-flash"
       },
       "z-ai/glm-5.3-flash:batch": {
@@ -8945,8 +9020,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0999,
-        "price_output_usd_per_m": 5.0,
+        "price_input_usd_per_m": 0.111,
+        "price_output_usd_per_m": 4.44,
         "slug": "~deepseek/deepseek-pro-latest"
       },
       "~deepseek/deepseek-v4-flash-latest": {
@@ -9132,7 +9207,7 @@
         "slug": "~openai/gpt-terra-latest"
       },
       "~unbiased/pareto-latest": {
-        "context_length": 1048576,
+        "context_length": 262144,
         "created": 1791933050,
         "free_tier": false,
         "hugging_face_id": null,
@@ -9146,8 +9221,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.8,
-        "price_output_usd_per_m": 3.2,
+        "price_input_usd_per_m": null,
+        "price_output_usd_per_m": null,
         "slug": "~unbiased/pareto-latest"
       },
       "~x-ai/grok-latest": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-25",
+    "generated_at": "2026-11-26",
     "in_composite": false
   },
   "boards": [
@@ -152,6 +152,13 @@
               "value": 48.89,
               "stderr": 11.206,
               "measured_at": "2026-10-29"
+            },
+            {
+              "model_id": "alibaba-qwen4",
+              "variant": "qwen4-max_xhigh",
+              "value": 47.78,
+              "stderr": 11.253,
+              "measured_at": "2026-11-21"
             },
             {
               "model_id": "meta-ai-muse-wonder-1.0",
@@ -907,6 +914,13 @@
               "value": 10.4,
               "stderr": 0.966,
               "measured_at": "2026-08-27"
+            },
+            {
+              "model_id": "thinking-machines-inkling-2-mini",
+              "variant": "inkling-2-mini_xhigh",
+              "value": 9.0,
+              "stderr": 0.905,
+              "measured_at": "2026-11-25"
             }
           ]
         }

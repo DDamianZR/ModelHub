@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25",
+  "fetched_at": "2026-11-26",
   "payload": {
     "boards": {
       "agentic": {
@@ -234,6 +234,12 @@
               "value": 40.0,
               "variant": "mistral-large-4-0_high"
             },
+            "muse-ember-1.0": {
+              "measured_at": "2026-11-19",
+              "stderr": 10.641,
+              "value": 40.0,
+              "variant": "muse-ember-1.0_max"
+            },
             "muse-spark-1.3": {
               "measured_at": "2026-10-20",
               "stderr": 10.846,
@@ -257,6 +263,12 @@
               "stderr": 10.27,
               "value": 47.78,
               "variant": "qwen3.8-max-0902_xhigh"
+            },
+            "qwen4": {
+              "measured_at": "2026-11-21",
+              "stderr": 11.253,
+              "value": 47.78,
+              "variant": "qwen4-max_xhigh"
             }
           }
         },
@@ -767,6 +779,12 @@
               "stderr": 1.552,
               "value": 40.3,
               "variant": "Inkling_xhigh"
+            },
+            "inkling-2-mini": {
+              "measured_at": "2026-11-25",
+              "stderr": 0.905,
+              "value": 9.0,
+              "variant": "inkling-2-mini_xhigh"
             },
             "inkling-small": {
               "measured_at": "2026-08-27",
@@ -6385,6 +6403,18 @@
           "stderr": 1.936,
           "value": 88.26,
           "variant": "Inkling_xhigh"
+        }
+      ],
+      "inkling-2-mini": [
+        {
+          "benchmark_id": "gpqa_diamond",
+          "category": "reasoning",
+          "measured_at": "2026-11-25",
+          "source_type": "third_party_benchmark",
+          "source_url": "https://epoch.ai/benchmarks",
+          "stderr": 2.002,
+          "value": 86.81,
+          "variant": "inkling-2-mini_xhigh"
         }
       ],
       "inkling-small": [

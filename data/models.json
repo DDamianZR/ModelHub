@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-25",
+    "generated_at": "2026-11-26",
     "model_count": 95,
     "ranked_count": 65,
     "provisional_count": 30,
@@ -8,10 +8,10 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-11-25",
+      "epoch": "2026-11-26",
       "livebench": "2026-11-06",
       "lmarena_text": "2026-11-22",
-      "lmarena_vision": "2026-11-19"
+      "lmarena_vision": "2026-11-25"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",
@@ -39,7 +39,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -110,7 +110,7 @@
         "input_usd_per_m": 4.0,
         "output_usd_per_m": 20.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -182,7 +182,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 4.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -253,7 +253,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -323,7 +323,7 @@
         "input_usd_per_m": 0.0507,
         "output_usd_per_m": 0.2028,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -394,7 +394,7 @@
         "input_usd_per_m": 10.0,
         "output_usd_per_m": 50.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -465,7 +465,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -575,10 +575,10 @@
       "variant": "max",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1306.7,
-        "rank": 13,
+        "rating": 1307.5,
+        "rank": 12,
         "variant": "Qwen3.8-Max",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 5,
@@ -609,7 +609,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 3.75,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -744,7 +744,7 @@
         "input_usd_per_m": 4.0,
         "output_usd_per_m": 20.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -815,7 +815,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -888,7 +888,7 @@
         "input_usd_per_m": 0.825,
         "output_usd_per_m": 4.125,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -959,7 +959,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1030,7 +1030,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1103,7 +1103,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 12.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1148,10 +1148,10 @@
       "variant": "high",
       "human_preference_variant": "gemini 3.1 pro preview",
       "vision": {
-        "rating": 1296.5,
-        "rank": 22,
+        "rating": 1296.4,
+        "rank": 23,
         "variant": "Gemini 3.1 Pro Preview",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 13,
@@ -1178,7 +1178,7 @@
         "input_usd_per_m": 1.475,
         "output_usd_per_m": 4.425,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1249,7 +1249,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1320,7 +1320,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1392,7 +1392,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 4.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1464,7 +1464,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 4.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1509,10 +1509,10 @@
       "variant": "xhigh",
       "human_preference_variant": "muse spark 1.1",
       "vision": {
-        "rating": 1291.1,
+        "rating": 1290.9,
         "rank": 28,
         "variant": "Muse Spark 1.1",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 16,
@@ -1541,7 +1541,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 30.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1589,7 +1589,7 @@
         "rating": 1296.0,
         "rank": 24,
         "variant": "GPT-5.5",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 17,
@@ -1618,7 +1618,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 12.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1689,7 +1689,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1734,10 +1734,10 @@
       "variant": "high",
       "human_preference_variant": "claude opus 4.6",
       "vision": {
-        "rating": 1312.1,
-        "rank": 11,
+        "rating": 1312.0,
+        "rank": 10,
         "variant": "Claude Opus 4.6",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 19,
@@ -1766,7 +1766,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1837,7 +1837,7 @@
         "input_usd_per_m": 0.192,
         "output_usd_per_m": 16.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1906,7 +1906,7 @@
         "input_usd_per_m": 0.111,
         "output_usd_per_m": 4.44,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -1975,7 +1975,7 @@
         "input_usd_per_m": 0.0699,
         "output_usd_per_m": 1.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2046,7 +2046,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 6.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2094,7 +2094,7 @@
         "rating": 1287.8,
         "rank": 30,
         "variant": "Grok 4.5",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 29,
@@ -2125,7 +2125,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 3.75,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2196,7 +2196,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2241,10 +2241,10 @@
       "variant": "xhigh",
       "human_preference_variant": "claude opus 4.7",
       "vision": {
-        "rating": 1317.4,
+        "rating": 1317.6,
         "rank": 4,
         "variant": "Claude Opus 4.7",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 30,
@@ -2270,10 +2270,10 @@
         "video"
       ],
       "pricing": {
-        "input_usd_per_m": 0.035,
-        "output_usd_per_m": 1.5,
+        "input_usd_per_m": 0.06,
+        "output_usd_per_m": 1.96,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2318,16 +2318,16 @@
       "variant": "qwen3.8-27b",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1271.0,
-        "rank": 43,
+        "rating": 1273.6,
+        "rank": 42,
         "variant": "Qwen3.8-27B",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 31,
       "tied_with": 6,
-      "blended_price_usd_per_m": 0.4012,
-      "price_per_composite_point": 0.0053,
+      "blended_price_usd_per_m": 0.535,
+      "price_per_composite_point": 0.00707,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -2350,7 +2350,7 @@
         "input_usd_per_m": 0.1,
         "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2421,7 +2421,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2492,7 +2492,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2537,10 +2537,10 @@
       "variant": "max",
       "human_preference_variant": "claude opus 4.8",
       "vision": {
-        "rating": 1288.0,
+        "rating": 1287.9,
         "rank": 29,
         "variant": "Claude Opus 4.8",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 31,
@@ -2569,7 +2569,7 @@
         "input_usd_per_m": 2.5,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2614,10 +2614,10 @@
       "variant": "xhigh",
       "human_preference_variant": "plain",
       "vision": {
-        "rating": 1291.3,
+        "rating": 1291.5,
         "rank": 27,
         "variant": "GPT-5.4",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 31,
@@ -2648,7 +2648,7 @@
         "input_usd_per_m": 1.5,
         "output_usd_per_m": 9.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2758,10 +2758,10 @@
       "variant": "preview",
       "human_preference_variant": "gemini 3 pro",
       "vision": {
-        "rating": 1304.6,
+        "rating": 1304.5,
         "rank": 17,
         "variant": "Gemini 3 Pro",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 31,
@@ -2790,7 +2790,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 4.05,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2861,7 +2861,7 @@
         "input_usd_per_m": 0.1,
         "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2932,7 +2932,7 @@
         "input_usd_per_m": 3.0,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -2977,10 +2977,10 @@
       "variant": "medium",
       "human_preference_variant": "claude sonnet 4.6",
       "vision": {
-        "rating": 1282.5,
+        "rating": 1282.6,
         "rank": 34,
         "variant": "Claude Sonnet 4.6",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 33,
@@ -3007,7 +3007,7 @@
         "input_usd_per_m": 0.0456,
         "output_usd_per_m": 0.3,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3076,7 +3076,7 @@
         "input_usd_per_m": 0.62,
         "output_usd_per_m": 2.42,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3147,7 +3147,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3193,9 +3193,9 @@
       "human_preference_variant": " chat",
       "vision": {
         "rating": 1231.9,
-        "rank": 79,
+        "rank": 80,
         "variant": "GPT-5 Chat",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 40,
@@ -3224,7 +3224,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 1.25,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3290,10 +3290,10 @@
         "text"
       ],
       "pricing": {
-        "input_usd_per_m": 0.7775,
-        "output_usd_per_m": 1.5852,
+        "input_usd_per_m": 0.8012,
+        "output_usd_per_m": 1.5593,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3340,8 +3340,8 @@
       "vision": null,
       "rank": 44,
       "tied_with": 3,
-      "blended_price_usd_per_m": 0.9794,
-      "price_per_composite_point": 0.01336,
+      "blended_price_usd_per_m": 0.9907,
+      "price_per_composite_point": 0.01352,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -3361,10 +3361,10 @@
         "video"
       ],
       "pricing": {
-        "input_usd_per_m": 0.12,
-        "output_usd_per_m": 0.38,
+        "input_usd_per_m": 0.15,
+        "output_usd_per_m": 0.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3409,16 +3409,16 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1296.5,
-        "rank": 23,
+        "rating": 1296.4,
+        "rank": 22,
         "variant": "GLM-5.3-Flash",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 44,
       "tied_with": 3,
-      "blended_price_usd_per_m": 0.185,
-      "price_per_composite_point": 0.00253,
+      "blended_price_usd_per_m": 0.2375,
+      "price_per_composite_point": 0.00324,
       "pareto_frontier": false,
       "cohort_recalibration": null
     },
@@ -3441,7 +3441,7 @@
         "input_usd_per_m": 5.0,
         "output_usd_per_m": 25.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3511,7 +3511,7 @@
         "input_usd_per_m": 0.65,
         "output_usd_per_m": 3.41,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3556,10 +3556,10 @@
       "variant": "plain",
       "human_preference_variant": "kimi k2.6",
       "vision": {
-        "rating": 1282.3,
+        "rating": 1282.2,
         "rank": 35,
         "variant": "Kimi K2.6",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 44,
@@ -3586,7 +3586,7 @@
         "input_usd_per_m": 1.4,
         "output_usd_per_m": 4.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3659,7 +3659,7 @@
         "input_usd_per_m": 0.5,
         "output_usd_per_m": 3.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3704,10 +3704,10 @@
       "variant": "preview",
       "human_preference_variant": "gemini 3 flash",
       "vision": {
-        "rating": 1284.8,
+        "rating": 1284.6,
         "rank": 32,
         "variant": "Gemini 3 Flash",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 47,
@@ -3735,7 +3735,7 @@
         "input_usd_per_m": 0.6,
         "output_usd_per_m": 3.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3806,7 +3806,7 @@
         "input_usd_per_m": 1.75,
         "output_usd_per_m": 14.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -3851,10 +3851,10 @@
       "variant": "high",
       "human_preference_variant": "plain",
       "vision": {
-        "rating": 1228.3,
-        "rank": 81,
+        "rating": 1228.4,
+        "rank": 82,
         "variant": "GPT-5.2",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 49,
@@ -3947,7 +3947,7 @@
         "input_usd_per_m": 0.75,
         "output_usd_per_m": 4.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4020,7 +4020,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4065,10 +4065,10 @@
       "variant": "high",
       "human_preference_variant": "gemini 3.5 flash-lite",
       "vision": {
-        "rating": 1268.1,
+        "rating": 1268.0,
         "rank": 46,
         "variant": "Gemini 3.5 Flash-Lite",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 53,
@@ -4097,7 +4097,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4143,9 +4143,9 @@
       "human_preference_variant": null,
       "vision": {
         "rating": 1248.4,
-        "rank": 63,
+        "rank": 64,
         "variant": "MiniMax-M3",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 53,
@@ -4174,7 +4174,7 @@
         "input_usd_per_m": 0.32,
         "output_usd_per_m": 3.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4243,7 +4243,7 @@
         "input_usd_per_m": 0.09,
         "output_usd_per_m": 0.18,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4314,7 +4314,7 @@
         "input_usd_per_m": 0.325,
         "output_usd_per_m": 1.95,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4385,7 +4385,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4430,10 +4430,10 @@
       "variant": "high",
       "human_preference_variant": "plain",
       "vision": {
-        "rating": 1235.1,
-        "rank": 77,
+        "rating": 1235.0,
+        "rank": 78,
         "variant": "GPT-5.1",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 57,
@@ -4460,7 +4460,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 3.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4531,7 +4531,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4576,10 +4576,10 @@
       "variant": "plain",
       "human_preference_variant": "grok 4.3",
       "vision": {
-        "rating": 1228.0,
-        "rank": 82,
+        "rating": 1227.9,
+        "rank": 83,
         "variant": "Grok 4.3",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 63,
@@ -4610,7 +4610,7 @@
         "input_usd_per_m": 1.25,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4658,7 +4658,7 @@
         "rating": 1263.2,
         "rank": 52,
         "variant": "Gemini 2.5 Pro",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": 63,
@@ -4687,7 +4687,7 @@
         "input_usd_per_m": 15.0,
         "output_usd_per_m": 75.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4760,7 +4760,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4828,7 +4828,7 @@
         "input_usd_per_m": 1.425,
         "output_usd_per_m": 4.275,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4896,7 +4896,7 @@
         "input_usd_per_m": 8.0,
         "output_usd_per_m": 40.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -4966,7 +4966,7 @@
         "input_usd_per_m": 2.0,
         "output_usd_per_m": 10.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5036,7 +5036,7 @@
         "input_usd_per_m": 3.0,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5103,7 +5103,7 @@
         "input_usd_per_m": 0.15,
         "output_usd_per_m": 0.6,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5171,7 +5171,7 @@
         "input_usd_per_m": 8.0,
         "output_usd_per_m": 40.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5239,7 +5239,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 5.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5309,7 +5309,7 @@
         "input_usd_per_m": 1.5,
         "output_usd_per_m": 7.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5376,7 +5376,7 @@
         "input_usd_per_m": 0.7,
         "output_usd_per_m": 2.1,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5445,7 +5445,7 @@
         "input_usd_per_m": 0.435,
         "output_usd_per_m": 0.87,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5488,10 +5488,10 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1266.0,
-        "rank": 48,
+        "rating": 1265.5,
+        "rank": 49,
         "variant": "MiMo-V2.6-Pro",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -5519,7 +5519,7 @@
         "input_usd_per_m": 0.32,
         "output_usd_per_m": 1.28,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5562,10 +5562,10 @@
       "variant": "plain",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1277.3,
+        "rating": 1276.9,
         "rank": 39,
         "variant": "Qwen3.7-Plus",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -5654,10 +5654,10 @@
         "video"
       ],
       "pricing": {
-        "input_usd_per_m": 0.45,
-        "output_usd_per_m": 3.0,
+        "input_usd_per_m": 0.5,
+        "output_usd_per_m": 3.6,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5700,15 +5700,15 @@
       "variant": "qwen3.5-397b-a17b",
       "human_preference_variant": null,
       "vision": {
-        "rating": 1262.2,
+        "rating": 1262.0,
         "rank": 54,
         "variant": "Qwen3.5-397B-A17B",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
       "tied_with": 0,
-      "blended_price_usd_per_m": 1.0875,
+      "blended_price_usd_per_m": 1.275,
       "price_per_composite_point": null,
       "pareto_frontier": null,
       "cohort_recalibration": null
@@ -5732,7 +5732,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 2.7,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5776,9 +5776,9 @@
       "human_preference_variant": "step 5 preview",
       "vision": {
         "rating": 1264.5,
-        "rank": 51,
+        "rank": 50,
         "variant": "Step 5 Preview",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -5805,7 +5805,7 @@
         "input_usd_per_m": 0.6,
         "output_usd_per_m": 2.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5874,7 +5874,7 @@
         "input_usd_per_m": 0.45,
         "output_usd_per_m": 1.2,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -5917,10 +5917,10 @@
       "variant": "xhigh",
       "human_preference_variant": "plain",
       "vision": {
-        "rating": 1236.3,
-        "rank": 75,
+        "rating": 1236.1,
+        "rank": 76,
         "variant": "Inkling-Small",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -6048,10 +6048,10 @@
       "variant": "plain",
       "human_preference_variant": "gpt-5.5 instant",
       "vision": {
-        "rating": 1250.6,
+        "rating": 1250.3,
         "rank": 61,
         "variant": "GPT-5.5 Instant",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -6079,7 +6079,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 1.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6121,7 +6121,13 @@
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": "inkling 2 small",
-      "vision": null,
+      "vision": {
+        "rating": 1239.0,
+        "rank": 75,
+        "variant": "Inkling 2 Small",
+        "measured_at": "2026-11-25",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": null,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.475,
@@ -6150,7 +6156,7 @@
         "input_usd_per_m": 0.25,
         "output_usd_per_m": 1.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6193,10 +6199,10 @@
       "variant": "high",
       "human_preference_variant": "gemini 3.1 flash-lite preview",
       "vision": {
-        "rating": 1240.0,
+        "rating": 1239.9,
         "rank": 73,
         "variant": "Gemini 3.1 Flash-Lite Preview",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -6263,10 +6269,10 @@
       "variant": "plain",
       "human_preference_variant": "muse spark",
       "vision": {
-        "rating": 1305.6,
-        "rank": 16,
+        "rating": 1305.7,
+        "rank": 15,
         "variant": "Muse Spark",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -6295,7 +6301,7 @@
         "input_usd_per_m": 0.14,
         "output_usd_per_m": 1.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6364,7 +6370,7 @@
         "input_usd_per_m": 3.0,
         "output_usd_per_m": 15.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6434,7 +6440,7 @@
         "input_usd_per_m": 0.2,
         "output_usd_per_m": 0.4,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6477,10 +6483,10 @@
       "variant": "gemma-4-31b",
       "human_preference_variant": "gemma 4 31b",
       "vision": {
-        "rating": 1279.3,
+        "rating": 1279.2,
         "rank": 37,
         "variant": "Gemma 4 31B",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,
@@ -6509,7 +6515,7 @@
         "input_usd_per_m": 1.0,
         "output_usd_per_m": 5.0,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6578,7 +6584,7 @@
         "input_usd_per_m": 0.075,
         "output_usd_per_m": 0.3,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6612,15 +6618,21 @@
         ]
       },
       "evidence": {
-        "sources": 2,
+        "sources": 3,
         "max_sources": 3,
-        "benchmarks": 2
+        "benchmarks": 3
       },
       "provisional": true,
       "awaiting_human_votes": false,
       "variant": "plain",
       "human_preference_variant": "inkling 2 mini",
-      "vision": null,
+      "vision": {
+        "rating": 1181.2,
+        "rank": 106,
+        "variant": "Inkling 2 Mini",
+        "measured_at": "2026-11-25",
+        "source_url": "https://lmarena.ai/leaderboard"
+      },
       "rank": null,
       "tied_with": 0,
       "blended_price_usd_per_m": 0.1312,
@@ -6708,7 +6720,7 @@
         "input_usd_per_m": 0.03,
         "output_usd_per_m": 0.13,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6779,7 +6791,7 @@
         "input_usd_per_m": 0.3,
         "output_usd_per_m": 2.5,
         "source_url": "https://openrouter.ai/models",
-        "measured_at": "2026-11-25"
+        "measured_at": "2026-11-26"
       },
       "acquisition": {
         "hf_repo": null,
@@ -6822,10 +6834,10 @@
       "variant": "plain",
       "human_preference_variant": "gemini 2.5 flash",
       "vision": {
-        "rating": 1235.4,
-        "rank": 76,
+        "rating": 1235.6,
+        "rank": 77,
         "variant": "Gemini 2.5 Flash",
-        "measured_at": "2026-11-19",
+        "measured_at": "2026-11-25",
         "source_url": "https://lmarena.ai/leaderboard"
       },
       "rank": null,

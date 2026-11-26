@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-25",
+    "generated_at": "2026-11-26",
     "model_count": 95,
     "ranked_count": 65,
     "provisional_count": 30,
@@ -8,10 +8,10 @@
     "min_release_date": "2025-06-01",
     "contamination_reviewed_at": "2026-08-24",
     "snapshots": {
-      "epoch": "2026-11-25",
+      "epoch": "2026-11-26",
       "livebench": "2026-11-06",
       "lmarena_text": "2026-11-22",
-      "lmarena_vision": "2026-11-19"
+      "lmarena_vision": "2026-11-25"
     },
     "arena_normalization": {
       "method": "min-max across the cohort in this build",

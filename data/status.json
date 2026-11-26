@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-25T17:07:40+00:00",
+  "generated_at": "2026-11-26T16:49:44+00:00",
   "ok": true,
   "sources": {
     "epoch": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "consecutive_failures": 0
     },
     "livebench": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "consecutive_failures": 0,
       "category_rule": {
@@ -54,33 +54,33 @@
     },
     "lmarena": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "served_by": "filter",
       "consecutive_failures": 0
     },
     "openrouter": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "consecutive_failures": 0
     },
     "fx": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "consecutive_failures": 0
     },
     "llmfit": {
       "state": "ok",
-      "last_success": "2026-11-25",
+      "last_success": "2026-11-26",
       "error": null,
       "consecutive_failures": 0
     }
   },
   "snapshot_ages": {
     "epoch": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -89,7 +89,7 @@
     },
     "livebench": {
       "date": "2026-11-24",
-      "age_days": 1,
+      "age_days": 2,
       "freshness": "fresh",
       "cadence_days": 30,
       "warn_days": 60,
@@ -106,7 +106,7 @@
     },
     "lmarena": {
       "date": "2026-11-22",
-      "age_days": 3,
+      "age_days": 4,
       "freshness": "fresh",
       "cadence_days": 4,
       "warn_days": 8,
@@ -114,7 +114,7 @@
       "category": "human_preference"
     },
     "openrouter": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 1,
@@ -122,7 +122,7 @@
       "degraded_days": 4
     },
     "llmfit": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 7,
@@ -130,7 +130,7 @@
       "degraded_days": 28
     },
     "fx": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "age_days": 0,
       "freshness": "fresh",
       "cadence_days": 3,
@@ -147,13 +147,13 @@
   "rejected_snapshots": [],
   "integrity": {
     "epoch": {
-      "normalised_sha256": "4d288724eb8f11e0a45f320bf5b8bda025ce2b8c75eefc49b8b8577ebef6fd22",
+      "normalised_sha256": "c9675d6d5e003b289fdfdd7c2a0975cafe0c33f988838c2b882886c748963ce5",
       "requests": 1,
       "upstream": [
         {
           "url": "https://epoch.ai/data/benchmark_data.zip",
-          "sha256": "82193e314eb8f526b2525c175e0fea2ebfc42a8cf888f88143973ee3f169ab7c",
-          "bytes": 2328458
+          "sha256": "decfbfacb816edc5605c20e257ff5e7bc4b4f83bdb55c34428639c4546290c5e",
+          "bytes": 2330012
         }
       ]
     },
@@ -163,29 +163,29 @@
       "upstream": []
     },
     "lmarena": {
-      "normalised_sha256": "7bd8b63baac0af5e04639a3a5cf8a873449e62a410c476b9be17a6087f05dc96",
+      "normalised_sha256": "bfeef9fc5e4229cd15474bcb615e8717d83ba52bbd1228161fe4e8640534683f",
       "requests": 17,
       "upstream": []
     },
     "openrouter": {
-      "normalised_sha256": "bc3349b362ee5b114fa4010ce5e15a599b8dfe8a43f52ad44533d85f854ffee7",
+      "normalised_sha256": "38293e4e5caef0f3f42bec17e9c21ac5556099d7db713b1b68e24e65e1c5f191",
       "requests": 1,
       "upstream": [
         {
           "url": "https://openrouter.ai/api/v1/models",
-          "sha256": "b9fbb425dd215018a625ef13f08adb066f93223e85d8e25170f4652abcfac9ff",
-          "bytes": 915580
+          "sha256": "9339b0660e97f9db9cf036c90df607125a1d192830db3ee38d0dbb271900f341",
+          "bytes": 925049
         }
       ]
     },
     "fx": {
-      "normalised_sha256": "8141ebad894736769052249e1d70f89edc1fa237a1ab4e1755cf0892950ff5e3",
+      "normalised_sha256": "4402f46340a1d93f2a55cf1b66b5d9e6bcb21a9dc885941f6da0d6fa8a06096e",
       "requests": 1,
       "upstream": [
         {
           "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN",
-          "sha256": "a57d749bdde8c42d40c37eb378fb60a29d2d64fcda3576e1ecb4d1ede62fc523",
-          "bytes": 68
+          "sha256": "204544999382a563a5f85609ee3285982abdd9fb4918ce4432b75b51da18924b",
+          "bytes": 71
         }
       ]
     },
