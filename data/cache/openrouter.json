@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-26",
+  "fetched_at": "2026-11-27",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1283,8 +1283,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.44,
-        "price_output_usd_per_m": 1.32,
+        "price_input_usd_per_m": 0.2156,
+        "price_output_usd_per_m": 0.6468,
         "slug": "deepseek/deepseek-v4-flash-vision-exp"
       },
       "deepseek/deepseek-v4-pro": {
@@ -1301,8 +1301,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.8012,
-        "price_output_usd_per_m": 1.5593,
+        "price_input_usd_per_m": 0.7657,
+        "price_output_usd_per_m": 1.5007,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1319,8 +1319,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.111,
-        "price_output_usd_per_m": 4.44,
+        "price_input_usd_per_m": 0.0999,
+        "price_output_usd_per_m": 5.0,
         "slug": "deepseek/deepseek-v4-pro-0813"
       },
       "deepseek/deepseek-v4.1-flash": {
@@ -2332,7 +2332,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.08,
-        "price_output_usd_per_m": 0.45,
+        "price_output_usd_per_m": 0.16,
         "slug": "google/gemma-3-27b-it"
       },
       "google/gemma-3-4b-it": {
@@ -2350,8 +2350,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.04,
-        "price_output_usd_per_m": 0.05,
+        "price_input_usd_per_m": 0.05,
+        "price_output_usd_per_m": 0.1,
         "slug": "google/gemma-3-4b-it"
       },
       "google/gemma-4-26b-a4b-it": {
@@ -2584,24 +2584,24 @@
         "price_output_usd_per_m": 0.225,
         "slug": "inclusionai/ling-3.1-flash"
       },
-      "inclusionai/ling-3.2-flash:free": {
+      "inclusionai/ling-3.2-flash": {
         "context_length": 1048576,
         "created": 1794591958,
-        "free_tier": true,
+        "free_tier": false,
         "hugging_face_id": "inclusionAI/Ling-3.2-flash",
         "input_modalities": [
           "image",
           "text"
         ],
         "key": "ling-3.2-flash",
-        "name": "inclusionAI: Ling 3.2 Flash (free)",
+        "name": "inclusionAI: Ling 3.2 Flash",
         "open_weights": true,
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0,
-        "price_output_usd_per_m": 0.0,
-        "slug": "inclusionai/ling-3.2-flash:free"
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 0.9,
+        "slug": "inclusionai/ling-3.2-flash"
       },
       "inclusionai/lingsante-3.1-air-vl": {
         "context_length": 131072,
@@ -2816,8 +2816,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.71,
-        "price_output_usd_per_m": 0.71,
+        "price_input_usd_per_m": 0.59,
+        "price_output_usd_per_m": 0.79,
         "slug": "meta-llama/llama-3.3-70b-instruct"
       },
       "meta-llama/llama-4-maverick": {
@@ -2914,8 +2914,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.35,
-        "price_output_usd_per_m": 1.5,
+        "price_input_usd_per_m": 0.3,
+        "price_output_usd_per_m": 1.2,
         "slug": "meta/muse-glimmer-30b"
       },
       "meta/muse-glimmer-30b:batch": {
@@ -3715,6 +3715,24 @@
         "price_output_usd_per_m": 2.3,
         "slug": "moonshotai/kimi-k2"
       },
+      "moonshotai/kimi-k2-0905": {
+        "context_length": 262144,
+        "created": 1757021147,
+        "free_tier": false,
+        "hugging_face_id": "moonshotai/Kimi-K2-Instruct-0905",
+        "input_modalities": [
+          "text"
+        ],
+        "key": "kimi-k2.0905",
+        "name": "MoonshotAI: Kimi K2 0905",
+        "open_weights": true,
+        "output_modalities": [
+          "text"
+        ],
+        "price_input_usd_per_m": 0.6,
+        "price_output_usd_per_m": 2.5,
+        "slug": "moonshotai/kimi-k2-0905"
+      },
       "moonshotai/kimi-k2.5": {
         "context_length": 262144,
         "created": 1769487076,
@@ -3730,8 +3748,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.5,
-        "price_output_usd_per_m": 2.5,
+        "price_input_usd_per_m": 0.6,
+        "price_output_usd_per_m": 3.0,
         "slug": "moonshotai/kimi-k2.5"
       },
       "moonshotai/kimi-k2.6": {
@@ -7322,7 +7340,7 @@
         "slug": "qwen/qwen3.7-plus:batch"
       },
       "qwen/qwen3.8-2.4t-a95b": {
-        "context_length": 1048576,
+        "context_length": 1000000,
         "created": 1786551702,
         "free_tier": false,
         "hugging_face_id": "Qwen/Qwen3.8-2.4T-A95B",
@@ -8059,8 +8077,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.075,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.06,
+        "price_output_usd_per_m": 0.24,
         "slug": "thinkingmachines/inkling-2-mini"
       },
       "thinkingmachines/inkling-2-small": {
@@ -8590,7 +8608,7 @@
         "slug": "z-ai/glm-4.5v"
       },
       "z-ai/glm-4.6": {
-        "context_length": 204800,
+        "context_length": 202752,
         "created": 1759235576,
         "free_tier": false,
         "hugging_face_id": "zai-org/GLM-4.6",
@@ -9020,8 +9038,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.111,
-        "price_output_usd_per_m": 4.44,
+        "price_input_usd_per_m": 0.0999,
+        "price_output_usd_per_m": 5.0,
         "slug": "~deepseek/deepseek-pro-latest"
       },
       "~deepseek/deepseek-v4-flash-latest": {
