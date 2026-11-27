@@ -99,6 +99,18 @@ class OneDefectPerFamilyTests(unittest.TestCase):
         found = problems(_ES, _EN, thin)
         self.assertTrue(any("comparative language" in p for p in found))
 
+    def test_ungrammatical_weakness_phrase(self):
+        for verb in ("Deja", "Es", "Presenta"):
+            broken_es = _ES.replace("Algo por debajo", f"{verb} algo por debajo")
+            found = problems(broken_es, _EN, _model())
+            self.assertTrue(any("ungrammatical weakness" in p for p in found), verb)
+
+    def test_grammatical_weakness_phrases_pass(self):
+        for phrase in ("Se encuentra algo por debajo", "Está algo por debajo",
+                       "Presenta desempeño algo por debajo"):
+            fine_es = _ES.replace("Algo por debajo", phrase)
+            self.assertEqual(problems(fine_es, _EN, _model()), [], phrase)
+
     def test_untranslated_english_inside_spanish(self):
         broken_es = _ES + " Fue built by a team of engineers somewhere."
         found = problems(broken_es, _EN, _model())
