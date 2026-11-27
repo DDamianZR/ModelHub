@@ -35,6 +35,8 @@ import {
   DEFAULT_FORM,
   STORAGE_KEY,
   fmt,
+  formFromQuery,
+  formToQuery,
   parseNumber,
   readStored,
   toHardware,
@@ -77,7 +79,9 @@ export function LocalFit({
   // Restore what the user typed last time. Storage can be blocked (private mode, policy):
   // that is reported, never thrown, and the page works the same without it.
   useEffect(() => {
-    const stored = readStored();
+    // An address is a deliberate choice, so it wins over what this browser remembers.
+    const shared = formFromQuery(new URLSearchParams(window.location.search).get("hw"));
+    const stored = shared ?? readStored();
     if (stored) setForm(stored);
     try {
       window.localStorage.setItem(`${STORAGE_KEY}.probe`, "1");
@@ -97,6 +101,16 @@ export function LocalFit({
       setStorage("off");
     }
   }, [form, hydrated, storage]);
+
+  // Keep the address equal to the machine on screen, without adding history entries.
+  useEffect(() => {
+    if (!hydrated) return;
+    const query = formToQuery(form);
+    const next = `${window.location.pathname}${query ? `?${query}` : ""}`;
+    if (next !== `${window.location.pathname}${window.location.search}`) {
+      window.history.replaceState(window.history.state, "", next);
+    }
+  }, [form, hydrated]);
 
   const hardware = useMemo(() => toHardware(form), [form]);
   const context = Number(form.context);

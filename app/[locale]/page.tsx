@@ -18,6 +18,7 @@ import {
   getRanking,
   getRankingRows,
 } from "@/lib/data";
+import { packRankingRows } from "@/lib/ranking-wire";
 import {
   getAccessTrends,
   getBoardCards,
@@ -151,25 +152,34 @@ export default async function HomePage({
           <div className="mt-6">
             <SearchTrigger label={th("searchLabel")} hint="⌘K" />
           </div>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+          {/* Four ways in by what the reader wants to do, each a page that already exists. */}
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
             {(
               [
-                ["/#ranking", th("chipRanking")],
-                ["/compare", tn("compare")],
-                ["/local", tn("local")],
-                [cheapestHref, th("chipCheapest", { min: cheapest?.filter.min_coverage ?? 0 })],
+                ["/reweight", "reweight"],
+                ["/changes", "changes"],
+                ["/local", "local"],
+                ["/plans", "plans"],
               ] as const
-            ).map(([href, label]) => (
-              <li key={label}>
+            ).map(([href, key]) => (
+              <li key={key}>
                 <Link
                   href={href}
-                  className="inline-flex min-h-9 items-center rounded-control border border-subtle px-3 hover:bg-sunk"
+                  className="row-hover flex h-full flex-col rounded-control border border-subtle px-3 py-2"
                 >
-                  {label}
+                  <span className="text-sm font-medium">{th(`entrance.${key}.title`)}</span>
+                  <span className="mt-0.5 text-xs leading-[1.5] text-tertiary">
+                    {th(`entrance.${key}.body`)}
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
+          <p className="mt-3 text-sm">
+            <Link href={cheapestHref} className="text-accent underline underline-offset-2">
+              {th("chipCheapest", { min: cheapest?.filter.min_coverage ?? 0 })}
+            </Link>
+          </p>
         </div>
 
         <figure className="m-0 min-w-0" aria-labelledby="scatter-heading">
@@ -244,7 +254,7 @@ export default async function HomePage({
           messages={{ table: messages.table, filters: messages.filters }}
         >
           <RankingTable
-            rows={tableRows}
+            rows={packRankingRows(tableRows)}
             minCoverage={meta.min_coverage_for_ranking}
             categoryAges={categoryAges}
           />

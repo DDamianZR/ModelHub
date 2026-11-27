@@ -45,6 +45,8 @@
     "math": "Math",
     "human_preference": "Human preference",
     "instruction_following": "Instructions",
+    "knowledge": "Knowledge",
+    "agentic": "Agentic",
     "vision": "Vision",
     "trend": "Trajectory",
     "sortBy": "Sort by {column}",
@@ -101,7 +103,10 @@
     "compare": "Compare",
     "methodology": "Methodology",
     "aliases": "Aliases",
-    "local": "What runs here"
+    "local": "What runs here",
+    "reweight": "Your ranking",
+    "plans": "Plans",
+    "changes": "Changes"
   },
   "compare": {
     "title": "Compare models",
@@ -376,6 +381,7 @@
     "contaminationLink": "see evidence",
     "compareWith": "Compare with {name}",
     "metaTitle": "{name}: scores and sources",
+    "shareSubtitle": "{provider} · third-party scores, each with its source and date",
     "metaDescription": "Composite, coverage and sources of {name} ({provider}), from third-party evaluations and human voting, each with its date."
   },
   "methodology": {
@@ -426,6 +432,7 @@
       "example": "This exists because of a real problem. Since the weight is spread across only the categories that have data, a thinly measured model rises on what it is MISSING rather than on being better. Qwen3-Max-Instruct, with 3 of 5 categories, was landing at rank 5, above models measured on all five. That is precisely the bias this site exists to fight, so it is corrected in code rather than in a footnote.",
       "newModels": "The threshold is 4 and not 5 on purpose. A newly released model can have all four benchmarks and no LMArena votes yet; that case ranks normally, flagged as awaiting human votes. Sufficient evidence is required; being new is not punished.",
       "current": "In the current build: {ranked} ranked models and {provisional} provisional, with the threshold at {min} of 5.",
+      "reweight": "On “Your ranking” the reader changes the weights, and there “4 of 5 categories” stops meaning anything as soon as one of them weighs zero. The same rule is then stated as a share: a model is given a place if the categories it was measured on add up to at least {share}% of the chosen weight. That number is not new: it is the least the rule above admits under the site's weights, it is computed from config/weights.json, and with those weights it agrees with the gate on every model.",
       "scope": "The whole catalogue also has a cutoff date: only models published on or after {date} are eligible at all. That is not a measurement threshold like the one above - it is a scope filter, and it decides which models exist on the site before anything is measured. The value lives in config/weights.json, with its reasoning documented right there, and is debatable by PR like any other number on this page."
     },
     "variants": {
@@ -472,6 +479,7 @@
       "currency": "The currency selector only changes how a price is written. Prices are published in USD and the browser multiplies them by 1 USD = {rate} MXN, the European Central Bank reference rate for {date} as served by Frankfurter. It is not any bank's rate nor Banxico's FIX, so a price in pesos is an estimate. The rate does not enter the composite, the rank, the filters (which compare in USD) or the cost frontier.",
       "currencyNone": "No USD to MXN rate is available yet, so every price is shown in USD and the currency selector is hidden.",
       "plans": "Subscription plans are entered by hand in config/plans.json, because no public, machine-readable source says which plan includes which model. Each plan carries the page it came from and the date someone read it; without both it is not published. A plan's monthly fee is never converted into a per-token price or compared with the API price. If a model shows no plan, nobody has recorded one yet; it does not mean none exists.",
+      "plansExpiry": "A fee is entered as it is charged: the amount, the currency it is billed in and the country it was read in, because the same plan costs different amounts in different countries. A price in pesos is never stored converted to dollars. And evidence expires: an entry nobody has re-read in more than {days, plural, one {# day} other {# days}} is set aside from the list by itself and named as expired, without its price. The limit lives in config/plans.json and is debatable by PR.",
       "ratio": "Price per composite point is the blended price divided by the composite. It is computed only for ranked models that have a price: {evaluated} in this build. The ratio says what each point costs on average. It does not say the points are the ones you need, and a low composite at a low price gives a low ratio, so read it next to the composite.",
       "pareto": "The cost frontier marks a model when no other evaluated model costs the same or less and scores the same or more, with at least one strictly better. In this build, {members} of {evaluated} models are on it. The test compares point values and ignores intervals. Requiring the other model's interval to clear this one's was measured on 2026-11-05: 8 members instead of 7. The 3:1 blend was compared with 1:1 and 1:3 the same day, and the frontier did not change.",
       "unevaluated": "A model with no price or without a rank is not evaluated, which is different from being dominated: its flag is empty, not false. Today {unpriced} ranked models have no price and are outside both the ratio and the frontier.",
@@ -507,6 +515,13 @@
       "body": "There is no external database. Everything feeding this page is a versioned text file:",
       "git": "Every daily run lands as a commit. That means any change to any number is an auditable diff: you can see when it changed, by how much, and which run did it.",
       "link": "View the repository"
+    },
+    "visits": {
+      "title": "What is counted about your visit",
+      "off": "This site does not count visits and loads no measurement script.",
+      "on": "The site counts page views with Vercel Web Analytics. For each view it sends the page address without its parameters, so the address sent never includes what you type in the search box or the filters you choose.",
+      "stored": "According to Vercel's documentation, the referring page, approximate location, operating system, browser and device type are stored with the address. No third-party cookies are used, and the hash that tells one visitor from another is discarded after 24 hours.",
+      "link": "Read the Vercel Web Analytics data policy"
     },
     "uncertainty": {
       "title": "Uncertainty and statistical ties",
@@ -611,8 +626,25 @@
     "heroTitle": "Frontier model ranking, {period}",
     "heroSummary": "{models} models tracked, {ranked} with a place, measured with {sources} independent sources, data as of {date}. {firsts, plural, one {One model holds first place.} other {# models share first place: their intervals do not separate them.}}",
     "searchLabel": "Search a model, provider or benchmark",
-    "chipRanking": "Ranking",
     "chipCheapest": "Cheapest with coverage ({min}+ categories)",
+    "entrance": {
+      "reweight": {
+        "title": "Weigh it your way",
+        "body": "Change each category's weight and watch the ranking reorder."
+      },
+      "changes": {
+        "title": "What changed",
+        "body": "Who arrived, left or changed place, with the date."
+      },
+      "local": {
+        "title": "What runs on my machine",
+        "body": "Set your memory and see which open models fit."
+      },
+      "plans": {
+        "title": "What a plan costs",
+        "body": "Fees as charged, with country, source and date."
+      }
+    },
     "sourcesLine": "Data cutoffs: {snapshots}. Sources {degraded, plural, =0 {with no failures} one {with # degraded} other {with # degraded}}{aging, plural, =0 {} one {, # ageing} other {, # ageing}}.",
     "sourcesLink": "Version used per category and source health",
     "scatterTitle": "Price against composite",
@@ -656,6 +688,27 @@
     "outDesign": "DesignArena",
     "outSwebench": "SWE-bench scaffold leaderboard"
   },
+  "plans": {
+    "title": "Subscription plans",
+    "metaDescription": "What each subscription plan costs per month, as it is charged in each country, with the page the price came from and the date it was read.",
+    "intro": "What each plan costs per month, as it is charged, with the country the price was read in, the page it came from and the date someone read it. Ordered from the cheapest up.",
+    "notAPrice": "A plan is a flat monthly fee for a chat app. It is not equivalent to the API price per token and is not compared with it. It does not move a score or a place either.",
+    "expiry": "An entry nobody has re-read in more than {days, plural, one {# day} other {# days}} is set aside by itself and appears below as expired, without its price. If this list is neglected it gets shorter; it never shows an old price as a current one.",
+    "empty": "No plan on record yet. That does not mean none exist: nobody has entered one with its source and its date.",
+    "colPlan": "Plan",
+    "colFee": "Fee",
+    "colRegion": "Country",
+    "colRead": "Read on",
+    "colModels": "Models it includes",
+    "noFee": "No fee listed",
+    "perMonth": "per month",
+    "fxNote": "The fee is the one charged, in its own currency. The figure in brackets is a rough equivalent at the reference rate of {date} ({rate} pesos per dollar); it is not a price.",
+    "expiredTitle": "{count, plural, one {# expired plan} other {# expired plans}}",
+    "expiredNote": "These were read longer ago than this site treats as current. They are named with the date of their last reading and without a price, because repeating an old price is exactly what this is meant to prevent.",
+    "expiredSince": "not verified since {date}",
+    "contribute": "Prices are entered by hand, per country, and anyone can add or re-read one.",
+    "contributeLink": "Report a plan price"
+  },
   "provider": {
     "metaTitle": "{name}: measured models",
     "metaDescription": "{count, plural, one {# model} other {# models}} from {name} with composite, coverage, price and sources. {ranked} ranked, {provisional} provisional.",
@@ -671,6 +724,7 @@
     "eyebrow": "Benchmark",
     "intro": "Category: {category}. That category carries {weight}% of the composite, shared among its benchmarks as the methodology describes. Source: {source}.",
     "introOutside": "Category: {category}. This category is outside the composite: it is shown as a separate board. Source: {source}.",
+    "boardNote": "Outside the composite no variant rule applies: each row is the published variant with the highest value, named under Notes.",
     "orderNote": "Ordered by measured value. A row above another is not measurably ahead unless their intervals separate, which is why the interval is shown.",
     "colModel": "Model",
     "colValue": "Value",
@@ -685,8 +739,57 @@
     "empty": "No model in the catalogue has a score on this benchmark.",
     "rows": "{count, plural, one {# score} other {# scores}}"
   },
+  "reweight": {
+    "title": "Your ranking",
+    "metaDescription": "Change the weight of each category and see how the models reorder. The scores are the published ones; only the way they are combined changes.",
+    "intro": "The site's composite weighs five categories with weights that are a decision, not a fact. Here you can set your own. The scores and their intervals are the published ones: the only thing that changes is how they are combined.",
+    "rules": "The rules are the site's: models whose intervals overlap share a place, and a model measured on too little of what you chose to weigh is given no place.",
+    "rulesLink": "How it is computed",
+    "weights": "Weights",
+    "reset": "Back to the site's weights",
+    "shareOf": "{share}% of the composite",
+    "siteShare": "site: {share}%",
+    "noWeight": "Give weight to at least one category to order the models.",
+    "same": "These are the site's weights: the order below is the published ranking, with {placed} models placed.",
+    "readout": "With these weights, {moved} of the {compared} models placed either way sit in a different place than on the site. {apart, plural, =0 {No model is} one {# model is} other {# models are}} left without a place for coverage.",
+    "filtersNote": "Filters hide rows; each model's place is still its place among all comparable models, not among the ones left in view.",
+    "personal": "A personal ranking, not the published one.",
+    "published": "See the site's ranking",
+    "tableLabel": "Models ordered with your weights",
+    "colComposite": "With your weights",
+    "colSite": "On the site",
+    "empty": "No model meets these filters.",
+    "apartTitle": "{count, plural, one {# model without a place} other {# models without a place}} with these weights",
+    "apartNote": "They were measured on categories adding up to less than {share}% of the weight you chose. Ordering them with the rest would lift them on what they are missing."
+  },
+  "changes": {
+    "title": "What changed",
+    "metaDescription": "A dated log of what moved in the ranking: models that arrived or left, changes of place and of measurements, each with its date.",
+    "intro": "Every daily run is recorded: which models arrived or left, which crossed the coverage gate, which changed place and which of their own measurements changed that day.",
+    "method": "A change of place is measured among the models that held a place on both days, because a new model at the top lowers everyone below it without any of them having changed. If none of a model's own measurements changed, it says so rather than inventing a reason. Each day's figures are that day's; today's are in the ranking.",
+    "feed": "Subscribe by Atom",
+    "empty": "No changes recorded yet. The log is written by the daily ingest run.",
+    "summary": "{added, plural, =0 {} one {# new model · } other {# new models · }}{removed, plural, =0 {} one {# left · } other {# left · }}{gate, plural, =0 {} one {# crossed the coverage gate · } other {# crossed the coverage gate · }}{moved, plural, =0 {no changes of place} one {# changed place} other {# changed place}}",
+    "summaryShift": "A ranking-wide change that day",
+    "addedRanked": "entered the ranking at place {place}.",
+    "addedProvisional": "appeared as provisional, without a place.",
+    "removed": "left the catalogue.",
+    "gateEntered": "entered the ranking: went from {from} to {to} of {total} measured categories.",
+    "gateLeft": "left the ranking: went from {from} to {to} of {total} measured categories.",
+    "moved": "went from place {from} to {to}; composite {before} → {after}.",
+    "ownUnchanged": "None of its own measurements changed that day.",
+    "ownChanged": "Its own measurement changed: {rows}.",
+    "cohortShift": "A ranking-wide change: {moved} of {compared} ranked models changed place the same day, so they are not listed one by one.",
+    "price": "blended price: US${before} → US${after} per million tokens.",
+    "benchmarkRows": "{changed} scores changed, {added} new, {removed} removed.",
+    "arenaScale": "The LMArena scale changed: minimum {minBefore} → {minAfter}, maximum {maxBefore} → {maxAfter}.",
+    "modelTitle": "Recent changes",
+    "modelNone": "No changes recorded for this model.",
+    "modelAll": "See all changes"
+  },
   "vs": {
     "metaTitle": "{a} and {b}: measured comparison",
+    "shareSubtitle": "The same measurements as the ranking, side by side, with their intervals",
     "metaDescription": "{a} and {b} side by side: composite with interval, five categories, price and context window, from the same measurements as the ranking.",
     "title": "{a} and {b}",
     "intro": "Side by side, from the same measurements as the ranking. A difference smaller than the combined 95% interval is not one the data can show.",

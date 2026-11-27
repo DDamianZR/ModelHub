@@ -1,5 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "note": "Consumer subscription plans that include a model, entered by pull request. This is access information, never a score: it cannot move a composite, a rank or the coverage gate, and a plan fee is never converted into a per-token price. Every entry needs a source_url on the plan's own page and the date someone last read it; an entry without either is withheld. An empty list means nobody has recorded one, not that no plan exists.",
+  "max_age_days": 90,
+  "max_age_days_rationale": "An entry whose verified_at is older than this is set aside by the ingest without anyone having to notice: it leaves the published list and is named as expired, with the date it was last read and without its fee. Ninety days is one reading a quarter for whoever keeps this file. If the file is neglected the table gets shorter; it never shows an old price as a current one. Debatable by PR like every other number here.",
+  "fields": {
+    "id": "Unique and stable, lowercase, with the country when the same plan is entered for more than one.",
+    "name": "The plan's name as its own page prints it.",
+    "price_per_month": "The monthly fee as charged, a number. 0 for a free plan. null when the page lists no fee.",
+    "currency": "MXN or USD: the currency the fee is billed in. Leave it out when there is no fee.",
+    "region": "Two-letter country code in capitals of the country the price was read from, for example MX. The same plan costs different amounts in different countries.",
+    "model_ids": "Ids from data/models.json that the plan's own page says the plan includes. At least one.",
+    "source_url": "https URL of the page the fee and the models were read from.",
+    "verified_at": "The day someone last read that page, as YYYY-MM-DD. Not in the future."
+  },
   "plans": []
 }

@@ -82,6 +82,36 @@ export function readStored(): Form | null {
   }
 }
 
+const NUMBER_FIELD = /^\d{0,5}([.,]\d{1,3})?$/;
+
+/**
+ * The machine as an address, so a setup can be shared by link: `hw=kind,memory,ram,bandwidth,
+ * context`. Empty when the form is the default, which keeps the plain address plain. The
+ * preset is not carried: it only labels a selection, and the numbers are what matter.
+ */
+export function formToQuery(form: Form): string {
+  const same =
+    form.kind === DEFAULT_FORM.kind && form.memory === DEFAULT_FORM.memory &&
+    form.ram === DEFAULT_FORM.ram && form.bandwidth === DEFAULT_FORM.bandwidth &&
+    form.context === DEFAULT_FORM.context;
+  if (same) return "";
+  const params = new URLSearchParams();
+  params.set("hw", [form.kind, form.memory, form.ram, form.bandwidth, form.context].join(","));
+  return params.toString();
+}
+
+/** The reverse, strict: anything that is not exactly what formToQuery writes is ignored. */
+export function formFromQuery(value: string | null): Form | null {
+  if (!value) return null;
+  const parts = value.split(",");
+  if (parts.length !== 5) return null;
+  const [kind, memory, ram, bandwidth, context] = parts;
+  if (!["discrete", "unified", "cpu"].includes(kind)) return null;
+  if (![memory, ram, bandwidth].every((part) => NUMBER_FIELD.test(part))) return null;
+  if (!CONTEXTS.includes(context)) return null;
+  return { kind: kind as Kind, preset: "custom", memory, ram, bandwidth, context };
+}
+
 export function fmt(n: number, locale: string, digits = 1): string {
   return new Intl.NumberFormat(locale, { maximumFractionDigits: digits }).format(n);
 }

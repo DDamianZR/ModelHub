@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useSyncExternalStore } from "react";
 import {
+  convertFee,
   effectiveCurrency,
   formatAxisPrice,
   formatFee,
@@ -106,8 +107,6 @@ export function useCurrency() {
       digits: (usd: number | null) => formatPriceDigits(usd, currency, fx),
       /** Short form for axis ticks. */
       axis: (usd: number) => formatAxisPrice(usd, currency, fx),
-      /** A plan's monthly fee, in whole units where it is whole. */
-      fee: (usd: number) => formatFee(usd, currency, fx),
     }),
     [currency, setCurrency, fx],
   );
@@ -137,8 +136,18 @@ export function CurrencySymbol() {
   return <>{symbol}</>;
 }
 
-/** A monthly fee as text. */
-export function Fee({ usd }: { usd: number }) {
-  const { fee } = useCurrency();
-  return <>{fee(usd)}</>;
+/**
+ * A plan's monthly fee: the figure as charged, in its own currency, and after it a rough
+ * equivalent when the reader chose the other currency. The charged figure never changes
+ * with the switch; only the estimate beside it comes and goes.
+ */
+export function PlanFee({ amount, charged }: { amount: number; charged: Currency }) {
+  const { currency, fx } = useCurrency();
+  const estimate = convertFee(amount, charged, currency, fx);
+  return (
+    <>
+      {formatFee(amount, charged)}
+      {estimate !== null && ` (≈ ${formatFee(Math.round(estimate * 100) / 100, currency)})`}
+    </>
+  );
 }

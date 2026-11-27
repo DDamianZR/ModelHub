@@ -78,10 +78,27 @@ export function formatRate(mxn: number): string {
   return String(Number(mxn.toFixed(4)));
 }
 
-/** A monthly plan fee, whole units where it is whole: "US$20" has no use for cents. */
-export function formatFee(usd: number, currency: Currency, fx: FxRate | null): string {
-  const shown = effectiveCurrency(currency, fx);
-  const value = convert(usd, shown, fx);
-  const text = Number.isInteger(value) ? value.toFixed(0) : value.toFixed(value < 100 ? 2 : 0);
-  return `${SYMBOL[shown]}${text}`;
+/**
+ * A monthly plan fee in the currency it is charged in, whole units where it is whole:
+ * "MX$399", "US$20". Never converted: a plan costs what its own page says in its own
+ * country, and that is the figure that is printed.
+ */
+export function formatFee(amount: number, charged: Currency): string {
+  const text = Number.isInteger(amount) ? amount.toFixed(0) : amount.toFixed(amount < 100 ? 2 : 0);
+  return `${SYMBOL[charged]}${text}`;
+}
+
+/**
+ * The same fee in the currency the reader chose, for a "roughly" beside the real figure.
+ * Null when it is already in that currency or there is no usable rate: in both cases there
+ * is nothing honest to add. The result is an estimate at a reference rate, never a price.
+ */
+export function convertFee(
+  amount: number,
+  charged: Currency,
+  shown: Currency,
+  fx: FxRate | null,
+): number | null {
+  if (charged === shown || !fx || !Number.isFinite(fx.mxn) || fx.mxn <= 0) return null;
+  return charged === "USD" ? amount * fx.mxn : amount / fx.mxn;
 }

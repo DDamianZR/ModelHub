@@ -1,0 +1,64 @@
+name: Report a plan price
+description: A subscription plan and what it costs where you live, read from its own page
+title: "[plan] "
+labels: ["plans"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Plans are kept by hand in `config/plans.json`, and every entry carries its own
+        evidence: the page the price was read from and the day it was read. An entry that
+        nobody has re-read in 90 days is set aside automatically, so re-reading an existing
+        plan is as useful as adding a new one.
+
+        Please report the price **as it is charged in your country**, in the currency you
+        are billed in. Do not convert it. A plan is access information only: it never
+        affects a score or a rank.
+
+  - type: input
+    id: name
+    attributes:
+      label: Plan name
+      description: As the plan's own page prints it.
+    validations:
+      required: true
+
+  - type: input
+    id: region
+    attributes:
+      label: Country
+      description: Where you read the price. Two-letter code if you know it, for example MX.
+    validations:
+      required: true
+
+  - type: input
+    id: fee
+    attributes:
+      label: Monthly fee and currency
+      description: The figure as charged, for example 399 MXN. Write "free" or "not listed" if that is what the page says.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Page the price was read from
+      description: An https link to the plan's or the vendor's own page. Not a news article, not a screenshot.
+    validations:
+      required: true
+
+  - type: input
+    id: read
+    attributes:
+      label: Date you read it
+      placeholder: "2026-11-12"
+    validations:
+      required: true
+
+  - type: textarea
+    id: models
+    attributes:
+      label: Models the page says the plan includes
+      description: Only what that page states. If it does not name a model, say so.
+    validations:
+      required: true

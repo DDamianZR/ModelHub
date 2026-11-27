@@ -6,6 +6,11 @@ import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
 import { routing } from "@/i18n/routing";
 import { getFx } from "@/lib/data";
+import {
+  ANALYTICS_BOOTSTRAP,
+  analyticsScriptSrc,
+  googleSiteVerification,
+} from "@/lib/measurement";
 import { siteUrl } from "@/lib/site-url";
 import "../globals.css";
 
@@ -44,11 +49,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   const url = siteUrl();
+  const google = googleSiteVerification();
 
   return {
     title: t("title"),
     description: t("description"),
     metadataBase: new URL(url),
+    // Ownership tag for the search console, present only when a token is configured.
+    ...(google ? { verification: { google } } : {}),
   };
 }
 
@@ -63,6 +71,7 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const tui = await getTranslations({ locale, namespace: "ui" });
+  const analyticsSrc = analyticsScriptSrc();
 
   return (
     <html
@@ -72,6 +81,14 @@ export default async function LocaleLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        {/* Page-view counting, off unless configured; what it may report is decided in
+            lib/measurement.ts and stated to the reader on /methodology#visits. */}
+        {analyticsSrc && (
+          <>
+            <script dangerouslySetInnerHTML={{ __html: ANALYTICS_BOOTSTRAP }} />
+            <script defer src={analyticsSrc} />
+          </>
+        )}
       </head>
       <body>
         {/* First focusable element in the document, invisible until a keyboard user

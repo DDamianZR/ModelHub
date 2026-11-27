@@ -40,6 +40,7 @@ export async function generateMetadata({
     path: `/vs/${x}/${y}`,
     title: `${t("metaTitle", names)} · ModelHub`,
     description: t("metaDescription", names),
+    ownCard: true,
   });
 }
 

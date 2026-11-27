@@ -48,6 +48,11 @@ def load_inputs() -> dict:
         "arena_vision": arena.get("vision") or {},
         "arena_snapshot": arena.get("snapshot"),
         "vision_snapshot": arena.get("vision_snapshot"),
+        # run.py passes the boards too: a third-party measurement outside the composite
+        # still corroborates that a model exists. Without them this rebuild dropped every
+        # model admitted that way (4 of 89 on 2026-11-12, the first-ranked one included),
+        # so every delta reported them as gone and shifted the ranks below them.
+        "epoch_boards": epoch.get("boards") or {},
     }
 
 

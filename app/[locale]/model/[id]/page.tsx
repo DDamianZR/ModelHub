@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CategoryBars } from "@/components/CategoryBars";
 import { CoverageMeter } from "@/components/CoverageMeter";
-import { Fee, Price } from "@/components/CurrencyProvider";
+import { PlanFee, Price } from "@/components/CurrencyProvider";
+import { ChangeLine } from "@/components/ChangeLine";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Sparkline } from "@/components/Sparkline";
 import { Surface } from "@/components/Surface";
@@ -11,16 +13,20 @@ import {
   getAcquisition,
   getAdjacentModels,
   getBestBy,
+  getChangeLog,
   getFx,
   getModelDetail,
   getModelIds,
   getPlansFor,
+  getRanking,
 } from "@/lib/data";
 import { formatRate } from "@/lib/currency";
 import { routing } from "@/i18n/routing";
 import { CATEGORIES } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/site-url";
+import { eventsForModel } from "@/lib/changes";
 import { orderPair } from "@/lib/views";
 
 export function generateStaticParams() {
@@ -44,6 +50,7 @@ export async function generateMetadata({
     path: `/model/${id}`,
     title: `${t("metaTitle", { name })} · ModelHub`,
     description: t("metaDescription", { name, provider: detail.model.provider_name }),
+    ownCard: true,
   });
 }
 
@@ -70,6 +77,25 @@ export default async function ModelPage({
   const pricing = model.pricing ?? null;
   const t = await getTranslations("model");
   const tt = await getTranslations("table");
+  const tc = await getTranslations("changes");
+  const log = getChangeLog();
+  const recent = eventsForModel(log.events, id).slice(0, 6);
+
+  // What this page is, for crawlers: which benchmarks it reports for the model and where
+  // they came from. No score is repeated here; a figure copied into structured data is one
+  // more place for it to be read without its date.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: t("metaTitle", { name: model.display_name }),
+    description: t("metaDescription", { name: model.display_name, provider: model.provider_name }),
+    url: `${siteUrl()}/${locale}/model/${id}`,
+    inLanguage: locale,
+    dateModified: getRanking().meta.generated_at,
+    creator: { "@type": "Organization", name: "ModelHub", url: siteUrl() },
+    isBasedOn: [...new Set(scores.map((score) => score.source_url))],
+    variableMeasured: [...new Set(scores.map((score) => score.benchmark?.name ?? score.benchmark_id))],
+  };
   const tui = await getTranslations("ui");
 
   const partial = model.coverage.covered < model.coverage.total;
@@ -88,6 +114,7 @@ export default async function ModelPage({
   return (
     <main id="main-content" className="mx-auto max-w-[80rem] px-5 pb-20 sm:px-8">
       <SiteHeader locale={locale} active="ranking" />
+      <JsonLd data={jsonLd} />
 
       <nav
         className="mt-6 flex items-center justify-between gap-4"
@@ -329,13 +356,17 @@ export default async function ModelPage({
                     <li key={plan.id} className="text-sm">
                       <span className="font-medium text-primary">{plan.name}</span>
                       <span className="num ml-2 text-xs text-tertiary">
-                        {plan.price_usd_per_month === null ? (
+                        {plan.price_per_month === null || plan.currency === null ? (
                           t("planNoFee")
                         ) : (
                           <>
-                            <Fee usd={plan.price_usd_per_month} /> {t("planPerMonth")}
+                            <PlanFee amount={plan.price_per_month} charged={plan.currency} />{" "}
+                            {t("planPerMonth")}
                           </>
                         )}
+                        {/* A fee is a fee somewhere: the country it was read in goes with it. */}
+                        {" · "}
+                        {plan.region}
                         {" · "}
                         {t("planVerified", { date: plan.verified_at })}
                         {" · "}
@@ -488,6 +519,29 @@ export default async function ModelPage({
                 </tbody>
               </table>
             </Surface>
+          </section>
+
+          <section id="changes" className="mt-8 scroll-mt-6">
+            <h2 className="eyebrow mb-2">{tc("modelTitle")}</h2>
+            <Surface>
+              {recent.length === 0 ? (
+                <p className="px-3 py-3 text-sm text-tertiary">{tc("modelNone")}</p>
+              ) : (
+                <ul className="divide-y divide-[var(--line-subtle)]">
+                  {recent.map((event, i) => (
+                    <li key={i} className="px-3 py-2 text-sm leading-[1.55]">
+                      <span className="num mr-2 text-xs text-tertiary">{event.date}</span>
+                      <ChangeLine event={event} models={log.models} benchmarks={log.benchmarks} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </Surface>
+            <p className="mt-2 text-sm">
+              <Link href="/changes" className="text-accent underline underline-offset-2">
+                {tc("modelAll")}
+              </Link>
+            </p>
           </section>
 
           <section id="acquisition" className="mt-8 scroll-mt-6">

@@ -4,7 +4,7 @@ Disagreement about how models should be scored is the point of this project, not
 with it. That is why the weights live in a config file rather than in code, and why every
 number carries the source it came from.
 
-There are three useful ways to contribute, in rough order of value.
+There are four useful ways to contribute, in rough order of value.
 
 ## 1. Challenge a number
 
@@ -66,6 +66,27 @@ Approving a draft moves it to `data/watchlist.json`, which pre-registers the nam
 ingest recognises it as soon as a source measures it. **Approving is not ranking**: a model
 with no measurements has no composite and appears nowhere in the table until Layer A finds
 it in a real source.
+
+## 4. Record what a plan costs where you live
+
+`/plans` lists subscription plans with the fee as it is charged, the country it was read in,
+the page it came from and the day someone read it. There is no machine-readable source for
+this, so `config/plans.json` is kept by hand, one entry per plan and country. The file
+documents its own fields.
+
+Open an issue with the *Report a plan price* template, or send a PR that adds or re-reads an
+entry. Three rules:
+
+- **The fee is the one charged, in the currency it is billed in.** Never a conversion. The
+  same plan costs different amounts in different countries, which is the reason the country
+  is part of the entry.
+- **The source is the plan's own page**, read by you, on the date you write down.
+- **Entries expire.** One that nobody has re-read in 90 days is set aside by the ingest and
+  listed as expired without its fee. Re-reading an existing entry and updating its
+  `verified_at` is as useful as adding a new one.
+
+A plan is access information. It cannot move a score or a rank, and a monthly fee is never
+turned into a price per token.
 
 ## Ground rules that are not negotiable
 

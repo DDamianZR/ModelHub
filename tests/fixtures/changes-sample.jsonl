@@ -1,0 +1,69 @@
+{"date": "2026-11-05", "type": "arena_scale", "min": [1287.31, 1287.31], "max": [1491.35, 1483.29]}
+{"date": "2026-11-05", "type": "benchmark_updated", "benchmark_id": "frontiermath", "changed": 0, "added": 3, "removed": 0}
+{"date": "2026-11-05", "type": "benchmark_updated", "benchmark_id": "gpqa_diamond", "changed": 1, "added": 26, "removed": 2}
+{"date": "2026-11-05", "type": "benchmark_updated", "benchmark_id": "livebench_coding", "changed": 25, "added": 29, "removed": 5}
+{"date": "2026-11-05", "type": "benchmark_updated", "benchmark_id": "livebench_instruction_following", "changed": 0, "added": 54, "removed": 0}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-5-5", "ranked": true, "rank": 1, "tied": true, "composite": 82.59}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-fable-5-1", "ranked": true, "rank": 4, "tied": true, "composite": 81.42}
+{"date": "2026-11-05", "type": "model_added", "model_id": "deepseek-deepseek-v4-pro-0813", "ranked": true, "rank": 16, "tied": false, "composite": 78.34}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-sonnet-5-5", "ranked": true, "rank": 23, "tied": true, "composite": 76.24}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-4-6", "ranked": true, "rank": 24, "tied": false, "composite": 76.11}
+{"date": "2026-11-05", "type": "model_added", "model_id": "deepseek-deepseek-v4-flash-0731", "ranked": true, "rank": 27, "tied": true, "composite": 74.54}
+{"date": "2026-11-05", "type": "model_added", "model_id": "google-deepmind-gemini-3.6-flash", "ranked": true, "rank": 27, "tied": true, "composite": 74.52}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-sonnet-4-6", "ranked": true, "rank": 30, "tied": false, "composite": 73.19}
+{"date": "2026-11-05", "type": "model_added", "model_id": "z-ai-zhipu-ai-glm-5.2", "ranked": true, "rank": 32, "tied": false, "composite": 73.75}
+{"date": "2026-11-05", "type": "model_added", "model_id": "openai-gpt-5.4-nano", "ranked": true, "rank": 33, "tied": false, "composite": 73.71}
+{"date": "2026-11-05", "type": "model_added", "model_id": "google-deepmind-gemini-3.5-flash", "ranked": true, "rank": 34, "tied": false, "composite": 72.52}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-4-5", "ranked": true, "rank": 37, "tied": true, "composite": 72.24}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-4-8", "ranked": true, "rank": 38, "tied": false, "composite": 70.77}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-4-7", "ranked": true, "rank": 43, "tied": true, "composite": 68.91}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-haiku-5-5", "ranked": true, "rank": 44, "tied": true, "composite": 68.66}
+{"date": "2026-11-05", "type": "model_added", "model_id": "openai-gpt-5.4-mini", "ranked": true, "rank": 45, "tied": false, "composite": 68.06}
+{"date": "2026-11-05", "type": "model_added", "model_id": "alibaba-qwen3.6-27b", "ranked": true, "rank": 51, "tied": true, "composite": 66.53}
+{"date": "2026-11-05", "type": "model_added", "model_id": "deepseek-deepseek-v4-flash", "ranked": true, "rank": 51, "tied": true, "composite": 66.67}
+{"date": "2026-11-05", "type": "model_added", "model_id": "moonshot-kimi-k2.7-code", "ranked": true, "rank": 52, "tied": false, "composite": 65.73}
+{"date": "2026-11-05", "type": "model_removed", "model_id": "deepseek-deepseek-v4.1-flash-1017", "ranked": false, "rank": null, "tied": false, "composite": 92.55}
+{"date": "2026-11-05", "type": "model_removed", "model_id": "google-deepmind-gemini-4-argon", "ranked": false, "rank": null, "tied": false, "composite": 92.4}
+{"date": "2026-11-05", "type": "model_removed", "model_id": "stepfun-step-5", "ranked": false, "rank": null, "tied": false, "composite": 82.73}
+{"date": "2026-11-05", "type": "model_removed", "model_id": "xiaomi-corp-mimo-v2.6-pro", "ranked": false, "rank": null, "tied": false, "composite": 85.04}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "alibaba-qwen3.7", "entered": true, "covered": [3, 5], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "alibaba-qwen3.8", "entered": true, "covered": [3, 5], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "alibaba-qwen3.8-27b", "entered": true, "covered": [3, 5], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "anthropic-claude-fable-5", "entered": true, "covered": [2, 4], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "anthropic-claude-opus-5", "entered": true, "covered": [2, 4], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "anthropic-claude-sonnet-5", "entered": true, "covered": [2, 4], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "deepseek-deepseek-v4-pro", "entered": true, "covered": [3, 5], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "deepseek-deepseek-v4.1-flash", "entered": true, "covered": [2, 4], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "google-deepmind-gemini-3.1-pro", "entered": true, "covered": [3, 5], "total": 5}
+{"date": "2026-11-05", "type": "gate_crossed", "model_id": "google-deepmind-gemini-3.5-flash-lite", "entered": true, "covered": [2, 5], "total": 5}
+{"date": "2026-11-05", "type": "cohort_shift", "compared": 12, "moved": 9}
+{"date": "2026-11-05", "type": "price_changed", "model_id": "alibaba-qwen3.5-35b-a3b", "blended_usd_per_m": [null, 0.355]}
+{"date": "2026-11-05", "type": "price_changed", "model_id": "alibaba-qwen3.5-397b-a17b", "blended_usd_per_m": [null, 1.275]}
+{"date": "2026-11-05", "type": "price_changed", "model_id": "alibaba-qwen3.6-plus", "blended_usd_per_m": [null, 0.7312]}
+{"date": "2026-11-05", "type": "arena_scale", "min": [1287.31, 1287.31], "max": [1483.29, 1496.25]}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-opus-4-1", "ranked": true, "rank": 62, "tied": false, "composite": 55.58}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-haiku-4-5", "ranked": false, "rank": null, "tied": false, "composite": 59.82}
+{"date": "2026-11-05", "type": "model_added", "model_id": "anthropic-claude-sonnet-4-5", "ranked": false, "rank": null, "tied": false, "composite": 70.97}
+{"date": "2026-11-05", "type": "model_added", "model_id": "deepseek-deepseek-v4.1-flash-1017", "ranked": false, "rank": null, "tied": false, "composite": 89.1}
+{"date": "2026-11-05", "type": "model_added", "model_id": "google-deepmind-gemini-4-argon", "ranked": false, "rank": null, "tied": false, "composite": 95.1}
+{"date": "2026-11-05", "type": "model_added", "model_id": "mistral-ai-mistral-large-4-0", "ranked": false, "rank": null, "tied": false, "composite": 88.07}
+{"date": "2026-11-05", "type": "model_added", "model_id": "openai-gpt-6.1-terra", "ranked": false, "rank": null, "tied": false, "composite": 88.7}
+{"date": "2026-11-05", "type": "model_added", "model_id": "stepfun-step-5", "ranked": false, "rank": null, "tied": false, "composite": 80.27}
+{"date": "2026-11-05", "type": "model_added", "model_id": "xiaomi-corp-mimo-v2.6-pro", "ranked": false, "rank": null, "tied": false, "composite": 86.37}
+{"date": "2026-11-05", "type": "cohort_shift", "compared": 62, "moved": 60}
+{"date": "2026-11-07", "type": "arena_scale", "min": [1287.31, 1287.45], "max": [1496.25, 1496.53]}
+{"date": "2026-11-07", "type": "moved", "model_id": "moonshot-kimi-k3", "among": 63, "position": [19, 18], "rank": [19, 18], "tied": [false, false], "composite": [79.69, 79.69], "inputs": []}
+{"date": "2026-11-07", "type": "moved", "model_id": "google-deepmind-gemini-3.6-flash", "among": 63, "position": [27, 28], "rank": [27, 28], "tied": [true, true], "composite": [76.82, 76.82], "inputs": []}
+{"date": "2026-11-07", "type": "moved", "model_id": "z-ai-zhipu-ai-glm-5.3-flash", "among": 63, "position": [41, 42], "rank": [41, 42], "tied": [false, true], "composite": [73.31, 73.25], "inputs": [{"benchmark_id": "lmarena_text_overall", "value": [1473.0, 1472.4]}]}
+{"date": "2026-11-07", "type": "moved", "model_id": "alibaba-qwen3.6-27b", "among": 63, "position": [54, 53], "rank": [54, 53], "tied": [false, false], "composite": [66.53, 66.53], "inputs": []}
+{"date": "2026-11-09", "type": "arena_scale", "min": [1287.45, 1287.61], "max": [1496.53, 1496.77]}
+{"date": "2026-11-09", "type": "moved", "model_id": "moonshot-kimi-k3", "among": 63, "position": [18, 19], "rank": [18, 19], "tied": [false, false], "composite": [79.69, 79.69], "inputs": []}
+{"date": "2026-11-09", "type": "moved", "model_id": "google-deepmind-gemini-3.6-flash", "among": 63, "position": [28, 27], "rank": [28, 27], "tied": [true, true], "composite": [76.82, 76.82], "inputs": []}
+{"date": "2026-11-09", "type": "moved", "model_id": "thinking-machines-inkling", "among": 63, "position": [31, 30], "rank": [31, 30], "tied": [true, false], "composite": [74.7, 74.69], "inputs": []}
+{"date": "2026-11-09", "type": "moved", "model_id": "openai-gpt-5.4-mini", "among": 63, "position": [51, 50], "rank": [51, 50], "tied": [true, false], "composite": [68.06, 68.06], "inputs": []}
+{"date": "2026-11-10", "type": "model_added", "model_id": "anthropic-claude-fable-5-2", "ranked": false, "rank": null, "tied": false, "composite": 88.8}
+{"date": "2026-11-11", "type": "arena_scale", "min": [1287.61, 1287.6], "max": [1496.77, 1496.75]}
+{"date": "2026-11-11", "type": "model_added", "model_id": "meta-ai-muse-spark-1.3", "ranked": true, "rank": 3, "tied": true, "composite": 83.56}
+{"date": "2026-11-11", "type": "model_added", "model_id": "meta-ai-muse-wonder-1.0", "ranked": true, "rank": 6, "tied": false, "composite": 82.8}
+{"date": "2026-11-11", "type": "model_added", "model_id": "google-deepmind-gemini-4-carbon", "ranked": false, "rank": null, "tied": false, "composite": 90.6}
+{"date": "2026-11-11", "type": "moved", "model_id": "openai-gpt-5.4-mini", "among": 63, "position": [50, 51], "rank": [50, 53], "tied": [false, true], "composite": [68.06, 68.06], "inputs": []}

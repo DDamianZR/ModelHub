@@ -7,6 +7,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   convert,
+  convertFee,
   effectiveCurrency,
   formatAxisPrice,
   formatFee,
@@ -69,10 +70,26 @@ test("axis labels are short and keep the sign", () => {
   assert.equal(formatAxisPrice(0.1, "MXN", FX), "MX$2");
 });
 
-test("fees show whole units when whole and cents otherwise", () => {
-  assert.equal(formatFee(20, "USD", FX), "US$20");
-  assert.equal(formatFee(20, "MXN", FX), "MX$400");
-  assert.equal(formatFee(9.99, "USD", FX), "US$9.99");
+test("a fee prints in the currency it is charged in, whole units when whole", () => {
+  assert.equal(formatFee(20, "USD"), "US$20");
+  assert.equal(formatFee(399, "MXN"), "MX$399");
+  assert.equal(formatFee(9.99, "USD"), "US$9.99");
+  assert.equal(formatFee(0, "MXN"), "MX$0");
+  // From a hundred up the cents are dropped, as they were for converted fees.
+  assert.equal(formatFee(129.5, "MXN"), "MX$130");
+});
+
+test("a fee is only converted across currencies, and only with a rate", () => {
+  // FX is 20 pesos per dollar: 400 pesos are 20 dollars, 20 dollars are 400 pesos.
+  assert.equal(convertFee(400, "MXN", "USD", FX), 20);
+  assert.equal(convertFee(20, "USD", "MXN", FX), 400);
+  // Already in the reader's currency: nothing to add.
+  assert.equal(convertFee(399, "MXN", "MXN", FX), null);
+  assert.equal(convertFee(20, "USD", "USD", FX), null);
+  // No usable rate: no estimate, rather than a wrong one.
+  assert.equal(convertFee(399, "MXN", "USD", null), null);
+  assert.equal(convertFee(399, "MXN", "USD", { ...FX, mxn: 0 }), null);
+  assert.equal(convertFee(399, "MXN", "USD", { ...FX, mxn: Number.NaN }), null);
 });
 
 test("the rate prints without floating-point noise", () => {
