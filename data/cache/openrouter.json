@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27",
+  "fetched_at": "2026-11-28",
   "payload": {
     "catalogue": {
       "aion-labs/aion-2.0": {
@@ -1156,8 +1156,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.571,
-        "price_output_usd_per_m": 2.286,
+        "price_input_usd_per_m": 0.5,
+        "price_output_usd_per_m": 2.18,
         "slug": "deepseek/deepseek-r1-0528"
       },
       "deepseek/deepseek-v3.1-terminus": {
@@ -1247,7 +1247,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.0456,
-        "price_output_usd_per_m": 0.3,
+        "price_output_usd_per_m": 0.27,
         "slug": "deepseek/deepseek-v4-flash-0731"
       },
       "deepseek/deepseek-v4-flash-0731:batch": {
@@ -1301,8 +1301,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7657,
-        "price_output_usd_per_m": 1.5007,
+        "price_input_usd_per_m": 0.89,
+        "price_output_usd_per_m": 1.5069,
         "slug": "deepseek/deepseek-v4-pro"
       },
       "deepseek/deepseek-v4-pro-0813": {
@@ -1338,8 +1338,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0507,
-        "price_output_usd_per_m": 0.2028,
+        "price_input_usd_per_m": 0.051,
+        "price_output_usd_per_m": 0.567,
         "slug": "deepseek/deepseek-v4.1-flash"
       },
       "deepseek/deepseek-v4.1-flash-1017": {
@@ -2350,8 +2350,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.05,
-        "price_output_usd_per_m": 0.1,
+        "price_input_usd_per_m": 0.04,
+        "price_output_usd_per_m": 0.05,
         "slug": "google/gemma-3-4b-it"
       },
       "google/gemma-4-26b-a4b-it": {
@@ -2370,8 +2370,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.09,
-        "price_output_usd_per_m": 0.3,
+        "price_input_usd_per_m": 0.0675,
+        "price_output_usd_per_m": 0.225,
         "slug": "google/gemma-4-26b-a4b-it"
       },
       "google/gemma-4-26b-a4b-it:free": {
@@ -4161,7 +4161,7 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.07,
+        "price_input_usd_per_m": 0.05,
         "price_output_usd_per_m": 0.2,
         "slug": "nvidia/nemotron-3.5-lightning"
       },
@@ -4200,7 +4200,7 @@
           "text"
         ],
         "price_input_usd_per_m": 0.15,
-        "price_output_usd_per_m": 0.47,
+        "price_output_usd_per_m": 0.45,
         "slug": "nvidia/nemotron-3.5-super-vl"
       },
       "nvidia/nemotron-3.5-super-vl:free": {
@@ -6804,24 +6804,6 @@
         "price_output_usd_per_m": 0.8,
         "slug": "qwen/qwen3-235b-a22b-2507"
       },
-      "qwen/qwen3-235b-a22b-thinking-2507": {
-        "context_length": 128000,
-        "created": 1753449557,
-        "free_tier": false,
-        "hugging_face_id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
-        "input_modalities": [
-          "text"
-        ],
-        "key": "qwen3.235b-a22b-thinking-2507",
-        "name": "Qwen: Qwen3 235B A22B Thinking 2507",
-        "open_weights": true,
-        "output_modalities": [
-          "text"
-        ],
-        "price_input_usd_per_m": 0.45,
-        "price_output_usd_per_m": 3.5,
-        "slug": "qwen/qwen3-235b-a22b-thinking-2507"
-      },
       "qwen/qwen3-30b-a3b": {
         "context_length": 40960,
         "created": 1745878604,
@@ -7119,8 +7101,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1,
-        "price_output_usd_per_m": 0.25,
+        "price_input_usd_per_m": 0.085,
+        "price_output_usd_per_m": 0.125,
         "slug": "qwen/qwen3.5-9b"
       },
       "qwen/qwen3.5-flash-02-23": {
@@ -7928,8 +7910,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.0825,
-        "price_output_usd_per_m": 0.33,
+        "price_input_usd_per_m": 0.132,
+        "price_output_usd_per_m": 0.528,
         "slug": "tencent/hy3"
       },
       "tencent/hy4": {
@@ -7984,8 +7966,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.7506,
-        "price_output_usd_per_m": 2.2509,
+        "price_input_usd_per_m": 0.834,
+        "price_output_usd_per_m": 2.501,
         "slug": "tencent/hy4-preview"
       },
       "thedrummer/cydonia-24b-v4.1": {
@@ -8096,8 +8078,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.3,
-        "price_output_usd_per_m": 1.0,
+        "price_input_usd_per_m": 0.15,
+        "price_output_usd_per_m": 0.5,
         "slug": "thinkingmachines/inkling-2-small"
       },
       "thinkingmachines/inkling-small": {
@@ -8749,8 +8731,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.62,
-        "price_output_usd_per_m": 2.42,
+        "price_input_usd_per_m": 0.007,
+        "price_output_usd_per_m": 6.8,
         "slug": "z-ai/glm-5.2"
       },
       "z-ai/glm-5.2:batch": {
@@ -9120,8 +9102,8 @@
         "output_modalities": [
           "text"
         ],
-        "price_input_usd_per_m": 0.1824,
-        "price_output_usd_per_m": 11.0055,
+        "price_input_usd_per_m": 0.1453,
+        "price_output_usd_per_m": 12.2894,
         "slug": "~moonshotai/kimi-latest"
       },
       "~openai/gpt-astra-latest": {

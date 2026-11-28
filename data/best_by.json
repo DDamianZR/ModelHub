@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-11-27",
+    "generated_at": "2026-11-28",
     "in_composite": false,
     "price_blend": {
       "input": 3,
       "output": 1
     },
     "ranked_only": true,
-    "pareto_members": 4,
+    "pareto_members": 5,
     "pareto_evaluated": 61
   },
   "boards": [
@@ -118,7 +118,7 @@
       "filter": {
         "max_blended_price": 1.0
       },
-      "candidates": 14,
+      "candidates": 13,
       "value": 83.32,
       "winners": [
         "deepseek-deepseek-v4.1-flash"
@@ -133,9 +133,9 @@
         "min_coverage": 4
       },
       "candidates": 61,
-      "value": 0.0887,
+      "value": 0.1017,
       "winners": [
-        "deepseek-deepseek-v4.1-flash"
+        "deepseek-deepseek-v4-flash-0731"
       ],
       "indistinguishable": false
     }
